@@ -1,7 +1,5 @@
 var a00084 =
 [
-    [ "DaysOffSchool", "df/d5d/a00084.html#ab77c78d8d9b00fe50c8f845fe459a657", null ],
-    [ "IsWorkOff", "df/d5d/a00084.html#a633453bbe4892b56891c42a4f4ac72fd", null ],
-    [ "IsSchoolOff", "df/d5d/a00084.html#a709acf6d0cec5722e20760a797ae35bb", null ],
-    [ "m_calendar", "df/d5d/a00084.html#a5ac5b045ac4db6ae397d91d7dd663784", null ]
+    [ "Build", "df/d5d/a00084.html#a8c1071f808ade6b38dd14a74024e64d4", null ],
+    [ "MakePersons", "df/d5d/a00084.html#a3738040e683004b9ecefc9ba7608eba4", null ]
 ];

@@ -1,9 +1,6 @@
 var a00079 =
 [
-    [ "IdSubscriptArray", "d1/d51/a00079.html#afa98360b18191924317dce92e50135df", null ],
-    [ "IdSubscriptArray", "d1/d51/a00079.html#a9be463390b642d1510f1d19e992dd7ac", null ],
-    [ "operator[]", "d1/d51/a00079.html#af49e53d429850a6b8d43759fcd16e0ab", null ],
-    [ "operator[]", "d1/d51/a00079.html#aefba95dc5355b9b62c9842f01395249d", null ],
-    [ "at", "d1/d51/a00079.html#a09e9e0818406cc10eeacc3f992aef7cb", null ],
-    [ "at", "d1/d51/a00079.html#a9e760b389cdca2516385b1600332a4f0", null ]
+    [ "DaysOffAll", "d1/d51/a00079.html#a8804c46ae3703253cb96e5f81f92251b", null ],
+    [ "IsWorkOff", "d1/d51/a00079.html#a61f87cc93335185f90d9d772f168b1bb", null ],
+    [ "IsSchoolOff", "d1/d51/a00079.html#a12a699d750a9b0a640db4ea47df0b11c", null ]
 ];

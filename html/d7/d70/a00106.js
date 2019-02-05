@@ -1,5 +1,7 @@
 var a00106 =
 [
-    [ "StanController", "d7/d70/a00106.html#ae7d704047661116cb88893671bde0c78", null ],
-    [ "Control", "d7/d70/a00106.html#a5cc6905d4a31b469d89177de47007dbe", null ]
+    [ "TransmissionProfile", "d7/d70/a00106.html#a1645757a571f63d0583d54a6838ca1fb", null ],
+    [ "GetRate", "d7/d70/a00106.html#a51ffe104253ffd5bcf12ab299fa6f2e2", null ],
+    [ "Initialize", "d7/d70/a00106.html#a5e67e9eab813de18fff32722ee6f1437", null ],
+    [ "m_transmission_rate", "d7/d70/a00106.html#afbb8227d4d8b61b291fa521f33dce3ce", null ]
 ];

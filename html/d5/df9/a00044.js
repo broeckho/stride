@@ -1,16 +1,8 @@
 var a00044 =
 [
-    [ "KdTree", "d5/df9/a00044.html#a31373f76ffce6f1a479a65fc04f23e5b", null ],
-    [ "Build", "d5/df9/a00044.html#a94158f4c08d181a21d1d0eb76ce500d1", null ],
-    [ "Insert", "d5/df9/a00044.html#a0a9ab7e8f5f5c9e8b561583a0d6e31f9", null ],
-    [ "Contains", "d5/df9/a00044.html#a0b0bde4960cf9a4260e03f8ff0547db7", null ],
-    [ "Query", "d5/df9/a00044.html#a4f91953317fe80faa03eca5dfd5ddf9e", null ],
-    [ "Apply", "d5/df9/a00044.html#ae9d76910fa3cca092fa8e339226cf0c0", null ],
-    [ "Apply", "d5/df9/a00044.html#a8c59ea871d0dd12c7ea751a974298a89", null ],
-    [ "Height", "d5/df9/a00044.html#a6509dc9a5dd05d41e833a0e1acfed77e", null ],
-    [ "Empty", "d5/df9/a00044.html#afad11c4405af9e2000dd75f751f4996d", null ],
-    [ "Size", "d5/df9/a00044.html#a6dbf9612b7ee27fd4ea2ba216bbbe5fe", null ],
-    [ "Construct", "d5/df9/a00044.html#ac0c7aa7f1ab2657c7348205aecafae0c", null ],
-    [ "m_size", "d5/df9/a00044.html#a625810b7c176d77e5616f2c610bec58f", null ],
-    [ "m_root", "d5/df9/a00044.html#a99fe9b7899ae84a4ee8637a7e7e5add3", null ]
+    [ "Args", "d5/df9/a00044.html#ad4356187773550de9c9f8f70861e5686", null ],
+    [ "PolygonPolicy", "d5/df9/a00044.html#a4f45af44c216988a695d57633819496a", null ],
+    [ "GetBoundingBox", "d5/df9/a00044.html#a6b61e682cbf2e95e333d170d535720f1", null ],
+    [ "Contains", "d5/df9/a00044.html#a16eaa288435e30ffc3bd28f874cdb256", null ],
+    [ "m_poly", "d5/df9/a00044.html#a6e969812cc31820a81250186a2476e46", null ]
 ];

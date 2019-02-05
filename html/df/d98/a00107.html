@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::SurveySeeder Class Reference</title>
+<title>Stride Reference Manual: stride::util::BoxPlotData&lt; T &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ad99f1d</span>
+   &#160;<span id="projectnumber">- generated for commit e4d1615</span>
    </div>
   </td>
  </tr>
@@ -108,222 +108,228 @@ $(document).ready(function(){initNavTree('df/d98/a00107.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d3/d29/a00947.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d3/dca/a00954.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::SurveySeeder Class Reference</div>  </div>
+<div class="title">stride::util::BoxPlotData&lt; T &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Seeds the population with survey participants.  
+<p><a class="el" href="../../df/d98/a00107.html" title="BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...">BoxPlotData</a> calculates total, minimum, maximum, median, lower and upper quartile of the values in the vector.  
  <a href="../../df/d98/a00107.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d3/db8/a00316_source.html">SurveySeeder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::SurveySeeder:</div>
+Collaboration diagram for stride::util::BoxPlotData&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d18/a00948.gif" border="0" usemap="#stride_1_1SurveySeeder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1SurveySeeder_coll__map" id="stride_1_1SurveySeeder_coll__map">
-<area shape="rect" id="node3" href="../../d8/dfa/a00121.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="377,175,464,252"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="352,5,489,97"/>
+<div class="center"><img src="../../dc/db6/a00955.gif" border="0" usemap="#stride_1_1util_1_1BoxPlotData_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1BoxPlotData_3_01T_01_4_coll__map" id="stride_1_1util_1_1BoxPlotData_3_01T_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a797a748983822c0227fe2326d2a47c16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a797a748983822c0227fe2326d2a47c16">SurveySeeder</a> (const boost::property_tree::ptree &amp;configPt, <a class="el" href="../../d6/de1/a00356.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager)</td></tr>
-<tr class="memdesc:a797a748983822c0227fe2326d2a47c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Seeder.  <a href="#a797a748983822c0227fe2326d2a47c16">More...</a><br /></td></tr>
-<tr class="separator:a797a748983822c0227fe2326d2a47c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81b191380f9a2c93768ff0efcec47f6b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/d3a/a00101.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a81b191380f9a2c93768ff0efcec47f6b">Seed</a> (std::shared_ptr&lt; <a class="el" href="../../d4/d3a/a00101.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a81b191380f9a2c93768ff0efcec47f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with survey participants.  <a href="#a81b191380f9a2c93768ff0efcec47f6b">More...</a><br /></td></tr>
-<tr class="separator:a81b191380f9a2c93768ff0efcec47f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add3e678e6738fbd9b3f1949f8059388f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#add3e678e6738fbd9b3f1949f8059388f">BoxPlotData</a> ()</td></tr>
+<tr class="separator:add3e678e6738fbd9b3f1949f8059388f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a8b56b25160ae00196ba33d418e2647a3"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a8b56b25160ae00196ba33d418e2647a3">m_config_pt</a></td></tr>
-<tr class="memdesc:a8b56b25160ae00196ba33d418e2647a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config.  <a href="#a8b56b25160ae00196ba33d418e2647a3">More...</a><br /></td></tr>
-<tr class="separator:a8b56b25160ae00196ba33d418e2647a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bc087f76a94ae634c80613f893233ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/de1/a00356.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a9bc087f76a94ae634c80613f893233ed">m_rn_manager</a></td></tr>
-<tr class="memdesc:a9bc087f76a94ae634c80613f893233ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#a9bc087f76a94ae634c80613f893233ed">More...</a><br /></td></tr>
-<tr class="separator:a9bc087f76a94ae634c80613f893233ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a25162798845f45f11620427e4c7baf6b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/d98/a00107.html">BoxPlotData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a25162798845f45f11620427e4c7baf6b">Calculate</a> (const std::vector&lt; T &gt; &amp;data)</td></tr>
+<tr class="separator:a25162798845f45f11620427e4c7baf6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a777b86b3f8efb046dc4de8830c720e45"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a777b86b3f8efb046dc4de8830c720e45">m_total</a></td></tr>
+<tr class="separator:a777b86b3f8efb046dc4de8830c720e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7087ab4e72c5c9a6606d76996bfac882"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a7087ab4e72c5c9a6606d76996bfac882">m_min</a></td></tr>
+<tr class="separator:a7087ab4e72c5c9a6606d76996bfac882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41acae191d30af298e9bac71d430cc41"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a41acae191d30af298e9bac71d430cc41">m_max</a></td></tr>
+<tr class="separator:a41acae191d30af298e9bac71d430cc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9433b5584a47b7cba8c8090f081a2e5c"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a9433b5584a47b7cba8c8090f081a2e5c">m_median</a></td></tr>
+<tr class="separator:a9433b5584a47b7cba8c8090f081a2e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a1a8baaa4280bc35b5e58b5185b8471"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a6a1a8baaa4280bc35b5e58b5185b8471">m_quartile1</a></td></tr>
+<tr class="separator:a6a1a8baaa4280bc35b5e58b5185b8471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca894900d4879cf4841408c85deaf92"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a2ca894900d4879cf4841408c85deaf92">m_quartile3</a></td></tr>
+<tr class="separator:a2ca894900d4879cf4841408c85deaf92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Seeds the population with survey participants. </p>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+struct stride::util::BoxPlotData&lt; T &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d3/db8/a00316_source.html#l00035">35</a> of file <a class="el" href="../../d3/db8/a00316_source.html">SurveySeeder.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a797a748983822c0227fe2326d2a47c16"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::SurveySeeder::SurveySeeder </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d6/de1/a00356.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize Seeder. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">configPt</td><td>Configuration parameters. </td></tr>
-    <tr><td class="paramname">rnManager</td><td>Random number manager. </td></tr>
+<p><a class="el" href="../../df/d98/a00107.html" title="BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...">BoxPlotData</a> calculates total, minimum, maximum, median, lower and upper quartile of the values in the vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Datatype for which boxplot data get calculated. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00035">35</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SurveySeeder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00035">35</a> of file <a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="add3e678e6738fbd9b3f1949f8059388f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d98/a00107.html">stride::util::BoxPlotData</a>&lt; T &gt;::<a class="el" href="../../df/d98/a00107.html">BoxPlotData</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00038">38</a> of file <a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a81b191380f9a2c93768ff0efcec47f6b"></a>
+<a class="anchor" id="a25162798845f45f11620427e4c7baf6b"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d4/d3a/a00101.html">Population</a> &gt; stride::SurveySeeder::Seed </td>
+          <td class="memname">static <a class="el" href="../../df/d98/a00107.html">BoxPlotData</a> <a class="el" href="../../df/d98/a00107.html">stride::util::BoxPlotData</a>&lt; T &gt;::Calculate </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/d3a/a00101.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Seeds the population with survey participants. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pop</td><td><a class="el" href="../../d4/d3a/a00101.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00037">37</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SurveySeeder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d2a/a00270_source.html#l00060">stride::Person::GetAge()</a>, <a class="el" href="../../dc/d28/a00276_source.html#l00060">stride::Population::GetContactLogger()</a>, <a class="el" href="../../dc/d28/a00276_source.html#l00063">stride::Population::GetContactPoolSys()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00046">stride::Health::GetEndInfectiousness()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00049">stride::Health::GetEndSymptomatic()</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00072">stride::Person::GetGender()</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00075">stride::Person::GetHealth()</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00081">stride::Person::GetId()</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00069">stride::Person::GetPoolId()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00052">stride::Health::GetStartInfectiousness()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00055">stride::Health::GetStartSymptomatic()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00058">stride::Health::IsImmune()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00061">stride::Health::IsInfected()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00068">stride::Health::IsInfectious()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00074">stride::Health::IsRecovered()</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00090">stride::Person::IsSurveyParticipant()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00077">stride::Health::IsSusceptible()</a>, <a class="el" href="../../d3/db8/a00316_source.html#l00048">m_config_pt</a>, <a class="el" href="../../d3/db8/a00316_source.html#l00049">m_rn_manager</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00093">stride::Person::ParticipateInSurvey()</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00210">stride::util::SegmentedVector&lt; T, N, Safe &gt;::size()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d0d/a00298_source.html#l00042">stride::SimBuilder::Build()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d98/a00107_a81b191380f9a2c93768ff0efcec47f6b_cgraph.gif" border="0" usemap="#df/d98/a00107_a81b191380f9a2c93768ff0efcec47f6b_cgraph" alt=""/></div>
-<map name="df/d98/a00107_a81b191380f9a2c93768ff0efcec47f6b_cgraph" id="df/d98/a00107_a81b191380f9a2c93768ff0efcec47f6b_cgraph">
-<area shape="rect" id="node2" href="../../d0/d61/a00100.html#ad85ecf5500764ae2c025f7e2aab8003c" title="Get the age. " alt="" coords="253,5,420,32"/>
-<area shape="rect" id="node3" href="../../d4/d3a/a00101.html#a314f886a6abeb0e08aac8fee085e76bd" title="stride::Population\l::GetContactLogger" alt="" coords="263,57,410,98"/>
-<area shape="rect" id="node4" href="../../d4/d3a/a00101.html#a7ba18751ce5eb62217b105e716e61d63" title="The ContactPoolSys of the simulator. " alt="" coords="260,122,413,163"/>
-<area shape="rect" id="node5" href="../../db/dab/a00089.html#a8e8b3c6fe823b70820f868bb597ade73" title="stride::Health::GetEndInfectiousness" alt="" coords="209,188,464,215"/>
-<area shape="rect" id="node6" href="../../db/dab/a00089.html#aac2a22ae31603c4dbaea3f440974d0d5" title="stride::Health::GetEndSymptomatic" alt="" coords="212,239,461,265"/>
-<area shape="rect" id="node7" href="../../d0/d61/a00100.html#ada6071b93ce9d5b5611a2151e14d0740" title="Return person&#39;s gender. " alt="" coords="243,289,431,316"/>
-<area shape="rect" id="node8" href="../../d0/d61/a00100.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="245,340,428,367"/>
-<area shape="rect" id="node9" href="../../d0/d61/a00100.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="261,391,413,417"/>
-<area shape="rect" id="node10" href="../../d0/d61/a00100.html#ace277043dfb3a2052adf508dd0179567" title="Get ID of contactpool_type. " alt="" coords="247,441,426,468"/>
-<area shape="rect" id="node11" href="../../db/dab/a00089.html#a9eab117bce0fe7009188aad7e534ca82" title="stride::Health::GetStart\lInfectiousness" alt="" coords="251,493,422,534"/>
-<area shape="rect" id="node12" href="../../db/dab/a00089.html#adf2c4f06cd9ad0dac95c5a2ffdd39489" title="stride::Health::GetStart\lSymptomatic" alt="" coords="251,558,422,599"/>
-<area shape="rect" id="node13" href="../../db/dab/a00089.html#a7c9caae07db1dd15732f726cec514dc2" title="stride::Health::IsImmune" alt="" coords="247,624,426,651"/>
-<area shape="rect" id="node14" href="../../db/dab/a00089.html#aa54f0be8ce25462aaf62847ded75a29d" title="stride::Health::IsInfected" alt="" coords="248,675,425,701"/>
-<area shape="rect" id="node15" href="../../db/dab/a00089.html#a84c0cb686c22ec8504942b84105eaed2" title="stride::Health::IsInfectious" alt="" coords="243,725,430,752"/>
-<area shape="rect" id="node16" href="../../db/dab/a00089.html#a4dae2bfe69375adb5dd89819f6798090" title="stride::Health::IsRecovered" alt="" coords="241,776,433,803"/>
-<area shape="rect" id="node17" href="../../d0/d61/a00100.html#a5942b9a4f5226e8810dc8b63fb250f3e" title="Does this person participates in the social contact study? " alt="" coords="251,827,423,869"/>
-<area shape="rect" id="node18" href="../../db/dab/a00089.html#ae2a3b14e79e08a261ca7122afba9b95c" title="Is this person susceptible? " alt="" coords="237,893,437,920"/>
-<area shape="rect" id="node19" href="../../d0/d61/a00100.html#a6c27c93e351ca63aa6e3a055cd9110b2" title="Participate in social contact study and log person details. " alt="" coords="244,945,429,986"/>
-<area shape="rect" id="node20" href="../../d0/d89/a00071.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="232,1010,441,1051"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d98/a00107_a81b191380f9a2c93768ff0efcec47f6b_icgraph.gif" border="0" usemap="#df/d98/a00107_a81b191380f9a2c93768ff0efcec47f6b_icgraph" alt=""/></div>
-<map name="df/d98/a00107_a81b191380f9a2c93768ff0efcec47f6b_icgraph" id="df/d98/a00107_a81b191380f9a2c93768ff0efcec47f6b_icgraph">
-<area shape="rect" id="node2" href="../../d0/dc2/a00104.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="209,5,344,47"/>
-</map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00048">48</a> of file <a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a8b56b25160ae00196ba33d418e2647a3"></a>
+<a class="anchor" id="a777b86b3f8efb046dc4de8830c720e45"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const boost::property_tree::ptree&amp; stride::SurveySeeder::m_config_pt</td>
+          <td class="memname">T <a class="el" href="../../df/d98/a00107.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_total</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Run config. </p>
-
-<p>Definition at line <a class="el" href="../../d3/db8/a00316_source.html#l00048">48</a> of file <a class="el" href="../../d3/db8/a00316_source.html">SurveySeeder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d6f/a00315_source.html#l00037">Seed()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00040">40</a> of file <a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9bc087f76a94ae634c80613f893233ed"></a>
+<a class="anchor" id="a7087ab4e72c5c9a6606d76996bfac882"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/de1/a00356.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a>&amp; stride::SurveySeeder::m_rn_manager</td>
+          <td class="memname">T <a class="el" href="../../df/d98/a00107.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_min</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Random number manager. </p>
-
-<p>Definition at line <a class="el" href="../../d3/db8/a00316_source.html#l00049">49</a> of file <a class="el" href="../../d3/db8/a00316_source.html">SurveySeeder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d6f/a00315_source.html#l00037">Seed()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00041">41</a> of file <a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d3/db8/a00316_source.html">SurveySeeder.h</a></li>
-<li><a class="el" href="../../d4/d6f/a00315_source.html">SurveySeeder.cpp</a></li>
+<a class="anchor" id="a41acae191d30af298e9bac71d430cc41"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../df/d98/a00107.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_max</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00042">42</a> of file <a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9433b5584a47b7cba8c8090f081a2e5c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../df/d98/a00107.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_median</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00043">43</a> of file <a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a1a8baaa4280bc35b5e58b5185b8471"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../df/d98/a00107.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_quartile1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00044">44</a> of file <a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ca894900d4879cf4841408c85deaf92"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../df/d98/a00107.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_quartile3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00045">45</a> of file <a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../d5/db1/a00140_source.html">BoxPlotData.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../db/d10/a00350.html">stride</a></li><li class="navelem"><a class="el" href="../../df/d98/a00107.html">SurveySeeder</a></li>
-    <li class="footer">Generated on Mon Feb 4 2019 16:56:21 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d8/d8e/a00344.html">stride</a></li><li class="navelem"><a class="el" href="../../db/d10/a00350.html">util</a></li><li class="navelem"><a class="el" href="../../df/d98/a00107.html">BoxPlotData</a></li>
+    <li class="footer">Generated on Tue Feb 5 2019 11:23:09 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

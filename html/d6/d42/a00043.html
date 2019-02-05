@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::kd::Node&lt; P, D &gt; Class Template Reference</title>
+<title>Stride Reference Manual: gengeopop::Location Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ad99f1d</span>
+   &#160;<span id="projectnumber">- generated for commit e4d1615</span>
    </div>
   </td>
  </tr>
@@ -107,130 +107,309 @@ $(document).ready(function(){initNavTree('d6/d42/a00043.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
-<a href="../../d0/d11/a00842.html">List of all members</a>  </div>
+<a href="../../d6/d86/a00781.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::kd::Node&lt; P, D &gt; Class Template Reference</div>  </div>
+<div class="title">gengeopop::Location Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A node in the <a class="el" href="../../d5/df9/a00044.html" title="A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for effi...">KdTree</a>.  
+<p>A location for use within the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> Contains useful information, both spatial and administrative.  
  <a href="../../d6/d42/a00043.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::kd::Node&lt; P, D &gt;:</div>
+Collaboration diagram for gengeopop::Location:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d22/a00843.gif" border="0" usemap="#gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_inherit__map" id="gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_inherit__map">
-<area shape="rect" id="node3" href="../../d6/d42/a00043.html" title="{gengeopop::kd::Node\l\&lt; geogrid_detail::KdTree2DPoint, 0 \&gt;\n|&#45; m_point\l&#45; m_left\l&#45; m_right\l|+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="5,477,264,672"/>
-<area shape="rect" id="node4" href="../../d6/d42/a00043.html" title="{gengeopop::kd::Node\l\&lt; P, 0 \&gt;\n|&#45; m_point\l&#45; m_left\l&#45; m_right\l|+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="289,477,447,672"/>
-<area shape="rect" id="node2" href="../../d7/d46/a00002.html" title="A base class for all instanciations of a Node with D. " alt="" coords="136,5,365,156"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for gengeopop::kd::Node&lt; P, D &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/d69/a00844.gif" border="0" usemap="#gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_coll__map" id="gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_coll__map">
-<area shape="rect" id="node2" href="../../d7/d46/a00002.html" title="A base class for all instanciations of a Node with D. " alt="" coords="164,5,393,156"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="5,263,160,340"/>
+<div class="center"><img src="../../da/d96/a00782.gif" border="0" usemap="#gengeopop_1_1Location_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1Location_coll__map" id="gengeopop_1_1Location_coll__map">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="436,153,563,230"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="250,145,402,237"/>
+<area shape="rect" id="node6" href="../../d6/de1/a00356.html" title="{double\n||}" alt="" coords="271,506,336,583"/>
+<area shape="rect" id="node12" title="STL class. " alt="" coords="1055,506,1141,583"/>
+<area shape="rect" id="node13" title="STL class. " alt="" coords="1029,322,1167,414"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a718dacee608953b67322ee33d002a459"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a718dacee608953b67322ee33d002a459">iterator</a> = std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a> &gt;&gt;::<a class="el" href="../../d6/d42/a00043.html#a718dacee608953b67322ee33d002a459">iterator</a></td></tr>
+<tr class="separator:a718dacee608953b67322ee33d002a459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a02ba27ac4148503a9bdd015c6b7caaf8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a02ba27ac4148503a9bdd015c6b7caaf8">Node</a> (P pt)</td></tr>
-<tr class="separator:a02ba27ac4148503a9bdd015c6b7caaf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1feff6a9480fd9b7c2640934833ea467"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a1feff6a9480fd9b7c2640934833ea467">BorrowLeft</a> () const override</td></tr>
-<tr class="memdesc:a1feff6a9480fd9b7c2640934833ea467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the left child nullptr if there's no such child.  <a href="#a1feff6a9480fd9b7c2640934833ea467">More...</a><br /></td></tr>
-<tr class="separator:a1feff6a9480fd9b7c2640934833ea467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa97b067c48e16c1303f9f909debac811"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aa97b067c48e16c1303f9f909debac811">BorrowRight</a> () const override</td></tr>
-<tr class="memdesc:aa97b067c48e16c1303f9f909debac811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the right child nullptr if there's no such child.  <a href="#aa97b067c48e16c1303f9f909debac811">More...</a><br /></td></tr>
-<tr class="separator:aa97b067c48e16c1303f9f909debac811"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9f437cdb9e45dd8195e84867af839cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aa9f437cdb9e45dd8195e84867af839cf">BorrowSplitChild</a> (const P &amp;point) const override</td></tr>
-<tr class="memdesc:aa9f437cdb9e45dd8195e84867af839cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the child corresponding to the correct split for point.  <a href="#aa9f437cdb9e45dd8195e84867af839cf">More...</a><br /></td></tr>
-<tr class="separator:aa9f437cdb9e45dd8195e84867af839cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa376a34dcf6f2717873ff3db5af7a70d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aa376a34dcf6f2717873ff3db5af7a70d">AddChild</a> (P point) override</td></tr>
-<tr class="memdesc:aa376a34dcf6f2717873ff3db5af7a70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new child in the right place, according to split.  <a href="#aa376a34dcf6f2717873ff3db5af7a70d">More...</a><br /></td></tr>
-<tr class="separator:aa376a34dcf6f2717873ff3db5af7a70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27eb66747642dce6122ae8725cdf799b"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a27eb66747642dce6122ae8725cdf799b">GetPoint</a> () const override</td></tr>
-<tr class="memdesc:a27eb66747642dce6122ae8725cdf799b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the point for this node.  <a href="#a27eb66747642dce6122ae8725cdf799b">More...</a><br /></td></tr>
-<tr class="separator:a27eb66747642dce6122ae8725cdf799b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00002"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00002')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d7/d46/a00002.html">gengeopop::kd::BaseNode&lt; P &gt;</a></td></tr>
-<tr class="memitem:ab467a72689847a5d23b0e00a36652f7b inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#ab467a72689847a5d23b0e00a36652f7b">~BaseNode</a> ()=default</td></tr>
-<tr class="separator:ab467a72689847a5d23b0e00a36652f7b inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr class="memitem:a9e0da2b6a1dae5d9b84b4a9c7e5998cd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> = <a class="el" href="../../d6/d42/a00043.html">Node</a>&lt; P,(D+1)%P::dim &gt;</td></tr>
-<tr class="separator:a9e0da2b6a1dae5d9b84b4a9c7e5998cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a573afc6c4e1710359773ab908905c2b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a573afc6c4e1710359773ab908905c2b2">Location</a> (unsigned int id, unsigned int province, <a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> coordinate=<a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>(0.0, 0.0), std::string name=&quot;&quot;)</td></tr>
+<tr class="separator:a573afc6c4e1710359773ab908905c2b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c2ed6e9da941d8cff28529720d4fece"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a9c2ed6e9da941d8cff28529720d4fece">Location</a> (unsigned int id, unsigned int province, unsigned int population, <a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> coordinate=<a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>(0.0, 0.0), std::string name=&quot;&quot;)</td></tr>
+<tr class="separator:a9c2ed6e9da941d8cff28529720d4fece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac19509ddc7bdcdd44dc8d85e27949056"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ac19509ddc7bdcdd44dc8d85e27949056">operator==</a> (const <a class="el" href="../../d6/d42/a00043.html">Location</a> &amp;other) const </td></tr>
+<tr class="memdesc:ac19509ddc7bdcdd44dc8d85e27949056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a full compare of the given locations.  <a href="#ac19509ddc7bdcdd44dc8d85e27949056">More...</a><br /></td></tr>
+<tr class="separator:ac19509ddc7bdcdd44dc8d85e27949056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7684500026a4936e356cae1a6053dc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7d7684500026a4936e356cae1a6053dc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a7d7684500026a4936e356cae1a6053dc">AddContactCenter</a> (std::shared_ptr&lt; T &gt; contactCenter)</td></tr>
+<tr class="memdesc:a7d7684500026a4936e356cae1a6053dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a <a class="el" href="../../dd/d1b/a00015.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a7d7684500026a4936e356cae1a6053dc">More...</a><br /></td></tr>
+<tr class="separator:a7d7684500026a4936e356cae1a6053dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3030c3149759c7133560bdc8fa3a1d45"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3030c3149759c7133560bdc8fa3a1d45"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45">GetContactCentersOfType</a> ()</td></tr>
+<tr class="memdesc:a3030c3149759c7133560bdc8fa3a1d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Contact Centers of a specific type <code>T</code>.  <a href="#a3030c3149759c7133560bdc8fa3a1d45">More...</a><br /></td></tr>
+<tr class="separator:a3030c3149759c7133560bdc8fa3a1d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3578aba87ba440445462ad4e2c996f77"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a3578aba87ba440445462ad4e2c996f77">GetName</a> () const </td></tr>
+<tr class="memdesc:a3578aba87ba440445462ad4e2c996f77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the name.  <a href="#a3578aba87ba440445462ad4e2c996f77">More...</a><br /></td></tr>
+<tr class="separator:a3578aba87ba440445462ad4e2c996f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a737a8e3872d2ce005648f09ca3a7900e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a737a8e3872d2ce005648f09ca3a7900e">GetProvince</a> () const </td></tr>
+<tr class="memdesc:a737a8e3872d2ce005648f09ca3a7900e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the province.  <a href="#a737a8e3872d2ce005648f09ca3a7900e">More...</a><br /></td></tr>
+<tr class="separator:a737a8e3872d2ce005648f09ca3a7900e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af18f7d0f363b53b9140d6ca9f98a0ebe"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#af18f7d0f363b53b9140d6ca9f98a0ebe">GetID</a> () const </td></tr>
+<tr class="memdesc:af18f7d0f363b53b9140d6ca9f98a0ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ID.  <a href="#af18f7d0f363b53b9140d6ca9f98a0ebe">More...</a><br /></td></tr>
+<tr class="separator:af18f7d0f363b53b9140d6ca9f98a0ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cf7386a60badc7b409e72347382544f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a4cf7386a60badc7b409e72347382544f">GetPopulation</a> () const </td></tr>
+<tr class="memdesc:a4cf7386a60badc7b409e72347382544f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the absolute population.  <a href="#a4cf7386a60badc7b409e72347382544f">More...</a><br /></td></tr>
+<tr class="separator:a4cf7386a60badc7b409e72347382544f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5aeb68a67c42aa63d0bfa0f39cda27d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ae5aeb68a67c42aa63d0bfa0f39cda27d">GetSimulationPopulation</a> () const </td></tr>
+<tr class="memdesc:ae5aeb68a67c42aa63d0bfa0f39cda27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the population amount used in the simulation.  <a href="#ae5aeb68a67c42aa63d0bfa0f39cda27d">More...</a><br /></td></tr>
+<tr class="separator:ae5aeb68a67c42aa63d0bfa0f39cda27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b45c2977f2b3082c3aacf4b6661e6f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/de1/a00356.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a0b45c2977f2b3082c3aacf4b6661e6f1">GetInfectedRatio</a> () const </td></tr>
+<tr class="memdesc:a0b45c2977f2b3082c3aacf4b6661e6f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ratio of infected persons in all contactPools of this location.  <a href="#a0b45c2977f2b3082c3aacf4b6661e6f1">More...</a><br /></td></tr>
+<tr class="separator:a0b45c2977f2b3082c3aacf4b6661e6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a701e2eaf56a32d083019a7b4913b6733"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/de1/a00356.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a701e2eaf56a32d083019a7b4913b6733">GetInfectedCount</a> () const </td></tr>
+<tr class="memdesc:a701e2eaf56a32d083019a7b4913b6733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the amount of people infected in the contactpools of this location.  <a href="#a701e2eaf56a32d083019a7b4913b6733">More...</a><br /></td></tr>
+<tr class="separator:a701e2eaf56a32d083019a7b4913b6733"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097bff09397c7d498469a892fca0be98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a097bff09397c7d498469a892fca0be98">CalculatePopulation</a> (unsigned int totalPopulation)</td></tr>
+<tr class="memdesc:a097bff09397c7d498469a892fca0be98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given the total population calculates this location's population using the relative population of this location.  <a href="#a097bff09397c7d498469a892fca0be98">More...</a><br /></td></tr>
+<tr class="separator:a097bff09397c7d498469a892fca0be98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fc9a12c2b737823b55a5580d4bacdeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a9fc9a12c2b737823b55a5580d4bacdeb">SetRelativePopulation</a> (<a class="el" href="../../d6/de1/a00356.html">double</a> relativePopulation)</td></tr>
+<tr class="memdesc:a9fc9a12c2b737823b55a5580d4bacdeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the relative population, which will be later used by.  <a href="#a9fc9a12c2b737823b55a5580d4bacdeb">More...</a><br /></td></tr>
+<tr class="separator:a9fc9a12c2b737823b55a5580d4bacdeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac96ca17c219fc3a1a4c9496646ae0d70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/de1/a00356.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ac96ca17c219fc3a1a4c9496646ae0d70">GetRelativePopulationSize</a> () const </td></tr>
+<tr class="memdesc:ac96ca17c219fc3a1a4c9496646ae0d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the relative population.  <a href="#ac96ca17c219fc3a1a4c9496646ae0d70">More...</a><br /></td></tr>
+<tr class="separator:ac96ca17c219fc3a1a4c9496646ae0d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef68aba3f4ed7f67983a432f75e2f7d3"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::pair&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> *, <a class="el" href="../../d6/de1/a00356.html">double</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aef68aba3f4ed7f67983a432f75e2f7d3">GetIncomingCommuningCities</a> () const </td></tr>
+<tr class="memdesc:aef68aba3f4ed7f67983a432f75e2f7d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a vector with the outgoing cities which people are commuting to + the proportion.  <a href="#aef68aba3f4ed7f67983a432f75e2f7d3">More...</a><br /></td></tr>
+<tr class="separator:aef68aba3f4ed7f67983a432f75e2f7d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10a6d750b8c91ef38820b13e5d8964fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a10a6d750b8c91ef38820b13e5d8964fc">AddIncomingCommutingLocation</a> (std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> &gt; location, <a class="el" href="../../d6/de1/a00356.html">double</a> proportion)</td></tr>
+<tr class="memdesc:a10a6d750b8c91ef38820b13e5d8964fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="../../d6/d42/a00043.html" title="A location for use within the GeoGrid Contains useful information, both spatial and administrative...">Location</a> and a proportion to the incoming commutng vector I.e.  <a href="#a10a6d750b8c91ef38820b13e5d8964fc">More...</a><br /></td></tr>
+<tr class="separator:a10a6d750b8c91ef38820b13e5d8964fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e20ef6f622c371f9653e95896055dee"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::pair&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> *, <a class="el" href="../../d6/de1/a00356.html">double</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a9e20ef6f622c371f9653e95896055dee">GetOutgoingCommuningCities</a> () const </td></tr>
+<tr class="separator:a9e20ef6f622c371f9653e95896055dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5af1bf200050e71184676aab798a578"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ae5af1bf200050e71184676aab798a578">AddOutgoingCommutingLocation</a> (std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> &gt; location, <a class="el" href="../../d6/de1/a00356.html">double</a> proportion)</td></tr>
+<tr class="memdesc:ae5af1bf200050e71184676aab798a578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="../../d6/d42/a00043.html" title="A location for use within the GeoGrid Contains useful information, both spatial and administrative...">Location</a> and a proportion to the incoming commuting vector.  <a href="#ae5af1bf200050e71184676aab798a578">More...</a><br /></td></tr>
+<tr class="separator:ae5af1bf200050e71184676aab798a578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d9efaee679ef8ed549b09b50a16891"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a74d9efaee679ef8ed549b09b50a16891">OutGoingCommutingPeople</a> (<a class="el" href="../../d6/de1/a00356.html">double</a> fractionOfPopulationCommuting) const </td></tr>
+<tr class="memdesc:a74d9efaee679ef8ed549b09b50a16891"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the absolute amount of poeple leaving from this location.  <a href="#a74d9efaee679ef8ed549b09b50a16891">More...</a><br /></td></tr>
+<tr class="separator:a74d9efaee679ef8ed549b09b50a16891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9cc2158f9e57034cf0e03cece71f3db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aa9cc2158f9e57034cf0e03cece71f3db">IncomingCommutingPeople</a> (<a class="el" href="../../d6/de1/a00356.html">double</a> fractionOfPopulationCommuting) const </td></tr>
+<tr class="memdesc:aa9cc2158f9e57034cf0e03cece71f3db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the absolute amount of people going to this location.  <a href="#aa9cc2158f9e57034cf0e03cece71f3db">More...</a><br /></td></tr>
+<tr class="separator:aa9cc2158f9e57034cf0e03cece71f3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f72aa5f710ec1e18079485d1b28d84c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a7f72aa5f710ec1e18079485d1b28d84c">GetCoordinate</a> () const </td></tr>
+<tr class="memdesc:a7f72aa5f710ec1e18079485d1b28d84c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Coordinate of this location.  <a href="#a7f72aa5f710ec1e18079485d1b28d84c">More...</a><br /></td></tr>
+<tr class="separator:a7f72aa5f710ec1e18079485d1b28d84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a917cdfedc73aaecab077a92c6565c029"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a917cdfedc73aaecab077a92c6565c029">SetCoordinate</a> (const <a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> &amp;coordinate)</td></tr>
+<tr class="separator:a917cdfedc73aaecab077a92c6565c029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af835991e111e65e6fc5af7bc3d851a90"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#af835991e111e65e6fc5af7bc3d851a90">GetContactCenters</a> () const </td></tr>
+<tr class="memdesc:af835991e111e65e6fc5af7bc3d851a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all contact centers at this location.  <a href="#af835991e111e65e6fc5af7bc3d851a90">More...</a><br /></td></tr>
+<tr class="separator:af835991e111e65e6fc5af7bc3d851a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ed303d8297b06d89da022f3e220d5b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d42/a00043.html#a718dacee608953b67322ee33d002a459">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a5ed303d8297b06d89da022f3e220d5b4">begin</a> ()</td></tr>
+<tr class="memdesc:a5ed303d8297b06d89da022f3e220d5b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets iterator to the first location.  <a href="#a5ed303d8297b06d89da022f3e220d5b4">More...</a><br /></td></tr>
+<tr class="separator:a5ed303d8297b06d89da022f3e220d5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa03ca76f5bab5d76d52813d95aa5b5db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d42/a00043.html#a718dacee608953b67322ee33d002a459">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aa03ca76f5bab5d76d52813d95aa5b5db">end</a> ()</td></tr>
+<tr class="memdesc:aa03ca76f5bab5d76d52813d95aa5b5db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets iterator to the end of the locations.  <a href="#aa03ca76f5bab5d76d52813d95aa5b5db">More...</a><br /></td></tr>
+<tr class="separator:aa03ca76f5bab5d76d52813d95aa5b5db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a6e0934a373b9c4f7485d4f71a7de2b12"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a6e0934a373b9c4f7485d4f71a7de2b12">m_point</a></td></tr>
-<tr class="separator:a6e0934a373b9c4f7485d4f71a7de2b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a518b60a5ec3c409358fb97bde0d8e974"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../d6/d42/a00043.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a518b60a5ec3c409358fb97bde0d8e974">m_left</a></td></tr>
-<tr class="separator:a518b60a5ec3c409358fb97bde0d8e974"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad86880280760aaae9ef50dd165ee6c9e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../d6/d42/a00043.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ad86880280760aaae9ef50dd165ee6c9e">m_right</a></td></tr>
-<tr class="separator:ad86880280760aaae9ef50dd165ee6c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a0d8dc73ff7f8bb9d7b6db0adc4509640"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a0d8dc73ff7f8bb9d7b6db0adc4509640">KdTree&lt; P &gt;</a></td></tr>
-<tr class="separator:a0d8dc73ff7f8bb9d7b6db0adc4509640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafa6ce2893d8dafa9ed60b4610a8e678"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aafa6ce2893d8dafa9ed60b4610a8e678">m_id</a> = 0</td></tr>
+<tr class="memdesc:aafa6ce2893d8dafa9ed60b4610a8e678"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id.  <a href="#aafa6ce2893d8dafa9ed60b4610a8e678">More...</a><br /></td></tr>
+<tr class="separator:aafa6ce2893d8dafa9ed60b4610a8e678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a541888fbccd6d480748af9d4845e7952"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a541888fbccd6d480748af9d4845e7952">m_name</a></td></tr>
+<tr class="memdesc:a541888fbccd6d480748af9d4845e7952"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name.  <a href="#a541888fbccd6d480748af9d4845e7952">More...</a><br /></td></tr>
+<tr class="separator:a541888fbccd6d480748af9d4845e7952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b50ed8582d3f3e59fce0ab9589b6bb2"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a8b50ed8582d3f3e59fce0ab9589b6bb2">m_province</a></td></tr>
+<tr class="memdesc:a8b50ed8582d3f3e59fce0ab9589b6bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Province id.  <a href="#a8b50ed8582d3f3e59fce0ab9589b6bb2">More...</a><br /></td></tr>
+<tr class="separator:a8b50ed8582d3f3e59fce0ab9589b6bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb58411772547ad92b27927c1b0a91c4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#abb58411772547ad92b27927c1b0a91c4">m_population</a></td></tr>
+<tr class="memdesc:abb58411772547ad92b27927c1b0a91c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The absolute population.  <a href="#abb58411772547ad92b27927c1b0a91c4">More...</a><br /></td></tr>
+<tr class="separator:abb58411772547ad92b27927c1b0a91c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac794691e02cb35442ea28c75d166c93e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/de1/a00356.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ac794691e02cb35442ea28c75d166c93e">m_relativePopulation</a></td></tr>
+<tr class="memdesc:ac794691e02cb35442ea28c75d166c93e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The relative population (relative against whole population)  <a href="#ac794691e02cb35442ea28c75d166c93e">More...</a><br /></td></tr>
+<tr class="separator:ac794691e02cb35442ea28c75d166c93e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ccf67890504241a993e00f2a92c5d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aa2ccf67890504241a993e00f2a92c5d7">m_coordinate</a></td></tr>
+<tr class="memdesc:aa2ccf67890504241a993e00f2a92c5d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordinate.  <a href="#aa2ccf67890504241a993e00f2a92c5d7">More...</a><br /></td></tr>
+<tr class="separator:aa2ccf67890504241a993e00f2a92c5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5732ffea136ecb5f6e4ca1d8ecd5cae"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aa5732ffea136ecb5f6e4ca1d8ecd5cae">m_contactCenters</a></td></tr>
+<tr class="separator:aa5732ffea136ecb5f6e4ca1d8ecd5cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0b511c30b3c925d12ba680a3d146f21"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> *, <a class="el" href="../../d6/de1/a00356.html">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ad0b511c30b3c925d12ba680a3d146f21">m_incomingCommutingLocations</a></td></tr>
+<tr class="memdesc:ad0b511c30b3c925d12ba680a3d146f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incomming commutes stored as pair of location and proportion relative to the given location.  <a href="#ad0b511c30b3c925d12ba680a3d146f21">More...</a><br /></td></tr>
+<tr class="separator:ad0b511c30b3c925d12ba680a3d146f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8c4df44f8ded09da4d4302c1f086e36"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> *, <a class="el" href="../../d6/de1/a00356.html">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ac8c4df44f8ded09da4d4302c1f086e36">m_outgoingCommutingLocations</a></td></tr>
+<tr class="memdesc:ac8c4df44f8ded09da4d4302c1f086e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the contact centers indexed by their type.  <a href="#ac8c4df44f8ded09da4d4302c1f086e36">More...</a><br /></td></tr>
+<tr class="separator:ac8c4df44f8ded09da4d4302c1f086e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af39e42141985701a116b7e2807cdfb43"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::type_index, std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#af39e42141985701a116b7e2807cdfb43">m_contactCenterByType</a></td></tr>
+<tr class="separator:af39e42141985701a116b7e2807cdfb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename P, std::size_t D&gt;<br />
-class gengeopop::kd::Node&lt; P, D &gt;</h3>
+<div class="textblock"><p>A location for use within the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> Contains useful information, both spatial and administrative. </p>
 
-<p>A node in the <a class="el" href="../../d5/df9/a00044.html" title="A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for effi...">KdTree</a>. </p>
-<p>Template parameter P: the type of point Template parameter D: The dimension this node splits on </p>
-
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00035">35</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00038">38</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="a9e0da2b6a1dae5d9b84b4a9c7e5998cd"></a>
+<a class="anchor" id="a718dacee608953b67322ee33d002a459"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d6/d42/a00043.html">gengeopop::kd::Node</a>&lt; P, D &gt;::<a class="el" href="../../d6/d42/a00043.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> =  <a class="el" href="../../d6/d42/a00043.html">Node</a>&lt;P, (D + 1) % P::dim&gt;</td>
+          <td class="memname">using <a class="el" href="../../d6/d42/a00043.html#a718dacee608953b67322ee33d002a459">gengeopop::Location::iterator</a> =  std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a>&gt;&gt;::<a class="el" href="../../d6/d42/a00043.html#a718dacee608953b67322ee33d002a459">iterator</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00367">367</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00125">125</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a02ba27ac4148503a9bdd015c6b7caaf8"></a>
+<a class="anchor" id="a573afc6c4e1710359773ab908905c2b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gengeopop::Location::Location </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>province</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>&#160;</td>
+          <td class="paramname"><em>coordinate</em> = <code><a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>(0.0,&#160;0.0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00026">26</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c2ed6e9da941d8cff28529720d4fece"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gengeopop::Location::Location </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>province</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>population</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>&#160;</td>
+          <td class="paramname"><em>coordinate</em> = <code><a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>(0.0,&#160;0.0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00033">33</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00137">m_population</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac19509ddc7bdcdd44dc8d85e27949056"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gengeopop::Location::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d42/a00043.html">Location</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a full compare of the given locations. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00142">142</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/d39/a00257_source.html#l00090">GetContactCenters()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00092">GetCoordinate()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00044">GetID()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00100">GetIncomingCommuningCities()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00040">GetName()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00110">GetOutgoingCommuningCities()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00046">GetPopulation()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00042">GetProvince()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_ac19509ddc7bdcdd44dc8d85e27949056_cgraph.gif" border="0" usemap="#d6/d42/a00043_ac19509ddc7bdcdd44dc8d85e27949056_cgraph" alt=""/></div>
+<map name="d6/d42/a00043_ac19509ddc7bdcdd44dc8d85e27949056_cgraph" id="d6/d42/a00043_ac19509ddc7bdcdd44dc8d85e27949056_cgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#af835991e111e65e6fc5af7bc3d851a90" title="Gets all contact centers at this location. " alt="" coords="243,5,399,47"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#a7f72aa5f710ec1e18079485d1b28d84c" title="Gets the Coordinate of this location. " alt="" coords="243,71,399,112"/>
+<area shape="rect" id="node4" href="../../d6/d42/a00043.html#af18f7d0f363b53b9140d6ca9f98a0ebe" title="Gets the ID. " alt="" coords="243,136,399,177"/>
+<area shape="rect" id="node5" href="../../d6/d42/a00043.html#aef68aba3f4ed7f67983a432f75e2f7d3" title="Gets a vector with the outgoing cities which people are commuting to + the proportion. " alt="" coords="209,201,433,243"/>
+<area shape="rect" id="node6" href="../../d6/d42/a00043.html#a3578aba87ba440445462ad4e2c996f77" title="Gets the name. " alt="" coords="243,267,399,308"/>
+<area shape="rect" id="node7" href="../../d6/d42/a00043.html#a9e20ef6f622c371f9653e95896055dee" title="gengeopop::Location\l::GetOutgoingCommuningCities" alt="" coords="209,332,433,373"/>
+<area shape="rect" id="node8" href="../../d6/d42/a00043.html#a4cf7386a60badc7b409e72347382544f" title="Gets the absolute population. " alt="" coords="243,397,399,439"/>
+<area shape="rect" id="node9" href="../../d6/d42/a00043.html#a737a8e3872d2ce005648f09ca3a7900e" title="Gets the province. " alt="" coords="243,463,399,504"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d7684500026a4936e356cae1a6053dc"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d42/a00043.html">gengeopop::kd::Node</a>&lt; P, D &gt;::<a class="el" href="../../d6/d42/a00043.html">Node</a> </td>
+          <td class="memname">void gengeopop::Location::AddContactCenter </td>
           <td>(</td>
-          <td class="paramtype">P&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>contactCenter</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -241,205 +420,797 @@ template&lt;typename P, std::size_t D&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00336">336</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
+<p>Add a <a class="el" href="../../dd/d1b/a00015.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00053">53</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00151">m_contactCenterByType</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00142">m_contactCenters</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a1feff6a9480fd9b7c2640934833ea467"></a>
+<a class="anchor" id="a3030c3149759c7133560bdc8fa3a1d45"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../d6/d42/a00043.html">gengeopop::kd::Node</a>&lt; P, D &gt;::BorrowLeft </td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a>&gt; &gt; gengeopop::Location::GetContactCentersOfType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get a non-owning pointer to the left child nullptr if there's no such child. </p>
-
-<p>Implements <a class="el" href="../../d7/d46/a00002.html#adfff1216f9ae769b6abd3d3195a9a098">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
-
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00338">338</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa97b067c48e16c1303f9f909debac811"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../d6/d42/a00043.html">gengeopop::kd::Node</a>&lt; P, D &gt;::BorrowRight </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get a non-owning pointer to the right child nullptr if there's no such child. </p>
-
-<p>Implements <a class="el" href="../../d7/d46/a00002.html#a8d9c2b74760fdbcb141202942e9f93f4">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
-
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00340">340</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa9f437cdb9e45dd8195e84867af839cf"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../d6/d42/a00043.html">gengeopop::kd::Node</a>&lt; P, D &gt;::BorrowSplitChild </td>
-          <td>(</td>
-          <td class="paramtype">const P &amp;&#160;</td>
-          <td class="paramname"><em>point</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get a non-owning pointer to the child corresponding to the correct split for point. </p>
-
-<p>Implements <a class="el" href="../../d7/d46/a00002.html#ae8fb84db258ffd39632181944f8a879c">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
-
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00342">342</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa376a34dcf6f2717873ff3db5af7a70d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d6/d42/a00043.html">gengeopop::kd::Node</a>&lt; P, D &gt;::AddChild </td>
-          <td>(</td>
-          <td class="paramtype">P&#160;</td>
-          <td class="paramname"><em>point</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Add a new child in the right place, according to split. </p>
+<p>Gets the Contact Centers of a specific type <code>T</code>. </p>
 
-<p>Implements <a class="el" href="../../d7/d46/a00002.html#a09a8a5870c292d5f39a0efe888e3d7a3">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00061">61</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00353">353</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
+<p>References <a class="el" href="../../d9/d39/a00257_source.html#l00105">AddIncomingCommutingLocation()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00115">AddOutgoingCommutingLocation()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00153">CalculatePopulation()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00090">GetContactCenters()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00092">GetCoordinate()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00044">GetID()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00100">GetIncomingCommuningCities()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00066">GetInfectedCount()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00048">GetInfectedRatio()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00040">GetName()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00110">GetOutgoingCommuningCities()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00046">GetPopulation()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00042">GetProvince()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00159">GetRelativePopulationSize()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00078">GetSimulationPopulation()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00120">IncomingCommutingPeople()</a>, <a class="el" href="../../d7/d2f/a00258_source.html#l00151">m_contactCenterByType</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00131">OutGoingCommutingPeople()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00094">SetCoordinate()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00157">SetRelativePopulation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a3030c3149759c7133560bdc8fa3a1d45_cgraph.gif" border="0" usemap="#d6/d42/a00043_a3030c3149759c7133560bdc8fa3a1d45_cgraph" alt=""/></div>
+<map name="d6/d42/a00043_a3030c3149759c7133560bdc8fa3a1d45_cgraph" id="d6/d42/a00043_a3030c3149759c7133560bdc8fa3a1d45_cgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a10a6d750b8c91ef38820b13e5d8964fc" title="Adds a Location and a proportion to the incoming commutng vector I.e. " alt="" coords="248,5,491,47"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#ae5af1bf200050e71184676aab798a578" title="Adds a Location and a proportion to the incoming commuting vector. " alt="" coords="248,71,491,112"/>
+<area shape="rect" id="node4" href="../../d6/d42/a00043.html#a097bff09397c7d498469a892fca0be98" title="Given the total population calculates this location&#39;s population using the relative population of thi..." alt="" coords="291,136,447,177"/>
+<area shape="rect" id="node5" href="../../d6/d42/a00043.html#af835991e111e65e6fc5af7bc3d851a90" title="Gets all contact centers at this location. " alt="" coords="291,201,447,243"/>
+<area shape="rect" id="node6" href="../../d6/d42/a00043.html#a7f72aa5f710ec1e18079485d1b28d84c" title="Gets the Coordinate of this location. " alt="" coords="291,267,447,308"/>
+<area shape="rect" id="node7" href="../../d6/d42/a00043.html#af18f7d0f363b53b9140d6ca9f98a0ebe" title="Gets the ID. " alt="" coords="291,332,447,373"/>
+<area shape="rect" id="node8" href="../../d6/d42/a00043.html#aef68aba3f4ed7f67983a432f75e2f7d3" title="Gets a vector with the outgoing cities which people are commuting to + the proportion. " alt="" coords="257,397,481,439"/>
+<area shape="rect" id="node9" href="../../d6/d42/a00043.html#a701e2eaf56a32d083019a7b4913b6733" title="Gets the amount of people infected in the contactpools of this location. " alt="" coords="291,463,447,504"/>
+<area shape="rect" id="node10" href="../../d6/d42/a00043.html#a0b45c2977f2b3082c3aacf4b6661e6f1" title="Gets the ratio of infected persons in all contactPools of this location. " alt="" coords="291,528,447,569"/>
+<area shape="rect" id="node11" href="../../d6/d42/a00043.html#a4cf7386a60badc7b409e72347382544f" title="Gets the absolute population. " alt="" coords="539,557,695,599"/>
+<area shape="rect" id="node12" href="../../d6/d42/a00043.html#a3578aba87ba440445462ad4e2c996f77" title="Gets the name. " alt="" coords="291,645,447,687"/>
+<area shape="rect" id="node13" href="../../d6/d42/a00043.html#a9e20ef6f622c371f9653e95896055dee" title="gengeopop::Location\l::GetOutgoingCommuningCities" alt="" coords="257,711,481,752"/>
+<area shape="rect" id="node14" href="../../d6/d42/a00043.html#a737a8e3872d2ce005648f09ca3a7900e" title="Gets the province. " alt="" coords="291,776,447,817"/>
+<area shape="rect" id="node15" href="../../d6/d42/a00043.html#ac96ca17c219fc3a1a4c9496646ae0d70" title="Gets the relative population. " alt="" coords="271,841,467,883"/>
+<area shape="rect" id="node16" href="../../d6/d42/a00043.html#ae5aeb68a67c42aa63d0bfa0f39cda27d" title="Gets the population amount used in the simulation. " alt="" coords="275,907,463,948"/>
+<area shape="rect" id="node17" href="../../d6/d42/a00043.html#aa9cc2158f9e57034cf0e03cece71f3db" title="Gets the absolute amount of people going to this location. " alt="" coords="266,972,473,1013"/>
+<area shape="rect" id="node18" href="../../d6/d42/a00043.html#a74d9efaee679ef8ed549b09b50a16891" title="Gets the absolute amount of poeple leaving from this location. " alt="" coords="265,1037,473,1079"/>
+<area shape="rect" id="node19" href="../../d6/d42/a00043.html#a917cdfedc73aaecab077a92c6565c029" title="gengeopop::Location\l::SetCoordinate" alt="" coords="291,1103,447,1144"/>
+<area shape="rect" id="node20" href="../../d6/d42/a00043.html#a9fc9a12c2b737823b55a5580d4bacdeb" title="Sets the relative population, which will be later used by. " alt="" coords="285,1168,453,1209"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a27eb66747642dce6122ae8725cdf799b"></a>
+<a class="anchor" id="a3578aba87ba440445462ad4e2c996f77"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">P <a class="el" href="../../d6/d42/a00043.html">gengeopop::kd::Node</a>&lt; P, D &gt;::GetPoint </td>
+          <td class="memname">string gengeopop::Location::GetName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Gets the point for this node. </p>
+<p>Gets the name. </p>
 
-<p>Implements <a class="el" href="../../d7/d46/a00002.html#a7ca916aa891f2de3c4d1175e927ee406">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00040">40</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00364">364</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00135">m_name</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00142">operator==()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a3578aba87ba440445462ad4e2c996f77_icgraph.gif" border="0" usemap="#d6/d42/a00043_a3578aba87ba440445462ad4e2c996f77_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a3578aba87ba440445462ad4e2c996f77_icgraph" id="d6/d42/a00043_a3578aba87ba440445462ad4e2c996f77_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="209,5,404,47"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#ac19509ddc7bdcdd44dc8d85e27949056" title="Perform a full compare of the given locations. " alt="" coords="229,71,385,112"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a class="anchor" id="a0d8dc73ff7f8bb9d7b6db0adc4509640"></a>
+<a class="anchor" id="a737a8e3872d2ce005648f09ca3a7900e"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="../../d5/df9/a00044.html">KdTree</a>&lt; P &gt;</td>
+          <td class="memname">unsigned int gengeopop::Location::GetProvince </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00372">372</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
+<p>Gets the province. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00042">42</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00136">m_province</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00142">operator==()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a737a8e3872d2ce005648f09ca3a7900e_icgraph.gif" border="0" usemap="#d6/d42/a00043_a737a8e3872d2ce005648f09ca3a7900e_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a737a8e3872d2ce005648f09ca3a7900e_icgraph" id="d6/d42/a00043_a737a8e3872d2ce005648f09ca3a7900e_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="209,5,404,47"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#ac19509ddc7bdcdd44dc8d85e27949056" title="Perform a full compare of the given locations. " alt="" coords="229,71,385,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af18f7d0f363b53b9140d6ca9f98a0ebe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gengeopop::Location::GetID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the ID. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00044">44</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00134">m_id</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00142">operator==()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_af18f7d0f363b53b9140d6ca9f98a0ebe_icgraph.gif" border="0" usemap="#d6/d42/a00043_af18f7d0f363b53b9140d6ca9f98a0ebe_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_af18f7d0f363b53b9140d6ca9f98a0ebe_icgraph" id="d6/d42/a00043_af18f7d0f363b53b9140d6ca9f98a0ebe_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="209,5,404,47"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#ac19509ddc7bdcdd44dc8d85e27949056" title="Perform a full compare of the given locations. " alt="" coords="229,71,385,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4cf7386a60badc7b409e72347382544f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gengeopop::Location::GetPopulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the absolute population. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00046">46</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00137">m_population</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00048">GetInfectedRatio()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00142">operator==()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a4cf7386a60badc7b409e72347382544f_icgraph.gif" border="0" usemap="#d6/d42/a00043_a4cf7386a60badc7b409e72347382544f_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a4cf7386a60badc7b409e72347382544f_icgraph" id="d6/d42/a00043_a4cf7386a60badc7b409e72347382544f_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="413,5,608,47"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#a0b45c2977f2b3082c3aacf4b6661e6f1" title="Gets the ratio of infected persons in all contactPools of this location. " alt="" coords="209,35,365,76"/>
+<area shape="rect" id="node4" href="../../d6/d42/a00043.html#ac19509ddc7bdcdd44dc8d85e27949056" title="Perform a full compare of the given locations. " alt="" coords="209,100,365,141"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae5aeb68a67c42aa63d0bfa0f39cda27d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gengeopop::Location::GetSimulationPopulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the population amount used in the simulation. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00078">78</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00142">m_contactCenters</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_ae5aeb68a67c42aa63d0bfa0f39cda27d_icgraph.gif" border="0" usemap="#d6/d42/a00043_ae5aeb68a67c42aa63d0bfa0f39cda27d_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_ae5aeb68a67c42aa63d0bfa0f39cda27d_icgraph" id="d6/d42/a00043_ae5aeb68a67c42aa63d0bfa0f39cda27d_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="241,5,436,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b45c2977f2b3082c3aacf4b6661e6f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/de1/a00356.html">double</a> gengeopop::Location::GetInfectedRatio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the ratio of infected persons in all contactPools of this location. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00048">48</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/d39/a00257_source.html#l00046">GetPopulation()</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00142">m_contactCenters</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a0b45c2977f2b3082c3aacf4b6661e6f1_cgraph.gif" border="0" usemap="#d6/d42/a00043_a0b45c2977f2b3082c3aacf4b6661e6f1_cgraph" alt=""/></div>
+<map name="d6/d42/a00043_a0b45c2977f2b3082c3aacf4b6661e6f1_cgraph" id="d6/d42/a00043_a0b45c2977f2b3082c3aacf4b6661e6f1_cgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a4cf7386a60badc7b409e72347382544f" title="Gets the absolute population. " alt="" coords="209,5,365,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a0b45c2977f2b3082c3aacf4b6661e6f1_icgraph.gif" border="0" usemap="#d6/d42/a00043_a0b45c2977f2b3082c3aacf4b6661e6f1_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a0b45c2977f2b3082c3aacf4b6661e6f1_icgraph" id="d6/d42/a00043_a0b45c2977f2b3082c3aacf4b6661e6f1_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="209,5,404,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a701e2eaf56a32d083019a7b4913b6733"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/de1/a00356.html">double</a> gengeopop::Location::GetInfectedCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the amount of people infected in the contactpools of this location. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00066">66</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00142">m_contactCenters</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a701e2eaf56a32d083019a7b4913b6733_icgraph.gif" border="0" usemap="#d6/d42/a00043_a701e2eaf56a32d083019a7b4913b6733_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a701e2eaf56a32d083019a7b4913b6733_icgraph" id="d6/d42/a00043_a701e2eaf56a32d083019a7b4913b6733_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="209,5,404,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a097bff09397c7d498469a892fca0be98"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::Location::CalculatePopulation </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>totalPopulation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Given the total population calculates this location's population using the relative population of this location. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00153">153</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00137">m_population</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00138">m_relativePopulation</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a097bff09397c7d498469a892fca0be98_icgraph.gif" border="0" usemap="#d6/d42/a00043_a097bff09397c7d498469a892fca0be98_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a097bff09397c7d498469a892fca0be98_icgraph" id="d6/d42/a00043_a097bff09397c7d498469a892fca0be98_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="209,5,404,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9fc9a12c2b737823b55a5580d4bacdeb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::Location::SetRelativePopulation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/de1/a00356.html">double</a>&#160;</td>
+          <td class="paramname"><em>relativePopulation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the relative population, which will be later used by. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d6/d42/a00043.html#a097bff09397c7d498469a892fca0be98" title="Given the total population calculates this location&#39;s population using the relative population of thi...">CalculatePopulation</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00157">157</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00138">m_relativePopulation</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a9fc9a12c2b737823b55a5580d4bacdeb_icgraph.gif" border="0" usemap="#d6/d42/a00043_a9fc9a12c2b737823b55a5580d4bacdeb_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a9fc9a12c2b737823b55a5580d4bacdeb_icgraph" id="d6/d42/a00043_a9fc9a12c2b737823b55a5580d4bacdeb_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="221,5,416,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac96ca17c219fc3a1a4c9496646ae0d70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/de1/a00356.html">double</a> gengeopop::Location::GetRelativePopulationSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the relative population. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00159">159</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00138">m_relativePopulation</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_ac96ca17c219fc3a1a4c9496646ae0d70_icgraph.gif" border="0" usemap="#d6/d42/a00043_ac96ca17c219fc3a1a4c9496646ae0d70_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_ac96ca17c219fc3a1a4c9496646ae0d70_icgraph" id="d6/d42/a00043_ac96ca17c219fc3a1a4c9496646ae0d70_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="249,5,444,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aef68aba3f4ed7f67983a432f75e2f7d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const vector&lt; pair&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> *, <a class="el" href="../../d6/de1/a00356.html">double</a> &gt; &gt; &amp; gengeopop::Location::GetIncomingCommuningCities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a vector with the outgoing cities which people are commuting to + the proportion. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00100">100</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00145">m_incomingCommutingLocations</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00142">operator==()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_aef68aba3f4ed7f67983a432f75e2f7d3_icgraph.gif" border="0" usemap="#d6/d42/a00043_aef68aba3f4ed7f67983a432f75e2f7d3_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_aef68aba3f4ed7f67983a432f75e2f7d3_icgraph" id="d6/d42/a00043_aef68aba3f4ed7f67983a432f75e2f7d3_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="277,5,472,47"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#ac19509ddc7bdcdd44dc8d85e27949056" title="Perform a full compare of the given locations. " alt="" coords="297,71,453,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a10a6d750b8c91ef38820b13e5d8964fc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::Location::AddIncomingCommutingLocation </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> &gt;&#160;</td>
+          <td class="paramname"><em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de1/a00356.html">double</a>&#160;</td>
+          <td class="paramname"><em>proportion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a <a class="el" href="../../d6/d42/a00043.html" title="A location for use within the GeoGrid Contains useful information, both spatial and administrative...">Location</a> and a proportion to the incoming commutng vector I.e. </p>
+<p><code>proportion</code> of the commuting population in <code>location</code> are commuting to <code>this</code> </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00105">105</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00145">m_incomingCommutingLocations</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a10a6d750b8c91ef38820b13e5d8964fc_icgraph.gif" border="0" usemap="#d6/d42/a00043_a10a6d750b8c91ef38820b13e5d8964fc_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a10a6d750b8c91ef38820b13e5d8964fc_icgraph" id="d6/d42/a00043_a10a6d750b8c91ef38820b13e5d8964fc_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="296,5,491,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e20ef6f622c371f9653e95896055dee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const vector&lt; pair&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> *, <a class="el" href="../../d6/de1/a00356.html">double</a> &gt; &gt; &amp; gengeopop::Location::GetOutgoingCommuningCities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>a vector with the outgoing cities which people are commuting to + the proportion </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00110">110</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00148">m_outgoingCommutingLocations</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00142">operator==()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a9e20ef6f622c371f9653e95896055dee_icgraph.gif" border="0" usemap="#d6/d42/a00043_a9e20ef6f622c371f9653e95896055dee_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a9e20ef6f622c371f9653e95896055dee_icgraph" id="d6/d42/a00043_a9e20ef6f622c371f9653e95896055dee_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="277,5,472,47"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#ac19509ddc7bdcdd44dc8d85e27949056" title="Perform a full compare of the given locations. " alt="" coords="297,71,453,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae5af1bf200050e71184676aab798a578"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::Location::AddOutgoingCommutingLocation </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> &gt;&#160;</td>
+          <td class="paramname"><em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de1/a00356.html">double</a>&#160;</td>
+          <td class="paramname"><em>proportion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a <a class="el" href="../../d6/d42/a00043.html" title="A location for use within the GeoGrid Contains useful information, both spatial and administrative...">Location</a> and a proportion to the incoming commuting vector. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00115">115</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00148">m_outgoingCommutingLocations</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_ae5af1bf200050e71184676aab798a578_icgraph.gif" border="0" usemap="#d6/d42/a00043_ae5af1bf200050e71184676aab798a578_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_ae5af1bf200050e71184676aab798a578_icgraph" id="d6/d42/a00043_ae5af1bf200050e71184676aab798a578_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="296,5,491,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a74d9efaee679ef8ed549b09b50a16891"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gengeopop::Location::OutGoingCommutingPeople </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/de1/a00356.html">double</a>&#160;</td>
+          <td class="paramname"><em>fractionOfPopulationCommuting</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the absolute amount of poeple leaving from this location. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00131">131</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00148">m_outgoingCommutingLocations</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00137">m_population</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a74d9efaee679ef8ed549b09b50a16891_icgraph.gif" border="0" usemap="#d6/d42/a00043_a74d9efaee679ef8ed549b09b50a16891_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a74d9efaee679ef8ed549b09b50a16891_icgraph" id="d6/d42/a00043_a74d9efaee679ef8ed549b09b50a16891_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="261,5,456,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9cc2158f9e57034cf0e03cece71f3db"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gengeopop::Location::IncomingCommutingPeople </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/de1/a00356.html">double</a>&#160;</td>
+          <td class="paramname"><em>fractionOfPopulationCommuting</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the absolute amount of people going to this location. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00120">120</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00145">m_incomingCommutingLocations</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_aa9cc2158f9e57034cf0e03cece71f3db_icgraph.gif" border="0" usemap="#d6/d42/a00043_aa9cc2158f9e57034cf0e03cece71f3db_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_aa9cc2158f9e57034cf0e03cece71f3db_icgraph" id="d6/d42/a00043_aa9cc2158f9e57034cf0e03cece71f3db_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="260,5,455,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7f72aa5f710ec1e18079485d1b28d84c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> &amp; gengeopop::Location::GetCoordinate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the Coordinate of this location. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00092">92</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00139">m_coordinate</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00142">operator==()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a7f72aa5f710ec1e18079485d1b28d84c_icgraph.gif" border="0" usemap="#d6/d42/a00043_a7f72aa5f710ec1e18079485d1b28d84c_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a7f72aa5f710ec1e18079485d1b28d84c_icgraph" id="d6/d42/a00043_a7f72aa5f710ec1e18079485d1b28d84c_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="209,5,404,47"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#ac19509ddc7bdcdd44dc8d85e27949056" title="Perform a full compare of the given locations. " alt="" coords="229,71,385,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a917cdfedc73aaecab077a92c6565c029"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::Location::SetCoordinate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> &amp;&#160;</td>
+          <td class="paramname"><em>coordinate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00094">94</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00139">m_coordinate</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_a917cdfedc73aaecab077a92c6565c029_icgraph.gif" border="0" usemap="#d6/d42/a00043_a917cdfedc73aaecab077a92c6565c029_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_a917cdfedc73aaecab077a92c6565c029_icgraph" id="d6/d42/a00043_a917cdfedc73aaecab077a92c6565c029_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="209,5,404,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af835991e111e65e6fc5af7bc3d851a90"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const vector&lt; shared_ptr&lt; <a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a> &gt; &gt; &amp; gengeopop::Location::GetContactCenters </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets all contact centers at this location. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00090">90</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00142">m_contactCenters</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00142">operator==()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d42/a00043_af835991e111e65e6fc5af7bc3d851a90_icgraph.gif" border="0" usemap="#d6/d42/a00043_af835991e111e65e6fc5af7bc3d851a90_icgraph" alt=""/></div>
+<map name="d6/d42/a00043_af835991e111e65e6fc5af7bc3d851a90_icgraph" id="d6/d42/a00043_af835991e111e65e6fc5af7bc3d851a90_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a3030c3149759c7133560bdc8fa3a1d45" title="Gets the Contact Centers of a specific type T. " alt="" coords="209,5,404,47"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#ac19509ddc7bdcdd44dc8d85e27949056" title="Perform a full compare of the given locations. " alt="" coords="229,71,385,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ed303d8297b06d89da022f3e220d5b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d42/a00043.html#a718dacee608953b67322ee33d002a459">Location::iterator</a> gengeopop::Location::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets iterator to the first location. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00096">96</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00142">m_contactCenters</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa03ca76f5bab5d76d52813d95aa5b5db"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d42/a00043.html#a718dacee608953b67322ee33d002a459">Location::iterator</a> gengeopop::Location::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets iterator to the end of the locations. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00098">98</a> of file <a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00142">m_contactCenters</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a6e0934a373b9c4f7485d4f71a7de2b12"></a>
+<a class="anchor" id="aafa6ce2893d8dafa9ed60b4610a8e678"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">P <a class="el" href="../../d6/d42/a00043.html">gengeopop::kd::Node</a>&lt; P, D &gt;::m_point</td>
+          <td class="memname">unsigned int gengeopop::Location::m_id = 0</td>
         </tr>
       </table>
   </td>
@@ -449,21 +1220,23 @@ template&lt;typename P, std::size_t D&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00369">369</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
+<p>Id. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00134">134</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00044">GetID()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a518b60a5ec3c409358fb97bde0d8e974"></a>
+<a class="anchor" id="a541888fbccd6d480748af9d4845e7952"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../d6/d42/a00043.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a>&gt; <a class="el" href="../../d6/d42/a00043.html">gengeopop::kd::Node</a>&lt; P, D &gt;::m_left</td>
+          <td class="memname">std::string gengeopop::Location::m_name</td>
         </tr>
       </table>
   </td>
@@ -473,21 +1246,23 @@ template&lt;typename P, std::size_t D&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00370">370</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
+<p>Name. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00135">135</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00040">GetName()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad86880280760aaae9ef50dd165ee6c9e"></a>
+<a class="anchor" id="a8b50ed8582d3f3e59fce0ab9589b6bb2"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../d6/d42/a00043.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a>&gt; <a class="el" href="../../d6/d42/a00043.html">gengeopop::kd::Node</a>&lt; P, D &gt;::m_right</td>
+          <td class="memname">unsigned int gengeopop::Location::m_province</td>
         </tr>
       </table>
   </td>
@@ -497,20 +1272,205 @@ template&lt;typename P, std::size_t D&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00370">370</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a>.</p>
+<p>Province id. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00136">136</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00042">GetProvince()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d9/d8d/a00262_source.html">KdTree.h</a></li>
+<a class="anchor" id="abb58411772547ad92b27927c1b0a91c4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gengeopop::Location::m_population</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The absolute population. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00137">137</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00153">CalculatePopulation()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00046">GetPopulation()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00033">Location()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00131">OutGoingCommutingPeople()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac794691e02cb35442ea28c75d166c93e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/de1/a00356.html">double</a> gengeopop::Location::m_relativePopulation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The relative population (relative against whole population) </p>
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00138">138</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00153">CalculatePopulation()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00159">GetRelativePopulationSize()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00157">SetRelativePopulation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa2ccf67890504241a993e00f2a92c5d7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/dbb/a00330.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> gengeopop::Location::m_coordinate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Coordinate. </p>
+<p>All contactCenters at this location. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00139">139</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00092">GetCoordinate()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00094">SetCoordinate()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5732ffea136ecb5f6e4ca1d8ecd5cae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a>&gt; &gt; gengeopop::Location::m_contactCenters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00142">142</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00053">AddContactCenter()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00096">begin()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00098">end()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00090">GetContactCenters()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00066">GetInfectedCount()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00048">GetInfectedRatio()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00078">GetSimulationPopulation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0b511c30b3c925d12ba680a3d146f21"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::pair&lt;<a class="el" href="../../d6/d42/a00043.html">Location</a>*, <a class="el" href="../../d6/de1/a00356.html">double</a>&gt; &gt; gengeopop::Location::m_incomingCommutingLocations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Incomming commutes stored as pair of location and proportion relative to the given location. </p>
+<p>Outgoing commutes stored as pair of location and proportion relative to the this location </p>
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00145">145</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00105">AddIncomingCommutingLocation()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00100">GetIncomingCommuningCities()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00120">IncomingCommutingPeople()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8c4df44f8ded09da4d4302c1f086e36"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::pair&lt;<a class="el" href="../../d6/d42/a00043.html">Location</a>*, <a class="el" href="../../d6/de1/a00356.html">double</a>&gt; &gt; gengeopop::Location::m_outgoingCommutingLocations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores the contact centers indexed by their type. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00148">148</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00115">AddOutgoingCommutingLocation()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00110">GetOutgoingCommuningCities()</a>, and <a class="el" href="../../d9/d39/a00257_source.html#l00131">OutGoingCommutingPeople()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af39e42141985701a116b7e2807cdfb43"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::type_index, std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a>&gt; &gt; &gt; gengeopop::Location::m_contactCenterByType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00151">151</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00053">AddContactCenter()</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00061">GetContactCentersOfType()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d7/d2f/a00258_source.html">Location.h</a></li>
+<li><a class="el" href="../../d9/d39/a00257_source.html">Location.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dd/d1d/a00336.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d0/d01/a00339.html">kd</a></li><li class="navelem"><a class="el" href="../../d6/d42/a00043.html">Node</a></li>
-    <li class="footer">Generated on Mon Feb 4 2019 16:56:20 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dd/dbb/a00330.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d6/d42/a00043.html">Location</a></li>
+    <li class="footer">Generated on Tue Feb 5 2019 11:23:09 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

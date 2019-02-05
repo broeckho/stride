@@ -1,4 +1,4 @@
 var a00032 =
 [
-    [ "CreateReader", "dc/d87/a00032.html#aeff46acec7863e0b9c6f9196fdfe8d13", null ]
+    [ "CreateWriter", "dc/d87/a00032.html#a67adb42aa493fd9b55dca8671c129270", null ]
 ];

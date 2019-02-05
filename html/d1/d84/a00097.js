@@ -1,7 +1,8 @@
 var a00097 =
 [
-    [ "InfectedFile", "d1/d84/a00097.html#a1f9b3fab4125e26c2eebd32ee27dd977", null ],
-    [ "~InfectedFile", "d1/d84/a00097.html#ab67bfb80c8ca94162f3c33d2c7be3f89", null ],
-    [ "Print", "d1/d84/a00097.html#ae42038f7696374e29aef434de61d386d", null ],
-    [ "m_fstream", "d1/d84/a00097.html#ab499185c218c6a1ef08779d8e0ece660", null ]
+    [ "SummaryFile", "d1/d84/a00097.html#a1f848c3aa92042b2fa7d399ad31b0e33", null ],
+    [ "~SummaryFile", "d1/d84/a00097.html#ade602b6935ee6c38f21f15b5bcc77847", null ],
+    [ "Print", "d1/d84/a00097.html#a9b4fb82839ddf6a7c8d10fc119bf22fb", null ],
+    [ "Initialize", "d1/d84/a00097.html#a73334b641e8aeb7edff5cc8b6affc86c", null ],
+    [ "m_fstream", "d1/d84/a00097.html#a473d1c4d75f2e873e1b0ee256dabf73a", null ]
 ];

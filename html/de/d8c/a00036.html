@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::HouseholdCSVReader Class Reference</title>
+<title>Stride Reference Manual: gengeopop::HouseholdPopulator Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ad99f1d</span>
+   &#160;<span id="projectnumber">- generated for commit e4d1615</span>
    </div>
   </td>
  </tr>
@@ -108,104 +108,74 @@ $(document).ready(function(){initNavTree('de/d8c/a00036.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d8/dba/a00773.html">List of all members</a>  </div>
+<a href="../../d3/de3/a00763.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::HouseholdCSVReader Class Reference</div>  </div>
+<div class="title">gengeopop::HouseholdPopulator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Creates a Reader that retrieves the different <a class="el" href="../../d4/d8c/a00035.html" title="Models a Household as ContactCenter. ">Household</a> profiles from a given CSV file.  
+<p>Populate the households.  
  <a href="../../de/d8c/a00036.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/d53/a00232_source.html">HouseholdCSVReader.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d1/da8/a00230_source.html">HouseholdPopulator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::HouseholdCSVReader:</div>
+Inheritance diagram for gengeopop::HouseholdPopulator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/dee/a00774.gif" border="0" usemap="#gengeopop_1_1HouseholdCSVReader_inherit__map" alt="Inheritance graph"/></div>
-<map name="gengeopop_1_1HouseholdCSVReader_inherit__map" id="gengeopop_1_1HouseholdCSVReader_inherit__map">
-<area shape="rect" id="node2" href="../../d3/de7/a00039.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme..." alt="" coords="8,5,244,244"/>
+<div class="center"><img src="../../d3/d2c/a00764.gif" border="0" usemap="#gengeopop_1_1HouseholdPopulator_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1HouseholdPopulator_inherit__map" id="gengeopop_1_1HouseholdPopulator_inherit__map">
+<area shape="rect" id="node2" href="../../d6/d97/a00045.html" title="Interface for populators. " alt="" coords="13,5,228,156"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for gengeopop::HouseholdCSVReader:</div>
+Collaboration diagram for gengeopop::HouseholdPopulator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d5d/a00775.gif" border="0" usemap="#gengeopop_1_1HouseholdCSVReader_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1HouseholdCSVReader_coll__map" id="gengeopop_1_1HouseholdCSVReader_coll__map">
-<area shape="rect" id="node2" href="../../d3/de7/a00039.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme..." alt="" coords="157,550,393,730"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="319,153,446,230"/>
-<area shape="rect" id="node8" href="../../d0/d89/a00071.html" title="{stride::util::SegmentedVector\l\&lt; stride::stride::Person \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="379,844,589,1097"/>
-<area shape="rect" id="node9" href="../../d0/dc5/a00435.html" title="{size_t\n||}" alt="" coords="880,322,939,399"/>
-<area shape="rect" id="node12" href="../../d0/d89/a00071.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="534,513,743,767"/>
-<area shape="rect" id="node13" href="../../d0/d89/a00071.html" title="{stride::util::SegmentedVector\l\&lt; stride::stride::ContactPool \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="698,844,915,1097"/>
-<area shape="rect" id="node11" href="../../d2/d6e/a00667.html" title="{Chunk *\n||}" alt="" coords="549,153,622,230"/>
+<div class="center"><img src="../../dc/de2/a00765.gif" border="0" usemap="#gengeopop_1_1HouseholdPopulator_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1HouseholdPopulator_coll__map" id="gengeopop_1_1HouseholdPopulator_coll__map">
+<area shape="rect" id="node2" href="../../d6/d97/a00045.html" title="Interface for populators. " alt="" coords="61,572,276,708"/>
+<area shape="rect" id="node4" href="../../df/d6a/a00119.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a977c1f083a3ac0f06f5fa22ef9937e77"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/a00036.html#a977c1f083a3ac0f06f5fa22ef9937e77">HouseholdCSVReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
-<tr class="memdesc:a977c1f083a3ac0f06f5fa22ef9937e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../de/d8c/a00036.html" title="Creates a Reader that retrieves the different Household profiles from a given CSV file...">HouseholdCSVReader</a> with an istream containing the CSV data.  <a href="#a977c1f083a3ac0f06f5fa22ef9937e77">More...</a><br /></td></tr>
-<tr class="separator:a977c1f083a3ac0f06f5fa22ef9937e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00039"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00039')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d3/de7/a00039.html">gengeopop::HouseholdReader</a></td></tr>
-<tr class="memitem:a17cbd8636b5149fcada7cbe211d8426d inherit pub_methods_a00039"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#a17cbd8636b5149fcada7cbe211d8426d">HouseholdReader</a> ()</td></tr>
-<tr class="memdesc:a17cbd8636b5149fcada7cbe211d8426d inherit pub_methods_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d3/de7/a00039.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme...">HouseholdReader</a>.  <a href="#a17cbd8636b5149fcada7cbe211d8426d">More...</a><br /></td></tr>
-<tr class="separator:a17cbd8636b5149fcada7cbe211d8426d inherit pub_methods_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa302816610f03f3a13a9d852df00d5da inherit pub_methods_a00039"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../d4/d8c/a00035.html">Household</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#aa302816610f03f3a13a9d852df00d5da">GetHouseHolds</a> () const </td></tr>
-<tr class="memdesc:aa302816610f03f3a13a9d852df00d5da inherit pub_methods_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Households found in the inputfile.  <a href="#aa302816610f03f3a13a9d852df00d5da">More...</a><br /></td></tr>
-<tr class="separator:aa302816610f03f3a13a9d852df00d5da inherit pub_methods_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabc5667ac72b37e9be4dfc727c20889b inherit pub_methods_a00039"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dd7/a00362.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#aabc5667ac72b37e9be4dfc727c20889b">GetFractionCompulsoryPupils</a> () const </td></tr>
-<tr class="memdesc:aabc5667ac72b37e9be4dfc727c20889b inherit pub_methods_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fraction of the population which are still of an age where they attend school.  <a href="#aabc5667ac72b37e9be4dfc727c20889b">More...</a><br /></td></tr>
-<tr class="separator:aabc5667ac72b37e9be4dfc727c20889b inherit pub_methods_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9daac5241b155fe7f18c2e926f63f408 inherit pub_methods_a00039"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dd7/a00362.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#a9daac5241b155fe7f18c2e926f63f408">GetFraction1826Years</a> () const </td></tr>
-<tr class="memdesc:a9daac5241b155fe7f18c2e926f63f408 inherit pub_methods_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fraction of the population which are between 18 and 26 years of age.  <a href="#a9daac5241b155fe7f18c2e926f63f408">More...</a><br /></td></tr>
-<tr class="separator:a9daac5241b155fe7f18c2e926f63f408 inherit pub_methods_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c68d034fb29714ef0fbe932296b6188 inherit pub_methods_a00039"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dd7/a00362.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#a8c68d034fb29714ef0fbe932296b6188">GetFraction1865Years</a> () const </td></tr>
-<tr class="memdesc:a8c68d034fb29714ef0fbe932296b6188 inherit pub_methods_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fraction of the population which are between 18 and 65 years of age.  <a href="#a8c68d034fb29714ef0fbe932296b6188">More...</a><br /></td></tr>
-<tr class="separator:a8c68d034fb29714ef0fbe932296b6188 inherit pub_methods_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a161db2d7207f8290e4713cdeb765f5e1 inherit pub_methods_a00039"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#a161db2d7207f8290e4713cdeb765f5e1">GetTotalPersonsInHouseholds</a> () const </td></tr>
-<tr class="memdesc:a161db2d7207f8290e4713cdeb765f5e1 inherit pub_methods_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total amount of people in the found Households.  <a href="#a161db2d7207f8290e4713cdeb765f5e1">More...</a><br /></td></tr>
-<tr class="separator:a161db2d7207f8290e4713cdeb765f5e1 inherit pub_methods_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36694a79fc20fd388f880436226b57a7 inherit pub_methods_a00039"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dd7/a00362.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#a36694a79fc20fd388f880436226b57a7">AverageHouseholdSize</a> () const </td></tr>
-<tr class="memdesc:a36694a79fc20fd388f880436226b57a7 inherit pub_methods_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the average size of a <a class="el" href="../../d4/d8c/a00035.html" title="Models a Household as ContactCenter. ">Household</a>.  <a href="#a36694a79fc20fd388f880436226b57a7">More...</a><br /></td></tr>
-<tr class="separator:a36694a79fc20fd388f880436226b57a7 inherit pub_methods_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a691a91ca1633b445da4d64421f2f75c9 inherit pub_methods_a00039"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#a691a91ca1633b445da4d64421f2f75c9">~HouseholdReader</a> ()=default</td></tr>
-<tr class="memdesc:a691a91ca1633b445da4d64421f2f75c9 inherit pub_methods_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a691a91ca1633b445da4d64421f2f75c9">More...</a><br /></td></tr>
-<tr class="separator:a691a91ca1633b445da4d64421f2f75c9 inherit pub_methods_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a9f9f54b5d67017060f0bf6a0e2c5c99b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d89/a00071.html">stride::util::SegmentedVector</a>&lt; <a class="el" href="../../d0/d61/a00100.html">stride::Person</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/a00036.html#a9f9f54b5d67017060f0bf6a0e2c5c99b">m_persons</a></td></tr>
-<tr class="memdesc:a9f9f54b5d67017060f0bf6a0e2c5c99b"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Persons used in this <a class="el" href="../../d4/d8c/a00035.html" title="Models a Household as ContactCenter. ">Household</a>, segmented vector to be able to have working pointers to it.  <a href="#a9f9f54b5d67017060f0bf6a0e2c5c99b">More...</a><br /></td></tr>
-<tr class="separator:a9f9f54b5d67017060f0bf6a0e2c5c99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7188e1436bbf330ce8157086297d5231"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d89/a00071.html">stride::util::SegmentedVector</a>&lt; <a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/a00036.html#a7188e1436bbf330ce8157086297d5231">m_contactPools</a></td></tr>
-<tr class="separator:a7188e1436bbf330ce8157086297d5231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47168ca7f0ce73610734befed56f0ae7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/a00036.html#a47168ca7f0ce73610734befed56f0ae7">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;geoGridConfig) override</td></tr>
+<tr class="memdesc:a47168ca7f0ce73610734befed56f0ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core method implementation.  <a href="#a47168ca7f0ce73610734befed56f0ae7">More...</a><br /></td></tr>
+<tr class="separator:a47168ca7f0ce73610734befed56f0ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00045"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00045')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d6/d97/a00045.html">gengeopop::Populator</a></td></tr>
+<tr class="memitem:a1dcf07892020db874293b88856ca7a2c inherit pub_methods_a00045"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a1dcf07892020db874293b88856ca7a2c">Populator</a> (<a class="el" href="../../db/d10/a00350.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;rnManager, std::shared_ptr&lt; spdlog::logger &gt; logger=<a class="el" href="../../d8/d87/a00118.html#af8edb0cd2ef9049e0347f06e73ae57c2">stride::util::LogUtils::CreateNullLogger</a>())</td></tr>
+<tr class="memdesc:a1dcf07892020db874293b88856ca7a2c inherit pub_methods_a00045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with a RnMan and a logger.  <a href="#a1dcf07892020db874293b88856ca7a2c">More...</a><br /></td></tr>
+<tr class="separator:a1dcf07892020db874293b88856ca7a2c inherit pub_methods_a00045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adce42c51b32d49e3855d7915f86a3725 inherit pub_methods_a00045"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#adce42c51b32d49e3855d7915f86a3725">~Populator</a> ()=default</td></tr>
+<tr class="memdesc:adce42c51b32d49e3855d7915f86a3725 inherit pub_methods_a00045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#adce42c51b32d49e3855d7915f86a3725">More...</a><br /></td></tr>
+<tr class="separator:adce42c51b32d49e3855d7915f86a3725 inherit pub_methods_a00045"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00039"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00039')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d3/de7/a00039.html">gengeopop::HouseholdReader</a></td></tr>
-<tr class="memitem:ab16da3ff1106f39edc59727239e9f702 inherit pro_attribs_a00039"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../d4/d8c/a00035.html">Household</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#ab16da3ff1106f39edc59727239e9f702">m_households</a></td></tr>
-<tr class="memdesc:ab16da3ff1106f39edc59727239e9f702 inherit pro_attribs_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">The households which are (being) found.  <a href="#ab16da3ff1106f39edc59727239e9f702">More...</a><br /></td></tr>
-<tr class="separator:ab16da3ff1106f39edc59727239e9f702 inherit pro_attribs_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecfe2659d2826af0a8329955d430d820 inherit pro_attribs_a00039"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#aecfe2659d2826af0a8329955d430d820">m_total</a> = 0</td></tr>
-<tr class="memdesc:aecfe2659d2826af0a8329955d430d820 inherit pro_attribs_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total population.  <a href="#aecfe2659d2826af0a8329955d430d820">More...</a><br /></td></tr>
-<tr class="separator:aecfe2659d2826af0a8329955d430d820 inherit pro_attribs_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb5c2dc8db97ae641b34ea3d5223ff5d inherit pro_attribs_a00039"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#afb5c2dc8db97ae641b34ea3d5223ff5d">m_total1826Years</a> = 0</td></tr>
-<tr class="memdesc:afb5c2dc8db97ae641b34ea3d5223ff5d inherit pro_attribs_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total number of people between 18 and 26 years of age.  <a href="#afb5c2dc8db97ae641b34ea3d5223ff5d">More...</a><br /></td></tr>
-<tr class="separator:afb5c2dc8db97ae641b34ea3d5223ff5d inherit pro_attribs_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a331adedaab261aad7c89f273e9037a1d inherit pro_attribs_a00039"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#a331adedaab261aad7c89f273e9037a1d">m_total1865Years</a> = 0</td></tr>
-<tr class="memdesc:a331adedaab261aad7c89f273e9037a1d inherit pro_attribs_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total number of people between 18 and 65 years of age.  <a href="#a331adedaab261aad7c89f273e9037a1d">More...</a><br /></td></tr>
-<tr class="separator:a331adedaab261aad7c89f273e9037a1d inherit pro_attribs_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c24be8765eb962d1e0d3735f0187f5d inherit pro_attribs_a00039"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html#a9c24be8765eb962d1e0d3735f0187f5d">m_totalCompulsory</a> = 0</td></tr>
-<tr class="memdesc:a9c24be8765eb962d1e0d3735f0187f5d inherit pro_attribs_a00039"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total number of compulsory pupils.  <a href="#a9c24be8765eb962d1e0d3735f0187f5d">More...</a><br /></td></tr>
-<tr class="separator:a9c24be8765eb962d1e0d3735f0187f5d inherit pro_attribs_a00039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_a00045"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00045')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d6/d97/a00045.html">gengeopop::Populator</a></td></tr>
+<tr class="memitem:a02e99dcbcbdf0553da4aeecd9f13b7bd inherit pro_methods_a00045"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a02e99dcbcbdf0553da4aeecd9f13b7bd inherit pro_methods_a00045"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d9/da5/a00075.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a02e99dcbcbdf0553da4aeecd9f13b7bd">GetPoolInIncreasingRadius</a> (const std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; &amp;geoGrid, const std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> &gt; &amp;start, <a class="el" href="../../d6/de1/a00356.html">double</a> startRadius=10.0) const </td></tr>
+<tr class="memdesc:a02e99dcbcbdf0553da4aeecd9f13b7bd inherit pro_methods_a00045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find contactpools in <code>geoGrid</code> in an exponentially increasing radius.  <a href="#a02e99dcbcbdf0553da4aeecd9f13b7bd">More...</a><br /></td></tr>
+<tr class="separator:a02e99dcbcbdf0553da4aeecd9f13b7bd inherit pro_methods_a00045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10243610b7115685e2a370db305e2a0e inherit pro_methods_a00045"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a10243610b7115685e2a370db305e2a0e">MakeChoice</a> (<a class="el" href="../../d6/de1/a00356.html">double</a> fraction)</td></tr>
+<tr class="memdesc:a10243610b7115685e2a370db305e2a0e inherit pro_methods_a00045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience wrapper around m_rnManager.  <a href="#a10243610b7115685e2a370db305e2a0e">More...</a><br /></td></tr>
+<tr class="separator:a10243610b7115685e2a370db305e2a0e inherit pro_methods_a00045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00045"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00045')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d6/d97/a00045.html">gengeopop::Populator</a></td></tr>
+<tr class="memitem:a9337da6e009f7ab6e112e83c3a233f0b inherit pro_attribs_a00045"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d10/a00350.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a9337da6e009f7ab6e112e83c3a233f0b">m_rnManager</a></td></tr>
+<tr class="memdesc:a9337da6e009f7ab6e112e83c3a233f0b inherit pro_attribs_a00045"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by populators.  <a href="#a9337da6e009f7ab6e112e83c3a233f0b">More...</a><br /></td></tr>
+<tr class="separator:a9337da6e009f7ab6e112e83c3a233f0b inherit pro_attribs_a00045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0397499e44323b47ce0fa59f995f777 inherit pro_attribs_a00045"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#ae0397499e44323b47ce0fa59f995f777">m_logger</a></td></tr>
+<tr class="memdesc:ae0397499e44323b47ce0fa59f995f777 inherit pro_attribs_a00045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by populators.  <a href="#ae0397499e44323b47ce0fa59f995f777">More...</a><br /></td></tr>
+<tr class="separator:ae0397499e44323b47ce0fa59f995f777 inherit pro_attribs_a00045"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Creates a Reader that retrieves the different <a class="el" href="../../d4/d8c/a00035.html" title="Models a Household as ContactCenter. ">Household</a> profiles from a given CSV file. </p>
+<div class="textblock"><p>Populate the households. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d53/a00232_source.html#l00026">26</a> of file <a class="el" href="../../d0/d53/a00232_source.html">HouseholdCSVReader.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a977c1f083a3ac0f06f5fa22ef9937e77"></a>
+<p>Definition at line <a class="el" href="../../d1/da8/a00230_source.html#l00025">25</a> of file <a class="el" href="../../d1/da8/a00230_source.html">HouseholdPopulator.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a47168ca7f0ce73610734befed56f0ae7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -213,102 +183,65 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::HouseholdCSVReader::HouseholdCSVReader </td>
+          <td class="memname">void gengeopop::HouseholdPopulator::Apply </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
-          <td class="paramname"><em>inputStream</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geogrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct the <a class="el" href="../../de/d8c/a00036.html" title="Creates a Reader that retrieves the different Household profiles from a given CSV file...">HouseholdCSVReader</a> with an istream containing the CSV data. </p>
+<p>Core method implementation. </p>
 
-<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00020">20</a> of file <a class="el" href="../../df/d17/a00231_source.html">HouseholdCSVReader.cpp</a>.</p>
+<p>Implements <a class="el" href="../../d6/d97/a00045.html#a9b260c3b12d6f43aaec3211e83271542">gengeopop::Populator</a>.</p>
 
-<p>References <a class="el" href="../../d5/dcb/a00170_source.html#l00037">stride::ContactPool::AddMember()</a>, <a class="el" href="../../d6/d9c/a00352.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">stride::ContactPoolType::Household</a>, <a class="el" href="../../d0/d53/a00232_source.html#l00037">m_contactPools</a>, <a class="el" href="../../da/d2e/a00238_source.html#l00058">gengeopop::HouseholdReader::m_households</a>, <a class="el" href="../../d0/d53/a00232_source.html#l00034">m_persons</a>, <a class="el" href="../../da/d2e/a00238_source.html#l00060">gengeopop::HouseholdReader::m_total</a>, <a class="el" href="../../da/d2e/a00238_source.html#l00061">gengeopop::HouseholdReader::m_total1826Years</a>, <a class="el" href="../../da/d2e/a00238_source.html#l00062">gengeopop::HouseholdReader::m_total1865Years</a>, <a class="el" href="../../da/d2e/a00238_source.html#l00063">gengeopop::HouseholdReader::m_totalCompulsory</a>, and <a class="el" href="../../d9/d2a/a00270_source.html#l00105">stride::Person::SetAge()</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d2d/a00229_source.html#l00028">28</a> of file <a class="el" href="../../dd/d2d/a00229_source.html">HouseholdPopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dc/de2/a00024.html#a981511c45d99012d50aefe53d08fef7c">gengeopop::GeoGridConfig::generated</a>, <a class="el" href="../../db/ddf/a00164_source.html#l00046">gengeopop::ContactCenter::GetPools()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l00104">gengeopop::GeoGridConfig::household_types</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d8c/a00036_a977c1f083a3ac0f06f5fa22ef9937e77_cgraph.gif" border="0" usemap="#de/d8c/a00036_a977c1f083a3ac0f06f5fa22ef9937e77_cgraph" alt=""/></div>
-<map name="de/d8c/a00036_a977c1f083a3ac0f06f5fa22ef9937e77_cgraph" id="de/d8c/a00036_a977c1f083a3ac0f06f5fa22ef9937e77_cgraph">
-<area shape="rect" id="node2" href="../../d1/d09/a00077.html#aa9aeb5154fea3446d9a4ac4d1844b510" title="Add the given Person. " alt="" coords="306,5,449,47"/>
-<area shape="rect" id="node3" href="../../d0/d61/a00100.html#a3629c9dae12f241933ae2649205767af" title="Set the age of the person. " alt="" coords="295,71,460,98"/>
+<div class="center"><img src="../../de/d8c/a00036_a47168ca7f0ce73610734befed56f0ae7_cgraph.gif" border="0" usemap="#de/d8c/a00036_a47168ca7f0ce73610734befed56f0ae7_cgraph" alt=""/></div>
+<map name="de/d8c/a00036_a47168ca7f0ce73610734befed56f0ae7_cgraph" id="de/d8c/a00036_a47168ca7f0ce73610734befed56f0ae7_cgraph">
+<area shape="rect" id="node2" href="../../dd/d1b/a00015.html#ad67010237fe5d85ab860a1312e846efc" title="Get the pools container. " alt="" coords="284,104,479,145"/>
+<area shape="rect" id="node3" href="../../dd/d1b/a00015.html#a29071ba50d10e1c2bad9d4ab52cbd561" title="Get the size (on average) of a pool for this type of contact center. " alt="" coords="547,5,741,47"/>
+<area shape="rect" id="node4" href="../../dd/d1b/a00015.html#af8b55f34ee88976dc4e4cd124f508ffa" title="Get a count of total population (first) and total number of infections (second). " alt="" coords="527,71,761,112"/>
+<area shape="rect" id="node5" href="../../dd/d1b/a00015.html#a6accccf2036e95ef292fa475e75fa6fc" title="Get the name of the type of contact center (e.g. College) " alt="" coords="547,136,741,177"/>
+<area shape="rect" id="node6" href="../../dd/d1b/a00015.html#ac520d66f2268d03298cb36a47103aa74" title="Default destructor, but virtual. " alt="" coords="547,201,741,243"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a9f9f54b5d67017060f0bf6a0e2c5c99b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d0/d89/a00071.html">stride::util::SegmentedVector</a>&lt;<a class="el" href="../../d0/d61/a00100.html">stride::Person</a>&gt; gengeopop::HouseholdCSVReader::m_persons</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>&lt; Persons used in this <a class="el" href="../../d4/d8c/a00035.html" title="Models a Household as ContactCenter. ">Household</a>, segmented vector to be able to have working pointers to it. </p>
-<p>Contactpools used in this <a class="el" href="../../d4/d8c/a00035.html" title="Models a Household as ContactCenter. ">Household</a>, segmented vector to be able to have working pointers to it. </p>
-
-<p>Definition at line <a class="el" href="../../d0/d53/a00232_source.html#l00034">34</a> of file <a class="el" href="../../d0/d53/a00232_source.html">HouseholdCSVReader.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d17/a00231_source.html#l00020">HouseholdCSVReader()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7188e1436bbf330ce8157086297d5231"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d0/d89/a00071.html">stride::util::SegmentedVector</a>&lt;<a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a>&gt; gengeopop::HouseholdCSVReader::m_contactPools</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/d53/a00232_source.html#l00037">37</a> of file <a class="el" href="../../d0/d53/a00232_source.html">HouseholdCSVReader.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d17/a00231_source.html#l00020">HouseholdCSVReader()</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d0/d53/a00232_source.html">HouseholdCSVReader.h</a></li>
-<li><a class="el" href="../../df/d17/a00231_source.html">HouseholdCSVReader.cpp</a></li>
+<li><a class="el" href="../../d1/da8/a00230_source.html">HouseholdPopulator.h</a></li>
+<li><a class="el" href="../../dd/d2d/a00229_source.html">HouseholdPopulator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dd/d1d/a00336.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../de/d8c/a00036.html">HouseholdCSVReader</a></li>
-    <li class="footer">Generated on Mon Feb 4 2019 16:56:20 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dd/dbb/a00330.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../de/d8c/a00036.html">HouseholdPopulator</a></li>
+    <li class="footer">Generated on Tue Feb 5 2019 11:23:09 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

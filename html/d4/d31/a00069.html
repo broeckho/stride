@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: proto::GeoGrid_Person Class Reference</title>
+<title>Stride Reference Manual: stride::util::SegmentedVector&lt; T, N, Safe &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ad99f1d</span>
+   &#160;<span id="projectnumber">- generated for commit e4d1615</span>
    </div>
   </td>
  </tr>
@@ -107,216 +107,316 @@ $(document).ready(function(){initNavTree('d4/d31/a00069.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
-<a href="../../dd/d7b/a00865.html">List of all members</a>  </div>
+<a href="../../da/deb/a00985.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">proto::GeoGrid_Person Class Reference</div>  </div>
+<div class="title">stride::util::SegmentedVector&lt; T, N, Safe &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>&gt;</code></p>
+<p>Container that stores objects "almost contiguously" (in a chain of blocks) and guarantees that pointers/iterators are not invalidated when the container grows.  
+ <a href="../../d4/d31/a00069.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for proto::GeoGrid_Person:</div>
+Inheritance diagram for stride::util::SegmentedVector&lt; T, N, Safe &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/db2/a00866.gif" border="0" usemap="#proto_1_1GeoGrid__Person_inherit__map" alt="Inheritance graph"/></div>
-<map name="proto_1_1GeoGrid__Person_inherit__map" id="proto_1_1GeoGrid__Person_inherit__map">
-<area shape="rect" id="node2" href="../../d4/de8/a00061.html" title="{Message\n||}" alt="" coords="85,5,163,83"/>
+<div class="center"><img src="../../d3/d7b/a00986.gif" border="0" usemap="#stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_inherit__map" id="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_inherit__map">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html" title="{stride::util::SegmentedVector\l\&lt; stride::stride::ContactPool \&gt;\n|&#45; m_blocks\l&#45; m_size\l|+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="5,351,223,619"/>
+<area shape="rect" id="node3" href="../../d4/d31/a00069.html" title="{stride::util::SegmentedVector\l\&lt; stride::stride::Person \&gt;\n|&#45; m_blocks\l&#45; m_size\l|+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="247,351,456,619"/>
+<area shape="rect" id="node4" href="../../d4/d31/a00069.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n|&#45; m_blocks\l&#45; m_size\l|+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="480,351,689,619"/>
+<area shape="rect" id="node5" href="../../da/d74/a00099.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich..." alt="" coords="492,668,677,921"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for proto::GeoGrid_Person:</div>
+Collaboration diagram for stride::util::SegmentedVector&lt; T, N, Safe &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/db8/a00867.gif" border="0" usemap="#proto_1_1GeoGrid__Person_coll__map" alt="Collaboration graph"/></div>
-<map name="proto_1_1GeoGrid__Person_coll__map" id="proto_1_1GeoGrid__Person_coll__map">
-<area shape="rect" id="node2" href="../../d4/de8/a00061.html" title="{Message\n||}" alt="" coords="5,5,84,83"/>
+<div class="center"><img src="../../d4/d21/a00987.gif" border="0" usemap="#stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_coll__map" id="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_coll__map">
+<area shape="rect" id="node2" href="../../d4/d53/a00429.html" title="{size_t\n||}" alt="" coords="25,285,83,363"/>
+<area shape="rect" id="node4" href="../../d8/ddc/a00655.html" title="{Chunk *\n||}" alt="" coords="99,145,172,223"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="196,145,323,223"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a7882e74f6cb8dd40fe7f359daf0376c3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> = T</td></tr>
+<tr class="separator:a7882e74f6cb8dd40fe7f359daf0376c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4344636a6d7dea3aff481c178b5ff008"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> = std::size_t</td></tr>
+<tr class="separator:a4344636a6d7dea3aff481c178b5ff008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa72e1f8f1437134e2ead160ca23c35bd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> = <a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a>&lt; T, N &gt;</td></tr>
+<tr class="separator:aa72e1f8f1437134e2ead160ca23c35bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac336ef543eb696055a43b39bbe70499f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ac336ef543eb696055a43b39bbe70499f">iterator</a> = <a class="el" href="../../dc/dfe/a00125.html">SVIterator</a>&lt; T, N, Safe, T *, T &amp;, false &gt;</td></tr>
+<tr class="separator:ac336ef543eb696055a43b39bbe70499f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aba42e9e68bd96c3e7e07b089c648c1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> = <a class="el" href="../../dc/dfe/a00125.html">SVIterator</a>&lt; T, N, Safe &gt;</td></tr>
+<tr class="separator:a1aba42e9e68bd96c3e7e07b089c648c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5d1b711edfeb9bed9daea17421e8e3c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a5d1b711edfeb9bed9daea17421e8e3c7">GeoGrid_Person</a> ()</td></tr>
-<tr class="separator:a5d1b711edfeb9bed9daea17421e8e3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6374e2d4155515b2dc1ba1cc233808e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ac6374e2d4155515b2dc1ba1cc233808e">~GeoGrid_Person</a> ()</td></tr>
-<tr class="separator:ac6374e2d4155515b2dc1ba1cc233808e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab068076b7817bf37c69355c2eda871e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ab068076b7817bf37c69355c2eda871e4">GeoGrid_Person</a> (const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;from)</td></tr>
-<tr class="separator:ab068076b7817bf37c69355c2eda871e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5cc9cb90500da056dfeaaec02b62ba6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ae5cc9cb90500da056dfeaaec02b62ba6">operator=</a> (const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;from)</td></tr>
-<tr class="separator:ae5cc9cb90500da056dfeaaec02b62ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17fa777f6a6d8419db949c5c44872a74"><td class="memItemLeft" align="right" valign="top">const ::google::protobuf::UnknownFieldSet &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a17fa777f6a6d8419db949c5c44872a74">unknown_fields</a> () const </td></tr>
-<tr class="separator:a17fa777f6a6d8419db949c5c44872a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63d0555db008e02a18ea03591fbd2df9"><td class="memItemLeft" align="right" valign="top">inline::google::protobuf::UnknownFieldSet *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a63d0555db008e02a18ea03591fbd2df9">mutable_unknown_fields</a> ()</td></tr>
-<tr class="separator:a63d0555db008e02a18ea03591fbd2df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac15f10bec604604095ac71cc838e0f28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ac15f10bec604604095ac71cc838e0f28">Swap</a> (<a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> *other)</td></tr>
-<tr class="separator:ac15f10bec604604095ac71cc838e0f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37b46001079706e6e2798dc23db1a7e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a37b46001079706e6e2798dc23db1a7e9">New</a> () const final</td></tr>
-<tr class="separator:a37b46001079706e6e2798dc23db1a7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7256579125874ce2771575984f3496d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a7256579125874ce2771575984f3496d2">New</a> (::google::protobuf::Arena *arena) const final</td></tr>
-<tr class="separator:a7256579125874ce2771575984f3496d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac748a2834d63b173d09fc7110d74a6e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ac748a2834d63b173d09fc7110d74a6e4">CopyFrom</a> (const ::<a class="el" href="../../d4/de8/a00061.html">google::protobuf::Message</a> &amp;from) final</td></tr>
-<tr class="separator:ac748a2834d63b173d09fc7110d74a6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a029bc8331a45a6014b26bcddd0983336"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a029bc8331a45a6014b26bcddd0983336">MergeFrom</a> (const ::<a class="el" href="../../d4/de8/a00061.html">google::protobuf::Message</a> &amp;from) final</td></tr>
-<tr class="separator:a029bc8331a45a6014b26bcddd0983336"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c938d05787cfe64775999c7341eac46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a8c938d05787cfe64775999c7341eac46">CopyFrom</a> (const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;from)</td></tr>
-<tr class="separator:a8c938d05787cfe64775999c7341eac46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a384142d262ab46c3daf727f18e16204a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a384142d262ab46c3daf727f18e16204a">MergeFrom</a> (const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;from)</td></tr>
-<tr class="separator:a384142d262ab46c3daf727f18e16204a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f02a47da27d54818122e694e6e72ba4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a9f02a47da27d54818122e694e6e72ba4">Clear</a> () final</td></tr>
-<tr class="separator:a9f02a47da27d54818122e694e6e72ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5726d35f79d811de991fcc34fc84efdf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a5726d35f79d811de991fcc34fc84efdf">IsInitialized</a> () const final</td></tr>
-<tr class="separator:a5726d35f79d811de991fcc34fc84efdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2312066e1829b5993ef718bcf8f0e1f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc5/a00435.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a2312066e1829b5993ef718bcf8f0e1f7">ByteSizeLong</a> () const final</td></tr>
-<tr class="separator:a2312066e1829b5993ef718bcf8f0e1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28f631d9c80c6fe0aedadcea6ce9644f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a28f631d9c80c6fe0aedadcea6ce9644f">MergePartialFromCodedStream</a> (::google::protobuf::io::CodedInputStream *input) final</td></tr>
-<tr class="separator:a28f631d9c80c6fe0aedadcea6ce9644f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c7db4276ecfb7c560d81c5a43b8d48e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a4c7db4276ecfb7c560d81c5a43b8d48e">SerializeWithCachedSizes</a> (::google::protobuf::io::CodedOutputStream *output) const final</td></tr>
-<tr class="separator:a4c7db4276ecfb7c560d81c5a43b8d48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22477c2cdf24cbed3b24379343cb7ecd"><td class="memItemLeft" align="right" valign="top">::google::protobuf::uint8 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a22477c2cdf24cbed3b24379343cb7ecd">InternalSerializeWithCachedSizesToArray</a> (bool deterministic,::google::protobuf::uint8 *target) const final</td></tr>
-<tr class="separator:a22477c2cdf24cbed3b24379343cb7ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe7decd01cc2e3bb14853fec0603f878"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#abe7decd01cc2e3bb14853fec0603f878">GetCachedSize</a> () const final</td></tr>
-<tr class="separator:abe7decd01cc2e3bb14853fec0603f878"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99fc212749d326bea5caf8313efecdcc"><td class="memItemLeft" align="right" valign="top">::google::protobuf::Metadata&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a99fc212749d326bea5caf8313efecdcc">GetMetadata</a> () const final</td></tr>
-<tr class="separator:a99fc212749d326bea5caf8313efecdcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7ba015b293c5396b8eb139aeab4b245"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ae7ba015b293c5396b8eb139aeab4b245">has_gender</a> () const </td></tr>
-<tr class="separator:ae7ba015b293c5396b8eb139aeab4b245"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8f478d054b1ee1570481764fee8ffa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa8f478d054b1ee1570481764fee8ffa3">clear_gender</a> ()</td></tr>
-<tr class="separator:aa8f478d054b1ee1570481764fee8ffa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e6cb2c57bc156fc4947243d1151999b"><td class="memItemLeft" align="right" valign="top">const ::std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a5e6cb2c57bc156fc4947243d1151999b">gender</a> () const </td></tr>
-<tr class="separator:a5e6cb2c57bc156fc4947243d1151999b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41f1d07ad084428d39632fc73539d96c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a41f1d07ad084428d39632fc73539d96c">set_gender</a> (const ::std::string &amp;value)</td></tr>
-<tr class="separator:a41f1d07ad084428d39632fc73539d96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafcbaddde62a012a510083ef2703d73a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aafcbaddde62a012a510083ef2703d73a">set_gender</a> (const char *value)</td></tr>
-<tr class="separator:aafcbaddde62a012a510083ef2703d73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a876925f5ee9252a6cf9654737be5d357"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a876925f5ee9252a6cf9654737be5d357">set_gender</a> (const char *value, <a class="el" href="../../d0/dc5/a00435.html">size_t</a> size)</td></tr>
-<tr class="separator:a876925f5ee9252a6cf9654737be5d357"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04cf19d7849fa35109d8aaf1d752b789"><td class="memItemLeft" align="right" valign="top">::std::string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a04cf19d7849fa35109d8aaf1d752b789">mutable_gender</a> ()</td></tr>
-<tr class="separator:a04cf19d7849fa35109d8aaf1d752b789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a336baffeedb36bc039949ac4ce1cc6fc"><td class="memItemLeft" align="right" valign="top">::std::string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a336baffeedb36bc039949ac4ce1cc6fc">release_gender</a> ()</td></tr>
-<tr class="separator:a336baffeedb36bc039949ac4ce1cc6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae025827ef8f5443a8c772e3fda217a36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ae025827ef8f5443a8c772e3fda217a36">set_allocated_gender</a> (::std::string *<a class="el" href="../../d4/d31/a00069.html#a5e6cb2c57bc156fc4947243d1151999b">gender</a>)</td></tr>
-<tr class="separator:ae025827ef8f5443a8c772e3fda217a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b0b0f5cce61481d44b8d6817fa7ff19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a7b0b0f5cce61481d44b8d6817fa7ff19">has_id</a> () const </td></tr>
-<tr class="separator:a7b0b0f5cce61481d44b8d6817fa7ff19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a064354e6bb35f7cc49f442c1fe7cb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a0a064354e6bb35f7cc49f442c1fe7cb5">clear_id</a> ()</td></tr>
-<tr class="separator:a0a064354e6bb35f7cc49f442c1fe7cb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4af5dc5058c3aa6cf84838094d6514af"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a4af5dc5058c3aa6cf84838094d6514af">id</a> () const </td></tr>
-<tr class="separator:a4af5dc5058c3aa6cf84838094d6514af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5a849164874e312f51a5d100ecb2c61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#af5a849164874e312f51a5d100ecb2c61">set_id</a> (::google::protobuf::int64 value)</td></tr>
-<tr class="separator:af5a849164874e312f51a5d100ecb2c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70daee500e07743f6460bd5d1e2b9f6f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a70daee500e07743f6460bd5d1e2b9f6f">has_age</a> () const </td></tr>
-<tr class="separator:a70daee500e07743f6460bd5d1e2b9f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3773ed7c54d916606fb0c0ad3f08a3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ab3773ed7c54d916606fb0c0ad3f08a3b">clear_age</a> ()</td></tr>
-<tr class="separator:ab3773ed7c54d916606fb0c0ad3f08a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff796dcc38d801c94f34280e473cd3d4"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aff796dcc38d801c94f34280e473cd3d4">age</a> () const </td></tr>
-<tr class="separator:aff796dcc38d801c94f34280e473cd3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36332585a29c97a4fa000feaef30192a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a36332585a29c97a4fa000feaef30192a">set_age</a> (::google::protobuf::int64 value)</td></tr>
-<tr class="separator:a36332585a29c97a4fa000feaef30192a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada0935b74686a1ab1a513c310ffbe90c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ada0935b74686a1ab1a513c310ffbe90c">SegmentedVector</a> ()</td></tr>
+<tr class="memdesc:ada0935b74686a1ab1a513c310ffbe90c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct empty <a class="el" href="../../d4/d31/a00069.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a>.  <a href="#ada0935b74686a1ab1a513c310ffbe90c">More...</a><br /></td></tr>
+<tr class="separator:ada0935b74686a1ab1a513c310ffbe90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe518edf461ce52cc405357f1a074673"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#abe518edf461ce52cc405357f1a074673">SegmentedVector</a> (<a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> i)</td></tr>
+<tr class="memdesc:abe518edf461ce52cc405357f1a074673"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with given number of elements but DO NOT INITIALIZE them.  <a href="#abe518edf461ce52cc405357f1a074673">More...</a><br /></td></tr>
+<tr class="separator:abe518edf461ce52cc405357f1a074673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9dc137bd2fc3f337a106e8bffcecf4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ab9dc137bd2fc3f337a106e8bffcecf4a">SegmentedVector</a> (<a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> i, const <a class="el" href="../../d4/d31/a00069.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> &amp;value)</td></tr>
+<tr class="memdesc:ab9dc137bd2fc3f337a106e8bffcecf4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with given number of elements and INITIALIZE them with value.  <a href="#ab9dc137bd2fc3f337a106e8bffcecf4a">More...</a><br /></td></tr>
+<tr class="separator:ab9dc137bd2fc3f337a106e8bffcecf4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4f9b0a0e5d4dace47647217f084242c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ae4f9b0a0e5d4dace47647217f084242c">SegmentedVector</a> (const <a class="el" href="../../d4/d31/a00069.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;other)</td></tr>
+<tr class="memdesc:ae4f9b0a0e5d4dace47647217f084242c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#ae4f9b0a0e5d4dace47647217f084242c">More...</a><br /></td></tr>
+<tr class="separator:ae4f9b0a0e5d4dace47647217f084242c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c2307e98e036cab31da16a478b4227d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a7c2307e98e036cab31da16a478b4227d">SegmentedVector</a> (<a class="el" href="../../d4/d31/a00069.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a7c2307e98e036cab31da16a478b4227d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="#a7c2307e98e036cab31da16a478b4227d">More...</a><br /></td></tr>
+<tr class="separator:a7c2307e98e036cab31da16a478b4227d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a492bbd496ed8cfb17473b0c0d384648a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a492bbd496ed8cfb17473b0c0d384648a">operator=</a> (const <a class="el" href="../../d4/d31/a00069.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;other)</td></tr>
+<tr class="memdesc:a492bbd496ed8cfb17473b0c0d384648a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment.  <a href="#a492bbd496ed8cfb17473b0c0d384648a">More...</a><br /></td></tr>
+<tr class="separator:a492bbd496ed8cfb17473b0c0d384648a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e3a92686eeec3498a14e797b05b3b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ad6e3a92686eeec3498a14e797b05b3b8">operator=</a> (<a class="el" href="../../d4/d31/a00069.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:ad6e3a92686eeec3498a14e797b05b3b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment.  <a href="#ad6e3a92686eeec3498a14e797b05b3b8">More...</a><br /></td></tr>
+<tr class="separator:ad6e3a92686eeec3498a14e797b05b3b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8631db1786767b0e083f002f2a284757"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a8631db1786767b0e083f002f2a284757">~SegmentedVector</a> ()</td></tr>
+<tr class="memdesc:a8631db1786767b0e083f002f2a284757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a8631db1786767b0e083f002f2a284757">More...</a><br /></td></tr>
+<tr class="separator:a8631db1786767b0e083f002f2a284757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31c61443835e8d73449d0304bbe5b5bc"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a31c61443835e8d73449d0304bbe5b5bc">at</a> (std::size_t pos)</td></tr>
+<tr class="memdesc:a31c61443835e8d73449d0304bbe5b5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element with bounds checking.  <a href="#a31c61443835e8d73449d0304bbe5b5bc">More...</a><br /></td></tr>
+<tr class="separator:a31c61443835e8d73449d0304bbe5b5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d24e651eb0ed32e7103ed81d863ef06"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a0d24e651eb0ed32e7103ed81d863ef06">at</a> (std::size_t pos) const </td></tr>
+<tr class="memdesc:a0d24e651eb0ed32e7103ed81d863ef06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element with bounds checking.  <a href="#a0d24e651eb0ed32e7103ed81d863ef06">More...</a><br /></td></tr>
+<tr class="separator:a0d24e651eb0ed32e7103ed81d863ef06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea25c3c1ac7a825c74601087fc91ee97"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aea25c3c1ac7a825c74601087fc91ee97">back</a> ()</td></tr>
+<tr class="memdesc:aea25c3c1ac7a825c74601087fc91ee97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#aea25c3c1ac7a825c74601087fc91ee97">More...</a><br /></td></tr>
+<tr class="separator:aea25c3c1ac7a825c74601087fc91ee97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2bdeb712ab515db9dc7fbe900233eb4"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa2bdeb712ab515db9dc7fbe900233eb4">back</a> () const </td></tr>
+<tr class="memdesc:aa2bdeb712ab515db9dc7fbe900233eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#aa2bdeb712ab515db9dc7fbe900233eb4">More...</a><br /></td></tr>
+<tr class="separator:aa2bdeb712ab515db9dc7fbe900233eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfcd7fc57ae5801b4d29c97fe7cdc377"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#adfcd7fc57ae5801b4d29c97fe7cdc377">operator[]</a> (<a class="el" href="../../d4/d53/a00429.html">size_t</a> pos)</td></tr>
+<tr class="memdesc:adfcd7fc57ae5801b4d29c97fe7cdc377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element (no bounds checking).  <a href="#adfcd7fc57ae5801b4d29c97fe7cdc377">More...</a><br /></td></tr>
+<tr class="separator:adfcd7fc57ae5801b4d29c97fe7cdc377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5feb7685e4ff8e46ec5b4ec2af93483"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ac5feb7685e4ff8e46ec5b4ec2af93483">operator[]</a> (<a class="el" href="../../d4/d53/a00429.html">size_t</a> pos) const </td></tr>
+<tr class="memdesc:ac5feb7685e4ff8e46ec5b4ec2af93483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element (no bounds checking).  <a href="#ac5feb7685e4ff8e46ec5b4ec2af93483">More...</a><br /></td></tr>
+<tr class="separator:ac5feb7685e4ff8e46ec5b4ec2af93483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0178098bae26c74f6d0d48cf77d057f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#ac336ef543eb696055a43b39bbe70499f">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a0178098bae26c74f6d0d48cf77d057f7">begin</a> ()</td></tr>
+<tr class="memdesc:a0178098bae26c74f6d0d48cf77d057f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the beginning of the container.  <a href="#a0178098bae26c74f6d0d48cf77d057f7">More...</a><br /></td></tr>
+<tr class="separator:a0178098bae26c74f6d0d48cf77d057f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2342f7a0b6cea1bbc7a7fecf8a864fa0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a2342f7a0b6cea1bbc7a7fecf8a864fa0">begin</a> () const </td></tr>
+<tr class="memdesc:a2342f7a0b6cea1bbc7a7fecf8a864fa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the beginning of the container.  <a href="#a2342f7a0b6cea1bbc7a7fecf8a864fa0">More...</a><br /></td></tr>
+<tr class="separator:a2342f7a0b6cea1bbc7a7fecf8a864fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace914c758677123e4a8d391cd711a5f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ace914c758677123e4a8d391cd711a5f8">cbegin</a> () const </td></tr>
+<tr class="memdesc:ace914c758677123e4a8d391cd711a5f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the beginning of the container.  <a href="#ace914c758677123e4a8d391cd711a5f8">More...</a><br /></td></tr>
+<tr class="separator:ace914c758677123e4a8d391cd711a5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904ec0aae93c8dbd345607378f141898"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#ac336ef543eb696055a43b39bbe70499f">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a904ec0aae93c8dbd345607378f141898">end</a> ()</td></tr>
+<tr class="memdesc:a904ec0aae93c8dbd345607378f141898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the end of the container.  <a href="#a904ec0aae93c8dbd345607378f141898">More...</a><br /></td></tr>
+<tr class="separator:a904ec0aae93c8dbd345607378f141898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaabbc431baae7fff1f1aaa7489578519"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aaabbc431baae7fff1f1aaa7489578519">end</a> () const </td></tr>
+<tr class="memdesc:aaabbc431baae7fff1f1aaa7489578519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the end of the container.  <a href="#aaabbc431baae7fff1f1aaa7489578519">More...</a><br /></td></tr>
+<tr class="separator:aaabbc431baae7fff1f1aaa7489578519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a661e877760bdf6cd246e4038b677434a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a661e877760bdf6cd246e4038b677434a">cend</a> () const </td></tr>
+<tr class="memdesc:a661e877760bdf6cd246e4038b677434a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the end.  <a href="#a661e877760bdf6cd246e4038b677434a">More...</a><br /></td></tr>
+<tr class="separator:a661e877760bdf6cd246e4038b677434a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6e77c3d0e64d983ee26e44336291604"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ae6e77c3d0e64d983ee26e44336291604">capacity</a> () const </td></tr>
+<tr class="memdesc:ae6e77c3d0e64d983ee26e44336291604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of elements that can be stored without allocating additional blocks.  <a href="#ae6e77c3d0e64d983ee26e44336291604">More...</a><br /></td></tr>
+<tr class="separator:ae6e77c3d0e64d983ee26e44336291604"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66676df2d3b52bf0eb5896f2d48837af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a66676df2d3b52bf0eb5896f2d48837af">empty</a> () const </td></tr>
+<tr class="memdesc:a66676df2d3b52bf0eb5896f2d48837af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether container is empty.  <a href="#a66676df2d3b52bf0eb5896f2d48837af">More...</a><br /></td></tr>
+<tr class="separator:a66676df2d3b52bf0eb5896f2d48837af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87837cab9ccde57c5179dc7f9245f9fc"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a87837cab9ccde57c5179dc7f9245f9fc">get_block_count</a> () const </td></tr>
+<tr class="memdesc:a87837cab9ccde57c5179dc7f9245f9fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of currently allocated blocks.  <a href="#a87837cab9ccde57c5179dc7f9245f9fc">More...</a><br /></td></tr>
+<tr class="separator:a87837cab9ccde57c5179dc7f9245f9fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa93e6b50e8a1f177829b52d8a41ce979"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa93e6b50e8a1f177829b52d8a41ce979">get_elements_per_block</a> () const </td></tr>
+<tr class="memdesc:aa93e6b50e8a1f177829b52d8a41ce979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of elements block (template parameter 'N').  <a href="#aa93e6b50e8a1f177829b52d8a41ce979">More...</a><br /></td></tr>
+<tr class="separator:aa93e6b50e8a1f177829b52d8a41ce979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e279c31f261b01f7798355e27401bfe"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a0e279c31f261b01f7798355e27401bfe">size</a> () const </td></tr>
+<tr class="memdesc:a0e279c31f261b01f7798355e27401bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of elements.  <a href="#a0e279c31f261b01f7798355e27401bfe">More...</a><br /></td></tr>
+<tr class="separator:a0e279c31f261b01f7798355e27401bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9ed4e4bbfdbff03a55d378cdf7f5707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa9ed4e4bbfdbff03a55d378cdf7f5707">resize</a> (<a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> new_size)</td></tr>
+<tr class="memdesc:aa9ed4e4bbfdbff03a55d378cdf7f5707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases the number of elements (but DOES NOT INITIALIZE the additional elements) or pops elements (and DOES RUN those element's destructor).  <a href="#aa9ed4e4bbfdbff03a55d378cdf7f5707">More...</a><br /></td></tr>
+<tr class="separator:aa9ed4e4bbfdbff03a55d378cdf7f5707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b8157733abf6be32ed20fe0fc5e57b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a61b8157733abf6be32ed20fe0fc5e57b">resize</a> (<a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> new_size, const <a class="el" href="../../d4/d31/a00069.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> &amp;value)</td></tr>
+<tr class="separator:a61b8157733abf6be32ed20fe0fc5e57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3c204c505c4c4e2e0ef23dd7e29d5de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ac3c204c505c4c4e2e0ef23dd7e29d5de">clear</a> ()</td></tr>
+<tr class="memdesc:ac3c204c505c4c4e2e0ef23dd7e29d5de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the content.  <a href="#ac3c204c505c4c4e2e0ef23dd7e29d5de">More...</a><br /></td></tr>
+<tr class="separator:ac3c204c505c4c4e2e0ef23dd7e29d5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadda0fa9cba3c25598d83fc335dab5e4"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
+<tr class="memitem:aadda0fa9cba3c25598d83fc335dab5e4"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aadda0fa9cba3c25598d83fc335dab5e4">emplace</a> (<a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> pos, Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:aadda0fa9cba3c25598d83fc335dab5e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs element in-place at position pos.  <a href="#aadda0fa9cba3c25598d83fc335dab5e4">More...</a><br /></td></tr>
+<tr class="separator:aadda0fa9cba3c25598d83fc335dab5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd11f9b95b20b69378fc9268c380096"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
+<tr class="memitem:a2cd11f9b95b20b69378fc9268c380096"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a2cd11f9b95b20b69378fc9268c380096">emplace_back</a> (Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a2cd11f9b95b20b69378fc9268c380096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs element in-place at the end.  <a href="#a2cd11f9b95b20b69378fc9268c380096">More...</a><br /></td></tr>
+<tr class="separator:a2cd11f9b95b20b69378fc9268c380096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e0b15a5f6a72420feedc9a006d17fa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a4e0b15a5f6a72420feedc9a006d17fa7">pop_back</a> ()</td></tr>
+<tr class="memdesc:a4e0b15a5f6a72420feedc9a006d17fa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the last element.  <a href="#a4e0b15a5f6a72420feedc9a006d17fa7">More...</a><br /></td></tr>
+<tr class="separator:a4e0b15a5f6a72420feedc9a006d17fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74bf9839c2e38750216689f965a647de"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a74bf9839c2e38750216689f965a647de">push_back</a> (const T &amp;obj)</td></tr>
+<tr class="memdesc:a74bf9839c2e38750216689f965a647de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds element to end.  <a href="#a74bf9839c2e38750216689f965a647de">More...</a><br /></td></tr>
+<tr class="separator:a74bf9839c2e38750216689f965a647de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f248bcd2fc8b5f6f9fb2f75266c81c"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a63f248bcd2fc8b5f6f9fb2f75266c81c">push_back</a> (T &amp;&amp;obj)</td></tr>
+<tr class="memdesc:a63f248bcd2fc8b5f6f9fb2f75266c81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds element to end.  <a href="#a63f248bcd2fc8b5f6f9fb2f75266c81c">More...</a><br /></td></tr>
+<tr class="separator:a63f248bcd2fc8b5f6f9fb2f75266c81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a626c18e0d4a739ae7da52ba5086ba305"><td class="memItemLeft" align="right" valign="top">static const ::google::protobuf::Descriptor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a626c18e0d4a739ae7da52ba5086ba305">descriptor</a> ()</td></tr>
-<tr class="separator:a626c18e0d4a739ae7da52ba5086ba305"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a235c0683c55cecfac17175949d284cd2"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a235c0683c55cecfac17175949d284cd2">default_instance</a> ()</td></tr>
-<tr class="separator:a235c0683c55cecfac17175949d284cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8595f6fadc29f483ee0ecda0bf8ad95f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a8595f6fadc29f483ee0ecda0bf8ad95f">InitAsDefaultInstance</a> ()</td></tr>
-<tr class="separator:a8595f6fadc29f483ee0ecda0bf8ad95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4298cec704bf222e80d48fd976fa2a8"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ad4298cec704bf222e80d48fd976fa2a8">internal_default_instance</a> ()</td></tr>
-<tr class="separator:ad4298cec704bf222e80d48fd976fa2a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a761563721f1738cc38625743eaf01932"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a761563721f1738cc38625743eaf01932">kIndexInFileMessages</a> = 5</td></tr>
-<tr class="separator:a761563721f1738cc38625743eaf01932"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93d3399aa912429e7d1874fba48d384c"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a93d3399aa912429e7d1874fba48d384c">kGenderFieldNumber</a> = 3</td></tr>
-<tr class="separator:a93d3399aa912429e7d1874fba48d384c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8580412f138ad4d35cf48fb3dbeb626"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ac8580412f138ad4d35cf48fb3dbeb626">kIdFieldNumber</a> = 1</td></tr>
-<tr class="separator:ac8580412f138ad4d35cf48fb3dbeb626"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f60673197f6e624fab4ac45f2395efc"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a4f60673197f6e624fab4ac45f2395efc">kAgeFieldNumber</a> = 2</td></tr>
-<tr class="separator:a4f60673197f6e624fab4ac45f2395efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a211485e3a584153cee5a03212860e5f2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a211485e3a584153cee5a03212860e5f2">Chunk</a> = typename std::aligned_storage&lt; sizeof(T), std::alignment_of&lt; T &gt;::value &gt;::type</td></tr>
+<tr class="memdesc:a211485e3a584153cee5a03212860e5f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">POD type with same alignment requirement as for T's.  <a href="#a211485e3a584153cee5a03212860e5f2">More...</a><br /></td></tr>
+<tr class="separator:a211485e3a584153cee5a03212860e5f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a8acf99b9de4817e50a7b9189276ccacb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a8acf99b9de4817e50a7b9189276ccacb">SharedCtor</a> ()</td></tr>
-<tr class="separator:a8acf99b9de4817e50a7b9189276ccacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addaa4fdea809444afbdaca4055dd6af7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#addaa4fdea809444afbdaca4055dd6af7">SharedDtor</a> ()</td></tr>
-<tr class="separator:addaa4fdea809444afbdaca4055dd6af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c9e42fc7f20246bdec07ac3dff47fa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a2c9e42fc7f20246bdec07ac3dff47fa8">SetCachedSize</a> (int size) const final</td></tr>
-<tr class="separator:a2c9e42fc7f20246bdec07ac3dff47fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33504aef7f70bfd13db991af60c5ef38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a33504aef7f70bfd13db991af60c5ef38">InternalSwap</a> (<a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> *other)</td></tr>
-<tr class="separator:a33504aef7f70bfd13db991af60c5ef38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac76dfd4fe9cf181777fa96101b504e40"><td class="memItemLeft" align="right" valign="top">inline::google::protobuf::Arena *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ac76dfd4fe9cf181777fa96101b504e40">GetArenaNoVirtual</a> () const </td></tr>
-<tr class="separator:ac76dfd4fe9cf181777fa96101b504e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7eae347d84390d8d5df3426b8864f96b"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a7eae347d84390d8d5df3426b8864f96b">MaybeArenaPtr</a> () const </td></tr>
-<tr class="separator:a7eae347d84390d8d5df3426b8864f96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2a497e8a6577c9e2f808a430ee38141"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa2a497e8a6577c9e2f808a430ee38141">set_has_id</a> ()</td></tr>
-<tr class="separator:aa2a497e8a6577c9e2f808a430ee38141"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fbd62582c69af705710075b0882f558"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a4fbd62582c69af705710075b0882f558">clear_has_id</a> ()</td></tr>
-<tr class="separator:a4fbd62582c69af705710075b0882f558"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a8f21bc371d54f340abc817dd949dcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a9a8f21bc371d54f340abc817dd949dcc">set_has_age</a> ()</td></tr>
-<tr class="separator:a9a8f21bc371d54f340abc817dd949dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b6a1c7977153606f2daefba29f295ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a9b6a1c7977153606f2daefba29f295ff">clear_has_age</a> ()</td></tr>
-<tr class="separator:a9b6a1c7977153606f2daefba29f295ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a013ae16b73851fbfaafa9a52de29ebe9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a013ae16b73851fbfaafa9a52de29ebe9">set_has_gender</a> ()</td></tr>
-<tr class="separator:a013ae16b73851fbfaafa9a52de29ebe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa78401eb16d6c3dddfd7417eb2b2ba10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa78401eb16d6c3dddfd7417eb2b2ba10">clear_has_gender</a> ()</td></tr>
-<tr class="separator:aa78401eb16d6c3dddfd7417eb2b2ba10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff030fa7d89de07cda8f5856f23b0a07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc5/a00435.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aff030fa7d89de07cda8f5856f23b0a07">RequiredFieldsByteSizeFallback</a> () const </td></tr>
-<tr class="separator:aff030fa7d89de07cda8f5856f23b0a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f98e9e54da37bbf7c6ed0c2b40361d9"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a4f98e9e54da37bbf7c6ed0c2b40361d9">get_chunk</a> ()</td></tr>
+<tr class="memdesc:a4f98e9e54da37bbf7c6ed0c2b40361d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get next available chunk for element construction with placement new.  <a href="#a4f98e9e54da37bbf7c6ed0c2b40361d9">More...</a><br /></td></tr>
+<tr class="separator:a4f98e9e54da37bbf7c6ed0c2b40361d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a6504a04437e76fbe541db2b14ed75141"><td class="memItemLeft" align="right" valign="top">::google::protobuf::internal::InternalMetadataWithArena&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a6504a04437e76fbe541db2b14ed75141">_internal_metadata_</a></td></tr>
-<tr class="separator:a6504a04437e76fbe541db2b14ed75141"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fa1882a4730e1750b5784823b03512c"><td class="memItemLeft" align="right" valign="top">::google::protobuf::internal::HasBits&lt; 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a4fa1882a4730e1750b5784823b03512c">_has_bits_</a></td></tr>
-<tr class="separator:a4fa1882a4730e1750b5784823b03512c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaebd59a8b6bf722badb72ffb20770572"><td class="memItemLeft" align="right" valign="top">mutable::google::protobuf::internal::CachedSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aaebd59a8b6bf722badb72ffb20770572">_cached_size_</a></td></tr>
-<tr class="separator:aaebd59a8b6bf722badb72ffb20770572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4c9aa984d4000b2a343122cc330d644"><td class="memItemLeft" align="right" valign="top">::google::protobuf::internal::ArenaStringPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#af4c9aa984d4000b2a343122cc330d644">gender_</a></td></tr>
-<tr class="separator:af4c9aa984d4000b2a343122cc330d644"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4322ea873c02dd1f3d5193f96c51772f"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a4322ea873c02dd1f3d5193f96c51772f">id_</a></td></tr>
-<tr class="separator:a4322ea873c02dd1f3d5193f96c51772f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f7d05785eb0d61d4c75f900d275baad"><td class="memItemLeft" align="right" valign="top">::google::protobuf::int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a1f7d05785eb0d61d4c75f900d275baad">age_</a></td></tr>
-<tr class="separator:a1f7d05785eb0d61d4c75f900d275baad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1511fa16b228094d921eff996c589a3c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d4/d31/a00069.html#a211485e3a584153cee5a03212860e5f2">Chunk</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a1511fa16b228094d921eff996c589a3c">m_blocks</a></td></tr>
+<tr class="memdesc:a1511fa16b228094d921eff996c589a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector registers pointers to blocks of chunks.  <a href="#a1511fa16b228094d921eff996c589a3c">More...</a><br /></td></tr>
+<tr class="separator:a1511fa16b228094d921eff996c589a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c8760cd3a5b631432f37c55f5bc629"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d53/a00429.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#af2c8760cd3a5b631432f37c55f5bc629">m_size</a></td></tr>
+<tr class="memdesc:af2c8760cd3a5b631432f37c55f5bc629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of first free chunk when indexed contiguously.  <a href="#af2c8760cd3a5b631432f37c55f5bc629">More...</a><br /></td></tr>
+<tr class="separator:af2c8760cd3a5b631432f37c55f5bc629"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a437672657e3af2123b8beae13f7edf12"><td class="memItemLeft" align="right" valign="top">struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a437672657e3af2123b8beae13f7edf12">::protobuf_geogrid_2eproto::TableStruct</a></td></tr>
-<tr class="separator:a437672657e3af2123b8beae13f7edf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c168975784affb352d83cc47be22382"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a9c168975784affb352d83cc47be22382">swap</a> (<a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;a, <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;b)</td></tr>
-<tr class="separator:a9c168975784affb352d83cc47be22382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49fbb388cc38a72f5c5fd9bd40e0c4ea"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a49fbb388cc38a72f5c5fd9bd40e0c4ea">SVIterator&lt; T, N, Safe &gt;</a></td></tr>
+<tr class="separator:a49fbb388cc38a72f5c5fd9bd40e0c4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00bb8459b976c100c07b95da44243486"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a00bb8459b976c100c07b95da44243486">SVIterator&lt; T, N, Safe, T *, T &amp;, false &gt;</a></td></tr>
+<tr class="separator:a00bb8459b976c100c07b95da44243486"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00881">881</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5d1b711edfeb9bed9daea17421e8e3c7"></a>
+<div class="textblock"><h3>template&lt;typename T, size_t N = 512, bool Safe = true&gt;<br />
+class stride::util::SegmentedVector&lt; T, N, Safe &gt;</h3>
+
+<p>Container that stores objects "almost contiguously" (in a chain of blocks) and guarantees that pointers/iterators are not invalidated when the container grows. </p>
+<p>Elements are assigned to the container either sequentially through push_back and emplace_back or through direct adressing with emplace, at or the subscript operator. It supports most familiar operators except reserve (no need for advance reservation of capacity to avoid re-allocation that invalidates pointers as in std::vector) and insertion/deletion.</p>
+<p>Template parameters: T type of elements stored in the container N block size i.e. number of elements per block </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00053">53</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a7882e74f6cb8dd40fe7f359daf0376c3"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">proto::GeoGrid_Person::GeoGrid_Person </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">using <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> =  T</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00059">59</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ac6374e2d4155515b2dc1ba1cc233808e"></a>
+<a class="anchor" id="a4344636a6d7dea3aff481c178b5ff008"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> =  std::size_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00060">60</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa72e1f8f1437134e2ead160ca23c35bd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> =  <a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a>&lt;T, N&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00061">61</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac336ef543eb696055a43b39bbe70499f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html#ac336ef543eb696055a43b39bbe70499f">iterator</a> =  <a class="el" href="../../dc/dfe/a00125.html">SVIterator</a>&lt;T, N, Safe, T*, T&amp;, false&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00062">62</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1aba42e9e68bd96c3e7e07b089c648c1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> =  <a class="el" href="../../dc/dfe/a00125.html">SVIterator</a>&lt;T, N, Safe&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00063">63</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a211485e3a584153cee5a03212860e5f2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual proto::GeoGrid_Person::~GeoGrid_Person </td>
+          <td class="memname">using <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html#a211485e3a584153cee5a03212860e5f2">Chunk</a> =  typename std::aligned_storage&lt;sizeof(T), std::alignment_of&lt;T&gt;::value&gt;::type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>POD type with same alignment requirement as for T's. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00335">335</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ada0935b74686a1ab1a513c310ffbe90c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -324,727 +424,296 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Construct empty <a class="el" href="../../d4/d31/a00069.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a>. </p>
+<p>CAVEAT: if you resize itbut do not subsequently initialize all elements, the <a class="el" href="../../d4/d31/a00069.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a> destructor or a call to clear will cause a segmentation fault because of the destructor call on unitilialezed elements. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00073">73</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ab068076b7817bf37c69355c2eda871e4"></a>
+<a class="anchor" id="abe518edf461ce52cc405357f1a074673"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">proto::GeoGrid_Person::GeoGrid_Person </td>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a>&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Construct with given number of elements but DO NOT INITIALIZE them. </p>
+<p>CAVEAT: if you resize (as you do here) but do not subsequently initialize all elements, the <a class="el" href="../../d4/d31/a00069.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a> destructor or a call to clear will cause a segmentation fault because of the destructor call on unitilialezed elements. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00079">79</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9dc137bd2fc3f337a106e8bffcecf4a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a>&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d31/a00069.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct with given number of elements and INITIALIZE them with value. </p>
+<p>CAVEAT: if you resize (as you do here) but do not subsequently initialize all elements, the <a class="el" href="../../d4/d31/a00069.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a> destructor or a call to clear will cause a segmentation fault because of the destructor call on unitilialezed elements. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00085">85</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae4f9b0a0e5d4dace47647217f084242c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d31/a00069.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy constructor. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00088">88</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c2307e98e036cab31da16a478b4227d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move constructor. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00098">98</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8631db1786767b0e083f002f2a284757"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::~<a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00129">129</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae5cc9cb90500da056dfeaaec02b62ba6"></a>
+<a class="anchor" id="a492bbd496ed8cfb17473b0c0d384648a"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a>&amp; proto::GeoGrid_Person::operator= </td>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a>&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00890">890</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-<p>References <a class="el" href="../../d1/d72/a00204_source.html#l00960">GetArenaNoVirtual()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_ae5cc9cb90500da056dfeaaec02b62ba6_cgraph.gif" border="0" usemap="#d4/d31/a00069_ae5cc9cb90500da056dfeaaec02b62ba6_cgraph" alt=""/></div>
-<map name="d4/d31/a00069_ae5cc9cb90500da056dfeaaec02b62ba6_cgraph" id="d4/d31/a00069_ae5cc9cb90500da056dfeaaec02b62ba6_cgraph">
-<area shape="rect" id="node2" href="../../d4/d31/a00069.html#ac76dfd4fe9cf181777fa96101b504e40" title="proto::GeoGrid_Person\l::GetArenaNoVirtual" alt="" coords="220,5,387,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a17fa777f6a6d8419db949c5c44872a74"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const ::google::protobuf::UnknownFieldSet&amp; proto::GeoGrid_Person::unknown_fields </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00909">909</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a63d0555db008e02a18ea03591fbd2df9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">inline ::google::protobuf::UnknownFieldSet* proto::GeoGrid_Person::mutable_unknown_fields </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00913">913</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a626c18e0d4a739ae7da52ba5086ba305"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const ::google::protobuf::Descriptor* proto::GeoGrid_Person::descriptor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a235c0683c55cecfac17175949d284cd2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a>&amp; proto::GeoGrid_Person::default_instance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8595f6fadc29f483ee0ecda0bf8ad95f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void proto::GeoGrid_Person::InitAsDefaultInstance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad4298cec704bf222e80d48fd976fa2a8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a>* proto::GeoGrid_Person::internal_default_instance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00922">922</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-<p>References <a class="el" href="../../d0/dc5/a00343.html#a513dcf96a19c73e559fa630aa0ce6ecf">proto::_GeoGrid_Person_default_instance_</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac15f10bec604604095ac71cc838e0f28"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::Swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> *&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a37b46001079706e6e2798dc23db1a7e9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a>* proto::GeoGrid_Person::New </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00933">933</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7256579125874ce2771575984f3496d2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a>* proto::GeoGrid_Person::New </td>
-          <td>(</td>
-          <td class="paramtype">::google::protobuf::Arena *&#160;</td>
-          <td class="paramname"><em>arena</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00935">935</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac748a2834d63b173d09fc7110d74a6e4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::CopyFrom </td>
-          <td>(</td>
-          <td class="paramtype">const ::<a class="el" href="../../d4/de8/a00061.html">google::protobuf::Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a029bc8331a45a6014b26bcddd0983336"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::MergeFrom </td>
-          <td>(</td>
-          <td class="paramtype">const ::<a class="el" href="../../d4/de8/a00061.html">google::protobuf::Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8c938d05787cfe64775999c7341eac46"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::CopyFrom </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a384142d262ab46c3daf727f18e16204a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::MergeFrom </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9f02a47da27d54818122e694e6e72ba4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::Clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5726d35f79d811de991fcc34fc84efdf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool proto::GeoGrid_Person::IsInitialized </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2312066e1829b5993ef718bcf8f0e1f7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d0/dc5/a00435.html">size_t</a> proto::GeoGrid_Person::ByteSizeLong </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a28f631d9c80c6fe0aedadcea6ce9644f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool proto::GeoGrid_Person::MergePartialFromCodedStream </td>
-          <td>(</td>
-          <td class="paramtype">::google::protobuf::io::CodedInputStream *&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4c7db4276ecfb7c560d81c5a43b8d48e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::SerializeWithCachedSizes </td>
-          <td>(</td>
-          <td class="paramtype">::google::protobuf::io::CodedOutputStream *&#160;</td>
-          <td class="paramname"><em>output</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a22477c2cdf24cbed3b24379343cb7ecd"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">::google::protobuf::uint8* proto::GeoGrid_Person::InternalSerializeWithCachedSizesToArray </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>deterministic</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">::google::protobuf::uint8 *&#160;</td>
-          <td class="paramname"><em>target</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abe7decd01cc2e3bb14853fec0603f878"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int proto::GeoGrid_Person::GetCachedSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00951">951</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8acf99b9de4817e50a7b9189276ccacb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::SharedCtor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="addaa4fdea809444afbdaca4055dd6af7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::SharedDtor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2c9e42fc7f20246bdec07ac3dff47fa8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::SetCachedSize </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a33504aef7f70bfd13db991af60c5ef38"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::InternalSwap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d31/a00069.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Copy assignment. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00104">104</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ac76dfd4fe9cf181777fa96101b504e40"></a>
+<a class="anchor" id="ad6e3a92686eeec3498a14e797b05b3b8"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">inline ::google::protobuf::Arena* proto::GeoGrid_Person::GetArenaNoVirtual </td>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a>&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::operator= </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00960">960</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Move assignment. </p>
 
-<p>Referenced by <a class="el" href="../../d1/d72/a00204_source.html#l00890">operator=()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00118">118</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a31c61443835e8d73449d0304bbe5b5bc"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access specified element with bounds checking. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00136">136</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00300">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_ac76dfd4fe9cf181777fa96101b504e40_icgraph.gif" border="0" usemap="#d4/d31/a00069_ac76dfd4fe9cf181777fa96101b504e40_icgraph" alt=""/></div>
-<map name="d4/d31/a00069_ac76dfd4fe9cf181777fa96101b504e40_icgraph" id="d4/d31/a00069_ac76dfd4fe9cf181777fa96101b504e40_icgraph">
-<area shape="rect" id="node2" href="../../d4/d31/a00069.html#ae5cc9cb90500da056dfeaaec02b62ba6" title="proto::GeoGrid_Person\l::operator=" alt="" coords="220,5,387,47"/>
+<div class="center"><img src="../../d4/d31/a00069_a31c61443835e8d73449d0304bbe5b5bc_icgraph.gif" border="0" usemap="#d4/d31/a00069_a31c61443835e8d73449d0304bbe5b5bc_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_a31c61443835e8d73449d0304bbe5b5bc_icgraph" id="d4/d31/a00069_a31c61443835e8d73449d0304bbe5b5bc_icgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a4e0b15a5f6a72420feedc9a006d17fa7" title="Removes the last element. " alt="" coords="284,5,493,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a7eae347d84390d8d5df3426b8864f96b"></a>
+<a class="anchor" id="a0d24e651eb0ed32e7103ed81d863ef06"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void* proto::GeoGrid_Person::MaybeArenaPtr </td>
+          <td class="memname">const T&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::at </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00961">961</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a99fc212749d326bea5caf8313efecdcc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">::google::protobuf::Metadata proto::GeoGrid_Person::GetMetadata </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae7ba015b293c5396b8eb139aeab4b245"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool proto::GeoGrid_Person::has_gender </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -1055,19 +724,23 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01672">1672</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Access specified element with bounds checking. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00145">145</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa8f478d054b1ee1570481764fee8ffa3"></a>
+<a class="anchor" id="aea25c3c1ac7a825c74601087fc91ee97"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid_Person::clear_gender </td>
+          <td class="memname">T&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::back </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1080,19 +753,23 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01675">1675</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Access the last element. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00154">154</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5e6cb2c57bc156fc4947243d1151999b"></a>
+<a class="anchor" id="aa2bdeb712ab515db9dc7fbe900233eb4"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const ::std::string &amp; proto::GeoGrid_Person::gender </td>
+          <td class="memname">const T&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::back </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1105,22 +782,26 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01680">1680</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Access the last element. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00157">157</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a41f1d07ad084428d39632fc73539d96c"></a>
+<a class="anchor" id="adfcd7fc57ae5801b4d29c97fe7cdc377"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid_Person::set_gender </td>
+          <td class="memname">T&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">const ::std::string &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d4/d53/a00429.html">size_t</a>&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1131,35 +812,431 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01685">1685</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Access specified element (no bounds checking). </p>
 
-<p>Referenced by <a class="el" href="../../df/d24/a00217_source.html#l00109">gengeopop::GeoGridProtoWriter::WritePerson()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00163">163</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac5feb7685e4ff8e46ec5b4ec2af93483"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d53/a00429.html">size_t</a>&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access specified element (no bounds checking). </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00166">166</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0178098bae26c74f6d0d48cf77d057f7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#ac336ef543eb696055a43b39bbe70499f">iterator</a> <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns an iterator to the beginning of the container. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00176">176</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2342f7a0b6cea1bbc7a7fecf8a864fa0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a const_iterator to the beginning of the container. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00179">179</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ace914c758677123e4a8d391cd711a5f8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::cbegin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a const_iterator to the beginning of the container. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00182">182</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a904ec0aae93c8dbd345607378f141898"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#ac336ef543eb696055a43b39bbe70499f">iterator</a> <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns an iterator to the end of the container. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00185">185</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00176">stride::util::SegmentedVector&lt; Person &gt;::begin()</a>, and <a class="el" href="../../d4/d66/a00289_source.html#l00182">stride::util::SegmentedVector&lt; Person &gt;::cbegin()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_a41f1d07ad084428d39632fc73539d96c_icgraph.gif" border="0" usemap="#d4/d31/a00069_a41f1d07ad084428d39632fc73539d96c_icgraph" alt=""/></div>
-<map name="d4/d31/a00069_a41f1d07ad084428d39632fc73539d96c_icgraph" id="d4/d31/a00069_a41f1d07ad084428d39632fc73539d96c_icgraph">
-<area shape="rect" id="node2" href="../../d5/d79/a00030.html#aeeb27df99670bf86ed6564b1affdd986" title="Create a ProtoBuf Person containing all the info needed to reconstruct a Person. " alt="" coords="220,5,444,47"/>
-<area shape="rect" id="node3" href="../../d5/d79/a00030.html#a3163b8464f599d204597a01dfc47f08f" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="492,5,716,47"/>
+<div class="center"><img src="../../d4/d31/a00069_a904ec0aae93c8dbd345607378f141898_icgraph.gif" border="0" usemap="#d4/d31/a00069_a904ec0aae93c8dbd345607378f141898_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_a904ec0aae93c8dbd345607378f141898_icgraph" id="d4/d31/a00069_a904ec0aae93c8dbd345607378f141898_icgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a0178098bae26c74f6d0d48cf77d057f7" title="Returns an iterator to the beginning of the container. " alt="" coords="295,5,504,47"/>
+<area shape="rect" id="node3" href="../../d4/d31/a00069.html#ace914c758677123e4a8d391cd711a5f8" title="Returns a const_iterator to the beginning of the container. " alt="" coords="295,71,504,112"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aafcbaddde62a012a510083ef2703d73a"></a>
+<a class="anchor" id="aaabbc431baae7fff1f1aaa7489578519"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid_Person::set_gender </td>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::end </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a const_iterator to the end of the container. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00188">188</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a661e877760bdf6cd246e4038b677434a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::cend </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a const_iterator to the end. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00191">191</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae6e77c3d0e64d983ee26e44336291604"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::capacity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns number of elements that can be stored without allocating additional blocks. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00198">198</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00221">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d31/a00069_ae6e77c3d0e64d983ee26e44336291604_icgraph.gif" border="0" usemap="#d4/d31/a00069_ae6e77c3d0e64d983ee26e44336291604_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_ae6e77c3d0e64d983ee26e44336291604_icgraph" id="d4/d31/a00069_ae6e77c3d0e64d983ee26e44336291604_icgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#aa9ed4e4bbfdbff03a55d378cdf7f5707" title="Increases the number of elements (but DOES NOT INITIALIZE the additional elements) or pops elements (..." alt="" coords="263,5,472,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a66676df2d3b52bf0eb5896f2d48837af"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether container is empty. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00201">201</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a87837cab9ccde57c5179dc7f9245f9fc"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::get_block_count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns number of currently allocated blocks. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00204">204</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00221">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d31/a00069_a87837cab9ccde57c5179dc7f9245f9fc_icgraph.gif" border="0" usemap="#d4/d31/a00069_a87837cab9ccde57c5179dc7f9245f9fc_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_a87837cab9ccde57c5179dc7f9245f9fc_icgraph" id="d4/d31/a00069_a87837cab9ccde57c5179dc7f9245f9fc_icgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#aa9ed4e4bbfdbff03a55d378cdf7f5707" title="Increases the number of elements (but DOES NOT INITIALIZE the additional elements) or pops elements (..." alt="" coords="263,5,472,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa93e6b50e8a1f177829b52d8a41ce979"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::get_elements_per_block </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns number of elements block (template parameter 'N'). </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00207">207</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e279c31f261b01f7798355e27401bfe"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of elements. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00210">210</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00191">stride::util::SegmentedVector&lt; Person &gt;::cend()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00266">stride::util::SegmentedVector&lt; Person &gt;::clear()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00185">stride::util::SegmentedVector&lt; Person &gt;::end()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00221">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>, <a class="el" href="../../d2/d71/a00309_source.html#l00037">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../de/d25/a00290_source.html#l00072">stride::Sim::TimeStep()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d31/a00069_a0e279c31f261b01f7798355e27401bfe_icgraph.gif" border="0" usemap="#d4/d31/a00069_a0e279c31f261b01f7798355e27401bfe_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_a0e279c31f261b01f7798355e27401bfe_icgraph" id="d4/d31/a00069_a0e279c31f261b01f7798355e27401bfe_icgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a661e877760bdf6cd246e4038b677434a" title="Returns a const_iterator to the end. " alt="" coords="263,5,472,47"/>
+<area shape="rect" id="node3" href="../../d4/d31/a00069.html#ac3c204c505c4c4e2e0ef23dd7e29d5de" title="Clears the content. " alt="" coords="263,71,472,112"/>
+<area shape="rect" id="node4" href="../../d4/d31/a00069.html#a904ec0aae93c8dbd345607378f141898" title="Returns an iterator to the end of the container. " alt="" coords="263,136,472,177"/>
+<area shape="rect" id="node5" href="../../d4/d31/a00069.html#aa9ed4e4bbfdbff03a55d378cdf7f5707" title="Increases the number of elements (but DOES NOT INITIALIZE the additional elements) or pops elements (..." alt="" coords="263,201,472,243"/>
+<area shape="rect" id="node6" href="../../d3/d32/a00105.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="289,267,445,308"/>
+<area shape="rect" id="node8" href="../../d4/d3a/a00101.html#a032911d7270c91e0a6a9c55f68800096" title="Run one time step, computing full simulation (default) or only index case. " alt="" coords="287,333,447,359"/>
+<area shape="rect" id="node7" href="../../d9/dcc/a00102.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="550,267,685,308"/>
+<area shape="rect" id="node9" href="../../d4/d3a/a00101.html#ab93f63f0db601f8cd6543e6510808048" title="Get the random number manager. " alt="" coords="520,333,715,359"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9ed4e4bbfdbff03a55d378cdf7f5707"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::resize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a>&#160;</td>
+          <td class="paramname"><em>new_size</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1170,28 +1247,46 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01699">1699</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Increases the number of elements (but DOES NOT INITIALIZE the additional elements) or pops elements (and DOES RUN those element's destructor). </p>
+<p>CAVEAT: if you resize (as you do here) but do not subsequently initialize all elements, the <a class="el" href="../../d4/d31/a00069.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a> destructor or a call to clear will cause a segmentation fault because of the destructor call on unitilialezed elements. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00221">221</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00252">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>, and <a class="el" href="../../d4/d66/a00289_source.html#l00079">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d31/a00069_aa9ed4e4bbfdbff03a55d378cdf7f5707_icgraph.gif" border="0" usemap="#d4/d31/a00069_aa9ed4e4bbfdbff03a55d378cdf7f5707_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_aa9ed4e4bbfdbff03a55d378cdf7f5707_icgraph" id="d4/d31/a00069_aa9ed4e4bbfdbff03a55d378cdf7f5707_icgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a61b8157733abf6be32ed20fe0fc5e57b" title="stride::util::SegmentedVector\l\&lt; Person \&gt;::resize" alt="" coords="268,5,477,47"/>
+<area shape="rect" id="node3" href="../../d4/d31/a00069.html#abe518edf461ce52cc405357f1a074673" title="Construct with given number of elements but DO NOT INITIALIZE them. " alt="" coords="263,71,483,112"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a876925f5ee9252a6cf9654737be5d357"></a>
+<a class="anchor" id="a61b8157733abf6be32ed20fe0fc5e57b"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid_Person::set_gender </td>
+          <td class="memname">void <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::resize </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a>&#160;</td>
+          <td class="paramname"><em>new_size</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/dc5/a00435.html">size_t</a>&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d31/a00069.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1206,19 +1301,21 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01706">1706</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00252">252</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a04cf19d7849fa35109d8aaf1d752b789"></a>
+<a class="anchor" id="ac3c204c505c4c4e2e0ef23dd7e29d5de"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string * proto::GeoGrid_Person::mutable_gender </td>
+          <td class="memname">void <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1231,161 +1328,83 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01713">1713</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Clears the content. </p>
 
-</div>
-</div>
-<a class="anchor" id="a336baffeedb36bc039949ac4ce1cc6fc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string * proto::GeoGrid_Person::release_gender </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00266">266</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01719">1719</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae025827ef8f5443a8c772e3fda217a36"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::set_allocated_gender </td>
-          <td>(</td>
-          <td class="paramtype">::std::string *&#160;</td>
-          <td class="paramname"><em>gender</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01728">1728</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7b0b0f5cce61481d44b8d6817fa7ff19"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool proto::GeoGrid_Person::has_id </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01630">1630</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0a064354e6bb35f7cc49f442c1fe7cb5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::clear_id </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01633">1633</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4af5dc5058c3aa6cf84838094d6514af"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">google::protobuf::int64 proto::GeoGrid_Person::id </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01638">1638</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/dd5/a00215_source.html#l00219">gengeopop::GeoGridProtoReader::ParsePerson()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00104">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, and <a class="el" href="../../d4/d66/a00289_source.html#l00129">stride::util::SegmentedVector&lt; Person &gt;::~SegmentedVector()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_a4af5dc5058c3aa6cf84838094d6514af_icgraph.gif" border="0" usemap="#d4/d31/a00069_a4af5dc5058c3aa6cf84838094d6514af_icgraph" alt=""/></div>
-<map name="d4/d31/a00069_a4af5dc5058c3aa6cf84838094d6514af_icgraph" id="d4/d31/a00069_a4af5dc5058c3aa6cf84838094d6514af_icgraph">
-<area shape="rect" id="node2" href="../../d5/d16/a00029.html#ace84e5989875f9deb376a2ed83d7a4c3" title="Create a Person based on protobuf Person info. " alt="" coords="240,5,472,47"/>
-<area shape="rect" id="node3" href="../../d5/d16/a00029.html#a551020787ddca406bd25104d8d6f7026" title="Actually perform the read and return the GeoGrid. " alt="" coords="520,5,752,47"/>
+<div class="center"><img src="../../d4/d31/a00069_ac3c204c505c4c4e2e0ef23dd7e29d5de_icgraph.gif" border="0" usemap="#d4/d31/a00069_ac3c204c505c4c4e2e0ef23dd7e29d5de_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_ac3c204c505c4c4e2e0ef23dd7e29d5de_icgraph" id="d4/d31/a00069_ac3c204c505c4c4e2e0ef23dd7e29d5de_icgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a492bbd496ed8cfb17473b0c0d384648a" title="Copy assignment. " alt="" coords="273,5,483,47"/>
+<area shape="rect" id="node3" href="../../d4/d31/a00069.html#a8631db1786767b0e083f002f2a284757" title="Destructor. " alt="" coords="263,71,493,112"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="af5a849164874e312f51a5d100ecb2c61"></a>
+<a class="anchor" id="aadda0fa9cba3c25598d83fc335dab5e4"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<div class="memtemplate">
+template&lt;class... Args&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid_Person::set_id </td>
+          <td class="memname">T* <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::emplace </td>
           <td>(</td>
-          <td class="paramtype">::google::protobuf::int64&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a>&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs element in-place at position pos. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00284">284</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2cd11f9b95b20b69378fc9268c380096"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<div class="memtemplate">
+template&lt;class... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::emplace_back </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1396,59 +1415,67 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01643">1643</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Constructs element in-place at the end. </p>
 
-<p>Referenced by <a class="el" href="../../df/d24/a00217_source.html#l00109">gengeopop::GeoGridProtoWriter::WritePerson()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00293">293</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e0b15a5f6a72420feedc9a006d17fa7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::pop_back </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the last element. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00300">300</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00221">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_af5a849164874e312f51a5d100ecb2c61_icgraph.gif" border="0" usemap="#d4/d31/a00069_af5a849164874e312f51a5d100ecb2c61_icgraph" alt=""/></div>
-<map name="d4/d31/a00069_af5a849164874e312f51a5d100ecb2c61_icgraph" id="d4/d31/a00069_af5a849164874e312f51a5d100ecb2c61_icgraph">
-<area shape="rect" id="node2" href="../../d5/d79/a00030.html#aeeb27df99670bf86ed6564b1affdd986" title="Create a ProtoBuf Person containing all the info needed to reconstruct a Person. " alt="" coords="220,5,444,47"/>
-<area shape="rect" id="node3" href="../../d5/d79/a00030.html#a3163b8464f599d204597a01dfc47f08f" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="492,5,716,47"/>
+<div class="center"><img src="../../d4/d31/a00069_a4e0b15a5f6a72420feedc9a006d17fa7_icgraph.gif" border="0" usemap="#d4/d31/a00069_a4e0b15a5f6a72420feedc9a006d17fa7_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_a4e0b15a5f6a72420feedc9a006d17fa7_icgraph" id="d4/d31/a00069_a4e0b15a5f6a72420feedc9a006d17fa7_icgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#aa9ed4e4bbfdbff03a55d378cdf7f5707" title="Increases the number of elements (but DOES NOT INITIALIZE the additional elements) or pops elements (..." alt="" coords="263,5,472,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a70daee500e07743f6460bd5d1e2b9f6f"></a>
+<a class="anchor" id="a74bf9839c2e38750216689f965a647de"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool proto::GeoGrid_Person::has_age </td>
+          <td class="memname">T* <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::push_back </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01651">1651</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab3773ed7c54d916606fb0c0ad3f08a3b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::clear_age </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1459,60 +1486,40 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01654">1654</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Adds element to end. </p>
 
-</div>
-</div>
-<a class="anchor" id="aff796dcc38d801c94f34280e473cd3d4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">google::protobuf::int64 proto::GeoGrid_Person::age </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00320">320</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01659">1659</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/dd5/a00215_source.html#l00219">gengeopop::GeoGridProtoReader::ParsePerson()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00104">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00221">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>, and <a class="el" href="../../d4/d66/a00289_source.html#l00088">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_aff796dcc38d801c94f34280e473cd3d4_icgraph.gif" border="0" usemap="#d4/d31/a00069_aff796dcc38d801c94f34280e473cd3d4_icgraph" alt=""/></div>
-<map name="d4/d31/a00069_aff796dcc38d801c94f34280e473cd3d4_icgraph" id="d4/d31/a00069_aff796dcc38d801c94f34280e473cd3d4_icgraph">
-<area shape="rect" id="node2" href="../../d5/d16/a00029.html#ace84e5989875f9deb376a2ed83d7a4c3" title="Create a Person based on protobuf Person info. " alt="" coords="252,5,484,47"/>
-<area shape="rect" id="node3" href="../../d5/d16/a00029.html#a551020787ddca406bd25104d8d6f7026" title="Actually perform the read and return the GeoGrid. " alt="" coords="532,5,764,47"/>
+<div class="center"><img src="../../d4/d31/a00069_a74bf9839c2e38750216689f965a647de_icgraph.gif" border="0" usemap="#d4/d31/a00069_a74bf9839c2e38750216689f965a647de_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_a74bf9839c2e38750216689f965a647de_icgraph" id="d4/d31/a00069_a74bf9839c2e38750216689f965a647de_icgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a492bbd496ed8cfb17473b0c0d384648a" title="Copy assignment. " alt="" coords="268,5,477,47"/>
+<area shape="rect" id="node3" href="../../d4/d31/a00069.html#aa9ed4e4bbfdbff03a55d378cdf7f5707" title="Increases the number of elements (but DOES NOT INITIALIZE the additional elements) or pops elements (..." alt="" coords="268,71,477,112"/>
+<area shape="rect" id="node4" href="../../d4/d31/a00069.html#ae4f9b0a0e5d4dace47647217f084242c" title="Copy constructor. " alt="" coords="263,136,483,177"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a36332585a29c97a4fa000feaef30192a"></a>
+<a class="anchor" id="a63f248bcd2fc8b5f6f9fb2f75266c81c"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void proto::GeoGrid_Person::set_age </td>
+          <td class="memname">T* <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::push_back </td>
           <td>(</td>
-          <td class="paramtype">::google::protobuf::int64&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1523,206 +1530,66 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01664">1664</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Adds element to end. </p>
 
-<p>Referenced by <a class="el" href="../../df/d24/a00217_source.html#l00109">gengeopop::GeoGridProtoWriter::WritePerson()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00327">327</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f98e9e54da37bbf7c6ed0c2b40361d9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::get_chunk </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get next available chunk for element construction with placement new. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00343">343</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00293">stride::util::SegmentedVector&lt; Person &gt;::emplace_back()</a>, and <a class="el" href="../../d4/d66/a00289_source.html#l00320">stride::util::SegmentedVector&lt; Person &gt;::push_back()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_a36332585a29c97a4fa000feaef30192a_icgraph.gif" border="0" usemap="#d4/d31/a00069_a36332585a29c97a4fa000feaef30192a_icgraph" alt=""/></div>
-<map name="d4/d31/a00069_a36332585a29c97a4fa000feaef30192a_icgraph" id="d4/d31/a00069_a36332585a29c97a4fa000feaef30192a_icgraph">
-<area shape="rect" id="node2" href="../../d5/d79/a00030.html#aeeb27df99670bf86ed6564b1affdd986" title="Create a ProtoBuf Person containing all the info needed to reconstruct a Person. " alt="" coords="220,5,444,47"/>
-<area shape="rect" id="node3" href="../../d5/d79/a00030.html#a3163b8464f599d204597a01dfc47f08f" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="492,5,716,47"/>
+<div class="center"><img src="../../d4/d31/a00069_a4f98e9e54da37bbf7c6ed0c2b40361d9_icgraph.gif" border="0" usemap="#d4/d31/a00069_a4f98e9e54da37bbf7c6ed0c2b40361d9_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_a4f98e9e54da37bbf7c6ed0c2b40361d9_icgraph" id="d4/d31/a00069_a4f98e9e54da37bbf7c6ed0c2b40361d9_icgraph">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a2cd11f9b95b20b69378fc9268c380096" title="Constructs element in&#45;place at the end. " alt="" coords="263,5,472,47"/>
+<area shape="rect" id="node3" href="../../d4/d31/a00069.html#a74bf9839c2e38750216689f965a647de" title="Adds element to end. " alt="" coords="263,71,472,112"/>
 </map>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="aa2a497e8a6577c9e2f808a430ee38141"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::set_has_id </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01631">1631</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4fbd62582c69af705710075b0882f558"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::clear_has_id </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01632">1632</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9a8f21bc371d54f340abc817dd949dcc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::set_has_age </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01652">1652</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9b6a1c7977153606f2daefba29f295ff"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::clear_has_age </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01653">1653</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a013ae16b73851fbfaafa9a52de29ebe9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::set_has_gender </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01673">1673</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa78401eb16d6c3dddfd7417eb2b2ba10"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Person::clear_has_gender </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01674">1674</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aff030fa7d89de07cda8f5856f23b0a07"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d0/dc5/a00435.html">size_t</a> proto::GeoGrid_Person::RequiredFieldsByteSizeFallback </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a class="anchor" id="a437672657e3af2123b8beae13f7edf12"></a>
+<a class="anchor" id="a49fbb388cc38a72f5c5fd9bd40e0c4ea"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend struct ::<a class="el" href="../../d2/db1/a00070.html">protobuf_geogrid_2eproto::TableStruct</a></td>
+          <td class="memname">friend class <a class="el" href="../../dc/dfe/a00125.html">SVIterator</a>&lt; T, N, Safe &gt;</td>
         </tr>
       </table>
   </td>
@@ -1732,33 +1599,21 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01017">1017</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00338">338</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9c168975784affb352d83cc47be22382"></a>
+<a class="anchor" id="a00bb8459b976c100c07b95da44243486"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">friend class <a class="el" href="../../dc/dfe/a00125.html">SVIterator</a>&lt; T, N, Safe, T *, T &amp;, false &gt;</td>
         </tr>
       </table>
   </td>
@@ -1768,108 +1623,22 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00929">929</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00339">339</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a761563721f1738cc38625743eaf01932"></a>
+<a class="anchor" id="a1511fa16b228094d921eff996c589a3c"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr int proto::GeoGrid_Person::kIndexInFileMessages = 5</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00926">926</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a93d3399aa912429e7d1874fba48d384c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int proto::GeoGrid_Person::kGenderFieldNumber = 3</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00973">973</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac8580412f138ad4d35cf48fb3dbeb626"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int proto::GeoGrid_Person::kIdFieldNumber = 1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00988">988</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4f60673197f6e624fab4ac45f2395efc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int proto::GeoGrid_Person::kAgeFieldNumber = 2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00995">995</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6504a04437e76fbe541db2b14ed75141"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">::google::protobuf::internal::InternalMetadataWithArena proto::GeoGrid_Person::_internal_metadata_</td>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d4/d31/a00069.html#a211485e3a584153cee5a03212860e5f2">Chunk</a>*&gt; <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::m_blocks</td>
         </tr>
       </table>
   </td>
@@ -1879,19 +1648,25 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01011">1011</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Vector registers pointers to blocks of chunks. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00357">357</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00136">stride::util::SegmentedVector&lt; Person &gt;::at()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00154">stride::util::SegmentedVector&lt; Person &gt;::back()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00198">stride::util::SegmentedVector&lt; Person &gt;::capacity()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00266">stride::util::SegmentedVector&lt; Person &gt;::clear()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00284">stride::util::SegmentedVector&lt; Person &gt;::emplace()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00204">stride::util::SegmentedVector&lt; Person &gt;::get_block_count()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00343">stride::util::SegmentedVector&lt; Person &gt;::get_chunk()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00104">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00163">stride::util::SegmentedVector&lt; Person &gt;::operator[]()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00300">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00221">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>, and <a class="el" href="../../d4/d66/a00289_source.html#l00088">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4fa1882a4730e1750b5784823b03512c"></a>
+<a class="anchor" id="af2c8760cd3a5b631432f37c55f5bc629"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">::google::protobuf::internal::HasBits&lt;1&gt; proto::GeoGrid_Person::_has_bits_</td>
+          <td class="memname"><a class="el" href="../../d4/d53/a00429.html">size_t</a> <a class="el" href="../../d4/d31/a00069.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::m_size</td>
         </tr>
       </table>
   </td>
@@ -1901,108 +1676,24 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01012">1012</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Index of first free chunk when indexed contiguously. </p>
 
-</div>
-</div>
-<a class="anchor" id="aaebd59a8b6bf722badb72ffb20770572"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">mutable ::google::protobuf::internal::CachedSize proto::GeoGrid_Person::_cached_size_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="../../d4/d66/a00289_source.html#l00358">358</a> of file <a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01013">1013</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af4c9aa984d4000b2a343122cc330d644"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">::google::protobuf::internal::ArenaStringPtr proto::GeoGrid_Person::gender_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01014">1014</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4322ea873c02dd1f3d5193f96c51772f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">::google::protobuf::int64 proto::GeoGrid_Person::id_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01015">1015</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1f7d05785eb0d61d4c75f900d275baad"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">::google::protobuf::int64 proto::GeoGrid_Person::age_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01016">1016</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d66/a00289_source.html#l00136">stride::util::SegmentedVector&lt; Person &gt;::at()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00154">stride::util::SegmentedVector&lt; Person &gt;::back()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00176">stride::util::SegmentedVector&lt; Person &gt;::begin()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00182">stride::util::SegmentedVector&lt; Person &gt;::cbegin()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00266">stride::util::SegmentedVector&lt; Person &gt;::clear()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00284">stride::util::SegmentedVector&lt; Person &gt;::emplace()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00201">stride::util::SegmentedVector&lt; Person &gt;::empty()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00343">stride::util::SegmentedVector&lt; Person &gt;::get_chunk()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00104">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00300">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00221">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00088">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>, and <a class="el" href="../../d4/d66/a00289_source.html#l00210">stride::util::SegmentedVector&lt; Person &gt;::size()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a></li>
+<li><a class="el" href="../../d4/d66/a00289_source.html">SegmentedVector.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d0/dc5/a00343.html">proto</a></li><li class="navelem"><a class="el" href="../../d4/d31/a00069.html">GeoGrid_Person</a></li>
-    <li class="footer">Generated on Mon Feb 4 2019 16:56:20 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d8/d8e/a00344.html">stride</a></li><li class="navelem"><a class="el" href="../../db/d10/a00350.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d31/a00069.html">SegmentedVector</a></li>
+    <li class="footer">Generated on Tue Feb 5 2019 11:23:09 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

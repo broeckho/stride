@@ -1,13 +1,13 @@
 var a00029 =
 [
-    [ "GeoGridProtoReader", "d5/d16/a00029.html#a7bdef2c04a1cddd0b8f7cedd4e717f69", null ],
-    [ "GeoGridProtoReader", "d5/d16/a00029.html#add7114774c8d5aac483508ed0f3c8b45", null ],
-    [ "Read", "d5/d16/a00029.html#a551020787ddca406bd25104d8d6f7026", null ],
-    [ "operator=", "d5/d16/a00029.html#abace93a7d2f7d9c23c1c8a2d3618a669", null ],
-    [ "ParseLocation", "d5/d16/a00029.html#ae064b4ccc75caa353b193c1f58885661", null ],
-    [ "ParseCoordinate", "d5/d16/a00029.html#ab4b797ef7bd19d8122192fcbdcba8f50", null ],
-    [ "ParseContactCenter", "d5/d16/a00029.html#ab89a78cf3e3f75243998f7b6ff312375", null ],
-    [ "ParseContactPool", "d5/d16/a00029.html#a19e0ff14a2aef228d926d53132fa767b", null ],
-    [ "ParsePerson", "d5/d16/a00029.html#ace84e5989875f9deb376a2ed83d7a4c3", null ],
-    [ "m_geoGrid", "d5/d16/a00029.html#ada3ae9fc9f8d7dccaa43356258b92150", null ]
+    [ "GeoGridReader", "d5/d16/a00029.html#a7274a8aba64a533998887ec46fee72bd", null ],
+    [ "GeoGridReader", "d5/d16/a00029.html#a05b9b4cd41490fa218056043090dca06", null ],
+    [ "~GeoGridReader", "d5/d16/a00029.html#a6013cfc52c2643a6a967b781ce25a334", null ],
+    [ "operator=", "d5/d16/a00029.html#a2ed6028b0ac4ee06a820208188ffdb68", null ],
+    [ "Read", "d5/d16/a00029.html#a75a53634f7886fdd97d544027663ec9c", null ],
+    [ "AddCommutes", "d5/d16/a00029.html#af173ec28b1fb8313b64c8a14308b9710", null ],
+    [ "m_people", "d5/d16/a00029.html#a25c66335a8ce2710593123c80ebea5e3", null ],
+    [ "m_commutes", "d5/d16/a00029.html#ad638e9563c6270f35e5a6c03b40572f6", null ],
+    [ "m_inputStream", "d5/d16/a00029.html#a55b57af40336cf2ad466154e97b68701", null ],
+    [ "m_population", "d5/d16/a00029.html#a09f66d214c32d99edff6ddf0ea2b5cbd", null ]
 ];
