@@ -1,4 +1,4 @@
-import argparse
+'''import argparse
 import csv
 import multiprocessing
 import os
@@ -155,3 +155,4 @@ if __name__=="__main__":
     parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in pool for multiprocessing")
     args = parser.parse_args()
     main(args.numRuns, args.R0s, args.immunityFileChildren, args.immunityFileAdults, args.poolSize)
+'''

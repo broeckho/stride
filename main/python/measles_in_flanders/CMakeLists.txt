@@ -19,8 +19,9 @@
 # Copy scripts to the bin folder.
 #================================================================================================
 INSTALL(FILES
+    measlesClusteringER.py
+    measlesClusteringERPostProcessing.py
 		measlesClustering.py
-		measlesClusteringFitting.py
     measlesClusteringPostProcessing.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
