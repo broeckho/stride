@@ -52,7 +52,7 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
         personType->SetAge(18);
         poolType->AddMember(personType.get());
         householdType->AddPool(poolType);
-        config.generated.household_types.push_back(householdType);
+        config.generated.reference_households.push_back(householdType);
 
         auto pop       = Population::Create();
         auto geoGrid   = make_shared<GeoGrid>(pop.get());
@@ -79,13 +79,16 @@ TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
 
 TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 {
-        auto householdType = make_shared<Household>();
-        auto poolType      = new ContactPool(0, ContactPoolType::Id::Household);
-        auto personType    = make_shared<Person>();
-        personType->SetAge(18);
-        poolType->AddMember(personType.get());
-        householdType->AddPool(poolType);
-        config.generated.household_types.push_back(householdType);
+        auto person = make_shared<Person>();
+
+        {       // Set up the reference household.
+                auto refHousehold = make_shared<Household>();
+                auto pool         = new ContactPool(0, ContactPoolType::Id::Household);
+                person->SetAge(18);
+                pool->AddMember(person.get());
+                refHousehold->AddPool(pool);
+                config.generated.reference_households.push_back(refHousehold);
+        }
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -119,30 +122,27 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 }
 TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
 {
-        shared_ptr<Person> personType1;
-        shared_ptr<Person> personType2;
-        shared_ptr<Person> personType3;
+        auto person  = make_shared<Person>();
+        auto person1 = make_shared<Person>();
+        auto person2 = make_shared<Person>();
 
-        {
-                auto householdType = make_shared<Household>();
-                auto poolType      = new ContactPool(0, ContactPoolType::Id::Household);
-                personType1        = make_shared<Person>();
-                personType1->SetAge(18);
-                poolType->AddMember(personType1.get());
-                householdType->AddPool(poolType);
-                config.generated.household_types.push_back(householdType);
+        {       // Set up reference household with one person.
+                auto refHousehold  = make_shared<Household>();
+                auto pool          = new ContactPool(0, ContactPoolType::Id::Household);
+                person->SetAge(18);
+                pool->AddMember(person.get());
+                refHousehold->AddPool(pool);
+                config.generated.reference_households.push_back(refHousehold);
         }
-        {
-                auto householdType = make_shared<Household>();
-                auto poolType      = new ContactPool(0, ContactPoolType::Id::Household);
-                personType2        = make_shared<Person>();
-                personType2->SetAge(12);
-                poolType->AddMember(personType2.get());
-                householdType->AddPool(poolType);
-                personType3 = make_shared<Person>();
-                personType3->SetAge(56);
-                poolType->AddMember(personType3.get());
-                config.generated.household_types.push_back(householdType);
+        {       // Set up reference household with two persons.
+                auto refHousehold  = make_shared<Household>();
+                auto pool          = new ContactPool(0, ContactPoolType::Id::Household);
+                person1->SetAge(12);
+                pool->AddMember(person1.get());
+                refHousehold->AddPool(pool);
+                person2->SetAge(56);
+                pool->AddMember(person2.get());
+                config.generated.reference_households.push_back(refHousehold);
         }
 
         auto       pop       = Population::Create();

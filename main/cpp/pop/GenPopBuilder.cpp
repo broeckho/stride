@@ -50,8 +50,7 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
         // Configure.
         // --------------------------------------------------------------
         GeoGridConfig geoGridConfig(m_config_pt);
-        GenPopController genGeoPopController(stride_logger, geoGridConfig, m_rn_manager);
-        genGeoPopController.UsePopulation(pop);
+        GenPopController genGeoPopController(stride_logger, geoGridConfig, m_rn_manager, pop);
 
         // --------------------------------------------------------------
         // Read input files.

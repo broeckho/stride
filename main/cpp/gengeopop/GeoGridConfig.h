@@ -104,7 +104,7 @@ public:
                 unsigned int contactCenters = 1;
 
                 /// A list of possible households.
-                std::vector<std::shared_ptr<Household>> household_types{};
+                std::vector<std::shared_ptr<Household>> reference_households{};
         } generated;
 
         // -----------------------------------------------------------------------------------------

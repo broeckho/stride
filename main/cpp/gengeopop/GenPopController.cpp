@@ -37,9 +37,9 @@ namespace gengeopop {
 using namespace std;
 
 GenPopController::GenPopController(shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
-                                   stride::util::RnMan& rnManager)
+                                   stride::util::RnMan& rnManager, shared_ptr<stride::Population> pop)
     : m_geoGridConfig(geoGridConfig), m_rnManager(rnManager), m_geoGrid(nullptr),
-      m_population(stride::Population::Create()), m_citiesReader(nullptr), m_commutesReader(nullptr),
+      m_population(std::move(pop)), m_citiesReader(nullptr), m_commutesReader(nullptr),
       m_householdsReader(nullptr), m_logger(move(logger))
 {
 }
@@ -113,7 +113,5 @@ void GenPopController::GenPop()
 }
 
 shared_ptr<GeoGrid> GenPopController::GetGeoGrid() { return m_geoGrid; }
-
-void GenPopController::UsePopulation(shared_ptr<stride::Population> pop) { m_population = move(pop); }
 
 } // namespace gengeopop

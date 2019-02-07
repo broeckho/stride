@@ -53,22 +53,11 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 // Parse parameters.
                 // --------------------------------------------------------------
-                CmdLine cmd("gengeopop", ' ', "1.0");
-
-                string           sseed = "The seed sequence for the random engine. Defaults to {1,2,3,4}.";
-                ValueArg<string> rng_seed("", "seed", sseed, false, "1,2,3,4", "SEED", cmd);
+                CmdLine cmd("genpop", ' ', "1.0");
 
                 string sou = "Output file with synthetic population in protobuf format.                    "
                              "Defaults to --output gengeopop.proto.";
                 ValueArg<string> outputFile("", "output", sou, false, "gengeopop.proto", "OUTPUT FILE", cmd);
-
-                vector<string>           levels{"trace", "debug", "info", "warn", "error", "critical", "off"};
-                ValuesConstraint<string> vc_levels(levels);
-                string                   slog = "Log level. Defaults to --loglevel info.";
-                ValueArg<string>         logLevel("", "loglevel", slog, false, "info", &vc_levels, cmd);
-
-
-
 
                 string si = "Look for configuration file specified by the -c file=<file> "
                             " or -c <file> in the stride install directories";
@@ -85,7 +74,6 @@ int main(int argc, char* argv[])
                 ValueArg<string> configArg("c", "config", sc, false, "run_generate_default.xml", "CONFIGURATION", cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
-
 
                 // -----------------------------------------------------------------------------------------
                 // Get configuration and path with overrides (if any).
@@ -112,7 +100,8 @@ int main(int argc, char* argv[])
                 // Create logger.
                 // --------------------------------------------------------------
                 shared_ptr<spdlog::logger> logger = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
-                logger->set_level(spdlog::level::from_str(logLevel.getValue()));
+                const auto logLevel = configPt.get<string>("run.stride_log_level");
+                logger->set_level(spdlog::level::from_str(logLevel));
                 logger->flush_on(spdlog::level::err);
 
                 // --------------------------------------------------------------

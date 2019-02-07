@@ -45,9 +45,6 @@ public:
         /// Returns the fraction of the population which are between 18 and 65 years of age
         double GetFraction1865Years() const;
 
-        /// Returns the total amount of people in the found Households
-        unsigned int GetTotalPersonsInHouseholds() const;
-
         /// Returns the average size of a Household
         double AverageHouseholdSize() const;
 

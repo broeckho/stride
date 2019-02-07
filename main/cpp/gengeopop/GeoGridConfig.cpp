@@ -22,6 +22,7 @@
 namespace gengeopop {
 
 using stride::util::intToDottedString;
+using namespace std;
 using namespace boost::property_tree;
 
 GeoGridConfig::GeoGridConfig() : input{}, calculated{}, generated{}, constants{} {}
@@ -37,58 +38,58 @@ GeoGridConfig::GeoGridConfig(const ptree& configPt)
         input.fraction_1865_years_active = configPt.get<double>("run.geopop_gen.fraction_1865_years_active");
 }
 
-void GeoGridConfig::Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<HouseholdReader> householdReader)
+void GeoGridConfig::Calculate(shared_ptr<GeoGrid> geoGrid, shared_ptr<HouseholdReader> householdReader)
 {
         calculated.compulsoryPupils = static_cast<unsigned int>(
-            std::floor(householdReader->GetFractionCompulsoryPupils() * input.populationSize));
+            floor(householdReader->GetFractionCompulsoryPupils() * input.populationSize));
         calculated.popcount_1865_years =
-            static_cast<unsigned int>(std::floor(householdReader->GetFraction1865Years() * input.populationSize));
+            static_cast<unsigned int>(floor(householdReader->GetFraction1865Years() * input.populationSize));
         calculated.popcount_1826_years =
-            static_cast<unsigned int>(std::floor(householdReader->GetFraction1826Years() * input.populationSize));
+            static_cast<unsigned int>(floor(householdReader->GetFraction1826Years() * input.populationSize));
         calculated.popcount_1826_years_and_student = static_cast<unsigned int>(
-            std::floor(input.fraction_1826_years_WhichAreStudents * calculated.popcount_1826_years));
+            floor(input.fraction_1826_years_WhichAreStudents * calculated.popcount_1826_years));
 
         calculated.popcount_1865_and_years_active = static_cast<unsigned int>(
-            std::floor(input.fraction_1865_years_active *
+            floor(input.fraction_1865_years_active *
                        (calculated.popcount_1865_years - calculated.popcount_1826_years_and_student)));
 
         calculated.households = static_cast<unsigned int>(
-            std::floor(static_cast<double>(input.populationSize) / householdReader->AverageHouseholdSize()));
+            floor(static_cast<double>(input.populationSize) / householdReader->AverageHouseholdSize()));
 
-        generated.household_types = householdReader->GetHouseHolds();
+        generated.reference_households = std::move(householdReader->GetHouseHolds());
 
-        for (const std::shared_ptr<Location>& loc : *geoGrid) {
+        for (const shared_ptr<Location>& loc : *geoGrid) {
                 loc->CalculatePopulation(input.populationSize);
         }
 }
 
-std::ostream& operator<<(std::ostream& out, const GeoGridConfig& config)
+ostream& operator<<(ostream& out, const GeoGridConfig& config)
 {
         const int width = 53;
-        out << std::left << "Input:" << std::endl;
-        out << std::left << std::setw(width) << "Fraction of active commuting"
-            << config.input.fraction_active_commutingPeople << std::endl;
-        out << std::left << std::setw(width) << "Fraction of students commuting"
-            << config.input.fraction_student_commutingPeople << std::endl;
-        out << std::left << std::setw(width) << "Fraction 18-65 (without students) which are active"
-            << config.input.fraction_1865_years_active << std::endl;
-        out << std::left << std::setw(width) << "Fraction 18-26 years which are students"
-            << config.input.fraction_1826_years_WhichAreStudents << std::endl;
-        out << std::left << std::setw(width) << "Population size" << intToDottedString(config.input.populationSize)
-            << std::endl;
-        out << std::endl;
-        out << std::left << "Calculated:" << std::endl;
-        out << std::left << std::setw(width) << "Compulsory pupils"
-            << intToDottedString(config.calculated.compulsoryPupils) << std::endl;
-        out << std::left << std::setw(width) << "18-26 years"
-            << intToDottedString(config.calculated.popcount_1826_years) << std::endl;
-        out << std::left << std::setw(width) << "18-26 years which are student"
-            << intToDottedString(config.calculated.popcount_1826_years_and_student) << std::endl;
-        out << std::left << std::setw(width) << "18-65 years"
-            << intToDottedString(config.calculated.popcount_1865_years) << std::endl;
-        out << std::left << std::setw(width) << "18-65 years which are active"
-            << intToDottedString(config.calculated.popcount_1865_and_years_active) << std::endl;
-        out << std::endl;
+        out << left << "Input:" << endl;
+        out << left << setw(width) << "Fraction of active commuting"
+            << config.input.fraction_active_commutingPeople << endl;
+        out << left << setw(width) << "Fraction of students commuting"
+            << config.input.fraction_student_commutingPeople << endl;
+        out << left << setw(width) << "Fraction 18-65 (without students) which are active"
+            << config.input.fraction_1865_years_active << endl;
+        out << left << setw(width) << "Fraction 18-26 years which are students"
+            << config.input.fraction_1826_years_WhichAreStudents << endl;
+        out << left << setw(width) << "Population size" << intToDottedString(config.input.populationSize)
+            << endl;
+        out << endl;
+        out << left << "Calculated:" << endl;
+        out << left << setw(width) << "Compulsory pupils"
+            << intToDottedString(config.calculated.compulsoryPupils) << endl;
+        out << left << setw(width) << "18-26 years"
+            << intToDottedString(config.calculated.popcount_1826_years) << endl;
+        out << left << setw(width) << "18-26 years which are student"
+            << intToDottedString(config.calculated.popcount_1826_years_and_student) << endl;
+        out << left << setw(width) << "18-65 years"
+            << intToDottedString(config.calculated.popcount_1865_years) << endl;
+        out << left << setw(width) << "18-65 years which are active"
+            << intToDottedString(config.calculated.popcount_1865_and_years_active) << endl;
+        out << endl;
         return out;
 }
 

@@ -108,74 +108,58 @@ Where:
      Displays usage information and exits.
 \end{verbatim}
 
+For example if you want run with the default configuration file, but you
+want a different logging level from the one specified in the default configuration,
+(available choices are: \texttt{trace}, \texttt{debug}, \texttt{info}, \texttt{warn},
+\texttt{error}, \texttt{critical}, \texttt{off})) execute:\\
+\verb!         stride --override stride_log_level=trace!
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % genpop
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Generating a population and geographical grid}
 
- The generation of a population and geographical grid (sometimes called GeoGrid) can be started from the workspace directory, with the command \mbox{``\texttt{./bin/genpop}''}. The following options are available:
+ The generation of a population and geographical grid (sometimes called GeoGrid) can be started
+ from the workspace directory, with the command \mbox{``\texttt{./bin/genpop}''}.
+ The following options are available:
 \begin{verbatim}
-bin/genpop  [--loglevel <trace|debug|info|warn|error|critical|off>]
-                  [--output <OUTPUT FILE>] [--seed <SEED>]
-                  [--populationSize <POPULATION SIZE>] [--fracActive
-                  <FRACTION OF PEOPLE ACTIVE>] [--frac1826students
-                  <FRACTION 18-26 STUDENTS>] [--fracStudentCommuting
-                  <FRACTION OF STUDENTS COMMUTING>] [--fracActiveCommuting
-                  <FRACTION OF ACTIVE PEOPLE COMMUTING>] [--household
-                  <HOUSEHOLDS FILE>] [--commuting <COMMUTING FILE>]
-                  [--cities <CITIES FILE>] [--] [--version] [-h]
- 
-Where: 
- 
-   --loglevel <trace|debug|info|warn|error|critical|off>
-     Log level. Defaults to --loglevel info.
- 
+   bin/genpop  [-c <CONFIGURATION>] [-o <<NAME>=<VALUE>>] ...  [-i]
+               [--output <OUTPUT FILE>] [--] [--version] [-h]
+
+Where:
+
+   -c <CONFIGURATION>,  --config <CONFIGURATION>
+     Specifies the run configuration parameters. The format may be either
+     -c file=<file> or -c name=<name>. The first is most used and may be
+     shortened to -c <file>. The second refers to built-in configurations
+     specified by their name.
+
+     Defaults to -c file=run_default.xml
+
+   -o <<NAME>=<VALUE>>,  --override <<NAME>=<VALUE>>  (accepted multiple
+      times)
+     Override configuration file parameters with values provided here.
+
+   -i,  --installed
+     Look for configuration file specified by the -c file=<file>  or -c
+     <file> in the stride install directories
+
    --output <OUTPUT FILE>
-     Output file with synthetic population in protobuf format.             
+     Output file with synthetic population in protobuf format.
      Defaults to --output gengeopop.proto.
- 
-   --seed <SEED>
-     The seed sequence for the random engine. Defaults to {1,2,3,4}.
- 
-   --populationSize <POPULATION SIZE>
-     Populations size. Defaults to --populationSize 600000.
- 
-   --fracActive <FRACTION OF PEOPLE ACTIVE>
-     Fraction of people that are active. Defaults to --fracActive 0.75.
- 
-   --frac1826students <FRACTION 18-26 STUDENTS>
-     Fraction of 18-26 year old persons that are students.                 
-     Defaults to --frac1826students 0.5.
- 
-   --fracStudentCommuting <FRACTION OF STUDENTS COMMUTING>
-     Fraction of students that commute.                                    
-     Defaults to --fracStudentCommuting 0.5.
- 
-   --fracActiveCommuting <FRACTION OF ACTIVE PEOPLE COMMUTING>
-     Fraction of active persons that commute.                              
-     Defaults to --fracActiveCommuting 0.5.
- 
-   --household <HOUSEHOLDS FILE>
-     Input file with reference set of households in csv format.            
-     Defaults to --household households_flanders.csv.
- 
-   --commuting <COMMUTING FILE>
-     Input file with data on commuting in csv format.                      
-     Defaults to --commuting flanders_commuting.csv.
- 
-   --cities <CITIES FILE>
-     Input file with data on cities in csv format.                         
-     Defaults to --cities flanders_cities.csv.
- 
+
    --,  --ignore_rest
      Ignores the rest of the labeled arguments following this flag.
- 
    --version
      Displays version information and exits.
  
    -h,  --help
      Displays usage information and exits.
 \end{verbatim}
+
+The use of the \texttt{--override} option with respect to the parameters in the configuration file is identical to
+that with the stride executable.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Wrapper

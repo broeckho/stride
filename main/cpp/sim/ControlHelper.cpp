@@ -77,6 +77,7 @@ void ControlHelper::CheckOutputPrefix()
 
 void ControlHelper::InstallLogger()
 {
+        // spd log levels are: trace, debug, info, warn, error, critical, off
         const auto path     = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
         const auto logLevel = m_config_pt.get<string>("run.stride_log_level");
         m_stride_logger     = LogUtils::CreateCliLogger("stride_logger", path.string());

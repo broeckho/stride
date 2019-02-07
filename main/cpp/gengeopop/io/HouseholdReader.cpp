@@ -19,12 +19,10 @@ namespace gengeopop {
 
 HouseholdReader::HouseholdReader() : m_households() {}
 
-const std::vector<std::shared_ptr<Household>>& gengeopop::HouseholdReader::GetHouseHolds() const
+const std::vector<std::shared_ptr<Household>>& HouseholdReader::GetHouseHolds() const
 {
         return m_households;
 }
-
-unsigned int HouseholdReader::GetTotalPersonsInHouseholds() const { return m_total; }
 
 double HouseholdReader::AverageHouseholdSize() const
 {
