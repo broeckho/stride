@@ -5,7 +5,7 @@ var indexSectionsWithContent =
   2: "gps",
   3: "abcdefghiklmnprstuw",
   4: "_abcdefghiklmnopqrstuvw~",
-  5: "_acdefghiklmnopstuw",
+  5: "_acdefghiklmnoprstuw",
   6: "abceilprstv",
   7: "ghi",
   8: "acefghiknprstw",

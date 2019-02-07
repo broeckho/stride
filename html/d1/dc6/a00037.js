@@ -6,7 +6,6 @@ var a00037 =
     [ "GetFractionCompulsoryPupils", "d1/dc6/a00037.html#aabc5667ac72b37e9be4dfc727c20889b", null ],
     [ "GetFraction1826Years", "d1/dc6/a00037.html#a9daac5241b155fe7f18c2e926f63f408", null ],
     [ "GetFraction1865Years", "d1/dc6/a00037.html#a8c68d034fb29714ef0fbe932296b6188", null ],
-    [ "GetTotalPersonsInHouseholds", "d1/dc6/a00037.html#a161db2d7207f8290e4713cdeb765f5e1", null ],
     [ "AverageHouseholdSize", "d1/dc6/a00037.html#a36694a79fc20fd388f880436226b57a7", null ],
     [ "m_households", "d1/dc6/a00037.html#ab16da3ff1106f39edc59727239e9f702", null ],
     [ "m_total", "d1/dc6/a00037.html#aecfe2659d2826af0a8329955d430d820", null ],

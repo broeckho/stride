@@ -16,6 +16,7 @@ var searchData=
   ['readfromstream',['ReadFromStream',['../dd/d42/a00109.html#a2f3c33a76164f6cbc6e31aab6f8b560d',1,'stride::util::CSV']]],
   ['readptreefile',['ReadPtreeFile',['../d3/d00/a00113.html#a5d54b4b545adf557c65c238ad2fb7801',1,'stride::util::FileSys::ReadPtreeFile(const filesys::path &amp;f_p)'],['../d3/d00/a00113.html#ad397ab1440ed0fb182ed9afc7ea6fa10',1,'stride::util::FileSys::ReadPtreeFile(const std::string &amp;f_n)']]],
   ['recovered',['Recovered',['../d8/d8e/a00344.html#a738f5251821f53315d2aebf214fbd070a5c4c4cf7bbab0d76fe61420aee14a5ca',1,'stride']]],
+  ['reference_5fhouseholds',['reference_households',['../dc/de2/a00024.html#a89b9400a6144a9dae98c49f36f8bde2c',1,'gengeopop::GeoGridConfig']]],
   ['register',['Register',['../da/d72/a00124.html#acddc520ab930ec98e120790b91fb8021',1,'stride::util::Subject']]],
   ['registerviewers',['RegisterViewers',['../d9/da4/a00078.html#af0131365a6c658898bf3dd49eead3ed7',1,'stride::ControlHelper']]],
   ['release_5fcoordinate',['release_coordinate',['../df/d03/a00062.html#a9e8a5ae790adc68a5454bd78baa7ef7e',1,'proto::GeoGrid_Location']]],

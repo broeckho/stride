@@ -5,6 +5,5 @@ var searchData=
   ['unregister',['Unregister',['../da/d72/a00124.html#aaa38f379243ec0d27b47b5bd110ebe75',1,'stride::util::Subject']]],
   ['unregisterall',['UnregisterAll',['../da/d72/a00124.html#a8e0f20cb6cc045cf215f5d5a0963046f',1,'stride::util::Subject']]],
   ['update',['Update',['../d1/d1e/a00087.html#a26b7fd4e8c9107413d09592734bae3ce',1,'stride::Health::Update()'],['../d1/d44/a00098.html#abeed34b336b17866bb881b77237c76c4',1,'stride::Person::Update(bool isWorkOff, bool isSchoolOff, bool adaptiveSymptomaticBehavior)'],['../d1/d44/a00098.html#a7817141d9072654dae557adccaa62991',1,'stride::Person::Update(Person *p)'],['../d1/d88/a00128.html#a9f3a2f9efda499fa6a80f3871c7298d7',1,'stride::viewers::CliViewer::Update()'],['../d9/d47/a00129.html#a8128b6620992860cad456275e2173b16',1,'stride::viewers::InfectedFileViewer::Update()'],['../d6/db3/a00130.html#ac539c7549cc8c19530813f0bdb35a14d',1,'stride::viewers::InfectedViewer::Update()'],['../d7/d06/a00131.html#ae2840bec7fc5f76db6e79130b61fff19',1,'stride::viewers::PersonsFileViewer::Update()'],['../d5/deb/a00132.html#a1e54b49cad6f7b645668551b08762e28',1,'stride::viewers::SummaryFileViewer::Update()']]],
-  ['upper',['upper',['../d1/d7c/a00003.html#af3eccaec5b5d42ead4b5d7078b05691b',1,'gengeopop::AABB']]],
-  ['usepopulation',['UsePopulation',['../d4/d51/a00017.html#a32af29277ce6b2fc549d19925467a25a',1,'gengeopop::GenPopController']]]
+  ['upper',['upper',['../d1/d7c/a00003.html#af3eccaec5b5d42ead4b5d7078b05691b',1,'gengeopop::AABB']]]
 ];
