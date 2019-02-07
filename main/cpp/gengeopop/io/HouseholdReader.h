@@ -24,32 +24,50 @@
 namespace gengeopop {
 
 /**
- * Create a Reader that retrieves the different Household profiles from a given file
+ * Retrieves the reference Household profiles from file.
  * This can be implemented using different input file types. Currently CSV is implemented.
  */
 class HouseholdReader
 {
 public:
-        /// Construct the HouseholdReader
-        HouseholdReader();
+        /// Construct the HouseholdReader.
+        HouseholdReader(): m_households() {}
 
-        /// Return the Households found in the inputfile
-        const std::vector<std::shared_ptr<Household>>& GetHouseHolds() const;
-
-        /// Returns the fraction of the population which are still of an age where they attend school
-        double GetFractionCompulsoryPupils() const;
-
-        /// Returns the fraction of the population which are between 18 and 26 years of age
-        double GetFraction1826Years() const;
-
-        /// Returns the fraction of the population which are between 18 and 65 years of age
-        double GetFraction1865Years() const;
-
-        /// Returns the average size of a Household
-        double AverageHouseholdSize() const;
-
-        /// Default destructor
+        /// Default destructor.
         virtual ~HouseholdReader() = default;
+
+        /// Add the locations to the GeoGrid.
+        virtual void FillGeoGrid(std::shared_ptr<GeoGrid> p) = 0;
+
+        /// Returns the average size of a Household.
+        double GetAverageHouseholdSize() const
+        {
+                return static_cast<double>(m_total) / static_cast<double>(m_households.size());
+        }
+
+        /// Returns the fraction of the population which are still of an age where they attend school.
+        double GetFractionCompulsoryPupils() const
+        {
+                return static_cast<double>(m_totalCompulsory) / static_cast<double>(m_total);
+        }
+
+        /// Returns the fraction of the population which are between 18 and 26 years of age.
+        double GetFraction1826Years() const
+        {
+                return static_cast<double>(m_total1826Years) / static_cast<double>(m_total);
+        }
+
+        /// Returns the fraction of the population which are between 18 and 65 years of age.
+        double GetFraction1865Years() const
+        {
+                return static_cast<double>(m_total1865Years) / static_cast<double>(m_total);
+        }
+
+        /// Return the Households found in the inputfile.
+        const std::vector<std::shared_ptr<Household>>& GetHouseHolds() const
+        {
+                return m_households;
+        }
 
 protected:
         std::vector<std::shared_ptr<Household>> m_households; ///< The households which are (being) found.

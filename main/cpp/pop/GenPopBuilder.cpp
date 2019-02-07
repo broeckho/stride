@@ -50,7 +50,7 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
         // Configure.
         // --------------------------------------------------------------
         GeoGridConfig geoGridConfig(m_config_pt);
-        GenPopController genGeoPopController(stride_logger, geoGridConfig, m_rn_manager, pop);
+        GenPopController genPopController(stride_logger, geoGridConfig, m_rn_manager, pop);
 
         // --------------------------------------------------------------
         // Read input files.
@@ -61,7 +61,7 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
         if (geopop_gen.count("commuting_file")) {
                 commutesFile = m_config_pt.get<std::string>("run.geopop_gen.commuting_file");
         }
-        genGeoPopController.ReadDataFiles(m_config_pt.get<std::string>("run.geopop_gen.cities_file"), commutesFile,
+        genPopController.ReadDataFiles(m_config_pt.get<std::string>("run.geopop_gen.cities_file"), commutesFile,
                                           m_config_pt.get<std::string>("run.geopop_gen.household_file"));
 
         stride_logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
@@ -70,7 +70,7 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
         // Generate Geo
         // --------------------------------------------------------------
         stride_logger->info("Starting Gen-Geo");
-        genGeoPopController.GenGeo();
+        genPopController.GenGeo();
         stride_logger->info("ContactCenters generated: {}", geoGridConfig.generated.contactCenters);
         stride_logger->info("Finished Gen-Geo");
 
@@ -78,10 +78,10 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
         // Generate Pop
         // --------------------------------------------------------------
         stride_logger->info("Starting Gen-Pop");
-        genGeoPopController.GenPop();
+        genPopController.GenPop();
         stride_logger->info("Finished Gen-Pop");
 
-        pop->m_geoGrid = genGeoPopController.GetGeoGrid();
+        pop->m_geoGrid = genPopController.GetGeoGrid();
 
         return pop;
 }

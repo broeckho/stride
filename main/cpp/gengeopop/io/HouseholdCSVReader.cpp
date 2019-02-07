@@ -14,28 +14,33 @@
  */
 
 #include "HouseholdCSVReader.h"
-
+#include "gengeopop/GeoGrid.h"
 #include "util/CSV.h"
 
-gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream)
-    : m_persons(), m_contactPools()
+namespace gengeopop {
+
+HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream)
+        : m_persons(), m_contactPools(), m_input_stream(std::move(inputStream)) {}
+
+
+void HouseholdCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid>)
 {
-        stride::util::CSV reader(*(inputStream.get()));
+        stride::util::CSV reader(*(m_input_stream.get()));
 
         unsigned int id = 1;
 
-        for (const stride::util::CSVRow& row : reader) {
-                auto household = std::make_shared<gengeopop::Household>();
+        for (const stride::util::CSVRow &row : reader) {
+                auto household = std::make_shared<Household>();
 
                 // Create contactpool of the household.
                 m_contactPools.emplace_back(id++, stride::ContactPoolType::Id::Household);
-                stride::ContactPool* newCP = &m_contactPools.back();
+                stride::ContactPool *newCP = &m_contactPools.back();
 
                 for (std::size_t i = 0; i < 12; i++) {
                         unsigned int age;
                         try {
                                 age = row.GetValue<unsigned int>(i);
-                        } catch (const std::bad_cast& e) {
+                        } catch (const std::bad_cast &e) {
                                 // NA
                                 break;
                         }
@@ -57,11 +62,13 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
                         stride::Person p;
                         m_persons.push_back(p);
 
-                        stride::Person* p_ptr = &m_persons.back();
+                        stride::Person *p_ptr = &m_persons.back();
                         p_ptr->SetAge(age);
                         newCP->AddMember(p_ptr);
                 }
                 household->AddPool(newCP);
                 m_households.push_back(household);
         }
+}
+
 }

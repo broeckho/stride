@@ -29,12 +29,17 @@ public:
         /// Construct the HouseholdCSVReader with an istream containing the CSV data.
         explicit HouseholdCSVReader(std::unique_ptr<std::istream> inputStream);
 
+        /// Add the locations to the GeoGrid.
+        void FillGeoGrid(std::shared_ptr<GeoGrid>) override;
+
 private:
         ///< Persons used in this Household, segmented vector to be able to have working pointers to it.
         stride::util::SegmentedVector<stride::Person> m_persons;
 
         ///< Contactpools used in this Household, segmented vector to be able to have working pointers to it.
         stride::util::SegmentedVector<stride::ContactPool> m_contactPools;
+
+        std::unique_ptr<std::istream> m_input_stream;
 };
 
 } // namespace gengeopop

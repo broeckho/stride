@@ -116,13 +116,13 @@ public:
         /// No copy assignment
         GeoGrid operator=(const GeoGrid&) = delete;
 
-        /// Adds a location to this GeoGrid
+        /// Adds a location to this GeoGrid.
         void AddLocation(std::shared_ptr<Location> location);
 
         /// Disables the addLocation method and builds the kdtree.
         void Finalize();
 
-        /// Search for locations in \p radius around \p start
+        /// Search for locations in \p radius around \p start.
         std::vector<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start,
                                                                      double                    radius) const;
 
@@ -151,40 +151,39 @@ public:
                              get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
         }
 
-        /// Gets amount of Location
+        /// Gets amount of Location.
         size_t size() const;
 
-        /// Remove element of GeoGrid
+        /// Remove element of GeoGrid.
         void remove(const std::shared_ptr<Location>& location);
 
-        /// Gets a Location by index, doesn't performs a range check
+        /// Gets a Location by index, doesn't performs a range check.
         std::shared_ptr<Location> operator[](size_t index);
 
-        /// Gets a Location by index, doesn't performs a range check
+        /// Gets a Location by index, doesn't performs a range check.
         std::shared_ptr<Location> Get(size_t index);
 
-        /// Gets a Location by id and check if the id exists
+        /// Gets a Location by id and check if the id exists.
         std::shared_ptr<Location> GetById(unsigned int id);
 
-        /// Create and store a Person in the GeoGrid and return a pointer to it, which works until deletion of the
-        /// GeoGrid
+        /// Create and store a Person in the GeoGrid and return its pointer (which works until deletion of GeoGrid).
         template <typename... Args>
         stride::Person* CreatePerson(Args&&... args)
         {
                 return m_population->CreatePerson(args...);
         }
 
-        /// Create a ContactPool of the given type and return a non-owning pointer
+        /// Create a ContactPool of the given type and return a non-owning pointer.
         stride::ContactPool* CreateContactPool(stride::ContactPoolType::Id type);
 
         /// Get the population of this GeoGrid
         stride::Population* GetPopulation();
 
-        /// Build a GeoAggregator with a predefined functor and given args for the Policy
+        /// Build a GeoAggregator with a predefined functor and given args for the Policy.
         template <typename Policy, typename F>
         GeoAggregator<Policy, F> BuildAggregator(F functor, typename Policy::Args&& args) const;
 
-        /// Build a GeoAggregator that gets its functor when calling, with given args for the Policy
+        /// Build a GeoAggregator that gets its functor when calling, with given args for the Policy.
         template <typename Policy>
         GeoAggregator<Policy> BuildAggregator(typename Policy::Args&& args) const;
 
@@ -192,32 +191,32 @@ public:
         using iterator       = std::vector<std::shared_ptr<Location>>::iterator;
         using const_iterator = std::vector<std::shared_ptr<Location>>::const_iterator;
 
-        /// Iterator to first Location
+        /// Iterator to first Location.
         iterator begin() { return m_locations.begin(); }
 
-        /// Iterator to the end of the Location storage
+        /// Iterator to the end of the Location storage.
         iterator end() { return m_locations.end(); }
 
-        /// Const Iterator to first Location
+        /// Const Iterator to first Location.
         const_iterator cbegin() const { return m_locations.cbegin(); }
 
-        /// Const iterator to the end of the Location storage
+        /// Const iterator to the end of the Location storage.
         const_iterator cend() const { return m_locations.cend(); }
 
 private:
-        void CheckFinalized(const std::string& functionName)
-            const; ///< Checks whether the GeoGrid is finalized and thus certain operations can(not) be used
+        ///< Checks whether the GeoGrid is finalized and thus certain operations can(not) be used
+        void CheckFinalized(const std::string& functionName) const;
 
 private:
-        std::vector<std::shared_ptr<Location>> m_locations; ///< Locations in this geoGrid
+        std::vector<std::shared_ptr<Location>> m_locations; ///< Locations in this geoGrid.
         std::unordered_map<unsigned int, std::shared_ptr<Location>>
             m_locationsToIdIndex; ///< Locations in this geoGrid indexed by Id.
 
-        stride::Population* m_population; ///< Stores, but does not take ownership
+        stride::Population* m_population; ///< Stores, but does not take ownership.
 
         bool m_finalized; ///< Is this finalized yet?
 
-        KdTree<geogrid_detail::KdTree2DPoint> m_tree; ///< Internal KdTree for quick spatial lookup
+        KdTree<geogrid_detail::KdTree2DPoint> m_tree; ///< Internal KdTree for quick spatial lookup.
 };
 
 } // namespace gengeopop

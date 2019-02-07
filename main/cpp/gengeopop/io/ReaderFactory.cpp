@@ -31,32 +31,18 @@ using namespace std;
 
 shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const string& filename)
 {
-        return CreateCitiesReader(FileSys::GetDataDir() / filesys::path(filename));
-}
-
-shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const filesys::path& path)
-{
-        return make_shared<CitiesCSVReader>(OpenFile(path));
+        return make_shared<CitiesCSVReader>(OpenFile(FileSys::GetDataDir() / filesys::path(filename)));
 }
 
 shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const string& filename)
 {
-        return CreateCommutesReader(FileSys::GetDataDir() / filesys::path(filename));
-}
-
-shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const filesys::path& path)
-{
-        return make_shared<CommutesCSVReader>(OpenFile(path));
+        return make_shared<CommutesCSVReader>(OpenFile(FileSys::GetDataDir() / filesys::path(filename)));
 }
 
 shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const string& filename)
 {
-        return CreateHouseholdReader(FileSys::GetDataDir() / filesys::path(filename));
-}
+        return make_shared<HouseholdCSVReader>(OpenFile(FileSys::GetDataDir() / filesys::path(filename)));
 
-shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const filesys::path& path)
-{
-        return make_shared<HouseholdCSVReader>(OpenFile(path));
 }
 
 unique_ptr<istream> ReaderFactory::OpenFile(const filesys::path& path) const

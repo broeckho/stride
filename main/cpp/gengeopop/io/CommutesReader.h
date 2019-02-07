@@ -32,11 +32,11 @@ public:
         /// Construct the CommutesReader with an istream with the file content.
         explicit CommutesReader(std::unique_ptr<std::istream> inputStream) : m_inputStream(std::move(inputStream)) {}
 
-        /// Add commutes onfo to the GeoGrid.
-        virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
-
         /// Default destructor needs to be virtual.
         virtual ~CommutesReader() = default;
+
+        /// Add commutes onfo to the GeoGrid.
+        virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
 
 protected:
         std::unique_ptr<std::istream> m_inputStream; ///< The istream with the file content.

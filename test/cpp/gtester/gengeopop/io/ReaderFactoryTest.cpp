@@ -74,6 +74,7 @@ TEST(ReaderFactoryTest, TestHouseHolds)
 {
         ReaderFactory                      readerFactory;
         const shared_ptr<HouseholdReader>& res1 = readerFactory.CreateHouseholdReader(string("flanders_cities.csv"));
+        res1->FillGeoGrid(nullptr);
 
         EXPECT_NE(dynamic_pointer_cast<HouseholdCSVReader>(res1), nullptr);
 

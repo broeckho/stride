@@ -71,6 +71,7 @@ TEST(HouseholdCSVReader, test1)
 
         auto                                 instream = make_unique<istringstream>(csvString);
         HouseholdCSVReader                   reader(move(instream));
+        reader.FillGeoGrid(nullptr);
         const vector<shared_ptr<Household>>& HHs         = reader.GetHouseHolds();
         const vector<shared_ptr<Household>>& expectedHHS = getExpectedHouseHolds();
 

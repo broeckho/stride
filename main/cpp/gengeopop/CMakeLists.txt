@@ -27,13 +27,11 @@ set(GENGEOPOP_LIB
 #
     generators/CollegeGenerator.cpp
     generators/CommunityGenerator.cpp
-#    generators/GeoGridPoolBuilder.cpp
     generators/HouseholdGenerator.cpp
     generators/K12SchoolGenerator.cpp
     generators/WorkplaceGenerator.cpp
 #
     populators/CollegePopulator.cpp
-#    populators/GeoGridPopBuilder.cpp
     populators/HouseholdPopulator.cpp
     populators/K12SchoolPopulator.cpp
     populators/Populator.cpp
@@ -51,7 +49,6 @@ set(GENGEOPOP_LIB
     io/GeoGridReaderFactory.cpp
     io/GeoGridWriterFactory.cpp
     io/HouseholdCSVReader.cpp
-    io/HouseholdReader.cpp
     io/ReaderFactory.cpp
 )
 

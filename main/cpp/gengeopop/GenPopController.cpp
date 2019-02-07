@@ -69,6 +69,7 @@ void GenPopController::ReadDataFiles(const std::string& citiesFileName, const st
 #pragma omp section
                 {
                         m_householdsReader = readerFactory.CreateHouseholdReader(householdsFileName);
+                        m_householdsReader->FillGeoGrid(nullptr);
                 }
         }
 

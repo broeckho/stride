@@ -54,7 +54,7 @@ void GeoGridConfig::Calculate(shared_ptr<GeoGrid> geoGrid, shared_ptr<HouseholdR
                        (calculated.popcount_1865_years - calculated.popcount_1826_years_and_student)));
 
         calculated.households = static_cast<unsigned int>(
-            floor(static_cast<double>(input.populationSize) / householdReader->AverageHouseholdSize()));
+            floor(static_cast<double>(input.populationSize) / householdReader->GetAverageHouseholdSize()));
 
         generated.reference_households = std::move(householdReader->GetHouseHolds());
 

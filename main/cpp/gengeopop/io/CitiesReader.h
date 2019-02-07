@@ -25,20 +25,20 @@
 namespace gengeopop {
 
 /**
- * Create an abstract Reader which fills a GeoGrid with the cities found in a given file.
+ * Create an abstract Reader which fills a GeoGrid with the cities found in file.
  * This can be implemented using different input types. Currently CSV is implemented.
  */
 class CitiesReader
 {
 public:
-        /// Construct the CitiesReader with an istream containing the file content
+        /// Construct the CitiesReader with an istream containing the file content.
         explicit CitiesReader(std::unique_ptr<std::istream> inputStream) : m_inputStream(std::move(inputStream)) {}
+
+        /// Default destructor.
+        virtual ~CitiesReader() = default;
 
         /// Add the locations to the GeoGrid.
         virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
-
-        /// Default destructor
-        virtual ~CitiesReader() = default;
 
 protected:
         std::unique_ptr<std::istream> m_inputStream; ///< The istream with the file content.
