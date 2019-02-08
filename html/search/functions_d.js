@@ -5,5 +5,5 @@ var searchData=
   ['node',['Node',['../dd/d32/a00041.html#a02ba27ac4148503a9bdd015c6b7caaf8',1,'gengeopop::kd::Node']]],
   ['notify',['Notify',['../da/d72/a00124.html#a9496d626bbde63eb55836f0af402522c',1,'stride::util::Subject']]],
   ['numberavailablethreads',['NumberAvailableThreads',['../d1/dd6/a00108.html#a6b4240ce29160e778c69f9e246e1747d',1,'stride::util::ConfigInfo']]],
-  ['numoftypes',['NumOfTypes',['../d2/daf/a00346.html#af724b7d598645a8c1054b66306dee629',1,'stride::ContactPoolType::NumOfTypes()'],['../d7/dfc/a00349.html#afd464f4ca1769b7880cb27383a3cafd2',1,'stride::sim_event::NumOfTypes()']]]
+  ['numoftypes',['NumOfTypes',['../d9/d48/a00345.html#af724b7d598645a8c1054b66306dee629',1,'stride::ContactPoolType::NumOfTypes()'],['../df/d03/a00348.html#afd464f4ca1769b7880cb27383a3cafd2',1,'stride::sim_event::NumOfTypes()']]]
 ];

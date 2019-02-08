@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['safe_5fcast',['safe_cast',['../db/d10/a00350.html#ab6efe1a2dbf4a57479e8c7faa00e3359',1,'stride::util']]],
+  ['safe_5fcast',['safe_cast',['../d7/dfc/a00349.html#ab6efe1a2dbf4a57479e8c7faa00e3359',1,'stride::util']]],
   ['sample',['Sample',['../db/ddf/a00088.html#a562b022d2c7f2836b4400e7d19e1b040',1,'stride::HealthSeeder']]],
   ['secondarycommunity',['SecondaryCommunity',['../d5/de0/a00050.html#ae76835c6bb81ef67d25dc81b55ffa29d',1,'gengeopop::SecondaryCommunity']]],
   ['seed',['Seed',['../df/d13/a00085.html#adc5b1f152367382afe3dade9421357da',1,'stride::DiseaseSeeder::Seed()'],['../db/ddf/a00088.html#ad6a9061857cee5335745fe5501bcb73d',1,'stride::HealthSeeder::Seed()'],['../d3/d32/a00105.html#a81b191380f9a2c93768ff0efcec47f6b',1,'stride::SurveySeeder::Seed()'],['../df/d6a/a00119.html#aa7422a9b6a29d401930324bea4d5a0de',1,'stride::util::Rn::Seed(randutils::seed_seq_fe128 &amp;seseq)'],['../df/d6a/a00119.html#a2a6bba1c68c0b6ab97c760897b539b51',1,'stride::util::Rn::Seed(randutils::seed_seq_fe128 &amp;seseq)']]],
@@ -54,10 +54,10 @@ var searchData=
   ['sim',['Sim',['../d4/d3a/a00101.html#a419307faed65206a987f39072bdc34ab',1,'stride::Sim::Sim(util::RnMan &amp;)'],['../d4/d3a/a00101.html#a5cf16ad00de0d1a780d009584904bcdd',1,'stride::Sim::Sim(std::shared_ptr&lt; util::RnMan &gt; rnMan)']]],
   ['simbuilder',['SimBuilder',['../d9/dcc/a00102.html#ada7d6656e97857b9bacd2285f7784021',1,'stride::SimBuilder']]],
   ['simrunner',['SimRunner',['../d5/d1e/a00103.html#a0f1cdbcca511bc11fd898dc3a872718d',1,'stride::SimRunner']]],
-  ['size',['Size',['../d5/db6/a00042.html#a6dbf9612b7ee27fd4ea2ba216bbbe5fe',1,'gengeopop::KdTree::Size()'],['../de/d11/a00021.html#ac9ad4de211352b09dfa99ebee6fe86cd',1,'gengeopop::GeoGrid::size()'],['../d4/d31/a00069.html#a0e279c31f261b01f7798355e27401bfe',1,'stride::util::SegmentedVector::size()']]],
+  ['size',['size',['../de/d11/a00021.html#ac9ad4de211352b09dfa99ebee6fe86cd',1,'gengeopop::GeoGrid::size()'],['../d4/d31/a00069.html#a0e279c31f261b01f7798355e27401bfe',1,'stride::util::SegmentedVector::size()'],['../d5/db6/a00042.html#a6dbf9612b7ee27fd4ea2ba216bbbe5fe',1,'gengeopop::KdTree::Size()']]],
   ['sliceindexer',['SliceIndexer',['../df/dc8/a00122.html#af2bedaa13b9427b736bfc88bcb974741',1,'stride::util::SliceIndexer']]],
   ['sortmembers',['SortMembers',['../d9/da5/a00075.html#a6c90e9734ee7c6566bdf1f4416e99fd8',1,'stride::ContactPool']]],
-  ['split',['Split',['../db/d10/a00350.html#aadef750132d5d399e7ed8a96eab53c4c',1,'stride::util']]],
+  ['split',['Split',['../d7/dfc/a00349.html#aadef750132d5d399e7ed8a96eab53c4c',1,'stride::util']]],
   ['stancontroller',['StanController',['../d0/dc2/a00104.html#ae7d704047661116cb88893671bde0c78',1,'stride::StanController']]],
   ['start',['Start',['../de/d36/a00123.html#acaf0b5f9f645a7dd6420420443de5a96',1,'stride::util::Stopwatch']]],
   ['startinfection',['StartInfection',['../d1/d1e/a00087.html#a5d85541b8e22aeaa75b364a454f59088',1,'stride::Health']]],

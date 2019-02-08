@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: PrimaryCommunityPopulator.h File Reference</title>
+<title>Stride Reference Manual: PtreeUtils.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit e50767b</span>
+   &#160;<span id="projectnumber">- generated for commit 447bd51</span>
    </div>
   </td>
  </tr>
@@ -106,45 +106,23 @@ $(document).ready(function(){initNavTree('d3/d5e/a00275.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">PrimaryCommunityPopulator.h File Reference</div>  </div>
+<div class="title">PtreeUtils.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/dd6/a00272_source.html">Populator.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;array&gt;</code><br />
+<code>#include &lt;boost/foreach.hpp&gt;</code><br />
+<code>#include &lt;boost/iterator/transform_iterator.hpp&gt;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PrimaryCommunityPopulator.h:</div>
+Include dependency graph for PtreeUtils.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d7c/a00576.gif" border="0" usemap="#PrimaryCommunityPopulator_8h" alt=""/></div>
-<map name="PrimaryCommunityPopulator_8h" id="PrimaryCommunityPopulator_8h">
-<area shape="rect" id="node2" href="../../d9/dd6/a00272.html" title="Populator.h" alt="" coords="1332,80,1426,107"/>
-<area shape="rect" id="node3" href="../../dd/de3/a00201.html" title="gengeopop/GeoGrid.h" alt="" coords="1343,379,1506,405"/>
-<area shape="rect" id="node30" href="../../dd/dfe/a00283.html" title="Interface of RnMan. " alt="" coords="293,550,393,577"/>
-<area shape="rect" id="node46" href="../../d1/d72/a00204.html" title="gengeopop/GeoGridConfig.h" alt="" coords="1416,155,1619,181"/>
-<area shape="rect" id="node49" href="../../dd/dd7/a00260.html" title="Logging (spdlog) utilities. " alt="" coords="54,461,162,487"/>
-<area shape="rect" id="node4" href="../../d0/def/a00256.html" title="KdTree.h" alt="" coords="498,639,574,666"/>
-<area shape="rect" id="node13" href="../../d7/d2f/a00258.html" title="Location.h" alt="" coords="1248,550,1336,577"/>
-<area shape="rect" id="node21" href="../../de/d53/a00169.html" title="Header for the core ContactPool class. " alt="" coords="1834,639,1977,666"/>
-<area shape="rect" id="node25" href="../../d9/d2a/a00270.html" title="Header file for the core Population class. " alt="" coords="1497,461,1626,487"/>
-<area shape="rect" id="node43" href="../../d8/d72/a00199.html" title="GeoAggregator.h" alt="" coords="992,461,1123,487"/>
-<area shape="rect" id="node22" href="../../dc/de6/a00167.html" title="Header for the ContactLogMode class. " alt="" coords="1091,721,1286,748"/>
-<area shape="rect" id="node23" href="../../d6/dfb/a00172.html" title="Definition of ContactPoolType. " alt="" coords="1360,721,1531,748"/>
-<area shape="rect" id="node26" href="../../d5/dcb/a00170.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1512,550,1678,577"/>
-<area shape="rect" id="node27" href="../../d4/d66/a00289.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2053,639,2225,666"/>
-<area shape="rect" id="node28" href="../../d3/dcc/a00264.html" title="Header file for the Person class. " alt="" coords="1702,550,1808,577"/>
-<area shape="rect" id="node31" href="../../dc/dc9/a00282.html" title="Interface of RnPcg. " alt="" coords="310,639,360,666"/>
-<area shape="rect" id="node32" href="../../da/d50/a00301.html" title="Miscellaneous string utilities. " alt="" coords="96,721,196,748"/>
-<area shape="rect" id="node47" href="../../d5/ddf/a00224.html" title="gengeopop/Household.h" alt="" coords="1423,229,1602,256"/>
-<area shape="rect" id="node48" href="../../db/ddf/a00164.html" title="ContactCenter.h" alt="" coords="1430,304,1557,331"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d8/d9b/a00577.gif" border="0" usemap="#PrimaryCommunityPopulator_8hdep" alt=""/></div>
-<map name="PrimaryCommunityPopulator_8hdep" id="PrimaryCommunityPopulator_8hdep">
-<area shape="rect" id="node2" href="../../de/db1/a00197.html" title="GenPopController.cpp" alt="" coords="5,80,165,107"/>
-<area shape="rect" id="node3" href="../../dd/d56/a00274.html" title="PrimaryCommunityPopulator.cpp" alt="" coords="189,80,421,107"/>
+<div class="center"><img src="../../de/d7c/a00576.gif" border="0" usemap="#PtreeUtils_8h" alt=""/></div>
+<map name="PtreeUtils_8h" id="PtreeUtils_8h">
 </map>
 </div>
 </div>
@@ -152,22 +130,39 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2d/a00047.html">gengeopop::PrimaryCommunityPopulator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the primary communities.  <a href="../../d6/d2d/a00047.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html">stride::util::detail::pair2data&lt; T, Ptree &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/dbb/a00330"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dbb/a00330.html">gengeopop</a></td></tr>
+<tr class="memitem:d0/dc5/a00343"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc5/a00343.html">stride</a></td></tr>
+<tr class="memdesc:d0/dc5/a00343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride::util</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:db/d10/a00350"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d10/a00350.html">stride::util::detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a29ac84256d48f3fb5596d2d4d6bc5173"><td class="memTemplParams" colspan="2">template&lt;class Sequence &gt; </td></tr>
+<tr class="memitem:a29ac84256d48f3fb5596d2d4d6bc5173"><td class="memTemplItemLeft" align="right" valign="top">Sequence&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html#a29ac84256d48f3fb5596d2d4d6bc5173">stride::util::ToSequence</a> (const boost::property_tree::ptree &amp;ptree)</td></tr>
+<tr class="separator:a29ac84256d48f3fb5596d2d4d6bc5173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a886659f5c17aa6571c4c01211bfe99"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t N&gt; </td></tr>
+<tr class="memitem:a4a886659f5c17aa6571c4c01211bfe99"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html#a4a886659f5c17aa6571c4c01211bfe99">stride::util::ToArray</a> (const boost::property_tree::ptree &amp;ptree)</td></tr>
+<tr class="separator:a4a886659f5c17aa6571c4c01211bfe99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf7d3b8f66de250307e449784676de27"><td class="memTemplParams" colspan="2">template&lt;class Ptree &gt; </td></tr>
+<tr class="memitem:aaf7d3b8f66de250307e449784676de27"><td class="memTemplItemLeft" align="right" valign="top">Ptree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html#aaf7d3b8f66de250307e449784676de27">stride::util::Merge</a> (const Ptree &amp;pt1, const Ptree &amp;pt2)</td></tr>
+<tr class="separator:aaf7d3b8f66de250307e449784676de27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../d3/d5e/a00275.html">PrimaryCommunityPopulator.h</a></li>
-    <li class="footer">Generated on Thu Feb 7 2019 14:39:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d3/d5e/a00275.html">PtreeUtils.h</a></li>
+    <li class="footer">Generated on Fri Feb 8 2019 13:28:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

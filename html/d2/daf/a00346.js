@@ -1,6 +1,7 @@
 var a00346 =
 [
-    [ "IDPack", "db/df8/a00076.html", "db/df8/a00076" ],
-    [ "IdSubscriptArray", "d9/d73/a00060.html", "d9/d73/a00060" ],
-    [ "IdSubscriptArray< bool >", "d1/d09/a00077.html", "d1/d09/a00077" ]
+    [ "AdoptedFile", "dc/d54/a00094.html", "dc/d54/a00094" ],
+    [ "InfectedFile", "d9/d77/a00095.html", "d9/d77/a00095" ],
+    [ "PersonsFile", "d9/df8/a00096.html", "d9/df8/a00096" ],
+    [ "SummaryFile", "d1/d84/a00097.html", "d1/d84/a00097" ]
 ];
