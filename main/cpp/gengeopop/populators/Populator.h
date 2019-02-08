@@ -34,11 +34,11 @@ public:
         explicit Populator(stride::util::RnMan&            rnManager,
                            std::shared_ptr<spdlog::logger> logger = stride::util::LogUtils::CreateNullLogger());
 
-        /// Populate the given geogrid for pool type (fixed in implementation).
-        virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
-
         /// Virtual destructor for inheritance.
         virtual ~Populator() = default;
+
+        /// Populate the given geogrid for pool type (fixed in implementation).
+        virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
 
 protected:
         /// Find contactpools in `geoGrid` in an exponentially increasing radius.

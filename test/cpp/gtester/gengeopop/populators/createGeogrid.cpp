@@ -15,6 +15,7 @@
 
 #include "createGeogrid.h"
 
+#include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
 
 using namespace std;

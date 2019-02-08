@@ -14,7 +14,10 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/Household.h"
+//#include "gengeopop/Household.h"
+#include "pool/ContactPool.h"
+#include "pop/Person.h"
+#include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <cmath>
@@ -24,6 +27,7 @@
 namespace gengeopop {
 
 class GeoGrid;
+class Household;
 class HouseholdReader;
 
 /**

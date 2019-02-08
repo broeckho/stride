@@ -15,9 +15,8 @@
 
 #include "PrimaryCommunityPopulator.h"
 
-#include "gengeopop/K12School.h"
+#include "gengeopop/Household.h"
 #include "gengeopop/PrimaryCommunity.h"
-#include "pop/Person.h"
 
 #include <trng/uniform_int_dist.hpp>
 

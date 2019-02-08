@@ -16,9 +16,9 @@
 #include "WorkplacePopulator.h"
 
 #include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/Household.h"
 #include "gengeopop/Workplace.h"
 #include "pool/ContactPool.h"
-#include "pop/Person.h"
 #include "util/ExcAssert.h"
 
 #include <trng/uniform_int_dist.hpp>

@@ -15,7 +15,7 @@
 
 #include "SecondaryCommunityPopulator.h"
 
-#include "gengeopop/K12School.h"
+#include "gengeopop/Household.h"
 #include "gengeopop/SecondaryCommunity.h"
 #include "pop/Person.h"
 

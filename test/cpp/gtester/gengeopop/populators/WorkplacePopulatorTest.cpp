@@ -13,13 +13,15 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/populators/WorkplacePopulator.h"
+
 #include "createGeogrid.h"
 #include "gengeopop/College.h"
 #include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
 #include "gengeopop/Workplace.h"
 #include "gengeopop/populators/CollegePopulator.h"
+#include "gengeopop/populators/WorkplacePopulator.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 

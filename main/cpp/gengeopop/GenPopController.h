@@ -14,15 +14,15 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "GeoGridConfig.h"
+#include "pop/Population.h"
 #include "util/RnMan.h"
 
 #include <spdlog/logger.h>
 
 namespace gengeopop {
 
-class CitiesReader;
-class CommutesReader;
+class GeoGrid;
+class GeoGridConfig;
 
 /**
  * Controls the complete generation and population of a GeoGrid.
@@ -49,18 +49,11 @@ public:
         std::shared_ptr<GeoGrid> GetGeoGrid();
 
 private:
-        GeoGridConfig& m_geoGridConfig; ///< The GeoGridConfig used to generate the grid.
-
-        stride::util::RnMan& m_rnManager; ///< The random number generation manager.
-
-        std::shared_ptr<GeoGrid> m_geoGrid; ///< The generated GeoGrid.
-
-        std::shared_ptr<stride::Population> m_population; ///< The generated GeoGrid.
-
-        std::shared_ptr<CitiesReader>    m_citiesReader;     ///< The CitiesReader.
-        std::shared_ptr<CommutesReader>  m_commutesReader;   ///< The CommutesReader.
-        std::shared_ptr<HouseholdReader> m_householdsReader; ///< The HouseholdsReader.
-        std::shared_ptr<spdlog::logger>  m_logger;           ///< The logger
+        GeoGridConfig&                      m_geoGridConfig; ///< The GeoGridConfig used to generate the grid.
+        stride::util::RnMan&                m_rnManager;     ///< The random number generation manager.
+        std::shared_ptr<GeoGrid>            m_geoGrid;       ///< The generated GeoGrid.
+        std::shared_ptr<stride::Population> m_population;    ///< The generated GeoGrid.
+        std::shared_ptr<spdlog::logger>     m_logger;        ///< The logger.
 };
 
 } // namespace gengeopop

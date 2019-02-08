@@ -16,6 +16,7 @@
 #include "CollegePopulator.h"
 
 #include "gengeopop/College.h"
+#include "gengeopop/Household.h"
 #include "pop/Person.h"
 #include "util/ExcAssert.h"
 

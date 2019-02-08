@@ -44,10 +44,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // --------------------------------------------------------------
         // Create (empty) population & and give it a ContactLogger.
         // --------------------------------------------------------------
-        struct make_shared_enabler : public Population
-        {
-        };
-        auto pop = make_shared<make_shared_enabler>();
+        const auto pop = Create();
         if (configPt.get<bool>("run.contact_output_file", true)) {
                 const auto prefix       = configPt.get<string>("run.output_prefix");
                 const auto logPath      = FileSys::BuildPath(prefix, "contact_log.txt");

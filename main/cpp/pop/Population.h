@@ -50,7 +50,7 @@ public:
         /// For use in python environment: create using configuration string i.o ptree.
         static std::shared_ptr<Population> Create(const std::string& configString, util::RnMan& rnManager);
 
-        /// Create an empty Population with NoBelief policy, used in gengeopop
+        /// Create an empty Population, used in gengeopop.
         static std::shared_ptr<Population> Create();
 
         /// Get the cumulative number of cases.

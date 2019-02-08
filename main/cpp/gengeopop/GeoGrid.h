@@ -94,8 +94,7 @@ private:
         double Distance(const KdTree2DPoint& other) const
         {
                 return boost::geometry::distance(m_pt, other.m_pt,
-                                                 boost::geometry::strategy::distance::geographic<>{}) /
-                       1000.0;
+                                                 boost::geometry::strategy::distance::geographic<>{}) / 1000.0;
         }
 };
 

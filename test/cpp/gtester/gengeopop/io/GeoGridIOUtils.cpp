@@ -18,6 +18,7 @@
 #include "gengeopop/College.h"
 #include "gengeopop/Community.h"
 #include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/SecondaryCommunity.h"
