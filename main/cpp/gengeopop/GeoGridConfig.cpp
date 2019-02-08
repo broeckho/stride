@@ -15,8 +15,9 @@
 
 #include "GeoGridConfig.h"
 
+#include "gengeopop/Location.h"
 #include "gengeopop/io/CitiesReader.h"
-#include "io/HouseholdReader.h"
+#include "gengeopop/io/HouseholdReader.h"
 #include "util/StringUtils.h"
 
 namespace gengeopop {
@@ -41,10 +42,13 @@ void GeoGridConfig::Calculate(shared_ptr<GeoGrid> geoGrid, shared_ptr<HouseholdR
 {
         calculated.compulsory_pupils = static_cast<unsigned int>(
             floor(householdReader->GetFractionCompulsoryPupils() * input.pop_size));
+
         calculated.popcount_1865 =
             static_cast<unsigned int>(floor(householdReader->GetFraction1865Years() * input.pop_size));
+
         calculated.popcount_1826 =
             static_cast<unsigned int>(floor(householdReader->GetFraction1826Years() * input.pop_size));
+
         calculated.popcount_1826_student = static_cast<unsigned int>(
             floor(input.fraction_1826_student * calculated.popcount_1826));
 
@@ -52,10 +56,10 @@ void GeoGridConfig::Calculate(shared_ptr<GeoGrid> geoGrid, shared_ptr<HouseholdR
             floor(input.fraction_1865_active *
                        (calculated.popcount_1865 - calculated.popcount_1826_student)));
 
+        auto averageHouseholdSize = static_cast<double>(householdReader->GetTotalPersonsInHouseholds())
+                / generated.reference_households.size();
         calculated.households = static_cast<unsigned int>(
-            floor(static_cast<double>(input.pop_size) / householdReader->GetAverageHouseholdSize()));
-
-        generated.reference_households = std::move(householdReader->GetHouseHolds());
+            floor(static_cast<double>(input.pop_size) / averageHouseholdSize));
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
                 loc->CalculatePopulation(input.pop_size);

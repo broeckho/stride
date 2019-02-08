@@ -28,6 +28,7 @@
 #include "gengeopop/populators/PrimaryCommunityPopulator.h"
 #include "gengeopop/populators/SecondaryCommunityPopulator.h"
 #include "gengeopop/populators/WorkplacePopulator.h"
+#include "GeoGridConfig.h"
 
 #include <spdlog/logger.h>
 #include <utility>
@@ -69,7 +70,8 @@ void GenPopController::ReadDataFiles(const std::string& citiesFileName, const st
 #pragma omp section
                 {
                         m_householdsReader = readerFactory.CreateHouseholdReader(householdsFileName);
-                        m_householdsReader->FillGeoGrid(nullptr);
+                        m_householdsReader->SetReferenceHouseholds(m_geoGridConfig.generated.reference_households,
+                                m_geoGridConfig.generated.persons, m_geoGridConfig.generated.contact_pools);
                 }
         }
 

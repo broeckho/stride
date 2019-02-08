@@ -30,14 +30,16 @@ public:
         explicit HouseholdCSVReader(std::unique_ptr<std::istream> inputStream);
 
         /// Add the locations to the GeoGrid.
-        void FillGeoGrid(std::shared_ptr<GeoGrid>) override;
+        void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
+                                    stride::util::SegmentedVector<stride::Person>& ref_persons,
+                                    stride::util::SegmentedVector<stride::ContactPool>& ref_pools) override;
 
 private:
         ///< Persons used in this Household, segmented vector to be able to have working pointers to it.
-        stride::util::SegmentedVector<stride::Person> m_persons;
+        stride::util::SegmentedVector<stride::Person> ref_persons;
 
         ///< Contactpools used in this Household, segmented vector to be able to have working pointers to it.
-        stride::util::SegmentedVector<stride::ContactPool> m_contactPools;
+        stride::util::SegmentedVector<stride::ContactPool> ref_pools;
 
         std::unique_ptr<std::istream> m_input_stream;
 };

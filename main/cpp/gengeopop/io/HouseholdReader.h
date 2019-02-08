@@ -16,9 +16,15 @@
 #pragma once
 
 #include "gengeopop/Household.h"
+#include "util/SegmentedVector.h"
 
 #include <memory>
 #include <vector>
+
+namespace stride {
+class Person;
+class ContactPool;
+}
 
 namespace gengeopop {
 
@@ -30,19 +36,21 @@ class HouseholdReader
 {
 public:
         /// Construct the HouseholdReader.
-        HouseholdReader(): m_households() {}
+        HouseholdReader()/*: m_households() */{}
 
         /// Default destructor.
         virtual ~HouseholdReader() = default;
 
         /// Add the locations to the GeoGrid.
-        virtual void FillGeoGrid(std::shared_ptr<GeoGrid> p) = 0;
+        virtual void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
+                                            stride::util::SegmentedVector<stride::Person>& ref_persons,
+                                            stride::util::SegmentedVector<stride::ContactPool>& ref_pools) = 0;
 
         /// Returns the average size of a Household.
-        double GetAverageHouseholdSize() const
-        {
-                return static_cast<double>(m_total) / static_cast<double>(m_households.size());
-        }
+       // double GetAverageHouseholdSize() const
+        //{
+        //        return static_cast<double>(m_total) / static_cast<double>(m_households.size());
+        //}
 
         /// Returns the fraction of the population which are still of an age where they attend school.
         double GetFractionCompulsoryPupils() const
@@ -62,14 +70,17 @@ public:
                 return static_cast<double>(m_total1865Years) / static_cast<double>(m_total);
         }
 
+
+        unsigned int GetTotalPersonsInHouseholds() const { return m_total; }
+
         /// Return the Households found in the inputfile.
-        const std::vector<std::shared_ptr<Household>>& GetHouseHolds() const
-        {
-                return m_households;
-        }
+        //const std::vector<std::shared_ptr<Household>>& GetHouseHolds() const
+        //{
+        //        return m_households;
+        //}
 
 protected:
-        std::vector<std::shared_ptr<Household>> m_households; ///< The households which are (being) found.
+        //std::vector<std::shared_ptr<Household>> m_households; ///< The households which are (being) found.
 
         unsigned int m_total           = 0; ///< The total population.
         unsigned int m_total1826Years  = 0; ///< The total number of people between 18 and 26 years of age.

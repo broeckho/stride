@@ -65,6 +65,9 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
                                           m_config_pt.get<std::string>("run.geopop_gen.household_file"));
 
         stride_logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
+        stride_logger->info("Number of reference households: {}", geoGridConfig.generated.reference_households.size());
+        stride_logger->info("Number of reference persons: {}", geoGridConfig.generated.persons.size());
+        stride_logger->info("Number of reference households: {}", geoGridConfig.generated.contact_pools.size());
 
         // --------------------------------------------------------------
         // Generate Geo

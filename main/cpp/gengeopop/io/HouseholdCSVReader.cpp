@@ -13,17 +13,25 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/Household.h"
 #include "HouseholdCSVReader.h"
 #include "gengeopop/GeoGrid.h"
+#include "pool/ContactPool.h"
+#include "pop/Person.h"
 #include "util/CSV.h"
 
 namespace gengeopop {
 
+using namespace std;
+using namespace stride::util;
+
 HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream)
-        : m_persons(), m_contactPools(), m_input_stream(std::move(inputStream)) {}
+        : ref_persons(), ref_pools(), m_input_stream(std::move(inputStream)) {}
 
 
-void HouseholdCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid>)
+void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
+                                                stride::util::SegmentedVector<stride::Person>& ref_persons,
+                                                stride::util::SegmentedVector<stride::ContactPool>& ref_pools)
 {
         stride::util::CSV reader(*(m_input_stream.get()));
 
@@ -33,8 +41,8 @@ void HouseholdCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid>)
                 auto household = std::make_shared<Household>();
 
                 // Create contactpool of the household.
-                m_contactPools.emplace_back(id++, stride::ContactPoolType::Id::Household);
-                stride::ContactPool *newCP = &m_contactPools.back();
+                ref_pools.emplace_back(id++, stride::ContactPoolType::Id::Household);
+                stride::ContactPool *newCP = &ref_pools.back();
 
                 for (std::size_t i = 0; i < 12; i++) {
                         unsigned int age;
@@ -60,14 +68,14 @@ void HouseholdCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid>)
                         m_total++;
 
                         stride::Person p;
-                        m_persons.push_back(p);
+                        ref_persons.push_back(p);
 
-                        stride::Person *p_ptr = &m_persons.back();
+                        stride::Person *p_ptr = &ref_persons.back();
                         p_ptr->SetAge(age);
                         newCP->AddMember(p_ptr);
                 }
                 household->AddPool(newCP);
-                m_households.push_back(household);
+                ref_households.push_back(household);
         }
 }
 

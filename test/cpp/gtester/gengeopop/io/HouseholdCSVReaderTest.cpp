@@ -70,10 +70,14 @@ TEST(HouseholdCSVReader, test1)
  78,75,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 )";
 
-        auto                                 instream = make_unique<istringstream>(csvString);
-        HouseholdCSVReader                   reader(move(instream));
-        reader.FillGeoGrid(nullptr);
-        const vector<shared_ptr<Household>>& HHs         = reader.GetHouseHolds();
+        GeoGridConfig      geoConfig{};
+        auto               instream = make_unique<istringstream>(csvString);
+        HouseholdCSVReader reader(move(instream));
+
+        reader.SetReferenceHouseholds(geoConfig.generated.reference_households,
+                                      geoConfig.generated.persons, geoConfig.generated.contact_pools);
+
+        const vector<shared_ptr<Household>>& HHs         = geoConfig.generated.reference_households;
         const vector<shared_ptr<Household>>& expectedHHS = getExpectedHouseHolds();
 
         EXPECT_EQ(HHs.size(), (unsigned int)8);

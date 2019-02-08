@@ -131,6 +131,9 @@ int main(int argc, char* argv[])
                 GenPopController genGeoPopController(logger, geoGridConfig, rnManager);
                 genGeoPopController.ReadDataFiles(configPt.get<string>("run.geopop_gen.cities_file"), commutesFile,
                                                   configPt.get<string>("run.geopop_gen.household_file"));
+                logger->info("Number of reference households: {}", geoGridConfig.generated.reference_households.size());
+                logger->info("Number of reference persons: {}", geoGridConfig.generated.persons.size());
+                logger->info("Number of reference households: {}", geoGridConfig.generated.contact_pools.size());
 
                 // --------------------------------------------------------------
                 // Generate Geo
