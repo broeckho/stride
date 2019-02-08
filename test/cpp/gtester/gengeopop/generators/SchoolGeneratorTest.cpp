@@ -32,8 +32,8 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.populationSize        = 10000;
-        config.calculated.compulsoryPupils = 2000;
+        config.input.pop_size        = 10000;
+        config.calculated.compulsory_pupils = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -51,8 +51,8 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.populationSize        = 10000;
-        config.calculated.compulsoryPupils = 2000;
+        config.input.pop_size        = 10000;
+        config.calculated.compulsory_pupils = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -66,8 +66,8 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.populationSize        = 37542 * 100;
-        config.calculated.compulsoryPupils = 750840;
+        config.input.pop_size        = 37542 * 100;
+        config.calculated.compulsory_pupils = 750840;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -85,7 +85,7 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 loc->SetRelativePopulation(static_cast<double>(loc->GetPopulation()) /
-                                           static_cast<double>(config.input.populationSize));
+                                           static_cast<double>(config.input.pop_size));
         }
 
         schoolGenerator.Apply(geoGrid, config);

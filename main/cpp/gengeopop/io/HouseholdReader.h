@@ -16,7 +16,6 @@
 #pragma once
 
 #include "gengeopop/Household.h"
-#include "gengeopop/Location.h"
 
 #include <memory>
 #include <vector>

@@ -32,7 +32,7 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.populationSize = 10000;
+        config.input.pop_size = 10000;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -50,7 +50,7 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.populationSize = 100 * 100 * 1000;
+        config.input.pop_size = 100 * 100 * 1000;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -72,7 +72,7 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.populationSize = 10000;
+        config.input.pop_size = 10000;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -86,8 +86,8 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         RnMan              rnManager{}; // Default random number manager.
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.populationSize        = 37542 * 100;
-        config.calculated.compulsoryPupils = 750840;
+        config.input.pop_size        = 37542 * 100;
+        config.calculated.compulsory_pupils = 750840;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());

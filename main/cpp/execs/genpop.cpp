@@ -137,8 +137,8 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 logger->info("Start generation geographic grid.");
                 genGeoPopController.GenGeo();
-                logger->info("Number of ContactCenters generated: {}", geoGridConfig.generated.contactCenters);
-                logger->info("Number of ContactPools generated: {}", geoGridConfig.generated.contactPools);
+                logger->info("Number of ContactCenters generated: {}", geoGridConfig.generated.contact_center_count);
+                logger->info("Number of ContactPools generated: {}", geoGridConfig.generated.contact_pool_count);
                 logger->info("Done generation geographic grid.");
 
                 // --------------------------------------------------------------

@@ -65,7 +65,7 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.calculated.households = 4000;
-        config.input.populationSize  = 37542 * 100;
+        config.input.pop_size  = 37542 * 100;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -83,7 +83,7 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
                 loc->SetRelativePopulation(static_cast<double>(loc->GetPopulation()) /
-                                           static_cast<double>(config.input.populationSize));
+                                           static_cast<double>(config.input.pop_size));
         }
 
         householdGenerator.Apply(geoGrid, config);

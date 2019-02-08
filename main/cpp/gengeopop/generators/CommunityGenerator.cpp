@@ -32,9 +32,9 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
         // 2. assign communities to a location using a discrete distribution reflecting the relative number of
         //    people at that location
 
-        const auto popCount = geoGridConfig.input.populationSize;
+        const auto popCount = geoGridConfig.input.pop_size;
         const auto communityCount =
-            static_cast<unsigned int>(ceil(popCount / geoGridConfig.constants.meanCommunitySize));
+            static_cast<unsigned int>(ceil(popCount / geoGridConfig.constants.mean_community_size));
 
         vector<double> weights;
         for (const auto& loc : *geoGrid) {
@@ -52,13 +52,13 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
-                const auto pc  = make_shared<PrimaryCommunity>(geoGridConfig.generated.contactCenters++);
+                const auto pc  = make_shared<PrimaryCommunity>(geoGridConfig.generated.contact_center_count++);
                 pc->Fill(geoGrid);
                 loc->AddContactCenter(pc);
         }
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
-                const auto sc  = make_shared<SecondaryCommunity>(geoGridConfig.generated.contactCenters++);
+                const auto sc  = make_shared<SecondaryCommunity>(geoGridConfig.generated.contact_center_count++);
                 sc->Fill(geoGrid);
                 loc->AddContactCenter(sc);
         }

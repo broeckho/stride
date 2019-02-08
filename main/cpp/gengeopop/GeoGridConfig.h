@@ -51,19 +51,19 @@ public:
         struct
         {
                 /// Fraction of calc_fraction_1826 which are students.
-                double fraction_1826_years_WhichAreStudents;
+                double fraction_1826_student;
 
                 /// Fraction of calc_1865_and_active which commute.
                 double fraction_active_commutingPeople;
 
                 /// Fraction of fraction_1826_years_WhichAreStudents which commute.
-                double fraction_student_commutingPeople;
+                double fraction_student_commuting;
 
                 /// Fraction of (calculated._1865_years - calculated._1826_years_and_student) which are active
-                double fraction_1865_years_active;
+                double fraction_1865_active;
 
                 /// Absolute size of the population.
-                unsigned int populationSize;
+                unsigned int pop_size;
         } input;
 
         // -----------------------------------------------------------------------------------------
@@ -72,19 +72,19 @@ public:
         struct
         {
                 /// Numbers of persons for which school is compulsory (i.e. 6-18 years old).
-                unsigned int compulsoryPupils;
+                unsigned int compulsory_pupils;
 
                 /// Absolute amount of population which are [18, 65) years old.
-                unsigned int popcount_1865_years;
+                unsigned int popcount_1865;
 
                 /// Absolute amount of population which are [18, 26) years old.
-                unsigned int popcount_1826_years;
+                unsigned int popcount_1826;
 
                 /// Absolute amount of population which are [18, 26) years old and are a student.
-                unsigned int popcount_1826_years_and_student;
+                unsigned int popcount_1826_student;
 
                 /// Absolute amount of population which are [18, 65] years old and active.
-                unsigned int popcount_1865_and_years_active;
+                unsigned int popcount_1865_active;
 
                 /// The number of households needed with this population size and these types of households.
                 unsigned int households;
@@ -95,16 +95,22 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// The current amount of ContactPools, used to obtain an Id for a new contactPool.
+                /// The current number of ContactPools, used to obtain an Id for a new contactPool.
                 /// ! 0 has special meaning (not assigned)!
-                unsigned int contactPools = 1;
+                unsigned int contact_pool_count = 1;
 
-                /// The current amount of ContactCenters, used to obtain an Id for a new contactCenter.
+                /// The current number of ContactCenters, used to obtain an Id for a new contactCenter.
                 /// ! 0 has special meaning (not assigned)!
-                unsigned int contactCenters = 1;
+                unsigned int contact_center_count = 1;
 
-                /// A list of possible households.
+                /// Reference households: the set of households that we sample from to generate the population.
                 std::vector<std::shared_ptr<Household>> reference_households{};
+
+                /// Persons in the reference households (segmented vector to have working pointers into it).
+                stride::util::SegmentedVector<stride::Person> persons{};
+
+                /// Contactpools used for reference households (segmented vector to have working pointers into it).
+                stride::util::SegmentedVector<stride::ContactPool> contact_pools{};
         } generated;
 
         // -----------------------------------------------------------------------------------------
@@ -113,16 +119,16 @@ public:
         struct
         {
                 /// Size used to calculate the amount of Colleges (double to prevent extra cast)
-                double meanCollegeSize = 3000.0;
+                double mean_college_size = 3000.0;
 
                 /// Size used to calculate the amount of Communities (double to prevent extra cast)
-                double meanCommunitySize = 2000.0;
+                double mean_community_size = 2000.0;
 
                 /// Size used to calculate the amount of K12Schools (double to prevent extra cast)
-                double meanK12SchoolSize = 500.0;
+                double mean_K12_size = 500.0;
 
                 /// Size used to calculate the amount of Workplaces (double to prevent extra cast)
-                double meanWorkplaceSchoolSize = 20.0;
+                double mean_workplace_school_size = 20.0;
         } constants;
 };
 

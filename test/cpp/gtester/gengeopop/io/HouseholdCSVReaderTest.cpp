@@ -13,6 +13,7 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/io/HouseholdCSVReader.h"
 
 #include <gtest/gtest.h>

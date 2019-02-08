@@ -71,7 +71,7 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
         // --------------------------------------------------------------
         stride_logger->info("Starting Gen-Geo");
         genPopController.GenGeo();
-        stride_logger->info("ContactCenters generated: {}", geoGridConfig.generated.contactCenters);
+        stride_logger->info("ContactCenters generated: {}", geoGridConfig.generated.contact_center_count);
         stride_logger->info("Finished Gen-Geo");
 
         // --------------------------------------------------------------
