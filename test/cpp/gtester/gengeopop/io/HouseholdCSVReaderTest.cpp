@@ -14,6 +14,7 @@
  */
 
 #include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/Household.h"
 #include "gengeopop/io/HouseholdCSVReader.h"
 
 #include <gtest/gtest.h>
@@ -26,7 +27,7 @@ using namespace stride;
 
 namespace {
 
-shared_ptr<Household> createCP(const vector<unsigned int>& ages)
+shared_ptr<gengeopop::Household> createCP(const vector<unsigned int>& ages)
 {
         auto cp = new ContactPool(0, ContactPoolType::Id::Household);
         for (unsigned int age : ages) {
@@ -35,14 +36,14 @@ shared_ptr<Household> createCP(const vector<unsigned int>& ages)
                 cp->AddMember(p);
         }
 
-        auto hh = make_shared<Household>();
+        auto hh = make_shared<gengeopop::Household>();
         hh->AddPool(cp);
         return hh;
 }
 
-vector<shared_ptr<Household>> getExpectedHouseHolds()
+vector<shared_ptr<gengeopop::Household>> getExpectedHouseHolds()
 {
-        vector<shared_ptr<Household>> households;
+        vector<shared_ptr<gengeopop::Household>> households;
 
         households.push_back(createCP({42, 38, 15}));
         households.push_back(createCP({70, 68}));
@@ -77,8 +78,8 @@ TEST(HouseholdCSVReader, test1)
         reader.SetReferenceHouseholds(geoConfig.generated.reference_households,
                                       geoConfig.generated.persons, geoConfig.generated.contact_pools);
 
-        const vector<shared_ptr<Household>>& HHs         = geoConfig.generated.reference_households;
-        const vector<shared_ptr<Household>>& expectedHHS = getExpectedHouseHolds();
+        const vector<shared_ptr<gengeopop::Household>>& HHs         = geoConfig.generated.reference_households;
+        const vector<shared_ptr<gengeopop::Household>>& expectedHHS = getExpectedHouseHolds();
 
         EXPECT_EQ(HHs.size(), (unsigned int)8);
 

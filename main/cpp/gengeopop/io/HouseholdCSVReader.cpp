@@ -13,9 +13,10 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/Household.h"
 #include "HouseholdCSVReader.h"
+
 #include "gengeopop/GeoGrid.h"
+#include "gengeopop/Household.h"
 #include "pool/ContactPool.h"
 #include "pop/Person.h"
 #include "util/CSV.h"
@@ -26,7 +27,7 @@ using namespace std;
 using namespace stride::util;
 
 HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream)
-        : ref_persons(), ref_pools(), m_input_stream(std::move(inputStream)) {}
+        : m_input_stream(std::move(inputStream)) {}
 
 
 void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,

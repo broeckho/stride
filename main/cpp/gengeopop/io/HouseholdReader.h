@@ -36,21 +36,10 @@ class HouseholdReader
 {
 public:
         /// Construct the HouseholdReader.
-        HouseholdReader()/*: m_households() */{}
+        HouseholdReader() = default;
 
         /// Default destructor.
         virtual ~HouseholdReader() = default;
-
-        /// Add the locations to the GeoGrid.
-        virtual void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
-                                            stride::util::SegmentedVector<stride::Person>& ref_persons,
-                                            stride::util::SegmentedVector<stride::ContactPool>& ref_pools) = 0;
-
-        /// Returns the average size of a Household.
-       // double GetAverageHouseholdSize() const
-        //{
-        //        return static_cast<double>(m_total) / static_cast<double>(m_households.size());
-        //}
 
         /// Returns the fraction of the population which are still of an age where they attend school.
         double GetFractionCompulsoryPupils() const
@@ -70,18 +59,15 @@ public:
                 return static_cast<double>(m_total1865Years) / static_cast<double>(m_total);
         }
 
-
+        // Returns total count of persons in reference households.
         unsigned int GetTotalPersonsInHouseholds() const { return m_total; }
 
-        /// Return the Households found in the inputfile.
-        //const std::vector<std::shared_ptr<Household>>& GetHouseHolds() const
-        //{
-        //        return m_households;
-        //}
+        /// Add the locations to the GeoGrid.
+        virtual void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
+                                            stride::util::SegmentedVector<stride::Person>& ref_persons,
+                                            stride::util::SegmentedVector<stride::ContactPool>& ref_pools) = 0;
 
 protected:
-        //std::vector<std::shared_ptr<Household>> m_households; ///< The households which are (being) found.
-
         unsigned int m_total           = 0; ///< The total population.
         unsigned int m_total1826Years  = 0; ///< The total number of people between 18 and 26 years of age.
         unsigned int m_total1865Years  = 0; ///< The total number of people between 18 and 65 years of age.

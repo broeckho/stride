@@ -16,9 +16,18 @@
 #pragma once
 
 #include "HouseholdReader.h"
-#include "pop/Population.h"
+//#include "pop/Population.h"
+
+
+namespace stride {
+class ContactPool;
+class Household;
+class Person;
+}
 
 namespace gengeopop {
+
+class Household;
 
 /**
  * Creates a Reader that retrieves the different Household profiles from a given CSV file.
@@ -35,12 +44,7 @@ public:
                                     stride::util::SegmentedVector<stride::ContactPool>& ref_pools) override;
 
 private:
-        ///< Persons used in this Household, segmented vector to be able to have working pointers to it.
-        stride::util::SegmentedVector<stride::Person> ref_persons;
-
-        ///< Contactpools used in this Household, segmented vector to be able to have working pointers to it.
-        stride::util::SegmentedVector<stride::ContactPool> ref_pools;
-
+        /// Input stream  connected to input data file.
         std::unique_ptr<std::istream> m_input_stream;
 };
 
