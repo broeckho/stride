@@ -18,43 +18,60 @@
 #include "CitiesCSVReader.h"
 #include "CommutesCSVReader.h"
 #include "HouseholdCSVReader.h"
-#include "util/Exception.h"
 #include "util/FileSys.h"
 
+
 #include <iostream>
+#include <stdexcept>
 
 namespace gengeopop {
 
-using namespace stride::util;
-
 using namespace std;
+using namespace stride::util;
 
 shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const string& filename)
 {
-        return make_shared<CitiesCSVReader>(OpenFile(FileSys::GetDataDir() / filesys::path(filename)));
+        return CreateCitiesReader(FileSys::GetDataDir() / filesys::path(filename));
 }
 
-shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const string& filename)
+shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const filesys::path& path)
 {
-        return make_shared<CommutesCSVReader>(OpenFile(FileSys::GetDataDir() / filesys::path(filename)));
+        return make_shared<CitiesCSVReader>(OpenFile(path));
+
 }
 
-shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const string& filename)
+std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const std::string& filename)
 {
-        return make_shared<HouseholdCSVReader>(OpenFile(FileSys::GetDataDir() / filesys::path(filename)));
+        return CreateCommutesReader(FileSys::GetDataDir() / filesys::path(filename));
+}
+
+shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const filesys::path& path)
+{
+        return make_shared<CommutesCSVReader>(OpenFile(path));
 
 }
 
-unique_ptr<istream> ReaderFactory::OpenFile(const filesys::path& path) const
+std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const std::string& filename)
+{
+        return CreateHouseholdReader(FileSys::GetDataDir() / filesys::path(filename));
+}
+
+shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const filesys::path& path)
+{
+        return make_shared<HouseholdCSVReader>(OpenFile(path));
+
+}
+
+std::unique_ptr<std::istream> ReaderFactory::OpenFile(const filesys::path& path) const
 {
         if (!filesys::exists(path)) {
-                throw Exception("File not found: " + path.string());
+                throw runtime_error("File not found: " + path.string());
         }
 
         if (path.extension().string() == ".csv") {
                 return make_unique<ifstream>(path.string());
         } else {
-                throw Exception("Unsupported file extension: " + path.extension().string());
+                throw runtime_error("Unsupported file extension: " + path.extension().string());
         }
 }
 
