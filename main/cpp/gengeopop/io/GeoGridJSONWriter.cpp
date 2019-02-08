@@ -16,7 +16,9 @@
 #include "GeoGridJSONWriter.h"
 
 #include "gengeopop/ContactCenter.h"
+#include "gengeopop/GeoGrid.h"
 
+#include <boost/property_tree/json_parser.hpp>
 #include <iostream>
 #include <omp.h>
 

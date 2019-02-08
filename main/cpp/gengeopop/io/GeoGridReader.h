@@ -15,12 +15,22 @@
 
 #pragma once
 
-#include "gengeopop/GeoGrid.h"
+//#include "gengeopop/GeoGrid.h"
 
 #include <istream>
+#include <map>
 #include <memory>
+#include <tuple>
+#include <vector>
+
+namespace stride {
+class Person;
+class Population;
+}
 
 namespace gengeopop {
+
+class GeoGrid;
 
 /**
  * An abstract base class for creating a GeoGrid that was read from a file, can be implemented

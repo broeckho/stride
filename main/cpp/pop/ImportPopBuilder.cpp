@@ -20,15 +20,9 @@
 
 #include "ImportPopBuilder.h"
 
-//#include "util/FileSys.h"
-#include "util/LogUtils.h"
-//#include "util/RnMan.h"
-//#include "util/StringUtils.h"
-
-//#include <boost/property_tree/ptree.hpp>
-//#include <gengeopop/GenGeoPopController.h>
-//#include <gengeopop/GeoGridConfig.h>
+#include "gengeopop/GeoGrid.h"
 #include "gengeopop/io/GeoGridReaderFactory.h"
+#include "util/LogUtils.h"
 
 #include <spdlog/common.h>
 #include <spdlog/fmt/ostr.h>

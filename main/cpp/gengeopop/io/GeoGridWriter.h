@@ -15,12 +15,12 @@
 
 #pragma once
 
-#include "gengeopop/GeoGrid.h"
-
 #include <memory>
 #include <ostream>
 
 namespace gengeopop {
+
+class GeoGrid;
 
 /**
  * An interface for writing the GeoGrid to a file, can be implemented with multiple file types.

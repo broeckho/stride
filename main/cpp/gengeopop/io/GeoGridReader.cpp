@@ -15,6 +15,8 @@
 
 #include "GeoGridReader.h"
 
+#include "gengeopop/GeoGrid.h"
+
 namespace gengeopop {
 
 GeoGridReader::GeoGridReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop)

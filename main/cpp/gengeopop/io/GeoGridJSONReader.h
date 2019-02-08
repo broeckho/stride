@@ -16,8 +16,15 @@
 #pragma once
 
 #include "GeoGridReader.h"
+#include "gengeopop/Location.h"
+#include "pool/ContactPool.h"
+#include "pool/ContactPoolType.h"
+
+#include <boost/property_tree/ptree_fwd.hpp>
 
 namespace gengeopop {
+
+class GeoGrid;
 
 /**
  * An implementation of the GeoGridReader using JSON.

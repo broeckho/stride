@@ -16,11 +16,19 @@
 #pragma once
 
 #include "GeoGridWriter.h"
+#include "gengeopop/Location.h"
 #include "proto/geogrid.pb.h"
 
 #include <set>
 
+namespace stride {
+class ContactPool;
+class Person;
+}
+
 namespace gengeopop {
+
+class ContactCenter;
 
 /**
  * An implementation of the GeoGridWriter using Protocol Buffers

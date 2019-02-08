@@ -16,12 +16,19 @@
 #pragma once
 
 #include "GeoGridWriter.h"
+#include "gengeopop/Location.h"
 
-#include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <set>
 
+namespace stride {
+class ContactPool;
+class Person;
+}
+
 namespace gengeopop {
+
+class ContactCenter;
 
 /**
  * Writes a GeoGrid to a JSON file.

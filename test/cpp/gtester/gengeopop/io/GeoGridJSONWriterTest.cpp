@@ -24,6 +24,7 @@
 #include "gengeopop/io/GeoGridJSONWriter.h"
 #include "util/FileSys.h"
 
+#include <boost/property_tree/json_parser.hpp>
 #include <gtest/gtest.h>
 
 using namespace std;

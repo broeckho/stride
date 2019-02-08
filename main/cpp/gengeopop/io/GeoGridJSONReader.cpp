@@ -18,6 +18,7 @@
 #include "ThreadException.h"
 #include "gengeopop/College.h"
 #include "gengeopop/Community.h"
+#include "gengeopop/GeoGrid.h"
 #include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
 #include "gengeopop/PrimaryCommunity.h"
