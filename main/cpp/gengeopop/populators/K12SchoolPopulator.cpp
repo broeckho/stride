@@ -34,7 +34,7 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 
         // for every location
         for (const shared_ptr<Location>& loc : *geoGrid) {
-                if (loc->GetPopulation() == 0) {
+                if (loc->GetPopCount() == 0) {
                         continue;
                 }
 

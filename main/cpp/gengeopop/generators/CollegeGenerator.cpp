@@ -37,13 +37,13 @@ void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
         // Aggregate population in cities.
         auto totalPop = 0U;
         for (const shared_ptr<Location>& c : cities) {
-                totalPop += c->GetPopulation();
+                totalPop += c->GetPopCount();
         }
 
         // Weights determined by relative population in city.
         vector<double> weights;
         for (const auto& c : cities) {
-                const auto weight = static_cast<double>(c->GetPopulation()) / static_cast<double>(totalPop);
+                const auto weight = static_cast<double>(c->GetPopCount()) / static_cast<double>(totalPop);
                 CheckWeight("CollegeGenerator", weight);
                 weights.push_back(weight);
         }

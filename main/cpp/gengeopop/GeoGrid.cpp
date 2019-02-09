@@ -49,7 +49,7 @@ shared_ptr<Location> GeoGrid::Get(size_t index) { return (*this)[index]; }
 vector<shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 {
         auto cmp = [](const shared_ptr<Location>& rhs, const shared_ptr<Location>& lhs) {
-                return rhs->GetPopulation() > lhs->GetPopulation();
+                return rhs->GetPopCount() > lhs->GetPopCount();
         };
 
         priority_queue<shared_ptr<Location>, vector<shared_ptr<Location>>, decltype(cmp)> queue(

@@ -78,10 +78,10 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(shared_ptr<Location
         location_root.put("id", location->GetID());
         location_root.put("name", location->GetName());
         location_root.put("province", location->GetProvince());
-        location_root.put("population", location->GetPopulation());
+        location_root.put("population", location->GetPopCount());
         location_root.add_child("coordinate", WriteCoordinate(location->GetCoordinate()));
 
-        auto commutes = location->GetOutgoingCommuningCities();
+        auto commutes = location->GetOutgoingCommutingCities();
         if (!commutes.empty()) {
                 boost::property_tree::ptree commutes_root;
                 for (auto commute_pair : commutes) {

@@ -59,7 +59,7 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 
         // for every location
         for (const auto& loc : *geoGrid) {
-                if (loc->GetPopulation() == 0) {
+                if (loc->GetPopCount() == 0) {
                         continue;
                 }
                 m_currentLoc = loc;
@@ -145,7 +145,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
         m_disCommuting = discreteDist();
 
         vector<double> commutingWeights;
-        for (const pair<Location*, double>& commute : m_currentLoc->GetOutgoingCommuningCities()) {
+        for (const pair<Location*, double>& commute : m_currentLoc->GetOutgoingCommutingCities()) {
                 const auto& Workplaces = commute.first->GetContactCentersOfType<Workplace>();
                 if (!Workplaces.empty()) {
                         m_commutingLocations.push_back(commute.first);

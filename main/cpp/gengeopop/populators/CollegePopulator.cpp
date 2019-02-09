@@ -38,7 +38,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
 
         // for every location
         for (const auto& loc : *geoGrid) {
-                if (loc->GetPopulation() == 0) {
+                if (loc->GetPopCount() == 0) {
                         continue;
                 }
                 // 1. find all highschools in an area of 10-k*10 km
@@ -52,7 +52,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
                 // 2. find all highschools were students from this location commute to
                 vector<Location*> commutingHighSchools;
                 vector<double>    commutingWeights;
-                for (const auto& commute : loc->GetOutgoingCommuningCities()) {
+                for (const auto& commute : loc->GetOutgoingCommutingCities()) {
                         const auto& highSchools = commute.first->GetContactCentersOfType<College>();
                         if (!highSchools.empty()) {
                                 commutingHighSchools.push_back(commute.first);

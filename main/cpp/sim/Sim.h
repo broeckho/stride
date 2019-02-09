@@ -47,8 +47,8 @@ public:
         static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
                                            util::RnMan& rnManager);
 
-        /// Also use a shared_ptr to an rnManager and make the returned Sim maintain ownership so it won't be destroyed
-        /// . It cannot be owned by the python environment since SWIG cannot handle the RnMan.
+        /// For use in SWIG: use shared_ptr to an rnManager and make the Sim have ownership so it won't be destroyed.
+        /// It cannot be owned by the python environment since SWIG cannot handle the RnMan.
         static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
                                            std::shared_ptr<util::RnMan> rnManager);
 

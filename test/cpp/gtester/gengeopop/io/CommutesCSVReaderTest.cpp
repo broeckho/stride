@@ -88,8 +88,8 @@ TEST(CommutesCSVReaderTest, test1)
         for (const auto& loc : *geoGrid) {
                 int         i                = 0;
                 const auto& expectedLoc      = expectedGeoGrid->GetById(loc->GetID());
-                const auto& outGoingExpected = expectedLoc->GetOutgoingCommuningCities();
-                for (const auto& commute : loc->GetOutgoingCommuningCities()) {
+                const auto& outGoingExpected = expectedLoc->GetOutgoingCommutingCities();
+                for (const auto& commute : loc->GetOutgoingCommutingCities()) {
                         EXPECT_DOUBLE_EQ(outGoingExpected[i].first->GetID(), commute.first->GetID());
                         EXPECT_DOUBLE_EQ(outGoingExpected[i].second, commute.second);
                         i++;
@@ -102,8 +102,8 @@ TEST(CommutesCSVReaderTest, test1)
                         i++;
                 }
 
-                EXPECT_DOUBLE_EQ(expectedLoc->OutGoingCommutingPeople(1), loc->OutGoingCommutingPeople(1));
-                EXPECT_DOUBLE_EQ(expectedLoc->IncomingCommutingPeople(1), loc->IncomingCommutingPeople(1));
+                EXPECT_DOUBLE_EQ(expectedLoc->GetOutgoingCommuterCount(1), loc->GetOutgoingCommuterCount(1));
+                EXPECT_DOUBLE_EQ(expectedLoc->GetIncomingCommuterCount(1), loc->GetIncomingCommuterCount(1));
         }
 }
 

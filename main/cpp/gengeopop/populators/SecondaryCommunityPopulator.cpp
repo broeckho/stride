@@ -30,7 +30,7 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
 
         // for every location
         for (const auto& loc : *geoGrid) {
-                if (loc->GetPopulation() == 0) {
+                if (loc->GetPopCount() == 0) {
                         continue;
                 }
                 // 1. find all communities in an area of 10-k*10 km

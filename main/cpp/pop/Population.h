@@ -45,10 +45,12 @@ class Population : public util::SegmentedVector<Person>
 {
 public:
         /// Create a population initialized by the configuration in property tree.
-        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
+        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
+                                                  std::shared_ptr<spdlog::logger> stride_logger = nullptr);
 
         /// For use in python environment: create using configuration string i.o ptree.
-        static std::shared_ptr<Population> Create(const std::string& configString, util::RnMan& rnManager);
+        static std::shared_ptr<Population> Create(const std::string& configString, util::RnMan& rnManager,
+                                                  std::shared_ptr<spdlog::logger> stride_logger = nullptr);
 
         /// Create an empty Population, used in gengeopop.
         static std::shared_ptr<Population> Create();

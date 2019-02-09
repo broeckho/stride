@@ -38,117 +38,112 @@ class ContactCenter;
 class Location
 {
 public:
-        ///
+        /// Parametrized constructor without population count.
         Location(unsigned int id, unsigned int province, Coordinate coordinate = Coordinate(0.0, 0.0),
                  std::string name = "");
 
-        Location(unsigned int id, unsigned int province, unsigned int population,
+        /// Parametrized constructor with population count.
+        Location(unsigned int id, unsigned int province, unsigned int popCount,
                  Coordinate coordinate = Coordinate(0.0, 0.0), std::string name = "");
 
-        /// Perform a full compare of the given locations.
+        /// Perform a full comparison with the other location.
         bool operator==(const Location& other) const;
 
-        /// Add a ContactCenter
+        /// Add a ContactCenter.
         template <typename T>
         void AddContactCenter(std::shared_ptr<T> contactCenter)
         {
-                m_contactCenters.push_back(contactCenter);
-                m_contactCenterByType[typeid(T)].push_back(contactCenter);
+                m_CC.push_back(contactCenter);
+                m_CC_OfType[typeid(T)].push_back(contactCenter);
         }
 
-        /// Gets the Contact Centers of a specific type \p T
+        /// Adds a Location and a proportion to the incoming commute vector.
+        /// I.e. fraction of commuting population at otherLocation commuting to this Location.
+        void AddIncomingCommutingLocation(std::shared_ptr<Location> otherLocation, double fraction);
+
+        /// Adds a Location and a fraction to the outgoing commute vector.
+        // I.e. fraction of commuting population at this Location commuting to otherLocation.
+        void AddOutgoingCommutingLocation(std::shared_ptr<Location> otherLocation, double fraction);
+
+
+        /// Gets the Coordinate of this Location.
+        const Coordinate& GetCoordinate() const{ return m_coordinate; }
+
+        /// Gets all ContactCenters at this location.
+        const std::vector<std::shared_ptr<ContactCenter>>& GetContactCenters() const { return m_CC; }
+
+        /// Gets the Contact Centers of a specific type (Household, Workplace, ...).
         template <typename T>
-        std::vector<std::shared_ptr<ContactCenter>> GetContactCentersOfType()
-        {
-                return m_contactCenterByType[typeid(T)];
-        }
+        std::vector<std::shared_ptr<ContactCenter>> GetContactCentersOfType() { return m_CC_OfType[typeid(T)]; }
 
-        /// Gets the name
-        std::string GetName() const;
+        /// Gets a vector with the outgoing cities which people are commuting to + the proportion.
+        const std::vector<std::pair<Location*, double>>& GetIncomingCommuningCities() const;
 
-        /// Gets the province
-        unsigned int GetProvince() const;
+        /// Gets ID of this Location.
+        unsigned int GetID() const { return m_id; }
 
-        /// Gets the ID
-        unsigned int GetID() const;
+        /// Calculates number of incomming commuters, given the fraction of the population that commutes.
+        int GetIncomingCommuterCount(double fractionCommuters) const;
 
-        /// Gets the absolute population
-        unsigned int GetPopulation() const;
-
-        /// Gets the population amount used in the simulation
-        unsigned int GetSimulationPopulation() const;
-
-        /// Gets the ratio of infected persons in all contactPools of this location
-        double GetInfectedRatio() const;
-
-        /// Gets the amount of people infected in the contactpools of this location
+        /// Gets the amount of people infected in the contactpools of this location.
         double GetInfectedCount() const;
 
-        /// Given the total population calculates this location's population using the relative population of this
-        /// location
-        void CalculatePopulation(unsigned int totalPopulation);
+        /// Gets the name
+        std::string GetName() const { return m_name; }
 
-        /// Sets the relative population, which will be later used by @see CalculatePopulation
-        void SetRelativePopulation(double relativePopulation);
+        /// Returns outgoing cities which people are commuting to + the proportion.
+        const std::vector<std::pair<Location*, double>>& GetOutgoingCommutingCities() const;
+
+        /// Calculates number of outgoing commuters, given the fraction of the population that commutes.
+        int GetOutgoingCommuterCount(double fractionCommuters) const;
+
+        /// Gets the absolute population
+        unsigned int GetPopCount() const { return m_pop_count; }
+
+        /// Gets the province
+        unsigned int GetProvince() const { return m_province; }
 
         /// Gets the relative population
         double GetRelativePopulationSize() const;
 
-        /// Gets a vector with the outgoing cities which people are commuting to + the proportion
-        const std::vector<std::pair<Location*, double>>& GetIncomingCommuningCities() const;
+        /// Sets the Coordinate of this Socation.
+        void  SetCoordinate(const Coordinate& coordinate) { m_coordinate = coordinate; }
 
-        /// Adds a Location and a proportion to the incoming commutng vector
-        /// I.e. \p proportion of the commuting population in \p location are commuting to \p this
-        void AddIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion);
+        /// Calculates this location's population count using its relative population and the total population count.
+        void SetPopCount(unsigned int totalPopCount);
 
-        /// @return a vector with the outgoing cities which people are commuting to + the proportion
-        const std::vector<std::pair<Location*, double>>& GetOutgoingCommuningCities() const;
-
-        /// Adds a Location and a proportion to the incoming commuting vector
-        // I.e. \p proportion of the commuting population in \p this are commuting to \p location
-        void AddOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion);
-
-        /// Gets the absolute amount of poeple leaving from this location
-        int OutGoingCommutingPeople(double fractionOfPopulationCommuting) const;
-
-        /// Gets the absolute amount of people going to this location
-        int IncomingCommutingPeople(double fractionOfPopulationCommuting) const;
-
-        /// Gets the Coordinate of this location
-        const Coordinate& GetCoordinate() const;
-        void              SetCoordinate(const Coordinate& coordinate);
-
-        /// Gets all contact centers at this location
-        const std::vector<std::shared_ptr<ContactCenter>>& GetContactCenters() const;
+        /// Sets the relative population, which will be later used by @see CalculatePopulation.
+        void SetRelativePopulation(double relativePopulation);
 
 public:
+        /// To iterate over container with ContactCenters at this Location.
         using iterator = std::vector<std::shared_ptr<ContactCenter>>::iterator;
 
-        /// Gets iterator to the first location
-        iterator begin();
+        /// Gets iterator to the first ContacCenter at this Location.
+        iterator begin() { return m_CC.begin(); }
 
-        /// Gets iterator to the end of the locations
-        iterator end();
+        /// Gets iterator to the end of the ContactCenters at this Location.
+        iterator end() { return m_CC.end(); }
 
 private:
-        unsigned int m_id = 0;             ///< Id
-        std::string  m_name;               ///< Name
-        unsigned int m_province;           ///< Province id
-        unsigned int m_population;         ///< The absolute population
-        double       m_relativePopulation; ///< The relative population (relative against whole population)
-        Coordinate   m_coordinate;         ///< Coordinate
+        unsigned int m_id = 0;             ///< Id.
+        std::string  m_name;               ///< Name.
+        unsigned int m_province;           ///< Province id.
+        unsigned int m_pop_count;          ///< Population count (number of individuals) at this Location.
+        double       m_pop_fraction;       ///< Fraction of whole population at thois Location.
+        Coordinate   m_coordinate;         ///< Coordinate of the Location.
 
-        ///< All contactCenters at this location.
-        std::vector<std::shared_ptr<ContactCenter>> m_contactCenters;
+        ///< All contactCenters at this Location.
+        std::vector<std::shared_ptr<ContactCenter>> m_CC;
 
-        /// Incomming commutes stored as pair of location and proportion relative to the given location
-        std::vector<std::pair<Location*, double>> m_incomingCommutingLocations;
+        /// Incomming commutes stored as pair of Location and fraction of population at that Location.
+        std::vector<std::pair<Location*, double>> m_inCommuteLocations;
 
-        ///< Outgoing commutes stored as pair of location and proportion relative to the this location
-        std::vector<std::pair<Location*, double>> m_outgoingCommutingLocations;
+        ///< Outgoing commutes stored as pair of Location and fraction of population to this this Location.
+        std::vector<std::pair<Location*, double>> m_outCommuteLocations;
 
-        ///< Stores the contact centers indexed by their type
-        std::unordered_map<std::type_index, std::vector<std::shared_ptr<ContactCenter>>> m_contactCenterByType;
+        ///< Stores the contact centers indexed by their type.
+        std::unordered_map<std::type_index, std::vector<std::shared_ptr<ContactCenter>>> m_CC_OfType;
 };
 
 } // namespace gengeopop

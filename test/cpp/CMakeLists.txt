@@ -18,9 +18,13 @@
 #============================================================================
 # Define smoke test. DO NOT BREAK THE COMMAND LINE.
 #============================================================================
-add_test(NAME stride_smoke
+add_test(NAME stride_default_pop_smoke
     WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-    COMMAND ${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/stride_smoke
+    COMMAND ${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/stride_default_pop_smoke
+	)
+add_test(NAME stride_gen_pop_smoke
+	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
+	COMMAND ${BIN_INSTALL_LOCATION}/stride -c run_generate_default.xml --override output_prefix=tests/stride_gen_pop_smoke
 	)
 add_test(NAME genpop_smoke
 	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}

@@ -58,21 +58,21 @@ TEST(GeoGridJSONReaderTest, locationsTest)
         EXPECT_EQ(location1->GetID(), 1);
         EXPECT_EQ(location1->GetName(), "Bavikhove");
         EXPECT_EQ(location1->GetProvince(), 4);
-        EXPECT_EQ(location1->GetPopulation(), 2500);
+        EXPECT_EQ(location1->GetPopCount(), 2500);
         EXPECT_EQ(get<0>(location1->GetCoordinate()), 0);
         EXPECT_EQ(get<1>(location1->GetCoordinate()), 0);
 
         EXPECT_EQ(location2->GetID(), 2);
         EXPECT_EQ(location2->GetName(), "Gent");
         EXPECT_EQ(location2->GetProvince(), 3);
-        EXPECT_EQ(location2->GetPopulation(), 5000);
+        EXPECT_EQ(location2->GetPopCount(), 5000);
         EXPECT_EQ(get<0>(location2->GetCoordinate()), 0);
         EXPECT_EQ(get<1>(location2->GetCoordinate()), 0);
 
         EXPECT_EQ(location3->GetID(), 3);
         EXPECT_EQ(location3->GetName(), "Mons");
         EXPECT_EQ(location3->GetProvince(), 2);
-        EXPECT_EQ(location3->GetPopulation(), 2500);
+        EXPECT_EQ(location3->GetPopCount(), 2500);
         EXPECT_EQ(get<0>(location3->GetCoordinate()), 0);
         EXPECT_EQ(get<1>(location3->GetCoordinate()), 0);
 }
@@ -101,7 +101,7 @@ TEST(GeoGridJSONReaderTest, commutesTest)
 
         {
                 auto commuting_in  = sortLoc(location1->GetIncomingCommuningCities());
-                auto commuting_out = sortLoc(location1->GetOutgoingCommuningCities());
+                auto commuting_out = sortLoc(location1->GetOutgoingCommutingCities());
                 EXPECT_EQ(commuting_in.size(), 1);
                 EXPECT_EQ(commuting_out.size(), 2);
 
@@ -115,7 +115,7 @@ TEST(GeoGridJSONReaderTest, commutesTest)
         }
         {
                 auto commuting_in  = sortLoc(location2->GetIncomingCommuningCities());
-                auto commuting_out = sortLoc(location2->GetOutgoingCommuningCities());
+                auto commuting_out = sortLoc(location2->GetOutgoingCommutingCities());
                 EXPECT_EQ(commuting_out.size(), 2);
                 EXPECT_EQ(commuting_in.size(), 1);
 
@@ -129,7 +129,7 @@ TEST(GeoGridJSONReaderTest, commutesTest)
         }
         {
                 auto commuting_in  = sortLoc(location3->GetIncomingCommuningCities());
-                auto commuting_out = sortLoc(location3->GetOutgoingCommuningCities());
+                auto commuting_out = sortLoc(location3->GetOutgoingCommutingCities());
                 EXPECT_EQ(commuting_out.size(), 0);
                 EXPECT_EQ(commuting_in.size(), 2);
 
@@ -171,7 +171,7 @@ void runPeopleTest(string filename)
         EXPECT_EQ(location->GetID(), 1);
         EXPECT_EQ(location->GetName(), "Bavikhove");
         EXPECT_EQ(location->GetProvince(), 4);
-        EXPECT_EQ(location->GetPopulation(), 2500);
+        EXPECT_EQ(location->GetPopCount(), 2500);
         EXPECT_EQ(get<0>(location->GetCoordinate()), 0);
         EXPECT_EQ(get<1>(location->GetCoordinate()), 0);
 

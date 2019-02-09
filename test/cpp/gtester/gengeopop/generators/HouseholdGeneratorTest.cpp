@@ -82,7 +82,7 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         geoGrid->AddLocation(loc5);
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
-                loc->SetRelativePopulation(static_cast<double>(loc->GetPopulation()) /
+                loc->SetRelativePopulation(static_cast<double>(loc->GetPopCount()) /
                                            static_cast<double>(config.input.pop_size));
         }
 

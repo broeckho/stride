@@ -38,7 +38,7 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 
         vector<double> weights;
         for (const auto& loc : *geoGrid) {
-                const auto weight = static_cast<double>(loc->GetPopulation()) / static_cast<double>(popCount);
+                const auto weight = static_cast<double>(loc->GetPopCount()) / static_cast<double>(popCount);
                 CheckWeight("CommunityGenerator", weight);
                 weights.push_back(weight);
         }

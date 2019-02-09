@@ -24,7 +24,7 @@
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
-#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
 #include <spdlog/logger.h>
 
@@ -41,8 +41,9 @@ public:
         /// Initializing constructor.
         /// \param configPt    Property_tree with general configuration settings.
         /// \param rnManager   Random number manager for pop build process.
-        AbstractPopBuilder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager)
-            : m_config_pt(configPt), m_rn_manager(rnManager)
+        AbstractPopBuilder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
+                           std::shared_ptr<spdlog::logger> stride_logger = nullptr)
+            : m_config_pt(configPt), m_rn_manager(rnManager), m_stride_logger(std::move(stride_logger))
         {
         }
 
@@ -52,8 +53,9 @@ public:
         virtual ~AbstractPopBuilder() = default;
 
 protected:
-        const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree.
-        util::RnMan&                       m_rn_manager; ///< Random number generation management.
+        const boost::property_tree::ptree& m_config_pt;     ///< Configuration property tree.
+        util::RnMan&                       m_rn_manager;    ///< Random number generation management.
+        std::shared_ptr<spdlog::logger>    m_stride_logger; /// Logger for build process.
 };
 
 } // namespace stride

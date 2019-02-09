@@ -39,8 +39,13 @@ using namespace stride::util;
 
 namespace stride {
 
-std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager)
+std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
+                                               std::shared_ptr<spdlog::logger> stride_logger)
 {
+        if (!stride_logger) {
+                stride_logger = LogUtils::CreateNullLogger("Population_logger");
+        }
+
         // --------------------------------------------------------------
         // Create (empty) population & and give it a ContactLogger.
         // --------------------------------------------------------------
@@ -50,17 +55,22 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 const auto logPath      = FileSys::BuildPath(prefix, "contact_log.txt");
                 pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
                 pop->GetContactLogger()->set_pattern("%v");
+                stride_logger->info("Contact logging requested; logger set up.");
         } else {
                 pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
+                stride_logger->info("No contact logging requested.");
         }
 
         std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
 
         if (geopop_type == "import") {
+                stride_logger->info("ImportPopBuilder invoked.");
                 ImportPopBuilder(configPt, rnManager).Build(pop);
         } else if (geopop_type == "generate") {
+                stride_logger->info("GenPopBuilder invoked.");
                 GenPopBuilder(configPt, rnManager).Build(pop);
         } else {
+                stride_logger->info("DefaultPopBuilder invoked.");
                 DefaultPopBuilder(configPt, rnManager).Build(pop);
         }
         // -----------------------------------------------------------------------------------------
@@ -69,9 +79,10 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         return pop;
 }
 
-std::shared_ptr<Population> Population::Create(const string& configString, util::RnMan& rnManager)
+std::shared_ptr<Population> Population::Create(const string& configString, util::RnMan& rnManager,
+                                               std::shared_ptr<spdlog::logger> stride_logger)
 {
-        return Create(RunConfigManager::FromString(configString), rnManager);
+        return Create(RunConfigManager::FromString(configString), rnManager, stride_logger);
 }
 
 std::shared_ptr<Population> Population::Create()

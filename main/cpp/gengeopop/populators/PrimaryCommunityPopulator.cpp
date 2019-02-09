@@ -29,7 +29,7 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
         std::set<stride::ContactPool*> found;
         // for every location
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                if (loc->GetPopulation() == 0) {
+                if (loc->GetPopCount() == 0) {
                         continue;
                 }
 

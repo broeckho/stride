@@ -40,49 +40,48 @@ using namespace util;
 using namespace boost::property_tree;
 using namespace gengeopop;
 
-shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
+shared_ptr<Population> GenPopBuilder::Build(shared_ptr<Population> pop)
 {
-        auto stride_logger = spdlog::get("stride_logger");
-        if (!stride_logger)
-                stride_logger = LogUtils::CreateNullLogger("stride_logger");
+        if (!m_stride_logger) {
+                m_stride_logger = LogUtils::CreateNullLogger("PopBuilder_logger");
+        }
 
         // --------------------------------------------------------------
         // Configure.
         // --------------------------------------------------------------
-        GeoGridConfig geoGridConfig(m_config_pt);
-        GenPopController genPopController(stride_logger, geoGridConfig, m_rn_manager, pop);
+        GeoGridConfig ggConfig(m_config_pt);
+        GenPopController genPopController(m_stride_logger, ggConfig, m_rn_manager, pop);
 
         // --------------------------------------------------------------
-        // Read input files.
+        // Read input files (commute info file only if present).
         // --------------------------------------------------------------
-        std::string commutesFile;
-        // Check if given
+        string commutesFile;
         auto geopop_gen = m_config_pt.get_child("run.geopop_gen");
         if (geopop_gen.count("commuting_file")) {
-                commutesFile = m_config_pt.get<std::string>("run.geopop_gen.commuting_file");
+                commutesFile = m_config_pt.get<string>("run.geopop_gen.commuting_file");
         }
-        genPopController.ReadDataFiles(m_config_pt.get<std::string>("run.geopop_gen.cities_file"), commutesFile,
-                                          m_config_pt.get<std::string>("run.geopop_gen.household_file"));
+        genPopController.ReadDataFiles(m_config_pt.get<string>("run.geopop_gen.cities_file"), commutesFile,
+                                          m_config_pt.get<string>("run.geopop_gen.household_file"));
 
-        stride_logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
-        stride_logger->info("Number of reference households: {}", geoGridConfig.generated.reference_households.size());
-        stride_logger->info("Number of reference persons: {}", geoGridConfig.generated.persons.size());
-        stride_logger->info("Number of reference households: {}", geoGridConfig.generated.contact_pools.size());
+        m_stride_logger->info("GeoGridConfig:\n\n{}", ggConfig);
+        m_stride_logger->info("Number of reference households: {}", ggConfig.generated.reference_households.size());
+        m_stride_logger->info("Number of reference persons: {}", ggConfig.generated.persons.size());
+        m_stride_logger->info("Number of reference households: {}", ggConfig.generated.contact_pools.size());
 
         // --------------------------------------------------------------
         // Generate Geo
         // --------------------------------------------------------------
-        stride_logger->info("Starting Gen-Geo");
+        m_stride_logger->info("Starting Gen-Geo");
         genPopController.GenGeo();
-        stride_logger->info("ContactCenters generated: {}", geoGridConfig.generated.contact_center_count);
-        stride_logger->info("Finished Gen-Geo");
+        m_stride_logger->info("ContactCenters generated: {}", ggConfig.generated.contact_center_count);
+        m_stride_logger->info("Finished Gen-Geo");
 
         // --------------------------------------------------------------
         // Generate Pop
         // --------------------------------------------------------------
-        stride_logger->info("Starting Gen-Pop");
+        m_stride_logger->info("Starting Gen-Pop");
         genPopController.GenPop();
-        stride_logger->info("Finished Gen-Pop");
+        m_stride_logger->info("Finished Gen-Pop");
 
         pop->m_geoGrid = genPopController.GetGeoGrid();
 

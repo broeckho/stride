@@ -56,13 +56,12 @@ void GeoGridConfig::Calculate(shared_ptr<GeoGrid> geoGrid, shared_ptr<HouseholdR
             floor(input.fraction_1865_active *
                        (calculated.popcount_1865 - calculated.popcount_1826_student)));
 
-        auto averageHouseholdSize = static_cast<double>(householdReader->GetTotalPersonsInHouseholds())
+        auto averageHhSize = static_cast<double>(householdReader->GetTotalPersonsInHouseholds())
                 / generated.reference_households.size();
-        calculated.households = static_cast<unsigned int>(
-            floor(static_cast<double>(input.pop_size) / averageHouseholdSize));
+        calculated.households = static_cast<unsigned int>(floor(static_cast<double>(input.pop_size) / averageHhSize));
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
-                loc->CalculatePopulation(input.pop_size);
+                loc->SetPopCount(input.pop_size);
         }
 }
 

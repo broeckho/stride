@@ -108,8 +108,8 @@ void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Locatio
 {
         EXPECT_EQ(location->GetName(), protoLocation.name());
         EXPECT_EQ(location->GetProvince(), protoLocation.province());
-        EXPECT_EQ(location->GetPopulation(), protoLocation.population());
-        EXPECT_EQ(location->GetPopulation(), protoLocation.population());
+        EXPECT_EQ(location->GetPopCount(), protoLocation.population());
+        EXPECT_EQ(location->GetPopCount(), protoLocation.population());
         CompareCoordinate(location->GetCoordinate(), protoLocation.coordinate());
         ASSERT_EQ(protoLocation.contactcenters_size(), location->GetContactCenters().size());
 
@@ -126,10 +126,10 @@ void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Locatio
                 CompareContactCenter(contactCenterPair.second, idToProtoCenter[contactCenterPair.first]);
         }
 
-        ASSERT_EQ(protoLocation.commutes_size(), location->GetOutgoingCommuningCities().size());
+        ASSERT_EQ(protoLocation.commutes_size(), location->GetOutgoingCommutingCities().size());
         for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
                 const auto& protoCommute = protoLocation.commutes(idx);
-                auto        commute_pair = location->GetOutgoingCommuningCities()[idx];
+                auto        commute_pair = location->GetOutgoingCommutingCities()[idx];
                 EXPECT_EQ(protoCommute.to(), commute_pair.first->GetID());
                 EXPECT_EQ(protoCommute.proportion(), commute_pair.second);
         }
