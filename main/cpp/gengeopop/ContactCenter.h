@@ -15,10 +15,16 @@
 
 #pragma once
 
-#include "GeoGrid.h"
+//#include "GeoGrid.h"
+
+#include "pool/ContactPool.h"
+
+#include <memory>
+#include <vector>
 
 namespace gengeopop {
 
+class GeoGrid;
 class GeoGridConfig;
 
 /**

@@ -31,8 +31,10 @@ namespace kd {
 
 template <typename P>
 class BaseNode;
+
 template <typename P, std::size_t D>
 class Node;
+
 template <typename P, std::size_t D>
 std::size_t Median(const std::vector<P>& points);
 

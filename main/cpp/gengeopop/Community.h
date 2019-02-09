@@ -19,8 +19,6 @@
 
 namespace gengeopop {
 
-class Household;
-
 /**
  * Models a Community as ContactCenter.
  */

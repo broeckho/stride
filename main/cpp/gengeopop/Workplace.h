@@ -31,10 +31,7 @@ public:
         explicit Workplace(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
-        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override
-        {
-                AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::Work));
-        }
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
 
         /// See ContactCenter::GetMaxPools.
         unsigned int GetMaxPools() const override { return 1; }

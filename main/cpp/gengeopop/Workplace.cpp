@@ -13,12 +13,15 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "Exception.h"
+#include "Workplace.h"
 
-namespace stride {
-namespace util {
+#include "GeoGrid.h"
 
-Exception::Exception(const std::string& msg) : runtime_error(msg) {}
+namespace gengeopop {
 
-} // namespace util
-} // namespace stride
+void Workplace::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
+{
+        AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::Work));
+}
+
+} // namespace gengeopop

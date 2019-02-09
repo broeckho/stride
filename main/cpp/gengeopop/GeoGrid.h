@@ -43,7 +43,7 @@ namespace geogrid_detail {
 /// Used as a point in de geogrid when using the KdTree
 using BoostPoint = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
 
-/// \ref KdTree for some more information on methods
+/// \ref KdTree for some more information on methods.
 class KdTree2DPoint
 {
 public:
@@ -101,22 +101,32 @@ private:
 } // namespace geogrid_detail
 
 /**
- * A Geographic information grid for a single region.
+ * A Geographic grid of simulation region contains Locations that in turn contains ContactCenters.
  */
 class GeoGrid
 {
 public:
-        /// Construct with information about population
+        /// Construct with information about population.
         explicit GeoGrid(stride::Population* population);
 
-        /// No copy constructor
+        /// No copy constructor.
         GeoGrid(const GeoGrid&) = delete;
 
-        /// No copy assignment
+        /// No copy assignment.
         GeoGrid operator=(const GeoGrid&) = delete;
 
         /// Adds a location to this GeoGrid.
         void AddLocation(std::shared_ptr<Location> location);
+
+        /// Create a ContactPool of the given type and return a non-owning pointer.
+        stride::ContactPool* CreateContactPool(stride::ContactPoolType::Id type);
+
+        /// Create and store a Person in the GeoGrid and return its pointer (which works until deletion of GeoGrid).
+        template <typename... Args>
+        stride::Person* CreatePerson(Args&&... args)
+        {
+                return m_population->CreatePerson(args...);
+        }
 
         /// Disables the addLocation method and builds the kdtree.
         void Finalize();
@@ -124,13 +134,8 @@ public:
         /// Search for locations in \p radius around \p start.
         std::vector<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start,
                                                                      double                    radius) const;
-
-        /// Gets the K biggest (in population count) locations of this GeoGrid
-        std::vector<std::shared_ptr<Location>> TopK(size_t k) const;
-
         /**
          * Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2, lat2).
-         *
          * The coordinates must be position on the diagonal, i.e:
          *
          *  p1 -----+     +-------p1
@@ -141,43 +146,26 @@ public:
          */
         std::set<std::shared_ptr<Location>> InBox(double long1, double lat1, double long2, double lat2) const;
 
-        /// Gets the location in a rectangle defined by the two locations
+        /// Gets the location in a rectangle defined by the two Locations.
         std::set<std::shared_ptr<Location>> InBox(const std::shared_ptr<Location>& loc1,
-                                                  const std::shared_ptr<Location>& loc2) const
-        {
-                using boost::geometry::get;
-                return InBox(get<0>(loc1->GetCoordinate()), get<1>(loc1->GetCoordinate()),
-                             get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
-        }
+                                                  const std::shared_ptr<Location>& loc2) const;
 
-        /// Gets amount of Location.
-        size_t size() const;
-
-        /// Remove element of GeoGrid.
-        void remove(const std::shared_ptr<Location>& location);
+        /// Gets the K biggest (in population count) locations of this GeoGrid
+        std::vector<std::shared_ptr<Location>> TopK(size_t k) const;
 
         /// Gets a Location by index, doesn't performs a range check.
-        std::shared_ptr<Location> operator[](size_t index);
-
-        /// Gets a Location by index, doesn't performs a range check.
-        std::shared_ptr<Location> Get(size_t index);
+        std::shared_ptr<Location> Get(size_t index) const { return (*this)[index]; }
 
         /// Gets a Location by id and check if the id exists.
-        std::shared_ptr<Location> GetById(unsigned int id);
-
-        /// Create and store a Person in the GeoGrid and return its pointer (which works until deletion of GeoGrid).
-        template <typename... Args>
-        stride::Person* CreatePerson(Args&&... args)
-        {
-                return m_population->CreatePerson(args...);
-        }
-
-        /// Create a ContactPool of the given type and return a non-owning pointer.
-        stride::ContactPool* CreateContactPool(stride::ContactPoolType::Id type);
+        std::shared_ptr<Location> GetById(unsigned int id)  const { return m_locationsToIdIndex.at(id); }
 
         /// Get the population of this GeoGrid
-        stride::Population* GetPopulation();
+        stride::Population* GetPopulation() const { return m_population; }
 
+        /// Remove element of GeoGrid.
+        void Remove(const std::shared_ptr<Location>& location);
+
+public:
         /// Build a GeoAggregator with a predefined functor and given args for the Policy.
         template <typename Policy, typename F>
         GeoAggregator<Policy, F> BuildAggregator(F functor, typename Policy::Args&& args) const;
@@ -202,20 +190,34 @@ public:
         /// Const iterator to the end of the Location storage.
         const_iterator cend() const { return m_locations.cend(); }
 
+        /// Gets a Location by index, doesn't performs a range check.
+        std::shared_ptr<Location>& operator[](size_t index) { return m_locations[index]; }
+
+        /// Gets a Location by index, doesn't performs a range check.
+        const std::shared_ptr<Location>& operator[](size_t index) const { return m_locations[index]; }
+
+        /// Gets current size of Location storage.
+        size_t size() const { return m_locations.size(); }
+
 private:
-        ///< Checks whether the GeoGrid is finalized and thus certain operations can(not) be used
+        ///< Checks whether the GeoGrid is finalized i.e. certain operations can(not) be used.
         void CheckFinalized(const std::string& functionName) const;
 
 private:
-        std::vector<std::shared_ptr<Location>> m_locations; ///< Locations in this geoGrid.
-        std::unordered_map<unsigned int, std::shared_ptr<Location>>
-            m_locationsToIdIndex; ///< Locations in this geoGrid indexed by Id.
+        ///< Container for Locations in GeoGrid.
+        std::vector<std::shared_ptr<Location>> m_locations;
 
-        stride::Population* m_population; ///< Stores, but does not take ownership.
+        ///< Associative container by Id for Locations in the GeoGrid.
+        std::unordered_map<unsigned int, std::shared_ptr<Location>> m_locationsToIdIndex;
 
-        bool m_finalized; ///< Is this finalized yet?
+        ///< Stores pointer to Popluation, but does not take ownership.
+        stride::Population* m_population;
 
-        KdTree<geogrid_detail::KdTree2DPoint> m_tree; ///< Internal KdTree for quick spatial lookup.
+        ///< Is the GeoGrid finalized (ready for use) yet?
+        bool m_finalized;
+
+        ///< Internal KdTree for quick spatial lookup.
+        KdTree<geogrid_detail::KdTree2DPoint> m_tree;
 };
 
 } // namespace gengeopop

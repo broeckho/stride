@@ -31,12 +31,7 @@ public:
         explicit PrimaryCommunity(unsigned int id) : Community(id) {}
 
         /// See ContactCenter::Fill.
-        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override
-        {
-                if (m_pools.empty()) {
-                        AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::PrimaryCommunity));
-                }
-        }
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
 
         /// See ContactCenter::GetType.
         std::string GetType() const override { return "Primary Community"; }

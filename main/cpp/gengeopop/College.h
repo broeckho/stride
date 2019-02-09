@@ -16,11 +16,12 @@
 #pragma once
 
 #include "ContactCenter.h"
-#include "GeoGrid.h"
 
 #include <string>
 
 namespace gengeopop {
+
+class GeoGrid;
 
 /**
  * Models a College (institution of higher education).
@@ -32,12 +33,7 @@ public:
         explicit College(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
-        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override
-        {
-                for (std::size_t i = 0; i < GetMaxPools(); ++i) {
-                        AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::College));
-                }
-        }
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
 
         /// See ContactCenter::GetMaxPools.
         unsigned int GetMaxPools() const override { return 20; };

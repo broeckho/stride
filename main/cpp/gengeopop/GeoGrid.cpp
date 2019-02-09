@@ -28,7 +28,6 @@ using namespace std;
 
 GeoGrid::GeoGrid(stride::Population* population)
     : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
-
 {
 }
 
@@ -42,45 +41,17 @@ void GeoGrid::AddLocation(shared_ptr<Location> location)
         m_locationsToIdIndex[location->GetID()] = location;
 }
 
-shared_ptr<Location> GeoGrid::operator[](size_t index) { return *(begin() + index); }
-
-shared_ptr<Location> GeoGrid::Get(size_t index) { return (*this)[index]; }
-
-vector<shared_ptr<Location>> GeoGrid::TopK(size_t k) const
+void GeoGrid::CheckFinalized(const string& functionName) const
 {
-        auto cmp = [](const shared_ptr<Location>& rhs, const shared_ptr<Location>& lhs) {
-                return rhs->GetPopCount() > lhs->GetPopCount();
-        };
-
-        priority_queue<shared_ptr<Location>, vector<shared_ptr<Location>>, decltype(cmp)> queue(
-            cmp);
-
-        for (auto it = cbegin(); it != cend(); it++) {
-                queue.push(*it);
-                if (queue.size() > k) {
-                        queue.pop();
-                }
+        if (!m_finalized) {
+                throw stride::util::Exception("Calling \"" + functionName +
+                                              "\" while GeoGrid is not finalized is not supported!");
         }
-
-        vector<shared_ptr<Location>> topLocations;
-
-        while (!queue.empty()) {
-                auto loc = queue.top();
-                topLocations.push_back(loc);
-                queue.pop();
-        }
-
-        return topLocations;
 }
 
-size_t GeoGrid::size() const { return m_locations.size(); }
-
-shared_ptr<Location> GeoGrid::GetById(unsigned int id) { return m_locationsToIdIndex.at(id); }
-
-void GeoGrid::remove(const shared_ptr<Location>& location)
+stride::ContactPool* GeoGrid::CreateContactPool(stride::ContactPoolType::Id type)
 {
-        m_locations.erase(::gengeopop::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
-        m_locationsToIdIndex.erase(location->GetID());
+        return m_population->CreateContactPool(type);
 }
 
 void GeoGrid::Finalize()
@@ -106,6 +77,14 @@ set<shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2
         return result;
 }
 
+std::set<std::shared_ptr<Location>> GeoGrid::InBox(const std::shared_ptr<Location>& loc1,
+                                                  const std::shared_ptr<Location>& loc2) const
+{
+        using boost::geometry::get;
+        return InBox(get<0>(loc1->GetCoordinate()), get<1>(loc1->GetCoordinate()),
+                     get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
+}
+
 vector<shared_ptr<Location>> GeoGrid::FindLocationsInRadius(shared_ptr<Location> start,
                                                                       double                    radius) const
 {
@@ -120,19 +99,35 @@ vector<shared_ptr<Location>> GeoGrid::FindLocationsInRadius(shared_ptr<Location>
         return result;
 }
 
-stride::Population* GeoGrid::GetPopulation() { return m_population; }
-
-void GeoGrid::CheckFinalized(const string& functionName) const
+vector<shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 {
-        if (!m_finalized) {
-                throw stride::util::Exception("Calling \"" + functionName +
-                                              "\" while GeoGrid is not finalized is not supported!");
+        auto cmp = [](const shared_ptr<Location>& rhs, const shared_ptr<Location>& lhs) {
+                return rhs->GetPopCount() > lhs->GetPopCount();
+        };
+
+        priority_queue<shared_ptr<Location>, vector<shared_ptr<Location>>, decltype(cmp)> queue(cmp);
+        for (auto it = cbegin(); it != cend(); it++) {
+                queue.push(*it);
+                if (queue.size() > k) {
+                        queue.pop();
+                }
         }
+
+        vector<shared_ptr<Location>> topLocations;
+        while (!queue.empty()) {
+                auto loc = queue.top();
+                topLocations.push_back(loc);
+                queue.pop();
+        }
+
+        return topLocations;
 }
 
-stride::ContactPool* GeoGrid::CreateContactPool(stride::ContactPoolType::Id type)
+void GeoGrid::Remove(const shared_ptr<Location>& location)
 {
-        return m_population->CreateContactPool(type);
+        m_locations.erase(::gengeopop::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
+        m_locationsToIdIndex.erase(location->GetID());
 }
+
 
 } // namespace gengeopop

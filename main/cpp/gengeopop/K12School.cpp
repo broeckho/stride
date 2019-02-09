@@ -13,28 +13,17 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#pragma once
+#include "K12School.h"
 
-#include "Community.h"
+#include "GeoGrid.h"
 
 namespace gengeopop {
 
-class GeoGrid;
-
-/**
- * A model of a Secondary Community (as a ContactCenter)
- */
-class SecondaryCommunity : public Community
+void K12School::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
 {
-public:
-        /// Construct community with assigned ID.
-        explicit SecondaryCommunity(unsigned int id) : Community(id) {}
-
-        /// See ContactCenter::Fill.
-        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
-
-        /// See ContactCenter::GetType.
-        std::string GetType() const override { return "Secondary Community"; }
-};
+        for (std::size_t i = 0; i < GetMaxPools(); ++i) {
+                AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::K12School));
+        }
+}
 
 } // namespace gengeopop

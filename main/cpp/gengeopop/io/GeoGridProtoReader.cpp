@@ -18,13 +18,14 @@
 #include "ThreadException.h"
 #include "gengeopop/College.h"
 #include "gengeopop/Community.h"
+#include "gengeopop/GeoGrid.h"
 #include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/SecondaryCommunity.h"
 #include "gengeopop/Workplace.h"
+#include "pop/Person.h"
 #include "proto/geogrid.pb.h"
-#include "util/Exception.h"
 
 #include <iostream>
 #include <omp.h>
@@ -43,7 +44,7 @@ shared_ptr<GeoGrid> GeoGridProtoReader::Read()
 {
         proto::GeoGrid protoGrid;
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
-                throw stride::util::Exception("Failed to parse Proto file");
+                throw runtime_error("Failed to parse Proto file");
         }
         m_geoGrid = make_shared<GeoGrid>(m_population);
 #pragma omp parallel
@@ -163,7 +164,7 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
                 typeId = stride::ContactPoolType::Id::Work;
                 break;
                 break;
-        default: throw stride::util::Exception("No such ContactCenter type");
+        default: throw runtime_error("No such ContactCenter type");
         }
 
         auto e = make_shared<ThreadException>();

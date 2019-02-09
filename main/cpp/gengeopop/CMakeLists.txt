@@ -19,11 +19,17 @@
 #============================================================================
 set(GENGEOPOP_LIB
 #
+    College.cpp
     ContactCenter.cpp
     GenPopController.cpp
     GeoGrid.cpp
     GeoGridConfig.cpp
+    Household.cpp
+    K12School.cpp
     Location.cpp
+    PrimaryCommunity.cpp
+    SecondaryCommunity.cpp
+    Workplace.cpp
 #
     generators/CollegeGenerator.cpp
     generators/CommunityGenerator.cpp

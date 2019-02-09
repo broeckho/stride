@@ -13,15 +13,17 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/io/GeoGridJSONReader.h"
 #include "gengeopop/ContactCenter.h"
-#include "util/Exception.h"
+#include "gengeopop/GeoGrid.h"
+#include "gengeopop/io/GeoGridJSONReader.h"
+#include "pop/Population.h"
 #include "util/FileSys.h"
 
 #include <fstream>
 #include <gtest/gtest.h>
 #include <iomanip>
 #include <memory>
+#include <stdexcept>
 
 using namespace std;
 using namespace gengeopop;
@@ -160,7 +162,7 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
         }
 }
 
-void runPeopleTest(string filename)
+void runPeopleTest(const string& filename)
 {
         auto             pop      = Population::Create();
         auto             geoGrid  = getGeoGridForFile(filename, pop.get());
@@ -201,25 +203,25 @@ TEST(GeoGridJSONReaderTest, emptyStreamTest)
         auto              instream = make_unique<istringstream>("");
         auto              pop      = Population::Create();
         GeoGridJSONReader geoGridJSONReader(move(instream), pop.get());
-        EXPECT_THROW(geoGridJSONReader.Read(), Exception);
+        EXPECT_THROW(geoGridJSONReader.Read(), runtime_error);
 }
 
 TEST(GeoGridJSONReaderTest, invalidTypeTest)
 {
         auto pop = Population::Create();
-        EXPECT_THROW(getGeoGridForFile("test4.json", pop.get()), Exception);
+        EXPECT_THROW(getGeoGridForFile("test4.json", pop.get()), runtime_error);
 }
 
 TEST(GeoGridJSONReaderTest, invalidPersonTest)
 {
         auto pop = Population::Create();
-        EXPECT_THROW(getGeoGridForFile("test5.json", pop.get()), Exception);
+        EXPECT_THROW(getGeoGridForFile("test5.json", pop.get()), runtime_error);
 }
 
 TEST(GeoGridJSONReaderTest, invalidJSONTest)
 {
         auto pop = Population::Create();
-        EXPECT_THROW(getGeoGridForFile("test6.json", pop.get()), Exception);
+        EXPECT_THROW(getGeoGridForFile("test6.json", pop.get()), runtime_error);
 }
 
 } // namespace

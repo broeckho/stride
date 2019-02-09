@@ -13,28 +13,19 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#pragma once
+#include "SecondaryCommunity.h"
 
-#include "Community.h"
+#include "GeoGrid.h"
+
+using namespace stride::ContactPoolType;
 
 namespace gengeopop {
 
-class GeoGrid;
-
-/**
- * A model of a Secondary Community (as a ContactCenter)
- */
-class SecondaryCommunity : public Community
+void SecondaryCommunity::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
 {
-public:
-        /// Construct community with assigned ID.
-        explicit SecondaryCommunity(unsigned int id) : Community(id) {}
-
-        /// See ContactCenter::Fill.
-        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
-
-        /// See ContactCenter::GetType.
-        std::string GetType() const override { return "Secondary Community"; }
-};
+        if (m_pools.empty()) {
+                AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::SecondaryCommunity));
+        }
+}
 
 } // namespace gengeopop

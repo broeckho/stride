@@ -17,7 +17,6 @@
 
 #include <tuple>
 
-#include "GeoGrid.h"
 #include "KdTree.h"
 #include "Location.h"
 
@@ -37,7 +36,7 @@ inline double DegreeToRadian(double deg) { return deg / 180.0 * M_PI; }
 
 namespace gengeopop {
 
-/// Aggregates into a vector, if a vector is passed it should remain alive for the usage duration of the Collector
+/// Aggregates into a vector that must should remain alive for the usage duration of the Collector.
 template <typename InsertIter, typename T>
 class Collector
 {
@@ -158,7 +157,7 @@ private:
         double                        m_radius;
 };
 
-/// A GeoAggregator Policy that aggregates over an axis aligned bounding box
+/// A GeoAggregator Policy that aggregates over an axis aligned bounding box.
 class BoxPolicy
 {
 public:
@@ -178,7 +177,7 @@ private:
         Args m_args;
 };
 
-/// A GeoAggregator Policy that aggregates over a (clockwise) polygon
+/// A GeoAggregator Policy that aggregates over a (clockwise) polygon.
 class PolygonPolicy
 {
 public:
