@@ -37,7 +37,6 @@ set(LIB_SRC
     disease/HealthSeeder.cpp
     disease/PublicHealthAgency.cpp
 #---
-	output/AdoptedFile.cpp
     output/InfectedFile.cpp
     output/PersonsFile.cpp
 	output/SummaryFile.cpp

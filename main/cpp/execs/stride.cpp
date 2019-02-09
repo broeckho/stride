@@ -73,7 +73,7 @@ int main(int argc, char** argv)
                             "  \n\t clean:  cleans configuration and writes it to a new file."
                             "  \n\t dump:   takes built-in configuration writes it to a file."
                             "  \n\t sim:    runs the simulator and is the default."
-                            "  \n\t geopop: runs the geospatial synthetic population generator"
+                            "  \n\t genpop: saves synthetic population to file; no simulation"
                             "Defaults to --exec sim.";
                 ValueArg<string> execArg("e", "exec", se, false, "sim", &vc, cmd);
 
@@ -121,7 +121,7 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // If geopop ...
                 // -----------------------------------------------------------------------------------------
-                else if (execArg.getValue() == "geopop") {
+                else if (execArg.getValue() == "genpop") {
                         cout << "Not implemented here yet ..." << endl;
                 }
                 // -----------------------------------------------------------------------------------------

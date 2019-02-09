@@ -9,7 +9,7 @@ from pystride.PyController import PyController
 # Callback to check if number of cases produced by sim is acceptable
 def checkNumCases(simulator, event):
     # Target for total number of cases after simulation
-    targetCases = 118925
+    targetCases = 31833
     actualCases = simulator.GetPopulation().GetInfectedCount()
     # Accept a 10% margin of error
     assert (abs(targetCases - actualCases) <= (targetCases * 0.1)),"Expected value is {} - actual value is {}".format(targetCases, actualCases)
