@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, 2019 Jan Broeckhove and Bistromatics group.
  */
 
 /**
@@ -54,7 +54,6 @@ shared_ptr<Population> GenPopBuilder::Build(shared_ptr<Population> pop)
         GeoGridConfigBuilder ggConfigBuilder{};
         ggConfigBuilder.SetData(ggConfig, m_config_pt.get<string>("run.geopop_gen.household_file"));
 
-        m_stride_logger->info("GeoGridConfig:\n\n{}", ggConfig);
         m_stride_logger->info("Number of reference households: {}", ggConfig.popInfo.reference_households.size());
         m_stride_logger->info("Number of reference persons: {}", ggConfig.popInfo.persons.size());
         m_stride_logger->info("Number of reference households: {}", ggConfig.popInfo.contact_pools.size());

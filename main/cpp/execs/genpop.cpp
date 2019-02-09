@@ -10,30 +10,23 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, 2019 Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/Community.h"
+
 #include "gengeopop/GeoGrid.h"
-#include "gengeopop/GeoGridBuilder.h"
-#include "gengeopop/GeoGridConfig.h"
-#include "gengeopop/GeoGridConfigBuilder.h"
-#include "gengeopop/io/GeoGridProtoWriter.h"
 #include "gengeopop/io/GeoGridWriterFactory.h"
-#include "gengeopop/io/ReaderFactory.h"
+#include "pop/GenPopBuilder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/RunConfigManager.h"
 
-#include <boost/lexical_cast.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <tclap/CmdLine.h>
-#include <omp.h>
 #include <spdlog/common.h>
 #include <spdlog/fmt/ostr.h>
 
 #include <fstream>
-#include <iostream>
 #include <regex>
 #include <string>
 #include <utility>
@@ -42,6 +35,7 @@
 using namespace gengeopop;
 using namespace TCLAP;
 using namespace std;
+using namespace stride;
 using namespace stride::util;
 using namespace boost::property_tree;
 
@@ -49,7 +43,6 @@ int main(int argc, char* argv[])
 {
         int exit_status = EXIT_SUCCESS;
 
-        // base structure copied from sim/main.cpp
         try {
                 // --------------------------------------------------------------
                 // Parse parameters.
@@ -115,44 +108,14 @@ int main(int argc, char* argv[])
                 logger->info("Number of threads: {}", info.m_stream_count);
 
                 // --------------------------------------------------------------
-                // Set the GeoGridConfig.
+                // Set up the GenPopBuilder and build population with GeoGrid.
                 // --------------------------------------------------------------
-                GeoGridConfig        ggConfig(configPt);
-                GeoGridConfigBuilder ggConfigBuilder{};
-                ggConfigBuilder.SetData(ggConfig, configPt.get<string>("run.geopop_gen.household_file"));
+                logger->info("GenPopBuilder invoked.");
+                GenPopBuilder genPopBuilder(configPt, rnManager, logger);
+                const auto pop = Population::Create();
 
-                logger->info("Number of reference households: {}", ggConfig.popInfo.reference_households.size());
-                logger->info("Number of reference persons: {}", ggConfig.popInfo.persons.size());
-                logger->info("Number of reference households: {}", ggConfig.popInfo.contact_pools.size());
-
-                // --------------------------------------------------------------
-                // Read input files (commutesFile may be absent).
-                // --------------------------------------------------------------
-                string commutesFile;
-                // Check if given
-                auto geopop_gen = configPt.get_child("run.geopop_gen");
-                if (geopop_gen.count("commuting_file")) {
-                        commutesFile = configPt.get<std::string>("run.geopop_gen.commuting_file");
-                }
-                GeoGridBuilder ggBuilder(logger, rnManager);
-
-                logger->info("Starting GenCities");
-                ggBuilder.GenCities(ggConfig, configPt.get<string>("run.geopop_gen.cities_file"), commutesFile);
-                logger->info("Finishing GenCities");
-
-                // --------------------------------------------------------------
-                // Generate Geo
-                // --------------------------------------------------------------
-                logger->info("Start generation geographic grid.");
-                ggBuilder.GenGeo(ggConfig);
-                logger->info("Done generation geographic grid.");
-
-                // --------------------------------------------------------------
-                // Generate Pop
-                // --------------------------------------------------------------
-                logger->info("Start generating of synthetic population.");
-                ggBuilder.GenPop(ggConfig);
-                logger->info("Done generating synthetic population.");
+                genPopBuilder.Build(pop);
+                logger->info("GenPopBuilder done.");
 
                 // --------------------------------------------------------------
                 // Write to file.
@@ -161,7 +124,8 @@ int main(int argc, char* argv[])
                 GeoGridWriterFactory      geoGridWriterFactory;
                 shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(outputFile.getValue());
                 ofstream                  outputFileStream(outputFile.getValue());
-                geoGridWriter->Write(ggBuilder.GetGeoGrid(), outputFileStream);
+
+                geoGridWriter->Write(pop->GetGeoGrid(), outputFileStream);
                 outputFileStream.close();
                 logger->info("Done writing to population file.");
 

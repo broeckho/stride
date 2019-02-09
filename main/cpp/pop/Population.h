@@ -55,10 +55,18 @@ public:
         /// Create an empty Population, used in gengeopop.
         static std::shared_ptr<Population> Create();
 
+public:
+        /// Add a new contact pool of a given type
+        ContactPool* CreateContactPool(ContactPoolType::Id typeId);
+
+        /// Create Person in the population.
+        Person* CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,
+                             unsigned int college, unsigned int workId, unsigned int primaryCommunityId,
+                             unsigned int secondaryCommunityId);
         /// Get the cumulative number of cases.
         unsigned int GetInfectedCount() const;
 
-        ///
+        /// Return the contactlogger.
         std::shared_ptr<spdlog::logger>& GetContactLogger() { return m_contact_logger; }
 
         /// The ContactPoolSys of the simulator.
@@ -67,14 +75,8 @@ public:
         /// The ContactPoolSys of the simulator.
         const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
-        /// Create Person in the population.
-        Person* CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,
-                             unsigned int college, unsigned int workId, unsigned int primaryCommunityId,
-                             unsigned int secondaryCommunityId);
-
-        /// Add a new contact pool of a given type
-        ContactPool* CreateContactPool(ContactPoolType::Id typeId);
-
+        /// Get the GeoGrid associated with this population (may be a nullptr).
+        std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
 private:
         ///
         Population() : m_pool_sys(), m_contact_logger(), m_geoGrid() {}
@@ -84,10 +86,12 @@ private:
         friend class ImportPopBuilder;
 
 private:
-        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
-        std::size_t m_currentContactPoolId = 1;           ///< The current contact pool id, assigns in increasing order.
-        std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;    ///< Associated geoGrid may be nullptr
+        ContactPoolSys                      m_pool_sys;       ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger>     m_contact_logger; ///< Logger for contact/transmission.
+        std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;    ///< Associated geoGrid may be nullptr.
+
+private:
+        std::size_t m_currentContactPoolId = 1;  ///< The contact pool counter for assigning pool IDs.
 };
 
 } // namespace stride

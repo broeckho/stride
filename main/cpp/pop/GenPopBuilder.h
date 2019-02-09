@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, 2019 Jan Broeckhove and Bistromatics group.
  */
 
 /**
@@ -39,7 +39,7 @@ public:
         /// Use constructor of base.
         using AbstractPopBuilder::AbstractPopBuilder;
 
-        /// Creates a synthetic population by generating it.
+        /// Generates a synthetic population.
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) override;
 };
 

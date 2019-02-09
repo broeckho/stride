@@ -61,8 +61,10 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 stride_logger->info("No contact logging requested.");
         }
 
+        // -----------------------------------------------------------------------------------------
+        // Build population.
+        // -----------------------------------------------------------------------------------------
         std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
-
         if (geopop_type == "import") {
                 stride_logger->info("ImportPopBuilder invoked.");
                 ImportPopBuilder(configPt, rnManager).Build(pop);
@@ -73,8 +75,9 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 stride_logger->info("DefaultPopBuilder invoked.");
                 DefaultPopBuilder(configPt, rnManager).Build(pop);
         }
+
         // -----------------------------------------------------------------------------------------
-        // Build population (at later date multiple builder or build instances ...).
+        // Done.
         // -----------------------------------------------------------------------------------------
         return pop;
 }
@@ -82,7 +85,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
 std::shared_ptr<Population> Population::Create(const string& configString, util::RnMan& rnManager,
                                                std::shared_ptr<spdlog::logger> stride_logger)
 {
-        return Create(RunConfigManager::FromString(configString), rnManager, stride_logger);
+        return Create(RunConfigManager::FromString(configString), rnManager, std::move(stride_logger));
 }
 
 std::shared_ptr<Population> Population::Create()
