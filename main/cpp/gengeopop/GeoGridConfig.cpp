@@ -24,7 +24,7 @@ using stride::util::intToDottedString;
 using namespace std;
 using namespace boost::property_tree;
 
-GeoGridConfig::GeoGridConfig() : input{}, popInfo{}, counters{}, constants{} {}
+GeoGridConfig::GeoGridConfig() : input{}, popInfo{}, constants{} {}
 
 GeoGridConfig::GeoGridConfig(const ptree& configPt) : GeoGridConfig()
 {

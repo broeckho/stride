@@ -95,7 +95,6 @@ TEST(CollegePopulatorTest, NotCommuting)
         config.input.fraction_student_commuters = 0;
         config.input.fraction_1826_student      = 1;
 
-
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
         // Kortrijk will only receive students from Kortrijik

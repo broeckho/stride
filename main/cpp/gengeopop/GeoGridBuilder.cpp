@@ -13,7 +13,7 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "GenPopController.h"
+#include "GeoGridBuilder.h"
 
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
@@ -38,15 +38,14 @@ namespace gengeopop {
 
 using namespace std;
 
-GenPopController::GenPopController(shared_ptr<spdlog::logger> logger,  stride::util::RnMan& rnManager,
-                                   shared_ptr<stride::Population> pop)
-    : m_rnManager(rnManager), m_geoGrid(nullptr), m_population(move(pop)),
-      m_logger(move(logger))
+GeoGridBuilder::GeoGridBuilder(shared_ptr<spdlog::logger> logger, stride::util::RnMan& rnManager,
+                               shared_ptr<stride::Population> pop)
+    : m_rnManager(rnManager), m_geoGrid(nullptr), m_population(move(pop)), m_logger(move(logger))
 {
 }
 
-void GenPopController::ReadDataFiles(const GeoGridConfig& geoGridConfig,
-                                     const string& citiesFileName, const string& commutingFileName)
+void GeoGridBuilder::GenCities(const GeoGridConfig& geoGridConfig, const string& citiesFileName,
+                               const string& commutingFileName)
 {
         m_geoGrid = make_shared<GeoGrid>(m_population.get());
 
@@ -67,7 +66,7 @@ void GenPopController::ReadDataFiles(const GeoGridConfig& geoGridConfig,
         m_geoGrid->Finalize();
 }
 
-void GenPopController::GenGeo(const GeoGridConfig& geoGridConfig)
+void GeoGridBuilder::GenGeo(const GeoGridConfig& geoGridConfig)
 {
         vector<shared_ptr<Generator>> generators{make_shared<K12SchoolGenerator>(m_rnManager, m_logger),
                                                  make_shared<CollegeGenerator>(m_rnManager, m_logger),
@@ -80,7 +79,7 @@ void GenPopController::GenGeo(const GeoGridConfig& geoGridConfig)
         }
 }
 
-void GenPopController::GenPop(const GeoGridConfig& geoGridConfig)
+void GeoGridBuilder::GenPop(const GeoGridConfig& geoGridConfig)
 {
         vector<shared_ptr<Populator>> populators{make_shared<HouseholdPopulator>(m_rnManager, m_logger),
                                                  make_shared<K12SchoolPopulator>(m_rnManager, m_logger),
@@ -94,6 +93,6 @@ void GenPopController::GenPop(const GeoGridConfig& geoGridConfig)
         }
 }
 
-shared_ptr<GeoGrid> GenPopController::GetGeoGrid() { return m_geoGrid; }
+shared_ptr<GeoGrid> GeoGridBuilder::GetGeoGrid() { return m_geoGrid; }
 
 } // namespace gengeopop

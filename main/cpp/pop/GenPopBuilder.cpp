@@ -20,7 +20,7 @@
 
 #include "GenPopBuilder.h"
 
-#include "gengeopop/GenPopController.h"
+#include "gengeopop/GeoGridBuilder.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/GeoGridConfigBuilder.h"
 #include "pop/Population.h"
@@ -50,41 +50,44 @@ shared_ptr<Population> GenPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Set the GeoGridConfig.
         // --------------------------------------------------------------
-        GeoGridConfig ggConfig(m_config_pt);
+        GeoGridConfig        ggConfig(m_config_pt);
         GeoGridConfigBuilder ggConfigBuilder{};
         ggConfigBuilder.SetData(ggConfig, m_config_pt.get<string>("run.geopop_gen.household_file"));
-        
+
         m_stride_logger->info("GeoGridConfig:\n\n{}", ggConfig);
         m_stride_logger->info("Number of reference households: {}", ggConfig.popInfo.reference_households.size());
         m_stride_logger->info("Number of reference persons: {}", ggConfig.popInfo.persons.size());
         m_stride_logger->info("Number of reference households: {}", ggConfig.popInfo.contact_pools.size());
-        
+
         // --------------------------------------------------------------
         // Read cities input files (commute info file only if present).
-        // --------------------------------------------------------------    
+        // --------------------------------------------------------------
         string commutesFile;
         auto   geopop_gen = m_config_pt.get_child("run.geopop_gen");
         if (geopop_gen.count("commuting_file")) {
                 commutesFile = m_config_pt.get<string>("run.geopop_gen.commuting_file");
         }
-        GenPopController genPopController(m_stride_logger, m_rn_manager, pop);
-        genPopController.ReadDataFiles(ggConfig, m_config_pt.get<string>("run.geopop_gen.cities_file"), commutesFile);
+        GeoGridBuilder ggBuilder(m_stride_logger, m_rn_manager, pop);
+
+        m_stride_logger->info("Starting GenCities");
+        ggBuilder.GenCities(ggConfig, m_config_pt.get<string>("run.geopop_gen.cities_file"), commutesFile);
+        m_stride_logger->info("Finished GenCities");
 
         // --------------------------------------------------------------
         // Generate Geo
         // --------------------------------------------------------------
-        m_stride_logger->info("Starting Gen-Geo");
-        genPopController.GenGeo(ggConfig);
-        m_stride_logger->info("Finished Gen-Geo");
+        m_stride_logger->info("Starting GenGeo");
+        ggBuilder.GenGeo(ggConfig);
+        m_stride_logger->info("Finished GenGeo");
 
         // --------------------------------------------------------------
         // Generate Pop
         // --------------------------------------------------------------
-        m_stride_logger->info("Starting Gen-Pop");
-        genPopController.GenPop(ggConfig);
-        m_stride_logger->info("Finished Gen-Pop");
+        m_stride_logger->info("Starting GenPop");
+        ggBuilder.GenPop(ggConfig);
+        m_stride_logger->info("Finished GenPop");
 
-        pop->m_geoGrid = genPopController.GetGeoGrid();
+        pop->m_geoGrid = ggBuilder.GetGeoGrid();
 
         return pop;
 }

@@ -29,9 +29,9 @@ class GeoGrid;
 class Household;
 
 /**
- * Configuration data for generating a GeoGrid.
+ * Configuration data mostly for generating a population, but also for computing
+ * the required number od schools, workplaces, communities etc for that population.
  */
-
 class GeoGridConfig
 {
 public:

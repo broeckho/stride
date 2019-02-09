@@ -33,8 +33,7 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
-        config.input.pop_size = 10000;
-
+        config.input.pop_size                   = 10000;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -53,13 +52,13 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
-        config.input.pop_size = 100 * 100 * 1000;
+        config.input.pop_size                   = 100 * 100 * 1000;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
         for (int i = 0; i < 10; i++) {
-                geoGrid->AddLocation(make_shared<Location>(1, 4, 10 * 1000 * 1000, Coordinate(0, 0),
-                                                                "Location " + to_string(i)));
+                geoGrid->AddLocation(
+                    make_shared<Location>(1, 4, 10 * 1000 * 1000, Coordinate(0, 0), "Location " + to_string(i)));
         }
 
         communityGenerator.Apply(geoGrid, config, contactCenterCounter);
@@ -76,7 +75,7 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
-        config.input.pop_size = 10000;
+        config.input.pop_size                   = 10000;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -91,8 +90,8 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
-        config.input.pop_size            = 37542 * 100;
-        config.popInfo.compulsory_pupils = 750840;
+        config.input.pop_size                   = 37542 * 100;
+        config.popInfo.compulsory_pupils        = 750840;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());

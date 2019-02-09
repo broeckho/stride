@@ -21,8 +21,8 @@ set(GENGEOPOP_LIB
 #
     College.cpp
     ContactCenter.cpp
-    GenPopController.cpp
     GeoGrid.cpp
+    GeoGridBuilder.cpp
     GeoGridConfig.cpp
     GeoGridConfigBuilder.cpp
     Household.cpp

@@ -34,8 +34,8 @@ TEST(CollegeGeneratorTest, OneLocationTest)
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
         auto             contactCenterCounter = 1U;
-        config.input.pop_size                = 45000;
-        config.popInfo.popcount_1826_student = 9000;
+        config.input.pop_size                 = 45000;
+        config.popInfo.popcount_1826_student  = 9000;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -55,8 +55,8 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
         auto             contactCenterCounter = 1U;
-        config.input.pop_size                = 10000;
-        config.popInfo.popcount_1826_student = 2000;
+        config.input.pop_size                 = 10000;
+        config.popInfo.popcount_1826_student  = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -71,8 +71,8 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
         auto             contactCenterCounter = 1U;
-        config.input.pop_size                = 399992;
-        config.popInfo.popcount_1826_student = 79998;
+        config.input.pop_size                 = 399992;
+        config.popInfo.popcount_1826_student  = 79998;
 
         auto        pop     = Population::Create();
         auto        geoGrid = make_shared<GeoGrid>(pop.get());

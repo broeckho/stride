@@ -33,7 +33,7 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
-        config.popInfo.households = 4;
+        config.popInfo.households               = 4;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -52,7 +52,7 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
-        config.popInfo.households = 4;
+        config.popInfo.households               = 4;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -67,8 +67,8 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
-        config.popInfo.households = 4000;
-        config.input.pop_size     = 37542 * 100;
+        config.popInfo.households               = 4000;
+        config.input.pop_size                   = 37542 * 100;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());

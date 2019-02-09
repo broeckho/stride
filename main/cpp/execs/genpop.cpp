@@ -14,8 +14,8 @@
  */
 
 #include "gengeopop/Community.h"
-#include "gengeopop/GenPopController.h"
 #include "gengeopop/GeoGrid.h"
+#include "gengeopop/GeoGridBuilder.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/GeoGridConfigBuilder.h"
 #include "gengeopop/io/GeoGridProtoWriter.h"
@@ -117,7 +117,7 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 // Set the GeoGridConfig.
                 // --------------------------------------------------------------
-                GeoGridConfig ggConfig(configPt);
+                GeoGridConfig        ggConfig(configPt);
                 GeoGridConfigBuilder ggConfigBuilder{};
                 ggConfigBuilder.SetData(ggConfig, configPt.get<string>("run.geopop_gen.household_file"));
 
@@ -134,22 +134,24 @@ int main(int argc, char* argv[])
                 if (geopop_gen.count("commuting_file")) {
                         commutesFile = configPt.get<std::string>("run.geopop_gen.commuting_file");
                 }
-                GenPopController genGeoPopController(logger, rnManager);
-                genGeoPopController.ReadDataFiles(ggConfig, configPt.get<string>("run.geopop_gen.cities_file"),
-                                                  commutesFile);
+                GeoGridBuilder ggBuilder(logger, rnManager);
+
+                logger->info("Starting GenCities");
+                ggBuilder.GenCities(ggConfig, configPt.get<string>("run.geopop_gen.cities_file"), commutesFile);
+                logger->info("Finishing GenCities");
 
                 // --------------------------------------------------------------
                 // Generate Geo
                 // --------------------------------------------------------------
                 logger->info("Start generation geographic grid.");
-                genGeoPopController.GenGeo(ggConfig);
+                ggBuilder.GenGeo(ggConfig);
                 logger->info("Done generation geographic grid.");
 
                 // --------------------------------------------------------------
                 // Generate Pop
                 // --------------------------------------------------------------
                 logger->info("Start generating of synthetic population.");
-                genGeoPopController.GenPop(ggConfig);
+                ggBuilder.GenPop(ggConfig);
                 logger->info("Done generating synthetic population.");
 
                 // --------------------------------------------------------------
@@ -159,7 +161,7 @@ int main(int argc, char* argv[])
                 GeoGridWriterFactory      geoGridWriterFactory;
                 shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(outputFile.getValue());
                 ofstream                  outputFileStream(outputFile.getValue());
-                geoGridWriter->Write(genGeoPopController.GetGeoGrid(), outputFileStream);
+                geoGridWriter->Write(ggBuilder.GetGeoGrid(), outputFileStream);
                 outputFileStream.close();
                 logger->info("Done writing to population file.");
 
