@@ -29,7 +29,6 @@ CitiesCSVReader::CitiesCSVReader(unique_ptr<istream> inputStream)
 
 void CitiesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
 {
-        // cols: id   province  population  x_coord  y_coord  latitude  longitude  name
         vector<pair<shared_ptr<Location>, int>> addedLocations;
 
         auto totalPopulation = 0U;

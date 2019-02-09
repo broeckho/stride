@@ -31,25 +31,23 @@ class GenPopController
 {
 public:
         /// Create a GenGeoPopController.
-        GenPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
-                         stride::util::RnMan&                rnManager,
+        GenPopController(std::shared_ptr<spdlog::logger> logger, stride::util::RnMan& rnManager,
                          std::shared_ptr<stride::Population> pop = stride::Population::Create());
 
         /// Reads the data files.
-        void ReadDataFiles(const std::string& citiesFileName, const std::string& commutingFileName,
-                           const std::string& householdsFileName);
+        void ReadDataFiles(GeoGridConfig& geoGridConfig, const std::string& citiesFileName,
+                           const std::string& commutingFileName);
 
         /// Build and store the Geo part of the GeoGrid.
-        void GenGeo();
+        void GenGeo(GeoGridConfig& geoGridConfig);
 
         /// Build and store the Pop part of the GeoGrid.
-        void GenPop();
+        void GenPop(GeoGridConfig& geoGridConfig);
 
         /// Get the generated GeoGrid.
         std::shared_ptr<GeoGrid> GetGeoGrid();
 
 private:
-        GeoGridConfig&                      m_geoGridConfig; ///< The GeoGridConfig used to generate the grid.
         stride::util::RnMan&                m_rnManager;     ///< The random number generation manager.
         std::shared_ptr<GeoGrid>            m_geoGrid;       ///< The generated GeoGrid.
         std::shared_ptr<stride::Population> m_population;    ///< The generated GeoGrid.

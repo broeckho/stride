@@ -17,6 +17,7 @@
 #include "gengeopop/GenPopController.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/GeoGridConfigBuilder.h"
 #include "gengeopop/io/GeoGridProtoWriter.h"
 #include "gengeopop/io/GeoGridWriterFactory.h"
 #include "gengeopop/io/ReaderFactory.h"
@@ -114,10 +115,15 @@ int main(int argc, char* argv[])
                 logger->info("Number of threads: {}", info.m_stream_count);
 
                 // --------------------------------------------------------------
-                // Configuration for GeoGrid.
+                // Set the GeoGridConfig.
                 // --------------------------------------------------------------
-                GeoGridConfig geoGridConfig(configPt);
-                logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
+                GeoGridConfig ggConfig(configPt);
+                GeoGridConfigBuilder ggConfigBuilder{};
+                ggConfigBuilder.SetData(ggConfig, configPt.get<string>("run.geopop_gen.household_file"));
+
+                logger->info("Number of reference households: {}", ggConfig.popInfo.reference_households.size());
+                logger->info("Number of reference persons: {}", ggConfig.popInfo.persons.size());
+                logger->info("Number of reference households: {}", ggConfig.popInfo.contact_pools.size());
 
                 // --------------------------------------------------------------
                 // Read input files (commutesFile may be absent).
@@ -128,27 +134,24 @@ int main(int argc, char* argv[])
                 if (geopop_gen.count("commuting_file")) {
                         commutesFile = configPt.get<std::string>("run.geopop_gen.commuting_file");
                 }
-                GenPopController genGeoPopController(logger, geoGridConfig, rnManager);
-                genGeoPopController.ReadDataFiles(configPt.get<string>("run.geopop_gen.cities_file"), commutesFile,
-                                                  configPt.get<string>("run.geopop_gen.household_file"));
-                logger->info("Number of reference households: {}", geoGridConfig.popInfo.reference_households.size());
-                logger->info("Number of reference persons: {}", geoGridConfig.popInfo.persons.size());
-                logger->info("Number of reference households: {}", geoGridConfig.popInfo.contact_pools.size());
+                GenPopController genGeoPopController(logger, rnManager);
+                genGeoPopController.ReadDataFiles(ggConfig, configPt.get<string>("run.geopop_gen.cities_file"),
+                                                  commutesFile);
 
                 // --------------------------------------------------------------
                 // Generate Geo
                 // --------------------------------------------------------------
                 logger->info("Start generation geographic grid.");
-                genGeoPopController.GenGeo();
-                logger->info("Number of ContactCenters generated: {}", geoGridConfig.counters.contact_center_count);
-                logger->info("Number of ContactPools generated: {}", geoGridConfig.counters.contact_pool_count);
+                genGeoPopController.GenGeo(ggConfig);
+                logger->info("Number of ContactCenters generated: {}", ggConfig.counters.contact_center_count);
+                logger->info("Number of ContactPools generated: {}", ggConfig.counters.contact_pool_count);
                 logger->info("Done generation geographic grid.");
 
                 // --------------------------------------------------------------
                 // Generate Pop
                 // --------------------------------------------------------------
                 logger->info("Start generating of synthetic population.");
-                genGeoPopController.GenPop();
+                genGeoPopController.GenPop(ggConfig);
                 logger->info("Done generating synthetic population.");
 
                 // --------------------------------------------------------------
