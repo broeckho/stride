@@ -58,10 +58,10 @@ public:
                 double fraction_1826_student;
 
                 /// Fraction of calc_1865_and_active which commute.
-                double fraction_active_commutingPeople;
+                double fraction_active_commuters;
 
                 /// Fraction of fraction_1826_years_WhichAreStudents which commute.
-                double fraction_student_commuting;
+                double fraction_student_commuters;
 
                 /// Fraction of (calculated._1865_years - calculated._1826_years_and_student) which are active
                 double fraction_1865_active;

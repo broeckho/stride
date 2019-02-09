@@ -40,8 +40,8 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
         for (const auto& loc : *geoGrid) {
                 const double ActivePeopleCount =
                     (loc->GetPopCount() +
-                            loc->GetIncomingCommuterCount(geoGridConfig.input.fraction_active_commutingPeople) -
-                            loc->GetOutgoingCommuterCount(geoGridConfig.input.fraction_active_commutingPeople) *
+                            loc->GetIncomingCommuterCount(geoGridConfig.input.fraction_active_commuters) -
+                            loc->GetOutgoingCommuterCount(geoGridConfig.input.fraction_active_commuters) *
                          geoGridConfig.input.fraction_1865_active);
 
                 const double weight = ActivePeopleCount / EmployeeCount;

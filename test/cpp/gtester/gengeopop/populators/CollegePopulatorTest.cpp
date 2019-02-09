@@ -51,7 +51,7 @@ TEST(CollegePopulatorTest, NoStudents)
         auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
-        config.input.fraction_student_commuting     = 0;
+        config.input.fraction_student_commuters     = 0;
         config.input.fraction_1826_student = 0;
 
         // Brasschaat and Schoten are close to each other
@@ -90,7 +90,7 @@ TEST(CollegePopulatorTest, NotCommuting)
         auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
-        config.input.fraction_student_commuting     = 0;
+        config.input.fraction_student_commuters     = 0;
         config.input.fraction_1826_student = 1;
 
         // Brasschaat and Schoten are close to each other
@@ -201,7 +201,7 @@ TEST(CollegePopulatorTest, OnlyCommuting)
 
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
-        config.input.fraction_student_commuting     = 1;
+        config.input.fraction_student_commuters     = 1;
         config.input.fraction_1826_student = 1;
 
         auto pop      = Population::Create();
@@ -260,7 +260,7 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
-        config.input.fraction_student_commuting     = 1;
+        config.input.fraction_student_commuters     = 1;
         config.input.fraction_1826_student = 1;
 
         auto brasschaat = *geoGrid->begin();

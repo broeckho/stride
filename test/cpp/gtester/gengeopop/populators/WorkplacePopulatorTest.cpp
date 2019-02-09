@@ -86,7 +86,7 @@ TEST(WorkplacePopulatorTest, NoCommuting)
 
         WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
-        config.input.fraction_active_commutingPeople      = 0;
+        config.input.fraction_active_commuters      = 0;
         config.input.fraction_1865_active           = 1;
         config.input.fraction_1826_student = 0.5;
 
@@ -172,9 +172,9 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
         WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
-        config.input.fraction_active_commutingPeople      = 0;
-        config.input.fraction_active_commutingPeople      = 1;
-        config.input.fraction_student_commuting     = 0;
+        config.input.fraction_active_commuters      = 0;
+        config.input.fraction_active_commuters      = 1;
+        config.input.fraction_student_commuters     = 0;
         config.calculated.popcount_1865_active  = 1;
         config.input.fraction_1865_active           = 1;
         config.input.fraction_1826_student = 0.5;
@@ -243,9 +243,9 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 
         WorkplacePopulator workplacePopulator(rnManager, LogUtils::CreateNullLogger("nullLogger"));
         GeoGridConfig      config{};
-        config.input.fraction_active_commutingPeople      = 0;
-        config.input.fraction_active_commutingPeople      = 1;
-        config.input.fraction_student_commuting     = 0;
+        config.input.fraction_active_commuters      = 0;
+        config.input.fraction_active_commuters      = 1;
+        config.input.fraction_student_commuters     = 0;
         config.calculated.popcount_1865_active  = 1;
         config.input.fraction_1865_active           = 1;
         config.input.fraction_1826_student = 0.5;

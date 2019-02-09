@@ -95,12 +95,12 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 void WorkplacePopulator::CalculateFractionCommutingStudents()
 {
         m_fractionCommutingStudents = 0;
-        if (static_cast<bool>(m_geoGridConfig.input.fraction_active_commutingPeople) &&
+        if (static_cast<bool>(m_geoGridConfig.input.fraction_active_commuters) &&
             m_geoGridConfig.calculated.popcount_1865_active) {
                 m_fractionCommutingStudents = (m_geoGridConfig.calculated.popcount_1826_student *
-                                               m_geoGridConfig.input.fraction_student_commuting) /
+                                               m_geoGridConfig.input.fraction_student_commuters) /
                                               (m_geoGridConfig.calculated.popcount_1865_active *
-                                               m_geoGridConfig.input.fraction_active_commutingPeople);
+                                               m_geoGridConfig.input.fraction_active_commuters);
         }
 }
 
@@ -122,7 +122,7 @@ void WorkplacePopulator::CalculateWorkplacesInCity()
 void WorkplacePopulator::AssignActive(Person* person)
 {
         // this person is (student and active) or active
-        if (!m_commutingLocations.empty() && MakeChoice(m_geoGridConfig.input.fraction_active_commutingPeople)) {
+        if (!m_commutingLocations.empty() && MakeChoice(m_geoGridConfig.input.fraction_active_commuters)) {
                 // this person is commuting
                 const auto& info = m_workplacesInCity[m_commutingLocations[m_disCommuting()]];
                 const auto  id   = info.second(); // id of the location this person is commuting to

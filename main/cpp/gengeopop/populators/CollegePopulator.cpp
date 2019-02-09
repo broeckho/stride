@@ -77,7 +77,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
                                         students++;
                                         // this person is a student
                                         if (!commutingHighSchools.empty() &&
-                                            MakeChoice(geoGridConfig.input.fraction_student_commuting)) {
+                                            MakeChoice(geoGridConfig.input.fraction_student_commuters)) {
                                                 // this person is commuting
                                                 commuting++;
 

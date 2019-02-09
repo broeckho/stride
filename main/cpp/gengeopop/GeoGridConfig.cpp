@@ -33,8 +33,8 @@ GeoGridConfig::GeoGridConfig(const ptree& configPt)
 {
         input.pop_size = configPt.get<unsigned int>("run.geopop_gen.population_size");
         input.fraction_1826_student = configPt.get<double>("run.geopop_gen.fraction_1826_years_which_are_students");
-        input.fraction_active_commutingPeople = configPt.get<double>("run.geopop_gen.fraction_active_commuting_people");
-        input.fraction_student_commuting = configPt.get<double>("run.geopop_gen.fraction_student_commuting_people");
+        input.fraction_active_commuters = configPt.get<double>("run.geopop_gen.fraction_active_commuting_people");
+        input.fraction_student_commuters = configPt.get<double>("run.geopop_gen.fraction_student_commuting_people");
         input.fraction_1865_active = configPt.get<double>("run.geopop_gen.fraction_1865_years_active");
 }
 
@@ -70,9 +70,9 @@ ostream& operator<<(ostream& out, const GeoGridConfig& config)
         const int width = 53;
         out << left << "Input:" << endl;
         out << left << setw(width) << "Fraction of active commuting"
-            << config.input.fraction_active_commutingPeople << endl;
+            << config.input.fraction_active_commuters << endl;
         out << left << setw(width) << "Fraction of students commuting"
-            << config.input.fraction_student_commuting << endl;
+            << config.input.fraction_student_commuters << endl;
         out << left << setw(width) << "Fraction 18-65 (without students) which are active"
             << config.input.fraction_1865_active << endl;
         out << left << setw(width) << "Fraction 18-26 years which are students"
