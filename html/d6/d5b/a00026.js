@@ -1,11 +1,13 @@
 var a00026 =
 [
-    [ "GeoGridJSONWriter", "d6/d5b/a00026.html#a91952922418a0800836f9a19bebeb493", null ],
-    [ "Write", "d6/d5b/a00026.html#a06da89c72da72992bbd517973c9513eb", null ],
-    [ "WriteLocation", "d6/d5b/a00026.html#a1d075fff537fe69d2d626483f539387e", null ],
-    [ "WriteCoordinate", "d6/d5b/a00026.html#ac5545a046c71d35be38df00f73c87235", null ],
-    [ "WriteContactCenter", "d6/d5b/a00026.html#a09ef74af7673c46cc0a14338ec9f2d89", null ],
-    [ "WriteContactPool", "d6/d5b/a00026.html#a0943d6e4e335053ba2e5dff6cbca187c", null ],
-    [ "WritePerson", "d6/d5b/a00026.html#a0e11b2f67f86e812421761f61fd7274f", null ],
-    [ "m_persons_found", "d6/d5b/a00026.html#a0aff3009be27579a5aec48bed22aa570", null ]
+    [ "GeoGridJSONReader", "d6/d5b/a00026.html#a9c3881374fd2dd16c425cf5a1523fe64", null ],
+    [ "GeoGridJSONReader", "d6/d5b/a00026.html#aef8c46d418aacbd368b1669645e509e2", null ],
+    [ "Read", "d6/d5b/a00026.html#a63497f177cb7f3aa13807c497ab19c92", null ],
+    [ "operator=", "d6/d5b/a00026.html#aa58a207ddb50893d528433d003b37cfe", null ],
+    [ "ParseLocation", "d6/d5b/a00026.html#a3b2a21f497b4d21486e976642f05aa67", null ],
+    [ "ParseCoordinate", "d6/d5b/a00026.html#a79a837a7ecbfb5b5aeccdc5ffb999291", null ],
+    [ "ParseContactCenter", "d6/d5b/a00026.html#a31b18619701c09088fd86fa1dbe33f55", null ],
+    [ "ParseContactPool", "d6/d5b/a00026.html#a53c003140124270ba93af1b57c8c2ced", null ],
+    [ "ParsePerson", "d6/d5b/a00026.html#a8d349e5f3ae49558d75bc7816196d67d", null ],
+    [ "m_geoGrid", "d6/d5b/a00026.html#a395068e3cf80305d269a26ac23b2c63e", null ]
 ];

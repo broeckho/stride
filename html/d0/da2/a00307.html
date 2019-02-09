@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SummaryFileViewer.h File Reference</title>
+<title>Stride Reference Manual: StringUtils.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 447bd51</span>
+   &#160;<span id="projectnumber">- generated for commit fcc05e5</span>
    </div>
   </td>
  </tr>
@@ -105,75 +105,161 @@ $(document).ready(function(){initNavTree('d0/da2/a00307.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">SummaryFileViewer.h File Reference</div>  </div>
+<div class="title">StringUtils.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Observer for Persons output.  
+<p>Miscellaneous string utilities.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d07/a00305_source.html">output/SummaryFile.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d4/d5b/a00294_source.html">sim/SimRunner.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/de1/a00233_source.html">sim/event/Id.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cctype&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SummaryFileViewer.h:</div>
+Include dependency graph for StringUtils.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d34/a00625.gif" border="0" usemap="#SummaryFileViewer_8h" alt=""/></div>
-<map name="SummaryFileViewer_8h" id="SummaryFileViewer_8h">
-<area shape="rect" id="node2" href="../../d3/d07/a00305.html" title="Header for the SummaryFile class. " alt="" coords="136,80,299,107"/>
-<area shape="rect" id="node6" href="../../d4/d5b/a00294.html" title="Header for the SimRunner class. " alt="" coords="563,80,693,107"/>
-<area shape="rect" id="node7" href="../../d6/de1/a00233.html" title="Definition of EventId. " alt="" coords="376,244,488,271"/>
-<area shape="rect" id="node9" href="../../d0/d61/a00302.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="727,162,876,189"/>
-<area shape="rect" id="node14" href="../../dc/dc9/a00282.html" title="Interface of RnMan. " alt="" coords="1113,162,1213,189"/>
-<area shape="rect" id="node27" href="../../d9/d0d/a00298.html" title="Definition of Stopwatch. " alt="" coords="825,244,949,271"/>
-<area shape="rect" id="node10" href="../../dc/d0f/a00303.html" title="Interface/Implementation of Subject. " alt="" coords="654,244,759,271"/>
-<area shape="rect" id="node15" href="../../d2/d04/a00281.html" title="Interface of RnPcg. " alt="" coords="1307,244,1357,271"/>
-<area shape="rect" id="node16" href="../../db/da2/a00300.html" title="Miscellaneous string utilities. " alt="" coords="1150,319,1250,345"/>
-<area shape="rect" id="node28" href="../../dd/db3/a00313.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="958,319,1074,345"/>
+<div class="center"><img src="../../da/dd1/a00629.gif" border="0" usemap="#StringUtils_8h" alt=""/></div>
+<map name="StringUtils_8h" id="StringUtils_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/dfa/a00626.gif" border="0" usemap="#SummaryFileViewer_8hdep" alt=""/></div>
-<map name="SummaryFileViewer_8hdep" id="SummaryFileViewer_8hdep">
-<area shape="rect" id="node2" href="../../d7/d3f/a00173.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
-<area shape="rect" id="node3" href="../../d1/de3/a00306.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="165,80,339,107"/>
+<div class="center"><img src="../../dc/d66/a00630.gif" border="0" usemap="#StringUtils_8hdep" alt=""/></div>
+<map name="StringUtils_8hdep" id="StringUtils_8hdep">
+<area shape="rect" id="node2" href="../../da/d15/a00188.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="1727,453,1873,480"/>
+<area shape="rect" id="node3" href="../../d1/de3/a00306.html" title="Main program: command line handling. " alt="" coords="3724,80,3809,107"/>
+<area shape="rect" id="node4" href="../../d1/d72/a00204.html" title="GeoGridConfig.cpp" alt="" coords="3833,80,3975,107"/>
+<area shape="rect" id="node5" href="../../d8/d00/a00186.html" title="Initialize populations: implementation. " alt="" coords="3151,304,3313,331"/>
+<area shape="rect" id="node6" href="../../d7/ded/a00196.html" title="Initialize populations: implementation. " alt="" coords="2933,379,3075,405"/>
+<area shape="rect" id="node7" href="../../dc/d0f/a00303.html" title="Header for the command line controller. " alt="" coords="3389,304,3529,331"/>
+<area shape="rect" id="node8" href="../../d0/d81/a00180.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="3565,80,3649,107"/>
+<area shape="rect" id="node10" href="../../d9/d90/a00178.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="3877,155,3936,181"/>
+<area shape="rect" id="node18" href="../../dd/da2/a00192.html" title="Utilities for interaction with filesystem. " alt="" coords="3999,80,4091,107"/>
+<area shape="rect" id="node19" href="../../d6/d7f/a00287.html" title="Interface of RnPcg. " alt="" coords="3148,80,3199,107"/>
+<area shape="rect" id="node20" href="../../d5/d7b/a00286.html" title="Implementation of RnPcg. " alt="" coords="3162,155,3227,181"/>
+<area shape="rect" id="node9" href="../../d5/da7/a00144.html" title="CitiesCSVReader.cpp" alt="" coords="3764,304,3919,331"/>
+<area shape="rect" id="node17" href="../../db/dd9/a00179.html" title="Source file of CSVRow. " alt="" coords="3655,229,3753,256"/>
+<area shape="rect" id="node11" href="../../da/ddb/a00145.html" title="CitiesCSVReader.h" alt="" coords="4188,229,4327,256"/>
+<area shape="rect" id="node13" href="../../d6/d7d/a00161.html" title="CommutesCSVReader.h" alt="" coords="4351,229,4526,256"/>
+<area shape="rect" id="node14" href="../../de/d38/a00160.html" title="CommutesCSVReader.cpp" alt="" coords="4438,304,4629,331"/>
+<area shape="rect" id="node15" href="../../dd/d2d/a00229.html" title="HouseholdCSVReader.cpp" alt="" coords="3879,229,4065,256"/>
+<area shape="rect" id="node16" href="../../dd/d4c/a00177.html" title="Source file of csv. " alt="" coords="4089,229,4164,256"/>
+<area shape="rect" id="node12" href="../../db/dc3/a00284.html" title="ReaderFactory.cpp" alt="" coords="4247,304,4385,331"/>
+<area shape="rect" id="node21" href="../../da/ddc/a00288.html" title="Interface of RnMan. " alt="" coords="2185,155,2263,181"/>
+<area shape="rect" id="node22" href="../../dc/de6/a00167.html" title="Header for the ContactHandler class. " alt="" coords="1735,229,1868,256"/>
+<area shape="rect" id="node25" href="../../dc/d98/a00225.html" title="Implementation for HelthSeeder class. " alt="" coords="2060,379,2196,405"/>
+<area shape="rect" id="node27" href="../../d3/d4a/a00297.html" title="Header for the Simulator class. " alt="" coords="1771,379,1829,405"/>
+<area shape="rect" id="node28" href="../../da/deb/a00189.html" title="Header for the DiseaseSeeder class. " alt="" coords="2415,379,2545,405"/>
+<area shape="rect" id="node29" href="../../d9/d21/a00240.html" title="Header for the Immunizer class. " alt="" coords="101,229,203,256"/>
+<area shape="rect" id="node30" href="../../d0/d27/a00239.html" title="Implementation for the Immunizer class. " alt="" coords="94,304,210,331"/>
+<area shape="rect" id="node31" href="../../dd/dfe/a00283.html" title="Header for the PublicHealthAgency class. " alt="" coords="1779,304,1938,331"/>
+<area shape="rect" id="node32" href="../../dc/dc9/a00282.html" title="Implementation for the PublicHealthAgency class. " alt="" coords="1509,379,1683,405"/>
+<area shape="rect" id="node33" href="../../dc/d57/a00194.html" title="Generator.h" alt="" coords="1083,229,1181,256"/>
+<area shape="rect" id="node40" href="../../de/d79/a00203.html" title="GeoGridBuilder.h" alt="" coords="2159,304,2289,331"/>
+<area shape="rect" id="node41" href="../../dc/d28/a00276.html" title="Populator.h" alt="" coords="751,229,846,256"/>
+<area shape="rect" id="node44" href="../../de/d76/a00134.html" title="Base Class for PopBuilders. " alt="" coords="2516,304,2671,331"/>
+<area shape="rect" id="node45" href="../../dd/d56/a00274.html" title="Header file for the core Population class. " alt="" coords="2377,229,2479,256"/>
+<area shape="rect" id="node46" href="../../d0/d19/a00273.html" title="Core Population class. " alt="" coords="2695,304,2811,331"/>
+<area shape="rect" id="node47" href="../../d4/d6f/a00315.html" title="Implementation for the SurveySeeder class. " alt="" coords="2887,304,3025,331"/>
+<area shape="rect" id="node48" href="../../d3/db8/a00316.html" title="Header file for the SurveySeeder class. " alt="" coords="3001,229,3124,256"/>
+<area shape="rect" id="node49" href="../../d5/de9/a00176.html" title="Header for the command line controller. " alt="" coords="606,229,727,256"/>
+<area shape="rect" id="node50" href="../../da/d50/a00301.html" title="Header for the SimRunner class. " alt="" coords="3375,229,3478,256"/>
+<area shape="rect" id="node23" href="../../d0/da7/a00250.html" title="Header for the Infector class. " alt="" coords="1622,304,1703,331"/>
+<area shape="rect" id="node24" href="../../dc/d55/a00226.html" title="Header file for the HealthSeeder. " alt="" coords="1962,304,2083,331"/>
+<area shape="rect" id="node26" href="../../d9/d0d/a00298.html" title="Implementation for the SimBuilder class. " alt="" coords="2192,453,2309,480"/>
+<area shape="rect" id="node34" href="../../d3/d65/a00154.html" title="CollegeGenerator.h" alt="" coords="587,304,733,331"/>
+<area shape="rect" id="node36" href="../../de/db9/a00159.html" title="CommunityGenerator.h" alt="" coords="757,304,929,331"/>
+<area shape="rect" id="node37" href="../../d0/d53/a00232.html" title="HouseholdGenerator.h" alt="" coords="953,304,1119,331"/>
+<area shape="rect" id="node38" href="../../d9/d39/a00257.html" title="K12SchoolGenerator.h" alt="" coords="1144,304,1309,331"/>
+<area shape="rect" id="node39" href="../../d8/d23/a00326.html" title="WorkplaceGenerator.h" alt="" coords="1333,304,1496,331"/>
+<area shape="rect" id="node35" href="../../db/d53/a00202.html" title="GeoGridBuilder.cpp" alt="" coords="868,379,1012,405"/>
+<area shape="rect" id="node42" href="../../d2/d34/a00156.html" title="CollegePopulator.h" alt="" coords="421,304,563,331"/>
+<area shape="rect" id="node43" href="../../da/d31/a00234.html" title="HouseholdPopulator.h" alt="" coords="235,304,397,331"/>
 </map>
 </div>
 </div>
 <p><a href="../../d0/da2/a00307_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/deb/a00132.html">stride::viewers::SummaryFileViewer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../d5/deb/a00132.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d0/dc5/a00343"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc5/a00343.html">stride</a></td></tr>
-<tr class="memdesc:d0/dc5/a00343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d0/d48/a00351"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d48/a00351.html">stride</a></td></tr>
+<tr class="memdesc:d0/d48/a00351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">stride::viewers</a></td></tr>
-<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d5/d1e/a00103.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
+<tr class="memitem:df/df1/a00357"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html">stride::util</a></td></tr>
+<tr class="memdesc:df/df1/a00357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aed0a8c66f95a390d87398e0f2c7c7ceb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#aed0a8c66f95a390d87398e0f2c7c7ceb">stride::util::CheckAllDigits</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:aed0a8c66f95a390d87398e0f2c7c7ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">All characters in string are digits (or string is empty)  <a href="../../df/df1/a00357.html#aed0a8c66f95a390d87398e0f2c7c7ceb">More...</a><br /></td></tr>
+<tr class="separator:aed0a8c66f95a390d87398e0f2c7c7ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae33774027798262390fbf95fbabc3f82"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae33774027798262390fbf95fbabc3f82"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#ae33774027798262390fbf95fbabc3f82">stride::util::FromString</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:ae33774027798262390fbf95fbabc3f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a value of type T representation from a string.  <a href="../../df/df1/a00357.html#ae33774027798262390fbf95fbabc3f82">More...</a><br /></td></tr>
+<tr class="separator:ae33774027798262390fbf95fbabc3f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadef750132d5d399e7ed8a96eab53c4c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#aadef750132d5d399e7ed8a96eab53c4c">stride::util::Split</a> (const std::string &amp;s, const std::string &amp;delimiters)</td></tr>
+<tr class="memdesc:aadef750132d5d399e7ed8a96eab53c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split a string (in order of occurence) by splitting it on the given delimiters.  <a href="../../df/df1/a00357.html#aadef750132d5d399e7ed8a96eab53c4c">More...</a><br /></td></tr>
+<tr class="separator:aadef750132d5d399e7ed8a96eab53c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a919ad6efcd17eb2bda30b1c6e044bc3c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#a919ad6efcd17eb2bda30b1c6e044bc3c">stride::util::Tokenize</a> (const std::string &amp;str, const std::string &amp;delimiters)</td></tr>
+<tr class="memdesc:a919ad6efcd17eb2bda30b1c6e044bc3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokenize a string (in order of occurence) with the given delimiters.  <a href="../../df/df1/a00357.html#a919ad6efcd17eb2bda30b1c6e044bc3c">More...</a><br /></td></tr>
+<tr class="separator:a919ad6efcd17eb2bda30b1c6e044bc3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256d75fffdad0f4f49c6e58c69f76e20"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a256d75fffdad0f4f49c6e58c69f76e20"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#a256d75fffdad0f4f49c6e58c69f76e20">stride::util::ToString</a> (const T &amp;value)</td></tr>
+<tr class="memdesc:a256d75fffdad0f4f49c6e58c69f76e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string representation of a value of type T.  <a href="../../df/df1/a00357.html#a256d75fffdad0f4f49c6e58c69f76e20">More...</a><br /></td></tr>
+<tr class="separator:a256d75fffdad0f4f49c6e58c69f76e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78bfb92201f2007d9068aedde33460e3"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a78bfb92201f2007d9068aedde33460e3"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#a78bfb92201f2007d9068aedde33460e3">stride::util::ToString&lt; std::string &gt;</a> (const std::string &amp;value)</td></tr>
+<tr class="separator:a78bfb92201f2007d9068aedde33460e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
+<tr class="memitem:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#a9694bd388159d8b8ddb0356cd1f0453c">stride::util::ToString</a> (typename std::enable_if&lt;!std::is_same&lt; typename It::value_type, std::string &gt;::value, It &gt;::type first, It last)</td></tr>
+<tr class="memdesc:a9694bd388159d8b8ddb0356cd1f0453c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringify values (that are not strings) in a range and put them in a vector.  <a href="../../df/df1/a00357.html#a9694bd388159d8b8ddb0356cd1f0453c">More...</a><br /></td></tr>
+<tr class="separator:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0be3b48676adcc37f61a120fc862b4b1"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
+<tr class="memitem:a0be3b48676adcc37f61a120fc862b4b1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#a0be3b48676adcc37f61a120fc862b4b1">stride::util::ToString</a> (typename std::enable_if&lt; std::is_same&lt; typename It::value_type, std::string &gt;::value, It &gt;::type first, It last)</td></tr>
+<tr class="memdesc:a0be3b48676adcc37f61a120fc862b4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringify values (that are strings - so no-op) in a range and put them in a vector.  <a href="../../df/df1/a00357.html#a0be3b48676adcc37f61a120fc862b4b1">More...</a><br /></td></tr>
+<tr class="separator:a0be3b48676adcc37f61a120fc862b4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#adb4ae75f64a04f4acd0c562fe2b8add0">stride::util::ToString</a> (const T &amp;value, int width, char fill= ' ')</td></tr>
+<tr class="memdesc:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string representation with minimum width of a value of type T.  <a href="../../df/df1/a00357.html#adb4ae75f64a04f4acd0c562fe2b8add0">More...</a><br /></td></tr>
+<tr class="separator:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45ab4a5a30f65dcd1bf25c3d095825b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#aa45ab4a5a30f65dcd1bf25c3d095825b">stride::util::ToLower</a> (const std::string &amp;source)</td></tr>
+<tr class="memdesc:aa45ab4a5a30f65dcd1bf25c3d095825b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string with lower case characters only.  <a href="../../df/df1/a00357.html#aa45ab4a5a30f65dcd1bf25c3d095825b">More...</a><br /></td></tr>
+<tr class="separator:aa45ab4a5a30f65dcd1bf25c3d095825b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb06057f363c4ad2c5ac5eae719d392f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#aeb06057f363c4ad2c5ac5eae719d392f">stride::util::ToUpper</a> (const std::string &amp;source)</td></tr>
+<tr class="memdesc:aeb06057f363c4ad2c5ac5eae719d392f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string with upper case characters only.  <a href="../../df/df1/a00357.html#aeb06057f363c4ad2c5ac5eae719d392f">More...</a><br /></td></tr>
+<tr class="separator:aeb06057f363c4ad2c5ac5eae719d392f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fa614ccd671679a0e1feff6e0f6da33"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#a9fa614ccd671679a0e1feff6e0f6da33">stride::util::TrimRight</a> (const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</td></tr>
+<tr class="memdesc:a9fa614ccd671679a0e1feff6e0f6da33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim characters at right end of string.  <a href="../../df/df1/a00357.html#a9fa614ccd671679a0e1feff6e0f6da33">More...</a><br /></td></tr>
+<tr class="separator:a9fa614ccd671679a0e1feff6e0f6da33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c5aacbb4d606af3e43a96e8aad692cf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#a2c5aacbb4d606af3e43a96e8aad692cf">stride::util::TrimLeft</a> (const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</td></tr>
+<tr class="memdesc:a2c5aacbb4d606af3e43a96e8aad692cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim characters at left end of string.  <a href="../../df/df1/a00357.html#a2c5aacbb4d606af3e43a96e8aad692cf">More...</a><br /></td></tr>
+<tr class="separator:a2c5aacbb4d606af3e43a96e8aad692cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01882a252a5e262d442f9a8b8f64e3ef"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#a01882a252a5e262d442f9a8b8f64e3ef">stride::util::Trim</a> (const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</td></tr>
+<tr class="memdesc:a01882a252a5e262d442f9a8b8f64e3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim characters at both ends of string.  <a href="../../df/df1/a00357.html#a01882a252a5e262d442f9a8b8f64e3ef">More...</a><br /></td></tr>
+<tr class="separator:a01882a252a5e262d442f9a8b8f64e3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19fc82f584acd29930d95cb07ddd9e5f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a19fc82f584acd29930d95cb07ddd9e5f"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#a19fc82f584acd29930d95cb07ddd9e5f">stride::util::intToDottedString</a> (const T &amp;value)</td></tr>
+<tr class="separator:a19fc82f584acd29930d95cb07ddd9e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Observer for Persons output. </p>
+<div class="textblock"><p>Miscellaneous string utilities. </p>
 
-<p>Definition in file <a class="el" href="../../d0/da2/a00307_source.html">SummaryFileViewer.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d0/da2/a00307_source.html">StringUtils.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d0/da2/a00307.html">SummaryFileViewer.h</a></li>
-    <li class="footer">Generated on Fri Feb 8 2019 13:28:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d0/da2/a00307.html">StringUtils.h</a></li>
+    <li class="footer">Generated on Sat Feb 9 2019 21:19:19 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

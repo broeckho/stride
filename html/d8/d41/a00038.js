@@ -1,8 +1,13 @@
 var a00038 =
 [
-    [ "K12School", "d8/d41/a00038.html#a5deacd923a5dbde43feb7b481937cb43", null ],
-    [ "Fill", "d8/d41/a00038.html#a686dd2fdbffef436c37f14bc23786c51", null ],
-    [ "GetMaxPools", "d8/d41/a00038.html#add262995f20f78d16c8dffc8c8ba0b3c", null ],
-    [ "GetPoolSize", "d8/d41/a00038.html#a5ef2351ea77265383b0f9e66659d692e", null ],
-    [ "GetType", "d8/d41/a00038.html#aebbfbc1fb0df68b4f8e79bfb69d8ab48", null ]
+    [ "HouseholdReader", "d8/d41/a00038.html#a8ca2b5f3e8ca40874b3d7ef008a86cee", null ],
+    [ "~HouseholdReader", "d8/d41/a00038.html#a691a91ca1633b445da4d64421f2f75c9", null ],
+    [ "GetFractionCompulsoryPupils", "d8/d41/a00038.html#aabc5667ac72b37e9be4dfc727c20889b", null ],
+    [ "GetFraction1826Years", "d8/d41/a00038.html#a9daac5241b155fe7f18c2e926f63f408", null ],
+    [ "GetFraction1865Years", "d8/d41/a00038.html#a8c68d034fb29714ef0fbe932296b6188", null ],
+    [ "SetReferenceHouseholds", "d8/d41/a00038.html#a62223c62b8a81b322134c7f39a7c08c8", null ],
+    [ "m_total", "d8/d41/a00038.html#aecfe2659d2826af0a8329955d430d820", null ],
+    [ "m_total1826Years", "d8/d41/a00038.html#afb5c2dc8db97ae641b34ea3d5223ff5d", null ],
+    [ "m_total1865Years", "d8/d41/a00038.html#a331adedaab261aad7c89f273e9037a1d", null ],
+    [ "m_totalCompulsory", "d8/d41/a00038.html#a9c24be8765eb962d1e0d3735f0187f5d", null ]
 ];

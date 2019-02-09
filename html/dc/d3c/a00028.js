@@ -1,11 +1,13 @@
 var a00028 =
 [
-    [ "GeoGridProtoWriter", "dc/d3c/a00028.html#a1b1a82a0a173891a35672929c13ba6da", null ],
-    [ "Write", "dc/d3c/a00028.html#a3163b8464f599d204597a01dfc47f08f", null ],
-    [ "WriteLocation", "dc/d3c/a00028.html#a2b0641108a2e713aa25c5969939a3c14", null ],
-    [ "WriteCoordinate", "dc/d3c/a00028.html#a7909bc4f9f4d5d20737a5f1777b90fa4", null ],
-    [ "WriteContactCenter", "dc/d3c/a00028.html#a1235f787a58d45e623cf5bf21819ccc1", null ],
-    [ "WriteContactPool", "dc/d3c/a00028.html#a0551c1ce7927fc90a5dcc38df8980176", null ],
-    [ "WritePerson", "dc/d3c/a00028.html#aeeb27df99670bf86ed6564b1affdd986", null ],
-    [ "m_persons_found", "dc/d3c/a00028.html#ada0a307ad7ac6ecfe8198a17a71bba6a", null ]
+    [ "GeoGridProtoReader", "dc/d3c/a00028.html#a7bdef2c04a1cddd0b8f7cedd4e717f69", null ],
+    [ "GeoGridProtoReader", "dc/d3c/a00028.html#add7114774c8d5aac483508ed0f3c8b45", null ],
+    [ "Read", "dc/d3c/a00028.html#a551020787ddca406bd25104d8d6f7026", null ],
+    [ "operator=", "dc/d3c/a00028.html#abace93a7d2f7d9c23c1c8a2d3618a669", null ],
+    [ "ParseLocation", "dc/d3c/a00028.html#ae064b4ccc75caa353b193c1f58885661", null ],
+    [ "ParseCoordinate", "dc/d3c/a00028.html#ab4b797ef7bd19d8122192fcbdcba8f50", null ],
+    [ "ParseContactCenter", "dc/d3c/a00028.html#ab89a78cf3e3f75243998f7b6ff312375", null ],
+    [ "ParseContactPool", "dc/d3c/a00028.html#a19e0ff14a2aef228d926d53132fa767b", null ],
+    [ "ParsePerson", "dc/d3c/a00028.html#ace84e5989875f9deb376a2ed83d7a4c3", null ],
+    [ "m_geoGrid", "dc/d3c/a00028.html#ada3ae9fc9f8d7dccaa43356258b92150", null ]
 ];

@@ -1,13 +1,11 @@
 var a00029 =
 [
-    [ "GeoGridReader", "d5/d16/a00029.html#a7274a8aba64a533998887ec46fee72bd", null ],
-    [ "GeoGridReader", "d5/d16/a00029.html#a05b9b4cd41490fa218056043090dca06", null ],
-    [ "~GeoGridReader", "d5/d16/a00029.html#a6013cfc52c2643a6a967b781ce25a334", null ],
-    [ "operator=", "d5/d16/a00029.html#a2ed6028b0ac4ee06a820208188ffdb68", null ],
-    [ "Read", "d5/d16/a00029.html#a75a53634f7886fdd97d544027663ec9c", null ],
-    [ "AddCommutes", "d5/d16/a00029.html#af173ec28b1fb8313b64c8a14308b9710", null ],
-    [ "m_people", "d5/d16/a00029.html#a25c66335a8ce2710593123c80ebea5e3", null ],
-    [ "m_commutes", "d5/d16/a00029.html#ad638e9563c6270f35e5a6c03b40572f6", null ],
-    [ "m_inputStream", "d5/d16/a00029.html#a55b57af40336cf2ad466154e97b68701", null ],
-    [ "m_population", "d5/d16/a00029.html#a09f66d214c32d99edff6ddf0ea2b5cbd", null ]
+    [ "GeoGridProtoWriter", "d5/d16/a00029.html#a1b1a82a0a173891a35672929c13ba6da", null ],
+    [ "Write", "d5/d16/a00029.html#a3163b8464f599d204597a01dfc47f08f", null ],
+    [ "WriteLocation", "d5/d16/a00029.html#a2b0641108a2e713aa25c5969939a3c14", null ],
+    [ "WriteCoordinate", "d5/d16/a00029.html#a7909bc4f9f4d5d20737a5f1777b90fa4", null ],
+    [ "WriteContactCenter", "d5/d16/a00029.html#a1235f787a58d45e623cf5bf21819ccc1", null ],
+    [ "WriteContactPool", "d5/d16/a00029.html#a0551c1ce7927fc90a5dcc38df8980176", null ],
+    [ "WritePerson", "d5/d16/a00029.html#aeeb27df99670bf86ed6564b1affdd986", null ],
+    [ "m_persons_found", "d5/d16/a00029.html#ada0a307ad7ac6ecfe8198a17a71bba6a", null ]
 ];

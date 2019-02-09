@@ -1,4 +1,6 @@
 var a00035 =
 [
-    [ "Apply", "d4/d8c/a00035.html#a7285f9c244780890b889405a99814a53", null ]
+    [ "HouseholdCSVReader", "d4/d8c/a00035.html#a977c1f083a3ac0f06f5fa22ef9937e77", null ],
+    [ "SetReferenceHouseholds", "d4/d8c/a00035.html#a4933ff4f0f39b0c46e17dd7c42579001", null ],
+    [ "m_input_stream", "d4/d8c/a00035.html#a4aab4c5f3e9ca1026ffd4e984e188bb9", null ]
 ];

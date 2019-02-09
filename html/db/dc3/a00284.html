@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: RunConfigManager.h File Reference</title>
+<title>Stride Reference Manual: ReaderFactory.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 447bd51</span>
+   &#160;<span id="projectnumber">- generated for commit fcc05e5</span>
    </div>
   </td>
  </tr>
@@ -105,67 +105,62 @@ $(document).ready(function(){initNavTree('db/dc3/a00284.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">RunConfigManager.h File Reference</div>  </div>
+<div class="title">ReaderFactory.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Produce run config ptree.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/d44/a00162_source.html">util/ConfigInfo.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d58/a00285_source.html">ReaderFactory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">CitiesCSVReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d7d/a00161_source.html">CommutesCSVReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/da8/a00230_source.html">HouseholdCSVReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/df4/a00193_source.html">util/FileSys.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for RunConfigManager.h:</div>
+Include dependency graph for ReaderFactory.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/da3/a00589.gif" border="0" usemap="#RunConfigManager_8h" alt=""/></div>
-<map name="RunConfigManager_8h" id="RunConfigManager_8h">
-<area shape="rect" id="node2" href="../../db/d44/a00162.html" title="Info on configuration. " alt="" coords="5,87,125,114"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/db1/a00590.gif" border="0" usemap="#RunConfigManager_8hdep" alt=""/></div>
-<map name="RunConfigManager_8hdep" id="RunConfigManager_8hdep">
-<area shape="rect" id="node2" href="../../dc/d57/a00194.html" title="genpop.cpp" alt="" coords="5,80,103,107"/>
-<area shape="rect" id="node3" href="../../df/d95/a00299.html" title="Main program: command line handling. " alt="" coords="127,80,213,107"/>
-<area shape="rect" id="node4" href="../../db/d12/a00268.html" title="Core Population class. " alt="" coords="237,80,353,107"/>
-<area shape="rect" id="node5" href="../../d4/d66/a00289.html" title="Implementation for the Simulator class. " alt="" coords="378,80,453,107"/>
-<area shape="rect" id="node6" href="../../dd/dfe/a00283.html" title="Implementation of ptree utils. " alt="" coords="476,80,643,107"/>
+<div class="center"><img src="../../da/de4/a00594.gif" border="0" usemap="#ReaderFactory_8cpp" alt=""/></div>
+<map name="ReaderFactory_8cpp" id="ReaderFactory_8cpp">
+<area shape="rect" id="node2" href="../../d3/d58/a00285.html" title="ReaderFactory.h" alt="" coords="2569,80,2692,107"/>
+<area shape="rect" id="node41" href="../../da/ddb/a00145.html" title="CitiesCSVReader.h" alt="" coords="1451,80,1589,107"/>
+<area shape="rect" id="node47" href="../../d6/d7d/a00161.html" title="CommutesCSVReader.h" alt="" coords="2370,80,2545,107"/>
+<area shape="rect" id="node48" href="../../d1/da8/a00230.html" title="HouseholdCSVReader.h" alt="" coords="2799,80,2971,107"/>
+<area shape="rect" id="node49" href="../../dd/df4/a00193.html" title="Interface for install directory queries. " alt="" coords="193,229,293,256"/>
+<area shape="rect" id="node3" href="../../d9/db6/a00146.html" title="CitiesReader.h" alt="" coords="1464,155,1576,181"/>
+<area shape="rect" id="node35" href="../../db/d44/a00162.html" title="CommutesReader.h" alt="" coords="2526,155,2674,181"/>
+<area shape="rect" id="node37" href="../../d3/d42/a00235.html" title="HouseholdReader.h" alt="" coords="2938,155,3083,181"/>
+<area shape="rect" id="node4" href="../../d3/db1/a00200.html" title="gengeopop/GeoGrid.h" alt="" coords="1636,229,1799,256"/>
+<area shape="rect" id="node10" href="../../d9/d8d/a00262.html" title="Location.h" alt="" coords="1016,401,1104,427"/>
+<area shape="rect" id="node5" href="../../dd/dd7/a00260.html" title="KdTree.h" alt="" coords="2194,401,2270,427"/>
+<area shape="rect" id="node18" href="../../d1/d0d/a00171.html" title="Header for the core ContactPool class. " alt="" coords="2027,401,2170,427"/>
+<area shape="rect" id="node19" href="../../dd/d56/a00274.html" title="Header file for the core Population class. " alt="" coords="2802,311,2931,338"/>
+<area shape="rect" id="node34" href="../../d7/da0/a00198.html" title="GeoAggregator.h" alt="" coords="2089,311,2220,338"/>
+<area shape="rect" id="node20" href="../../d9/d5e/a00295.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2975,401,3147,427"/>
+<area shape="rect" id="node21" href="../../da/de0/a00317.html" title="Interface/Implementation for SVIterator. " alt="" coords="2839,490,2937,517"/>
+<area shape="rect" id="node38" href="../../de/dc2/a00228.html" title="gengeopop/Household.h" alt="" coords="2753,229,2932,256"/>
+<area shape="rect" id="node39" href="../../d9/d38/a00166.html" title="ContactCenter.h" alt="" coords="2397,311,2523,338"/>
+<area shape="rect" id="node42" href="../../d9/d90/a00178.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="500,229,583,256"/>
+<area shape="rect" id="node43" href="../../d0/d81/a00180.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="742,311,826,338"/>
+<area shape="rect" id="node44" href="../../d0/da2/a00307.html" title="Miscellaneous string utilities. " alt="" coords="713,401,813,427"/>
+<area shape="rect" id="node45" href="../../d0/d3e/a00253.html" title="Interface/Implementation of is_iterator. " alt="" coords="1961,490,2081,517"/>
 </map>
 </div>
 </div>
 <p><a href="../../db/dc3/a00284_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html">stride::util::RunConfigManager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce run config ptree.  <a href="../../d8/dfa/a00121.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d0/dc5/a00343"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc5/a00343.html">stride</a></td></tr>
-<tr class="memdesc:d0/dc5/a00343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride::util</a></td></tr>
-<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:d4/dce/a00337"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dce/a00337.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Produce run config ptree. </p>
-
-<p>Definition in file <a class="el" href="../../db/dc3/a00284_source.html">RunConfigManager.h</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../db/dc3/a00284.html">RunConfigManager.h</a></li>
-    <li class="footer">Generated on Fri Feb 8 2019 13:28:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../db/dc3/a00284.html">ReaderFactory.cpp</a></li>
+    <li class="footer">Generated on Sat Feb 9 2019 21:19:19 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

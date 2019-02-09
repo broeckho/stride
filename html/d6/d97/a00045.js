@@ -1,10 +1,8 @@
 var a00045 =
 [
-    [ "Populator", "d6/d97/a00045.html#a1dcf07892020db874293b88856ca7a2c", null ],
-    [ "~Populator", "d6/d97/a00045.html#adce42c51b32d49e3855d7915f86a3725", null ],
-    [ "Apply", "d6/d97/a00045.html#a9b260c3b12d6f43aaec3211e83271542", null ],
-    [ "GetPoolInIncreasingRadius", "d6/d97/a00045.html#a02e99dcbcbdf0553da4aeecd9f13b7bd", null ],
-    [ "MakeChoice", "d6/d97/a00045.html#a10243610b7115685e2a370db305e2a0e", null ],
-    [ "m_rnManager", "d6/d97/a00045.html#a9337da6e009f7ab6e112e83c3a233f0b", null ],
-    [ "m_logger", "d6/d97/a00045.html#ae0397499e44323b47ce0fa59f995f777", null ]
+    [ "Args", "d6/d97/a00045.html#ad4356187773550de9c9f8f70861e5686", null ],
+    [ "PolygonPolicy", "d6/d97/a00045.html#a4f45af44c216988a695d57633819496a", null ],
+    [ "GetBoundingBox", "d6/d97/a00045.html#a6b61e682cbf2e95e333d170d535720f1", null ],
+    [ "Contains", "d6/d97/a00045.html#a16eaa288435e30ffc3bd28f874cdb256", null ],
+    [ "m_poly", "d6/d97/a00045.html#a6e969812cc31820a81250186a2476e46", null ]
 ];

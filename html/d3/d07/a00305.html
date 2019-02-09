@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SummaryFile.h File Reference</title>
+<title>Stride Reference Manual: Stopwatch.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 447bd51</span>
+   &#160;<span id="projectnumber">- generated for commit fcc05e5</span>
    </div>
   </td>
  </tr>
@@ -106,33 +106,50 @@ $(document).ready(function(){initNavTree('d3/d07/a00305.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">SummaryFile.h File Reference</div>  </div>
+<div class="title">Stopwatch.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the SummaryFile class.  
+<p>Definition of Stopwatch.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/de2/a00320_source.html">TimeToString.h</a>&quot;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SummaryFile.h:</div>
+Include dependency graph for Stopwatch.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/db1/a00622.gif" border="0" usemap="#SummaryFile_8h" alt=""/></div>
-<map name="SummaryFile_8h" id="SummaryFile_8h">
+<div class="center"><img src="../../d6/dfa/a00626.gif" border="0" usemap="#Stopwatch_8h" alt=""/></div>
+<map name="Stopwatch_8h" id="Stopwatch_8h">
+<area shape="rect" id="node2" href="../../dd/de2/a00320.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="211,80,327,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d6f/a00623.gif" border="0" usemap="#SummaryFile_8hdep" alt=""/></div>
-<map name="SummaryFile_8hdep" id="SummaryFile_8hdep">
-<area shape="rect" id="node2" href="../../d8/d17/a00304.html" title="Implementation of the SummaryFile class. " alt="" coords="5,80,137,107"/>
-<area shape="rect" id="node3" href="../../d0/da2/a00307.html" title="Observer for Persons output. " alt="" coords="161,80,320,107"/>
-<area shape="rect" id="node4" href="../../d7/d3f/a00173.html" title="Header for the command line controller. " alt="" coords="83,155,219,181"/>
-<area shape="rect" id="node5" href="../../d1/de3/a00306.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="243,155,417,181"/>
+<div class="center"><img src="../../d3/da3/a00627.gif" border="0" usemap="#Stopwatch_8hdep" alt=""/></div>
+<map name="Stopwatch_8hdep" id="Stopwatch_8hdep">
+<area shape="rect" id="node2" href="../../d5/de9/a00176.html" title="Header for the command line controller. " alt="" coords="312,80,433,107"/>
+<area shape="rect" id="node9" href="../../da/d50/a00301.html" title="Header for the SimRunner class. " alt="" coords="828,80,931,107"/>
+<area shape="rect" id="node3" href="../../db/d48/a00148.html" title="Header for the command line controller. " alt="" coords="5,155,116,181"/>
+<area shape="rect" id="node6" href="../../de/d45/a00175.html" title="Header for the command line controller. " alt="" coords="819,229,955,256"/>
+<area shape="rect" id="node7" href="../../d8/d17/a00304.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="141,155,266,181"/>
+<area shape="rect" id="node4" href="../../d1/de3/a00306.html" title="Main program: command line handling. " alt="" coords="19,229,105,256"/>
+<area shape="rect" id="node5" href="../../d0/d4a/a00147.html" title="Header for the command line controller. " alt="" coords="131,229,257,256"/>
+<area shape="rect" id="node8" href="../../dc/d0f/a00303.html" title="Header for the command line controller. " alt="" coords="284,229,424,256"/>
+<area shape="rect" id="node10" href="../../db/da2/a00300.html" title="Implementation for SimRunner. " alt="" coords="1538,155,1655,181"/>
+<area shape="rect" id="node11" href="../../d9/d7d/a00150.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="917,155,1007,181"/>
+<area shape="rect" id="node12" href="../../da/d1e/a00149.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1039,229,1144,256"/>
+<area shape="rect" id="node13" href="../../d4/d9a/a00246.html" title="Observer for Infected output. " alt="" coords="1215,155,1362,181"/>
+<area shape="rect" id="node14" href="../../d6/d22/a00245.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1412,229,1573,256"/>
+<area shape="rect" id="node15" href="../../dd/dd7/a00248.html" title="Observer for infection count at each sim step. " alt="" coords="392,155,519,181"/>
+<area shape="rect" id="node16" href="../../d0/d1f/a00247.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="455,229,597,256"/>
+<area shape="rect" id="node17" href="../../d9/dd6/a00272.html" title="Observer for Persons output. " alt="" coords="695,155,842,181"/>
+<area shape="rect" id="node18" href="../../dd/d86/a00271.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="628,229,789,256"/>
+<area shape="rect" id="node19" href="../../d0/d39/a00314.html" title="Observer for Persons output. " alt="" coords="1032,155,1191,181"/>
+<area shape="rect" id="node20" href="../../dd/db3/a00313.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1199,229,1373,256"/>
 </map>
 </div>
 </div>
@@ -140,30 +157,37 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html">stride::output::SummaryFile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with simulation summary output.  <a href="../../d1/d84/a00097.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d72/a00124.html">stride::util::Stopwatch&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a stopwatch interface to time: it accumulates time between start/stop pairs.  <a href="../../da/d72/a00124.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d0/dc5/a00343"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc5/a00343.html">stride</a></td></tr>
-<tr class="memdesc:d0/dc5/a00343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d0/d48/a00351"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d48/a00351.html">stride</a></td></tr>
+<tr class="memdesc:d0/d48/a00351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d2/daf/a00346"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/daf/a00346.html">stride::output</a></td></tr>
-<tr class="memdesc:d2/daf/a00346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br /></td></tr>
+<tr class="memitem:df/df1/a00357"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html">stride::util</a></td></tr>
+<tr class="memdesc:df/df1/a00357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/a00357.html#a1c487ec7202a72d7aa33bc6b5767b287">stride::util::operator&lt;&lt;</a> (std::ostream &amp;oss, Stopwatch&lt; T &gt; const &amp;stopwatch)</td></tr>
+<tr class="memdesc:a1c487ec7202a72d7aa33bc6b5767b287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert accumulated time into output stream without altering stopwatch state.  <a href="../../df/df1/a00357.html#a1c487ec7202a72d7aa33bc6b5767b287">More...</a><br /></td></tr>
+<tr class="separator:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the SummaryFile class. </p>
+<div class="textblock"><p>Definition of Stopwatch. </p>
 
-<p>Definition in file <a class="el" href="../../d3/d07/a00305_source.html">SummaryFile.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d3/d07/a00305_source.html">Stopwatch.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../d3/d07/a00305.html">SummaryFile.h</a></li>
-    <li class="footer">Generated on Fri Feb 8 2019 13:28:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d3/d07/a00305.html">Stopwatch.h</a></li>
+    <li class="footer">Generated on Sat Feb 9 2019 21:19:19 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: WorkplaceGenerator.h File Reference</title>
+<title>Stride Reference Manual: ThreadException.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 447bd51</span>
+   &#160;<span id="projectnumber">- generated for commit fcc05e5</span>
    </div>
   </td>
  </tr>
@@ -108,43 +108,25 @@ $(document).ready(function(){initNavTree('d2/d41/a00318.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">WorkplaceGenerator.h File Reference</div>  </div>
+<div class="title">ThreadException.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/df4/a00193_source.html">Generator.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;boost/optional.hpp&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for WorkplaceGenerator.h:</div>
+Include dependency graph for ThreadException.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d0f/a00644.gif" border="0" usemap="#WorkplaceGenerator_8h" alt=""/></div>
-<map name="WorkplaceGenerator_8h" id="WorkplaceGenerator_8h">
-<area shape="rect" id="node2" href="../../dd/df4/a00193.html" title="Generator.h" alt="" coords="1475,80,1573,107"/>
-<area shape="rect" id="node3" href="../../dd/de3/a00201.html" title="gengeopop/GeoGrid.h" alt="" coords="1443,379,1605,405"/>
-<area shape="rect" id="node31" href="../../dc/dc9/a00282.html" title="Interface of RnMan. " alt="" coords="150,550,250,577"/>
-<area shape="rect" id="node44" href="../../d1/d72/a00204.html" title="gengeopop/GeoGridConfig.h" alt="" coords="2033,155,2236,181"/>
-<area shape="rect" id="node48" href="../../da/d15/a00188.html" title="util/ExcAssert.h" alt="" coords="5,550,125,577"/>
-<area shape="rect" id="node4" href="../../d4/d04/a00255.html" title="KdTree.h" alt="" coords="1263,639,1339,666"/>
-<area shape="rect" id="node13" href="../../d9/d39/a00257.html" title="Location.h" alt="" coords="2049,550,2137,577"/>
-<area shape="rect" id="node21" href="../../de/d53/a00169.html" title="Header for the core ContactPool class. " alt="" coords="466,639,609,666"/>
-<area shape="rect" id="node25" href="../../d5/d42/a00269.html" title="Header file for the core Population class. " alt="" coords="769,461,898,487"/>
-<area shape="rect" id="node41" href="../../d8/d72/a00199.html" title="GeoAggregator.h" alt="" coords="1587,461,1717,487"/>
-<area shape="rect" id="node22" href="../../dc/de6/a00167.html" title="Header for the ContactLogMode class. " alt="" coords="435,721,629,748"/>
-<area shape="rect" id="node23" href="../../d6/dfb/a00172.html" title="Definition of ContactPoolType. " alt="" coords="885,721,1056,748"/>
-<area shape="rect" id="node26" href="../../d5/dcb/a00170.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="376,550,541,577"/>
-<area shape="rect" id="node27" href="../../da/ddc/a00288.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="791,639,963,666"/>
-<area shape="rect" id="node29" href="../../df/da9/a00263.html" title="Header file for the Person class. " alt="" coords="987,550,1093,577"/>
-<area shape="rect" id="node32" href="../../d2/d04/a00281.html" title="Interface of RnPcg. " alt="" coords="183,639,233,666"/>
-<area shape="rect" id="node45" href="../../d5/ddf/a00224.html" title="gengeopop/Household.h" alt="" coords="1784,229,1963,256"/>
-<area shape="rect" id="node46" href="../../db/ddf/a00164.html" title="ContactCenter.h" alt="" coords="1574,304,1701,331"/>
-<area shape="rect" id="node49" href="../../d7/d6e/a00190.html" title="util/Exception.h" alt="" coords="39,639,158,666"/>
+<div class="center"><img src="../../d3/d8e/a00647.gif" border="0" usemap="#ThreadException_8h" alt=""/></div>
+<map name="ThreadException_8h" id="ThreadException_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/dcf/a00645.gif" border="0" usemap="#WorkplaceGenerator_8hdep" alt=""/></div>
-<map name="WorkplaceGenerator_8hdep" id="WorkplaceGenerator_8hdep">
-<area shape="rect" id="node2" href="../../da/de0/a00317.html" title="WorkplaceGenerator.cpp" alt="" coords="5,80,183,107"/>
-<area shape="rect" id="node3" href="../../de/db1/a00197.html" title="GenPopController.cpp" alt="" coords="207,80,367,107"/>
+<div class="center"><img src="../../dd/d1f/a00648.gif" border="0" usemap="#ThreadException_8hdep" alt=""/></div>
+<map name="ThreadException_8hdep" id="ThreadException_8hdep">
+<area shape="rect" id="node2" href="../../dc/d31/a00208.html" title="GeoGridJSONReader.cpp" alt="" coords="5,80,181,107"/>
+<area shape="rect" id="node3" href="../../dd/dc1/a00212.html" title="GeoGridProtoReader.cpp" alt="" coords="205,80,384,107"/>
 </map>
 </div>
 </div>
@@ -152,13 +134,18 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html">gengeopop::WorkplaceGenerator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate Workplaces.  <a href="../../d9/d2e/a00056.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html">gengeopop::ThreadException</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a wrapper for capturing exceptions thrown in a multi-threaded environment.  <a href="../../dc/dee/a00053.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html">gengeopop::ThreadException::RunType&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The used for executing a function with a return type.  <a href="../../d1/dea/a00054.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html">gengeopop::ThreadException::RunType&lt; void &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/d4e/a00329"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d4e/a00329.html">gengeopop</a></td></tr>
+<tr class="memitem:d4/dce/a00337"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dce/a00337.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -166,8 +153,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d2/d41/a00318.html">WorkplaceGenerator.h</a></li>
-    <li class="footer">Generated on Fri Feb 8 2019 13:28:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d2/d41/a00318.html">ThreadException.h</a></li>
+    <li class="footer">Generated on Sat Feb 9 2019 21:19:19 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

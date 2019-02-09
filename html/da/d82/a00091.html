@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::Infector&lt; LL, TIC, TO &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::ImportPopBuilder Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 447bd51</span>
+   &#160;<span id="projectnumber">- generated for commit fcc05e5</span>
    </div>
   </td>
  </tr>
@@ -107,120 +107,115 @@ $(document).ready(function(){initNavTree('da/d82/a00091.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d8/d0a/a00904.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../d0/ddf/a00918.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Infector&lt; LL, TIC, TO &gt; Class Template Reference</div>  </div>
+<div class="title">stride::ImportPopBuilder Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Actual contacts and transmission in contactpool (primary template).  
+<p>Initializes <a class="el" href="../../d0/d61/a00100.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> objects.  
  <a href="../../da/d82/a00091.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d4/d9a/a00246_source.html">Infector.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/dc8/a00242_source.html">ImportPopBuilder.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Infector&lt; LL, TIC, TO &gt;:</div>
+Inheritance diagram for stride::ImportPopBuilder:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d5b/a00905.gif" border="0" usemap="#stride_1_1Infector_3_01LL_00_01TIC_00_01TO_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Infector_3_01LL_00_01TIC_00_01TO_01_4_coll__map" id="stride_1_1Infector_3_01LL_00_01TIC_00_01TO_01_4_coll__map">
+<div class="center"><img src="../../d1/d0b/a00919.gif" border="0" usemap="#stride_1_1ImportPopBuilder_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1ImportPopBuilder_inherit__map" id="stride_1_1ImportPopBuilder_inherit__map">
+<area shape="rect" id="node2" href="../../d0/d89/a00071.html" title="Base Class for PopBuilders. " alt="" coords="5,5,193,141"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::ImportPopBuilder:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d82/a00920.gif" border="0" usemap="#stride_1_1ImportPopBuilder_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1ImportPopBuilder_coll__map" id="stride_1_1ImportPopBuilder_coll__map">
+<area shape="rect" id="node2" href="../../d0/d89/a00071.html" title="Base Class for PopBuilders. " alt="" coords="135,572,323,679"/>
+<area shape="rect" id="node5" href="../../d4/d98/a00120.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="289,329,435,509"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="96,160,319,267"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="468,175,555,252"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="443,5,580,97"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7a04fe600bfbb5b09330163fd2d49409"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d82/a00091.html#a7a04fe600bfbb5b09330163fd2d49409">Exec</a> (<a class="el" href="../../d9/da5/a00075.html">ContactPool</a> &amp;pool, const <a class="el" href="../../d0/d89/a00071.html">AgeContactProfile</a> &amp;profile, const <a class="el" href="../../d7/d70/a00106.html">TransmissionProfile</a> &amp;transProfile, <a class="el" href="../../db/db6/a00074.html">ContactHandler</a> &amp;cHandler, unsigned short int simDay, std::shared_ptr&lt; spdlog::logger &gt; cLogger)</td></tr>
-<tr class="separator:a7a04fe600bfbb5b09330163fd2d49409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a78076cb42a88b90e4183bfb805d8361f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d0/d61/a00100.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d82/a00091.html#a78076cb42a88b90e4183bfb805d8361f">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d0/d61/a00100.html">Population</a> &gt; pop) override</td></tr>
+<tr class="memdesc:a78076cb42a88b90e4183bfb805d8361f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a population by importing it.  <a href="#a78076cb42a88b90e4183bfb805d8361f">More...</a><br /></td></tr>
+<tr class="separator:a78076cb42a88b90e4183bfb805d8361f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00071"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00071')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d0/d89/a00071.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memitem:a52383ef977b079cd3677f2c0eb3d15e0 inherit pub_methods_a00071"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#a52383ef977b079cd3677f2c0eb3d15e0">AbstractPopBuilder</a> (const boost::property_tree::ptree &amp;configPt, <a class="el" href="../../df/df1/a00357.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager, std::shared_ptr&lt; spdlog::logger &gt; stride_logger=nullptr)</td></tr>
+<tr class="memdesc:a52383ef977b079cd3677f2c0eb3d15e0 inherit pub_methods_a00071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a52383ef977b079cd3677f2c0eb3d15e0">More...</a><br /></td></tr>
+<tr class="separator:a52383ef977b079cd3677f2c0eb3d15e0 inherit pub_methods_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00071"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#a938da421d2a2d203e7cb90ead7b91807">~AbstractPopBuilder</a> ()=default</td></tr>
+<tr class="separator:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_a00071"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00071')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d0/d89/a00071.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memitem:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00071"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#ae531cd041f5d2a849258039f820f9c9a">m_config_pt</a></td></tr>
+<tr class="memdesc:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree.  <a href="#ae531cd041f5d2a849258039f820f9c9a">More...</a><br /></td></tr>
+<tr class="separator:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c0d0ab608a32c5938d832e9cab15cb9 inherit pro_attribs_a00071"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/df1/a00357.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#a3c0d0ab608a32c5938d832e9cab15cb9">m_rn_manager</a></td></tr>
+<tr class="memdesc:a3c0d0ab608a32c5938d832e9cab15cb9 inherit pro_attribs_a00071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generation management.  <a href="#a3c0d0ab608a32c5938d832e9cab15cb9">More...</a><br /></td></tr>
+<tr class="separator:a3c0d0ab608a32c5938d832e9cab15cb9 inherit pro_attribs_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aa42972b4d340a04b0366af0a889b5e inherit pro_attribs_a00071"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#a6aa42972b4d340a04b0366af0a889b5e">m_stride_logger</a></td></tr>
+<tr class="separator:a6aa42972b4d340a04b0366af0a889b5e inherit pro_attribs_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;ContactLogMode::Id LL, bool TIC, bool TO = UseOptimizedInfector&lt;LL&gt;::value&gt;<br />
-class stride::Infector&lt; LL, TIC, TO &gt;</h3>
+<div class="textblock"><p>Initializes <a class="el" href="../../d0/d61/a00100.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> objects. </p>
 
-<p>Actual contacts and transmission in contactpool (primary template). </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">LL</td><td>LogLevel </td></tr>
-    <tr><td class="paramname">TIC</td><td>TrackIndexCase </td></tr>
-    <tr><td class="paramname">LIP</td><td>LocalInformationPolicy </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00069">69</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Infector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/dc8/a00242_source.html#l00030">30</a> of file <a class="el" href="../../d2/dc8/a00242_source.html">ImportPopBuilder.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a7a04fe600bfbb5b09330163fd2d49409"></a>
+<a class="anchor" id="a78076cb42a88b90e4183bfb805d8361f"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;ContactLogMode::Id LL, bool TIC, bool TO = UseOptimizedInfector&lt;LL&gt;::value&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../da/d82/a00091.html">stride::Infector</a>&lt; LL, TIC, TO &gt;::Exec </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../d0/d61/a00100.html">Population</a> &gt; stride::ImportPopBuilder::Build </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d9/da5/a00075.html">ContactPool</a> &amp;&#160;</td>
-          <td class="paramname"><em>pool</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d0/d61/a00100.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d0/d89/a00071.html">AgeContactProfile</a> &amp;&#160;</td>
-          <td class="paramname"><em>profile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d7/d70/a00106.html">TransmissionProfile</a> &amp;&#160;</td>
-          <td class="paramname"><em>transProfile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/db6/a00074.html">ContactHandler</a> &amp;&#160;</td>
-          <td class="paramname"><em>cHandler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned short int&#160;</td>
-          <td class="paramname"><em>simDay</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>cLogger</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/d22/a00245_source.html#l00148">148</a> of file <a class="el" href="../../d6/d22/a00245_source.html">Infector.cpp</a>.</p>
+<p>Creates a population by importing it. </p>
 
-<p>References <a class="el" href="../../df/da9/a00263_source.html#l00075">stride::Person::GetHealth()</a>, <a class="el" href="../../d4/d6f/a00315_source.html#l00037">stride::TransmissionProfile::GetRate()</a>, <a class="el" href="../../d0/d48/a00165_source.html#l00048">stride::ContactHandler::HasContact()</a>, <a class="el" href="../../d0/d48/a00165_source.html#l00051">stride::ContactHandler::HasTransmission()</a>, <a class="el" href="../../df/da9/a00263_source.html#l00087">stride::Person::IsInPool()</a>, <a class="el" href="../../de/d53/a00169_source.html#l00085">stride::ContactPool::m_members</a>, and <a class="el" href="../../de/d53/a00169_source.html#l00083">stride::ContactPool::m_pool_type</a>.</p>
+<p>Implements <a class="el" href="../../d0/d89/a00071.html#a864865f7e88c7b737ad91a245f49f466">stride::AbstractPopBuilder</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d6/db6/a00241_source.html#l00036">36</a> of file <a class="el" href="../../d6/db6/a00241_source.html">ImportPopBuilder.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dc/d9a/a00218_source.html#l00036">gengeopop::GeoGridReaderFactory::CreateReader()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/d19/a00273_source.html#l00042">stride::Population::Create()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d82/a00091_a7a04fe600bfbb5b09330163fd2d49409_cgraph.gif" border="0" usemap="#da/d82/a00091_a7a04fe600bfbb5b09330163fd2d49409_cgraph" alt=""/></div>
-<map name="da/d82/a00091_a7a04fe600bfbb5b09330163fd2d49409_cgraph" id="da/d82/a00091_a7a04fe600bfbb5b09330163fd2d49409_cgraph">
-<area shape="rect" id="node2" href="../../d1/d44/a00098.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="207,5,390,32"/>
-<area shape="rect" id="node3" href="../../d7/d70/a00106.html#a51ffe104253ffd5bcf12ab299fa6f2e2" title="Return transmission rate. " alt="" coords="205,57,392,98"/>
-<area shape="rect" id="node5" href="../../db/db6/a00074.html#a4a6ef10cff06328c9bc5b7f6337339ad" title="Check if two individuals have contact. " alt="" coords="215,122,382,163"/>
-<area shape="rect" id="node7" href="../../db/db6/a00074.html#a94d8f2bdeff1e99b1e6380060e8fb622" title="Check whether transmission occurs. " alt="" coords="215,187,382,229"/>
-<area shape="rect" id="node8" href="../../d1/d44/a00098.html#acc03f26895f6fc1054fa78e480900ebb" title="Check if a person is present today in a given contact pool. " alt="" coords="215,253,382,280"/>
-<area shape="rect" id="node4" href="../../d7/d70/a00106.html#a5e67e9eab813de18fff32722ee6f1437" title="Initialize. " alt="" coords="440,57,627,98"/>
-<area shape="rect" id="node6" href="../../db/db6/a00074.html#a51fd44b433163a1bd2a9fb424a003344" title="Convert rate into probability. " alt="" coords="450,154,617,195"/>
+<div class="center"><img src="../../da/d82/a00091_a78076cb42a88b90e4183bfb805d8361f_cgraph.gif" border="0" usemap="#da/d82/a00091_a78076cb42a88b90e4183bfb805d8361f_cgraph" alt=""/></div>
+<map name="da/d82/a00091_a78076cb42a88b90e4183bfb805d8361f_cgraph" id="da/d82/a00091_a78076cb42a88b90e4183bfb805d8361f_cgraph">
+<area shape="rect" id="node2" href="../../df/d61/a00031.html#aeff46acec7863e0b9c6f9196fdfe8d13" title="Create a GeoGridReader based on the provided extension in the filename. " alt="" coords="229,5,428,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d82/a00091_a78076cb42a88b90e4183bfb805d8361f_icgraph.gif" border="0" usemap="#da/d82/a00091_a78076cb42a88b90e4183bfb805d8361f_icgraph" alt=""/></div>
+<map name="da/d82/a00091_a78076cb42a88b90e4183bfb805d8361f_icgraph" id="da/d82/a00091_a78076cb42a88b90e4183bfb805d8361f_icgraph">
+<area shape="rect" id="node2" href="../../d0/d61/a00100.html#a3ea6a845fa96476b523c3d09d8526c68" title="Create a population initialized by the configuration in property tree. " alt="" coords="229,5,363,47"/>
 </map>
 </div>
 </p>
@@ -228,16 +223,16 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d4/d9a/a00246_source.html">Infector.h</a></li>
-<li><a class="el" href="../../d6/d22/a00245_source.html">Infector.cpp</a></li>
+<li><a class="el" href="../../d2/dc8/a00242_source.html">ImportPopBuilder.h</a></li>
+<li><a class="el" href="../../d6/db6/a00241_source.html">ImportPopBuilder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d0/dc5/a00343.html">stride</a></li><li class="navelem"><a class="el" href="../../da/d82/a00091.html">Infector</a></li>
-    <li class="footer">Generated on Fri Feb 8 2019 13:28:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d48/a00351.html">stride</a></li><li class="navelem"><a class="el" href="../../da/d82/a00091.html">ImportPopBuilder</a></li>
+    <li class="footer">Generated on Sat Feb 9 2019 21:19:20 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

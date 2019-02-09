@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Id.cpp File Reference</title>
+<title>Stride Reference Manual: HouseholdGenerator.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 447bd51</span>
+   &#160;<span id="projectnumber">- generated for commit fcc05e5</span>
    </div>
   </td>
  </tr>
@@ -105,61 +105,70 @@ $(document).ready(function(){initNavTree('d0/d53/a00232.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Id.cpp File Reference</div>  </div>
+<div class="title">HouseholdGenerator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Implementation of EventId.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/de1/a00233_source.html">Id.h</a>&quot;</code><br />
-<code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d57/a00194_source.html">Generator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d13/a00205_source.html">gengeopop/GeoGridConfig.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Id.cpp:</div>
+Include dependency graph for HouseholdGenerator.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d10/a00511.gif" border="0" usemap="#Id_8cpp" alt=""/></div>
-<map name="Id_8cpp" id="Id_8cpp">
-<area shape="rect" id="node2" href="../../d6/de1/a00233.html" title="Definition of EventId. " alt="" coords="61,80,107,107"/>
+<div class="center"><img src="../../d4/d40/a00516.gif" border="0" usemap="#HouseholdGenerator_8h" alt=""/></div>
+<map name="HouseholdGenerator_8h" id="HouseholdGenerator_8h">
+<area shape="rect" id="node2" href="../../dc/d57/a00194.html" title="Generator.h" alt="" coords="1243,80,1342,107"/>
+<area shape="rect" id="node46" href="../../d5/d13/a00205.html" title="gengeopop/GeoGridConfig.h" alt="" coords="147,237,350,263"/>
+<area shape="rect" id="node3" href="../../d3/db1/a00200.html" title="gengeopop/GeoGrid.h" alt="" coords="1636,155,1799,181"/>
+<area shape="rect" id="node31" href="../../da/ddc/a00288.html" title="Interface of RnMan. " alt="" coords="780,326,880,353"/>
+<area shape="rect" id="node48" href="../../d7/d6e/a00190.html" title="util/ExcAssert.h" alt="" coords="2715,326,2835,353"/>
+<area shape="rect" id="node4" href="../../dd/dd7/a00260.html" title="KdTree.h" alt="" coords="1604,415,1680,442"/>
+<area shape="rect" id="node13" href="../../d9/d8d/a00262.html" title="Location.h" alt="" coords="1859,415,1947,442"/>
+<area shape="rect" id="node19" href="../../d1/d0d/a00171.html" title="Header for the core ContactPool class. " alt="" coords="876,505,1018,531"/>
+<area shape="rect" id="node24" href="../../dd/d56/a00274.html" title="Header file for the core Population class. " alt="" coords="649,237,778,263"/>
+<area shape="rect" id="node45" href="../../d7/da0/a00198.html" title="GeoAggregator.h" alt="" coords="1474,326,1604,353"/>
+<area shape="rect" id="node20" href="../../de/d53/a00169.html" title="Header for the ContactLogMode class. " alt="" coords="1195,587,1390,613"/>
+<area shape="rect" id="node21" href="../../d8/df1/a00174.html" title="Definition of ContactPoolType. " alt="" coords="843,587,1014,613"/>
+<area shape="rect" id="node25" href="../../db/d12/a00268.html" title="Header file for the Person class. " alt="" coords="648,326,755,353"/>
+<area shape="rect" id="node33" href="../../d9/d5e/a00295.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="137,415,309,442"/>
+<area shape="rect" id="node26" href="../../d5/ddf/a00224.html" title="Header for the Health class. " alt="" coords="385,415,514,442"/>
+<area shape="rect" id="node27" href="../../da/d2e/a00238.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="812,415,980,442"/>
+<area shape="rect" id="node32" href="../../d6/d7f/a00287.html" title="Interface of RnPcg. " alt="" coords="1058,415,1108,442"/>
+<area shape="rect" id="node34" href="../../da/de0/a00317.html" title="Interface/Implementation for SVIterator. " alt="" coords="238,505,336,531"/>
+<area shape="rect" id="node49" href="../../d9/dd0/a00191.html" title="util/Exception.h" alt="" coords="1409,415,1528,442"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d8/dc7/a00517.gif" border="0" usemap="#HouseholdGenerator_8hdep" alt=""/></div>
+<map name="HouseholdGenerator_8hdep" id="HouseholdGenerator_8hdep">
+<area shape="rect" id="node2" href="../../df/d17/a00231.html" title="HouseholdGenerator.cpp" alt="" coords="5,80,187,107"/>
+<area shape="rect" id="node3" href="../../db/d53/a00202.html" title="GeoGridBuilder.cpp" alt="" coords="211,80,355,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d0/d53/a00232_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d0/dc5/a00343"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc5/a00343.html">stride</a></td></tr>
-<tr class="memdesc:d0/dc5/a00343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:df/d03/a00348"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html">stride::sim_event</a></td></tr>
-<tr class="memdesc:df/d03/a00348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage events signalled by the <a class="el" href="../../d5/d1e/a00103.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/a00036.html">gengeopop::HouseholdGenerator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/d7a/a00016.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid...">Generator</a> <a class="el" href="../../db/df3/a00034.html" title="Models a Household as ContactCenter. ">Household</a> contact pools.  <a href="../../de/d8c/a00036.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html#a43c0310b3eef6024b540ffaa5c4c39b2">stride::sim_event::IsType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d9/d48/a00345.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="../../df/d03/a00348.html#a43c0310b3eef6024b540ffaa5c4c39b2">More...</a><br /></td></tr>
-<tr class="separator:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa54357f0c5b3af4e7905ed503167ede"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html#aaa54357f0c5b3af4e7905ed503167ede">stride::sim_event::ToString</a> (Id w)</td></tr>
-<tr class="memdesc:aaa54357f0c5b3af4e7905ed503167ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d9/d48/a00345.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="../../df/d03/a00348.html#aaa54357f0c5b3af4e7905ed503167ede">More...</a><br /></td></tr>
-<tr class="separator:aaa54357f0c5b3af4e7905ed503167ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac81b85da174b73232cac26f53bd6d3a0"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html#ac81b85da174b73232cac26f53bd6d3a0">stride::sim_event::ToType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:ac81b85da174b73232cac26f53bd6d3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../df/d03/a00348.html#ac81b85da174b73232cac26f53bd6d3a0">More...</a><br /></td></tr>
-<tr class="separator:ac81b85da174b73232cac26f53bd6d3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d4/dce/a00337"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dce/a00337.html">gengeopop</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of EventId. </p>
-
-<p>Definition in file <a class="el" href="../../d0/d53/a00232_source.html">Id.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../d0/d53/a00232.html">Id.cpp</a></li>
-    <li class="footer">Generated on Fri Feb 8 2019 13:28:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d0/d53/a00232.html">HouseholdGenerator.h</a></li>
+    <li class="footer">Generated on Sat Feb 9 2019 21:19:19 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

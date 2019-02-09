@@ -1,10 +1,9 @@
 var a00049 =
 [
-    [ "CreateCitiesReader", "d2/dee/a00049.html#a24d5244b10fa2253e4113cdb383c73bc", null ],
-    [ "CreateCitiesReader", "d2/dee/a00049.html#a71469df77ae0bf0426ee00993c41bc06", null ],
-    [ "CreateCommutesReader", "d2/dee/a00049.html#aafc60dfb9e6337c0c57ec46cd9e02d71", null ],
-    [ "CreateCommutesReader", "d2/dee/a00049.html#aa90c350499ea59b15affb6d3369a6416", null ],
-    [ "CreateHouseholdReader", "d2/dee/a00049.html#afd1bf47bd92f5bf43cd032da257454b5", null ],
-    [ "CreateHouseholdReader", "d2/dee/a00049.html#ac0e5de42fe7b43777a3ea8613be3d234", null ],
-    [ "OpenFile", "d2/dee/a00049.html#a4ecc10a23c29b7f9fc2986a9464a5eec", null ]
+    [ "Args", "d2/dee/a00049.html#ab7a8c340fbfb47b01ee3cb4cd56441c5", null ],
+    [ "RadiusPolicy", "d2/dee/a00049.html#a2e112e02719985a20d96193e03f89d2d", null ],
+    [ "GetBoundingBox", "d2/dee/a00049.html#a2be92bc66c0e5766612d5c850b86cddf", null ],
+    [ "Contains", "d2/dee/a00049.html#a4c4d73f9f48e35491d11dcb4947f1860", null ],
+    [ "m_center", "d2/dee/a00049.html#a6e9bfbf6bc52f1b42c32f52bf13b1e2f", null ],
+    [ "m_radius", "d2/dee/a00049.html#a6057ef8f12f388d187d313e5f94bb823", null ]
 ];
