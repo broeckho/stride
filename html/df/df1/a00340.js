@@ -1,5 +1,4 @@
 var a00340 =
 [
-    [ "BaseNode", "d7/d46/a00002.html", "d7/d46/a00002" ],
-    [ "Node", "d5/db6/a00042.html", "d5/db6/a00042" ]
+    [ "is_proto_enum<::proto::GeoGrid_Location_ContactCenter_Type >", "d3/d8b/a00059.html", null ]
 ];

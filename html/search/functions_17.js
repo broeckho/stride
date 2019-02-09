@@ -1,7 +1,6 @@
 var searchData=
 [
   ['_7eabstractpopbuilder',['~AbstractPopBuilder',['../d0/d89/a00071.html#a938da421d2a2d203e7cb90ead7b91807',1,'stride::AbstractPopBuilder']]],
-  ['_7eadoptedfile',['~AdoptedFile',['../d9/d77/a00095.html#a3ffdabc86a3d9e8300cdbde251ab4763',1,'stride::output::AdoptedFile']]],
   ['_7ebasenode',['~BaseNode',['../d7/d46/a00002.html#ab467a72689847a5d23b0e00a36652f7b',1,'gengeopop::kd::BaseNode']]],
   ['_7ecitiesreader',['~CitiesReader',['../de/d21/a00006.html#a068af8ee265596b9689721403375b636',1,'gengeopop::CitiesReader']]],
   ['_7ecommutesreader',['~CommutesReader',['../d2/de7/a00014.html#a205f22dd3728b0732139155437410faf',1,'gengeopop::CommutesReader']]],
@@ -19,12 +18,12 @@ var searchData=
   ['_7egeogridreader',['~GeoGridReader',['../d5/d79/a00030.html#a6013cfc52c2643a6a967b781ce25a334',1,'gengeopop::GeoGridReader']]],
   ['_7egeogridwriter',['~GeoGridWriter',['../dc/d87/a00032.html#af7a0b5285a5be682d1272e60927630ed',1,'gengeopop::GeoGridWriter']]],
   ['_7ehouseholdreader',['~HouseholdReader',['../d8/d41/a00038.html#a691a91ca1633b445da4d64421f2f75c9',1,'gengeopop::HouseholdReader']]],
-  ['_7einfectedfile',['~InfectedFile',['../d9/df8/a00096.html#ab67bfb80c8ca94162f3c33d2c7be3f89',1,'stride::output::InfectedFile']]],
-  ['_7epersonsfile',['~PersonsFile',['../d1/d84/a00097.html#aafacf4448a2354eff812e02d2048e114',1,'stride::output::PersonsFile']]],
+  ['_7einfectedfile',['~InfectedFile',['../d9/d77/a00095.html#ab67bfb80c8ca94162f3c33d2c7be3f89',1,'stride::output::InfectedFile']]],
+  ['_7epersonsfile',['~PersonsFile',['../d9/df8/a00096.html#aafacf4448a2354eff812e02d2048e114',1,'stride::output::PersonsFile']]],
   ['_7epopulator',['~Populator',['../d3/dea/a00046.html#adce42c51b32d49e3855d7915f86a3725',1,'gengeopop::Populator']]],
   ['_7esegmentedvector',['~SegmentedVector',['../d2/db1/a00070.html#a8631db1786767b0e083f002f2a284757',1,'stride::util::SegmentedVector']]],
-  ['_7esimrunner',['~SimRunner',['../d0/dc2/a00104.html#ad59e65dfe839b8a589b1c6ffa805ba2f',1,'stride::SimRunner']]],
-  ['_7esubject',['~Subject',['../dc/dfe/a00125.html#ade16fa2818574a0a42874b5f15b1d3ec',1,'stride::util::Subject']]],
-  ['_7esummaryfile',['~SummaryFile',['../d1/d44/a00098.html#ade602b6935ee6c38f21f15b5bcc77847',1,'stride::output::SummaryFile']]],
+  ['_7esimrunner',['~SimRunner',['../d5/d1e/a00103.html#ad59e65dfe839b8a589b1c6ffa805ba2f',1,'stride::SimRunner']]],
+  ['_7esubject',['~Subject',['../da/d72/a00124.html#ade16fa2818574a0a42874b5f15b1d3ec',1,'stride::util::Subject']]],
+  ['_7esummaryfile',['~SummaryFile',['../d1/d84/a00097.html#ade602b6935ee6c38f21f15b5bcc77847',1,'stride::output::SummaryFile']]],
   ['_7ethreadexception',['~ThreadException',['../dc/dee/a00053.html#af2d64bdb630352c3f88e0be223f70f41',1,'gengeopop::ThreadException']]]
 ];
