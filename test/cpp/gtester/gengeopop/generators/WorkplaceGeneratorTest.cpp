@@ -33,12 +33,13 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size                = 10000;
         config.popInfo.popcount_1826_student = 20000;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
-        workplaceGenerator.Apply(geoGrid, config);
+        workplaceGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         EXPECT_EQ(geoGrid->size(), 0);
 }
@@ -48,6 +49,7 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
         RnMan              rnManager{}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size                  = 5 * 1000 * 1000;
         config.popInfo.popcount_1865_active    = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.input.fraction_1865_active      = 0.20;
@@ -65,7 +67,7 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
                 geoGrid->AddLocation(make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + to_string(size)));
         }
 
-        workplaceGenerator.Apply(geoGrid, config);
+        workplaceGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         vector<int> expectedWorkplaceCount{1342, 512,  1948, 1801, 1919, 1087, 1304, 6,    1133, 1728, 646,  441,  450,
                                            1643, 1897, 1410, 810,  382,  1192, 1688, 1691, 161,  204,  1433, 1796, 1187,
@@ -82,6 +84,7 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
         RnMan              rnManager{}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size                  = 5 * 1000 * 1000;
         config.popInfo.popcount_1865_active    = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.input.fraction_1865_active      = 0.20;
@@ -114,7 +117,7 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 
         // -> shouldn't change the test outcome in comparision with the previous test
 
-        workplaceGenerator.Apply(geoGrid, config);
+        workplaceGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         vector<int> expectedWorkplaceCount{1351, 521,  1960, 1798, 1907, 1088, 1301, 5,    1134, 1739, 644,  431,  447,
                                            1650, 1894, 1409, 809,  377,  1198, 1685, 1692, 155,  210,  1430, 1793, 1191,
@@ -130,6 +133,7 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
         RnMan              rnManager{}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size                  = 5 * 1000 * 1000;
         config.popInfo.popcount_1865_active    = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.input.fraction_1865_active      = 0.20;
@@ -194,7 +198,7 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
         // = 0,10 * (0,65 * 76946 + 0,22  * 141389 + 0,47 * 20775 + 0,25* 63673) = 10680,298
         EXPECT_EQ(10680, geoGrid->Get(17)->GetIncomingCommuterCount(config.input.fraction_active_commuters));
 
-        workplaceGenerator.Apply(geoGrid, config);
+        workplaceGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         vector<int> expectedWorkplaceCount{1328, 516,  1941, 1850, 1906, 1087, 1297, 6,    1132, 1727, 671,  428,  447,
                                            1647, 1896, 1394, 810,  464,  1220, 1682, 1672, 149,  211,  1423, 1802, 1185,

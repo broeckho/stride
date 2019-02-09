@@ -24,7 +24,8 @@ namespace gengeopop {
 
 using namespace std;
 
-void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
+                               unsigned int& contactCenterCounter)
 {
         // 1. given the number of persons of school age, calculate number of schools; schools
         //    have 500 pupils on average
@@ -49,7 +50,7 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 
         for (auto i = 0U; i < schoolCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
-                const auto k12 = make_shared<K12School>(geoGridConfig.counters.contact_center_count++);
+                const auto k12 = make_shared<K12School>(contactCenterCounter++);
                 k12->Fill(geoGrid);
                 loc->AddContactCenter(k12);
         }

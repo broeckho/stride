@@ -32,14 +32,16 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size = 10000;
 
+
         auto pop     = Population::Create();
-        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
-        auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
+        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto loc1    = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         geoGrid->AddLocation(loc1);
 
-        communityGenerator.Apply(geoGrid, config);
+        communityGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         const auto& centersOfLoc1 = loc1->GetContactCenters();
         EXPECT_EQ(centersOfLoc1.size(), 10);
@@ -50,18 +52,19 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size = 100 * 100 * 1000;
 
         auto pop     = Population::Create();
-        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
+        auto geoGrid = make_shared<GeoGrid>(pop.get());
         for (int i = 0; i < 10; i++) {
-                geoGrid->AddLocation(std::make_shared<Location>(1, 4, 10 * 1000 * 1000, Coordinate(0, 0),
-                                                                "Location " + std::to_string(i)));
+                geoGrid->AddLocation(make_shared<Location>(1, 4, 10 * 1000 * 1000, Coordinate(0, 0),
+                                                                "Location " + to_string(i)));
         }
 
-        communityGenerator.Apply(geoGrid, config);
+        communityGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        std::vector<int> expectedCount{1041, 1013, 940, 1004, 929, 1023, 959, 1077, 1005, 1009};
+        vector<int> expectedCount{1041, 1013, 940, 1004, 929, 1023, 959, 1077, 1005, 1009};
         for (int i = 0; i < 10; i++) {
                 EXPECT_EQ(expectedCount[i], geoGrid->Get(i)->GetContactCenters().size());
         }
@@ -72,11 +75,12 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size = 10000;
 
         auto pop     = Population::Create();
-        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
-        communityGenerator.Apply(geoGrid, config);
+        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        communityGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         EXPECT_EQ(geoGrid->size(), 0);
 }
@@ -86,16 +90,17 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         RnMan              rnManager{}; // Default random number manager.
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size            = 37542 * 100;
         config.popInfo.compulsory_pupils = 750840;
 
         auto pop     = Population::Create();
-        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
-        auto loc1    = std::make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0), "Antwerpen");
-        auto loc2    = std::make_shared<Location>(1, 4, 10040 * 100, Coordinate(0, 0), "Vlaams-Brabant");
-        auto loc3    = std::make_shared<Location>(1, 4, 7460 * 100, Coordinate(0, 0), "Henegouwen");
-        auto loc4    = std::make_shared<Location>(1, 4, 3269 * 100, Coordinate(0, 0), "Limburg");
-        auto loc5    = std::make_shared<Location>(1, 4, 4123 * 100, Coordinate(0, 0), "Luxemburg");
+        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto loc1    = make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0), "Antwerpen");
+        auto loc2    = make_shared<Location>(1, 4, 10040 * 100, Coordinate(0, 0), "Vlaams-Brabant");
+        auto loc3    = make_shared<Location>(1, 4, 7460 * 100, Coordinate(0, 0), "Henegouwen");
+        auto loc4    = make_shared<Location>(1, 4, 3269 * 100, Coordinate(0, 0), "Limburg");
+        auto loc5    = make_shared<Location>(1, 4, 4123 * 100, Coordinate(0, 0), "Luxemburg");
 
         geoGrid->AddLocation(loc1);
         geoGrid->AddLocation(loc2);
@@ -103,7 +108,7 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         geoGrid->AddLocation(loc4);
         geoGrid->AddLocation(loc5);
 
-        communityGenerator.Apply(geoGrid, config);
+        communityGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         const auto& centersOfLoc1 = loc1->GetContactCenters();
         EXPECT_EQ(centersOfLoc1.size(), 1101);

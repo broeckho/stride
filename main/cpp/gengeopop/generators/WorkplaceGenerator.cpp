@@ -23,7 +23,8 @@ namespace gengeopop {
 
 using namespace std;
 
-void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
+                               unsigned int& contactCenterCounter)
 {
         // 1. active people count and the commuting people count are given
         // 2. count the workplaces, each workplace has an average of 20 employees
@@ -57,7 +58,7 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
-                const auto w   = make_shared<Workplace>(geoGridConfig.counters.contact_center_count++);
+                const auto w   = make_shared<Workplace>(contactCenterCounter++);
                 w->Fill(geoGrid);
                 loc->AddContactCenter(w);
         }

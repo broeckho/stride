@@ -39,7 +39,7 @@ public:
                                                                          stride::util::LogUtils::CreateNullLogger());
 
         /// Populates the workplaces in geogrid with persons
-        void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
+        void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig) override;
 
 private:
         /// Fills the m_workplacesInCity map

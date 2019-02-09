@@ -27,7 +27,8 @@ class WorkplaceGenerator : public Generator
 public:
         using Generator::Generator;
 
-        void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
+        void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig,
+                   unsigned int& contactCenterCounter) override;
 };
 
 } // namespace gengeopop

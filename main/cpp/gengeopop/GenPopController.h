@@ -35,14 +35,14 @@ public:
                          std::shared_ptr<stride::Population> pop = stride::Population::Create());
 
         /// Reads the data files.
-        void ReadDataFiles(GeoGridConfig& geoGridConfig, const std::string& citiesFileName,
+        void ReadDataFiles(const GeoGridConfig& geoGridConfig, const std::string& citiesFileName,
                            const std::string& commutingFileName);
 
         /// Build and store the Geo part of the GeoGrid.
-        void GenGeo(GeoGridConfig& geoGridConfig);
+        void GenGeo(const GeoGridConfig& geoGridConfig);
 
         /// Build and store the Pop part of the GeoGrid.
-        void GenPop(GeoGridConfig& geoGridConfig);
+        void GenPop(const GeoGridConfig& geoGridConfig);
 
         /// Get the generated GeoGrid.
         std::shared_ptr<GeoGrid> GetGeoGrid();
@@ -52,6 +52,11 @@ private:
         std::shared_ptr<GeoGrid>            m_geoGrid;       ///< The generated GeoGrid.
         std::shared_ptr<stride::Population> m_population;    ///< The generated GeoGrid.
         std::shared_ptr<spdlog::logger>     m_logger;        ///< The logger.
+
+private:
+        /// The current number of ContactCenters, used to obtain an Id for a new contactCenter.
+        /// ! 0 has special meaning (not assigned)!
+        unsigned int m_ccCounter = 1;
 };
 
 } // namespace gengeopop

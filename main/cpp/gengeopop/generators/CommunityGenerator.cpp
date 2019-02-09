@@ -26,7 +26,8 @@ namespace gengeopop {
 
 using namespace std;
 
-void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
+                               unsigned int& contactCenterCounter)
 {
         // 1. calculate number of communities, each community has average 2000 persons
         // 2. assign communities to a location using a discrete distribution reflecting the relative number of
@@ -52,13 +53,13 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
-                const auto pc  = make_shared<PrimaryCommunity>(geoGridConfig.counters.contact_center_count++);
+                const auto pc  = make_shared<PrimaryCommunity>(contactCenterCounter++);
                 pc->Fill(geoGrid);
                 loc->AddContactCenter(pc);
         }
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
-                const auto sc  = make_shared<SecondaryCommunity>(geoGridConfig.counters.contact_center_count++);
+                const auto sc  = make_shared<SecondaryCommunity>(contactCenterCounter++);
                 sc->Fill(geoGrid);
                 loc->AddContactCenter(sc);
         }

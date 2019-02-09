@@ -29,7 +29,7 @@ public:
         using Populator::Populator;
 
         /// Core method implementation.
-        void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
+        void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig&) override;
 };
 
 } // namespace gengeopop

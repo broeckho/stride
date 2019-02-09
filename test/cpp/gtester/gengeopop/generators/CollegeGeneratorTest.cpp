@@ -33,6 +33,7 @@ TEST(CollegeGeneratorTest, OneLocationTest)
         RnMan            rnManager{}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
+        auto             contactCenterCounter = 1U;
         config.input.pop_size                = 45000;
         config.popInfo.popcount_1826_student = 9000;
 
@@ -42,7 +43,7 @@ TEST(CollegeGeneratorTest, OneLocationTest)
 
         geoGrid->AddLocation(loc1);
 
-        collegeGenerator.Apply(geoGrid, config);
+        collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         const auto& centersOfLoc1 = loc1->GetContactCenters();
         EXPECT_EQ(centersOfLoc1.size(), 3);
@@ -53,12 +54,13 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
         RnMan            rnManager{}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
+        auto             contactCenterCounter = 1U;
         config.input.pop_size                = 10000;
         config.popInfo.popcount_1826_student = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
-        collegeGenerator.Apply(geoGrid, config);
+        collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         EXPECT_EQ(geoGrid->size(), 0);
 }
@@ -68,6 +70,7 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         RnMan            rnManager{}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
+        auto             contactCenterCounter = 1U;
         config.input.pop_size                = 399992;
         config.popInfo.popcount_1826_student = 79998;
 
@@ -78,7 +81,7 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         for (int size : sizes) {
                 geoGrid->AddLocation(make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + to_string(size)));
         }
-        collegeGenerator.Apply(geoGrid, config);
+        collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         vector<int> expectedSchoolCount{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
         for (size_t i = 0; i < sizes.size(); i++) {

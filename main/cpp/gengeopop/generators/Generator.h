@@ -37,7 +37,8 @@ public:
         }
 
         /// Generate the contact centers for a pool type (fixed in implementation) to the geogrid.
-        virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
+        virtual void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig,
+                           unsigned int& contactCenterCounter) = 0;
 
         /// Virtual destructor for inheritance
         virtual ~Generator() = default;

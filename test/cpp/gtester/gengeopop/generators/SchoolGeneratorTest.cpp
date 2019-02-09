@@ -32,6 +32,7 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size            = 10000;
         config.popInfo.compulsory_pupils = 2000;
 
@@ -40,7 +41,7 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         geoGrid->AddLocation(loc1);
 
-        schoolGenerator.Apply(geoGrid, config);
+        schoolGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         const auto& centersOfLoc1 = loc1->GetContactCenters();
         EXPECT_EQ(centersOfLoc1.size(), 4);
@@ -51,12 +52,13 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size            = 10000;
         config.popInfo.compulsory_pupils = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
-        schoolGenerator.Apply(geoGrid, config);
+        schoolGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         EXPECT_EQ(geoGrid->size(), 0);
 }
@@ -66,6 +68,7 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.input.pop_size            = 37542 * 100;
         config.popInfo.compulsory_pupils = 750840;
 
@@ -88,7 +91,7 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
                                            static_cast<double>(config.input.pop_size));
         }
 
-        schoolGenerator.Apply(geoGrid, config);
+        schoolGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         const auto& centersOfLoc1 = loc1->GetContactCenters();
         EXPECT_EQ(centersOfLoc1.size(), 444);

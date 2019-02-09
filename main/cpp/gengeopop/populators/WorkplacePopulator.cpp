@@ -37,7 +37,7 @@ WorkplacePopulator::WorkplacePopulator(RnMan& rn_manager, shared_ptr<spdlog::log
 {
 }
 
-void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
 {
         m_logger->info("Starting to populate Workplaces");
 

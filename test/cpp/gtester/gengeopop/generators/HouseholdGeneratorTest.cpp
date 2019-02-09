@@ -32,6 +32,7 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.popInfo.households = 4;
 
         auto pop     = Population::Create();
@@ -39,7 +40,7 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         auto loc1    = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         geoGrid->AddLocation(loc1);
 
-        householdGenerator.Apply(geoGrid, config);
+        householdGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         const auto& centersOfLoc1 = loc1->GetContactCenters();
         EXPECT_EQ(centersOfLoc1.size(), 4);
@@ -50,11 +51,12 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.popInfo.households = 4;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
-        householdGenerator.Apply(geoGrid, config);
+        householdGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         EXPECT_EQ(geoGrid->size(), 0);
 }
@@ -64,6 +66,7 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         RnMan              rnManager{}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
+        auto               contactCenterCounter = 1U;
         config.popInfo.households = 4000;
         config.input.pop_size     = 37542 * 100;
 
@@ -86,7 +89,7 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
                                            static_cast<double>(config.input.pop_size));
         }
 
-        householdGenerator.Apply(geoGrid, config);
+        householdGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         const auto& centersOfLoc1 = loc1->GetContactCenters();
         EXPECT_EQ(centersOfLoc1.size(), 1179);

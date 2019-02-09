@@ -23,7 +23,8 @@ namespace gengeopop {
 
 using namespace std;
 
-void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
+                             unsigned int& contactCenterCounter)
 {
         const auto pupilCount = geoGridConfig.popInfo.popcount_1826_student;
         const auto schoolCount =
@@ -53,7 +54,7 @@ void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
 
         for (auto i = 0U; i < schoolCount; i++) {
                 auto loc     = cities[dist()];
-                auto college = make_shared<College>(geoGridConfig.counters.contact_center_count++);
+                auto college = make_shared<College>(contactCenterCounter++);
                 college->Fill(geoGrid);
                 loc->AddContactCenter(college);
         }

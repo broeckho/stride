@@ -28,7 +28,7 @@ namespace gengeopop {
 using namespace std;
 using namespace stride;
 
-void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
 {
         m_logger->info("Starting to populate Colleges");
 

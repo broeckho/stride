@@ -75,7 +75,6 @@ shared_ptr<Population> GenPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         m_stride_logger->info("Starting Gen-Geo");
         genPopController.GenGeo(ggConfig);
-        m_stride_logger->info("ContactCenters generated: {}", ggConfig.counters.contact_center_count);
         m_stride_logger->info("Finished Gen-Geo");
 
         // --------------------------------------------------------------

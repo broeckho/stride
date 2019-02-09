@@ -143,8 +143,6 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 logger->info("Start generation geographic grid.");
                 genGeoPopController.GenGeo(ggConfig);
-                logger->info("Number of ContactCenters generated: {}", ggConfig.counters.contact_center_count);
-                logger->info("Number of ContactPools generated: {}", ggConfig.counters.contact_pool_count);
                 logger->info("Done generation geographic grid.");
 
                 // --------------------------------------------------------------

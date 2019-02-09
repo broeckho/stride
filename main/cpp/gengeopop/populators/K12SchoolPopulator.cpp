@@ -25,7 +25,7 @@ namespace gengeopop {
 
 using namespace std;
 
-void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
+void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {
         m_logger->info("Starting to populate Schools");
 

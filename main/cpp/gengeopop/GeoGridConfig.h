@@ -99,21 +99,6 @@ public:
         } popInfo;
 
         // -----------------------------------------------------------------------------------------
-        // Counters.
-        // -----------------------------------------------------------------------------------------
-        struct
-        {
-                /// The current number of ContactPools, used to obtain an Id for a new contactPool.
-                /// ! 0 has special meaning (not assigned)!
-                unsigned int contact_pool_count = 1;
-
-                /// The current number of ContactCenters, used to obtain an Id for a new contactCenter.
-                /// ! 0 has special meaning (not assigned)!
-                unsigned int contact_center_count = 1;
-
-        } counters;
-
-        // -----------------------------------------------------------------------------------------
         // CONSTANTS (for now at least)
         // -----------------------------------------------------------------------------------------
         struct

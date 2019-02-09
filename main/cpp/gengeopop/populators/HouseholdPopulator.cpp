@@ -25,7 +25,7 @@ namespace gengeopop {
 
 using namespace std;
 
-void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
 {
         m_logger->info("Starting to populate Households");
 
