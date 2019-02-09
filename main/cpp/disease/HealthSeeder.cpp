@@ -33,8 +33,8 @@ using namespace std;
 namespace stride {
 
 HealthSeeder::HealthSeeder(const boost::property_tree::ptree& diseasePt)
-	: m_distrib_start_symptomatic(), m_distrib_time_asymptomatic(), m_distrib_time_infectious(),
-	  m_distrib_time_symptomatic()
+    : m_distrib_start_symptomatic(), m_distrib_time_asymptomatic(), m_distrib_time_infectious(),
+      m_distrib_time_symptomatic()
 {
         GetDistribution(m_distrib_start_symptomatic, diseasePt, "disease.start_symptomatic");
         GetDistribution(m_distrib_time_asymptomatic, diseasePt, "disease.time_asymptomatic");
@@ -80,10 +80,11 @@ void HealthSeeder::Seed(const std::shared_ptr<stride::Population>& pop, vector<C
                 auto& gen01 = handlers[static_cast<size_t>(omp_get_thread_num())];
 #pragma omp for
                 for (size_t i = 0; i < population.size(); ++i) {
-                        const auto startSymptomatic    = Sample(m_distrib_start_symptomatic, gen01());
-                        const auto startInfectiousness = startSymptomatic - Sample(m_distrib_time_asymptomatic, gen01());
-                        const auto timeInfectious      = Sample(m_distrib_time_infectious, gen01());
-                        const auto timeSymptomatic     = Sample(m_distrib_time_symptomatic, gen01());
+                        const auto startSymptomatic = Sample(m_distrib_start_symptomatic, gen01());
+                        const auto startInfectiousness =
+                            startSymptomatic - Sample(m_distrib_time_asymptomatic, gen01());
+                        const auto timeInfectious  = Sample(m_distrib_time_infectious, gen01());
+                        const auto timeSymptomatic = Sample(m_distrib_time_symptomatic, gen01());
                         population[i].GetHealth() =
                             Health(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);
                 }

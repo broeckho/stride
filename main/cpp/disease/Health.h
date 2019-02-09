@@ -83,10 +83,7 @@ public:
         }
 
         /// Have the symptoms started today?
-        bool SymptomsStartedToday() const
-        {
-        		return GetDiseaseCounter() == m_start_symptomatic;
-        }
+        bool SymptomsStartedToday() const { return GetDiseaseCounter() == m_start_symptomatic; }
 
         /// Set health state to immune.
         void SetImmune();

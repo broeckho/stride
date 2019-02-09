@@ -20,16 +20,16 @@
 #include "gengeopop/io/GeoGridProtoWriter.h"
 #include "gengeopop/io/GeoGridWriterFactory.h"
 #include "gengeopop/io/ReaderFactory.h"
-#include "util/LogUtils.h"
 #include "util/FileSys.h"
+#include "util/LogUtils.h"
 #include "util/RunConfigManager.h"
 
 #include <boost/lexical_cast.hpp>
 #include <boost/property_tree/ptree.hpp>
+#include <tclap/CmdLine.h>
 #include <omp.h>
 #include <spdlog/common.h>
 #include <spdlog/fmt/ostr.h>
-#include <tclap/CmdLine.h>
 
 #include <fstream>
 #include <iostream>
@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
                 } else {
                         config = regex_replace(config, regex(string("^file=")), string(""));
                         const filesys::path configPath =
-                                (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : filesys::path(config);
+                            (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : filesys::path(config);
                         configPt = FileSys::ReadPtreeFile(configPath);
                 }
 
@@ -99,8 +99,8 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 // Create logger.
                 // --------------------------------------------------------------
-                shared_ptr<spdlog::logger> logger = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
-                const auto logLevel = configPt.get<string>("run.stride_log_level");
+                shared_ptr<spdlog::logger> logger   = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
+                const auto                 logLevel = configPt.get<string>("run.stride_log_level");
                 logger->set_level(spdlog::level::from_str(logLevel));
                 logger->flush_on(spdlog::level::err);
 

@@ -38,8 +38,8 @@ namespace {
 
 void sortContactCenters(ptree& pt)
 {
-        auto& contactCenters      = pt.get_child("contactCenters");
-        auto compareContactCenter = [](const pair<string, ptree>& a, const pair<string, ptree>& b) {
+        auto& contactCenters       = pt.get_child("contactCenters");
+        auto  compareContactCenter = [](const pair<string, ptree>& a, const pair<string, ptree>& b) {
                 return a.second.get<string>("type") < b.second.get<string>("type");
         };
         contactCenters.sort<decltype(compareContactCenter)>(compareContactCenter);
@@ -61,7 +61,7 @@ void sortTree(ptree& tree)
 bool compareGeoGrid(shared_ptr<GeoGrid> geoGrid, const string& testname)
 {
         GeoGridJSONWriter writer;
-        stringstream ss;
+        stringstream      ss;
         writer.Write(move(geoGrid), ss);
         ptree result;
         read_json(ss, result);

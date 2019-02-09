@@ -13,6 +13,7 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/io/GeoGridProtoWriter.h"
 #include "GeoGridIOUtils.h"
 #include "gengeopop/College.h"
 #include "gengeopop/Community.h"
@@ -22,7 +23,6 @@
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/SecondaryCommunity.h"
 #include "gengeopop/Workplace.h"
-#include "gengeopop/io/GeoGridProtoWriter.h"
 #include "gengeopop/io/proto/geogrid.pb.h"
 #include "util/FileSys.h"
 
@@ -36,8 +36,8 @@ namespace {
 
 TEST(GeoGridProtoWriterTest, locationTest)
 {
-        const auto pop      = Population::Create();
-        const auto geoGrid  = make_shared<GeoGrid>(pop.get());
+        const auto pop     = Population::Create();
+        const auto geoGrid = make_shared<GeoGrid>(pop.get());
         geoGrid->AddLocation(make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove"));
         geoGrid->AddLocation(make_shared<Location>(2, 3, 5000, Coordinate(0, 0), "Gent"));
         geoGrid->AddLocation(make_shared<Location>(3, 2, 2500, Coordinate(0, 0), "Mons"));

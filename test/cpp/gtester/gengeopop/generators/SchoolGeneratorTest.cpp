@@ -32,7 +32,7 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.pop_size        = 10000;
+        config.input.pop_size            = 10000;
         config.popInfo.compulsory_pupils = 2000;
 
         auto pop     = Population::Create();
@@ -51,7 +51,7 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.pop_size        = 10000;
+        config.input.pop_size            = 10000;
         config.popInfo.compulsory_pupils = 2000;
 
         auto pop     = Population::Create();
@@ -66,7 +66,7 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.pop_size        = 37542 * 100;
+        config.input.pop_size            = 37542 * 100;
         config.popInfo.compulsory_pupils = 750840;
 
         auto pop     = Population::Create();

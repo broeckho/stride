@@ -13,9 +13,9 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/io/HouseholdCSVReader.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/Household.h"
-#include "gengeopop/io/HouseholdCSVReader.h"
 
 #include <gtest/gtest.h>
 #include <memory>
@@ -75,8 +75,8 @@ TEST(HouseholdCSVReader, test1)
         auto               instream = make_unique<istringstream>(csvString);
         HouseholdCSVReader reader(move(instream));
 
-        reader.SetReferenceHouseholds(geoConfig.popInfo.reference_households,
-                                      geoConfig.popInfo.persons, geoConfig.popInfo.contact_pools);
+        reader.SetReferenceHouseholds(geoConfig.popInfo.reference_households, geoConfig.popInfo.persons,
+                                      geoConfig.popInfo.contact_pools);
 
         const vector<shared_ptr<gengeopop::Household>>& HHs         = geoConfig.popInfo.reference_households;
         const vector<shared_ptr<gengeopop::Household>>& expectedHHS = getExpectedHouseHolds();

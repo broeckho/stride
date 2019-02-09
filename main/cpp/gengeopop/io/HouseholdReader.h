@@ -24,7 +24,7 @@
 namespace stride {
 class Person;
 class ContactPool;
-}
+} // namespace stride
 
 namespace gengeopop {
 
@@ -60,8 +60,8 @@ public:
         }
 
         /// Add the info on reference households to the GeoGridConfig.
-        virtual void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
-                                            stride::util::SegmentedVector<stride::Person>& ref_persons,
+        virtual void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>&            ref_households,
+                                            stride::util::SegmentedVector<stride::Person>&      ref_persons,
                                             stride::util::SegmentedVector<stride::ContactPool>& ref_pools) = 0;
 
 protected:

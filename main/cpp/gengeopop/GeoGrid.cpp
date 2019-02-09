@@ -70,31 +70,30 @@ set<shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2
         CheckFinalized(__func__);
 
         set<shared_ptr<Location>> result;
-        auto agg = BuildAggregator<BoxPolicy>(MakeCollector(inserter(result, result.begin())),
-                                              make_tuple(min(long1, long2), min(lat1, lat2),
-                                                              max(long1, long2), max(lat1, lat2)));
+        auto                      agg = BuildAggregator<BoxPolicy>(
+            MakeCollector(inserter(result, result.begin())),
+            make_tuple(min(long1, long2), min(lat1, lat2), max(long1, long2), max(lat1, lat2)));
         agg();
         return result;
 }
 
 std::set<std::shared_ptr<Location>> GeoGrid::InBox(const std::shared_ptr<Location>& loc1,
-                                                  const std::shared_ptr<Location>& loc2) const
+                                                   const std::shared_ptr<Location>& loc2) const
 {
         using boost::geometry::get;
-        return InBox(get<0>(loc1->GetCoordinate()), get<1>(loc1->GetCoordinate()),
-                     get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
+        return InBox(get<0>(loc1->GetCoordinate()), get<1>(loc1->GetCoordinate()), get<0>(loc2->GetCoordinate()),
+                     get<1>(loc2->GetCoordinate()));
 }
 
-vector<shared_ptr<Location>> GeoGrid::FindLocationsInRadius(shared_ptr<Location> start,
-                                                                      double                    radius) const
+vector<shared_ptr<Location>> GeoGrid::FindLocationsInRadius(shared_ptr<Location> start, double radius) const
 {
         CheckFinalized(__func__);
 
         geogrid_detail::KdTree2DPoint startPt(start);
 
         vector<shared_ptr<Location>> result;
-        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)),
-                                                 make_tuple(move(startPt), radius));
+        auto                         agg =
+            BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)), make_tuple(move(startPt), radius));
         agg();
         return result;
 }
@@ -128,6 +127,5 @@ void GeoGrid::Remove(const shared_ptr<Location>& location)
         m_locations.erase(::gengeopop::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
         m_locationsToIdIndex.erase(location->GetID());
 }
-
 
 } // namespace gengeopop

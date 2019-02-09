@@ -24,7 +24,7 @@
 namespace stride {
 class ContactPool;
 class Person;
-}
+} // namespace stride
 
 namespace gengeopop {
 

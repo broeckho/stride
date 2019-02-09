@@ -81,7 +81,7 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 {
         auto person = make_shared<Person>();
 
-        {       // Set up the reference household.
+        { // Set up the reference household.
                 auto refHousehold = make_shared<Household>();
                 auto pool         = new ContactPool(0, ContactPoolType::Id::Household);
                 person->SetAge(18);
@@ -126,17 +126,17 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
         auto person1 = make_shared<Person>();
         auto person2 = make_shared<Person>();
 
-        {       // Set up reference household with one person.
-                auto refHousehold  = make_shared<Household>();
-                auto pool          = new ContactPool(0, ContactPoolType::Id::Household);
+        { // Set up reference household with one person.
+                auto refHousehold = make_shared<Household>();
+                auto pool         = new ContactPool(0, ContactPoolType::Id::Household);
                 person->SetAge(18);
                 pool->AddMember(person.get());
                 refHousehold->AddPool(pool);
                 config.popInfo.reference_households.push_back(refHousehold);
         }
-        {       // Set up reference household with two persons.
-                auto refHousehold  = make_shared<Household>();
-                auto pool          = new ContactPool(0, ContactPoolType::Id::Household);
+        { // Set up reference household with two persons.
+                auto refHousehold = make_shared<Household>();
+                auto pool         = new ContactPool(0, ContactPoolType::Id::Household);
                 person1->SetAge(12);
                 pool->AddMember(person1.get());
                 refHousehold->AddPool(pool);

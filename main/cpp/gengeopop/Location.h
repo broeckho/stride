@@ -65,16 +65,18 @@ public:
         // I.e. fraction of commuting population at this Location commuting to otherLocation.
         void AddOutgoingCommutingLocation(std::shared_ptr<Location> otherLocation, double fraction);
 
-
         /// Gets the Coordinate of this Location.
-        const Coordinate& GetCoordinate() const{ return m_coordinate; }
+        const Coordinate& GetCoordinate() const { return m_coordinate; }
 
         /// Gets all ContactCenters at this location.
         const std::vector<std::shared_ptr<ContactCenter>>& GetContactCenters() const { return m_CC; }
 
         /// Gets the Contact Centers of a specific type (Household, Workplace, ...).
         template <typename T>
-        std::vector<std::shared_ptr<ContactCenter>> GetContactCentersOfType() { return m_CC_OfType[typeid(T)]; }
+        std::vector<std::shared_ptr<ContactCenter>> GetContactCentersOfType()
+        {
+                return m_CC_OfType[typeid(T)];
+        }
 
         /// Gets a vector with the outgoing cities which people are commuting to + the proportion.
         const std::vector<std::pair<Location*, double>>& GetIncomingCommuningCities() const;
@@ -107,7 +109,7 @@ public:
         double GetRelativePopulationSize() const;
 
         /// Sets the Coordinate of this Socation.
-        void  SetCoordinate(const Coordinate& coordinate) { m_coordinate = coordinate; }
+        void SetCoordinate(const Coordinate& coordinate) { m_coordinate = coordinate; }
 
         /// Calculates this location's population count using its relative population and the total population count.
         void SetPopCount(unsigned int totalPopCount);
@@ -126,12 +128,12 @@ public:
         iterator end() { return m_CC.end(); }
 
 private:
-        unsigned int m_id = 0;             ///< Id.
-        std::string  m_name;               ///< Name.
-        unsigned int m_province;           ///< Province id.
-        unsigned int m_pop_count;          ///< Population count (number of individuals) at this Location.
-        double       m_pop_fraction;       ///< Fraction of whole population at thois Location.
-        Coordinate   m_coordinate;         ///< Coordinate of the Location.
+        unsigned int m_id = 0;       ///< Id.
+        std::string  m_name;         ///< Name.
+        unsigned int m_province;     ///< Province id.
+        unsigned int m_pop_count;    ///< Population count (number of individuals) at this Location.
+        double       m_pop_fraction; ///< Fraction of whole population at thois Location.
+        Coordinate   m_coordinate;   ///< Coordinate of the Location.
 
         ///< All contactCenters at this Location.
         std::vector<std::shared_ptr<ContactCenter>> m_CC;

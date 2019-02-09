@@ -58,8 +58,8 @@ public:
         static void Trans(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
                           ContactPoolType::Id type, unsigned short int sim_day)
         {
-            	logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(),
-            		          p2->GetAge(), p1->GetAge(), ToString(type), sim_day);
+                logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(), p2->GetAge(), p1->GetAge(),
+                             ToString(type), sim_day);
         }
 };
 
@@ -70,11 +70,11 @@ class LOG_POLICY<ContactLogMode::Id::All>
 public:
         static void Contact(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
                             ContactPoolType::Id type, unsigned short int sim_day, const double c_rate,
-							const double t_rate)
+                            const double t_rate)
         {
                 if (p1->IsSurveyParticipant()) {
-                        logger->info("[CONT] {} {} {} {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
-                                     static_cast<unsigned int>(type == ContactPoolType::Id::Household),
+                        logger->info("[CONT] {} {} {} {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(),
+                                     p2->GetAge(), static_cast<unsigned int>(type == ContactPoolType::Id::Household),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::K12School),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::College),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::Work),
@@ -87,9 +87,8 @@ public:
         static void Trans(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
                           ContactPoolType::Id type, unsigned short int sim_day)
         {
-				logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(),
-	                		  p2->GetAge(), p1->GetAge(), ToString(type), sim_day);
-
+                logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(), p2->GetAge(), p1->GetAge(),
+                             ToString(type), sim_day);
         }
 };
 

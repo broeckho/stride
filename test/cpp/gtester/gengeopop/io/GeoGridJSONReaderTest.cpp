@@ -13,9 +13,9 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/io/GeoGridJSONReader.h"
 #include "gengeopop/ContactCenter.h"
 #include "gengeopop/GeoGrid.h"
-#include "gengeopop/io/GeoGridJSONReader.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
 

@@ -71,10 +71,8 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
                         auto contactPool = household->GetPools()[0];
                         for (auto p : *contactPool) {
                                 if (p->IsWorkableCandidate()) {
-                                        bool isStudent =
-                                            MakeChoice(geoGridConfig.input.fraction_1826_student);
-                                        bool isActiveWorker =
-                                            MakeChoice(geoGridConfig.input.fraction_1865_active);
+                                        bool isStudent      = MakeChoice(geoGridConfig.input.fraction_1826_student);
+                                        bool isActiveWorker = MakeChoice(geoGridConfig.input.fraction_1865_active);
 
                                         if ((p->IsCollegeStudentCandidate() && !isStudent) || isActiveWorker) {
                                                 AssignActive(p);
@@ -97,10 +95,9 @@ void WorkplacePopulator::CalculateFractionCommutingStudents()
         m_fractionCommutingStudents = 0;
         if (static_cast<bool>(m_geoGridConfig.input.fraction_active_commuters) &&
             m_geoGridConfig.popInfo.popcount_1865_active) {
-                m_fractionCommutingStudents = (m_geoGridConfig.popInfo.popcount_1826_student *
-                                               m_geoGridConfig.input.fraction_student_commuters) /
-                                              (m_geoGridConfig.popInfo.popcount_1865_active *
-                                               m_geoGridConfig.input.fraction_active_commuters);
+                m_fractionCommutingStudents =
+                    (m_geoGridConfig.popInfo.popcount_1826_student * m_geoGridConfig.input.fraction_student_commuters) /
+                    (m_geoGridConfig.popInfo.popcount_1865_active * m_geoGridConfig.input.fraction_active_commuters);
         }
 }
 

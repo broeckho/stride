@@ -27,29 +27,30 @@ using namespace std;
 using namespace stride::util;
 
 HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream)
-        : m_input_stream(std::move(inputStream)) {}
+    : m_input_stream(std::move(inputStream))
+{
+}
 
-
-void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
-                                                stride::util::SegmentedVector<stride::Person>& ref_persons,
+void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>&            ref_households,
+                                                stride::util::SegmentedVector<stride::Person>&      ref_persons,
                                                 stride::util::SegmentedVector<stride::ContactPool>& ref_pools)
 {
         stride::util::CSV reader(*(m_input_stream.get()));
 
         unsigned int id = 1;
 
-        for (const stride::util::CSVRow &row : reader) {
+        for (const stride::util::CSVRow& row : reader) {
                 auto household = std::make_shared<Household>();
 
                 // Create contactpool of the household.
                 ref_pools.emplace_back(id++, stride::ContactPoolType::Id::Household);
-                stride::ContactPool *newCP = &ref_pools.back();
+                stride::ContactPool* newCP = &ref_pools.back();
 
                 for (std::size_t i = 0; i < 12; i++) {
                         unsigned int age;
                         try {
                                 age = row.GetValue<unsigned int>(i);
-                        } catch (const std::bad_cast &e) {
+                        } catch (const std::bad_cast& e) {
                                 // NA
                                 break;
                         }
@@ -71,7 +72,7 @@ void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Hous
                         stride::Person p;
                         ref_persons.push_back(p);
 
-                        stride::Person *p_ptr = &ref_persons.back();
+                        stride::Person* p_ptr = &ref_persons.back();
                         p_ptr->SetAge(age);
                         newCP->AddMember(p_ptr);
                 }
@@ -80,4 +81,4 @@ void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Hous
         }
 }
 
-}
+} // namespace gengeopop

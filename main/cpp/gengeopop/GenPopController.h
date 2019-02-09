@@ -32,7 +32,7 @@ class GenPopController
 public:
         /// Create a GenGeoPopController.
         GenPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
-                         stride::util::RnMan& rnManager,
+                         stride::util::RnMan&                rnManager,
                          std::shared_ptr<stride::Population> pop = stride::Population::Create());
 
         /// Reads the data files.

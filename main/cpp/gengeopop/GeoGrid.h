@@ -94,7 +94,8 @@ private:
         double Distance(const KdTree2DPoint& other) const
         {
                 return boost::geometry::distance(m_pt, other.m_pt,
-                                                 boost::geometry::strategy::distance::geographic<>{}) / 1000.0;
+                                                 boost::geometry::strategy::distance::geographic<>{}) /
+                       1000.0;
         }
 };
 
@@ -157,7 +158,7 @@ public:
         std::shared_ptr<Location> Get(size_t index) const { return (*this)[index]; }
 
         /// Gets a Location by id and check if the id exists.
-        std::shared_ptr<Location> GetById(unsigned int id)  const { return m_locationsToIdIndex.at(id); }
+        std::shared_ptr<Location> GetById(unsigned int id) const { return m_locationsToIdIndex.at(id); }
 
         /// Get the population of this GeoGrid
         stride::Population* GetPopulation() const { return m_population; }

@@ -86,7 +86,7 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         RnMan              rnManager{}; // Default random number manager.
         CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.input.pop_size        = 37542 * 100;
+        config.input.pop_size            = 37542 * 100;
         config.popInfo.compulsory_pupils = 750840;
 
         auto pop     = Population::Create();

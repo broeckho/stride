@@ -17,9 +17,9 @@
 
 #include "GeoGridReader.h"
 #include "gengeopop/Location.h"
-#include "proto/geogrid.pb.h"
 #include "pool/ContactPool.h"
 #include "pool/ContactPoolType.h"
+#include "proto/geogrid.pb.h"
 
 #include <set>
 

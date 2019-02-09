@@ -18,12 +18,11 @@
 #include "HouseholdReader.h"
 //#include "pop/Population.h"
 
-
 namespace stride {
 class ContactPool;
 class Household;
 class Person;
-}
+} // namespace stride
 
 namespace gengeopop {
 
@@ -39,8 +38,8 @@ public:
         explicit HouseholdCSVReader(std::unique_ptr<std::istream> inputStream);
 
         /// Add the locations to the GeoGrid.
-        void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
-                                    stride::util::SegmentedVector<stride::Person>& ref_persons,
+        void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>&            ref_households,
+                                    stride::util::SegmentedVector<stride::Person>&      ref_persons,
                                     stride::util::SegmentedVector<stride::ContactPool>& ref_pools) override;
 
 private:

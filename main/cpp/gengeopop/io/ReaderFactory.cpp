@@ -20,7 +20,6 @@
 #include "HouseholdCSVReader.h"
 #include "util/FileSys.h"
 
-
 #include <iostream>
 #include <stdexcept>
 
@@ -37,7 +36,6 @@ shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const string& filenam
 shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const filesys::path& path)
 {
         return make_shared<CitiesCSVReader>(OpenFile(path));
-
 }
 
 std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const std::string& filename)
@@ -48,7 +46,6 @@ std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const std::s
 shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const filesys::path& path)
 {
         return make_shared<CommutesCSVReader>(OpenFile(path));
-
 }
 
 std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const std::string& filename)
@@ -59,7 +56,6 @@ std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const std:
 shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const filesys::path& path)
 {
         return make_shared<HouseholdCSVReader>(OpenFile(path));
-
 }
 
 std::unique_ptr<std::istream> ReaderFactory::OpenFile(const filesys::path& path) const

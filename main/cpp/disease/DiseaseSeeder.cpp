@@ -72,7 +72,7 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
                         p.GetHealth().StartInfection();
                         numInfected--;
                         if (log_level != "None") {
-                            	logger->info("[PRIM] {} {} {} {} {} {}", p.GetId(), -1, p.GetAge(), -1, -1, -1);
+                                logger->info("[PRIM] {} {} {} {} {} {}", p.GetId(), -1, p.GetAge(), -1, -1, -1);
                         }
                 }
         }
@@ -92,8 +92,9 @@ void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string
                 }
                 immunizer.Random(immunityPools, immunityDistribution, linkProbability);
         } else if (immunizationProfile == "AgeDependent") {
-                const auto   immunityFile = m_config_pt.get<string>("run." + ToLower(immunityType) + "_distribution_file");
-                const ptree& immunity_pt  = FileSys::ReadPtreeFile(immunityFile);
+                const auto immunityFile =
+                    m_config_pt.get<string>("run." + ToLower(immunityType) + "_distribution_file");
+                const ptree& immunity_pt = FileSys::ReadPtreeFile(immunityFile);
 
                 linkProbability = m_config_pt.get<double>("run." + ToLower(immunityType) + "_link_probability");
 

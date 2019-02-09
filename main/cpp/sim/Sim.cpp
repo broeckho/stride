@@ -38,8 +38,8 @@ using namespace ContactLogMode;
 
 Sim::Sim(util::RnMan& rnMan)
     : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false),
-	  m_adaptive_symptomatic_behavior(false), m_calendar(nullptr), m_contact_profiles(), m_handlers(),
-	  m_infector(), m_population(nullptr), m_rn_manager(rnMan), m_transmission_profile(), m_public_health_agency()
+      m_adaptive_symptomatic_behavior(false), m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(),
+      m_population(nullptr), m_rn_manager(rnMan), m_transmission_profile(), m_public_health_agency()
 {
 }
 
@@ -88,15 +88,14 @@ void Sim::TimeStep()
         {
                 // Update health status and presence/absence in contact pools
                 // depending on health status, work/school day and whether
-        	    // we want to track index cases without adaptive behavior
+                // we want to track index cases without adaptive behavior
 #pragma omp for schedule(static)
                 for (size_t i = 0; i < population.size(); ++i) {
                         population[i].Update(isWorkOff, isSchoolOff, m_adaptive_symptomatic_behavior);
                 }
 
                 // after the health update, let the public health agency perform their work
-                m_public_health_agency.Exec(m_population, m_rn_manager,simDay);
-
+                m_public_health_agency.Exec(m_population, m_rn_manager, simDay);
 
                 // Infector updates individuals for contacts & transmission within each pool.
                 // Skip pools with id = 0, because it means Not Applicable.

@@ -32,8 +32,8 @@ using boost::geometry::get;
 
 namespace {
 
-void fillLocation(int id, unsigned int province, unsigned int population, Coordinate coordinate,
-                  const string& name, proto::GeoGrid_Location* location)
+void fillLocation(int id, unsigned int province, unsigned int population, Coordinate coordinate, const string& name,
+                  proto::GeoGrid_Location* location)
 {
         location->set_id(id);
         location->set_province(province);
@@ -45,7 +45,7 @@ void fillLocation(int id, unsigned int province, unsigned int population, Coordi
         location->set_allocated_coordinate(protoCoordinate);
 }
 
-void fillContactCenter(const shared_ptr<ContactCenter>&  contactCenter,
+void fillContactCenter(const shared_ptr<ContactCenter>&       contactCenter,
                        proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
         map<string, proto::GeoGrid_Location_ContactCenter_Type> types = {

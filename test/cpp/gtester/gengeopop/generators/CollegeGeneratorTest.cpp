@@ -33,7 +33,7 @@ TEST(CollegeGeneratorTest, OneLocationTest)
         RnMan            rnManager{}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
-        config.input.pop_size                       = 45000;
+        config.input.pop_size                = 45000;
         config.popInfo.popcount_1826_student = 9000;
 
         auto pop     = Population::Create();
@@ -53,7 +53,7 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
         RnMan            rnManager{}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
-        config.input.pop_size                       = 10000;
+        config.input.pop_size                = 10000;
         config.popInfo.popcount_1826_student = 2000;
 
         auto pop     = Population::Create();
@@ -68,7 +68,7 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         RnMan            rnManager{}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
-        config.input.pop_size                       = 399992;
+        config.input.pop_size                = 399992;
         config.popInfo.popcount_1826_student = 79998;
 
         auto        pop     = Population::Create();

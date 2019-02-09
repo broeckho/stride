@@ -25,9 +25,10 @@ using namespace std;
 
 void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        const auto pupilCount  = geoGridConfig.popInfo.popcount_1826_student;
-        const auto schoolCount = static_cast<unsigned int>(ceil(pupilCount / geoGridConfig.constants.mean_college_size));
-        const auto cities      = geoGrid->TopK(10);
+        const auto pupilCount = geoGridConfig.popInfo.popcount_1826_student;
+        const auto schoolCount =
+            static_cast<unsigned int>(ceil(pupilCount / geoGridConfig.constants.mean_college_size));
+        const auto cities = geoGrid->TopK(10);
 
         if (cities.empty()) {
                 // trng can't handle empty vectors

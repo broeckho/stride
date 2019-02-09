@@ -40,8 +40,8 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
                         auto hDraw       = static_cast<unsigned int>(household_dist());
                         auto hProfile    = geoGridConfig.popInfo.reference_households[hDraw]->GetPools()[0];
                         for (stride::Person* p : *hProfile) {
-                                auto person = geoGrid->CreatePerson(person_id++, p->GetAge(),
-                                                                    contactPool->GetId(), 0, 0, 0, 0, 0);
+                                auto person = geoGrid->CreatePerson(person_id++, p->GetAge(), contactPool->GetId(), 0,
+                                                                    0, 0, 0, 0);
                                 contactPool->AddMember(person);
                         }
                 }

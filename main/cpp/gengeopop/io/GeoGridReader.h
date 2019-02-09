@@ -26,7 +26,7 @@
 namespace stride {
 class Person;
 class Population;
-}
+} // namespace stride
 
 namespace gengeopop {
 

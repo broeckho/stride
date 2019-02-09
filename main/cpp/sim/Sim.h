@@ -88,11 +88,11 @@ private:
         friend class SimBuilder;
 
 private:
-        boost::property_tree::ptree m_config_pt;        ///< Configuration property tree
-        ContactLogMode::Id          m_contact_log_mode; ///< Specifies contact/transmission logging mode.
-        unsigned int                m_num_threads;      ///< The number of (OpenMP) threads.
-        bool                        m_track_index_case; ///< General simulation or tracking index case.
-        bool						m_adaptive_symptomatic_behavior; ///< Should symptomatic cases stay home?
+        boost::property_tree::ptree m_config_pt;                     ///< Configuration property tree
+        ContactLogMode::Id          m_contact_log_mode;              ///< Specifies contact/transmission logging mode.
+        unsigned int                m_num_threads;                   ///< The number of (OpenMP) threads.
+        bool                        m_track_index_case;              ///< General simulation or tracking index case.
+        bool                        m_adaptive_symptomatic_behavior; ///< Should symptomatic cases stay home?
 
         std::shared_ptr<Calendar>    m_calendar;         ///< Management of calendar.
         AgeContactProfiles           m_contact_profiles; ///< Contact profiles w.r.t age.
@@ -103,7 +103,7 @@ private:
         std::shared_ptr<util::RnMan> m_rn_manager_ptr =
             nullptr; ///< Used when created from the Python environment to keep it from being destructed.
         TransmissionProfile m_transmission_profile; ///< Profile of disease.
-        PublicHealthAgency          m_public_health_agency; ///< Agency to implement reactive strategies.
+        PublicHealthAgency  m_public_health_agency; ///< Agency to implement reactive strategies.
 };
 
 } // namespace stride

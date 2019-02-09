@@ -13,11 +13,11 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/io/ReaderFactory.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/io/CitiesCSVReader.h"
 #include "gengeopop/io/CommutesCSVReader.h"
 #include "gengeopop/io/HouseholdCSVReader.h"
-#include "gengeopop/io/ReaderFactory.h"
 #include "util/FileSys.h"
 
 #include <gtest/gtest.h>

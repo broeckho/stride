@@ -49,19 +49,19 @@ shared_ptr<Population> GenPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Configure.
         // --------------------------------------------------------------
-        GeoGridConfig ggConfig(m_config_pt);
+        GeoGridConfig    ggConfig(m_config_pt);
         GenPopController genPopController(m_stride_logger, ggConfig, m_rn_manager, pop);
 
         // --------------------------------------------------------------
         // Read input files (commute info file only if present).
         // --------------------------------------------------------------
         string commutesFile;
-        auto geopop_gen = m_config_pt.get_child("run.geopop_gen");
+        auto   geopop_gen = m_config_pt.get_child("run.geopop_gen");
         if (geopop_gen.count("commuting_file")) {
                 commutesFile = m_config_pt.get<string>("run.geopop_gen.commuting_file");
         }
         genPopController.ReadDataFiles(m_config_pt.get<string>("run.geopop_gen.cities_file"), commutesFile,
-                                          m_config_pt.get<string>("run.geopop_gen.household_file"));
+                                       m_config_pt.get<string>("run.geopop_gen.household_file"));
 
         m_stride_logger->info("GeoGridConfig:\n\n{}", ggConfig);
         m_stride_logger->info("Number of reference households: {}", ggConfig.popInfo.reference_households.size());

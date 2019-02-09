@@ -40,11 +40,12 @@ void SummaryFile::Initialize(const string& output_prefix)
         m_fstream.open(p.c_str());
 
         // add header
-        m_fstream << "population_file,num_days,population_size,seeding_rate,r0,transmission_rate,"                     "immunity_rate,num_threads,rng_seed,"
+        m_fstream << "population_file,num_days,population_size,seeding_rate,r0,transmission_rate,"
+                     "immunity_rate,num_threads,rng_seed,"
                      "run_time,total_time,num_cases,AR,output_prefix,start_date,age_"
                      "contact_matrix_file,num_"
-                	 "participants_survey,disease_config_file"
-        		  << endl;
+                     "participants_survey,disease_config_file"
+                  << endl;
 }
 
 void SummaryFile::Print(const boost::property_tree::ptree& config_pt, unsigned int population_size,

@@ -137,7 +137,7 @@ public:
 
                 // As of boost 1.66, there's seems no way to do this in Boost.Geometry
                 constexpr double EARTH_RADIUS_KM = 6371.0;
-                const double           scaled_radius   = m_radius / EARTH_RADIUS_KM;
+                const double     scaled_radius   = m_radius / EARTH_RADIUS_KM;
 
                 const double startlon = m_center.Get<0>();
                 const double startlat = m_center.Get<1>();
