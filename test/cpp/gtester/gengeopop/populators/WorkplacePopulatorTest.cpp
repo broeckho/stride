@@ -95,26 +95,26 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         // Kortrijk will only receive students from Kortrijik
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto workBra1 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workBra1 = make_shared<Workplace>(config.counters.contact_center_count++);
         workBra1->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra1);
-        auto workBra2 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workBra2 = make_shared<Workplace>(config.counters.contact_center_count++);
         workBra2->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra2);
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto workScho1 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workScho1 = make_shared<Workplace>(config.counters.contact_center_count++);
         workScho1->Fill(geoGrid);
         schoten->AddContactCenter(workScho1);
-        auto workScho2 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workScho2 = make_shared<Workplace>(config.counters.contact_center_count++);
         workScho2->Fill(geoGrid);
         schoten->AddContactCenter(workScho2);
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto workKor1 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workKor1 = make_shared<Workplace>(config.counters.contact_center_count++);
         workKor1->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor1);
-        auto workKor2 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workKor2 = make_shared<Workplace>(config.counters.contact_center_count++);
         workKor2->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor2);
 
@@ -175,7 +175,7 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         config.input.fraction_active_commuters      = 0;
         config.input.fraction_active_commuters      = 1;
         config.input.fraction_student_commuters     = 0;
-        config.calculated.popcount_1865_active  = 1;
+        config.popInfo.popcount_1865_active  = 1;
         config.input.fraction_1865_active           = 1;
         config.input.fraction_1826_student = 0.5;
 
@@ -183,18 +183,18 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         auto schoten = *(geoGrid->begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
 
-        auto workScho1 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workScho1 = make_shared<Workplace>(config.counters.contact_center_count++);
         workScho1->Fill(geoGrid);
         schoten->AddContactCenter(workScho1);
-        auto workScho2 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workScho2 = make_shared<Workplace>(config.counters.contact_center_count++);
         workScho2->Fill(geoGrid);
         schoten->AddContactCenter(workScho2);
         auto kortrijk = *(geoGrid->begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto workKor1 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workKor1 = make_shared<Workplace>(config.counters.contact_center_count++);
         workKor1->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor1);
-        auto workKor2 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workKor2 = make_shared<Workplace>(config.counters.contact_center_count++);
         workKor2->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor2);
 
@@ -246,32 +246,32 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         config.input.fraction_active_commuters      = 0;
         config.input.fraction_active_commuters      = 1;
         config.input.fraction_student_commuters     = 0;
-        config.calculated.popcount_1865_active  = 1;
+        config.popInfo.popcount_1865_active  = 1;
         config.input.fraction_1865_active           = 1;
         config.input.fraction_1826_student = 0.5;
 
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto workBra1 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workBra1 = make_shared<Workplace>(config.counters.contact_center_count++);
         workBra1->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra1);
-        auto workBra2 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workBra2 = make_shared<Workplace>(config.counters.contact_center_count++);
         workBra2->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra2);
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto workScho1 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workScho1 = make_shared<Workplace>(config.counters.contact_center_count++);
         workScho1->Fill(geoGrid);
         schoten->AddContactCenter(workScho1);
-        auto workScho2 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workScho2 = make_shared<Workplace>(config.counters.contact_center_count++);
         workScho2->Fill(geoGrid);
         schoten->AddContactCenter(workScho2);
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto workKor1 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workKor1 = make_shared<Workplace>(config.counters.contact_center_count++);
         workKor1->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor1);
-        auto workKor2 = make_shared<Workplace>(config.generated.contact_center_count++);
+        auto workKor2 = make_shared<Workplace>(config.counters.contact_center_count++);
         workKor2->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor2);
 

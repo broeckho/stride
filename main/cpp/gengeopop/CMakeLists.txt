@@ -24,6 +24,7 @@ set(GENGEOPOP_LIB
     GenPopController.cpp
     GeoGrid.cpp
     GeoGridConfig.cpp
+    GeoGridConfigBuilder.cpp
     Household.cpp
     K12School.cpp
     Location.cpp

@@ -25,7 +25,7 @@ using namespace std;
 
 void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        const auto pupilCount  = geoGridConfig.calculated.popcount_1826_student;
+        const auto pupilCount  = geoGridConfig.popInfo.popcount_1826_student;
         const auto schoolCount = static_cast<unsigned int>(ceil(pupilCount / geoGridConfig.constants.mean_college_size));
         const auto cities      = geoGrid->TopK(10);
 
@@ -52,7 +52,7 @@ void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
 
         for (auto i = 0U; i < schoolCount; i++) {
                 auto loc     = cities[dist()];
-                auto college = make_shared<College>(geoGridConfig.generated.contact_center_count++);
+                auto college = make_shared<College>(geoGridConfig.counters.contact_center_count++);
                 college->Fill(geoGrid);
                 loc->AddContactCenter(college);
         }

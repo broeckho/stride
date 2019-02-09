@@ -32,7 +32,7 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.calculated.households = 4;
+        config.popInfo.households = 4;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -50,7 +50,7 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
         RnMan              rnManager{}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.calculated.households = 4;
+        config.popInfo.households = 4;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -64,7 +64,7 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         RnMan              rnManager{}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
-        config.calculated.households = 4000;
+        config.popInfo.households = 4000;
         config.input.pop_size  = 37542 * 100;
 
         auto pop     = Population::Create();

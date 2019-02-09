@@ -14,12 +14,12 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-//#include "gengeopop/Household.h"
+
 #include "pool/ContactPool.h"
 #include "pop/Person.h"
 #include "util/SegmentedVector.h"
 
-#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ptree_fwd.hpp>
 #include <cmath>
 #include <iomanip>
 #include <iostream>
@@ -28,7 +28,6 @@ namespace gengeopop {
 
 class GeoGrid;
 class Household;
-class HouseholdReader;
 
 /**
  * Configuration data for generating a GeoGrid.
@@ -43,14 +42,11 @@ public:
         /// Constructor that configures input data.
         explicit GeoGridConfig(const boost::property_tree::ptree& configPt);
 
-        /// Fill the GeoGridConfig based on information in the provided GeoGrid and HouseholdReader.
-        void Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<HouseholdReader> householdReader);
-
         /// Prints the GeoGridconfig
         friend std::ostream& operator<<(std::ostream& stream, const GeoGridConfig& config);
 
         // -----------------------------------------------------------------------------------------
-        // INPUT
+        // Input parameters set by constructor with configuratio property tree.
         // -----------------------------------------------------------------------------------------
         struct
         {
@@ -71,7 +67,7 @@ public:
         } input;
 
         // -----------------------------------------------------------------------------------------
-        // CALCULATED
+        // Population info set by GeoGridConfigBuilder::ReadData
         // -----------------------------------------------------------------------------------------
         struct
         {
@@ -92,10 +88,19 @@ public:
 
                 /// The number of households needed with this population size and these types of households.
                 unsigned int households;
-        } calculated;
+
+                /// Reference households: the set of households that we sample from to generate the population.
+                std::vector<std::shared_ptr<Household>> reference_households{};
+
+                /// Persons in the reference households (segmented vector to have working pointers into it).
+                stride::util::SegmentedVector<stride::Person> persons{};
+
+                /// Contactpools used for reference households (segmented vector to have working pointers into it).
+                stride::util::SegmentedVector<stride::ContactPool> contact_pools{};
+        } popInfo;
 
         // -----------------------------------------------------------------------------------------
-        // CURRENT STATE
+        // Counters.
         // -----------------------------------------------------------------------------------------
         struct
         {
@@ -107,15 +112,7 @@ public:
                 /// ! 0 has special meaning (not assigned)!
                 unsigned int contact_center_count = 1;
 
-                /// Reference households: the set of households that we sample from to generate the population.
-                std::vector<std::shared_ptr<Household>> reference_households{};
-
-                /// Persons in the reference households (segmented vector to have working pointers into it).
-                stride::util::SegmentedVector<stride::Person> persons{};
-
-                /// Contactpools used for reference households (segmented vector to have working pointers into it).
-                stride::util::SegmentedVector<stride::ContactPool> contact_pools{};
-        } generated;
+        } counters;
 
         // -----------------------------------------------------------------------------------------
         // CONSTANTS (for now at least)

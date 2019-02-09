@@ -59,10 +59,7 @@ public:
                 return static_cast<double>(m_total1865Years) / static_cast<double>(m_total);
         }
 
-        // Returns total count of persons in reference households.
-        unsigned int GetTotalPersonsInHouseholds() const { return m_total; }
-
-        /// Add the locations to the GeoGrid.
+        /// Add the info on reference households to the GeoGridConfig.
         virtual void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
                                             stride::util::SegmentedVector<stride::Person>& ref_persons,
                                             stride::util::SegmentedVector<stride::ContactPool>& ref_pools) = 0;

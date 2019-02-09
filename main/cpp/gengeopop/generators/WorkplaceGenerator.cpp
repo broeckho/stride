@@ -31,7 +31,7 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
         // 4. use the last information for the distribution
         // 5. assign each workplace to a location
 
-        const auto EmployeeCount = geoGridConfig.calculated.popcount_1865_active;
+        const auto EmployeeCount = geoGridConfig.popInfo.popcount_1865_active;
         const auto WorkplacesCount =
             static_cast<unsigned int>(ceil(EmployeeCount / geoGridConfig.constants.mean_workplace_school_size));
 
@@ -58,7 +58,7 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
-                const auto w   = make_shared<Workplace>(geoGridConfig.generated.contact_center_count++);
+                const auto w   = make_shared<Workplace>(geoGridConfig.counters.contact_center_count++);
                 w->Fill(geoGrid);
                 loc->AddContactCenter(w);
         }

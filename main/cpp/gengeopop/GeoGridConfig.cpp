@@ -15,8 +15,6 @@
 
 #include "GeoGridConfig.h"
 
-#include "gengeopop/Location.h"
-#include "gengeopop/io/CitiesReader.h"
 #include "gengeopop/io/HouseholdReader.h"
 #include "util/StringUtils.h"
 
@@ -26,7 +24,7 @@ using stride::util::intToDottedString;
 using namespace std;
 using namespace boost::property_tree;
 
-GeoGridConfig::GeoGridConfig() : input{}, calculated{}, generated{}, constants{} {}
+GeoGridConfig::GeoGridConfig() : input{}, popInfo{}, counters{}, constants{} {}
 
 GeoGridConfig::GeoGridConfig(const ptree& configPt)
         : GeoGridConfig()
@@ -36,33 +34,6 @@ GeoGridConfig::GeoGridConfig(const ptree& configPt)
         input.fraction_active_commuters = configPt.get<double>("run.geopop_gen.fraction_active_commuting_people");
         input.fraction_student_commuters = configPt.get<double>("run.geopop_gen.fraction_student_commuting_people");
         input.fraction_1865_active = configPt.get<double>("run.geopop_gen.fraction_1865_years_active");
-}
-
-void GeoGridConfig::Calculate(shared_ptr<GeoGrid> geoGrid, shared_ptr<HouseholdReader> householdReader)
-{
-        calculated.compulsory_pupils = static_cast<unsigned int>(
-            floor(householdReader->GetFractionCompulsoryPupils() * input.pop_size));
-
-        calculated.popcount_1865 =
-            static_cast<unsigned int>(floor(householdReader->GetFraction1865Years() * input.pop_size));
-
-        calculated.popcount_1826 =
-            static_cast<unsigned int>(floor(householdReader->GetFraction1826Years() * input.pop_size));
-
-        calculated.popcount_1826_student = static_cast<unsigned int>(
-            floor(input.fraction_1826_student * calculated.popcount_1826));
-
-        calculated.popcount_1865_active = static_cast<unsigned int>(
-            floor(input.fraction_1865_active *
-                       (calculated.popcount_1865 - calculated.popcount_1826_student)));
-
-        auto averageHhSize = static_cast<double>(householdReader->GetTotalPersonsInHouseholds())
-                / generated.reference_households.size();
-        calculated.households = static_cast<unsigned int>(floor(static_cast<double>(input.pop_size) / averageHhSize));
-
-        for (const shared_ptr<Location>& loc : *geoGrid) {
-                loc->SetPopCount(input.pop_size);
-        }
 }
 
 ostream& operator<<(ostream& out, const GeoGridConfig& config)
@@ -82,15 +53,15 @@ ostream& operator<<(ostream& out, const GeoGridConfig& config)
         out << endl;
         out << left << "Calculated:" << endl;
         out << left << setw(width) << "Compulsory pupils"
-            << intToDottedString(config.calculated.compulsory_pupils) << endl;
+            << intToDottedString(config.popInfo.compulsory_pupils) << endl;
         out << left << setw(width) << "18-26 years"
-            << intToDottedString(config.calculated.popcount_1826) << endl;
+            << intToDottedString(config.popInfo.popcount_1826) << endl;
         out << left << setw(width) << "18-26 years which are student"
-            << intToDottedString(config.calculated.popcount_1826_student) << endl;
+            << intToDottedString(config.popInfo.popcount_1826_student) << endl;
         out << left << setw(width) << "18-65 years"
-            << intToDottedString(config.calculated.popcount_1865) << endl;
+            << intToDottedString(config.popInfo.popcount_1865) << endl;
         out << left << setw(width) << "18-65 years which are active"
-            << intToDottedString(config.calculated.popcount_1865_active) << endl;
+            << intToDottedString(config.popInfo.popcount_1865_active) << endl;
         out << endl;
         return out;
 }

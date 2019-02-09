@@ -64,16 +64,16 @@ shared_ptr<Population> GenPopBuilder::Build(shared_ptr<Population> pop)
                                           m_config_pt.get<string>("run.geopop_gen.household_file"));
 
         m_stride_logger->info("GeoGridConfig:\n\n{}", ggConfig);
-        m_stride_logger->info("Number of reference households: {}", ggConfig.generated.reference_households.size());
-        m_stride_logger->info("Number of reference persons: {}", ggConfig.generated.persons.size());
-        m_stride_logger->info("Number of reference households: {}", ggConfig.generated.contact_pools.size());
+        m_stride_logger->info("Number of reference households: {}", ggConfig.popInfo.reference_households.size());
+        m_stride_logger->info("Number of reference persons: {}", ggConfig.popInfo.persons.size());
+        m_stride_logger->info("Number of reference households: {}", ggConfig.popInfo.contact_pools.size());
 
         // --------------------------------------------------------------
         // Generate Geo
         // --------------------------------------------------------------
         m_stride_logger->info("Starting Gen-Geo");
         genPopController.GenGeo();
-        m_stride_logger->info("ContactCenters generated: {}", ggConfig.generated.contact_center_count);
+        m_stride_logger->info("ContactCenters generated: {}", ggConfig.counters.contact_center_count);
         m_stride_logger->info("Finished Gen-Geo");
 
         // --------------------------------------------------------------

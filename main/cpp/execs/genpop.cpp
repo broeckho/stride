@@ -131,17 +131,17 @@ int main(int argc, char* argv[])
                 GenPopController genGeoPopController(logger, geoGridConfig, rnManager);
                 genGeoPopController.ReadDataFiles(configPt.get<string>("run.geopop_gen.cities_file"), commutesFile,
                                                   configPt.get<string>("run.geopop_gen.household_file"));
-                logger->info("Number of reference households: {}", geoGridConfig.generated.reference_households.size());
-                logger->info("Number of reference persons: {}", geoGridConfig.generated.persons.size());
-                logger->info("Number of reference households: {}", geoGridConfig.generated.contact_pools.size());
+                logger->info("Number of reference households: {}", geoGridConfig.popInfo.reference_households.size());
+                logger->info("Number of reference persons: {}", geoGridConfig.popInfo.persons.size());
+                logger->info("Number of reference households: {}", geoGridConfig.popInfo.contact_pools.size());
 
                 // --------------------------------------------------------------
                 // Generate Geo
                 // --------------------------------------------------------------
                 logger->info("Start generation geographic grid.");
                 genGeoPopController.GenGeo();
-                logger->info("Number of ContactCenters generated: {}", geoGridConfig.generated.contact_center_count);
-                logger->info("Number of ContactPools generated: {}", geoGridConfig.generated.contact_pool_count);
+                logger->info("Number of ContactCenters generated: {}", geoGridConfig.counters.contact_center_count);
+                logger->info("Number of ContactPools generated: {}", geoGridConfig.counters.contact_pool_count);
                 logger->info("Done generation geographic grid.");
 
                 // --------------------------------------------------------------

@@ -52,7 +52,7 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
         personType->SetAge(18);
         poolType->AddMember(personType.get());
         householdType->AddPool(poolType);
-        config.generated.reference_households.push_back(householdType);
+        config.popInfo.reference_households.push_back(householdType);
 
         auto pop       = Population::Create();
         auto geoGrid   = make_shared<GeoGrid>(pop.get());
@@ -87,7 +87,7 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
                 person->SetAge(18);
                 pool->AddMember(person.get());
                 refHousehold->AddPool(pool);
-                config.generated.reference_households.push_back(refHousehold);
+                config.popInfo.reference_households.push_back(refHousehold);
         }
 
         auto pop     = Population::Create();
@@ -132,7 +132,7 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
                 person->SetAge(18);
                 pool->AddMember(person.get());
                 refHousehold->AddPool(pool);
-                config.generated.reference_households.push_back(refHousehold);
+                config.popInfo.reference_households.push_back(refHousehold);
         }
         {       // Set up reference household with two persons.
                 auto refHousehold  = make_shared<Household>();
@@ -142,7 +142,7 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
                 refHousehold->AddPool(pool);
                 person2->SetAge(56);
                 pool->AddMember(person2.get());
-                config.generated.reference_households.push_back(refHousehold);
+                config.popInfo.reference_households.push_back(refHousehold);
         }
 
         auto       pop       = Population::Create();

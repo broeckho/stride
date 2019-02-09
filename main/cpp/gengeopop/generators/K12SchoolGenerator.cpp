@@ -32,7 +32,7 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
         //    relative number of pupils for that location; the relative number of pupils is set
         //    to the relative population w.r.t the total population.
 
-        const auto pupilCount = geoGridConfig.calculated.compulsory_pupils;
+        const auto pupilCount = geoGridConfig.popInfo.compulsory_pupils;
         const auto schoolCount =
             static_cast<unsigned int>(ceil(pupilCount / geoGridConfig.constants.mean_K12_size));
 
@@ -50,7 +50,7 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 
         for (auto i = 0U; i < schoolCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
-                const auto k12 = make_shared<K12School>(geoGridConfig.generated.contact_center_count++);
+                const auto k12 = make_shared<K12School>(geoGridConfig.counters.contact_center_count++);
                 k12->Fill(geoGrid);
                 loc->AddContactCenter(k12);
         }

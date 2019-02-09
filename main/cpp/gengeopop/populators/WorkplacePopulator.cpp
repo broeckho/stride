@@ -96,10 +96,10 @@ void WorkplacePopulator::CalculateFractionCommutingStudents()
 {
         m_fractionCommutingStudents = 0;
         if (static_cast<bool>(m_geoGridConfig.input.fraction_active_commuters) &&
-            m_geoGridConfig.calculated.popcount_1865_active) {
-                m_fractionCommutingStudents = (m_geoGridConfig.calculated.popcount_1826_student *
+            m_geoGridConfig.popInfo.popcount_1865_active) {
+                m_fractionCommutingStudents = (m_geoGridConfig.popInfo.popcount_1826_student *
                                                m_geoGridConfig.input.fraction_student_commuters) /
-                                              (m_geoGridConfig.calculated.popcount_1865_active *
+                                              (m_geoGridConfig.popInfo.popcount_1865_active *
                                                m_geoGridConfig.input.fraction_active_commuters);
         }
 }

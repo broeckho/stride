@@ -33,7 +33,7 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.input.pop_size        = 10000;
-        config.calculated.compulsory_pupils = 2000;
+        config.popInfo.compulsory_pupils = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -52,7 +52,7 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.input.pop_size        = 10000;
-        config.calculated.compulsory_pupils = 2000;
+        config.popInfo.compulsory_pupils = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -67,7 +67,7 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.input.pop_size        = 37542 * 100;
-        config.calculated.compulsory_pupils = 750840;
+        config.popInfo.compulsory_pupils = 750840;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());

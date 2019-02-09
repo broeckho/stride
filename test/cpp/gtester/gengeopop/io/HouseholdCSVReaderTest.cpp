@@ -75,10 +75,10 @@ TEST(HouseholdCSVReader, test1)
         auto               instream = make_unique<istringstream>(csvString);
         HouseholdCSVReader reader(move(instream));
 
-        reader.SetReferenceHouseholds(geoConfig.generated.reference_households,
-                                      geoConfig.generated.persons, geoConfig.generated.contact_pools);
+        reader.SetReferenceHouseholds(geoConfig.popInfo.reference_households,
+                                      geoConfig.popInfo.persons, geoConfig.popInfo.contact_pools);
 
-        const vector<shared_ptr<gengeopop::Household>>& HHs         = geoConfig.generated.reference_households;
+        const vector<shared_ptr<gengeopop::Household>>& HHs         = geoConfig.popInfo.reference_households;
         const vector<shared_ptr<gengeopop::Household>>& expectedHHS = getExpectedHouseHolds();
 
         EXPECT_EQ(HHs.size(), (unsigned int)8);

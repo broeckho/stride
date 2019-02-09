@@ -17,6 +17,7 @@
 
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/GeoGridConfigBuilder.h"
 #include "gengeopop/generators/CollegeGenerator.h"
 #include "gengeopop/generators/CommunityGenerator.h"
 #include "gengeopop/generators/HouseholdGenerator.h"
@@ -52,9 +53,10 @@ void GenPopController::ReadDataFiles(const string& citiesFileName, const string&
 
         shared_ptr<CitiesReader>    citiesReader;
         shared_ptr<CommutesReader>  commutesReader;
-        shared_ptr<HouseholdReader> householdsReader;
 
         ReaderFactory readerFactory;
+        GeoGridConfigBuilder  ggConfigBuilder{};
+        ggConfigBuilder.SetData(m_geoGridConfig, householdsFileName);
 
 #pragma omp parallel sections
         {
@@ -70,20 +72,15 @@ void GenPopController::ReadDataFiles(const string& citiesFileName, const string&
                                 commutesReader = readerFactory.CreateCommutesReader(commutingFileName);
                         }
                 }
-
-#pragma omp section
-                {
-                        householdsReader = readerFactory.CreateHouseholdReader(householdsFileName);
-                        householdsReader->SetReferenceHouseholds(m_geoGridConfig.generated.reference_households,
-                                m_geoGridConfig.generated.persons, m_geoGridConfig.generated.contact_pools);
-                }
         }
 
         if (!commutingFileName.empty()) {
                 commutesReader->FillGeoGrid(m_geoGrid);
         }
 
-        m_geoGridConfig.Calculate(m_geoGrid, householdsReader);
+        for (const shared_ptr<Location>& loc : *m_geoGrid) {
+                loc->SetPopCount(m_geoGridConfig.input.pop_size);
+        }
         m_geoGrid->Finalize();
 }
 

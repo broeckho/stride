@@ -59,19 +59,19 @@ TEST(CollegePopulatorTest, NoStudents)
         // Kortrijk will only receive students from Kortrijk
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto collegeBra = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeBra = make_shared<College>(config.counters.contact_center_count++);
         collegeBra->Fill(geoGrid);
         brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeScho = make_shared<College>(config.counters.contact_center_count++);
         collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeKort = make_shared<College>(config.counters.contact_center_count++);
         collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
@@ -98,19 +98,19 @@ TEST(CollegePopulatorTest, NotCommuting)
         // Kortrijk will only receive students from Kortrijik
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto collegeBra = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeBra = make_shared<College>(config.counters.contact_center_count++);
         collegeBra->Fill(geoGrid);
         brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeScho = make_shared<College>(config.counters.contact_center_count++);
         collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeKort = make_shared<College>(config.counters.contact_center_count++);
         collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
@@ -211,13 +211,13 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         // only commuting
         auto schoten = *(geoGrid->begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeScho = make_shared<College>(config.counters.contact_center_count++);
         collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeKort = make_shared<College>(config.counters.contact_center_count++);
         collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
@@ -265,19 +265,19 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto collegeBra = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeBra = make_shared<College>(config.counters.contact_center_count++);
         collegeBra->Fill(geoGrid);
         brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeScho = make_shared<College>(config.counters.contact_center_count++);
         collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = make_shared<College>(config.generated.contact_center_count++);
+        auto collegeKort = make_shared<College>(config.counters.contact_center_count++);
         collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 

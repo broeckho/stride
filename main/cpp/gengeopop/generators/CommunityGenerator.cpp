@@ -52,13 +52,13 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
-                const auto pc  = make_shared<PrimaryCommunity>(geoGridConfig.generated.contact_center_count++);
+                const auto pc  = make_shared<PrimaryCommunity>(geoGridConfig.counters.contact_center_count++);
                 pc->Fill(geoGrid);
                 loc->AddContactCenter(pc);
         }
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
-                const auto sc  = make_shared<SecondaryCommunity>(geoGridConfig.generated.contact_center_count++);
+                const auto sc  = make_shared<SecondaryCommunity>(geoGridConfig.counters.contact_center_count++);
                 sc->Fill(geoGrid);
                 loc->AddContactCenter(sc);
         }
