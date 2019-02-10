@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: StanController.cpp File Reference</title>
+<title>Stride Reference Manual: SliceIndexer.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9774763</span>
+   &#160;<span id="projectnumber">- generated for commit aa5df7f</span>
    </div>
   </td>
  </tr>
@@ -105,80 +105,61 @@ $(document).ready(function(){initNavTree('db/da2/a00300.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">StanController.cpp File Reference</div>  </div>
+<div class="title">SliceIndexer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the command line controller.  
+<p>Interface/Implementation for RangeIndexer.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d50/a00301_source.html">sim/StanController.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/d86/a00271_source.html">pop/Population.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/d0d/a00298_source.html">sim/SimRunner.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d4/ddd/a00138_source.html">util/BoxPlotData.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/d45/a00175_source.html">util/CSV.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/d7d/a00161_source.html">util/ConfigInfo.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/d6e/a00190_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/d17/a00304_source.html">util/StringUtils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/d22/a00245_source.html">viewers/InfectedViewer.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-<code>#include &lt;initializer_list&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;random&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;boost/range.hpp&gt;</code><br />
+<code>#include &lt;boost/range/adaptors.hpp&gt;</code><br />
+<code>#include &lt;iterator&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for StanController.cpp:</div>
+Include dependency graph for SliceIndexer.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/dc4/a00617.gif" border="0" usemap="#StanController_8cpp" alt=""/></div>
-<map name="StanController_8cpp" id="StanController_8cpp">
-<area shape="rect" id="node2" href="../../da/d50/a00301.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="1416,80,1568,107"/>
-<area shape="rect" id="node6" href="../../d8/d17/a00304.html" title="Miscellaneous string utilities. " alt="" coords="1618,408,1718,435"/>
-<area shape="rect" id="node21" href="../../dd/d86/a00271.html" title="Header file for the core Population class. " alt="" coords="1211,80,1340,107"/>
-<area shape="rect" id="node37" href="../../d9/d0d/a00298.html" title="Header for the SimRunner class. " alt="" coords="2012,162,2142,189"/>
-<area shape="rect" id="node40" href="../../d4/ddd/a00138.html" title="Header file for BoxPlotData. " alt="" coords="44,408,180,435"/>
-<area shape="rect" id="node42" href="../../de/d45/a00175.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="1081,251,1164,278"/>
-<area shape="rect" id="node47" href="../../d6/d7d/a00161.html" title="Info on configuration. " alt="" coords="2114,80,2234,107"/>
-<area shape="rect" id="node48" href="../../d7/d6e/a00190.html" title="Interface for install directory queries. " alt="" coords="1811,162,1911,189"/>
-<area shape="rect" id="node49" href="../../d6/d22/a00245.html" title="Observer for infection count at each sim step. " alt="" coords="1862,80,2039,107"/>
-<area shape="rect" id="node3" href="../../d7/d3f/a00173.html" title="Header for the command line controller. " alt="" coords="1587,162,1735,189"/>
-<area shape="rect" id="node4" href="../../d3/d58/a00285.html" title="Interface of RnMan. " alt="" coords="1762,251,1862,278"/>
-<area shape="rect" id="node16" href="../../d0/d61/a00302.html" title="Definition of Stopwatch. " alt="" coords="2039,251,2163,278"/>
-<area shape="rect" id="node5" href="../../db/dc3/a00284.html" title="Interface of RnPcg. " alt="" coords="1772,333,1822,360"/>
-<area shape="rect" id="node22" href="../../de/d53/a00169.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="706,162,872,189"/>
-<area shape="rect" id="node30" href="../../d8/d0a/a00292.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="427,333,599,360"/>
-<area shape="rect" id="node35" href="../../da/d53/a00265.html" title="Header file for the Person class. " alt="" coords="940,162,1046,189"/>
-<area shape="rect" id="node23" href="../../dd/da7/a00168.html" title="Header for the core ContactPool class. " alt="" coords="827,333,970,360"/>
-<area shape="rect" id="node24" href="../../d1/d0d/a00171.html" title="Definition of ContactPoolType. " alt="" coords="798,408,969,435"/>
-<area shape="rect" id="node27" href="../../d3/d42/a00235.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="584,251,752,278"/>
-<area shape="rect" id="node31" href="../../d0/d39/a00314.html" title="Interface/Implementation for SVIterator. " alt="" coords="385,408,484,435"/>
-<area shape="rect" id="node36" href="../../dd/d52/a00221.html" title="Header for the Health class. " alt="" coords="928,251,1058,278"/>
-<area shape="rect" id="node38" href="../../da/d31/a00234.html" title="Definition of EventId. " alt="" coords="2324,333,2436,360"/>
-<area shape="rect" id="node39" href="../../d1/de3/a00306.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="2340,251,2489,278"/>
-<area shape="rect" id="node43" href="../../dd/d4c/a00177.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="1242,333,1326,360"/>
-<area shape="rect" id="node44" href="../../d0/da7/a00250.html" title="Interface/Implementation of is_iterator. " alt="" coords="1044,408,1164,435"/>
+<div class="center"><img src="../../d6/d6a/a00619.gif" border="0" usemap="#SliceIndexer_8h" alt=""/></div>
+<map name="SliceIndexer_8h" id="SliceIndexer_8h">
 </map>
 </div>
 </div>
 <p><a href="../../db/da2/a00300_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc8/a00122.html">stride::util::SliceIndexer&lt; T, Key &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Datastructure to index a container (supporting RandomAccessIterators) with slices.  <a href="../../df/dc8/a00122.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:df/d03/a00348"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html">stride</a></td></tr>
-<tr class="memdesc:df/d03/a00348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d3/dc9/a00355"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc9/a00355.html">stride::util</a></td></tr>
+<tr class="memdesc:d3/dc9/a00355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memTemplItemLeft" align="right" valign="top">SliceIndexer&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/dc9/a00355.html#adc11e43e4e7ef5743ad66f7b2e884782">stride::util::make_slice_indexer</a> (T &amp;t)</td></tr>
+<tr class="separator:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the command line controller. </p>
+<div class="textblock"><p>Interface/Implementation for RangeIndexer. </p>
 
-<p>Definition in file <a class="el" href="../../db/da2/a00300_source.html">StanController.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../db/da2/a00300_source.html">SliceIndexer.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../db/da2/a00300.html">StanController.cpp</a></li>
-    <li class="footer">Generated on Sat Feb 9 2019 22:06:47 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../db/da2/a00300.html">SliceIndexer.h</a></li>
+    <li class="footer">Generated on Sun Feb 10 2019 10:27:35 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

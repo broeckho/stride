@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Generator.h File Reference</title>
+<title>Stride Reference Manual: FileSys.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9774763</span>
+   &#160;<span id="projectnumber">- generated for commit aa5df7f</span>
    </div>
   </td>
  </tr>
@@ -108,56 +108,44 @@ $(document).ready(function(){initNavTree('d9/dd0/a00191.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Generator.h File Reference</div>  </div>
+<div class="title">FileSys.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../de/db1/a00197_source.html">gengeopop/GeoGrid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../db/d53/a00202_source.html">gengeopop/GeoGridConfig.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/daa/a00187_source.html">util/ExcAssert.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/d58/a00285_source.html">util/RnMan.h</a>&quot;</code><br />
-<code>#include &lt;spdlog/logger.h&gt;</code><br />
+
+<p>Interface for install directory queries.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Generator.h:</div>
+Include dependency graph for FileSys.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/dc3/a00453.gif" border="0" usemap="#Generator_8h" alt=""/></div>
-<map name="Generator_8h" id="Generator_8h">
-<area shape="rect" id="node2" href="../../de/db1/a00197.html" title="gengeopop/GeoGrid.h" alt="" coords="1148,80,1311,107"/>
-<area shape="rect" id="node34" href="../../d3/d58/a00285.html" title="Interface of RnMan. " alt="" coords="785,251,885,278"/>
-<area shape="rect" id="node46" href="../../db/d53/a00202.html" title="gengeopop/GeoGridConfig.h" alt="" coords="2648,162,2851,189"/>
-<area shape="rect" id="node48" href="../../d6/daa/a00187.html" title="util/ExcAssert.h" alt="" coords="43,80,163,107"/>
-<area shape="rect" id="node3" href="../../d9/d39/a00257.html" title="KdTree.h" alt="" coords="1714,341,1790,367"/>
-<area shape="rect" id="node12" href="../../d0/d2f/a00259.html" title="Location.h" alt="" coords="698,341,786,367"/>
-<area shape="rect" id="node20" href="../../dd/da7/a00168.html" title="Header for the core ContactPool class. " alt="" coords="2464,430,2606,457"/>
-<area shape="rect" id="node24" href="../../dd/d86/a00271.html" title="Header file for the core Population class. " alt="" coords="1720,162,1849,189"/>
-<area shape="rect" id="node43" href="../../d3/d2a/a00195.html" title="GeoAggregator.h" alt="" coords="1451,251,1582,278"/>
-<area shape="rect" id="node21" href="../../d9/d38/a00166.html" title="Header for the ContactLogMode class. " alt="" coords="1938,512,2132,539"/>
-<area shape="rect" id="node22" href="../../d1/d0d/a00171.html" title="Definition of ContactPoolType. " alt="" coords="2156,512,2327,539"/>
-<area shape="rect" id="node25" href="../../de/d53/a00169.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1762,251,1927,278"/>
-<area shape="rect" id="node28" href="../../d8/d0a/a00292.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1814,341,1986,367"/>
-<area shape="rect" id="node31" href="../../da/d53/a00265.html" title="Header file for the Person class. " alt="" coords="2238,251,2344,278"/>
-<area shape="rect" id="node26" href="../../d3/d42/a00235.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2011,341,2179,367"/>
-<area shape="rect" id="node29" href="../../d0/d39/a00314.html" title="Interface/Implementation for SVIterator. " alt="" coords="2159,430,2258,457"/>
-<area shape="rect" id="node32" href="../../dd/d52/a00221.html" title="Header for the Health class. " alt="" coords="2477,341,2606,367"/>
-<area shape="rect" id="node35" href="../../db/dc3/a00284.html" title="Interface of RnPcg. " alt="" coords="810,341,860,367"/>
-<area shape="rect" id="node49" href="../../da/d15/a00188.html" title="util/Exception.h" alt="" coords="44,162,162,189"/>
+<div class="center"><img src="../../d7/d9f/a00454.gif" border="0" usemap="#FileSys_8h" alt=""/></div>
+<map name="FileSys_8h" id="FileSys_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d9f/a00454.gif" border="0" usemap="#Generator_8hdep" alt=""/></div>
-<map name="Generator_8hdep" id="Generator_8hdep">
-<area shape="rect" id="node2" href="../../dd/db2/a00151.html" title="CollegeGenerator.h" alt="" coords="118,80,263,107"/>
-<area shape="rect" id="node5" href="../../d2/d34/a00156.html" title="CommunityGenerator.h" alt="" coords="287,80,459,107"/>
-<area shape="rect" id="node7" href="../../dd/d2d/a00229.html" title="HouseholdGenerator.h" alt="" coords="483,80,650,107"/>
-<area shape="rect" id="node9" href="../../d7/d03/a00254.html" title="K12SchoolGenerator.h" alt="" coords="675,80,840,107"/>
-<area shape="rect" id="node11" href="../../de/d55/a00323.html" title="WorkplaceGenerator.h" alt="" coords="864,80,1027,107"/>
-<area shape="rect" id="node3" href="../../d9/d7d/a00150.html" title="CollegeGenerator.cpp" alt="" coords="5,155,165,181"/>
-<area shape="rect" id="node4" href="../../d8/d72/a00199.html" title="GeoGridBuilder.cpp" alt="" coords="400,155,544,181"/>
-<area shape="rect" id="node6" href="../../d3/df8/a00155.html" title="CommunityGenerator.cpp" alt="" coords="189,155,376,181"/>
-<area shape="rect" id="node8" href="../../de/dc2/a00228.html" title="HouseholdGenerator.cpp" alt="" coords="568,155,749,181"/>
-<area shape="rect" id="node10" href="../../d0/d3e/a00253.html" title="K12SchoolGenerator.cpp" alt="" coords="774,155,954,181"/>
-<area shape="rect" id="node12" href="../../de/de9/a00322.html" title="WorkplaceGenerator.cpp" alt="" coords="978,155,1155,181"/>
+<div class="center"><img src="../../dd/d63/a00455.gif" border="0" usemap="#FileSys_8hdep" alt=""/></div>
+<map name="FileSys_8hdep" id="FileSys_8hdep">
+<area shape="rect" id="node2" href="../../de/d14/a00139.html" title="Implementation file for the Calendar class. " alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node3" href="../../d8/d00/a00186.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="135,80,280,107"/>
+<area shape="rect" id="node4" href="../../dd/df4/a00193.html" title="genpop.cpp" alt="" coords="304,80,401,107"/>
+<area shape="rect" id="node5" href="../../d8/d17/a00304.html" title="Main program: command line handling. " alt="" coords="426,80,511,107"/>
+<area shape="rect" id="node6" href="../../dc/dc9/a00282.html" title="ReaderFactory.cpp" alt="" coords="536,80,673,107"/>
+<area shape="rect" id="node7" href="../../d6/db6/a00241.html" title="Implementation of the CasesFile class. " alt="" coords="698,80,818,107"/>
+<area shape="rect" id="node8" href="../../d1/dd4/a00267.html" title="Implementation of the CasesFile class. " alt="" coords="842,80,962,107"/>
+<area shape="rect" id="node9" href="../../d2/d71/a00309.html" title="Implementation of the SummaryFile class. " alt="" coords="987,80,1119,107"/>
+<area shape="rect" id="node10" href="../../d2/d94/a00184.html" title="Initialize populations: implementation. " alt="" coords="1143,80,1306,107"/>
+<area shape="rect" id="node11" href="../../dc/d57/a00194.html" title="Initialize populations: implementation. " alt="" coords="1331,80,1473,107"/>
+<area shape="rect" id="node12" href="../../dd/d86/a00271.html" title="Core Population class. " alt="" coords="1497,80,1613,107"/>
+<area shape="rect" id="node13" href="../../d6/dfb/a00172.html" title="Header for the command line controller. " alt="" coords="1638,80,1774,107"/>
+<area shape="rect" id="node14" href="../../db/d7b/a00296.html" title="Implementation for the SimBuilder class. " alt="" coords="1798,80,1915,107"/>
+<area shape="rect" id="node15" href="../../da/d50/a00301.html" title="Header for the command line controller. " alt="" coords="1940,80,2080,107"/>
+<area shape="rect" id="node16" href="../../d7/d6e/a00190.html" title="Utilities for interaction with filesystem. " alt="" coords="2104,80,2196,107"/>
+<area shape="rect" id="node17" href="../../d6/d7f/a00287.html" title="Implementation of ptree utils. " alt="" coords="2220,80,2387,107"/>
 </map>
 </div>
 </div>
@@ -165,22 +153,33 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html">gengeopop::Generator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface base class for generators that provide geo data and apply it onto the <a class="el" href="../../db/db2/a00020.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a>.  <a href="../../d7/d7a/a00016.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d00/a00113.html">stride::util::FileSys</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for interaction with filesystem.  <a href="../../d3/d00/a00113.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d17/a00114.html">stride::util::FileSys::Dirs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using this to avoid global variables &amp; their initialization.  <a href="../../d8/d17/a00114.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:da/d75/a00334"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d3/dc9/a00355"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc9/a00355.html">stride::util</a></td></tr>
+<tr class="memdesc:d3/dc9/a00355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface for install directory queries. </p>
+
+<p>Definition in file <a class="el" href="../../d9/dd0/a00191_source.html">FileSys.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d9/dd0/a00191.html">Generator.h</a></li>
-    <li class="footer">Generated on Sat Feb 9 2019 22:06:47 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/dd0/a00191.html">FileSys.h</a></li>
+    <li class="footer">Generated on Sun Feb 10 2019 10:27:35 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
