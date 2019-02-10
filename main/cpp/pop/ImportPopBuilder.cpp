@@ -21,6 +21,7 @@
 #include "ImportPopBuilder.h"
 
 #include "gengeopop/GeoGrid.h"
+#include "gengeopop/io/GeoGridReader.h"
 #include "gengeopop/io/GeoGridReaderFactory.h"
 #include "util/LogUtils.h"
 

@@ -15,6 +15,7 @@
 
 
 #include "gengeopop/GeoGrid.h"
+#include "gengeopop/io/GeoGridWriter.h"
 #include "gengeopop/io/GeoGridWriterFactory.h"
 #include "pop/GenPopBuilder.h"
 #include "util/FileSys.h"

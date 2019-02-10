@@ -10,15 +10,21 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
 
-#include "gengeopop/io/GeoGridReader.h"
-#include "string"
+#include <memory>
+#include <string>
+
+namespace stride {
+class Population;
+}
 
 namespace gengeopop {
+
+class GeoGridReader;
 
 /**
  * A Factory for creating the correct implementation of a GeoGridReader based on the filename extension

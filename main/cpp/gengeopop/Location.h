@@ -15,8 +15,7 @@
 
 #pragma once
 
-#include <boost/geometry/core/cs.hpp>
-#include <boost/geometry/geometries/point.hpp>
+#include "gengeopop/Coordinate.h"
 
 #include <iostream>
 #include <memory>
@@ -29,7 +28,7 @@
 
 namespace gengeopop {
 
-using Coordinate = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
+//using Coordinate = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
 
 class ContactCenter;
 

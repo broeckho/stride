@@ -15,8 +15,6 @@
 
 #pragma once
 
-//#include "gengeopop/GeoGrid.h"
-
 #include <istream>
 #include <map>
 #include <memory>

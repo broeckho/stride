@@ -21,6 +21,7 @@ set(GENGEOPOP_LIB
 #
     College.cpp
     ContactCenter.cpp
+    Coordinate.h
     GeoGrid.cpp
     GeoGridBuilder.cpp
     GeoGridConfig.cpp

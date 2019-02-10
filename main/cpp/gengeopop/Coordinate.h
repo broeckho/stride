@@ -16,22 +16,11 @@
 #pragma once
 
 
-
-#include <memory>
-#include <string>
+#include <boost/geometry/core/cs.hpp>
+#include <boost/geometry/geometries/point.hpp>
 
 namespace gengeopop {
 
-class GeoGridWriter;
-
-/**
- * Factory creates the correct implementation of a GeoGridWriter based on the filename extension.
- */
-class GeoGridWriterFactory
-{
-public:
-        /// Create a GeoGridWriter based on the provided extension in the filename.
-        std::shared_ptr<GeoGridWriter> CreateWriter(const std::string& filename) const;
-};
+using Coordinate = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
 
 } // namespace gengeopop

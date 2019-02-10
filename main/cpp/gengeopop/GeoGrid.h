@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -39,9 +39,6 @@ template <typename Policy, typename... F>
 class GeoAggregator;
 
 namespace geogrid_detail {
-
-/// Used as a point in de geogrid when using the KdTree
-using BoostPoint = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
 
 /// \ref KdTree for some more information on methods.
 class KdTree2DPoint

@@ -15,12 +15,12 @@
 
 #include "GeoGridReaderFactory.h"
 
-#include "GeoGridJSONReader.h"
-#include "GeoGridProtoReader.h"
+#include "gengeopop/io/GeoGridReader.h"
+#include "gengeopop/io/GeoGridJSONReader.h"
+#include "gengeopop/io/GeoGridProtoReader.h"
 #include "util/Exception.h"
 
 #include <fstream>
-#include <memory>
 
 #ifdef BOOST_FOUND
 #include <boost/filesystem.hpp>
