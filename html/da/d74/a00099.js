@@ -12,7 +12,7 @@ var a00099 =
     [ "GetContactPoolSys", "da/d74/a00099.html#a590df694a5ec7f41695a5bfec5fcd6e6", null ],
     [ "GetGeoGrid", "da/d74/a00099.html#a4c29d3ead913e134cdba0855a988b0d8", null ],
     [ "DefaultPopBuilder", "da/d74/a00099.html#aa79c86f4bdecaefcfc763c2b2f5bee37", null ],
-    [ "GenPopBuilder", "da/d74/a00099.html#a60642d39b9cfebc58f3dd3f284962d33", null ],
+    [ "GeoPopBuilder", "da/d74/a00099.html#a9fc4d5bd8629b7e3e6d80037f1a49b3e", null ],
     [ "ImportPopBuilder", "da/d74/a00099.html#a465c9716868863b14c1491b7cb7c3f49", null ],
     [ "m_pool_sys", "da/d74/a00099.html#ac21ecf3db6ee91694eec6b13ffef5144", null ],
     [ "m_contact_logger", "da/d74/a00099.html#aa24a679c5885bb18710a77700bbaeeca", null ],

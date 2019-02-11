@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GeoGridConfigBuilder.h File Reference</title>
+<title>Stride Reference Manual: GeoGridJSONReader.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit aa5df7f</span>
+   &#160;<span id="projectnumber">- generated for commit bb74808</span>
    </div>
   </td>
  </tr>
@@ -108,25 +108,34 @@ $(document).ready(function(){initNavTree('d5/d13/a00205.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGridConfigBuilder.h File Reference</div>  </div>
+<div class="title">GeoGridJSONReader.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d1/de1/a00213_source.html">GeoGridReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dd7/a00260_source.html">gengeopop/Location.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/de6/a00167_source.html">pool/ContactPool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dcb/a00170_source.html">pool/ContactPoolType.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGridConfigBuilder.h:</div>
+Include dependency graph for GeoGridJSONReader.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d34/a00476.gif" border="0" usemap="#GeoGridConfigBuilder_8h" alt=""/></div>
-<map name="GeoGridConfigBuilder_8h" id="GeoGridConfigBuilder_8h">
+<div class="center"><img src="../../d9/dca/a00477.gif" border="0" usemap="#GeoGridJSONReader_8h" alt=""/></div>
+<map name="GeoGridJSONReader_8h" id="GeoGridJSONReader_8h">
+<area shape="rect" id="node2" href="../../d1/de1/a00213.html" title="GeoGridReader.h" alt="" coords="184,169,313,196"/>
+<area shape="rect" id="node8" href="../../dd/dd7/a00260.html" title="gengeopop/Location.h" alt="" coords="681,169,845,196"/>
+<area shape="rect" id="node18" href="../../dc/de6/a00167.html" title="Header for the core ContactPool class. " alt="" coords="812,87,955,114"/>
+<area shape="rect" id="node20" href="../../d5/dcb/a00170.html" title="Definition of ContactPoolType. " alt="" coords="1139,169,1310,196"/>
+<area shape="rect" id="node9" href="../../d7/d3f/a00173.html" title="gengeopop/Coordinate.h" alt="" coords="708,244,888,271"/>
+<area shape="rect" id="node19" href="../../d0/d48/a00165.html" title="Header for the ContactLogMode class. " alt="" coords="921,169,1115,196"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dca/a00477.gif" border="0" usemap="#GeoGridConfigBuilder_8hdep" alt=""/></div>
-<map name="GeoGridConfigBuilder_8hdep" id="GeoGridConfigBuilder_8hdep">
-<area shape="rect" id="node2" href="../../d3/db1/a00200.html" title="GeoGridBuilder.cpp" alt="" coords="5,80,149,107"/>
-<area shape="rect" id="node3" href="../../d1/d72/a00204.html" title="GeoGridConfigBuilder.cpp" alt="" coords="173,80,357,107"/>
-<area shape="rect" id="node4" href="../../dc/d57/a00194.html" title="Initialize populations: implementation. " alt="" coords="382,80,525,107"/>
+<div class="center"><img src="../../d9/dea/a00478.gif" border="0" usemap="#GeoGridJSONReader_8hdep" alt=""/></div>
+<map name="GeoGridJSONReader_8hdep" id="GeoGridJSONReader_8hdep">
+<area shape="rect" id="node2" href="../../d1/d72/a00204.html" title="GeoGridJSONReader.cpp" alt="" coords="5,80,181,107"/>
+<area shape="rect" id="node3" href="../../d3/dd1/a00214.html" title="GeoGridReaderFactory.cpp" alt="" coords="205,80,395,107"/>
 </map>
 </div>
 </div>
@@ -134,13 +143,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html">gengeopop::GeoGridConfigBuilder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls the complete generation and population of a <a class="el" href="../../db/db2/a00020.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a>.  <a href="../../d3/dfe/a00025.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html">gengeopop::GeoGridJSONReader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An implementation of the <a class="el" href="../../d5/d79/a00030.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> using JSON.  <a href="../../d6/d5b/a00026.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:df/d91/a00335"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d91/a00335.html">gengeopop</a></td></tr>
+<tr class="memitem:d4/dce/a00337"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dce/a00337.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -148,8 +157,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d5/d13/a00205.html">GeoGridConfigBuilder.h</a></li>
-    <li class="footer">Generated on Sun Feb 10 2019 10:27:35 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d5/d13/a00205.html">GeoGridJSONReader.h</a></li>
+    <li class="footer">Generated on Mon Feb 11 2019 16:57:36 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

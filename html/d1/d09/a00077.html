@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::ContactPoolType::IDPack&lt; ids &gt; Struct Template Reference</title>
+<title>Stride Reference Manual: stride::ContactPoolType::IdSubscriptArray&lt; bool &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit aa5df7f</span>
+   &#160;<span id="projectnumber">- generated for commit bb74808</span>
    </div>
   </td>
  </tr>
@@ -107,75 +107,316 @@ $(document).ready(function(){initNavTree('d1/d09/a00077.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="../../d3/d29/a00947.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../db/d40/a00959.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::ContactPoolType::IDPack&lt; ids &gt; Struct Template Reference</div>  </div>
+<div class="title">stride::ContactPoolType::IdSubscriptArray&lt; bool &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Keeps all available Ids in a template pack and exposes it as a std::initialize_list Useful when initializing a <a class="el" href="../../d4/de8/a00061.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. ">IdSubscriptArray</a> with a type that is not default constructible.  
+<p>Specialisation of <a class="el" href="../../d4/de8/a00061.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. ">IdSubscriptArray</a> foor booleans.  
  <a href="../../d1/d09/a00077.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d0d/a00171_source.html">ContactPoolType.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d7/d40/a00236_source.html">IdSubscriptArray.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::ContactPoolType::IDPack&lt; ids &gt;:</div>
+Inheritance diagram for stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d18/a00948.gif" border="0" usemap="#stride_1_1ContactPoolType_1_1IDPack_3_01ids_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1ContactPoolType_1_1IDPack_3_01ids_01_4_coll__map" id="stride_1_1ContactPoolType_1_1IDPack_3_01ids_01_4_coll__map">
+<div class="center"><img src="../../dd/d11/a00960.gif" border="0" usemap="#stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_inherit__map" id="stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_inherit__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="5,5,208,83"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d45/a00961.gif" border="0" usemap="#stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_coll__map" id="stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="5,5,208,83"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:af9e5f17d3b2a43298c163b1a118fd823"><td class="memItemLeft" align="right" valign="top">static constexpr std::initializer_list&lt; <a class="el" href="../../d0/d48/a00351.html#aaa214aee675050e781497b0dd15449ab">Id</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#af9e5f17d3b2a43298c163b1a118fd823">AsInitializerList</a> = {ids...}</td></tr>
-<tr class="memdesc:af9e5f17d3b2a43298c163b1a118fd823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exposed as std::initializer_list.  <a href="#af9e5f17d3b2a43298c163b1a118fd823">More...</a><br /></td></tr>
-<tr class="separator:af9e5f17d3b2a43298c163b1a118fd823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:afa98360b18191924317dce92e50135df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#afa98360b18191924317dce92e50135df">IdSubscriptArray</a> (bool t=bool())</td></tr>
+<tr class="memdesc:afa98360b18191924317dce92e50135df"><td class="mdescLeft">&#160;</td><td class="mdescRight">What we 'll use most often and where we can have a default and initialize all array elements to the same value.  <a href="#afa98360b18191924317dce92e50135df">More...</a><br /></td></tr>
+<tr class="separator:afa98360b18191924317dce92e50135df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be463390b642d1510f1d19e992dd7ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a9be463390b642d1510f1d19e992dd7ac">IdSubscriptArray</a> (std::initializer_list&lt; bool &gt; l)</td></tr>
+<tr class="memdesc:a9be463390b642d1510f1d19e992dd7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">When we want to use an initializer list the elements is the (possibly emty) initializer list are applied to the first elements in order; any remaininig elements are default initialized.  <a href="#a9be463390b642d1510f1d19e992dd7ac">More...</a><br /></td></tr>
+<tr class="separator:a9be463390b642d1510f1d19e992dd7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af49e53d429850a6b8d43759fcd16e0ab"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; <a class="el" href="../../db/ddc/a00353.html#af724b7d598645a8c1054b66306dee629">NumOfTypes</a>()&gt;::reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#af49e53d429850a6b8d43759fcd16e0ab">operator[]</a> (<a class="el" href="../../db/ddc/a00353.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> id)</td></tr>
+<tr class="memdesc:af49e53d429850a6b8d43759fcd16e0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscripting with pool typ id as argument.  <a href="#af49e53d429850a6b8d43759fcd16e0ab">More...</a><br /></td></tr>
+<tr class="separator:af49e53d429850a6b8d43759fcd16e0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefba95dc5355b9b62c9842f01395249d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#aefba95dc5355b9b62c9842f01395249d">operator[]</a> (<a class="el" href="../../db/ddc/a00353.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> id) const </td></tr>
+<tr class="memdesc:aefba95dc5355b9b62c9842f01395249d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscripting with pool typ id as argument.  <a href="#aefba95dc5355b9b62c9842f01395249d">More...</a><br /></td></tr>
+<tr class="separator:aefba95dc5355b9b62c9842f01395249d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e9e0818406cc10eeacc3f992aef7cb"><td class="memItemLeft" align="right" valign="top">bitset&lt; <a class="el" href="../../db/ddc/a00353.html#af724b7d598645a8c1054b66306dee629">NumOfTypes</a>()&gt;::reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a09e9e0818406cc10eeacc3f992aef7cb">at</a> (<a class="el" href="../../db/ddc/a00353.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> id)</td></tr>
+<tr class="memdesc:a09e9e0818406cc10eeacc3f992aef7cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscripting with pool typ id as argument.  <a href="#a09e9e0818406cc10eeacc3f992aef7cb">More...</a><br /></td></tr>
+<tr class="separator:a09e9e0818406cc10eeacc3f992aef7cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e760b389cdca2516385b1600332a4f0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a9e760b389cdca2516385b1600332a4f0">at</a> (<a class="el" href="../../db/ddc/a00353.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> id) const </td></tr>
+<tr class="memdesc:a9e760b389cdca2516385b1600332a4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscripting with pool typ id as argument.  <a href="#a9e760b389cdca2516385b1600332a4f0">More...</a><br /></td></tr>
+<tr class="separator:a9e760b389cdca2516385b1600332a4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;Id... ids&gt;<br />
-struct stride::ContactPoolType::IDPack&lt; ids &gt;</h3>
+<div class="textblock"><h3>template&lt;&gt;<br />
+class stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;</h3>
 
-<p>Keeps all available Ids in a template pack and exposes it as a std::initialize_list Useful when initializing a <a class="el" href="../../d4/de8/a00061.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. ">IdSubscriptArray</a> with a type that is not default constructible. </p>
+<p>Specialisation of <a class="el" href="../../d4/de8/a00061.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. ">IdSubscriptArray</a> foor booleans. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d0d/a00171_source.html#l00063">63</a> of file <a class="el" href="../../d1/d0d/a00171_source.html">ContactPoolType.h</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="af9e5f17d3b2a43298c163b1a118fd823"></a>
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00134">134</a> of file <a class="el" href="../../d7/d40/a00236_source.html">IdSubscriptArray.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="afa98360b18191924317dce92e50135df"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;Id... ids&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::initializer_list&lt;<a class="el" href="../../d0/d48/a00351.html#aaa214aee675050e781497b0dd15449ab">Id</a>&gt; <a class="el" href="../../d1/d09/a00077.html">stride::ContactPoolType::IDPack</a>&lt; ids &gt;::AsInitializerList = {ids...}</td>
+          <td class="memname"><a class="el" href="../../d4/de8/a00061.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::<a class="el" href="../../d4/de8/a00061.html">IdSubscriptArray</a> </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>t</em> = <code>bool()</code></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Exposed as std::initializer_list. </p>
+<p>What we 'll use most often and where we can have a default and initialize all array elements to the same value. </p>
+<p>e.g. <a class="el" href="../../d1/d09/a00077.html" title="Specialisation of IdSubscriptArray foor booleans. ">IdSubscriptArray&lt;bool&gt;</a> m(true); </p>
 
-<p>Definition at line <a class="el" href="../../d1/d0d/a00171_source.html#l00065">65</a> of file <a class="el" href="../../d1/d0d/a00171_source.html">ContactPoolType.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00140">140</a> of file <a class="el" href="../../d7/d40/a00236_source.html">IdSubscriptArray.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../d1/d0d/a00171_source.html">ContactPoolType.h</a></li>
+<a class="anchor" id="a9be463390b642d1510f1d19e992dd7ac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/de8/a00061.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::<a class="el" href="../../d4/de8/a00061.html">IdSubscriptArray</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::initializer_list&lt; bool &gt;&#160;</td>
+          <td class="paramname"><em>l</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>When we want to use an initializer list the elements is the (possibly emty) initializer list are applied to the first elements in order; any remaininig elements are default initialized. </p>
+<p>e.g. <a class="el" href="../../d1/d09/a00077.html" title="Specialisation of IdSubscriptArray foor booleans. ">IdSubscriptArray&lt;bool&gt;</a> mm {true, false, true}; </p>
+
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00152">152</a> of file <a class="el" href="../../d7/d40/a00236_source.html">IdSubscriptArray.h</a>.</p>
+
+<p>References <a class="el" href="../../d5/dcb/a00170_source.html#l00076">stride::ContactPoolType::IdList</a>, and <a class="el" href="../../d7/d40/a00236_source.html#l00100">stride::ContactPoolType::IdSubscriptArray&lt; T &gt;::operator[]()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d09/a00077_a9be463390b642d1510f1d19e992dd7ac_cgraph.gif" border="0" usemap="#d1/d09/a00077_a9be463390b642d1510f1d19e992dd7ac_cgraph" alt=""/></div>
+<map name="d1/d09/a00077_a9be463390b642d1510f1d19e992dd7ac_cgraph" id="d1/d09/a00077_a9be463390b642d1510f1d19e992dd7ac_cgraph">
+<area shape="rect" id="node2" href="../../d4/de8/a00061.html#a3e933c5bd4cc9a100105316f339a0012" title="This actually works in itself but interferes annoyingly with the first constructor above and is for p..." alt="" coords="231,13,437,54"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af49e53d429850a6b8d43759fcd16e0ab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::bitset&lt;<a class="el" href="../../db/ddc/a00353.html#af724b7d598645a8c1054b66306dee629">NumOfTypes</a>()&gt;::reference <a class="el" href="../../d4/de8/a00061.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddc/a00353.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subscripting with pool typ id as argument. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00166">166</a> of file <a class="el" href="../../d7/d40/a00236_source.html">IdSubscriptArray.h</a>.</p>
+
+<p>References <a class="el" href="../../d5/dcb/a00170_source.html#l00052">stride::ContactPoolType::ToSizeT()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d09/a00077_af49e53d429850a6b8d43759fcd16e0ab_cgraph.gif" border="0" usemap="#d1/d09/a00077_af49e53d429850a6b8d43759fcd16e0ab_cgraph" alt=""/></div>
+<map name="d1/d09/a00077_af49e53d429850a6b8d43759fcd16e0ab_cgraph" id="d1/d09/a00077_af49e53d429850a6b8d43759fcd16e0ab_cgraph">
+<area shape="rect" id="node2" href="../../db/ddc/a00353.html#ac36d342acc9d969f5de3aa55e95b9fe6" title="Cast to size_t for indexing. " alt="" coords="231,39,401,80"/>
+<area shape="rect" id="node3" href="../../db/ddc/a00353.html#a0cf9d3425b406cd76acdc02ef9c0286d" title="Converts a ContactPoolType::Id value to corresponding name. " alt="" coords="449,5,620,47"/>
+<area shape="rect" id="node4" href="../../db/ddc/a00353.html#af529300a78547c29c95b81ad8ac62afe" title="Converts a string with name to Id. " alt="" coords="449,71,620,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aefba95dc5355b9b62c9842f01395249d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/de8/a00061.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddc/a00353.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subscripting with pool typ id as argument. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00172">172</a> of file <a class="el" href="../../d7/d40/a00236_source.html">IdSubscriptArray.h</a>.</p>
+
+<p>References <a class="el" href="../../d5/dcb/a00170_source.html#l00052">stride::ContactPoolType::ToSizeT()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d09/a00077_aefba95dc5355b9b62c9842f01395249d_cgraph.gif" border="0" usemap="#d1/d09/a00077_aefba95dc5355b9b62c9842f01395249d_cgraph" alt=""/></div>
+<map name="d1/d09/a00077_aefba95dc5355b9b62c9842f01395249d_cgraph" id="d1/d09/a00077_aefba95dc5355b9b62c9842f01395249d_cgraph">
+<area shape="rect" id="node2" href="../../db/ddc/a00353.html#ac36d342acc9d969f5de3aa55e95b9fe6" title="Cast to size_t for indexing. " alt="" coords="231,39,401,80"/>
+<area shape="rect" id="node3" href="../../db/ddc/a00353.html#a0cf9d3425b406cd76acdc02ef9c0286d" title="Converts a ContactPoolType::Id value to corresponding name. " alt="" coords="449,5,620,47"/>
+<area shape="rect" id="node4" href="../../db/ddc/a00353.html#af529300a78547c29c95b81ad8ac62afe" title="Converts a string with name to Id. " alt="" coords="449,71,620,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a09e9e0818406cc10eeacc3f992aef7cb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bitset&lt;<a class="el" href="../../db/ddc/a00353.html#af724b7d598645a8c1054b66306dee629">NumOfTypes</a>()&gt;::reference <a class="el" href="../../d4/de8/a00061.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddc/a00353.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subscripting with pool typ id as argument. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00178">178</a> of file <a class="el" href="../../d7/d40/a00236_source.html">IdSubscriptArray.h</a>.</p>
+
+<p>References <a class="el" href="../../d5/dcb/a00170_source.html#l00046">stride::ContactPoolType::NumOfTypes()</a>, and <a class="el" href="../../d5/dcb/a00170_source.html#l00052">stride::ContactPoolType::ToSizeT()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d09/a00077_a09e9e0818406cc10eeacc3f992aef7cb_cgraph.gif" border="0" usemap="#d1/d09/a00077_a09e9e0818406cc10eeacc3f992aef7cb_cgraph" alt=""/></div>
+<map name="d1/d09/a00077_a09e9e0818406cc10eeacc3f992aef7cb_cgraph" id="d1/d09/a00077_a09e9e0818406cc10eeacc3f992aef7cb_cgraph">
+<area shape="rect" id="node2" href="../../db/ddc/a00353.html#af724b7d598645a8c1054b66306dee629" title="Number of ContactPool types. " alt="" coords="267,5,437,47"/>
+<area shape="rect" id="node4" href="../../db/ddc/a00353.html#ac36d342acc9d969f5de3aa55e95b9fe6" title="Cast to size_t for indexing. " alt="" coords="267,71,437,112"/>
+<area shape="rect" id="node3" href="../../db/ddc/a00353.html#a1269217f56908f0da981dbe4e43bb73d" title="Check whether string is name of a ContactPoolType::Id. " alt="" coords="485,5,656,47"/>
+<area shape="rect" id="node5" href="../../db/ddc/a00353.html#a0cf9d3425b406cd76acdc02ef9c0286d" title="Converts a ContactPoolType::Id value to corresponding name. " alt="" coords="485,71,656,112"/>
+<area shape="rect" id="node6" href="../../db/ddc/a00353.html#af529300a78547c29c95b81ad8ac62afe" title="Converts a string with name to Id. " alt="" coords="485,136,656,177"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e760b389cdca2516385b1600332a4f0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/de8/a00061.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddc/a00353.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subscripting with pool typ id as argument. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00187">187</a> of file <a class="el" href="../../d7/d40/a00236_source.html">IdSubscriptArray.h</a>.</p>
+
+<p>References <a class="el" href="../../d5/dcb/a00170_source.html#l00046">stride::ContactPoolType::NumOfTypes()</a>, and <a class="el" href="../../d5/dcb/a00170_source.html#l00052">stride::ContactPoolType::ToSizeT()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d09/a00077_a9e760b389cdca2516385b1600332a4f0_cgraph.gif" border="0" usemap="#d1/d09/a00077_a9e760b389cdca2516385b1600332a4f0_cgraph" alt=""/></div>
+<map name="d1/d09/a00077_a9e760b389cdca2516385b1600332a4f0_cgraph" id="d1/d09/a00077_a9e760b389cdca2516385b1600332a4f0_cgraph">
+<area shape="rect" id="node2" href="../../db/ddc/a00353.html#af724b7d598645a8c1054b66306dee629" title="Number of ContactPool types. " alt="" coords="267,5,437,47"/>
+<area shape="rect" id="node4" href="../../db/ddc/a00353.html#ac36d342acc9d969f5de3aa55e95b9fe6" title="Cast to size_t for indexing. " alt="" coords="267,71,437,112"/>
+<area shape="rect" id="node3" href="../../db/ddc/a00353.html#a1269217f56908f0da981dbe4e43bb73d" title="Check whether string is name of a ContactPoolType::Id. " alt="" coords="485,5,656,47"/>
+<area shape="rect" id="node5" href="../../db/ddc/a00353.html#a0cf9d3425b406cd76acdc02ef9c0286d" title="Converts a ContactPoolType::Id value to corresponding name. " alt="" coords="485,71,656,112"/>
+<area shape="rect" id="node6" href="../../db/ddc/a00353.html#af529300a78547c29c95b81ad8ac62afe" title="Converts a string with name to Id. " alt="" coords="485,136,656,177"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d7/d40/a00236_source.html">IdSubscriptArray.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/d48/a00351.html">ContactPoolType</a></li><li class="navelem"><a class="el" href="../../d1/d09/a00077.html">IDPack</a></li>
-    <li class="footer">Generated on Sun Feb 10 2019 10:27:36 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d48/a00351.html">stride</a></li><li class="navelem"><a class="el" href="../../db/ddc/a00353.html">ContactPoolType</a></li><li class="navelem"><a class="el" href="../../d1/d09/a00077.html">IdSubscriptArray&lt; bool &gt;</a></li>
+    <li class="footer">Generated on Mon Feb 11 2019 16:57:37 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

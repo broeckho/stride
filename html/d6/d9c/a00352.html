@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::output Namespace Reference</title>
+<title>Stride Reference Manual: stride::ContactLogMode Namespace Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit aa5df7f</span>
+   &#160;<span id="projectnumber">- generated for commit bb74808</span>
    </div>
   </td>
  </tr>
@@ -105,36 +105,178 @@ $(document).ready(function(){initNavTree('d6/d9c/a00352.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">stride::output Namespace Reference</div>  </div>
+<div class="title">stride::ContactLogMode Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities for the output files.  
+<p>Enum specifiying the level of logging required:  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html">InfectedFile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with daily count of infected persons.  <a href="../../d9/d77/a00095.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html">PersonsFile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with daily cases count.  <a href="../../d9/df8/a00096.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html">SummaryFile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with simulation summary output.  <a href="../../d1/d84/a00097.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a8f1467c1f622638893d3a1c12eead2ba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> { <a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">Id::None</a> = 0U, 
+<a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">Id::Transmissions</a> = 1U, 
+<a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">Id::All</a> = 2U, 
+<a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">Id::Susceptibles</a> = 3U
+ }</td></tr>
+<tr class="separator:a8f1467c1f622638893d3a1c12eead2ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a025f9ff3cf2df8c0c8b95e48724d9b7c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">ToString</a> (<a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2ba">ContactLogMode::Id</a> w)</td></tr>
+<tr class="memdesc:a025f9ff3cf2df8c0c8b95e48724d9b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a LogMode value to corresponding name.  <a href="#a025f9ff3cf2df8c0c8b95e48724d9b7c">More...</a><br /></td></tr>
+<tr class="separator:a025f9ff3cf2df8c0c8b95e48724d9b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12707c23b43baa1a0f5bed51db72756d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html#a12707c23b43baa1a0f5bed51db72756d">ToMode</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a12707c23b43baa1a0f5bed51db72756d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to LogMode value.  <a href="#a12707c23b43baa1a0f5bed51db72756d">More...</a><br /></td></tr>
+<tr class="separator:a12707c23b43baa1a0f5bed51db72756d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3242678fd1548cd6dd420490dc06fcff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html#a3242678fd1548cd6dd420490dc06fcff">IsMode</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a3242678fd1548cd6dd420490dc06fcff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of LogMode value.  <a href="#a3242678fd1548cd6dd420490dc06fcff">More...</a><br /></td></tr>
+<tr class="separator:a3242678fd1548cd6dd420490dc06fcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities for the output files. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>Enum specifiying the level of logging required: </p>
+<ul>
+<li>none at all </li>
+<li>only contacts where transmission occurs </li>
+<li>all contacts. </li>
+</ul>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a8f1467c1f622638893d3a1c12eead2ba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5"></a>Transmissions&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680"></a>All&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c"></a>Susceptibles&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="../../d0/d48/a00165_source.html#l00034">34</a> of file <a class="el" href="../../d0/d48/a00165_source.html">ContactLogMode.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a025f9ff3cf2df8c0c8b95e48724d9b7c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::ContactLogMode::ToString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a>&#160;</td>
+          <td class="paramname"><em>l</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a LogMode value to corresponding name. </p>
+
+<p>Definition at line <a class="el" href="../../db/ddf/a00164_source.html#l00032">32</a> of file <a class="el" href="../../db/ddf/a00164_source.html">ContactLogMode.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">All</a>, <a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">None</a>, <a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">Susceptibles</a>, and <a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">Transmissions</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d0d/a00171_source.html#l00096">stride::ControlHelper::LogStartup()</a>, <a class="el" href="../../d0/dcd/a00280_source.html#l00047">stride::PublicHealthAgency::PerformCaseFinding()</a>, and <a class="el" href="../../d6/d7f/a00287_source.html#l00301">stride::util::RunConfigManager::ToSha1()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d9c/a00352_a025f9ff3cf2df8c0c8b95e48724d9b7c_icgraph.gif" border="0" usemap="#d6/d9c/a00352_a025f9ff3cf2df8c0c8b95e48724d9b7c_icgraph" alt=""/></div>
+<map name="d6/d9c/a00352_a025f9ff3cf2df8c0c8b95e48724d9b7c_icgraph" id="d6/d9c/a00352_a025f9ff3cf2df8c0c8b95e48724d9b7c_icgraph">
+<area shape="rect" id="node2" href="../../d9/da4/a00078.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="257,103,411,144"/>
+<area shape="rect" id="node7" href="../../d0/d61/a00100.html#ae2e5eeecbee00888b7e687bce43a8cd8" title="Public Health Strategy: look for symptomatic cases and vaccinate their household. ..." alt="" coords="238,184,430,225"/>
+<area shape="rect" id="node9" href="../../df/dc8/a00122.html#a32ec1961852a81d4873a519f6bea1e36" title="stride::util::RunConfigManager\l::ToSha1" alt="" coords="228,249,440,291"/>
+<area shape="rect" id="node3" href="../../da/d2a/a00086.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="495,5,673,47"/>
+<area shape="rect" id="node5" href="../../d5/d1e/a00103.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="507,71,661,112"/>
+<area shape="rect" id="node6" href="../../d3/d32/a00105.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="505,136,663,177"/>
+<area shape="rect" id="node4" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="728,78,783,105"/>
+<area shape="rect" id="node8" href="../../d0/d61/a00100.html#a03ebd97271af159e0831b61b43e6e62f" title="stride::PublicHealthAgency\l::PublicHealthAgency" alt="" coords="488,201,680,243"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a12707c23b43baa1a0f5bed51db72756d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2ba">ContactLogMode::Id</a> stride::ContactLogMode::ToMode </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a string with name to LogMode value. </p>
+
+<p>Definition at line <a class="el" href="../../db/ddf/a00164_source.html#l00039">39</a> of file <a class="el" href="../../db/ddf/a00164_source.html">ContactLogMode.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">All</a>, <a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">None</a>, <a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">Susceptibles</a>, and <a class="el" href="../../d6/d9c/a00352.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">Transmissions</a>.</p>
+
+<p>Referenced by <a class="el" href="../../db/d7b/a00296_source.html#l00042">stride::SimBuilder::Build()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d9c/a00352_a12707c23b43baa1a0f5bed51db72756d_icgraph.gif" border="0" usemap="#d6/d9c/a00352_a12707c23b43baa1a0f5bed51db72756d_icgraph" alt=""/></div>
+<map name="d6/d9c/a00352_a12707c23b43baa1a0f5bed51db72756d_icgraph" id="d6/d9c/a00352_a12707c23b43baa1a0f5bed51db72756d_icgraph">
+<area shape="rect" id="node2" href="../../d9/dcc/a00102.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="228,5,363,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3242678fd1548cd6dd420490dc06fcff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::ContactLogMode::IsMode </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether string is name of LogMode value. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">output</a></li>
-    <li class="footer">Generated on Sun Feb 10 2019 10:27:36 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d48/a00351.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">ContactLogMode</a></li>
+    <li class="footer">Generated on Mon Feb 11 2019 16:57:37 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

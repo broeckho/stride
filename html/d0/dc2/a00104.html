@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::StanController Class Reference</title>
+<title>Stride Reference Manual: stride::SimRunner Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit aa5df7f</span>
+   &#160;<span id="projectnumber">- generated for commit bb74808</span>
    </div>
   </td>
  </tr>
@@ -108,127 +108,116 @@ $(document).ready(function(){initNavTree('d0/dc2/a00104.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d7/db6/a00940.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d1/ddd/a00943.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::StanController Class Reference</div>  </div>
+<div class="title">stride::SimRunner Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Runs a simulation multiple times, with different random engine seeds.  
+<p>The simulation runner drive simulator throufgh time steps.  
  <a href="../../d0/dc2/a00104.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/d61/a00302_source.html">StanController.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../da/d50/a00301_source.html">SimRunner.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::StanController:</div>
+Inheritance diagram for stride::SimRunner:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/dad/a00941.gif" border="0" usemap="#stride_1_1StanController_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1StanController_inherit__map" id="stride_1_1StanController_inherit__map">
-<area shape="rect" id="node2" href="../../d1/d51/a00079.html" title="Controls a simulation run initiated with the command line interface (cli). " alt="" coords="5,5,171,273"/>
+<div class="center"><img src="../../d9/dce/a00944.gif" border="0" usemap="#stride_1_1SimRunner_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1SimRunner_inherit__map" id="stride_1_1SimRunner_inherit__map">
+<area shape="rect" id="node2" href="../../dc/dfe/a00125.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="5,233,187,399"/>
+<area shape="rect" id="node3" href="../../dc/dfe/a00125.html" title="Template for Subject/Observer (or Publish/Subscribe). " alt="" coords="7,5,185,156"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for stride::StanController:</div>
+Collaboration diagram for stride::SimRunner:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d12/a00942.gif" border="0" usemap="#stride_1_1StanController_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1StanController_coll__map" id="stride_1_1StanController_coll__map">
-<area shape="rect" id="node2" href="../../d1/d51/a00079.html" title="Controls a simulation run initiated with the command line interface (cli). " alt="" coords="557,572,722,752"/>
-<area shape="rect" id="node4" href="../../df/d6a/a00119.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="347,329,494,509"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="5,160,228,267"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="515,175,601,252"/>
-<area shape="rect" id="node11" href="../../de/d36/a00123.html" title="Provides a stopwatch interface to time: it accumulates time between start/stop pairs. " alt="" coords="879,329,1077,509"/>
-<area shape="rect" id="node9" title="STL class. " alt="" coords="489,5,627,97"/>
+<div class="center"><img src="../../da/d40/a00946.gif" border="0" usemap="#stride_1_1SimRunner_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1SimRunner_coll__map" id="stride_1_1SimRunner_coll__map">
+<area shape="rect" id="node2" href="../../dc/dfe/a00125.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n||+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="395,874,577,1039"/>
+<area shape="rect" id="node11" href="../../dc/dfe/a00125.html" title="Template for Subject/Observer (or Publish/Subscribe). " alt="" coords="398,639,577,789"/>
+<area shape="rect" id="node5" href="../../d5/d40/a00672.html" title="{const void\n||}" alt="" coords="5,145,92,223"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="117,145,261,223"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="285,145,417,223"/>
+<area shape="rect" id="node8" href="../../d0/d5c/a00668.html" title="{CallbackType\n||}" alt="" coords="540,293,643,370"/>
+<area shape="rect" id="node12" title="STL class. " alt="" coords="1017,675,1104,753"/>
+<area shape="rect" id="node15" href="../../da/d72/a00124.html" title="Provides a stopwatch interface to time: it accumulates time between start/stop pairs. " alt="" coords="811,867,1009,1047"/>
+<area shape="rect" id="node13" title="STL class. " alt="" coords="992,462,1129,554"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae7d704047661116cb88893671bde0c78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#ae7d704047661116cb88893671bde0c78">StanController</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:ae7d704047661116cb88893671bde0c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straight initialization.  <a href="#ae7d704047661116cb88893671bde0c78">More...</a><br /></td></tr>
-<tr class="separator:ae7d704047661116cb88893671bde0c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cc6905d4a31b469d89177de47007dbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#a5cc6905d4a31b469d89177de47007dbe">Control</a> ()</td></tr>
-<tr class="memdesc:a5cc6905d4a31b469d89177de47007dbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual run of the simulator.  <a href="#a5cc6905d4a31b469d89177de47007dbe">More...</a><br /></td></tr>
-<tr class="separator:a5cc6905d4a31b469d89177de47007dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f1cdbcca511bc11fd898dc3a872718d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#a0f1cdbcca511bc11fd898dc3a872718d">SimRunner</a> (const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; <a class="el" href="../../da/d74/a00099.html">Population</a> &gt; pop, <a class="el" href="../../df/df1/a00357.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager)</td></tr>
+<tr class="memdesc:a0f1cdbcca511bc11fd898dc3a872718d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization with property tree.  <a href="#a0f1cdbcca511bc11fd898dc3a872718d">More...</a><br /></td></tr>
+<tr class="separator:a0f1cdbcca511bc11fd898dc3a872718d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#ad59e65dfe839b8a589b1c6ffa805ba2f">~SimRunner</a> () override=default</td></tr>
+<tr class="memdesc:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ad59e65dfe839b8a589b1c6ffa805ba2f">More...</a><br /></td></tr>
+<tr class="separator:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb24930d50702acfa88bdfe5cb13a1b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../da/d72/a00124.html">util::Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#aceb24930d50702acfa88bdfe5cb13a1b">GetClock</a> () const </td></tr>
+<tr class="memdesc:aceb24930d50702acfa88bdfe5cb13a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the run &amp; sim configuration.  <a href="#aceb24930d50702acfa88bdfe5cb13a1b">More...</a><br /></td></tr>
+<tr class="separator:aceb24930d50702acfa88bdfe5cb13a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eeaa63450413a62f31bcee07df29fa3"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#a9eeaa63450413a62f31bcee07df29fa3">GetConfig</a> () const </td></tr>
+<tr class="memdesc:a9eeaa63450413a62f31bcee07df29fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the run &amp; sim configuration.  <a href="#a9eeaa63450413a62f31bcee07df29fa3">More...</a><br /></td></tr>
+<tr class="separator:a9eeaa63450413a62f31bcee07df29fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99014dd891a3422214c2a088dd38cde9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/d3a/a00101.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#a99014dd891a3422214c2a088dd38cde9">GetSim</a> () const </td></tr>
+<tr class="memdesc:a99014dd891a3422214c2a088dd38cde9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Simulator.  <a href="#a99014dd891a3422214c2a088dd38cde9">More...</a><br /></td></tr>
+<tr class="separator:a99014dd891a3422214c2a088dd38cde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81720a1766d513eb248cb443d948567f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#a81720a1766d513eb248cb443d948567f">Run</a> ()</td></tr>
+<tr class="memdesc:a81720a1766d513eb248cb443d948567f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run simulator for as many steps/days as indicated in config.  <a href="#a81720a1766d513eb248cb443d948567f">More...</a><br /></td></tr>
+<tr class="separator:a81720a1766d513eb248cb443d948567f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233f76f6af0cef8c5971112b6d2235d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#a233f76f6af0cef8c5971112b6d2235d0">Run</a> (unsigned int numSteps)</td></tr>
+<tr class="memdesc:a233f76f6af0cef8c5971112b6d2235d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run simulator for numSteps steps/days.  <a href="#a233f76f6af0cef8c5971112b6d2235d0">More...</a><br /></td></tr>
+<tr class="separator:a233f76f6af0cef8c5971112b6d2235d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00125"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00125')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../dc/dfe/a00125.html">stride::util::Subject&lt; stride::sim_event::Id &gt;</a></td></tr>
+<tr class="memitem:a4853b1d31d30e83840a9ab9a01d460dd inherit pub_methods_a00125"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfe/a00125.html#a4853b1d31d30e83840a9ab9a01d460dd">Subject</a> ()</td></tr>
+<tr class="separator:a4853b1d31d30e83840a9ab9a01d460dd inherit pub_methods_a00125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade16fa2818574a0a42874b5f15b1d3ec inherit pub_methods_a00125"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfe/a00125.html#ade16fa2818574a0a42874b5f15b1d3ec">~Subject</a> ()</td></tr>
+<tr class="separator:ade16fa2818574a0a42874b5f15b1d3ec inherit pub_methods_a00125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acddc520ab930ec98e120790b91fb8021 inherit pub_methods_a00125"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfe/a00125.html#acddc520ab930ec98e120790b91fb8021">Register</a> (const std::shared_ptr&lt; U &gt; &amp;u, <a class="el" href="../../dc/dfe/a00125.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> f)</td></tr>
+<tr class="separator:acddc520ab930ec98e120790b91fb8021 inherit pub_methods_a00125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75 inherit pub_methods_a00125"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfe/a00125.html#aaa38f379243ec0d27b47b5bd110ebe75">Unregister</a> (const std::shared_ptr&lt; U &gt; &amp;u)</td></tr>
+<tr class="separator:aaa38f379243ec0d27b47b5bd110ebe75 inherit pub_methods_a00125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0f20cb6cc045cf215f5d5a0963046f inherit pub_methods_a00125"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfe/a00125.html#a8e0f20cb6cc045cf215f5d5a0963046f">UnregisterAll</a> ()</td></tr>
+<tr class="separator:a8e0f20cb6cc045cf215f5d5a0963046f inherit pub_methods_a00125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9496d626bbde63eb55836f0af402522c inherit pub_methods_a00125"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfe/a00125.html#a9496d626bbde63eb55836f0af402522c">Notify</a> (const <a class="el" href="../../d6/de1/a00356.html#ab046b05654e26ef19fd5e4e46c16e836">EventType</a> &amp;e)</td></tr>
+<tr class="separator:a9496d626bbde63eb55836f0af402522c inherit pub_methods_a00125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae2de72162f806fe5b7008e81854bdc2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d72/a00124.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a></td></tr>
+<tr class="memdesc:ae2de72162f806fe5b7008e81854bdc2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stopwatch for timing the computation.  <a href="#ae2de72162f806fe5b7008e81854bdc2d">More...</a><br /></td></tr>
+<tr class="separator:ae2de72162f806fe5b7008e81854bdc2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c4778adb0be5161932d107c2a84d477"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a></td></tr>
+<tr class="memdesc:a1c4778adb0be5161932d107c2a84d477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ptree with configuration.  <a href="#a1c4778adb0be5161932d107c2a84d477">More...</a><br /></td></tr>
+<tr class="separator:a1c4778adb0be5161932d107c2a84d477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78babbce6074c1f0d612c67febfb388e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#a78babbce6074c1f0d612c67febfb388e">m_output_prefix</a></td></tr>
+<tr class="memdesc:a78babbce6074c1f0d612c67febfb388e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix for output data files.  <a href="#a78babbce6074c1f0d612c67febfb388e">More...</a><br /></td></tr>
+<tr class="separator:a78babbce6074c1f0d612c67febfb388e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff961d97649b68ef661d38c098baaf0"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/d3a/a00101.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a></td></tr>
+<tr class="memdesc:a4ff961d97649b68ef661d38c098baaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulator object.  <a href="#a4ff961d97649b68ef661d38c098baaf0">More...</a><br /></td></tr>
+<tr class="separator:a4ff961d97649b68ef661d38c098baaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_a00079"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00079')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d1/d51/a00079.html">stride::ControlHelper</a></td></tr>
-<tr class="memitem:adf5c02b1632443f385cc0359dc76506b inherit pro_methods_a00079"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#adf5c02b1632443f385cc0359dc76506b">ControlHelper</a> ()</td></tr>
-<tr class="memdesc:adf5c02b1632443f385cc0359dc76506b inherit pro_methods_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty controller: used as target for delegation.  <a href="#adf5c02b1632443f385cc0359dc76506b">More...</a><br /></td></tr>
-<tr class="separator:adf5c02b1632443f385cc0359dc76506b inherit pro_methods_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fd666ad523f15ba9f3b3249ba6b0a90 inherit pro_methods_a00079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a9fd666ad523f15ba9f3b3249ba6b0a90">CheckEnv</a> ()</td></tr>
-<tr class="memdesc:a9fd666ad523f15ba9f3b3249ba6b0a90 inherit pro_methods_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check install environment.  <a href="#a9fd666ad523f15ba9f3b3249ba6b0a90">More...</a><br /></td></tr>
-<tr class="separator:a9fd666ad523f15ba9f3b3249ba6b0a90 inherit pro_methods_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7015fce5931f444015baca6c73e67360 inherit pro_methods_a00079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a7015fce5931f444015baca6c73e67360">CheckOutputPrefix</a> ()</td></tr>
-<tr class="separator:a7015fce5931f444015baca6c73e67360 inherit pro_methods_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49b3d3980626e92e16758d63bd6240a7 inherit pro_methods_a00079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a49b3d3980626e92e16758d63bd6240a7">InstallLogger</a> ()</td></tr>
-<tr class="memdesc:a49b3d3980626e92e16758d63bd6240a7 inherit pro_methods_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the appropriate logger for cli environment and register as stride_logger.  <a href="#a49b3d3980626e92e16758d63bd6240a7">More...</a><br /></td></tr>
-<tr class="separator:a49b3d3980626e92e16758d63bd6240a7 inherit pro_methods_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa40b02ef62cb1b4a2db78eb847ffe964 inherit pro_methods_a00079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#aa40b02ef62cb1b4a2db78eb847ffe964">LogShutdown</a> ()</td></tr>
-<tr class="memdesc:aa40b02ef62cb1b4a2db78eb847ffe964 inherit pro_methods_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs info on setup for cli environment to stride_logger.  <a href="#aa40b02ef62cb1b4a2db78eb847ffe964">More...</a><br /></td></tr>
-<tr class="separator:aa40b02ef62cb1b4a2db78eb847ffe964 inherit pro_methods_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc021af008df0bf673682b81aa8d0010 inherit pro_methods_a00079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#adc021af008df0bf673682b81aa8d0010">LogStartup</a> ()</td></tr>
-<tr class="memdesc:adc021af008df0bf673682b81aa8d0010 inherit pro_methods_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs info on setup for cli environment to stride_logger.  <a href="#adc021af008df0bf673682b81aa8d0010">More...</a><br /></td></tr>
-<tr class="separator:adc021af008df0bf673682b81aa8d0010 inherit pro_methods_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0131365a6c658898bf3dd49eead3ed7 inherit pro_methods_a00079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#af0131365a6c658898bf3dd49eead3ed7">RegisterViewers</a> (std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">SimRunner</a> &gt; runner)</td></tr>
-<tr class="memdesc:af0131365a6c658898bf3dd49eead3ed7 inherit pro_methods_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the viewers of the <a class="el" href="../../d5/d1e/a00103.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>.  <a href="#af0131365a6c658898bf3dd49eead3ed7">More...</a><br /></td></tr>
-<tr class="separator:af0131365a6c658898bf3dd49eead3ed7 inherit pro_methods_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56dc1ac0f26ed36e457b45a1a3d421da inherit pro_methods_a00079"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a56dc1ac0f26ed36e457b45a1a3d421da">ControlHelper</a> (std::string name, const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:a56dc1ac0f26ed36e457b45a1a3d421da inherit pro_methods_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straight initialization.  <a href="#a56dc1ac0f26ed36e457b45a1a3d421da">More...</a><br /></td></tr>
-<tr class="separator:a56dc1ac0f26ed36e457b45a1a3d421da inherit pro_methods_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00079"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00079')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d1/d51/a00079.html">stride::ControlHelper</a></td></tr>
-<tr class="memitem:ae233d4c8a65307b49f65327093bdda59 inherit pro_attribs_a00079"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#ae233d4c8a65307b49f65327093bdda59">m_config_pt</a></td></tr>
-<tr class="memdesc:ae233d4c8a65307b49f65327093bdda59 inherit pro_attribs_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main configuration for run and sim.  <a href="#ae233d4c8a65307b49f65327093bdda59">More...</a><br /></td></tr>
-<tr class="separator:ae233d4c8a65307b49f65327093bdda59 inherit pro_attribs_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84806de1e330126ab6c895924d1296f4 inherit pro_attribs_a00079"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a84806de1e330126ab6c895924d1296f4">m_name</a></td></tr>
-<tr class="memdesc:a84806de1e330126ab6c895924d1296f4 inherit pro_attribs_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contoller's name.  <a href="#a84806de1e330126ab6c895924d1296f4">More...</a><br /></td></tr>
-<tr class="separator:a84806de1e330126ab6c895924d1296f4 inherit pro_attribs_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3be4db55fc19e28be55d6f3de9cc4c08 inherit pro_attribs_a00079"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a3be4db55fc19e28be55d6f3de9cc4c08">m_output_prefix</a></td></tr>
-<tr class="memdesc:a3be4db55fc19e28be55d6f3de9cc4c08 inherit pro_attribs_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix to output (name prefix or prefix dir)  <a href="#a3be4db55fc19e28be55d6f3de9cc4c08">More...</a><br /></td></tr>
-<tr class="separator:a3be4db55fc19e28be55d6f3de9cc4c08 inherit pro_attribs_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9586d0f5815c7d4c24c9fe2563b2e00e inherit pro_attribs_a00079"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d36/a00123.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a9586d0f5815c7d4c24c9fe2563b2e00e">m_run_clock</a></td></tr>
-<tr class="memdesc:a9586d0f5815c7d4c24c9fe2563b2e00e inherit pro_attribs_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stopwatch for timing the computation.  <a href="#a9586d0f5815c7d4c24c9fe2563b2e00e">More...</a><br /></td></tr>
-<tr class="separator:a9586d0f5815c7d4c24c9fe2563b2e00e inherit pro_attribs_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8633301b0187b5a1077a2d583910cd0 inherit pro_attribs_a00079"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#ab8633301b0187b5a1077a2d583910cd0">m_stride_logger</a></td></tr>
-<tr class="memdesc:ab8633301b0187b5a1077a2d583910cd0 inherit pro_attribs_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">General logger.  <a href="#ab8633301b0187b5a1077a2d583910cd0">More...</a><br /></td></tr>
-<tr class="separator:ab8633301b0187b5a1077a2d583910cd0 inherit pro_attribs_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a7386ab81543b81bbc888176c55d7e0 inherit pro_attribs_a00079"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a9a7386ab81543b81bbc888176c55d7e0">m_use_install_dirs</a></td></tr>
-<tr class="memdesc:a9a7386ab81543b81bbc888176c55d7e0 inherit pro_attribs_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Working dir or install dir mode.  <a href="#a9a7386ab81543b81bbc888176c55d7e0">More...</a><br /></td></tr>
-<tr class="separator:a9a7386ab81543b81bbc888176c55d7e0 inherit pro_attribs_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a77b224b46f5ea8b57d91c410e7da5b inherit pro_attribs_a00079"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dc9/a00355.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a4a77b224b46f5ea8b57d91c410e7da5b">m_rn_manager</a></td></tr>
-<tr class="memdesc:a4a77b224b46f5ea8b57d91c410e7da5b inherit pro_attribs_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">The manager for random numbers.  <a href="#a4a77b224b46f5ea8b57d91c410e7da5b">More...</a><br /></td></tr>
-<tr class="separator:a4a77b224b46f5ea8b57d91c410e7da5b inherit pro_attribs_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_a00125"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00125')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../dc/dfe/a00125.html">stride::util::Subject&lt; stride::sim_event::Id &gt;</a></td></tr>
+<tr class="memitem:ac4fa78f455203ba23ab4442d14822895 inherit pub_types_a00125"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfe/a00125.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> = <a class="el" href="../../d6/de1/a00356.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></td></tr>
+<tr class="separator:ac4fa78f455203ba23ab4442d14822895 inherit pub_types_a00125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3face8040dba107d2ddcfc5f766aa58d inherit pub_types_a00125"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfe/a00125.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> = std::function&lt; void(const <a class="el" href="../../d6/de1/a00356.html#ab046b05654e26ef19fd5e4e46c16e836">EventType</a> &amp;)&gt;</td></tr>
+<tr class="separator:a3face8040dba107d2ddcfc5f766aa58d inherit pub_types_a00125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Runs a simulation multiple times, with different random engine seeds. </p>
-<p>The infection count at each day is captured a a text file is produced with the infection counts over time and the associated boxplot data. The runs are in parallel (iff OpenMP available), individuals runs not.</p>
-<p><a class="el" href="../../db/db6/a00074.html" title="Controls a simulation run initiated with the command line interface (cli). ">CliController</a> setup functions include (</p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/d51/a00079.html" title="Controls a simulation run initiated with the command line interface (cli). ">ControlHelper</a>): <ul>
-<li>checks the OpenMP environment </li>
-<li>checks the file system environment </li>
-<li>interprets and executes the ouput prefix </li>
-<li>intalls a <a class="el" href="../../d7/dfc/a00349.html" title="Main namespace for the project. ">stride</a> logger</li>
+<div class="textblock"><p>The simulation runner drive simulator throufgh time steps. </p>
+<p>It's functions are: </p><ul>
+<li>invokes the simulator builder (<dl class="section see"><dt>See also</dt><dd>SimulatorBuilder) </dd></dl>
+</li>
+<li>manages elapsed time clock </li>
+<li>manages time steps  viewers of its events (<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d6/de1/a00356.html#ab046b05654e26ef19fd5e4e46c16e836" title="Enumerates the event. ">sim_event::Id</a>) </dd></dl>
+</li>
 </ul>
-The <a class="el" href="../../db/db6/a00074.html" title="Controls a simulation run initiated with the command line interface (cli). ">CliController</a> execution: <ul>
-<li>produces a random seed for each run </li>
-<li>creates a population (</li>
-</ul>
-</dd>
-<dd>
-<a class="el" href="../../da/d74/a00099.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>) for each run <ul>
-<li>creates a simulation runner (</li>
-</ul>
-</dd>
-<dd>
-<a class="el" href="../../d5/d1e/a00103.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>) for each run <ul>
-<li>registers the appropriate viewer for each runner </li>
-<li>runs the simulations </li>
-<li>produces the <a class="el" href="../../d6/d9c/a00352.html" title="Utilities for the output files. ">output</a>.</li>
-</ul>
-The procedure implies that the parameters "run.rng_seed" and also "run.num_threads" in the configuration are overriden for the individual runs.</dd></dl>
-<p>The output is textual and consists of multiple CSV blocks separated by blank lines. The first block has the time evolution of the infection count in rows, the second block has the boxplot data in columns. The format is amenable to the gnuplot plotting tool (so in each CSV block the header row with column labels starts with a '#'). </p>
 
-<p>Definition at line <a class="el" href="../../d0/d61/a00302_source.html#l00057">57</a> of file <a class="el" href="../../d0/d61/a00302_source.html">StanController.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00045">45</a> of file <a class="el" href="../../da/d50/a00301_source.html">SimRunner.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae7d704047661116cb88893671bde0c78"></a>
+<a class="anchor" id="a0f1cdbcca511bc11fd898dc3a872718d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -236,11 +225,27 @@ The procedure implies that the parameters "run.rng_seed" and also "run.num_threa
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::StanController::StanController </td>
+          <td class="memname">stride::SimRunner::SimRunner </td>
           <td>(</td>
           <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramname"><em>configPt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../da/d74/a00099.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/df1/a00357.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -250,19 +255,162 @@ The procedure implies that the parameters "run.rng_seed" and also "run.num_threa
 </table>
 </div><div class="memdoc">
 
-<p>Straight initialization. </p>
+<p>Initialization with property tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">configPt</td><td>config info for run and for config of simulator </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00045">45</a> of file <a class="el" href="../../da/d50/a00301_source.html">StanController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../db/da2/a00300_source.html#l00033">33</a> of file <a class="el" href="../../db/da2/a00300_source.html">SimRunner.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d4/d3a/a00101.html#a719c0fbe957430ce7b9aed3d9a0e8f0a">stride::Sim::Create()</a>, <a class="el" href="../../da/d50/a00301_source.html#l00072">m_clock</a>, <a class="el" href="../../da/d50/a00301_source.html#l00073">m_config_pt</a>, <a class="el" href="../../da/d50/a00301_source.html#l00074">m_output_prefix</a>, <a class="el" href="../../da/d50/a00301_source.html#l00075">m_sim</a>, <a class="el" href="../../d1/d67/a00310_source.html#l00062">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../d3/d07/a00305_source.html#l00050">stride::util::Stopwatch&lt; T &gt;::Start()</a>, and <a class="el" href="../../d3/d07/a00305_source.html#l00060">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/dc2/a00104_a0f1cdbcca511bc11fd898dc3a872718d_cgraph.gif" border="0" usemap="#d0/dc2/a00104_a0f1cdbcca511bc11fd898dc3a872718d_cgraph" alt=""/></div>
+<map name="d0/dc2/a00104_a0f1cdbcca511bc11fd898dc3a872718d_cgraph" id="d0/dc2/a00104_a0f1cdbcca511bc11fd898dc3a872718d_cgraph">
+<area shape="rect" id="node2" href="../../d4/d3a/a00101.html#a719c0fbe957430ce7b9aed3d9a0e8f0a" title="Create Sim initialized by the configuration in property tree and population. " alt="" coords="205,5,347,32"/>
+<area shape="rect" id="node3" href="../../dc/dfe/a00125.html#a9496d626bbde63eb55836f0af402522c" title="stride::util::Subject\l\&lt; stride::sim_event::\lId \&gt;::Notify" alt="" coords="199,56,353,112"/>
+<area shape="rect" id="node4" href="../../da/d72/a00124.html#acaf0b5f9f645a7dd6420420443de5a96" title="Starts stopwatch if it was stopped. " alt="" coords="196,135,356,177"/>
+<area shape="rect" id="node5" href="../../da/d72/a00124.html#a4b6145f590e94467a0048817f348ac75" title="Stops the stopwatch if it was running. " alt="" coords="196,201,356,242"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad59e65dfe839b8a589b1c6ffa805ba2f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::SimRunner::~SimRunner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a5cc6905d4a31b469d89177de47007dbe"></a>
+<a class="anchor" id="aceb24930d50702acfa88bdfe5cb13a1b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../da/d72/a00124.html">util::Stopwatch</a>&amp; stride::SimRunner::GetClock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the run &amp; sim configuration. </p>
+
+<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00057">57</a> of file <a class="el" href="../../da/d50/a00301_source.html">SimRunner.h</a>.</p>
+
+<p>References <a class="el" href="../../da/d50/a00301_source.html#l00072">m_clock</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9eeaa63450413a62f31bcee07df29fa3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const boost::property_tree::ptree&amp; stride::SimRunner::GetConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the run &amp; sim configuration. </p>
+
+<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00060">60</a> of file <a class="el" href="../../da/d50/a00301_source.html">SimRunner.h</a>.</p>
+
+<p>References <a class="el" href="../../da/d50/a00301_source.html#l00073">m_config_pt</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a99014dd891a3422214c2a088dd38cde9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d4/d3a/a00101.html">Sim</a>&gt; stride::SimRunner::GetSim </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the Simulator. </p>
+
+<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00063">63</a> of file <a class="el" href="../../da/d50/a00301_source.html">SimRunner.h</a>.</p>
+
+<p>References <a class="el" href="../../da/d50/a00301_source.html#l00075">m_sim</a>, and <a class="el" href="../../db/da2/a00300_source.html#l00081">Run()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/dc2/a00104_a99014dd891a3422214c2a088dd38cde9_cgraph.gif" border="0" usemap="#d0/dc2/a00104_a99014dd891a3422214c2a088dd38cde9_cgraph" alt=""/></div>
+<map name="d0/dc2/a00104_a99014dd891a3422214c2a088dd38cde9_cgraph" id="d0/dc2/a00104_a99014dd891a3422214c2a088dd38cde9_cgraph">
+<area shape="rect" id="node2" href="../../d0/dc2/a00104.html#a81720a1766d513eb248cb443d948567f" title="Run simulator for as many steps/days as indicated in config. " alt="" coords="196,13,363,39"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a81720a1766d513eb248cb443d948567f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::StanController::Control </td>
+          <td class="memname">void stride::SimRunner::Run </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -270,73 +418,176 @@ The procedure implies that the parameters "run.rng_seed" and also "run.num_threa
       </table>
 </div><div class="memdoc">
 
-<p>Actual run of the simulator. </p>
+<p>Run simulator for as many steps/days as indicated in config. </p>
 
-<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00047">47</a> of file <a class="el" href="../../da/d50/a00301_source.html">StanController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../db/da2/a00300_source.html#l00081">81</a> of file <a class="el" href="../../db/da2/a00300_source.html">SimRunner.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d7/d6e/a00190_source.html#l00051">stride::util::FileSys::BuildPath()</a>, <a class="el" href="../../d6/dfb/a00172_source.html#l00061">stride::ControlHelper::CheckEnv()</a>, <a class="el" href="../../d6/dfb/a00172_source.html#l00071">stride::ControlHelper::CheckOutputPrefix()</a>, <a class="el" href="../../dd/d86/a00271_source.html#l00091">stride::Population::Create()</a>, <a class="el" href="../../d6/dfb/a00172_source.html#l00078">stride::ControlHelper::InstallLogger()</a>, <a class="el" href="../../d6/dfb/a00172_source.html#l00089">stride::ControlHelper::LogShutdown()</a>, <a class="el" href="../../d6/dfb/a00172_source.html#l00095">stride::ControlHelper::LogStartup()</a>, <a class="el" href="../../d7/d3f/a00173_source.html#l00075">stride::ControlHelper::m_config_pt</a>, <a class="el" href="../../d7/d3f/a00173_source.html#l00081">stride::ControlHelper::m_rn_manager</a>, <a class="el" href="../../d7/d3f/a00173_source.html#l00079">stride::ControlHelper::m_stride_logger</a>, and <a class="el" href="../../d6/d22/a00245_source.html#l00033">stride::viewers::InfectedViewer::Update()</a>.</p>
+<p>References <a class="el" href="../../da/d50/a00301_source.html#l00073">m_config_pt</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d17/a00304_source.html#l00042">main()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d0/dc2/a00104_a5cc6905d4a31b469d89177de47007dbe_cgraph.gif" border="0" usemap="#d0/dc2/a00104_a5cc6905d4a31b469d89177de47007dbe_cgraph" alt=""/></div>
-<map name="d0/dc2/a00104_a5cc6905d4a31b469d89177de47007dbe_cgraph" id="d0/dc2/a00104_a5cc6905d4a31b469d89177de47007dbe_cgraph">
-<area shape="rect" id="node2" href="../../d3/d00/a00113.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="451,5,587,47"/>
-<area shape="rect" id="node4" href="../../d1/d51/a00079.html#a9fd666ad523f15ba9f3b3249ba6b0a90" title="Check install environment. " alt="" coords="221,377,375,419"/>
-<area shape="rect" id="node6" href="../../d1/d51/a00079.html#a7015fce5931f444015baca6c73e67360" title="stride::ControlHelper\l::CheckOutputPrefix" alt="" coords="221,181,375,223"/>
-<area shape="rect" id="node8" href="../../da/d74/a00099.html#a7cfcedae698db0dc471770044de4834d" title="Create an empty Population, used in gengeopop. " alt="" coords="231,247,365,288"/>
-<area shape="rect" id="node9" href="../../d1/d51/a00079.html#a49b3d3980626e92e16758d63bd6240a7" title="Make the appropriate logger for cli environment and register as stride_logger. " alt="" coords="221,71,375,112"/>
-<area shape="rect" id="node11" href="../../d1/d51/a00079.html#aa40b02ef62cb1b4a2db78eb847ffe964" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="221,312,375,353"/>
-<area shape="rect" id="node16" href="../../d1/d51/a00079.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="221,632,375,673"/>
-<area shape="rect" id="node28" href="../../d6/db3/a00130.html#ac539c7549cc8c19530813f0bdb35a14d" title="Let viewer perform update. " alt="" coords="212,697,384,739"/>
-<area shape="rect" id="node3" href="../../d3/d00/a00113.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="682,68,818,109"/>
-<area shape="rect" id="node5" href="../../d3/d00/a00113.html#a9dde9db2fbf4a2f6fa9e3116b5fe2949" title="Verify that current dir is root dir and all install dirs are present. " alt="" coords="682,407,818,448"/>
-<area shape="rect" id="node7" href="../../d3/d00/a00113.html#a1710fc9d900dba634d24c76f4bea072c" title="Create a directory relative to the current directory with the given path, returns if it was succesful..." alt="" coords="451,188,587,229"/>
-<area shape="rect" id="node10" href="../../d8/d87/a00118.html#a106af93dd3f814adf8b87ffaaf3ef3bb" title="Return a (not&#45;yet&#45;registered) commandline and file logger, without registering it. " alt="" coords="447,71,591,112"/>
-<area shape="rect" id="node12" href="../../de/d36/a00123.html#a4b6145f590e94467a0048817f348ac75" title="Stops the stopwatch if it was running. " alt="" coords="439,319,599,360"/>
-<area shape="rect" id="node13" href="../../de/d36/a00123.html#a1a068a66f6b5db8cf68dabe5a8935f22" title="Returns string representation of readout. " alt="" coords="439,253,599,295"/>
-<area shape="rect" id="node14" href="../../de/d36/a00123.html#afe36cf7e76eb1de8cda4490fc5b41829" title="Returns the accumulated value without altering the stopwatch state. " alt="" coords="655,231,845,258"/>
-<area shape="rect" id="node15" href="../../df/dcd/a00127.html#ad6dcc9ca1dfee4746a739175240585ce" title="Produce string in hh:mm:ss format. " alt="" coords="663,283,837,324"/>
-<area shape="rect" id="node17" href="../../d3/d00/a00113.html#a74338206b2b8392ff8e727b0be31d123" title="Return config dir (only relevant when use_install_dirs mode is active) " alt="" coords="451,632,587,673"/>
-<area shape="rect" id="node19" href="../../d3/d00/a00113.html#a2ed578f28e57ef8a7e0c2653c30c10e6" title="Get path to the current directory. " alt="" coords="451,697,587,739"/>
-<area shape="rect" id="node20" href="../../d3/d00/a00113.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="451,501,587,543"/>
-<area shape="rect" id="node21" href="../../d3/d00/a00113.html#a86435813fb1eb87fcf9023ddbf27fe4a" title="Get path of the executable. " alt="" coords="451,436,587,477"/>
-<area shape="rect" id="node22" href="../../d3/d00/a00113.html#a08ac8bd3a86a0db3901aa2d422bd6d13" title="Return install root dir (only relevant when use_install_dirs mode is active) " alt="" coords="451,567,587,608"/>
-<area shape="rect" id="node23" href="../../d1/dd6/a00108.html#aea2c9d397f10f54b7ae47f4b0f181799" title="Return git revision string. " alt="" coords="672,783,828,824"/>
-<area shape="rect" id="node24" href="../../d1/dd6/a00108.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="True if OpenMP in executable, false otherwise. " alt="" coords="441,880,597,921"/>
-<area shape="rect" id="node26" href="../../d1/dd6/a00108.html#a6b4240ce29160e778c69f9e246e1747d" title="Return number of threads (in case of OpenMP). " alt="" coords="655,939,845,980"/>
-<area shape="rect" id="node27" href="../../db/d10/a00350.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="432,815,607,856"/>
-<area shape="rect" id="node18" href="../../d3/d00/a00113.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="667,574,833,601"/>
-<area shape="rect" id="node25" href="../../d1/dd6/a00108.html#a502bd4410a3e77792ea575f77f470d41" title="Return current hostname. " alt="" coords="672,873,828,915"/>
-</map>
-</div>
-</p>
+<p>Referenced by <a class="el" href="../../da/d50/a00301_source.html#l00063">GetSim()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/dc2/a00104_a5cc6905d4a31b469d89177de47007dbe_icgraph.gif" border="0" usemap="#d0/dc2/a00104_a5cc6905d4a31b469d89177de47007dbe_icgraph" alt=""/></div>
-<map name="d0/dc2/a00104_a5cc6905d4a31b469d89177de47007dbe_icgraph" id="d0/dc2/a00104_a5cc6905d4a31b469d89177de47007dbe_icgraph">
-<area shape="rect" id="node2" href="../../d8/d17/a00304.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="212,13,267,39"/>
+<div class="center"><img src="../../d0/dc2/a00104_a81720a1766d513eb248cb443d948567f_icgraph.gif" border="0" usemap="#d0/dc2/a00104_a81720a1766d513eb248cb443d948567f_icgraph" alt=""/></div>
+<map name="d0/dc2/a00104_a81720a1766d513eb248cb443d948567f_icgraph" id="d0/dc2/a00104_a81720a1766d513eb248cb443d948567f_icgraph">
+<area shape="rect" id="node2" href="../../d0/dc2/a00104.html#a99014dd891a3422214c2a088dd38cde9" title="Return the Simulator. " alt="" coords="220,5,363,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
+<a class="anchor" id="a233f76f6af0cef8c5971112b6d2235d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::SimRunner::Run </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>numSteps</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run simulator for numSteps steps/days. </p>
+
+<p>Definition at line <a class="el" href="../../db/da2/a00300_source.html#l00046">46</a> of file <a class="el" href="../../db/da2/a00300_source.html">SimRunner.cpp</a>.</p>
+
+<p>References <a class="el" href="../../da/d50/a00301_source.html#l00072">m_clock</a>, <a class="el" href="../../da/d50/a00301_source.html#l00073">m_config_pt</a>, <a class="el" href="../../da/d50/a00301_source.html#l00075">m_sim</a>, <a class="el" href="../../d1/d67/a00310_source.html#l00062">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../d3/d07/a00305_source.html#l00050">stride::util::Stopwatch&lt; T &gt;::Start()</a>, and <a class="el" href="../../d3/d07/a00305_source.html#l00060">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/dc2/a00104_a233f76f6af0cef8c5971112b6d2235d0_cgraph.gif" border="0" usemap="#d0/dc2/a00104_a233f76f6af0cef8c5971112b6d2235d0_cgraph" alt=""/></div>
+<map name="d0/dc2/a00104_a233f76f6af0cef8c5971112b6d2235d0_cgraph" id="d0/dc2/a00104_a233f76f6af0cef8c5971112b6d2235d0_cgraph">
+<area shape="rect" id="node2" href="../../dc/dfe/a00125.html#a9496d626bbde63eb55836f0af402522c" title="stride::util::Subject\l\&lt; stride::sim_event::\lId \&gt;::Notify" alt="" coords="223,5,377,61"/>
+<area shape="rect" id="node3" href="../../da/d72/a00124.html#acaf0b5f9f645a7dd6420420443de5a96" title="Starts stopwatch if it was stopped. " alt="" coords="220,85,380,126"/>
+<area shape="rect" id="node4" href="../../da/d72/a00124.html#a4b6145f590e94467a0048817f348ac75" title="Stops the stopwatch if it was running. " alt="" coords="220,150,380,191"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ae2de72162f806fe5b7008e81854bdc2d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d72/a00124.html">util::Stopwatch</a> stride::SimRunner::m_clock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stopwatch for timing the computation. </p>
+
+<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00072">72</a> of file <a class="el" href="../../da/d50/a00301_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/d50/a00301_source.html#l00057">GetClock()</a>, <a class="el" href="../../db/da2/a00300_source.html#l00046">Run()</a>, and <a class="el" href="../../db/da2/a00300_source.html#l00033">SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c4778adb0be5161932d107c2a84d477"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::property_tree::ptree stride::SimRunner::m_config_pt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ptree with configuration. </p>
+
+<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00073">73</a> of file <a class="el" href="../../da/d50/a00301_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/d50/a00301_source.html#l00060">GetConfig()</a>, <a class="el" href="../../db/da2/a00300_source.html#l00046">Run()</a>, and <a class="el" href="../../db/da2/a00300_source.html#l00033">SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a78babbce6074c1f0d612c67febfb388e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::SimRunner::m_output_prefix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prefix for output data files. </p>
+
+<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00074">74</a> of file <a class="el" href="../../da/d50/a00301_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../db/da2/a00300_source.html#l00033">SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4ff961d97649b68ef661d38c098baaf0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d4/d3a/a00101.html">Sim</a>&gt; stride::SimRunner::m_sim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Simulator object. </p>
+
+<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00075">75</a> of file <a class="el" href="../../da/d50/a00301_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/d50/a00301_source.html#l00063">GetSim()</a>, <a class="el" href="../../db/da2/a00300_source.html#l00046">Run()</a>, and <a class="el" href="../../db/da2/a00300_source.html#l00033">SimRunner()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d0/d61/a00302_source.html">StanController.h</a></li>
-<li><a class="el" href="../../da/d50/a00301_source.html">StanController.cpp</a></li>
+<li><a class="el" href="../../da/d50/a00301_source.html">SimRunner.h</a></li>
+<li><a class="el" href="../../db/da2/a00300_source.html">SimRunner.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/dc2/a00104.html">StanController</a></li>
-    <li class="footer">Generated on Sun Feb 10 2019 10:27:36 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d48/a00351.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/dc2/a00104.html">SimRunner</a></li>
+    <li class="footer">Generated on Mon Feb 11 2019 16:57:37 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

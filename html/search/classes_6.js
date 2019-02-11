@@ -1,7 +1,7 @@
 var searchData=
 [
   ['generator',['Generator',['../d7/d7a/a00016.html',1,'gengeopop']]],
-  ['genpopbuilder',['GenPopBuilder',['../d1/d1e/a00087.html',1,'stride']]],
+  ['genpopcontroller',['GenPopController',['../da/d2a/a00086.html',1,'stride']]],
   ['geoaggregator',['GeoAggregator',['../d4/d51/a00017.html',1,'gengeopop']]],
   ['geoaggregator_3c_20policy_20_3e',['GeoAggregator&lt; Policy &gt;',['../d1/d2b/a00018.html',1,'gengeopop']]],
   ['geoaggregator_3c_20policy_2c_20f_20_3e',['GeoAggregator&lt; Policy, F &gt;',['../dd/da2/a00019.html',1,'gengeopop']]],
@@ -23,5 +23,6 @@ var searchData=
   ['geogridreader',['GeoGridReader',['../d5/d79/a00030.html',1,'gengeopop']]],
   ['geogridreaderfactory',['GeoGridReaderFactory',['../df/d61/a00031.html',1,'gengeopop']]],
   ['geogridwriter',['GeoGridWriter',['../dc/d87/a00032.html',1,'gengeopop']]],
-  ['geogridwriterfactory',['GeoGridWriterFactory',['../d0/dc0/a00033.html',1,'gengeopop']]]
+  ['geogridwriterfactory',['GeoGridWriterFactory',['../d0/dc0/a00033.html',1,'gengeopop']]],
+  ['geopopbuilder',['GeoPopBuilder',['../d1/d1e/a00087.html',1,'stride']]]
 ];

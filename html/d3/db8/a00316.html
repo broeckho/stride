@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ThreadException.h File Reference</title>
+<title>Stride Reference Manual: SurveySeeder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit aa5df7f</span>
+   &#160;<span id="projectnumber">- generated for commit bb74808</span>
    </div>
   </td>
  </tr>
@@ -108,25 +108,34 @@ $(document).ready(function(){initNavTree('d3/db8/a00316.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">ThreadException.h File Reference</div>  </div>
+<div class="title">SurveySeeder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;boost/optional.hpp&gt;</code><br />
-<code>#include &lt;mutex&gt;</code><br />
+
+<p>Header file for the SurveySeeder class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d7b/a00286_source.html">util/RnMan.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ThreadException.h:</div>
+Include dependency graph for SurveySeeder.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d0f/a00644.gif" border="0" usemap="#ThreadException_8h" alt=""/></div>
-<map name="ThreadException_8h" id="ThreadException_8h">
+<div class="center"><img src="../../d9/d0f/a00644.gif" border="0" usemap="#SurveySeeder_8h" alt=""/></div>
+<map name="SurveySeeder_8h" id="SurveySeeder_8h">
+<area shape="rect" id="node2" href="../../d5/d7b/a00286.html" title="Interface of RnMan. " alt="" coords="650,87,750,114"/>
+<area shape="rect" id="node3" href="../../d3/d58/a00285.html" title="Interface of RnPcg. " alt="" coords="675,169,725,196"/>
+<area shape="rect" id="node4" href="../../d0/da2/a00307.html" title="Miscellaneous string utilities. " alt="" coords="409,244,509,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/dcf/a00645.gif" border="0" usemap="#ThreadException_8hdep" alt=""/></div>
-<map name="ThreadException_8hdep" id="ThreadException_8hdep">
-<area shape="rect" id="node2" href="../../d5/df1/a00206.html" title="GeoGridJSONReader.cpp" alt="" coords="5,80,181,107"/>
-<area shape="rect" id="node3" href="../../da/de7/a00210.html" title="GeoGridProtoReader.cpp" alt="" coords="205,80,384,107"/>
+<div class="center"><img src="../../d6/dcf/a00645.gif" border="0" usemap="#SurveySeeder_8hdep" alt=""/></div>
+<map name="SurveySeeder_8hdep" id="SurveySeeder_8hdep">
+<area shape="rect" id="node2" href="../../dc/d52/a00183.html" title="Initialize populations: implementation. " alt="" coords="5,80,168,107"/>
+<area shape="rect" id="node3" href="../../dd/df3/a00219.html" title="Initialize populations: implementation. " alt="" coords="193,80,335,107"/>
+<area shape="rect" id="node4" href="../../d4/d6f/a00315.html" title="Implementation for the SurveySeeder class. " alt="" coords="360,80,499,107"/>
+<area shape="rect" id="node5" href="../../db/d7b/a00296.html" title="Implementation for the SimBuilder class. " alt="" coords="523,80,640,107"/>
 </map>
 </div>
 </div>
@@ -134,27 +143,27 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html">gengeopop::ThreadException</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a wrapper for capturing exceptions thrown in a multi-threaded environment.  <a href="../../dc/dee/a00053.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html">gengeopop::ThreadException::RunType&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The used for executing a function with a return type.  <a href="../../d1/dea/a00054.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html">gengeopop::ThreadException::RunType&lt; void &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d70/a00106.html">stride::SurveySeeder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with survey participants.  <a href="../../d7/d70/a00106.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:df/d91/a00335"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d91/a00335.html">gengeopop</a></td></tr>
+<tr class="memitem:d0/d48/a00351"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d48/a00351.html">stride</a></td></tr>
+<tr class="memdesc:d0/d48/a00351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header file for the SurveySeeder class. </p>
+
+<p>Definition in file <a class="el" href="../../d3/db8/a00316_source.html">SurveySeeder.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d3/db8/a00316.html">ThreadException.h</a></li>
-    <li class="footer">Generated on Sun Feb 10 2019 10:27:35 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d3/db8/a00316.html">SurveySeeder.h</a></li>
+    <li class="footer">Generated on Mon Feb 11 2019 16:57:36 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
