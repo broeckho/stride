@@ -13,11 +13,10 @@
  *  Copyright 2018, 2019 Jan Broeckhove and Bistromatics group.
  */
 
-
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/io/GeoGridWriter.h"
 #include "gengeopop/io/GeoGridWriterFactory.h"
-#include "pop/GenPopBuilder.h"
+#include "pop/GeoPopBuilder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/RunConfigManager.h"
@@ -50,10 +49,6 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 CmdLine cmd("genpop", ' ', "1.0");
 
-                string si = "Look for configuration file specified by the -c file=<file> "
-                            " or -c <file> in the stride install directories";
-                SwitchArg installedArg("i", "installed", si, cmd, true);
-
                 string           so = "Override configuration file parameters with values provided here.";
                 MultiArg<string> overrideArg("o", "override", so, false, "<NAME>=<VALUE>", cmd);
 
@@ -77,8 +72,7 @@ int main(int argc, char* argv[])
                         configPt = RunConfigManager::Create(config);
                 } else {
                         config = regex_replace(config, regex(string("^file=")), string(""));
-                        const filesys::path configPath =
-                            (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : filesys::path(config);
+                        const filesys::path configPath = FileSys::GetConfigDir() /= config;
                         configPt = FileSys::ReadPtreeFile(configPath);
                 }
 
@@ -108,8 +102,8 @@ int main(int argc, char* argv[])
                 // Set up the GenPopBuilder and build population with GeoGrid.
                 // --------------------------------------------------------------
                 logger->info("GenPopBuilder invoked.");
-                GenPopBuilder genPopBuilder(configPt, rnManager, logger);
-                const auto pop = Population::Create();
+                GeoPopBuilder genPopBuilder(configPt, rnManager, logger);
+                const auto    pop = Population::Create();
 
                 genPopBuilder.Build(pop);
                 logger->info("GenPopBuilder done.");

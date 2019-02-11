@@ -31,9 +31,9 @@ namespace stride {
 class Population;
 
 /**
- * Initializes Population objects.
+ * Builds poulation of a geographic grid.
  */
-class GenPopBuilder : public AbstractPopBuilder
+class GeoPopBuilder : public AbstractPopBuilder
 {
 public:
         /// Use constructor of base.

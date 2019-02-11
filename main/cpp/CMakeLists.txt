@@ -47,7 +47,7 @@ set(LIB_SRC
     pop/Person.cpp
     pop/Population.cpp
     pop/DefaultPopBuilder.cpp
-    pop/GenPopBuilder.cpp
+    pop/GeoPopBuilder.cpp
     pop/ImportPopBuilder.cpp
     pop/SurveySeeder.cpp
 #---

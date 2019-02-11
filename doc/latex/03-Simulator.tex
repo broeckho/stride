@@ -60,12 +60,11 @@ The install directory is also the workspace for \texttt{Stride}. The \texttt{Str
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Run
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
 \section{Running the simulator}
 
 From the workspace directory, the simulator can be started  using the command \mbox{``\texttt{./bin/stride}''}. Arguments can be passed to the simulator on the command line:
 \begin{verbatim}
-USAGE: 
- 
    bin/stride  [-e <clean|dump|sim|geopop>] [-c <CONFIGURATION>] [-o
                <<NAME>=<VALUE>>] ...  [-i] [--stan <COUNT>] [--]
                [--version] [-h]
@@ -90,10 +89,6 @@ Where:
       times)
      Override configuration file parameters with values provided here.
  
-   -i,  --installed
-     Look for configuration file specified by the -c file=<file>  or -c
-     <file> in the stride install directories
- 
    --stan <COUNT>
      Stochastic Analysis (stan) will run <COUNT> simulations, each with
      a different seed for the random engine. Only applies in case of -e sim.
@@ -108,11 +103,11 @@ Where:
      Displays usage information and exits.
 \end{verbatim}
 
-For example if you want run with the default configuration file, but you
-want a different logging level from the one specified in the default configuration,
-(available choices are: \texttt{trace}, \texttt{debug}, \texttt{info}, \texttt{warn},
-\texttt{error}, \texttt{critical}, \texttt{off})) execute:\\
-\verb!         stride --override stride_log_level=trace!
+For example if you run with the default configuration file, but you
+want to change the logging level,
+(choices are: \texttt{trace}, \texttt{debug}, \texttt{info}, \texttt{warn},
+\texttt{error}, \texttt{critical}, \texttt{off})) execute:
+\verb!         stride --override stride_log_level=error!
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,10 +119,8 @@ want a different logging level from the one specified in the default configurati
  from the workspace directory, with the command \mbox{``\texttt{./bin/genpop}''}.
  The following options are available:
 \begin{verbatim}
-
    bin/genpop  [-c <CONFIGURATION>] [-o <<NAME>=<VALUE>>] ...  [-i]
                [--output <OUTPUT FILE>] [--] [--version] [-h]
-
 Where:
 
    -c <CONFIGURATION>,  --config <CONFIGURATION>
@@ -142,10 +135,6 @@ Where:
       times)
      Override configuration file parameters with values provided here.
 
-   -i,  --installed
-     Look for configuration file specified by the -c file=<file>  or -c
-     <file> in the stride install directories
-
    --,  --ignore_rest
      Ignores the rest of the labeled arguments following this flag.
    --version
@@ -153,11 +142,8 @@ Where:
  
    -h,  --help
      Displays usage information and exits.
-     
 \end{verbatim}
 
-The use of the \texttt{--override} option with respect to the parameters in the configuration file is identical to
-that with the stride executable.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Wrapper

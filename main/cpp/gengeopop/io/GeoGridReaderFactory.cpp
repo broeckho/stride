@@ -15,9 +15,9 @@
 
 #include "GeoGridReaderFactory.h"
 
-#include "gengeopop/io/GeoGridReader.h"
 #include "gengeopop/io/GeoGridJSONReader.h"
 #include "gengeopop/io/GeoGridProtoReader.h"
+#include "gengeopop/io/GeoGridReader.h"
 #include "util/Exception.h"
 
 #include <fstream>

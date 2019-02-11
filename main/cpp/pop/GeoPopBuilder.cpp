@@ -18,7 +18,7 @@
  * Initialize populations: implementation.
  */
 
-#include "GenPopBuilder.h"
+#include "GeoPopBuilder.h"
 
 #include "gengeopop/GeoGridBuilder.h"
 #include "gengeopop/GeoGridConfig.h"
@@ -41,7 +41,7 @@ using namespace util;
 using namespace boost::property_tree;
 using namespace gengeopop;
 
-shared_ptr<Population> GenPopBuilder::Build(shared_ptr<Population> pop)
+shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
 {
         if (!m_stride_logger) {
                 m_stride_logger = LogUtils::CreateNullLogger("PopBuilder_logger");

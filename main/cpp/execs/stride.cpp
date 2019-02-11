@@ -53,10 +53,6 @@ int main(int argc, char** argv)
                             "different seed for the random engine. Only applies in case of -e sim. ";
                 ValueArg<unsigned int> stanArg("", "stan", sa, false, 0, "COUNT", cmd);
 
-                string si = "Look for configuration file specified by the -c file=<file> "
-                            " or -c <file> in the stride install directories";
-                SwitchArg installedArg("i", "installed", si, cmd, true);
-
                 string           so = "Override configuration file parameters with values provided here.";
                 MultiArg<string> overrideArg("o", "override", so, false, "<NAME>=<VALUE>", cmd);
 
@@ -90,8 +86,7 @@ int main(int argc, char** argv)
                         configPt = RunConfigManager::Create(config);
                 } else {
                         config = regex_replace(config, regex(string("^file=")), string(""));
-                        const filesys::path configPath =
-                            (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : filesys::path(config);
+                        const filesys::path configPath = FileSys::GetConfigDir() /= config;
                         configPt = FileSys::ReadPtreeFile(configPath);
                 }
 

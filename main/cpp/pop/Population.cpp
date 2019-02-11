@@ -22,7 +22,7 @@
 
 #include "disease/Health.h"
 #include "pop/DefaultPopBuilder.h"
-#include "pop/GenPopBuilder.h"
+#include "pop/GeoPopBuilder.h"
 #include "pop/ImportPopBuilder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
@@ -70,7 +70,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 ImportPopBuilder(configPt, rnManager).Build(pop);
         } else if (pop_type == "generate") {
                 stride_logger->info("GenPopBuilder invoked.");
-                GenPopBuilder(configPt, rnManager).Build(pop);
+                GeoPopBuilder(configPt, rnManager).Build(pop);
         } else {
                 stride_logger->info("DefaultPopBuilder invoked.");
                 DefaultPopBuilder(configPt, rnManager).Build(pop);

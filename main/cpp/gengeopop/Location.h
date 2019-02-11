@@ -28,7 +28,8 @@
 
 namespace gengeopop {
 
-//using Coordinate = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
+// using Coordinate = boost::geometry::model::point<double, 2,
+// boost::geometry::cs::geographic<boost::geometry::degree>>;
 
 class ContactCenter;
 
