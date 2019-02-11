@@ -24,11 +24,11 @@ add_test(NAME stride_default_pop_smoke
 	)
 add_test(NAME stride_gen_pop_smoke
 	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-	COMMAND ${BIN_INSTALL_LOCATION}/stride -c run_generate_default.xml --override output_prefix=tests/stride_gen_pop_smoke
+	COMMAND ${BIN_INSTALL_LOCATION}/stride -c run_generate_default.xml --override output_prefix=tests/stride_generate_smoke
 	)
 add_test(NAME genpop_smoke
 	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-	COMMAND ${BIN_INSTALL_LOCATION}/genpop --output tests/gengeopop.proto
+	COMMAND ${BIN_INSTALL_LOCATION}/genpop --override population_file=tests/stride_generate_smoke/gengeopop.proto
 	)
 
 #============================================================================

@@ -64,11 +64,11 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // -----------------------------------------------------------------------------------------
         // Build population.
         // -----------------------------------------------------------------------------------------
-        std::string geopop_type = configPt.get<std::string>("run.geopop_type", "default");
-        if (geopop_type == "import") {
+        std::string pop_type = configPt.get<std::string>("run.population_type", "default");
+        if (pop_type == "import") {
                 stride_logger->info("ImportPopBuilder invoked.");
                 ImportPopBuilder(configPt, rnManager).Build(pop);
-        } else if (geopop_type == "generate") {
+        } else if (pop_type == "generate") {
                 stride_logger->info("GenPopBuilder invoked.");
                 GenPopBuilder(configPt, rnManager).Build(pop);
         } else {

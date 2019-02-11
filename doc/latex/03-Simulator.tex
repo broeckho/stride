@@ -124,6 +124,7 @@ want a different logging level from the one specified in the default configurati
  from the workspace directory, with the command \mbox{``\texttt{./bin/genpop}''}.
  The following options are available:
 \begin{verbatim}
+
    bin/genpop  [-c <CONFIGURATION>] [-o <<NAME>=<VALUE>>] ...  [-i]
                [--output <OUTPUT FILE>] [--] [--version] [-h]
 
@@ -145,10 +146,6 @@ Where:
      Look for configuration file specified by the -c file=<file>  or -c
      <file> in the stride install directories
 
-   --output <OUTPUT FILE>
-     Output file with synthetic population in protobuf format.
-     Defaults to --output gengeopop.proto.
-
    --,  --ignore_rest
      Ignores the rest of the labeled arguments following this flag.
    --version
@@ -156,6 +153,7 @@ Where:
  
    -h,  --help
      Displays usage information and exits.
+     
 \end{verbatim}
 
 The use of the \texttt{--override} option with respect to the parameters in the configuration file is identical to

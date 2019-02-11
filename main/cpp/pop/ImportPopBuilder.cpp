@@ -38,7 +38,7 @@ shared_ptr<Population> ImportPopBuilder::Build(shared_ptr<Population> pop)
 {
         auto stride_logger = spdlog::get("stride_logger");
 
-        const auto importFile = m_config_pt.get<string>("run.geopop_import_file");
+        const auto importFile = m_config_pt.get<string>("run.population_file");
 
         GeoGridReaderFactory             geoGridReaderFactory;
         const shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile, pop.get());

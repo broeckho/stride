@@ -50,10 +50,6 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 CmdLine cmd("genpop", ' ', "1.0");
 
-                string sou = "Output file with synthetic population in protobuf format.                    "
-                             "Defaults to --output gengeopop.proto.";
-                ValueArg<string> outputFile("", "output", sou, false, "gengeopop.proto", "OUTPUT FILE", cmd);
-
                 string si = "Look for configuration file specified by the -c file=<file> "
                             " or -c <file> in the stride install directories";
                 SwitchArg installedArg("i", "installed", si, cmd, true);
@@ -123,12 +119,13 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 logger->info("Writing to population file.");
                 GeoGridWriterFactory      geoGridWriterFactory;
-                shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(outputFile.getValue());
-                ofstream                  outputFileStream(outputFile.getValue());
+                const auto                popFileName = configPt.get<string>("run.population_file", "gengeopop.proto");
+                shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(popFileName);
+                ofstream                  outputFileStream(popFileName);
 
                 geoGridWriter->Write(pop->GetGeoGrid(), outputFileStream);
                 outputFileStream.close();
-                logger->info("Done writing to population file.");
+                logger->info("Done writing to population to file {}.", popFileName);
 
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
