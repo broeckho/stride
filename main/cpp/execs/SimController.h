@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "sim/ControlHelper.h"
+#include "ControlHelper.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 
@@ -29,23 +29,23 @@ namespace stride {
 /**
  * Controls a simulation run initiated with the command line interface (cli).
  *
- * CliController setup functions include (@see ControlHelper):
+ * SimController setup functions include (@see ControlHelper):
  * \li checks the OpenMP environment
  * \li checks the file system environment
  * \li interprets and executes the ouput prefix
  * \li intalls a stride logger
  *
- * The CliController execution
+ * The SimController execution:
  * \li creates a population (@see Population)
  * \li creates a simulation runner (@see SimRunner)
  * \li registers the appropriate viewers
  * \li runs the simulation
  */
-class CliController : protected ControlHelper
+class SimController : protected ControlHelper
 {
 public:
         /// Straight initialization.
-        explicit CliController(const boost::property_tree::ptree& configPt);
+        explicit SimController(const boost::property_tree::ptree& configPt);
 
         /// Actual run of the simulator.
         void Control();

@@ -18,7 +18,7 @@
  * Header for the command line controller.
  */
 
-#include "sim/ControlHelper.h"
+#include "ControlHelper.h"
 
 #include "pop/Population.h"
 #include "sim/SimRunner.h"
@@ -41,8 +41,9 @@ using namespace boost::property_tree::xml_parser;
 namespace stride {
 
 ControlHelper::ControlHelper()
-    : m_config_pt(), m_name(), m_output_prefix(), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs(),
-      m_rn_manager()
+    : m_config_pt(), m_name(), m_output_prefix(), m_rn_manager(), m_run_clock("run"), m_stride_logger(nullptr),
+      m_use_install_dirs()
+
 {
 }
 
@@ -55,7 +56,7 @@ ControlHelper::ControlHelper(string name, const ptree& configPt) : ControlHelper
         m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
 
         m_rn_manager.Initialize(RnMan::Info{m_config_pt.get<string>("pop.rng_seed", "1,2,3,4"), "",
-                                            m_config_pt.get<unsigned int>("run.num_threads")});
+                                m_config_pt.get<unsigned int>("run.num_threads")});
 }
 
 void ControlHelper::CheckEnv()

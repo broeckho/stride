@@ -37,6 +37,11 @@ set(LIB_SRC
     disease/HealthSeeder.cpp
     disease/PublicHealthAgency.cpp
 #---
+	execs/ControlHelper.cpp
+	execs/GenPopController.cpp
+	execs/SimController.cpp
+	execs/StanController.cpp
+#---
     output/InfectedFile.cpp
     output/PersonsFile.cpp
 	output/SummaryFile.cpp
@@ -51,12 +56,9 @@ set(LIB_SRC
     pop/ImportPopBuilder.cpp
     pop/SurveySeeder.cpp
 #---
-    sim/CliController.cpp
-    sim/ControlHelper.cpp
 	sim/SimRunner.cpp
     sim/Sim.cpp
     sim/SimBuilder.cpp
-	sim/StanController.cpp
     sim/event/Id.cpp
 	sim/event/Subject.cpp
 #---
@@ -90,13 +92,6 @@ set_target_properties(libstride PROPERTIES PREFIX "")
 add_executable(stride execs/stride.cpp)
 target_link_libraries(stride ${LIBS} libstride libgengeopop)
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
-
-#============================================================================
-# Build the genpop binary.
-#============================================================================
-add_executable(genpop execs/genpop.cpp)
-target_link_libraries(genpop ${LIBS} libprotobuf_insrc libproto libstride libgengeopop)
-install(TARGETS genpop DESTINATION ${BIN_INSTALL_LOCATION})
 
 #============================================================================
 # Clean up.

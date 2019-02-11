@@ -18,7 +18,7 @@
  * Header for the command line controller.
  */
 
-#include "sim/StanController.h"
+#include "StanController.h"
 
 #include "pop/Population.h"
 #include "sim/SimRunner.h"

@@ -65,33 +65,51 @@ The install directory is also the workspace for \texttt{Stride}. The \texttt{Str
 
 From the workspace directory, the simulator can be started  using the command \mbox{``\texttt{./bin/stride}''}. Arguments can be passed to the simulator on the command line:
 \begin{verbatim}
-   bin/stride  [-e <clean|dump|sim|geopop>] [-c <CONFIGURATION>] [-o
+ 
+USAGE: 
+ 
+   bin/stride  [-e <clean|dump|sim|genpop>] [-c <CONFIGURATION>] [-o
                <<NAME>=<VALUE>>] ...  [-i] [--stan <COUNT>] [--]
                [--version] [-h]
+ 
+ 
 Where: 
  
-   -e <clean|dump|sim|geopop>,  --exec <clean|dump|sim|geopop>
+   -e <clean|dump|sim|genpop>,  --exec <clean|dump|sim|genpop>
      Execute the corresponding function:  
+ 
          clean:  cleans configuration and writes it to a new file.  
+ 
          dump:   takes built-in configuration writes it to a file.  
+ 
          sim:    runs the simulator and is the default.  
-         geopop: runs the geospatial synthetic population generator
+ 
+         genpop: generates geo-based population to file (no sim)
+ 
      Defaults to --exec sim.
  
    -c <CONFIGURATION>,  --config <CONFIGURATION>
-     Specifies the run configuration parameters. The format may be 
-     either -c file=<file> or -c name=<name>. The first is the most
-     used and may be shortened to -c <file>. The second refers to
-     built-in configurations specified by their name.
+     Specifies the run configuration parameters. The format may be either
+     -c file=<file> or -c name=<name>. The first is mostly used and may be
+     shortened to -c <file>. The second refers to built-in configurations
+     specified by their name.
+ 
      Defaults to -c file=run_default.xml
  
    -o <<NAME>=<VALUE>>,  --override <<NAME>=<VALUE>>  (accepted multiple
       times)
      Override configuration file parameters with values provided here.
  
+   -i,  --installed
+     File are read from the appropriate (config, data) directories of the
+     stride install directory. If false, files are read and written to the
+     local directory. 
+ 
+     Defaults to true.
+ 
    --stan <COUNT>
-     Stochastic Analysis (stan) will run <COUNT> simulations, each with
-     a different seed for the random engine. Only applies in case of -e sim.
+     Stochastic Analysis (stan) will run <COUNT> simulations, each with a
+     different seed for the random engine. Only applies in case of -e sim.
  
    --,  --ignore_rest
      Ignores the rest of the labeled arguments following this flag.
@@ -101,48 +119,16 @@ Where:
  
    -h,  --help
      Displays usage information and exits.
+ 
+ 
+   stride
 \end{verbatim}
 
 For example if you run with the default configuration file, but you
 want to change the logging level,
 (choices are: \texttt{trace}, \texttt{debug}, \texttt{info}, \texttt{warn},
-\texttt{error}, \texttt{critical}, \texttt{off})) execute:
+\texttt{error}, \texttt{critical}, \texttt{off})) execute:\\
 \verb!         stride --override stride_log_level=error!
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% genpop
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Generating a population and geographical grid}
-
- The generation of a population and geographical grid (sometimes called GeoGrid) can be started
- from the workspace directory, with the command \mbox{``\texttt{./bin/genpop}''}.
- The following options are available:
-\begin{verbatim}
-   bin/genpop  [-c <CONFIGURATION>] [-o <<NAME>=<VALUE>>] ...  [-i]
-               [--output <OUTPUT FILE>] [--] [--version] [-h]
-Where:
-
-   -c <CONFIGURATION>,  --config <CONFIGURATION>
-     Specifies the run configuration parameters. The format may be either
-     -c file=<file> or -c name=<name>. The first is most used and may be
-     shortened to -c <file>. The second refers to built-in configurations
-     specified by their name.
-
-     Defaults to -c file=run_default.xml
-
-   -o <<NAME>=<VALUE>>,  --override <<NAME>=<VALUE>>  (accepted multiple
-      times)
-     Override configuration file parameters with values provided here.
-
-   --,  --ignore_rest
-     Ignores the rest of the labeled arguments following this flag.
-   --version
-     Displays version information and exits.
- 
-   -h,  --help
-     Displays usage information and exits.
-\end{verbatim}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

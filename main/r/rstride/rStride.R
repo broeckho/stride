@@ -154,7 +154,7 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
     # create xml file
     config_exp_filename <- .rstride$save_config_xml(config_exp,'run',config_exp$output_prefix)
     
-    # run stride (using the C++ CliController)
+    # run stride (using the C++ Controller)
     system(paste(stride_bin,config_opt,paste0('../',config_exp_filename)),ignore.stdout=ignore_stride_stdout)
   
     # load output summary

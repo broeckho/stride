@@ -18,7 +18,7 @@
  * Header for the St(ochastic)an(alysis)Controller.
  */
 
-#include "sim/ControlHelper.h"
+#include "ControlHelper.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 
@@ -30,13 +30,13 @@ namespace stride {
  * with the infection counts over time and the associated boxplot data.
  * The runs are in parallel (iff OpenMP available), individuals runs not.
  *
- * CliController setup functions include (@see ControlHelper):
+ * StanController setup functions include (@see ControlHelper):
  * \li checks the OpenMP environment
  * \li checks the file system environment
  * \li interprets and executes the ouput prefix
  * \li intalls a stride logger
  *
- * The CliController execution:
+ * The StanController execution:
  * \li produces a random seed for each run
  * \li creates a population (@see Population) for each run
  * \li creates a simulation runner (@see SimRunner) for each run

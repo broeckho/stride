@@ -18,7 +18,7 @@
  * Header for the command line controller.
  */
 
-#include "sim/CliController.h"
+#include "SimController.h"
 
 #include "pop/Population.h"
 #include "sim/SimRunner.h"
@@ -31,9 +31,9 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-CliController::CliController(const ptree& configPt) : ControlHelper("CliController", configPt) {}
+SimController::SimController(const ptree& configPt) : ControlHelper("SimController", configPt) {}
 
-void CliController::Control()
+void SimController::Control()
 {
         // -----------------------------------------------------------------------------------------
         // Prelims.
