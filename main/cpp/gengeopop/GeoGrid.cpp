@@ -15,8 +15,6 @@
 
 #include "GeoGrid.h"
 
-#include "gengeopop/geo/KdTree.h"
-#include "gengeopop/geo/KdTree2DPoint.h"
 #include "gengeopop/geo/GeoGridKdTree.h"
 #include "util/Exception.h"
 
@@ -24,6 +22,22 @@
 #include <iostream>
 #include <queue>
 #include <utility>
+
+
+#include "gengeopop/geo/GeoAggregator.h" // Prevent cyclic include dependency
+
+namespace gengeopop {
+
+template<typename Policy, typename F>
+GeoAggregator<Policy, F> GeoGrid::BuildAggregator(F functor, typename Policy::Args &&args) const {
+        return GeoAggregator<Policy, F>(m_tree, functor, std::forward<typename Policy::Args>(args));
+}
+
+template<typename Policy>
+GeoAggregator<Policy> GeoGrid::BuildAggregator(typename Policy::Args &&args) const {
+        return GeoAggregator<Policy>(m_tree, std::forward<typename Policy::Args>(args));
+}
+}
 
 namespace gengeopop {
 
@@ -65,7 +79,6 @@ void GeoGrid::Finalize()
         }
 
         m_finalized = true;
-        //m_tree      = KdTree<geogrid_detail::KdTree2DPoint>::Build(points);
         m_tree      = GeoGridKdTree::Build(points);
 }
 
@@ -74,10 +87,11 @@ set<shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2
         CheckFinalized(__func__);
 
         set<shared_ptr<Location>> result;
-        auto                      agg = BuildAggregator<BoxPolicy>(
-            MakeCollector(inserter(result, result.begin())),
-            make_tuple(min(long1, long2), min(lat1, lat2), max(long1, long2), max(lat1, lat2)));
+
+        auto agg = BuildAggregator<BoxPolicy>(MakeCollector(inserter(result, result.begin())),
+                make_tuple(min(long1, long2), min(lat1, lat2), max(long1, long2), max(lat1, lat2)));
         agg();
+
         return result;
 }
 
@@ -94,11 +108,12 @@ vector<shared_ptr<Location>> GeoGrid::FindLocationsInRadius(shared_ptr<Location>
         CheckFinalized(__func__);
 
         geogrid_detail::KdTree2DPoint startPt(start);
-
         vector<shared_ptr<Location>> result;
-        auto                         agg =
-            BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)), make_tuple(move(startPt), radius));
+
+        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)),
+                                                 make_tuple(move(startPt), radius));
         agg();
+
         return result;
 }
 

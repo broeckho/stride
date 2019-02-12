@@ -15,8 +15,6 @@
 
 #pragma once
 
-#include "gengeopop/geo/KdTree.h"
-#include "gengeopop/geo/KdTree2DPoint.h"
 #include "gengeopop/geo/GeoGridKdTree.h"
 #include "Location.h"
 #include "pool/ContactPool.h"
@@ -160,26 +158,7 @@ private:
         bool m_finalized;
 
         ///< Internal KdTree for quick spatial lookup.
-        //KdTree<geogrid_detail::KdTree2DPoint> m_tree;
         GeoGridKdTree m_tree;
 };
-
-} // namespace gengeopop
-
-#include "gengeopop/geo/GeoAggregator.h" // Prevent cyclic include dependency
-
-namespace gengeopop {
-
-template <typename Policy, typename F>
-GeoAggregator<Policy, F> GeoGrid::BuildAggregator(F functor, typename Policy::Args&& args) const
-{
-        return GeoAggregator<Policy, F>(m_tree, functor, std::forward<typename Policy::Args>(args));
-}
-
-template <typename Policy>
-GeoAggregator<Policy> GeoGrid::BuildAggregator(typename Policy::Args&& args) const
-{
-        return GeoAggregator<Policy>(m_tree, std::forward<typename Policy::Args>(args));
-}
 
 } // namespace gengeopop
