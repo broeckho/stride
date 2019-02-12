@@ -15,8 +15,8 @@
 
 #pragma once
 
-#include "gengeopop/geo/GeoGridKdTree.h"
 #include "Location.h"
+#include "gengeopop/geo/GeoGridKdTree.h"
 #include "pool/ContactPool.h"
 #include "pop/Population.h"
 
@@ -75,8 +75,8 @@ public:
         std::set<std::shared_ptr<Location>> LocationsInBox(double long1, double lat1, double long2, double lat2) const;
 
         /// Gets the location in a rectangle defined by the two Locations.
-        std::set<std::shared_ptr<Location>> LocationsInBox(const std::shared_ptr<Location> &loc1,
-                                                           const std::shared_ptr<Location> &loc2) const;
+        std::set<std::shared_ptr<Location>> LocationsInBox(const std::shared_ptr<Location>& loc1,
+                                                           const std::shared_ptr<Location>& loc2) const;
 
         /// Gets the K biggest (in population count) locations of this GeoGrid
         std::vector<std::shared_ptr<Location>> TopK(size_t k) const;

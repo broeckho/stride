@@ -20,8 +20,8 @@
 
 #include <boost/property_tree/ptree_fwd.hpp>
 
-#include <ostream>
 #include <memory>
+#include <ostream>
 
 namespace gengeopop {
 

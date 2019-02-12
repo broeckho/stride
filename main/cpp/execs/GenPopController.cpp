@@ -38,9 +38,9 @@ namespace filesys = std::filesystem;
 #endif
 
 #include <boost/property_tree/ptree.hpp>
-#include <spdlog/spdlog.h>
 #include <fstream>
 #include <memory>
+#include <spdlog/spdlog.h>
 
 using namespace std;
 using namespace stride::util;
@@ -86,7 +86,6 @@ void GenPopController::Control()
         geoGridWriter->Write(pop->GetGeoGrid(), outputFileStream);
         outputFileStream.close();
         m_stride_logger->info("Done writing to population to file {}.", popFileName);
-
 
         // -----------------------------------------------------------------------------------------
         // Shutdown.

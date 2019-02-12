@@ -32,7 +32,9 @@
 namespace gengeopop {
 
 template <typename P>
-KdTree<P>::KdTree() : m_size(0), m_root(nullptr) {}
+KdTree<P>::KdTree() : m_size(0), m_root(nullptr)
+{
+}
 
 template <typename P>
 KdTree<P> KdTree<P>::Build(const std::vector<P>& points)
@@ -109,7 +111,10 @@ bool KdTree<P>::Contains(const P& point) const
 }
 
 template <typename P>
-bool KdTree<P>::Empty() const { return Size() == 0; }
+bool KdTree<P>::Empty() const
+{
+        return Size() == 0;
+}
 
 template <typename P>
 std::size_t KdTree<P>::GetHeight() const
@@ -150,7 +155,7 @@ void KdTree<P>::Insert(P point)
 }
 
 template <typename P>
-std::vector<P>  KdTree<P>::Query(const AABBox<P>& box) const
+std::vector<P> KdTree<P>::Query(const AABBox<P>& box) const
 {
         std::vector<P> result;
         Apply(
@@ -163,7 +168,10 @@ std::vector<P>  KdTree<P>::Query(const AABBox<P>& box) const
 }
 
 template <typename P>
-std::size_t KdTree<P>::Size() const { return m_size; }
+std::size_t KdTree<P>::Size() const
+{
+        return m_size;
+}
 
 template <typename P>
 template <std::size_t D>

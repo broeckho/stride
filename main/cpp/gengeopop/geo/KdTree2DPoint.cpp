@@ -15,9 +15,9 @@
 
 #include "KdTree2DPoint.h"
 
-#include <boost/geometry/core/access.hpp>
 #include <boost/geometry/algorithms/distance.hpp>
 #include <boost/geometry/algorithms/within.hpp>
+#include <boost/geometry/core/access.hpp>
 #include <boost/geometry/geometries/box.hpp>
 #include <boost/geometry/strategies/geographic/distance.hpp>
 
@@ -25,26 +25,19 @@ namespace gengeopop {
 
 namespace geogrid_detail {
 
-bool KdTree2DPoint::operator==(const KdTree2DPoint& other) const
-{
-        return Distance(other) < 0.001;
-}
+bool KdTree2DPoint::operator==(const KdTree2DPoint& other) const { return Distance(other) < 0.001; }
 
 bool KdTree2DPoint::InBox(const AABBox<KdTree2DPoint>& box) const
 {
-        return boost::geometry::within(m_pt,
-                                       boost::geometry::model::box<Coordinate>{box.lower.m_pt, box.upper.m_pt});
+        return boost::geometry::within(m_pt, boost::geometry::model::box<Coordinate>{box.lower.m_pt, box.upper.m_pt});
 }
 
-bool KdTree2DPoint::InRadius(const KdTree2DPoint& start, double radius) const
-{
-        return Distance(start) <= radius;
-}
+bool KdTree2DPoint::InRadius(const KdTree2DPoint& start, double radius) const { return Distance(start) <= radius; }
 
 double KdTree2DPoint::Distance(const KdTree2DPoint& other) const
 {
-        return boost::geometry::distance(m_pt, other.m_pt,
-                                         boost::geometry::strategy::distance::geographic<>{}) / 1000.0;
+        return boost::geometry::distance(m_pt, other.m_pt, boost::geometry::strategy::distance::geographic<>{}) /
+               1000.0;
 }
 
 } // namespace geogrid_detail

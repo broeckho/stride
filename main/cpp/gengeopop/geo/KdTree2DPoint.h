@@ -35,11 +35,14 @@ public:
 
         ///
         template <std::size_t D>
-        struct dimension_type { using type = double; };
+        struct dimension_type
+        {
+                using type = double;
+        };
 
 public:
         /// Default constructor.
-        KdTree2DPoint() : m_pt(), m_location(nullptr) {};
+        KdTree2DPoint() : m_pt(), m_location(nullptr){};
 
         /// Constructor with Location.
         explicit KdTree2DPoint(const std::shared_ptr<Location>& loc) : m_pt(loc->GetCoordinate()), m_location(loc) {}
@@ -72,7 +75,6 @@ public:
 
         /// Does the point lie within `radius` km from `start`?
         bool InRadius(const KdTree2DPoint& start, double radius) const;
-
 
 private:
         Coordinate                m_pt;       ///< Shortcut for access without dereferencing.

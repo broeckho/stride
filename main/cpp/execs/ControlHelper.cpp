@@ -56,7 +56,7 @@ ControlHelper::ControlHelper(string name, const ptree& configPt) : ControlHelper
         m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
 
         m_rn_manager.Initialize(RnMan::Info{m_config_pt.get<string>("pop.rng_seed", "1,2,3,4"), "",
-                                m_config_pt.get<unsigned int>("run.num_threads")});
+                                            m_config_pt.get<unsigned int>("run.num_threads")});
 }
 
 void ControlHelper::CheckEnv()

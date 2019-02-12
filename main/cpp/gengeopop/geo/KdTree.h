@@ -90,7 +90,7 @@ public:
          */
         void Insert(P point);
 
-         /**
+        /**
          * Get all points in the tree that lie within `box`.
          * @param box The limiting AABB to search for points.
          * @returns A collection of points found within `box`.

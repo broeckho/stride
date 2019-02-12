@@ -17,44 +17,39 @@
 
 #include "gengeopop/geo/GeoAggregator.h"
 #include "gengeopop/geo/GeoGridKdTree.h"
-#include "util/Exception.h"
 
-#include <cmath>
-#include <iostream>
 #include <queue>
 #include <stdexcept>
 #include <utility>
 
 namespace gengeopop {
 
-template<typename Policy, typename F>
-GeoAggregator<Policy, F> GeoGrid::BuildAggregator(F functor, typename Policy::Args &&args) const {
-        return GeoAggregator<Policy, F>(m_tree, functor, std::forward<typename Policy::Args>(args));
-}
-
-template<typename Policy>
-GeoAggregator<Policy> GeoGrid::BuildAggregator(typename Policy::Args &&args) const {
-        return GeoAggregator<Policy>(m_tree, std::forward<typename Policy::Args>(args));
-}
-}
-
-namespace gengeopop {
-
 using namespace std;
-
-GeoGrid::GeoGrid(stride::Population* population)
-    : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
-{
-}
 
 void GeoGrid::AddLocation(shared_ptr<Location> location)
 {
         if (m_finalized) {
                 throw std::runtime_error("Calling addLocation while GeoGrid is finalized not supported!");
         }
-
         m_locations.emplace_back(location);
         m_locationsToIdIndex[location->GetID()] = location;
+}
+
+template <typename Policy, typename F>
+GeoAggregator<Policy, F> GeoGrid::BuildAggregator(F functor, typename Policy::Args&& args) const
+{
+        return GeoAggregator<Policy, F>(m_tree, functor, std::forward<typename Policy::Args>(args));
+}
+
+template <typename Policy>
+GeoAggregator<Policy> GeoGrid::BuildAggregator(typename Policy::Args&& args) const
+{
+        return GeoAggregator<Policy>(m_tree, std::forward<typename Policy::Args>(args));
+}
+
+GeoGrid::GeoGrid(stride::Population* population)
+        : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
+{
 }
 
 void GeoGrid::CheckFinalized(const string& functionName) const
@@ -72,7 +67,7 @@ stride::ContactPool* GeoGrid::CreateContactPool(stride::ContactPoolType::Id type
 void GeoGrid::Finalize()
 {
         vector<geogrid_detail::KdTree2DPoint> points;
-        for(const auto& loc : m_locations) {
+        for (const auto& loc : m_locations) {
                 points.emplace_back(geogrid_detail::KdTree2DPoint(loc));
         }
         m_tree      = GeoGridKdTree::Build(points);
@@ -85,20 +80,20 @@ set<shared_ptr<Location>> GeoGrid::LocationsInBox(double long1, double lat1, dou
 
         set<shared_ptr<Location>> result;
 
-        auto agg = BuildAggregator<BoxPolicy>(MakeCollector(inserter(result, result.begin())),
-                make_tuple(min(long1, long2), min(lat1, lat2), max(long1, long2), max(lat1, lat2)));
+        auto agg = BuildAggregator<BoxPolicy>(
+            MakeCollector(inserter(result, result.begin())),
+            make_tuple(min(long1, long2), min(lat1, lat2), max(long1, long2), max(lat1, lat2)));
         agg();
 
         return result;
 }
 
-std::set<std::shared_ptr<Location>> GeoGrid::LocationsInBox(const std::shared_ptr<Location> &loc1,
-                                                            const std::shared_ptr<Location> &loc2) const
+std::set<std::shared_ptr<Location>> GeoGrid::LocationsInBox(const std::shared_ptr<Location>& loc1,
+                                                            const std::shared_ptr<Location>& loc2) const
 {
         using boost::geometry::get;
         return LocationsInBox(get<0>(loc1->GetCoordinate()), get<1>(loc1->GetCoordinate()),
-                              get<0>(loc2->GetCoordinate()),
-                              get<1>(loc2->GetCoordinate()));
+                              get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
 }
 
 vector<shared_ptr<Location>> GeoGrid::LocationsInRadius(shared_ptr<Location> start, double radius) const
@@ -106,10 +101,10 @@ vector<shared_ptr<Location>> GeoGrid::LocationsInRadius(shared_ptr<Location> sta
         CheckFinalized(__func__);
 
         geogrid_detail::KdTree2DPoint startPt(start);
-        vector<shared_ptr<Location>> result;
+        vector<shared_ptr<Location>>  result;
 
-        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)),
-                                                 make_tuple(move(startPt), radius));
+        auto agg =
+            BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)), make_tuple(move(startPt), radius));
         agg();
 
         return result;
@@ -122,8 +117,8 @@ vector<shared_ptr<Location>> GeoGrid::TopK(size_t k) const
         };
 
         priority_queue<shared_ptr<Location>, vector<shared_ptr<Location>>, decltype(cmp)> queue(cmp);
-        for (auto it = cbegin(); it != cend(); it++) {
-                queue.push(*it);
+        for (const auto& loc : m_locations) {
+                queue.push(loc);
                 if (queue.size() > k) {
                         queue.pop();
                 }

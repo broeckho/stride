@@ -18,11 +18,11 @@
 #include "gengeopop/geo/KdTree.h"
 #include "gengeopop/geo/KdTree2DPoint.h"
 
+#include <boost/geometry/algorithms/within.hpp>
 #include <boost/geometry/core/access.hpp>
 #include <boost/geometry/geometries/box.hpp>
 #include <boost/geometry/geometries/polygon.hpp>
 #include <boost/geometry/geometries/register/box.hpp>
-#include <boost/geometry/algorithms/within.hpp>
 
 #include <tuple>
 
@@ -206,7 +206,7 @@ public:
                 AABBox<Coordinate> boostbox;
                 boost::geometry::envelope(m_poly, boostbox);
                 AABBox<geogrid_detail::KdTree2DPoint> box{{get<0>(boostbox.lower), get<1>(boostbox.lower)},
-                                                        {get<0>(boostbox.upper), get<1>(boostbox.upper)}};
+                                                          {get<0>(boostbox.upper), get<1>(boostbox.upper)}};
                 return box;
         }
 

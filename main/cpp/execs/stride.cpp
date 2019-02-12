@@ -94,7 +94,7 @@ int main(int argc, char** argv)
                 } else {
                         config = regex_replace(config, regex(string("^file=")), string(""));
                         const filesys::path configPath =
-                                (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : filesys::path(config);
+                            (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : filesys::path(config);
                         configPt = FileSys::ReadPtreeFile(configPath);
                 }
 
@@ -121,8 +121,7 @@ int main(int argc, char** argv)
                                 } else {
                                         StanController(configPt).Control();
                                 }
-                        }
-                        else {
+                        } else {
                                 GenPopController(configPt).Control();
                         }
                 }
