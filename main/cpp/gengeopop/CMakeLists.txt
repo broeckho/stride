@@ -34,6 +34,7 @@ set(GENGEOPOP_LIB
     Workplace.cpp
 #
     geo/GeoGridKdTree.cpp
+    geo/KdTree2DPoint.cpp
 #
     generators/CollegeGenerator.cpp
     generators/CommunityGenerator.cpp

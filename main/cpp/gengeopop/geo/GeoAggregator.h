@@ -17,11 +17,13 @@
 
 #include "gengeopop/geo/KdTree.h"
 #include "gengeopop/geo/KdTree2DPoint.h"
-//#include "gengeopop/Location.h"
 
+#include <boost/geometry/core/access.hpp>
 #include <boost/geometry/geometries/box.hpp>
 #include <boost/geometry/geometries/polygon.hpp>
 #include <boost/geometry/geometries/register/box.hpp>
+#include <boost/geometry/algorithms/within.hpp>
+
 #include <tuple>
 
 BOOST_GEOMETRY_REGISTER_BOX_TEMPLATED(gengeopop::AABBox, lower, upper)
@@ -108,7 +110,9 @@ private:
         const KdTree<geogrid_detail::KdTree2DPoint>& m_tree;
 };
 
-/// A GeoAggregator constructed with a functor.
+/**
+ * A GeoAggregator constructed with a functor.
+ */
 template <typename Policy, typename F>
 class GeoAggregator<Policy, F> : public GeoAggregator<Policy>
 {
@@ -125,7 +129,10 @@ private:
         F m_functor;
 };
 
-/// A policy for GeoAggregator that aggregates locations within a radius (in km) of a center point.
+/**
+ * GeoAggregator Policy that aggregates locations within a radius (in km) of a center point.
+ */
+
 class RadiusPolicy
 {
 public:
@@ -161,7 +168,9 @@ private:
         double                        m_radius;
 };
 
-/// A GeoAggregator Policy that aggregates over an axis aligned bounding box.
+/**
+ * GeoAggregator Policy that aggregates over an axis aligned bounding box.
+ */
 class BoxPolicy
 {
 public:
@@ -181,21 +190,23 @@ private:
         Args m_args;
 };
 
-/// A GeoAggregator Policy that aggregates over a (clockwise) polygon.
+/**
+ * A GeoAggregator Policy that aggregates over a (clockwise) polygon.
+ */
 class PolygonPolicy
 {
 public:
         using Args = boost::geometry::model::polygon<Coordinate, true>;
 
-        explicit PolygonPolicy(Args args) : m_poly(std::move(args)) {}
+        explicit PolygonPolicy(boost::geometry::model::polygon<Coordinate, true> args) : m_poly(std::move(args)) {}
 
         AABBox<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
         {
-                namespace geo = boost::geometry;
+                using boost::geometry::get;
                 AABBox<Coordinate> boostbox;
-                geo::envelope(m_poly, boostbox);
-                AABBox<geogrid_detail::KdTree2DPoint> box{{geo::get<0>(boostbox.lower), geo::get<1>(boostbox.lower)},
-                                                        {geo::get<0>(boostbox.upper), geo::get<1>(boostbox.upper)}};
+                boost::geometry::envelope(m_poly, boostbox);
+                AABBox<geogrid_detail::KdTree2DPoint> box{{get<0>(boostbox.lower), get<1>(boostbox.lower)},
+                                                        {get<0>(boostbox.upper), get<1>(boostbox.upper)}};
                 return box;
         }
 

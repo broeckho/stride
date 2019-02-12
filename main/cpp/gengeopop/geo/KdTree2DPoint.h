@@ -20,10 +20,6 @@
 #include "gengeopop/geo/AABBox.h"
 
 #include <boost/geometry/core/access.hpp>
-#include <boost/geometry/algorithms/distance.hpp>
-#include <boost/geometry/algorithms/within.hpp>
-#include <boost/geometry/geometries/box.hpp>
-#include <boost/geometry/strategies/geographic/distance.hpp>
 #include <memory>
 
 namespace gengeopop {
@@ -42,23 +38,20 @@ public:
         struct dimension_type { using type = double; };
 
 public:
-        ///
-        explicit KdTree2DPoint(const std::shared_ptr<Location>& location)
-            : m_pt(location->GetCoordinate()), m_location(location)
-        {
-        }
+        /// Default constructor.
+        KdTree2DPoint() : m_pt(), m_location(nullptr) {};
 
-        ///
-        KdTree2DPoint() : m_pt(), m_location(nullptr){};
+        /// Constructor with Location.
+        explicit KdTree2DPoint(const std::shared_ptr<Location>& loc) : m_pt(loc->GetCoordinate()), m_location(loc) {}
 
-        ///
+        /// Constructor with longitude and latitude.
         KdTree2DPoint(double longt, double lat) : m_pt(longt, lat), m_location(nullptr) {}
 
-        ///
-        bool operator==(const KdTree2DPoint& point) const
-        {
-                return Distance(point) < 0.001;
-        }
+        /// Equal if within one meter of one another.
+        bool operator==(const KdTree2DPoint& other) const;
+
+        /// Distance in kilometers, following great circle distance on a speroid earth.
+        double Distance(const KdTree2DPoint& other) const;
 
         ///
         template <std::size_t D>
@@ -75,22 +68,11 @@ public:
         Coordinate GetPoint() const { return m_pt; }
 
         ///
-        bool InBox(const AABBox<KdTree2DPoint>& box) const
-        {
-                return boost::geometry::within(m_pt,
-                                               boost::geometry::model::box<Coordinate>{box.lower.m_pt, box.upper.m_pt});
-        }
+        bool InBox(const AABBox<KdTree2DPoint>& box) const;
 
         /// Does the point lie within `radius` km from `start`?
-        bool InRadius(const KdTree2DPoint& start, double radius) const { return Distance(start) <= radius; }
+        bool InRadius(const KdTree2DPoint& start, double radius) const;
 
-private:
-        /// Distance in kilometers, following great circle distance on a speroid earth.
-        double Distance(const KdTree2DPoint& other) const
-        {
-                return boost::geometry::distance(m_pt, other.m_pt,
-                                                 boost::geometry::strategy::distance::geographic<>{}) / 1000.0;
-        }
 
 private:
         Coordinate                m_pt;       ///< Shortcut for access without dereferencing.
