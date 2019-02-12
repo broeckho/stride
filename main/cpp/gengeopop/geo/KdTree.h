@@ -56,7 +56,6 @@ public:
 
         /**
          * Build a balanced tree from the given set of points efficiently.
-         *
          * @param points The points to insert in the resulting tree.
          * @returns A balanced KdTree containing the given points.
          */
@@ -69,68 +68,7 @@ public:
         }
 
         /**
-         * Insert a new point into the tree, using this often may result in an unbalanced tree.
-         *
-         * @param point The point to insert into the tree.
-         */
-        void Insert(P point)
-        {
-                m_size++;
-                if (!m_root) {
-                        m_root = std::make_unique<kd::Node<P, 0>>(point);
-                        return;
-                }
-                kd::BaseNode<P>* current = m_root.get();
-                while (true) {
-                        kd::BaseNode<P>* next = current->BorrowSplitChild(point);
-                        if (!next) {
-                                current->AddChild(point);
-                                return;
-                        }
-                        current = next;
-                }
-        }
-
-        /**
-         * Test wether a point is contained in the tree.
-         *
-         * @param point The point to test. P should support `bool operator==(const P&) const`.
-         * @returns Whether the point is found in the tree.
-         */
-        bool Contains(const P& point) const
-        {
-                bool result = false;
-                Apply([&result, &point](const P& pt) -> bool {
-                        if (pt == point) {
-                                result = true;
-                                return false;
-                        }
-                        return true;
-                });
-                return result;
-        }
-
-         /**
-         * Get all points in the tree that lie within `box`.
-         *
-         * @param box The limiting AABB to search for points.
-         * @returns A collection of points found within `box`.
-         */
-        std::vector<P> Query(const AABB<P>& box) const
-        {
-                std::vector<P> result;
-                Apply(
-                    [&result](const P& pt) -> bool {
-                            result.push_back(pt);
-                            return true;
-                    },
-                    box);
-                return result;
-        }
-
-        /**
          * Calls a function with each of the points in the tree
-         *
          * @param f A function that will be called with each point, if f returns false, traversal stops.
          */
         void Apply(std::function<bool(const P&)> f) const
@@ -161,7 +99,6 @@ public:
 
         /**
          * Calls a function with every point contained in `box`
-         *
          * @param f A function that will be called with each point within `box`, if f returns false, traversal stops.
          * @param box The containing Axis-Aligned Bounding Box to search for points
          */
@@ -188,8 +125,29 @@ public:
                 }
         }
 
+        /**
+         * Test wether a point is contained in the tree.
+         * @param point The point to test. P should support `bool operator==(const P&) const`.
+         * @returns Whether the point is found in the tree.
+         */
+        bool Contains(const P& point) const
+        {
+                bool result = false;
+                Apply([&result, &point](const P& pt) -> bool {
+                        if (pt == point) {
+                                result = true;
+                                return false;
+                        }
+                        return true;
+                });
+                return result;
+        }
+
+        /// Is the tree empty.
+        bool Empty() const { return Size() == 0; }
+
         /// Get the height of the tree (mostly for testing purposes).
-        std::size_t Height() const
+        std::size_t GetHeight() const
         {
                 int                                          h = 0;
                 std::queue<std::pair<int, kd::BaseNode<P>*>> q;
@@ -207,8 +165,44 @@ public:
                 return static_cast<size_t>(h);
         }
 
-        /// Is the tree empty.
-        bool Empty() const { return Size() == 0; }
+        /**
+         * Insert a new point into the tree, using this often may result in an unbalanced tree.
+         * @param point The point to insert into the tree.
+         */
+        void Insert(P point)
+        {
+                m_size++;
+                if (!m_root) {
+                        m_root = std::make_unique<kd::Node<P, 0>>(point);
+                        return;
+                }
+                kd::BaseNode<P>* current = m_root.get();
+                while (true) {
+                        kd::BaseNode<P>* next = current->BorrowSplitChild(point);
+                        if (!next) {
+                                current->AddChild(point);
+                                return;
+                        }
+                        current = next;
+                }
+        }
+
+         /**
+         * Get all points in the tree that lie within `box`.
+         * @param box The limiting AABB to search for points.
+         * @returns A collection of points found within `box`.
+         */
+        std::vector<P> Query(const AABB<P>& box) const
+        {
+                std::vector<P> result;
+                Apply(
+                    [&result](const P& pt) -> bool {
+                            result.push_back(pt);
+                            return true;
+                    },
+                    box);
+                return result;
+        }
 
         /// Get the size of the tree.
         std::size_t Size() const { return m_size; }
@@ -243,6 +237,7 @@ private:
                 return root;
         }
 
+private:
         std::size_t                     m_size; ///< The number of points in the tree
         std::unique_ptr<kd::Node<P, 0>> m_root; ///< The root node of the tree
 };

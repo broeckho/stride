@@ -151,7 +151,7 @@ TEST(KdTreeTest, BuildHasLimitedHeight)
         }
 
         auto tree = KdTree<Pt2D>::Build(points);
-        EXPECT_LE(tree.Height(), std::log2(points.size() + 1) + 1);
+        EXPECT_LE(tree.GetHeight(), std::log2(points.size() + 1) + 1);
         EXPECT_EQ(points.size(), tree.Size());
 }
 
@@ -190,7 +190,7 @@ TEST(KdTreeTest, Insert)
         EXPECT_TRUE(tree.Contains({-1, -1}));
         EXPECT_FALSE(tree.Contains({-785960024, 314069115}));
         EXPECT_EQ(5, tree.Size());
-        EXPECT_EQ(3, tree.Height());
+        EXPECT_EQ(3, tree.GetHeight());
 }
 
 TEST(KdTreeTest, HigherDimensional)
