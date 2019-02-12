@@ -72,15 +72,14 @@ stride::ContactPool* GeoGrid::CreateContactPool(stride::ContactPoolType::Id type
 void GeoGrid::Finalize()
 {
         vector<geogrid_detail::KdTree2DPoint> points;
-        for (auto it = begin(); it != end(); ++it) {
-                points.emplace_back(geogrid_detail::KdTree2DPoint(*it));
+        for(const auto& loc : m_locations) {
+                points.emplace_back(geogrid_detail::KdTree2DPoint(loc));
         }
-
-        m_finalized = true;
         m_tree      = GeoGridKdTree::Build(points);
+        m_finalized = true;
 }
 
-set<shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2, double lat2) const
+set<shared_ptr<Location>> GeoGrid::LocationsInBox(double long1, double lat1, double long2, double lat2) const
 {
         CheckFinalized(__func__);
 
@@ -93,15 +92,16 @@ set<shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2
         return result;
 }
 
-std::set<std::shared_ptr<Location>> GeoGrid::InBox(const std::shared_ptr<Location>& loc1,
-                                                   const std::shared_ptr<Location>& loc2) const
+std::set<std::shared_ptr<Location>> GeoGrid::LocationsInBox(const std::shared_ptr<Location> &loc1,
+                                                            const std::shared_ptr<Location> &loc2) const
 {
         using boost::geometry::get;
-        return InBox(get<0>(loc1->GetCoordinate()), get<1>(loc1->GetCoordinate()), get<0>(loc2->GetCoordinate()),
-                     get<1>(loc2->GetCoordinate()));
+        return LocationsInBox(get<0>(loc1->GetCoordinate()), get<1>(loc1->GetCoordinate()),
+                              get<0>(loc2->GetCoordinate()),
+                              get<1>(loc2->GetCoordinate()));
 }
 
-vector<shared_ptr<Location>> GeoGrid::FindLocationsInRadius(shared_ptr<Location> start, double radius) const
+vector<shared_ptr<Location>> GeoGrid::LocationsInRadius(shared_ptr<Location> start, double radius) const
 {
         CheckFinalized(__func__);
 

@@ -10,33 +10,21 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2018, Jan Broeckhove.
  */
 
 #pragma once
 
-#include <algorithm>
-#include <cstddef>
-#include <functional>
-#include <memory>
-#include <queue>
-#include <utility>
-#include <vector>
-
-#include <iostream>
-
 namespace gengeopop {
 
 /**
- * Axis Aligned Bounding Box
- *
- * @brief A hyper rectangle defined by 2 points: the lower bound for every dimension and the upper bound.
+ * AxisAlignedBoundingBox (hyperrectangle defined by lower and upper bound for every dimension).
  */
 template <typename P>
-struct AABB
+struct AABBox
 {
-        AABB() : lower(), upper(){};
-        AABB(P l, P u) : lower(l), upper(u){};
+        AABBox() : lower(), upper(){};
+        AABBox(P l, P u) : lower(l), upper(u){};
         P lower; ///< The lower bound for every dimension
         P upper; ///< The upper bound for every dimension
 };

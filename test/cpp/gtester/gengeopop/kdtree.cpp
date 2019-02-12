@@ -47,7 +47,7 @@ public:
                 }
         }
 
-        bool InBox(const AABB<Pt2D>& box) const
+        bool InBox(const AABBox<Pt2D>& box) const
         {
                 return box.lower.x <= x && x <= box.upper.x && box.lower.y <= y && y <= box.upper.y;
         }
@@ -247,7 +247,7 @@ TEST(KdTreeTest, EarlyExit)
         tree.Apply(f);
         EXPECT_EQ(1, count);
         count = 0;
-        tree.Apply(f, AABB<Pt2D>{{-10, -10}, {10, 10}});
+        tree.Apply(f, AABBox<Pt2D>{{-10, -10}, {10, 10}});
         EXPECT_EQ(1, count);
 }
 

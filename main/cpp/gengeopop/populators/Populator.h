@@ -55,7 +55,7 @@ protected:
 
                 while (pools.empty()) {
                         for (const std::shared_ptr<Location>& nearLoc :
-                             geoGrid->FindLocationsInRadius(start, currentRadius)) {
+                                geoGrid->LocationsInRadius(start, currentRadius)) {
                                 const auto& centers = nearLoc->GetContactCentersOfType<T>();
                                 for (const auto& center : centers) {
                                         pools.insert(pools.end(), center->begin(), center->end());

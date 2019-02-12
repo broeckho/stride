@@ -17,7 +17,7 @@
 
 #include "KdTree.h"
 
-#include "gengeopop/geo/AABB.h"
+#include "gengeopop/geo/AABBox.h"
 #include "gengeopop/geo/KdNode.h"
 #include "gengeopop/geo/Median.h"
 
@@ -71,7 +71,7 @@ void KdTree<P>::Apply(std::function<bool(const P&)> f) const
 }
 
 template <typename P>
-void KdTree<P>::Apply(std::function<bool(const P&)> f, const AABB<P>& box) const
+void KdTree<P>::Apply(std::function<bool(const P&)> f, const AABBox<P>& box) const
 {
         std::queue<kd::BaseNode<P>*> q;
         q.push(m_root.get());
@@ -150,7 +150,7 @@ void KdTree<P>::Insert(P point)
 }
 
 template <typename P>
-std::vector<P>  KdTree<P>::Query(const AABB<P>& box) const
+std::vector<P>  KdTree<P>::Query(const AABBox<P>& box) const
 {
         std::vector<P> result;
         Apply(

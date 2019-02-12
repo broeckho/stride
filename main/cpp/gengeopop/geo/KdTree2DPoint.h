@@ -17,13 +17,12 @@
 
 #include "gengeopop/Coordinate.h"
 #include "gengeopop/Location.h"
-#include "gengeopop/geo/AABB.h"
+#include "gengeopop/geo/AABBox.h"
 
-#include <boost/geometry/algorithms/equals.hpp>
+#include <boost/geometry/core/access.hpp>
 #include <boost/geometry/algorithms/distance.hpp>
 #include <boost/geometry/algorithms/within.hpp>
 #include <boost/geometry/geometries/box.hpp>
-#include <boost/geometry/geometries/point.hpp>
 #include <boost/geometry/strategies/geographic/distance.hpp>
 #include <memory>
 
@@ -34,6 +33,14 @@ namespace geogrid_detail {
 /// \ref KdTree for some more information on methods.
 class KdTree2DPoint
 {
+public:
+        ///
+        constexpr static std::size_t dim = 2;
+
+        ///
+        template <std::size_t D>
+        struct dimension_type { using type = double; };
+
 public:
         ///
         explicit KdTree2DPoint(const std::shared_ptr<Location>& location)
@@ -48,7 +55,10 @@ public:
         KdTree2DPoint(double longt, double lat) : m_pt(longt, lat), m_location(nullptr) {}
 
         ///
-        constexpr static std::size_t dim = 2;
+        bool operator==(const KdTree2DPoint& point) const
+        {
+                return Distance(point) < 0.001;
+        }
 
         ///
         template <std::size_t D>
@@ -58,8 +68,14 @@ public:
                 return boost::geometry::get<D>(m_pt);
         }
 
+        /// Retrieve the location.
+        std::shared_ptr<Location> GetLocation() const { return m_location; }
+
+        /// Get the coordinate for this Location.
+        Coordinate GetPoint() const { return m_pt; }
+
         ///
-        bool InBox(const AABB<KdTree2DPoint>& box) const
+        bool InBox(const AABBox<KdTree2DPoint>& box) const
         {
                 return boost::geometry::within(m_pt,
                                                boost::geometry::model::box<Coordinate>{box.lower.m_pt, box.upper.m_pt});
@@ -68,36 +84,17 @@ public:
         /// Does the point lie within `radius` km from `start`?
         bool InRadius(const KdTree2DPoint& start, double radius) const { return Distance(start) <= radius; }
 
-        /// Retrieve the location.
-        std::shared_ptr<Location> GetLocation() const { return m_location; }
-
-        /// Get the coordinate for this Location.
-        Coordinate GetPoint() const { return m_pt; }
-
-        ///
-        template <std::size_t D>
-        struct dimension_type
+private:
+        /// Distance in kilometers, following great circle distance on a speroid earth.
+        double Distance(const KdTree2DPoint& other) const
         {
-                using type = double;
-        };
-
-        ///
-        bool operator==(const KdTree2DPoint& point) const
-        {
-                return Distance(point) < 0.001;
+                return boost::geometry::distance(m_pt, other.m_pt,
+                                                 boost::geometry::strategy::distance::geographic<>{}) / 1000.0;
         }
 
 private:
         Coordinate                m_pt;       ///< Shortcut for access without dereferencing.
         std::shared_ptr<Location> m_location; ///< The underlying location.
-
-        /// Distance in kilometers, following great circle distance on a speroid earth.
-        double Distance(const KdTree2DPoint& other) const
-        {
-                return boost::geometry::distance(m_pt, other.m_pt,
-                                                 boost::geometry::strategy::distance::geographic<>{}) /
-                       1000.0;
-        }
 };
 
 } // namespace geogrid_detail

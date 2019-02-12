@@ -17,14 +17,14 @@
 
 #include "gengeopop/geo/KdTree.h"
 #include "gengeopop/geo/KdTree2DPoint.h"
-#include "gengeopop/Location.h"
+//#include "gengeopop/Location.h"
 
 #include <boost/geometry/geometries/box.hpp>
 #include <boost/geometry/geometries/polygon.hpp>
 #include <boost/geometry/geometries/register/box.hpp>
 #include <tuple>
 
-BOOST_GEOMETRY_REGISTER_BOX_TEMPLATED(gengeopop::AABB, lower, upper)
+BOOST_GEOMETRY_REGISTER_BOX_TEMPLATED(gengeopop::AABBox, lower, upper)
 
 namespace geoaggregator_detail {
 
@@ -35,6 +35,8 @@ inline double DegreeToRadian(double deg) { return deg / 180.0 * M_PI; }
 } // namespace geoaggregator_detail
 
 namespace gengeopop {
+
+class Location;
 
 /// Aggregates into a vector that must should remain alive for the usage duration of the Collector.
 template <typename InsertIter, typename T>
@@ -74,7 +76,9 @@ class GeoAggregator
         static_assert(sizeof...(F) <= 1, "Should have at most one functor type");
 };
 
-/// A GeoAggregator that has to be called with a functor.
+/**
+ * A GeoAggregator that has to be called with a functor.
+ */
 template <typename Policy>
 class GeoAggregator<Policy>
 {
@@ -84,7 +88,7 @@ public:
         {
         }
 
-        /// Aggregate over the area specified by the policy with the functor `f`
+        /// Aggregate over the area specified by the policy with the functor `f`.
         template <typename F>
         void operator()(F f)
         {
@@ -129,11 +133,11 @@ public:
 
         explicit RadiusPolicy(Args args) : m_center(std::move(std::get<0>(args))), m_radius(std::get<1>(args)) {}
 
-        AABB<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
+        AABBox<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
         {
                 using namespace geoaggregator_detail;
 
-                AABB<geogrid_detail::KdTree2DPoint> box{};
+                AABBox<geogrid_detail::KdTree2DPoint> box{};
 
                 // As of boost 1.66, there's seems no way to do this in Boost.Geometry
                 constexpr double EARTH_RADIUS_KM = 6371.0;
@@ -165,7 +169,7 @@ public:
 
         explicit BoxPolicy(Args args) : m_args(std::move(args)) {}
 
-        AABB<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
+        AABBox<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
         {
                 using std::get;
                 return {{get<0>(m_args), get<1>(m_args)}, {get<2>(m_args), get<3>(m_args)}};
@@ -185,12 +189,12 @@ public:
 
         explicit PolygonPolicy(Args args) : m_poly(std::move(args)) {}
 
-        AABB<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
+        AABBox<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
         {
                 namespace geo = boost::geometry;
-                AABB<Coordinate> boostbox;
+                AABBox<Coordinate> boostbox;
                 geo::envelope(m_poly, boostbox);
-                AABB<geogrid_detail::KdTree2DPoint> box{{geo::get<0>(boostbox.lower), geo::get<1>(boostbox.lower)},
+                AABBox<geogrid_detail::KdTree2DPoint> box{{geo::get<0>(boostbox.lower), geo::get<1>(boostbox.lower)},
                                                         {geo::get<0>(boostbox.upper), geo::get<1>(boostbox.upper)}};
                 return box;
         }

@@ -15,10 +15,11 @@
 
 #pragma once
 
-#include "gengeopop/geo/AABB.h"
+#include "gengeopop/geo/AABBox.h"
 #include "gengeopop/geo/KdNode.h"
 
 #include <cstddef>
+#include <functional>
 #include <memory>
 #include <utility>
 #include <vector>
@@ -68,7 +69,7 @@ public:
          * @param f A function that will be called with each point within `box`, if f returns false, traversal stops.
          * @param box The containing Axis-Aligned Bounding Box to search for points
          */
-        void Apply(std::function<bool(const P&)> f, const AABB<P>& box) const;
+        void Apply(std::function<bool(const P&)> f, const AABBox<P>& box) const;
 
         /**
          * Test wether a point is contained in the tree.
@@ -94,7 +95,7 @@ public:
          * @param box The limiting AABB to search for points.
          * @returns A collection of points found within `box`.
          */
-        std::vector<P> Query(const AABB<P>& box) const;
+        std::vector<P> Query(const AABBox<P>& box) const;
 
         /// Get the size of the tree.
         std::size_t Size() const;
