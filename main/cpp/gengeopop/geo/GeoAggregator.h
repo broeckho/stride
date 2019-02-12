@@ -15,14 +15,14 @@
 
 #pragma once
 
-#include <tuple>
-
-#include "KdTree.h"
-#include "Location.h"
+#include "gengeopop/geo/KdTree.h"
+#include "gengeopop/geo/KdTree2DPoint.h"
+#include "gengeopop/Location.h"
 
 #include <boost/geometry/geometries/box.hpp>
 #include <boost/geometry/geometries/polygon.hpp>
 #include <boost/geometry/geometries/register/box.hpp>
+#include <tuple>
 
 BOOST_GEOMETRY_REGISTER_BOX_TEMPLATED(gengeopop::AABB, lower, upper)
 
@@ -41,7 +41,7 @@ template <typename InsertIter, typename T>
 class Collector
 {
 public:
-        Collector(const InsertIter& ins) : m_ins(ins) {}
+        explicit Collector(const InsertIter& ins) : m_ins(ins) {}
 
         /// Collect a new element
         void operator()(T elem) { *m_ins = std::move(elem); }
@@ -127,7 +127,7 @@ class RadiusPolicy
 public:
         using Args = std::tuple<geogrid_detail::KdTree2DPoint, double>;
 
-        RadiusPolicy(Args args) : m_center(std::move(std::get<0>(args))), m_radius(std::get<1>(args)) {}
+        explicit RadiusPolicy(Args args) : m_center(std::move(std::get<0>(args))), m_radius(std::get<1>(args)) {}
 
         AABB<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
         {
@@ -163,7 +163,7 @@ class BoxPolicy
 public:
         using Args = std::tuple<double, double, double, double>; ///< lon1, lat1, lon2, lat2
 
-        BoxPolicy(Args args) : m_args(std::move(args)) {}
+        explicit BoxPolicy(Args args) : m_args(std::move(args)) {}
 
         AABB<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
         {
@@ -183,7 +183,7 @@ class PolygonPolicy
 public:
         using Args = boost::geometry::model::polygon<Coordinate, true>;
 
-        PolygonPolicy(Args args) : m_poly(std::move(args)) {}
+        explicit PolygonPolicy(Args args) : m_poly(std::move(args)) {}
 
         AABB<geogrid_detail::KdTree2DPoint> GetBoundingBox() const
         {

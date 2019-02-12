@@ -15,13 +15,30 @@
 
 #pragma once
 
-#include "KdTree.h"
-#include "KdTree2DPoint.h"
+#include <algorithm>
+#include <cstddef>
+#include <functional>
+#include <memory>
+#include <queue>
+#include <utility>
+#include <vector>
+
+#include <iostream>
 
 namespace gengeopop {
 
-extern template class KdTree<geogrid_detail::KdTree2DPoint>;
-
-using GeoGridKdTree = KdTree<geogrid_detail::KdTree2DPoint>;
+/**
+ * Axis Aligned Bounding Box
+ *
+ * @brief A hyper rectangle defined by 2 points: the lower bound for every dimension and the upper bound.
+ */
+template <typename P>
+struct AABB
+{
+        AABB() : lower(), upper(){};
+        AABB(P l, P u) : lower(l), upper(u){};
+        P lower; ///< The lower bound for every dimension
+        P upper; ///< The upper bound for every dimension
+};
 
 } // namespace gengeopop

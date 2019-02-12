@@ -15,9 +15,9 @@
 
 #pragma once
 
-#include "KdTree.h"
-#include "Coordinate.h"
-#include "Location.h"
+#include "gengeopop/Coordinate.h"
+#include "gengeopop/Location.h"
+#include "gengeopop/geo/AABB.h"
 
 #include <boost/geometry/algorithms/equals.hpp>
 #include <boost/geometry/algorithms/distance.hpp>

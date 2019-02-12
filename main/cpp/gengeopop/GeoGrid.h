@@ -15,9 +15,9 @@
 
 #pragma once
 
-#include "KdTree.h"
-#include "KdTree2DPoint.h"
-#include "GeoGridKdTree.h"
+#include "gengeopop/geo/KdTree.h"
+#include "gengeopop/geo/KdTree2DPoint.h"
+#include "gengeopop/geo/GeoGridKdTree.h"
 #include "Location.h"
 #include "pool/ContactPool.h"
 #include "pop/Population.h"
@@ -99,6 +99,9 @@ public:
         /// Gets a Location by id and check if the id exists.
         std::shared_ptr<Location> GetById(unsigned int id) const { return m_locationsToIdIndex.at(id); }
 
+        /// Provide access to the GeoGridKdTree spatial lookup structure.
+        const GeoGridKdTree& KdTree() { return m_tree; }
+
         /// Get the population of this GeoGrid
         stride::Population* GetPopulation() const { return m_population; }
 
@@ -163,7 +166,7 @@ private:
 
 } // namespace gengeopop
 
-#include "GeoAggregator.h" // Prevent cyclic include dependency
+#include "gengeopop/geo/GeoAggregator.h" // Prevent cyclic include dependency
 
 namespace gengeopop {
 

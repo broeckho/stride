@@ -15,6 +15,9 @@
 
 #include "GeoGrid.h"
 
+#include "gengeopop/geo/KdTree.h"
+#include "gengeopop/geo/KdTree2DPoint.h"
+#include "gengeopop/geo/GeoGridKdTree.h"
 #include "util/Exception.h"
 
 #include <cmath>
@@ -62,7 +65,8 @@ void GeoGrid::Finalize()
         }
 
         m_finalized = true;
-        m_tree      = KdTree<geogrid_detail::KdTree2DPoint>::Build(points);
+        //m_tree      = KdTree<geogrid_detail::KdTree2DPoint>::Build(points);
+        m_tree      = GeoGridKdTree::Build(points);
 }
 
 set<shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2, double lat2) const
