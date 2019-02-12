@@ -18,6 +18,8 @@
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/io/ReaderFactory.h"
 
+#include <cmath>
+
 namespace gengeopop {
 
 using namespace std;

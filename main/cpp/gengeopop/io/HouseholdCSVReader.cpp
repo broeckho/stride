@@ -15,7 +15,6 @@
 
 #include "HouseholdCSVReader.h"
 
-#include "gengeopop/GeoGrid.h"
 #include "gengeopop/Household.h"
 #include "pool/ContactPool.h"
 #include "pop/Person.h"

@@ -19,9 +19,9 @@
 #include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
-#include <cmath>
-#include <iomanip>
-#include <iostream>
+
+#include <ostream>
+#include <memory>
 
 namespace gengeopop {
 

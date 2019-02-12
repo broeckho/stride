@@ -26,14 +26,14 @@ set(GENGEOPOP_LIB
     GeoGridBuilder.cpp
     GeoGridConfig.cpp
     GeoGridConfigBuilder.cpp
-    geo/GeoAggregator.h
-    geo/GeoGridKdTree.cpp
     Household.cpp
     K12School.cpp
     Location.cpp
     PrimaryCommunity.cpp
     SecondaryCommunity.cpp
     Workplace.cpp
+#
+    geo/GeoGridKdTree.cpp
 #
     generators/CollegeGenerator.cpp
     generators/CommunityGenerator.cpp

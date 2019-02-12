@@ -15,8 +15,6 @@
 
 #pragma once
 
-//#include "GeoGrid.h"
-
 #include "pool/ContactPool.h"
 
 #include <memory>

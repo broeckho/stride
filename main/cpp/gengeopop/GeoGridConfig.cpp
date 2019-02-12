@@ -18,6 +18,8 @@
 #include "gengeopop/io/HouseholdReader.h"
 #include "util/StringUtils.h"
 
+#include <iomanip>
+
 namespace gengeopop {
 
 using stride::util::intToDottedString;

@@ -15,16 +15,15 @@
 
 #include "GeoGrid.h"
 
+#include "gengeopop/geo/GeoAggregator.h"
 #include "gengeopop/geo/GeoGridKdTree.h"
 #include "util/Exception.h"
 
 #include <cmath>
 #include <iostream>
 #include <queue>
+#include <stdexcept>
 #include <utility>
-
-
-#include "gengeopop/geo/GeoAggregator.h" // Prevent cyclic include dependency
 
 namespace gengeopop {
 
@@ -51,7 +50,7 @@ GeoGrid::GeoGrid(stride::Population* population)
 void GeoGrid::AddLocation(shared_ptr<Location> location)
 {
         if (m_finalized) {
-                throw stride::util::Exception("Calling addLocation while GeoGrid is finalized is not supported!");
+                throw std::runtime_error("Calling addLocation while GeoGrid is finalized not supported!");
         }
 
         m_locations.emplace_back(location);
@@ -61,8 +60,7 @@ void GeoGrid::AddLocation(shared_ptr<Location> location)
 void GeoGrid::CheckFinalized(const string& functionName) const
 {
         if (!m_finalized) {
-                throw stride::util::Exception("Calling \"" + functionName +
-                                              "\" while GeoGrid is not finalized is not supported!");
+                throw std::runtime_error("Calling \"" + functionName + "\" with GeoGrid not finalized not supported!");
         }
 }
 

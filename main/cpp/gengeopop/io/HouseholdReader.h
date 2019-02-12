@@ -22,8 +22,10 @@
 #include <vector>
 
 namespace stride {
+
 class Person;
 class ContactPool;
+
 } // namespace stride
 
 namespace gengeopop {

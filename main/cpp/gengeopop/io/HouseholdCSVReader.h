@@ -16,12 +16,12 @@
 #pragma once
 
 #include "HouseholdReader.h"
-//#include "pop/Population.h"
 
 namespace stride {
+
 class ContactPool;
-class Household;
 class Person;
+
 } // namespace stride
 
 namespace gengeopop {

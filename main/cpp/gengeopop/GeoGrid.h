@@ -20,15 +20,6 @@
 #include "pool/ContactPool.h"
 #include "pop/Population.h"
 
-#include <boost/geometry/algorithms/distance.hpp>
-#include <boost/geometry/algorithms/within.hpp>
-#include <boost/geometry/geometries/box.hpp>
-#include <boost/geometry/geometries/point.hpp>
-#include <boost/geometry/strategies/geographic/distance.hpp>
-
-#include <cmath>
-#include <iostream>
-#include <map>
 #include <set>
 #include <unordered_map>
 #include <vector>
