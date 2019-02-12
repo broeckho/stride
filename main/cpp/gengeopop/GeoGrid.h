@@ -16,6 +16,8 @@
 #pragma once
 
 #include "KdTree.h"
+#include "KdTree2DPoint.h"
+#include "GeoGridKdTree.h"
 #include "Location.h"
 #include "pool/ContactPool.h"
 #include "pop/Population.h"
@@ -37,66 +39,6 @@ namespace gengeopop {
 
 template <typename Policy, typename... F>
 class GeoAggregator;
-
-namespace geogrid_detail {
-
-/// \ref KdTree for some more information on methods.
-class KdTree2DPoint
-{
-public:
-        explicit KdTree2DPoint(const std::shared_ptr<Location>& location)
-            : m_pt(location->GetCoordinate()), m_location(location)
-        {
-        }
-
-        KdTree2DPoint() : m_pt(), m_location(nullptr){};
-
-        KdTree2DPoint(double longt, double lat) : m_pt(longt, lat), m_location(nullptr) {}
-
-        constexpr static std::size_t dim = 2;
-
-        template <std::size_t D>
-        double Get() const
-        {
-                static_assert(0 <= D && D <= 1, "Dimension should be in range");
-                return boost::geometry::get<D>(m_pt);
-        }
-
-        bool InBox(const AABB<KdTree2DPoint>& box) const
-        {
-                return boost::geometry::within(m_pt,
-                                               boost::geometry::model::box<Coordinate>{box.lower.m_pt, box.upper.m_pt});
-        }
-
-        /// Does the point lie within `radius` km from `start`?
-        bool InRadius(const KdTree2DPoint& start, double radius) const { return Distance(start) <= radius; }
-
-        /// Retrieve the actual location
-        std::shared_ptr<Location> GetLocation() const { return m_location; }
-
-        /// Get the coordinate for this Location
-        Coordinate GetPoint() const { return m_pt; }
-
-        template <std::size_t D>
-        struct dimension_type
-        {
-                using type = double;
-        };
-
-private:
-        Coordinate                m_pt;       ///< Shortcut for access without dereferencing
-        std::shared_ptr<Location> m_location; ///< The underlying location
-
-        /// Distance in kilometers, following great circle distance on a speroid earth
-        double Distance(const KdTree2DPoint& other) const
-        {
-                return boost::geometry::distance(m_pt, other.m_pt,
-                                                 boost::geometry::strategy::distance::geographic<>{}) /
-                       1000.0;
-        }
-};
-
-} // namespace geogrid_detail
 
 /**
  * A Geographic grid of simulation region contains Locations that in turn contains ContactCenters.
@@ -215,7 +157,8 @@ private:
         bool m_finalized;
 
         ///< Internal KdTree for quick spatial lookup.
-        KdTree<geogrid_detail::KdTree2DPoint> m_tree;
+        //KdTree<geogrid_detail::KdTree2DPoint> m_tree;
+        GeoGridKdTree m_tree;
 };
 
 } // namespace gengeopop

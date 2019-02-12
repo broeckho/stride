@@ -47,7 +47,7 @@ std::size_t Median(const std::vector<P>& points);
 /**
  * Axis Aligned Bounding Box
  *
- * @brief A hyper rectangle defined by 2 points: the lower bound for every dimension and the upper bound
+ * @brief A hyper rectangle defined by 2 points: the lower bound for every dimension and the upper bound.
  */
 template <typename P>
 struct AABB
@@ -60,17 +60,16 @@ struct AABB
 
 /**
  * A k-d tree: a k-dimensional generalization of binary search trees
- * This data structure allows for efficient lookup of points and range queries with an Axis-Aligned Bounding Box (when
- * balanced).
+ * This data structure allows for efficient lookup of points and range queries with
+ * an Axis-Aligned Bounding Box (when balanced).
  *
  * The template parameter `P` should have the following attributes and operations:
  *  - A `static constexpr std::size_t dim`: the number of dimensions of the point type.
- *  - A `template <std::size_d D> get() const` method that returns the coordinate of the `D`th dimension of the point
- *  - A nested `template <std::size_t D> struct dimension_type` that has a member type `type` giving the return type for
- *    `Get<D>`
+ *  - A `template <std::size_d D> get() const` returns the coordinate of the `D`th dimension of the point.
+ *  - A nested `template <std::size_t D> struct dimension_type` has a member type `type` with return type for `Get<D>`.
  *  - A default constructor and a copy constructor
  *  - The individual dimensions should each have a total order and equality
- *  - A method `bool InBox(const AABB<P>& box) const` that indicates if a point falls withing the bounding box (only for
+ *  - A method `bool InBox(const AABB<P>& box) const` indicates if a point falls withing the bounding box (only for
  *    range queries)
  */
 template <typename P>
@@ -85,10 +84,10 @@ public:
         KdTree() : m_size(0), m_root(nullptr) {}
 
         /**
-         * Build a balanced tree from the given set of points efficiently
+         * Build a balanced tree from the given set of points efficiently.
          *
-         * @param points The points to insert in the resulting tree
-         * @returns A balanced KdTree containing the given points
+         * @param points The points to insert in the resulting tree.
+         * @returns A balanced KdTree containing the given points.
          */
         static KdTree Build(const std::vector<P>& points)
         {
@@ -99,9 +98,9 @@ public:
         }
 
         /**
-         * Insert a new point into the tree, using this often may result in an unbalanced tree
+         * Insert a new point into the tree, using this often may result in an unbalanced tree.
          *
-         * @param point The point to insert into the tree
+         * @param point The point to insert into the tree.
          */
         void Insert(P point)
         {
@@ -122,10 +121,10 @@ public:
         }
 
         /**
-         * Test wether a point is contained in the tree
+         * Test wether a point is contained in the tree.
          *
-         * @param point The point to test. P should support `bool operator==(const P&) const`
-         * @returns Whether the point is found in the tree
+         * @param point The point to test. P should support `bool operator==(const P&) const`.
+         * @returns Whether the point is found in the tree.
          */
         bool Contains(const P& point) const
         {
@@ -140,11 +139,11 @@ public:
                 return result;
         }
 
-        /**
-         * Get all points in the tree that lie within `box`
+         /**
+         * Get all points in the tree that lie within `box`.
          *
-         * @param box The limiting AABB to search for points
-         * @returns A collection of points found within `box`
+         * @param box The limiting AABB to search for points.
+         * @returns A collection of points found within `box`.
          */
         std::vector<P> Query(const AABB<P>& box) const
         {
@@ -161,7 +160,7 @@ public:
         /**
          * Calls a function with each of the points in the tree
          *
-         * @param f A function that will be called with each point, if f returns false, the traversal stops
+         * @param f A function that will be called with each point, if f returns false, traversal stops.
          */
         void Apply(std::function<bool(const P&)> f) const
         {
@@ -192,7 +191,7 @@ public:
         /**
          * Calls a function with every point contained in `box`
          *
-         * @param f A function that will be called with each point within `box`, if f returns false, the traversal stops
+         * @param f A function that will be called with each point within `box`, if f returns false, traversal stops.
          * @param box The containing Axis-Aligned Bounding Box to search for points
          */
         void Apply(std::function<bool(const P&)> f, const AABB<P>& box) const
@@ -218,11 +217,7 @@ public:
                 }
         }
 
-        /**
-         * Get the height of the tree
-         *
-         * Mostly for testing purposes
-         */
+        /// Get the height of the tree (mostly for testing purposes).
         std::size_t Height() const
         {
                 int                                          h = 0;
@@ -241,14 +236,10 @@ public:
                 return static_cast<size_t>(h);
         }
 
-        /**
-         * Is the tree empty
-         */
+        /// Is the tree empty.
         bool Empty() const { return Size() == 0; }
 
-        /**
-         * Get the size of the tree
-         */
+        /// Get the size of the tree.
         std::size_t Size() const { return m_size; }
 
 private:
@@ -290,38 +281,29 @@ private:
  ***************************************/
 namespace kd {
 
-/// A base class for all instanciations of a Node with D
+/**
+ * A base class for all instanciations of a Node with D.
+ */
+
 template <typename P>
 class BaseNode
 {
 public:
         virtual ~BaseNode() = default;
 
-        /**
-         * Get a non-owning pointer to the left child
-         * nullptr if there's no such child
-         */
+        /// Get a non-owning pointer to the left child (nullptr if no such child).
         virtual BaseNode<P>* BorrowLeft() const = 0;
 
-        /**
-         * Get a non-owning pointer to the right child
-         * nullptr if there's no such child
-         */
+        /// Get a non-owning pointer to the right child (nullptr if no such child).
         virtual BaseNode<P>* BorrowRight() const = 0;
 
-        /**
-         * Get a non-owning pointer to the child corresponding to the correct split for point
-         */
+        /// Get a non-owning pointer to the child corresponding to the correct split for point.
         virtual BaseNode<P>* BorrowSplitChild(const P& point) const = 0;
 
-        /**
-         * Add a new child in the right place, according to split
-         */
+        /// Add a new child in the right place, according to split.
         virtual void AddChild(P point) = 0;
 
-        /**
-         * Gets the point for this node
-         */
+        /// Gets the point for this node.
         virtual P GetPoint() const = 0;
 };
 
@@ -335,7 +317,7 @@ template <typename P, std::size_t D>
 class Node : public BaseNode<P>
 {
 public:
-        Node(P pt) : m_point(pt), m_left(nullptr), m_right(nullptr) {}
+        explicit Node(P pt) : m_point(pt), m_left(nullptr), m_right(nullptr) {}
 
         BaseNode<P>* BorrowLeft() const override { return m_left.get(); }
 

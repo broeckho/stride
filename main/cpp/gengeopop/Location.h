@@ -28,13 +28,11 @@
 
 namespace gengeopop {
 
-// using Coordinate = boost::geometry::model::point<double, 2,
-// boost::geometry::cs::geographic<boost::geometry::degree>>;
-
 class ContactCenter;
 
-/// A location for use within the GeoGrid
-/// Contains useful information, both spatial and administrative
+/**
+ * A location for use within the GeoGrid. Container for ContactCenters.
+ */
 class Location
 {
 public:

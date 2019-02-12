@@ -26,6 +26,7 @@ set(GENGEOPOP_LIB
     GeoGridBuilder.cpp
     GeoGridConfig.cpp
     GeoGridConfigBuilder.cpp
+    GeoGridKdTree.cpp
     Household.cpp
     K12School.cpp
     Location.cpp
