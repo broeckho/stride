@@ -18,6 +18,8 @@
 #include "util/CSV.h"
 #include "util/Exception.h"
 
+#include <map>
+
 namespace gengeopop {
 
 using namespace std;

@@ -15,6 +15,7 @@
 
 #include "WorkplaceGenerator.h"
 
+#include "gengeopop/Location.h"
 #include "gengeopop/Workplace.h"
 
 #include <trng/discrete_dist.hpp>

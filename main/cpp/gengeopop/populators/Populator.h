@@ -17,6 +17,7 @@
 
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/Location.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 

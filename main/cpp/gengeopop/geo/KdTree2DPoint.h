@@ -16,13 +16,14 @@
 #pragma once
 
 #include "gengeopop/Coordinate.h"
-#include "gengeopop/Location.h"
 #include "gengeopop/geo/AABBox.h"
 
 #include <boost/geometry/core/access.hpp>
 #include <memory>
 
 namespace gengeopop {
+
+class Location;
 
 namespace geogrid_detail {
 
@@ -45,7 +46,7 @@ public:
         KdTree2DPoint() : m_pt(), m_location(nullptr){};
 
         /// Constructor with Location.
-        explicit KdTree2DPoint(const std::shared_ptr<Location>& loc) : m_pt(loc->GetCoordinate()), m_location(loc) {}
+        explicit KdTree2DPoint(const std::shared_ptr<Location>& loc);
 
         /// Constructor with longitude and latitude.
         KdTree2DPoint(double longt, double lat) : m_pt(longt, lat), m_location(nullptr) {}

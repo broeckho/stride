@@ -14,7 +14,9 @@
  */
 
 #include "CommunityGenerator.h"
+
 #include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/Location.h"
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/SecondaryCommunity.h"
 

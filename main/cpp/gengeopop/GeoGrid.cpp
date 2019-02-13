@@ -15,6 +15,7 @@
 
 #include "GeoGrid.h"
 
+#include "gengeopop/Location.h"
 #include "gengeopop/geo/GeoAggregator.h"
 #include "gengeopop/geo/GeoGridKdTree.h"
 

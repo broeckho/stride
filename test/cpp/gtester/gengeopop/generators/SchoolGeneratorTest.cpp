@@ -15,6 +15,7 @@
 
 #include "../../createlogger.h"
 #include "gengeopop/K12School.h"
+#include "gengeopop/Location.h"
 #include "gengeopop/generators/K12SchoolGenerator.h"
 #include "util/RnMan.h"
 

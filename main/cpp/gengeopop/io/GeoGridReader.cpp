@@ -16,6 +16,7 @@
 #include "GeoGridReader.h"
 
 #include "gengeopop/GeoGrid.h"
+#include "gengeopop/Location.h"
 
 namespace gengeopop {
 

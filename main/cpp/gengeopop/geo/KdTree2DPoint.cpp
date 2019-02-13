@@ -15,6 +15,8 @@
 
 #include "KdTree2DPoint.h"
 
+#include "gengeopop/Location.h"
+
 #include <boost/geometry/algorithms/distance.hpp>
 #include <boost/geometry/algorithms/within.hpp>
 #include <boost/geometry/core/access.hpp>
@@ -24,6 +26,8 @@
 namespace gengeopop {
 
 namespace geogrid_detail {
+
+KdTree2DPoint::KdTree2DPoint(const std::shared_ptr<Location>& loc) : m_pt(loc->GetCoordinate()), m_location(loc) {}
 
 bool KdTree2DPoint::operator==(const KdTree2DPoint& other) const { return Distance(other) < 0.001; }
 

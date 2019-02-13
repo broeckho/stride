@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include "Location.h"
+
 #include "gengeopop/geo/GeoGridKdTree.h"
 #include "pool/ContactPool.h"
 #include "pop/Population.h"
@@ -25,6 +25,8 @@
 #include <vector>
 
 namespace gengeopop {
+
+class Location;
 
 template <typename Policy, typename... F>
 class GeoAggregator;

@@ -13,9 +13,10 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/generators/HouseholdGenerator.h"
 #include "../../createlogger.h"
 #include "gengeopop/Household.h"
+#include "gengeopop/Location.h"
+#include "gengeopop/generators/HouseholdGenerator.h"
 #include "util/RnMan.h"
 
 #include <gtest/gtest.h>

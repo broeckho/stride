@@ -16,6 +16,7 @@
 #include "CollegeGenerator.h"
 
 #include "gengeopop/College.h"
+#include "gengeopop/Location.h"
 
 #include <trng/discrete_dist.hpp>
 

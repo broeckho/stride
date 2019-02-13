@@ -17,6 +17,7 @@
 
 #include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
+#include "gengeopop/Location.h"
 
 using namespace std;
 using namespace stride;

@@ -14,7 +14,9 @@
  */
 
 #include "HouseholdGenerator.h"
+
 #include "gengeopop/Household.h"
+#include "gengeopop/Location.h"
 
 #include <trng/discrete_dist.hpp>
 

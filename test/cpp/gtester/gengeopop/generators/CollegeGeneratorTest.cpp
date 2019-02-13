@@ -13,9 +13,10 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/generators/CollegeGenerator.h"
 #include "../../createlogger.h"
 #include "gengeopop/College.h"
+#include "gengeopop/Location.h"
+#include "gengeopop/generators/CollegeGenerator.h"
 #include "gengeopop/generators/K12SchoolGenerator.h"
 #include "util/RnMan.h"
 
