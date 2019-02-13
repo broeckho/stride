@@ -9,12 +9,13 @@ var a00020 =
     [ "CreateContactPool", "db/db2/a00020.html#a44bdad4030604fb3b53c9220ed03c3c0", null ],
     [ "CreatePerson", "db/db2/a00020.html#a95b7496f51d8c85f75b890582dc615c4", null ],
     [ "Finalize", "db/db2/a00020.html#a5f2b335f8413b7fa19870a276d6f1b6e", null ],
-    [ "FindLocationsInRadius", "db/db2/a00020.html#ad0aba7c82ca78503a3a3ebab20cdc661", null ],
-    [ "InBox", "db/db2/a00020.html#a7ff65a0e81e6609aa275252a30fb066b", null ],
-    [ "InBox", "db/db2/a00020.html#a2edef67b6d0171c7164fd148afdaa3e1", null ],
+    [ "LocationsInRadius", "db/db2/a00020.html#af77a4b12e2aa8b91af325de14cfc3f94", null ],
+    [ "LocationsInBox", "db/db2/a00020.html#aa81befada510ff976164aa9b6808cdb3", null ],
+    [ "LocationsInBox", "db/db2/a00020.html#a22b2318d0b0cb7382d5c4b74284265f0", null ],
     [ "TopK", "db/db2/a00020.html#aeb17950838604a88f5d128905cb8bf9c", null ],
     [ "Get", "db/db2/a00020.html#ad43009c664fcbc9477362e501922192a", null ],
     [ "GetById", "db/db2/a00020.html#a7495a7e29ea1ee6a63032135663049e2", null ],
+    [ "KdTree", "db/db2/a00020.html#a52c92dbaf988b178b1a79613d1a94875", null ],
     [ "GetPopulation", "db/db2/a00020.html#a7ede98db203b7714f05252f0d605345d", null ],
     [ "Remove", "db/db2/a00020.html#a5cfb0806c3f008b174ab8c97c11c2650", null ],
     [ "BuildAggregator", "db/db2/a00020.html#a962bb9e7e7f0aceab9459c9d2673c81f", null ],
@@ -31,5 +32,5 @@ var a00020 =
     [ "m_locationsToIdIndex", "db/db2/a00020.html#ad4c4e1f55965bb7d839b8cb7261b3176", null ],
     [ "m_population", "db/db2/a00020.html#a6054b30bd315b540cf8381caa08a1596", null ],
     [ "m_finalized", "db/db2/a00020.html#a633109351ecdf457481602ca7eb4c5c6", null ],
-    [ "m_tree", "db/db2/a00020.html#a43f5352ce2a3dbe0422a952ece12c654", null ]
+    [ "m_tree", "db/db2/a00020.html#a6b712ffb98d4e13d0a5da6329ac69826", null ]
 ];

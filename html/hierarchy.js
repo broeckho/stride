@@ -3,7 +3,7 @@ var hierarchy =
     [ "gengeopop::kd::BaseNode< geogrid_detail::KdTree2DPoint >", "d7/d46/a00002.html", [
       [ "gengeopop::kd::Node< geogrid_detail::KdTree2DPoint, 0 >", "d5/db6/a00042.html", null ]
     ] ],
-    [ "gengeopop::AABB< P >", "d1/d7c/a00003.html", null ],
+    [ "gengeopop::AABBox< P >", "d1/d7c/a00003.html", null ],
     [ "gengeopop::BoxPolicy", "d0/d0b/a00004.html", null ],
     [ "gengeopop::CitiesReader", "de/d21/a00006.html", [
       [ "gengeopop::CitiesCSVReader", "dd/dad/a00005.html", null ]
@@ -182,11 +182,11 @@ var hierarchy =
     [ "stride::util::Subject< stride::sim_event::Id >", "dc/dfe/a00125.html", [
       [ "stride::SimRunner", "d0/dc2/a00104.html", null ]
     ] ],
-    [ "CallbackType", "d0/d5c/a00668.html", null ],
-    [ "Chunk *", "d1/d97/a00670.html", null ],
-    [ "const void", "d5/d40/a00672.html", null ],
-    [ "double", "d9/d9b/a00363.html", null ],
-    [ "random_generator< E, randutils::seed_seq_fe128 >", "d6/da1/a00675.html", null ],
-    [ "size_t", "dd/d07/a00433.html", null ],
-    [ "tuple< stride::ContactLogMode::Id, bool >", "da/d31/a00678.html", null ]
+    [ "CallbackType", "d1/d87/a00689.html", null ],
+    [ "Chunk *", "db/dde/a00691.html", null ],
+    [ "const void", "d3/dd2/a00693.html", null ],
+    [ "double", "d6/d80/a00371.html", null ],
+    [ "random_generator< E, randutils::seed_seq_fe128 >", "df/d7d/a00696.html", null ],
+    [ "size_t", "db/d34/a00442.html", null ],
+    [ "tuple< stride::ContactLogMode::Id, bool >", "d8/d33/a00699.html", null ]
 ];

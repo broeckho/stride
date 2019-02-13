@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Immunizer.cpp File Reference</title>
+<title>Stride Reference Manual: Id.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb74808</span>
+   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
    </div>
   </td>
  </tr>
@@ -105,36 +105,24 @@ $(document).ready(function(){initNavTree('d4/d08/a00237.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Immunizer.cpp File Reference</div>  </div>
+<div class="title">Id.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation for the Immunizer class.  
+<p>Implementation of EventId.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d2e/a00238_source.html">Immunizer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/d35/a00266_source.html">pop/Person.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/d7b/a00286_source.html">util/RnMan.h</a>&quot;</code><br />
-<code>#include &lt;trng/uniform01_dist.hpp&gt;</code><br />
-<code>#include &lt;trng/uniform_int_dist.hpp&gt;</code><br />
-<code>#include &lt;numeric&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d2e/a00238_source.html">Id.h</a>&quot;</code><br />
+<code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Immunizer.cpp:</div>
+Include dependency graph for Id.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d35/a00526.gif" border="0" usemap="#Immunizer_8cpp" alt=""/></div>
-<map name="Immunizer_8cpp" id="Immunizer_8cpp">
-<area shape="rect" id="node2" href="../../da/d2e/a00238.html" title="Header for the Immunizer class. " alt="" coords="652,80,753,107"/>
-<area shape="rect" id="node12" href="../../d5/d35/a00266.html" title="Header file for the Person class. " alt="" coords="327,155,433,181"/>
-<area shape="rect" id="node20" href="../../d5/d7b/a00286.html" title="Interface of RnMan. " alt="" coords="1109,155,1209,181"/>
-<area shape="rect" id="node3" href="../../dc/de6/a00167.html" title="Header for the core ContactPool class. " alt="" coords="434,319,577,345"/>
-<area shape="rect" id="node4" href="../../d0/d48/a00165.html" title="Header for the ContactLogMode class. " alt="" coords="703,393,897,420"/>
-<area shape="rect" id="node6" href="../../d5/dcb/a00170.html" title="Definition of ContactPoolType. " alt="" coords="185,393,356,420"/>
-<area shape="rect" id="node13" href="../../d0/d24/a00222.html" title="Header for the Health class. " alt="" coords="397,237,526,263"/>
-<area shape="rect" id="node14" href="../../d7/d40/a00236.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="32,237,200,263"/>
-<area shape="rect" id="node21" href="../../d3/d58/a00285.html" title="Interface of RnPcg. " alt="" coords="1301,319,1352,345"/>
-<area shape="rect" id="node22" href="../../d0/da2/a00307.html" title="Miscellaneous string utilities. " alt="" coords="1553,393,1653,420"/>
+<div class="center"><img src="../../db/d44/a00533.gif" border="0" usemap="#Id_8cpp" alt=""/></div>
+<map name="Id_8cpp" id="Id_8cpp">
+<area shape="rect" id="node2" href="../../da/d2e/a00238.html" title="Definition of EventId. " alt="" coords="61,80,107,107"/>
 </map>
 </div>
 </div>
@@ -142,21 +130,36 @@ Include dependency graph for Immunizer.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d0/d48/a00351"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d48/a00351.html">stride</a></td></tr>
-<tr class="memdesc:d0/d48/a00351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d4/def/a00359"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/def/a00359.html">stride</a></td></tr>
+<tr class="memdesc:d4/def/a00359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dc/d59/a00364"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d59/a00364.html">stride::sim_event</a></td></tr>
+<tr class="memdesc:dc/d59/a00364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage events signalled by the <a class="el" href="../../d0/dc2/a00104.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d59/a00364.html#a43c0310b3eef6024b540ffaa5c4c39b2">stride::sim_event::IsType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d7/ddb/a00361.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="../../dc/d59/a00364.html#a43c0310b3eef6024b540ffaa5c4c39b2">More...</a><br /></td></tr>
+<tr class="separator:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa54357f0c5b3af4e7905ed503167ede"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d59/a00364.html#aaa54357f0c5b3af4e7905ed503167ede">stride::sim_event::ToString</a> (Id w)</td></tr>
+<tr class="memdesc:aaa54357f0c5b3af4e7905ed503167ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d7/ddb/a00361.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="../../dc/d59/a00364.html#aaa54357f0c5b3af4e7905ed503167ede">More...</a><br /></td></tr>
+<tr class="separator:aaa54357f0c5b3af4e7905ed503167ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81b85da174b73232cac26f53bd6d3a0"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d59/a00364.html#ac81b85da174b73232cac26f53bd6d3a0">stride::sim_event::ToType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:ac81b85da174b73232cac26f53bd6d3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../dc/d59/a00364.html#ac81b85da174b73232cac26f53bd6d3a0">More...</a><br /></td></tr>
+<tr class="separator:ac81b85da174b73232cac26f53bd6d3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation for the Immunizer class. </p>
+<div class="textblock"><p>Implementation of EventId. </p>
 
-<p>Definition in file <a class="el" href="../../d4/d08/a00237_source.html">Immunizer.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d4/d08/a00237_source.html">Id.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d4/d08/a00237.html">Immunizer.cpp</a></li>
-    <li class="footer">Generated on Mon Feb 11 2019 16:57:36 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../d4/d08/a00237.html">Id.cpp</a></li>
+    <li class="footer">Generated on Wed Feb 13 2019 14:43:25 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

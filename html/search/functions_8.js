@@ -19,7 +19,6 @@ var searchData=
   ['haveopenmp',['HaveOpenMP',['../dd/d42/a00109.html#ad6fc5f3f3e32a15f059c64b74dfea905',1,'stride::util::ConfigInfo']]],
   ['health',['Health',['../db/ddf/a00088.html#a29ca39e47180884b3c7681636d1c550d',1,'stride::Health']]],
   ['healthseeder',['HealthSeeder',['../db/dab/a00089.html#a7b4785c0728c9f154aa1426034d6e1b5',1,'stride::HealthSeeder']]],
-  ['height',['Height',['../d6/d42/a00043.html#a6509dc9a5dd05d41e833a0e1acfed77e',1,'gengeopop::KdTree']]],
   ['household',['Household',['../db/df3/a00034.html#ad3c34c2af09ea1e88dfd412ffae3989e',1,'gengeopop::Household']]],
   ['householdcsvreader',['HouseholdCSVReader',['../d4/d8c/a00035.html#a977c1f083a3ac0f06f5fa22ef9937e77',1,'gengeopop::HouseholdCSVReader']]],
   ['householdreader',['HouseholdReader',['../d8/d41/a00038.html#a8ca2b5f3e8ca40874b3d7ef008a86cee',1,'gengeopop::HouseholdReader']]]

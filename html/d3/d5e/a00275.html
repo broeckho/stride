@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: PrimaryCommunity.cpp File Reference</title>
+<title>Stride Reference Manual: PersonsFile.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb74808</span>
+   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
    </div>
   </td>
  </tr>
@@ -107,36 +107,35 @@ $(document).ready(function(){initNavTree('d3/d5e/a00275.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">PrimaryCommunity.cpp File Reference</div>  </div>
+<div class="title">PersonsFile.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d28/a00276_source.html">PrimaryCommunity.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/ded/a00196_source.html">GeoGrid.h</a>&quot;</code><br />
+
+<p>Implementation of the CasesFile class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d28/a00276_source.html">PersonsFile.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dcd/a00280_source.html">pop/Population.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dd0/a00191_source.html">util/FileSys.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PrimaryCommunity.cpp:</div>
+Include dependency graph for PersonsFile.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d2f/a00582.gif" border="0" usemap="#PrimaryCommunity_8cpp" alt=""/></div>
-<map name="PrimaryCommunity_8cpp" id="PrimaryCommunity_8cpp">
-<area shape="rect" id="node2" href="../../dc/d28/a00276.html" title="PrimaryCommunity.h" alt="" coords="927,80,1081,107"/>
-<area shape="rect" id="node15" href="../../d7/ded/a00196.html" title="GeoGrid.h" alt="" coords="1343,80,1430,107"/>
-<area shape="rect" id="node3" href="../../da/d01/a00153.html" title="Community.h" alt="" coords="712,162,819,189"/>
-<area shape="rect" id="node4" href="../../db/d44/a00162.html" title="ContactCenter.h" alt="" coords="961,341,1087,367"/>
-<area shape="rect" id="node5" href="../../dc/de6/a00167.html" title="Header for the core ContactPool class. " alt="" coords="953,430,1095,457"/>
-<area shape="rect" id="node6" href="../../d0/d48/a00165.html" title="Header for the ContactLogMode class. " alt="" coords="1348,512,1543,539"/>
-<area shape="rect" id="node8" href="../../d5/dcb/a00170.html" title="Definition of ContactPoolType. " alt="" coords="816,512,987,539"/>
-<area shape="rect" id="node16" href="../../d7/d2f/a00258.html" title="KdTree.h" alt="" coords="2190,341,2266,367"/>
-<area shape="rect" id="node21" href="../../dd/dd7/a00260.html" title="Location.h" alt="" coords="1475,251,1563,278"/>
-<area shape="rect" id="node29" href="../../d9/dd6/a00272.html" title="Header file for the core Population class. " alt="" coords="846,162,975,189"/>
-<area shape="rect" id="node48" href="../../dc/d57/a00194.html" title="GeoAggregator.h" alt="" coords="2257,162,2388,189"/>
-<area shape="rect" id="node22" href="../../d7/d3f/a00173.html" title="gengeopop/Coordinate.h" alt="" coords="1787,341,1967,367"/>
-<area shape="rect" id="node30" href="../../dd/da7/a00168.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="560,251,725,278"/>
-<area shape="rect" id="node33" href="../../d6/d82/a00293.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="470,341,642,367"/>
-<area shape="rect" id="node36" href="../../d5/d35/a00266.html" title="Header file for the Person class. " alt="" coords="328,251,435,278"/>
-<area shape="rect" id="node39" href="../../d5/d7b/a00286.html" title="Interface of RnMan. " alt="" coords="1587,251,1687,278"/>
-<area shape="rect" id="node31" href="../../d7/d40/a00236.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="667,341,835,367"/>
-<area shape="rect" id="node34" href="../../da/de0/a00317.html" title="Interface/Implementation for SVIterator. " alt="" coords="327,430,425,457"/>
-<area shape="rect" id="node37" href="../../d0/d24/a00222.html" title="Header for the Health class. " alt="" coords="317,341,446,367"/>
-<area shape="rect" id="node40" href="../../d3/d58/a00285.html" title="Interface of RnPcg. " alt="" coords="2093,341,2144,367"/>
+<div class="center"><img src="../../d9/dad/a00591.gif" border="0" usemap="#PersonsFile_8cpp" alt=""/></div>
+<map name="PersonsFile_8cpp" id="PersonsFile_8cpp">
+<area shape="rect" id="node2" href="../../dc/d28/a00276.html" title="Header for the PersonFile class. " alt="" coords="918,80,1023,107"/>
+<area shape="rect" id="node6" href="../../d0/dcd/a00280.html" title="Header file for the core Population class. " alt="" coords="1469,80,1598,107"/>
+<area shape="rect" id="node45" href="../../d9/dd0/a00191.html" title="Interface for install directory queries. " alt="" coords="1122,162,1222,189"/>
+<area shape="rect" id="node7" href="../../de/d53/a00169.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1531,162,1696,189"/>
+<area shape="rect" id="node21" href="../../da/d50/a00301.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2067,333,2239,360"/>
+<area shape="rect" id="node28" href="../../dd/d56/a00274.html" title="Header file for the Person class. " alt="" coords="1400,162,1507,189"/>
+<area shape="rect" id="node31" href="../../d4/d5b/a00294.html" title="Interface of RnMan. " alt="" coords="794,251,894,278"/>
+<area shape="rect" id="node8" href="../../dd/da7/a00168.html" title="Header for the core ContactPool class. " alt="" coords="1770,333,1913,360"/>
+<area shape="rect" id="node10" href="../../d1/d0d/a00171.html" title="Definition of ContactPoolType. " alt="" coords="1537,408,1708,435"/>
+<area shape="rect" id="node16" href="../../d0/d27/a00239.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1611,251,1779,278"/>
+<area shape="rect" id="node9" href="../../d9/d38/a00166.html" title="Header for the ContactLogMode class. " alt="" coords="1319,408,1513,435"/>
+<area shape="rect" id="node22" href="../../de/dc8/a00325.html" title="Interface/Implementation for SVIterator. " alt="" coords="2372,408,2471,435"/>
+<area shape="rect" id="node29" href="../../dc/d98/a00225.html" title="Header for the Health class. " alt="" coords="1355,251,1485,278"/>
+<area shape="rect" id="node32" href="../../d6/d82/a00293.html" title="Interface of RnPcg. " alt="" coords="827,333,877,360"/>
+<area shape="rect" id="node33" href="../../d4/d6f/a00315.html" title="Miscellaneous string utilities. " alt="" coords="301,408,401,435"/>
 </map>
 </div>
 </div>
@@ -144,16 +143,24 @@ Include dependency graph for PrimaryCommunity.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/dce/a00337"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dce/a00337.html">gengeopop</a></td></tr>
+<tr class="memitem:d4/def/a00359"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/def/a00359.html">stride</a></td></tr>
+<tr class="memdesc:d4/def/a00359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:de/dd7/a00362"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dd7/a00362.html">stride::output</a></td></tr>
+<tr class="memdesc:de/dd7/a00362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of the CasesFile class. </p>
+
+<p>Definition in file <a class="el" href="../../d3/d5e/a00275_source.html">PersonsFile.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/d5e/a00275.html">PrimaryCommunity.cpp</a></li>
-    <li class="footer">Generated on Mon Feb 11 2019 16:57:36 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../d3/d5e/a00275.html">PersonsFile.cpp</a></li>
+    <li class="footer">Generated on Wed Feb 13 2019 14:43:25 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
