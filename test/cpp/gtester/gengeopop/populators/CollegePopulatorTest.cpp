@@ -24,7 +24,7 @@
 #include "util/RnMan.h"
 
 #include <gtest/gtest.h>
-3include <map>
+#include <map>
 
 using namespace std;
 using namespace gengeopop;
