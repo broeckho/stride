@@ -10,14 +10,16 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
 #include "HouseholdPopulator.h"
 
+#include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
+#include "gengeopop/Location.h"
 
 #include <trng/uniform_int_dist.hpp>
 

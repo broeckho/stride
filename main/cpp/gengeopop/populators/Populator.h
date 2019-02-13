@@ -10,20 +10,32 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
 
-#include "gengeopop/GeoGrid.h"
-#include "gengeopop/GeoGridConfig.h"
-#include "gengeopop/Location.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
 #include <spdlog/logger.h>
 
+namespace stride {
+class ContactPool;
+}
+
 namespace gengeopop {
+
+class GeoGrid;
+class GeoGridConfig;
+class Location;
+
+class College;
+class Household;
+class K12School;
+class PrimaryCommunity;
+class SecondaryCommunity;
+class Workplace;
 
 /**
  * Interface for populators. They generate some data and apply it to the GeoGrid.
@@ -49,26 +61,7 @@ protected:
         template <typename T>
         std::vector<stride::ContactPool*> GetPoolInIncreasingRadius(const std::shared_ptr<GeoGrid>&  geoGrid,
                                                                     const std::shared_ptr<Location>& start,
-                                                                    double startRadius = 10.0) const
-        {
-                double                            currentRadius = startRadius;
-                std::vector<stride::ContactPool*> pools;
-
-                while (pools.empty()) {
-                        for (const std::shared_ptr<Location>& nearLoc :
-                             geoGrid->LocationsInRadius(start, currentRadius)) {
-                                const auto& centers = nearLoc->GetContactCentersOfType<T>();
-                                for (const auto& center : centers) {
-                                        pools.insert(pools.end(), center->begin(), center->end());
-                                }
-                        }
-                        currentRadius *= 2;
-                        if (currentRadius == std::numeric_limits<double>::infinity()) {
-                                break;
-                        }
-                }
-                return pools;
-        }
+                                                                    double startRadius = 10.0) const;
 
         /// Convenience wrapper around m_rnManager
         bool MakeChoice(double fraction);
@@ -77,5 +70,35 @@ protected:
         stride::util::RnMan&            m_rnManager; ///< RnManager used by populators.
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by populators.
 };
+
+extern template std::vector<stride::ContactPool*> Populator::GetPoolInIncreasingRadius<College>(
+        const std::shared_ptr<GeoGrid>&  geoGrid,
+        const std::shared_ptr<Location>& start,
+        double startRadius) const;
+
+extern template std::vector<stride::ContactPool*> Populator::GetPoolInIncreasingRadius<Household>(
+        const std::shared_ptr<GeoGrid>&  geoGrid,
+        const std::shared_ptr<Location>& start,
+        double startRadius) const;
+
+extern template std::vector<stride::ContactPool*> Populator::GetPoolInIncreasingRadius<K12School>(
+        const std::shared_ptr<GeoGrid>&  geoGrid,
+        const std::shared_ptr<Location>& start,
+        double startRadius) const;
+
+extern template std::vector<stride::ContactPool*> Populator::GetPoolInIncreasingRadius<PrimaryCommunity>(
+        const std::shared_ptr<GeoGrid>&  geoGrid,
+        const std::shared_ptr<Location>& start,
+        double startRadius) const;
+
+extern template std::vector<stride::ContactPool*> Populator::GetPoolInIncreasingRadius<SecondaryCommunity>(
+        const std::shared_ptr<GeoGrid>&  geoGrid,
+        const std::shared_ptr<Location>& start,
+        double startRadius) const;
+
+extern template std::vector<stride::ContactPool*> Populator::GetPoolInIncreasingRadius<Workplace>(
+        const std::shared_ptr<GeoGrid>&  geoGrid,
+        const std::shared_ptr<Location>& start,
+        double startRadius) const;
 
 } // namespace gengeopop
