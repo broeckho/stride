@@ -98,7 +98,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Determine maximum pool ids in population.
         // --------------------------------------------------------------
-        IdSubscriptArray<unsigned int> max_ids{0U};
+        IdSubscriptArray<size_t> max_ids{0U};
         for (const auto& p : *pop) {
                 for (Id typ : IdList) {
                         max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));

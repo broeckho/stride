@@ -58,7 +58,7 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const 
                         for (auto p : *housePool) {
                                 found.insert(pool);
                                 pool->AddMember(p);
-                                p->SetSecondaryCommunityId(static_cast<unsigned int>(pool->GetId()));
+                                p->SetPoolId(stride::ContactPoolType::Id::SecondaryCommunity, pool->GetId());
                         }
                 }
         }

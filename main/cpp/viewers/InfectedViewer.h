@@ -19,12 +19,15 @@
  * Observer for infection count at each sim step.
  */
 
-#include "sim/SimRunner.h"
 #include "sim/event/Id.h"
 
+#include <memory>
 #include <vector>
 
 namespace stride {
+
+class SimRunner;
+
 namespace viewers {
 
 /// Viewer gathers infection count at each sim step.
@@ -32,7 +35,7 @@ class InfectedViewer
 {
 public:
         /// Instantiate cases viewer.
-        InfectedViewer(std::shared_ptr<SimRunner> runner) : m_infected(), m_runner(std::move(runner)) {}
+        explicit InfectedViewer(std::shared_ptr<SimRunner> runner) : m_infected(), m_runner(std::move(runner)) {}
 
         std::vector<unsigned int> GetInfectionCounts() { return m_infected; }
 

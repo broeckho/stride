@@ -164,11 +164,13 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
 
 void runPeopleTest(const string& filename)
 {
+        using namespace ContactPoolType;
+
         auto             pop      = Population::Create();
         auto             geoGrid  = getGeoGridForFile(filename, pop.get());
         auto             location = geoGrid->Get(0);
         map<int, string> ids      = {{0, "K12School"}, {1, "Primary Community"}, {2, "Secondary Community"},
-                                {3, "College"},   {4, "Household"},         {5, "Workplace"}};
+                                {3, "College"}, {4, "Household"}, {5, "Workplace"}};
 
         EXPECT_EQ(location->GetID(), 1);
         EXPECT_EQ(location->GetName(), "Bavikhove");
@@ -190,7 +192,7 @@ void runPeopleTest(const string& filename)
                 EXPECT_EQ(person->GetCollegeId(), 4);
                 EXPECT_EQ(person->GetWorkId(), 6);
                 EXPECT_EQ(person->GetPrimaryCommunityId(), 3);
-                EXPECT_EQ(person->GetSecondaryCommunityId(), 7);
+                EXPECT_EQ(person->GetPoolId(Id::SecondaryCommunity), 7);
         }
 }
 

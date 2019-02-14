@@ -137,6 +137,8 @@ void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Locatio
 
 void ComparePerson(const proto::GeoGrid_Person& protoPerson)
 {
+        using namespace ContactPoolType;
+
         const auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());
         EXPECT_EQ(string(1, person->GetGender()), protoPerson.gender());
@@ -147,7 +149,7 @@ void ComparePerson(const proto::GeoGrid_Person& protoPerson)
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::PrimaryCommunity)],
                   person->GetPrimaryCommunityId());
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::SecondaryCommunity)],
-                  person->GetSecondaryCommunityId());
+                  person->GetPoolId(Id::SecondaryCommunity));
 }
 
 void CompareGeoGrid(shared_ptr<GeoGrid> geoGrid)

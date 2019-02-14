@@ -57,8 +57,8 @@ public:
         /// Get the age.
         double GetAge() const { return m_age; }
 
-        /// Get ID of contactpool_type
-        unsigned int GetPoolId(const ContactPoolType::Id& poolType) const { return m_pool_ids[poolType]; }
+        /// Return person's gender.
+        char GetGender() const { return m_gender; }
 
         /// Return person's health status.
         Health& GetHealth() { return m_health; }
@@ -69,8 +69,8 @@ public:
         /// Get the id.
         unsigned int GetId() const { return m_id; }
 
-        /// Set the id.
-        void SetId(unsigned int id) { m_id = id; }
+        /// Get ID of contactpool_type
+        std::size_t GetPoolId(const ContactPoolType::Id& poolType) const { return m_pool_ids[poolType]; }
 
         /// Check if a person is present today in a given contact pool
         bool IsInPool(const ContactPoolType::Id& poolType) const { return m_in_pools[poolType]; }
@@ -90,9 +90,14 @@ public:
         /// Set the age of the person
         void SetAge(unsigned int newAge) { m_age = newAge; }
 
+        ///
         unsigned int GetHouseholdId() { return GetPoolId(ContactPoolType::Id::Household); }
 
+        ///
         void SetHouseholdId(unsigned int household_id) { SetPoolId(ContactPoolType::Id::Household, household_id); }
+
+        /// Set the id.
+        void SetId(unsigned int id) { m_id = id; }
 
         /// Returns the id of the K12School CP
         unsigned int GetK12SchoolId() const { return GetPoolId(ContactPoolType::Id::K12School); }
@@ -115,23 +120,8 @@ public:
         /// Returns the id of the PrimaryCommunity CP
         unsigned int GetPrimaryCommunityId() const { return GetPoolId(ContactPoolType::Id::PrimaryCommunity); }
 
-        /// Sets the id of the PrimaryCommunity CP
-        void SetPrimaryCommunityId(unsigned int primary_community_id)
-        {
-                SetPoolId(ContactPoolType::Id::PrimaryCommunity, primary_community_id);
-        }
-
-        /// Returns the id of the SecondaryCommunity CP
-        unsigned int GetSecondaryCommunityId() const { return GetPoolId(ContactPoolType::Id::SecondaryCommunity); }
-
-        /// Sets the id of the SecondaryCommunity CP
-        void SetSecondaryCommunityId(unsigned int secondary_community_id)
-        {
-                SetPoolId(ContactPoolType::Id::SecondaryCommunity, secondary_community_id);
-        }
-
         /// Sets (for the type of ContactPool) the Id of the ContactPool the person belongs yo..
-        void SetPoolId(ContactPoolType::Id type, unsigned int poolId)
+        void SetPoolId(ContactPoolType::Id type, std::size_t poolId)
         {
                 m_pool_ids[type] = poolId;
                 m_in_pools[type] = (poolId != 0); // Means present in Household, absent elsewhere.
@@ -146,7 +136,7 @@ private:
 
         ///< Ids (school, work, etc) of pools you belong to Id value 0 means you do not belong to any
         ///< pool of that type (e.g. school and work are mutually exclusive).
-        ContactPoolType::IdSubscriptArray<unsigned int> m_pool_ids;
+        ContactPoolType::IdSubscriptArray<std::size_t> m_pool_ids;
 
         ///< Is person present/absent in pools of each of the types (school, work, etc)?
         ContactPoolType::IdSubscriptArray<bool> m_in_pools;

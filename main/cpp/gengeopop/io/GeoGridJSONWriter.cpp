@@ -25,6 +25,7 @@
 namespace gengeopop {
 
 using namespace std;
+using namespace stride;
 
 GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 
@@ -142,7 +143,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteContactCenter(shared_ptr<Con
         return contactCenter_root;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(stride::ContactPool* contactPool)
+boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(ContactPool* contactPool)
 {
         boost::property_tree::ptree contactPool_root;
         contactPool_root.put("id", contactPool->GetId());
@@ -158,8 +159,10 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(stride::ContactP
         return contactPool_root;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::WritePerson(stride::Person* person)
+boost::property_tree::ptree GeoGridJSONWriter::WritePerson(Person* person)
 {
+        using namespace ContactPoolType;
+
         boost::property_tree::ptree person_root;
         person_root.put("id", person->GetId());
         person_root.put("age", person->GetAge());
@@ -169,7 +172,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WritePerson(stride::Person* perso
         person_root.put("Household", person->GetHouseholdId());
         person_root.put("Workplace", person->GetWorkId());
         person_root.put("PrimaryCommunity", person->GetPrimaryCommunityId());
-        person_root.put("SecondaryCommunity", person->GetSecondaryCommunityId());
+        person_root.put("SecondaryCommunity", person->GetPoolId(Id::SecondaryCommunity));
         return person_root;
 }
 
