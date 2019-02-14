@@ -23,6 +23,7 @@
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <trng/uniform_int_dist.hpp>
 
 using namespace boost::property_tree;

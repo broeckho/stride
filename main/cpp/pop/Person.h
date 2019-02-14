@@ -24,8 +24,6 @@
 #include "pool/ContactPoolType.h"
 #include "pool/IdSubscriptArray.h"
 
-#include <boost/property_tree/ptree.hpp>
-
 namespace stride {
 
 class Belief;

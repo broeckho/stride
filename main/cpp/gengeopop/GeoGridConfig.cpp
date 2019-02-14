@@ -18,6 +18,7 @@
 #include "gengeopop/io/HouseholdReader.h"
 #include "util/StringUtils.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <iomanip>
 
 namespace gengeopop {

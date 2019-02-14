@@ -25,6 +25,7 @@
 #include "gengeopop/io/GeoGridReaderFactory.h"
 #include "util/LogUtils.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <spdlog/common.h>
 #include <spdlog/fmt/ostr.h>
 

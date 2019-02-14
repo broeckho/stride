@@ -23,6 +23,7 @@
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <trng/uniform01_dist.hpp>
 #include <omp.h>
 
