@@ -55,9 +55,4 @@ void Person::Update(bool isWorkOff, bool isSchoolOff, bool adaptiveSymptomaticBe
         }
 }
 
-void Person::Update(Person*)
-{
-        // TODO update beliefs
-}
-
 } // namespace stride

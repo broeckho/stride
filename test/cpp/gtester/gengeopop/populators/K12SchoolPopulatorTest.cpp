@@ -30,6 +30,7 @@
 using namespace std;
 using namespace gengeopop;
 using namespace stride;
+using namespace stride::ContactPoolType;
 using namespace stride::util;
 
 namespace {
@@ -129,7 +130,7 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
             {297, 111}, {298, 0},   {299, 0}};
 
         for (const auto& person : *geoGrid->GetPopulation()) {
-                EXPECT_EQ(persons[person.GetId()], person.GetK12SchoolId());
+                EXPECT_EQ(persons[person.GetId()], person.GetPoolId(Id::K12School));
         }
 }
 
@@ -198,15 +199,15 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
             {288, 0},   {289, 0},   {290, 0},   {291, 0},   {292, 0},   {293, 0},   {294, 0},   {295, 0},   {296, 0}};
 
         for (const auto& person : *geoGrid->GetPopulation()) {
-                EXPECT_EQ(persons[person.GetId()], person.GetK12SchoolId());
+                EXPECT_EQ(persons[person.GetId()], person.GetPoolId(Id::K12School));
         }
 
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
-                for (const auto& person : *household->GetPools()[0]) {
-                        if (PoolConfig::K12School::IsOfAge(person->GetAge())) {
-                                EXPECT_TRUE(person->GetK12SchoolId() >= 217 && person->GetK12SchoolId() <= 291);
+                for (const auto& p : *household->GetPools()[0]) {
+                        if (PoolConfig::K12School::HasAge(p->GetAge())) {
+                                EXPECT_TRUE(p->GetPoolId(Id::K12School) >= 217 && p->GetPoolId(Id::K12School) <= 291);
                         } else {
-                                EXPECT_EQ(0, person->GetK12SchoolId());
+                                EXPECT_EQ(0, p->GetPoolId(Id::K12School));
                         }
                 }
         }

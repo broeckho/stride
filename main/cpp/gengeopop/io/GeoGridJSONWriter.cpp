@@ -26,6 +26,7 @@ namespace gengeopop {
 
 using namespace std;
 using namespace stride;
+using namespace stride::ContactPoolType;
 
 GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 
@@ -167,11 +168,11 @@ boost::property_tree::ptree GeoGridJSONWriter::WritePerson(Person* person)
         person_root.put("id", person->GetId());
         person_root.put("age", person->GetAge());
         person_root.put("gender", person->GetGender());
-        person_root.put("K12School", person->GetK12SchoolId());
-        person_root.put("College", person->GetCollegeId());
-        person_root.put("Household", person->GetHouseholdId());
-        person_root.put("Workplace", person->GetWorkId());
-        person_root.put("PrimaryCommunity", person->GetPrimaryCommunityId());
+        person_root.put("K12School", person->GetPoolId(Id::K12School));
+        person_root.put("College", person->GetPoolId(Id::College));
+        person_root.put("Household", person->GetPoolId(Id::Household));
+        person_root.put("Workplace", person->GetPoolId(Id::Work));
+        person_root.put("PrimaryCommunity", person->GetPoolId(Id::PrimaryCommunity));
         person_root.put("SecondaryCommunity", person->GetPoolId(Id::SecondaryCommunity));
         return person_root;
 }

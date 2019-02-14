@@ -33,10 +33,11 @@
 using namespace std;
 using namespace gengeopop;
 using namespace stride;
+using namespace stride::ContactPoolType;
 using namespace util;
 
-map<int, Person*>                        persons_found;
-map<pair<int, ContactPoolType::Id>, int> persons_pools;
+map<int, Person*>       persons_found;
+map<pair<int, Id>, int> persons_pools;
 
 namespace {
 
@@ -142,13 +143,13 @@ void ComparePerson(const proto::GeoGrid_Person& protoPerson)
         const auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());
         EXPECT_EQ(string(1, person->GetGender()), protoPerson.gender());
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::College)], person->GetCollegeId());
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::K12School)], person->GetK12SchoolId());
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::Household)], person->GetHouseholdId());
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::Work)], person->GetWorkId());
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::PrimaryCommunity)],
-                  person->GetPrimaryCommunityId());
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::SecondaryCommunity)],
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::College)], person->GetPoolId(Id::College));
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::K12School)], person->GetPoolId(Id::K12School));
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::Household)], person->GetPoolId(Id::Household));
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::Work)], person->GetPoolId(Id::Work));
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::PrimaryCommunity)],
+                  person->GetPoolId(Id::PrimaryCommunity));
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::SecondaryCommunity)],
                   person->GetPoolId(Id::SecondaryCommunity));
 }
 
@@ -180,32 +181,32 @@ shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
 
         const auto school = make_shared<K12School>(0);
         location->AddContactCenter(school);
-        const auto schoolPool = new ContactPool(2, ContactPoolType::Id::K12School);
+        const auto schoolPool = new ContactPool(2, Id::K12School);
         school->AddPool(schoolPool);
 
         const auto community = make_shared<PrimaryCommunity>(1);
         location->AddContactCenter(community);
-        const auto communityPool = new ContactPool(3, ContactPoolType::Id::PrimaryCommunity);
+        const auto communityPool = new ContactPool(3, Id::PrimaryCommunity);
         community->AddPool(communityPool);
 
         const auto secondaryCommunity = make_shared<SecondaryCommunity>(2);
         location->AddContactCenter(secondaryCommunity);
-        const auto secondaryCommunityPool = new ContactPool(7, ContactPoolType::Id::SecondaryCommunity);
+        const auto secondaryCommunityPool = new ContactPool(7, Id::SecondaryCommunity);
         secondaryCommunity->AddPool(secondaryCommunityPool);
 
         const auto college = make_shared<College>(3);
         location->AddContactCenter(college);
-        const auto collegePool = new ContactPool(4, ContactPoolType::Id::College);
+        const auto collegePool = new ContactPool(4, Id::College);
         college->AddPool(collegePool);
 
         const auto household = make_shared<Household>(4);
         location->AddContactCenter(household);
-        const auto householdPool = new ContactPool(5, ContactPoolType::Id::Household);
+        const auto householdPool = new ContactPool(5, Id::Household);
         household->AddPool(householdPool);
 
         const auto workplace = make_shared<Workplace>(5);
         location->AddContactCenter(workplace);
-        const auto workplacePool = new ContactPool(6, ContactPoolType::Id::Work);
+        const auto workplacePool = new ContactPool(6, Id::Work);
         workplace->AddPool(workplacePool);
 
         geoGrid->AddLocation(location);

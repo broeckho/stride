@@ -32,6 +32,7 @@ namespace gengeopop {
 
 using namespace std;
 using namespace stride;
+using namespace stride::ContactPoolType;
 
 void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
 {
@@ -77,7 +78,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                         ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
-                                if (PoolConfig::College::IsOfAge(p->GetAge()) &&
+                                if (PoolConfig::College::HasAge(p->GetAge()) &&
                                     MakeChoice(geoGridConfig.input.fraction_1826_student)) {
                                         students++;
                                         // this person is a student
@@ -103,11 +104,11 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
 
                                                 auto id = disPools();
                                                 contactPools[id]->AddMember(p);
-                                                p->SetCollegeId(contactPools[id]->GetId());
+                                                p->SetPoolId(Id::College, contactPools[id]->GetId());
                                         } else {
                                                 auto id = distNonCommuting();
                                                 nearByColleges[id]->AddMember(p);
-                                                p->SetCollegeId(static_cast<unsigned int>(nearByColleges[id]->GetId()));
+                                                p->SetPoolId(Id::College, nearByColleges[id]->GetId());
                                         }
                                 }
                         }

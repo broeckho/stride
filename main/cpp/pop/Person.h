@@ -45,8 +45,8 @@ public:
         Person(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId,
                unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
             : m_age(age), m_gender('M'), m_health(), m_id(id),
-              m_is_participant(false), m_pool_ids{householdId, k12SchoolId,        collegeId,
-                                                  workId,      primaryCommunityId, secondaryCommunityId},
+              m_is_participant(false), m_pool_ids{householdId, k12SchoolId, collegeId,
+                                                  workId, primaryCommunityId, secondaryCommunityId},
               m_in_pools(true)
         {
         }
@@ -84,43 +84,13 @@ public:
         /// Update the health status and presence in contact pools.
         void Update(bool isWorkOff, bool isSchoolOff, bool adaptiveSymptomaticBehavior);
 
-        ///
-        void Update(Person* p);
-
         /// Set the age of the person
         void SetAge(unsigned int newAge) { m_age = newAge; }
-
-        ///
-        unsigned int GetHouseholdId() { return GetPoolId(ContactPoolType::Id::Household); }
-
-        ///
-        void SetHouseholdId(unsigned int household_id) { SetPoolId(ContactPoolType::Id::Household, household_id); }
 
         /// Set the id.
         void SetId(unsigned int id) { m_id = id; }
 
-        /// Returns the id of the K12School CP
-        unsigned int GetK12SchoolId() const { return GetPoolId(ContactPoolType::Id::K12School); }
-
-        /// Sets the id of the K12School CP
-        void SetK12SchoolId(unsigned int k12school_id) { SetPoolId(ContactPoolType::Id::K12School, k12school_id); }
-
-        /// Returns the id of the College CP
-        unsigned int GetCollegeId() const { return GetPoolId(ContactPoolType::Id::College); }
-
-        /// Sets the id of the College CP
-        void SetCollegeId(unsigned int college_id) { SetPoolId(ContactPoolType::Id::College, college_id); }
-
-        /// Gets the id of the Work CP
-        unsigned int GetWorkId() const { return GetPoolId(ContactPoolType::Id::Work); }
-
-        /// Sets the id of the Work CP
-        void SetWorkId(unsigned int work_id) { SetPoolId(ContactPoolType::Id::Work, work_id); }
-
-        /// Returns the id of the PrimaryCommunity CP
-        unsigned int GetPrimaryCommunityId() const { return GetPoolId(ContactPoolType::Id::PrimaryCommunity); }
-
-        /// Sets (for the type of ContactPool) the Id of the ContactPool the person belongs yo..
+        /// Sets (for the type of ContactPool) the Id of the ContactPool the person belongs to.
         void SetPoolId(ContactPoolType::Id type, std::size_t poolId)
         {
                 m_pool_ids[type] = poolId;

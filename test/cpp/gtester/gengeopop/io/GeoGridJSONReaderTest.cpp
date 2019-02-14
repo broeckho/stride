@@ -28,6 +28,7 @@
 using namespace std;
 using namespace gengeopop;
 using namespace stride;
+using namespace stride::ContactPoolType;
 using namespace stride::util;
 
 using boost::geometry::get;
@@ -164,8 +165,6 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
 
 void runPeopleTest(const string& filename)
 {
-        using namespace ContactPoolType;
-
         auto             pop      = Population::Create();
         auto             geoGrid  = getGeoGridForFile(filename, pop.get());
         auto             location = geoGrid->Get(0);
@@ -187,11 +186,11 @@ void runPeopleTest(const string& filename)
                 EXPECT_EQ(person->GetId(), 1);
                 EXPECT_EQ(person->GetAge(), 18);
                 EXPECT_EQ(person->GetGender(), 'M');
-                EXPECT_EQ(person->GetK12SchoolId(), 2);
-                EXPECT_EQ(person->GetHouseholdId(), 5);
-                EXPECT_EQ(person->GetCollegeId(), 4);
-                EXPECT_EQ(person->GetWorkId(), 6);
-                EXPECT_EQ(person->GetPrimaryCommunityId(), 3);
+                EXPECT_EQ(person->GetPoolId(Id::K12School), 2);
+                EXPECT_EQ(person->GetPoolId(Id::Household), 5);
+                EXPECT_EQ(person->GetPoolId(Id::College), 4);
+                EXPECT_EQ(person->GetPoolId(Id::Work), 6);
+                EXPECT_EQ(person->GetPoolId(Id::PrimaryCommunity), 3);
                 EXPECT_EQ(person->GetPoolId(Id::SecondaryCommunity), 7);
         }
 }

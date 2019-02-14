@@ -28,6 +28,7 @@ namespace gengeopop {
 
 using namespace std;
 using namespace stride;
+using namespace stride::ContactPoolType;
 
 void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {
@@ -53,10 +54,10 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                         ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
-                                if (PoolConfig::K12School::IsOfAge(p->GetAge())) {
+                                if (PoolConfig::K12School::HasAge(p->GetAge())) {
                                         auto& c = classes[dist()];
                                         c->AddMember(p);
-                                        p->SetK12SchoolId(static_cast<unsigned int>(c->GetId()));
+                                        p->SetPoolId(Id::K12School, c->GetId());
                                         pupils++;
                                 }
                         }

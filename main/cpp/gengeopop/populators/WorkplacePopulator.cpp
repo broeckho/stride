@@ -31,6 +31,7 @@ namespace gengeopop {
 
 using namespace std;
 using namespace stride;
+using namespace stride::ContactPoolType;
 using namespace util;
 
 WorkplacePopulator::WorkplacePopulator(RnMan& rn_manager, shared_ptr<spdlog::logger> logger)
@@ -73,15 +74,15 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 for (const auto& household : loc->GetContactCentersOfType<Household>()) {
                         auto contactPool = household->GetPools()[0];
                         for (auto p : *contactPool) {
-                                if (PoolConfig::Workplace::IsOfAge((p->GetAge()))) {
+                                if (PoolConfig::Workplace::HasAge((p->GetAge()))) {
                                         bool isStudent      = MakeChoice(geoGridConfig.input.fraction_1826_student);
                                         bool isActiveWorker = MakeChoice(geoGridConfig.input.fraction_1865_active);
 
-                                        if ((PoolConfig::College::IsOfAge(p->GetAge()) && !isStudent) || isActiveWorker) {
+                                        if ((PoolConfig::College::HasAge(p->GetAge()) && !isStudent) || isActiveWorker) {
                                                 AssignActive(p);
                                         } else {
                                                 // this person has no employment
-                                                p->SetWorkId(0);
+                                                p->SetPoolId(Id::Work, 0);
                                                 m_assignedTo0++;
                                         }
                                 }
@@ -127,13 +128,13 @@ void WorkplacePopulator::AssignActive(Person* person)
                 const auto& info = m_workplacesInCity[m_commutingLocations[m_disCommuting()]];
                 const auto  id   = info.second(); // id of the location this person is commuting to
                 info.first[id]->AddMember(person);
-                person->SetWorkId(info.first[id]->GetId());
+                person->SetPoolId(Id::Work, info.first[id]->GetId());
                 m_assignedCommuting++;
         } else {
                 // this person is not commuting
                 const auto id = m_distNonCommuting();
                 m_nearByWorkplaces[id]->AddMember(person);
-                person->SetWorkId(static_cast<unsigned int>(m_nearByWorkplaces[id]->GetId()));
+                person->SetPoolId(Id::Work, m_nearByWorkplaces[id]->GetId());
                 m_assignedNotCommuting++;
         }
 }

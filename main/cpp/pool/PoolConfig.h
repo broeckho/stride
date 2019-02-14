@@ -27,11 +27,11 @@ namespace PoolConfig {
         /// and fraction of age bracket that is in DayCare.
         struct DayCare
         {
-                constexpr static inline double m_lower = 0.0;  // if changed, activate test in IsOfAge!
+                constexpr static inline double m_lower = 0.0;  // if changed, activate test in HasAge!
                 constexpr static inline double m_upper = 3.0;
                 static inline double           m_fraction = 0.5;
 
-                static bool IsOfAge(double age) {return /*age >= m_lower && */ age < m_upper;}
+                static bool HasAge(double age) {return /*age >= m_lower && */ age < m_upper;}
         };
 
         /// Preschool with lower (inclusive) and upper (exclusive) age range
@@ -42,7 +42,7 @@ namespace PoolConfig {
                 constexpr static inline double m_upper = 6.0;
                 static inline double           m_fraction = 0.9;
 
-                static bool IsOfAge(double age) {return age >= m_lower && age < m_upper;}
+                static bool HasAge(double age) {return age >= m_lower && age < m_upper;}
         };
 
         /// K12school with lower (inclusive) and upper (exclusive) age range
@@ -53,7 +53,7 @@ namespace PoolConfig {
                 constexpr static inline double m_upper = 18.0;
                 constexpr static inline double m_fraction = 1.0;   // So, no home schooling.
 
-                static bool IsOfAge(double age) {return age >= m_lower && age < m_upper;}
+                static bool HasAge(double age) {return age >= m_lower && age < m_upper;}
         };
 
 
@@ -65,7 +65,7 @@ namespace PoolConfig {
                 constexpr static inline double m_upper = 26.0;
                 static inline double           m_fraction = 0.5;
 
-                static bool IsOfAge(double age) {return age >= m_lower && age < m_upper;}
+                static bool HasAge(double age) {return age >= m_lower && age < m_upper;}
         };
 
 
@@ -77,7 +77,7 @@ namespace PoolConfig {
                 constexpr static inline double m_upper = 65u;
                 static inline double           m_fraction = 0.75;
 
-                static bool IsOfAge(double age) {return age >= m_lower && age < m_upper;}
+                static bool HasAge(double age) {return age >= m_lower && age < m_upper;}
         };
 
 } // namespace PoolConfig
