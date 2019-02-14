@@ -21,6 +21,7 @@
 #include "gengeopop/Household.h"
 #include "gengeopop/Location.h"
 #include "pool/ContactPool.h"
+#include "pool/PoolConfig.h"
 #include "pop/Person.h"
 #include "util/ExcAssert.h"
 
@@ -53,13 +54,13 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                 const auto distNonCommuting = m_rnManager[0].variate_generator(
                     trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(nearByColleges.size())));
 
-                // 2. find all highschools were students from this location commute to
-                vector<Location*> commutingHighSchools;
+                // 2. find all colleges were students from this location commute to
+                vector<Location*> commutingCollege;
                 vector<double>    commutingWeights;
                 for (const auto& commute : loc->GetOutgoingCommutingCities()) {
                         const auto& highSchools = commute.first->GetContactCentersOfType<College>();
                         if (!highSchools.empty()) {
-                                commutingHighSchools.push_back(commute.first);
+                                commutingCollege.push_back(commute.first);
                                 commutingWeights.push_back(commute.second);
                         }
                 }
@@ -76,11 +77,11 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                         ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
-                                if (p->IsCollegeStudentCandidate() &&
+                                if (PoolConfig::College::IsOfAge(p->GetAge()) &&
                                     MakeChoice(geoGridConfig.input.fraction_1826_student)) {
                                         students++;
                                         // this person is a student
-                                        if (!commutingHighSchools.empty() &&
+                                        if (!commutingCollege.empty() &&
                                             MakeChoice(geoGridConfig.input.fraction_student_commuters)) {
                                                 // this person is commuting
                                                 commuting++;
@@ -88,7 +89,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                                                 // id of the location this person is commuting to
                                                 auto locationId = disCommuting();
                                                 // create list of classes for each highschool at this location
-                                                const auto& highSchools = commutingHighSchools[locationId]
+                                                const auto& highSchools = commutingCollege[locationId]
                                                                               ->GetContactCentersOfType<College>();
 
                                                 vector<ContactPool*> contactPools;

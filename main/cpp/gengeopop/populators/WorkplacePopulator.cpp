@@ -21,6 +21,7 @@
 #include "gengeopop/Location.h"
 #include "gengeopop/Workplace.h"
 #include "pool/ContactPool.h"
+#include "pool/PoolConfig.h"
 #include "util/ExcAssert.h"
 
 #include <trng/uniform_int_dist.hpp>
@@ -68,18 +69,18 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 CalculateCommutingLocations();
                 CalculateNearbyWorkspaces();
 
-                // 2. for every worker assign a class
+                // 2. for everyone of working age: decide between work or college (iff of College age)
                 for (const auto& household : loc->GetContactCentersOfType<Household>()) {
                         auto contactPool = household->GetPools()[0];
                         for (auto p : *contactPool) {
-                                if (p->IsWorkableCandidate()) {
+                                if (PoolConfig::Workplace::IsOfAge((p->GetAge()))) {
                                         bool isStudent      = MakeChoice(geoGridConfig.input.fraction_1826_student);
                                         bool isActiveWorker = MakeChoice(geoGridConfig.input.fraction_1865_active);
 
-                                        if ((p->IsCollegeStudentCandidate() && !isStudent) || isActiveWorker) {
+                                        if ((PoolConfig::College::IsOfAge(p->GetAge()) && !isStudent) || isActiveWorker) {
                                                 AssignActive(p);
                                         } else {
-                                                // this person isn't an active employee
+                                                // this person has no employment
                                                 p->SetWorkId(0);
                                                 m_assignedTo0++;
                                         }
@@ -145,8 +146,8 @@ void WorkplacePopulator::CalculateCommutingLocations()
 
         vector<double> commutingWeights;
         for (const pair<Location*, double>& commute : m_currentLoc->GetOutgoingCommutingCities()) {
-                const auto& Workplaces = commute.first->GetContactCentersOfType<Workplace>();
-                if (!Workplaces.empty()) {
+                const auto& workplaces = commute.first->GetContactCentersOfType<Workplace>();
+                if (!workplaces.empty()) {
                         m_commutingLocations.push_back(commute.first);
                         const auto weight = commute.second - (commute.second * m_fractionCommutingStudents);
                         commutingWeights.push_back(weight);

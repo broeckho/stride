@@ -14,6 +14,7 @@
  */
 
 #include "createGeogrid.h"
+#include "pool/PoolConfig.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/Household.h"
@@ -202,7 +203,7 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
 
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (const auto& person : *household->GetPools()[0]) {
-                        if (person->IsStudentCandidate()) {
+                        if (PoolConfig::K12School::IsOfAge(person->GetAge())) {
                                 EXPECT_TRUE(person->GetK12SchoolId() >= 217 && person->GetK12SchoolId() <= 291);
                         } else {
                                 EXPECT_EQ(0, person->GetK12SchoolId());

@@ -15,6 +15,7 @@
 
 #include "K12SchoolPopulator.h"
 
+#include "pool/PoolConfig.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
@@ -26,13 +27,14 @@
 namespace gengeopop {
 
 using namespace std;
+using namespace stride;
 
 void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {
         m_logger->info("Starting to populate Schools");
 
-        set<stride::ContactPool*> found;
-        unsigned int              pupils = 0;
+        set<ContactPool*> found;
+        unsigned int      pupils = 0;
 
         // for every location
         for (const shared_ptr<Location>& loc : *geoGrid) {
@@ -41,17 +43,17 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 }
 
                 // 1. find all schools in an area of 10-k*10 km
-                const vector<stride::ContactPool*>& classes = GetPoolInIncreasingRadius<K12School>(geoGrid, loc);
+                const vector<ContactPool*>& classes = GetPoolInIncreasingRadius<K12School>(geoGrid, loc);
 
                 auto dist = m_rnManager[0].variate_generator(
                     trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(classes.size())));
 
                 // 2. for every student assign a class
                 for (const shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
-                        stride::ContactPool* contactPool = household->GetPools()[0];
+                        ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
-                        for (stride::Person* p : *contactPool) {
-                                if (p->IsStudentCandidate()) {
+                        for (Person* p : *contactPool) {
+                                if (PoolConfig::K12School::IsOfAge(p->GetAge())) {
                                         auto& c = classes[dist()];
                                         c->AddMember(p);
                                         p->SetK12SchoolId(static_cast<unsigned int>(c->GetId()));

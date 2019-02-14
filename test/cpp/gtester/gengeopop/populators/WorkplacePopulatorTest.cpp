@@ -22,6 +22,7 @@
 #include "gengeopop/Workplace.h"
 #include "gengeopop/populators/CollegePopulator.h"
 #include "gengeopop/populators/WorkplacePopulator.h"
+#include "pool/PoolConfig.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -124,42 +125,42 @@ TEST(WorkplacePopulatorTest, NoCommuting)
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
-                for (auto person : *household->GetPools()[0]) {
-                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetWorkId() >= 325 && person->GetWorkId() <= 328);
-                        } else if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE((person->GetWorkId() >= 325 && person->GetWorkId() <= 328) ||
-                                            person->GetWorkId() == 0);
+                for (auto p : *household->GetPools()[0]) {
+                        if (PoolConfig::Workplace::IsOfAge(p->GetAge()) && !PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE(p->GetWorkId() >= 325 && p->GetWorkId() <= 328);
+                        } else if (PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE((p->GetWorkId() >= 325 && p->GetWorkId() <= 328) ||
+                                            p->GetWorkId() == 0);
                         } else {
-                                EXPECT_EQ(0, person->GetWorkId());
+                                EXPECT_EQ(0, p->GetWorkId());
                         }
                 }
         }
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
-                for (auto person : *household->GetPools()[0]) {
-                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetWorkId() >= 325 && person->GetWorkId() <= 328);
-                        } else if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE((person->GetWorkId() >= 325 && person->GetWorkId() <= 328) ||
-                                            person->GetWorkId() == 0);
+                for (auto p : *household->GetPools()[0]) {
+                        if (PoolConfig::Workplace::IsOfAge(p->GetAge()) && !PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE(p->GetWorkId() >= 325 && p->GetWorkId() <= 328);
+                        } else if (PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE((p->GetWorkId() >= 325 && p->GetWorkId() <= 328) ||
+                                            p->GetWorkId() == 0);
                         } else {
-                                EXPECT_EQ(0, person->GetWorkId());
+                                EXPECT_EQ(0, p->GetWorkId());
                         }
                 }
         }
 
         // Assert that persons of Kortrijk only go to Kortijk
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
-                for (auto person : *household->GetPools()[0]) {
-                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetWorkId() >= 329 && person->GetWorkId() <= 330);
-                        } else if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE((person->GetWorkId() >= 329 && person->GetWorkId() <= 330) ||
-                                            person->GetWorkId() == 0);
+                for (auto p : *household->GetPools()[0]) {
+                        if (PoolConfig::Workplace::IsOfAge(p->GetAge()) && !PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE(p->GetWorkId() >= 329 && p->GetWorkId() <= 330);
+                        } else if (PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE((p->GetWorkId() >= 329 && p->GetWorkId() <= 330) ||
+                                            p->GetWorkId() == 0);
                         } else {
-                                EXPECT_EQ(0, person->GetWorkId());
+                                EXPECT_EQ(0, p->GetWorkId());
                         }
                 }
         }
@@ -210,28 +211,28 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
-                for (auto person : *household->GetPools()[0]) {
-                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetWorkId() >= 327 && person->GetWorkId() <= 328);
-                        } else if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE((person->GetWorkId() >= 327 && person->GetWorkId() <= 328) ||
-                                            person->GetWorkId() == 0);
+                for (auto p : *household->GetPools()[0]) {
+                        if (PoolConfig::Workplace::IsOfAge(p->GetAge()) && !PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE(p->GetWorkId() >= 327 && p->GetWorkId() <= 328);
+                        } else if (PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE((p->GetWorkId() >= 327 && p->GetWorkId() <= 328) ||
+                                            p->GetWorkId() == 0);
                         } else {
-                                EXPECT_EQ(0, person->GetWorkId());
+                                EXPECT_EQ(0, p->GetWorkId());
                         }
                 }
         }
 
         // Assert that persons of Kortrijk only go to Schoten
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
-                for (auto person : *household->GetPools()[0]) {
-                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetWorkId() >= 325 && person->GetWorkId() <= 326);
-                        } else if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE((person->GetWorkId() >= 325 && person->GetWorkId() <= 326) ||
-                                            person->GetWorkId() == 0);
+                for (auto p : *household->GetPools()[0]) {
+                        if (PoolConfig::Workplace::IsOfAge(p->GetAge()) && !PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE(p->GetWorkId() >= 325 && p->GetWorkId() <= 326);
+                        } else if (PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE((p->GetWorkId() >= 325 && p->GetWorkId() <= 326) ||
+                                            p->GetWorkId() == 0);
                         } else {
-                                EXPECT_EQ(0, person->GetWorkId());
+                                EXPECT_EQ(0, p->GetWorkId());
                         }
                 }
         }
@@ -289,42 +290,42 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
-                for (auto person : *household->GetPools()[0]) {
-                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetWorkId() >= 329 && person->GetWorkId() <= 330);
-                        } else if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE((person->GetWorkId() >= 329 && person->GetWorkId() <= 330) ||
-                                            person->GetWorkId() == 0);
+                for (auto p : *household->GetPools()[0]) {
+                        if (PoolConfig::Workplace::IsOfAge(p->GetAge()) && !PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE(p->GetWorkId() >= 329 && p->GetWorkId() <= 330);
+                        } else if (PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE((p->GetWorkId() >= 329 && p->GetWorkId() <= 330) ||
+                                            p->GetWorkId() == 0);
                         } else {
-                                EXPECT_EQ(0, person->GetWorkId());
+                                EXPECT_EQ(0, p->GetWorkId());
                         }
                 }
         }
 
         // Assert that persons of Brasschaat only go to Brasschaat or Schoten
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
-                for (auto person : *household->GetPools()[0]) {
-                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetWorkId() >= 325 && person->GetWorkId() <= 328);
-                        } else if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE((person->GetWorkId() >= 325 && person->GetWorkId() <= 328) ||
-                                            person->GetWorkId() == 0);
+                for (auto p : *household->GetPools()[0]) {
+                        if (PoolConfig::Workplace::IsOfAge(p->GetAge()) && !PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE(p->GetWorkId() >= 325 && p->GetWorkId() <= 328);
+                        } else if (PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE((p->GetWorkId() >= 325 && p->GetWorkId() <= 328) ||
+                                            p->GetWorkId() == 0);
                         } else {
-                                EXPECT_EQ(0, person->GetWorkId());
+                                EXPECT_EQ(0, p->GetWorkId());
                         }
                 }
         }
 
         // Assert that persons of Kortrijk only go to Schoten
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
-                for (auto person : *household->GetPools()[0]) {
-                        if (person->IsWorkableCandidate() && !person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE(person->GetWorkId() >= 327 && person->GetWorkId() <= 328);
-                        } else if (person->IsCollegeStudentCandidate()) {
-                                EXPECT_TRUE((person->GetWorkId() >= 327 && person->GetWorkId() <= 328) ||
-                                            person->GetWorkId() == 0);
+                for (auto p : *household->GetPools()[0]) {
+                        if (PoolConfig::Workplace::IsOfAge(p->GetAge()) && !PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE(p->GetWorkId() >= 327 && p->GetWorkId() <= 328);
+                        } else if (PoolConfig::College::IsOfAge(p->GetAge())) {
+                                EXPECT_TRUE((p->GetWorkId() >= 327 && p->GetWorkId() <= 328) ||
+                                            p->GetWorkId() == 0);
                         } else {
-                                EXPECT_EQ(0, person->GetWorkId());
+                                EXPECT_EQ(0, p->GetWorkId());
                         }
                 }
         }

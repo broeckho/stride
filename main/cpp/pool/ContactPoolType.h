@@ -34,7 +34,7 @@ namespace ContactPoolType {
 /// Enumerates the ContactPool types.
 enum class Id : std::size_t
 {
-        Household,
+        Household = static_cast<size_t>(0),   // Needs to be zero.
         K12School,
         College,
         Work,

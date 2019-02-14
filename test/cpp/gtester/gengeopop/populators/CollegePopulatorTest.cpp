@@ -20,6 +20,7 @@
 #include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
 #include "gengeopop/Location.h"
+#include "pool/PoolConfig.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -158,7 +159,7 @@ TEST(CollegePopulatorTest, NotCommuting)
 
         for (const stride::Person& person : *geoGrid->GetPopulation()) {
                 EXPECT_EQ(persons[person.GetId()], person.GetCollegeId());
-                if (person.IsCollegeStudentCandidate()) {
+                if (PoolConfig::College::IsOfAge(person.GetAge())) {
                         EXPECT_NE(0, person.GetCollegeId());
                 } else {
                         EXPECT_EQ(0, person.GetCollegeId());
@@ -168,7 +169,7 @@ TEST(CollegePopulatorTest, NotCommuting)
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        if (person->IsCollegeStudentCandidate()) {
+                        if (PoolConfig::College::IsOfAge(person->GetAge())) {
                                 EXPECT_TRUE(person->GetCollegeId() >= 325 && person->GetCollegeId() <= 364);
                         } else {
                                 EXPECT_EQ(0, person->GetCollegeId());
@@ -179,7 +180,7 @@ TEST(CollegePopulatorTest, NotCommuting)
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        if (person->IsCollegeStudentCandidate()) {
+                        if (PoolConfig::College::IsOfAge(person->GetAge())) {
                                 EXPECT_TRUE(person->GetCollegeId() >= 325 && person->GetCollegeId() <= 364);
                         } else {
                                 EXPECT_EQ(0, person->GetCollegeId());
@@ -190,7 +191,7 @@ TEST(CollegePopulatorTest, NotCommuting)
         // Assert that persons of Kortrijk only go to Kortijk
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        if (person->IsCollegeStudentCandidate()) {
+                        if (PoolConfig::College::IsOfAge(person->GetAge())) {
                                 EXPECT_TRUE(person->GetCollegeId() >= 365 && person->GetCollegeId() <= 384);
                         } else {
                                 EXPECT_EQ(0, person->GetCollegeId());
@@ -238,7 +239,7 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        if (person->IsCollegeStudentCandidate()) {
+                        if (PoolConfig::College::IsOfAge(person->GetAge())) {
                                 EXPECT_TRUE(person->GetCollegeId() >= 271 && person->GetCollegeId() <= 290);
                         } else {
                                 EXPECT_EQ(0, person->GetCollegeId());
@@ -249,7 +250,7 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         // Assert that persons of Kortrijk only go to Schoten
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        if (person->IsCollegeStudentCandidate()) {
+                        if (PoolConfig::College::IsOfAge(person->GetAge())) {
                                 EXPECT_TRUE(person->GetCollegeId() >= 251 && person->GetCollegeId() <= 270);
                         } else {
                                 EXPECT_EQ(0, person->GetCollegeId());
@@ -301,7 +302,7 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         // Assert that persons of Schoten only commute to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        if (person->IsCollegeStudentCandidate()) {
+                        if (PoolConfig::College::IsOfAge(person->GetAge())) {
                                 EXPECT_TRUE(person->GetCollegeId() >= 365 && person->GetCollegeId() <= 384);
                         } else {
                                 EXPECT_EQ(0, person->GetCollegeId());
@@ -312,7 +313,7 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         // Assert that persons of Brasschaat only commute to Brasschaat or Schoten
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        if (person->IsCollegeStudentCandidate()) {
+                        if (PoolConfig::College::IsOfAge(person->GetAge())) {
                                 EXPECT_TRUE(person->GetCollegeId() >= 325 && person->GetCollegeId() <= 364);
                         } else {
                                 EXPECT_EQ(0, person->GetCollegeId());
@@ -323,7 +324,7 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         // Assert that persons of Kortrijk only commute to Schoten
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
-                        if (person->IsCollegeStudentCandidate()) {
+                        if (PoolConfig::College::IsOfAge(person->GetAge())) {
                                 EXPECT_TRUE(person->GetCollegeId() >= 345 && person->GetCollegeId() <= 364);
                         } else {
                                 EXPECT_EQ(0, person->GetCollegeId());

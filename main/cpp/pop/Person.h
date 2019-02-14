@@ -144,21 +144,12 @@ public:
                 SetPoolId(ContactPoolType::Id::SecondaryCommunity, secondary_community_id);
         }
 
-        /// Sets the id of the \p type CP
+        /// Sets (for the type of ContactPool) the Id of the ContactPool the person belongs yo..
         void SetPoolId(ContactPoolType::Id type, unsigned int poolId)
         {
                 m_pool_ids[type] = poolId;
-                m_in_pools[type] = poolId != 0;
+                m_in_pools[type] = (poolId != 0); // Means present in Household, absent elsewhere.
         }
-
-        /// Returns whether this person may be a K12School student
-        bool IsStudentCandidate() const { return m_age < 18 && m_age >= 6; }
-
-        /// Returns whether this person may be a college student
-        bool IsCollegeStudentCandidate() const { return m_age >= 18 && m_age < 26; }
-
-        /// Returns whether this person may be a college worker
-        bool IsWorkableCandidate() const { return m_age >= 18 && m_age < 65; }
 
 private:
         double       m_age;    ///< The age.
@@ -169,7 +160,7 @@ private:
         bool         m_is_participant; ///< Is participating in the social contact study
 
         ///< Ids (school, work, etc) of pools you belong to Id value 0 means you do not belong to any
-        ///< pool of that type (e.g. school and work are mutually exclusive.
+        ///< pool of that type (e.g. school and work are mutually exclusive).
         ContactPoolType::IdSubscriptArray<unsigned int> m_pool_ids;
 
         ///< Is person present/absent in pools of each of the types (school, work, etc)?
