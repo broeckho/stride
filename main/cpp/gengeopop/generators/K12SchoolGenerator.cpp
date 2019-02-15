@@ -34,8 +34,8 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         //    relative number of pupils for that location; the relative number of pupils is set
         //    to the relative population w.r.t the total population.
 
-        const auto pupilCount  = geoGridConfig.popInfo.age_count_k12school;
-        const auto schoolCount = static_cast<unsigned int>(ceil(pupilCount / geoGridConfig.constants.mean_K12_size));
+        const auto pupilCount  = geoGridConfig.popInfo.popcount_k12school;
+        const auto schoolCount = static_cast<unsigned int>(ceil(pupilCount / geoGridConfig.pools.k12school_size));
 
         vector<double> weights;
         for (const auto& loc : *geoGrid) {

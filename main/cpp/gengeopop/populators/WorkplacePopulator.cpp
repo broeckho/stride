@@ -75,8 +75,8 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                         auto contactPool = household->GetPools()[0];
                         for (auto p : *contactPool) {
                                 if (AgeBrackets::Workplace::HasAge((p->GetAge()))) {
-                                        bool isStudent      = MakeChoice(geoGridConfig.input.fraction_1826_student);
-                                        bool isActiveWorker = MakeChoice(geoGridConfig.input.fraction_1865_active);
+                                        bool isStudent      = MakeChoice(geoGridConfig.input.participation_college);
+                                        bool isActiveWorker = MakeChoice(geoGridConfig.input.particpation_workplace);
 
                                         if ((AgeBrackets::College::HasAge(p->GetAge()) && !isStudent) ||
                                             isActiveWorker) {
@@ -98,11 +98,11 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
 void WorkplacePopulator::CalculateFractionCommutingStudents()
 {
         m_fractionCommutingStudents = 0;
-        if (static_cast<bool>(m_geoGridConfig.input.fraction_active_commuters) &&
-            m_geoGridConfig.popInfo.popcount_1865_active) {
+        if (static_cast<bool>(m_geoGridConfig.input.fraction_workplace_commuters) &&
+            m_geoGridConfig.popInfo.popcount_workplace) {
                 m_fractionCommutingStudents =
-                    (m_geoGridConfig.popInfo.popcount_1826_student * m_geoGridConfig.input.fraction_student_commuters) /
-                    (m_geoGridConfig.popInfo.popcount_1865_active * m_geoGridConfig.input.fraction_active_commuters);
+                    (m_geoGridConfig.popInfo.popcount_college * m_geoGridConfig.input.fraction_college_commuters) /
+                    (m_geoGridConfig.popInfo.popcount_workplace * m_geoGridConfig.input.fraction_workplace_commuters);
         }
 }
 
@@ -124,7 +124,7 @@ void WorkplacePopulator::CalculateWorkplacesInCity()
 void WorkplacePopulator::AssignActive(Person* person)
 {
         // this person is (student and active) or active
-        if (!m_commutingLocations.empty() && MakeChoice(m_geoGridConfig.input.fraction_active_commuters)) {
+        if (!m_commutingLocations.empty() && MakeChoice(m_geoGridConfig.input.fraction_workplace_commuters)) {
                 // this person is commuting
                 const auto& info = m_workplacesInCity[m_commutingLocations[m_disCommuting()]];
                 const auto  id   = info.second(); // id of the location this person is commuting to

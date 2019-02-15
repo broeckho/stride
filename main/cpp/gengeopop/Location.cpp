@@ -35,6 +35,39 @@ Location::Location(unsigned int id, unsigned int province, unsigned int popCount
         m_pop_count = popCount;
 }
 
+bool Location::operator==(const Location& other) const
+{
+        using boost::geometry::get;
+        return GetID() == other.GetID() && get<0>(GetCoordinate()) == get<0>(other.GetCoordinate()) &&
+               get<1>(GetCoordinate()) == get<1>(other.GetCoordinate()) && GetName() == other.GetName() &&
+               GetProvince() == other.GetProvince() && GetPopCount() == other.GetPopCount() &&
+               GetContactCenters() == other.GetContactCenters() &&
+               GetIncomingCommuningCities() == other.GetIncomingCommuningCities() &&
+               GetOutgoingCommutingCities() == other.GetOutgoingCommutingCities();
+}
+
+void Location::AddIncomingCommutingLocation(shared_ptr<Location> otherLocation, double fraction)
+{
+        m_inCommuteLocations.emplace_back(otherLocation.get(), fraction);
+}
+
+void Location::AddOutgoingCommutingLocation(shared_ptr<Location> otherLocation, double fraction)
+{
+        m_outCommuteLocations.emplace_back(otherLocation.get(), fraction);
+}
+
+const vector<pair<Location*, double>>& Location::GetIncomingCommuningCities() const { return m_inCommuteLocations; }
+
+int Location::GetIncomingCommuterCount(double fractionCommuters) const
+{
+        double value = 0;
+        for (const auto& locProportion : m_inCommuteLocations) {
+                // locProportion.second of the people in locProportion.first are commuting to this
+                value += locProportion.second * (fractionCommuters * (double)locProportion.first->GetPopCount());
+        }
+        return static_cast<int>(floor(value));
+}
+
 double Location::GetInfectedCount() const
 {
         auto infected = 0U;
@@ -47,29 +80,7 @@ double Location::GetInfectedCount() const
         return infected;
 }
 
-const vector<pair<Location*, double>>& Location::GetIncomingCommuningCities() const { return m_inCommuteLocations; }
-
-void Location::AddIncomingCommutingLocation(shared_ptr<Location> otherLocation, double fraction)
-{
-        m_inCommuteLocations.emplace_back(otherLocation.get(), fraction);
-}
-
 const vector<pair<Location*, double>>& Location::GetOutgoingCommutingCities() const { return m_outCommuteLocations; }
-
-void Location::AddOutgoingCommutingLocation(shared_ptr<Location> otherLocation, double fraction)
-{
-        m_outCommuteLocations.emplace_back(otherLocation.get(), fraction);
-}
-
-int Location::GetIncomingCommuterCount(double fractionCommuters) const
-{
-        double value = 0;
-        for (const auto& locProportion : m_inCommuteLocations) {
-                // locProportion.second of the people in locProportion.first are commuting to this
-                value += locProportion.second * (fractionCommuters * (double)locProportion.first->GetPopCount());
-        }
-        return static_cast<int>(floor(value));
-}
 
 int Location::GetOutgoingCommuterCount(double fractionCommuters) const
 {
@@ -81,23 +92,12 @@ int Location::GetOutgoingCommuterCount(double fractionCommuters) const
         return static_cast<int>(floor(totalProportion * (fractionCommuters * static_cast<double>(m_pop_count))));
 }
 
-bool Location::operator==(const Location& other) const
-{
-        using boost::geometry::get;
-        return GetID() == other.GetID() && get<0>(GetCoordinate()) == get<0>(other.GetCoordinate()) &&
-               get<1>(GetCoordinate()) == get<1>(other.GetCoordinate()) && GetName() == other.GetName() &&
-               GetProvince() == other.GetProvince() && GetPopCount() == other.GetPopCount() &&
-               GetContactCenters() == other.GetContactCenters() &&
-               GetIncomingCommuningCities() == other.GetIncomingCommuningCities() &&
-               GetOutgoingCommutingCities() == other.GetOutgoingCommutingCities();
-}
+double Location::GetRelativePopulationSize() const { return m_pop_fraction; }
 
 void Location::SetPopCount(unsigned int totalPopCount)
 {
         m_pop_count = static_cast<unsigned int>(floor(m_pop_fraction * totalPopCount));
 }
 void Location::SetRelativePopulation(double relativePopulation) { m_pop_fraction = relativePopulation; }
-
-double Location::GetRelativePopulationSize() const { return m_pop_fraction; }
 
 } // namespace gengeopop

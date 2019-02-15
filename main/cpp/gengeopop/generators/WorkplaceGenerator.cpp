@@ -33,17 +33,18 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         // 4. use the last information for the distribution
         // 5. assign each workplace to a location
 
-        const auto EmployeeCount = geoGridConfig.popInfo.popcount_1865_active;
+        const auto EmployeeCount = geoGridConfig.popInfo.popcount_workplace;
         const auto WorkplacesCount =
-            static_cast<unsigned int>(ceil(EmployeeCount / geoGridConfig.constants.mean_workplace_school_size));
+            static_cast<unsigned int>(ceil(EmployeeCount / geoGridConfig.pools.workplace_size));
 
         // = for each location #residents + #incoming commuting people - #outgoing commuting people
         vector<double> weights;
         for (const auto& loc : *geoGrid) {
                 const double ActivePeopleCount =
-                    (loc->GetPopCount() + loc->GetIncomingCommuterCount(geoGridConfig.input.fraction_active_commuters) -
-                     loc->GetOutgoingCommuterCount(geoGridConfig.input.fraction_active_commuters) *
-                         geoGridConfig.input.fraction_1865_active);
+                    (loc->GetPopCount() +
+                     loc->GetIncomingCommuterCount(geoGridConfig.input.fraction_workplace_commuters) -
+                     loc->GetOutgoingCommuterCount(geoGridConfig.input.fraction_workplace_commuters) *
+                         geoGridConfig.input.particpation_workplace);
 
                 const double weight = ActivePeopleCount / EmployeeCount;
                 CheckWeight("WorkplaceGenerator", weight);

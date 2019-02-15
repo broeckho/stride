@@ -37,7 +37,7 @@ void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridCo
 
         const auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
-        for (auto i = 0U; i < geoGridConfig.popInfo.households; i++) {
+        for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
                 const auto loc = (*geoGrid)[dist()];
                 const auto h   = std::make_shared<Household>(contactCenterCounter++);
                 h->Fill(geoGrid);

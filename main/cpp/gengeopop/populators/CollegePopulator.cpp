@@ -79,11 +79,11 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
                                 if (AgeBrackets::College::HasAge(p->GetAge()) &&
-                                    MakeChoice(geoGridConfig.input.fraction_1826_student)) {
+                                    MakeChoice(geoGridConfig.input.participation_college)) {
                                         students++;
                                         // this person is a student
                                         if (!commutingCollege.empty() &&
-                                            MakeChoice(geoGridConfig.input.fraction_student_commuters)) {
+                                            MakeChoice(geoGridConfig.input.fraction_college_commuters)) {
                                                 // this person is commuting
                                                 commuting++;
 

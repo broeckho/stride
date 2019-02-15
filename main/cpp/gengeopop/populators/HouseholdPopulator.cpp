@@ -33,14 +33,14 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
 
         auto person_id      = 0U;
         auto household_dist = m_rnManager[0].variate_generator(trng::uniform_int_dist(
-            0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.popInfo.reference_households.size())));
+            0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.refHH.households.size())));
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
                 const vector<shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Household>();
                 for (const auto& h : households) {
                         auto contactPool = h->GetPools()[0];
                         auto hDraw       = static_cast<unsigned int>(household_dist());
-                        auto hProfile    = geoGridConfig.popInfo.reference_households[hDraw]->GetPools()[0];
+                        auto hProfile    = geoGridConfig.refHH.households[hDraw]->GetPools()[0];
                         for (stride::Person* p : *hProfile) {
                                 auto person = geoGrid->CreatePerson(person_id++, p->GetAge(), contactPool->GetId(), 0,
                                                                     0, 0, 0, 0);

@@ -92,7 +92,7 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.input.pop_size                   = 37542 * 100;
-        config.popInfo.age_count_k12school        = 750840;
+        config.popInfo.popcount_k12school       = 750840;
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());

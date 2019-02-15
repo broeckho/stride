@@ -49,68 +49,80 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Fraction of calc_fraction_1826 which are students.
-                double fraction_1826_student;
+                /// Participation of college (fraction of people of college age going to college).
+                double participation_college;
 
-                /// Fraction of calc_1865_and_active which commute.
-                double fraction_active_commuters;
+                /// Participation of workplace (fraction of people of work age and not going to
+                /// college having emplayment).
+                double particpation_workplace;
 
-                /// Fraction of fraction_1826_years_WhichAreStudents which commute.
-                double fraction_student_commuters;
+                /// Fraction of college students that commute.
+                double fraction_college_commuters;
 
-                /// Fraction of (calculated._1865_years - calculated._1826_years_and_student) which are active
-                double fraction_1865_active;
+                /// Fraction of people in the workplace that commute.
+                double fraction_workplace_commuters;
 
                 /// Target population size for the generated population.
                 unsigned int pop_size;
         } input;
 
         // -----------------------------------------------------------------------------------------
-        // Population info set by GeoGridConfigBuilder: these are numbers derived from the
-        // reference and the target size of the generated population. These numbers are used as
-        // targets in the poggen process and (approximately) reproduced in the generated population.
+        // The reference set of Households used to generate the population by random draws.
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Numbers of persons for which are [6-18) years old.
-                unsigned int age_count_k12school;
-
-                /// Number of individuals in this population are [18, 26) years old and are a student.
-                unsigned int popcount_1826_student;
-
-                /// Absolute amount of population which are [18, 65] years old and active.
-                unsigned int popcount_1865_active;
-
-                /// The number of households needed with this population size and these types of households.
-                unsigned int households;
-
                 /// Reference households: the set of households that we sample from to generate the population.
-                std::vector<std::shared_ptr<Household>> reference_households{};
+                std::vector<std::shared_ptr<Household>> households{};
 
                 /// Persons in the reference households (segmented vector to have working pointers into it).
                 stride::util::SegmentedVector<stride::Person> persons{};
 
                 /// Contactpools used for reference households (segmented vector to have working pointers into it).
-                stride::util::SegmentedVector<stride::ContactPool> contact_pools{};
-        } popInfo;
+                stride::util::SegmentedVector<stride::ContactPool> pools{};
+        } refHH;
 
         // -----------------------------------------------------------------------------------------
-        // CONSTANTS (for now at least)
+        // These are numbers derived from the reference households, the target size of the generated
+        // population and the input parameters relating participation school and worplace.
+        // These numbers are used as targets in the poggen process and are reproduced (to very close
+        // approximation) in the generated population.
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Size used to calculate the amount of Colleges (double to eliminate extra cast)
-                double mean_college_size = 3000.0;
+                /// Numbers of individuals in K12School.
+                unsigned int popcount_k12school;
 
-                /// Size used to calculate the amount of Communities (double to eliminate extra cast)
-                double mean_community_size = 2000.0;
+                /// Number of individuals in College.
+                unsigned int popcount_college;
 
-                /// Size used to calculate the amount of K12Schools (double to eliminate extra cast)
-                double mean_K12_size = 500.0;
+                /// Number of individuals in Workplace.
+                unsigned int popcount_workplace;
 
-                /// Size used to calculate the amount of Workplaces (double to eliminate extra cast)
-                double mean_workplace_school_size = 20.0;
-        } constants;
+                /// The number of households.
+                unsigned int count_households;
+        } popInfo;
+
+        // -----------------------------------------------------------------------------------------
+        // Config params for ContactPools (constants for now at least).
+        // -----------------------------------------------------------------------------------------
+        struct
+        {
+                /// Used to calculate the number of K12Schools (double to eliminate extra cast)
+                double       k12school_size      = 500.0;
+                unsigned int pools_per_k12school = 25U;
+
+                /// Used to calculate the number of Colleges (double to eliminate extra cast)
+                double       college_size      = 3000.0;
+                unsigned int pools_per_college = 20U;
+
+                /// Used to calculate the number of Communities (double to eliminate extra cast)
+                double       community_size      = 2000.0;
+                unsigned int pools_per_community = 1U;
+
+                /// Used to calculate the number of Workplaces (double to eliminate extra cast)
+                double       workplace_size      = 20.0;
+                unsigned int pools_per_workplace = 1U;
+        } pools;
 };
 
 } // namespace gengeopop

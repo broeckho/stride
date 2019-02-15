@@ -56,8 +56,8 @@ TEST(CollegePopulatorTest, NoStudents)
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         unsigned int     contactCenterCounter   = 1;
-        config.input.fraction_student_commuters = 0;
-        config.input.fraction_1826_student      = 0;
+        config.input.fraction_college_commuters = 0;
+        config.input.participation_college      = 0;
 
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
@@ -96,8 +96,8 @@ TEST(CollegePopulatorTest, NotCommuting)
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         unsigned int     contactCenterCounter   = 1;
-        config.input.fraction_student_commuters = 0;
-        config.input.fraction_1826_student      = 1;
+        config.input.fraction_college_commuters = 0;
+        config.input.participation_college      = 1;
 
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
@@ -208,8 +208,8 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         unsigned int     contactCenterCounter   = 1;
-        config.input.fraction_student_commuters = 1;
-        config.input.fraction_1826_student      = 1;
+        config.input.fraction_college_commuters = 1;
+        config.input.participation_college      = 1;
 
         auto pop      = Population::Create();
         auto geoGrid  = CreateGeoGrid(2, 100, 3, 50, 3, pop.get());
@@ -268,8 +268,8 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         unsigned int     contactCenterCounter   = 1;
-        config.input.fraction_student_commuters = 1;
-        config.input.fraction_1826_student      = 1;
+        config.input.fraction_college_commuters = 1;
+        config.input.participation_college      = 1;
 
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));

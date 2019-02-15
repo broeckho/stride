@@ -54,9 +54,9 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         GeoGridConfigBuilder ggConfigBuilder{};
         ggConfigBuilder.SetData(ggConfig, m_config_pt.get<string>("run.geopop_gen.household_file"));
 
-        m_stride_logger->info("Number of reference households: {}", ggConfig.popInfo.reference_households.size());
-        m_stride_logger->info("Number of reference persons: {}", ggConfig.popInfo.persons.size());
-        m_stride_logger->info("Number of reference households: {}", ggConfig.popInfo.contact_pools.size());
+        m_stride_logger->info("Number of reference households: {}", ggConfig.refHH.households.size());
+        m_stride_logger->info("Number of reference persons: {}", ggConfig.refHH.persons.size());
+        m_stride_logger->info("Number of reference households: {}", ggConfig.refHH.pools.size());
 
         // --------------------------------------------------------------
         // Read cities input files (commute info file only if present).

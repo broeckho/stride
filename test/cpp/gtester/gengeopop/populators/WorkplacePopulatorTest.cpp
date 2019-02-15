@@ -58,8 +58,8 @@ TEST(WorkplacePopulatorTest, NoActive)
 
         WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
-        config.input.fraction_1865_active  = 0;
-        config.input.fraction_1826_student = 1;
+        config.input.particpation_workplace = 0;
+        config.input.participation_college  = 1;
 
         auto location = *geoGrid->begin();
         // Brasschaat and Schoten are close to each other
@@ -88,10 +88,10 @@ TEST(WorkplacePopulatorTest, NoCommuting)
 
         WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
-        unsigned int       contactCenterCounter = 1;
-        config.input.fraction_active_commuters  = 0;
-        config.input.fraction_1865_active       = 1;
-        config.input.fraction_1826_student      = 0.5;
+        unsigned int       contactCenterCounter   = 1;
+        config.input.fraction_workplace_commuters = 0;
+        config.input.particpation_workplace       = 1;
+        config.input.participation_college        = 0.5;
 
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
@@ -175,13 +175,13 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
         WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
-        unsigned int       contactCenterCounter = 1;
-        config.input.fraction_active_commuters  = 0;
-        config.input.fraction_active_commuters  = 1;
-        config.input.fraction_student_commuters = 0;
-        config.popInfo.popcount_1865_active     = 1;
-        config.input.fraction_1865_active       = 1;
-        config.input.fraction_1826_student      = 0.5;
+        unsigned int       contactCenterCounter   = 1;
+        config.input.fraction_workplace_commuters = 0;
+        config.input.fraction_workplace_commuters = 1;
+        config.input.fraction_college_commuters   = 0;
+        config.popInfo.popcount_workplace         = 1;
+        config.input.particpation_workplace       = 1;
+        config.input.participation_college        = 0.5;
 
         // only commuting
         auto schoten = *(geoGrid->begin());
@@ -247,13 +247,13 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 
         WorkplacePopulator workplacePopulator(rnManager, LogUtils::CreateNullLogger("nullLogger"));
         GeoGridConfig      config{};
-        unsigned int       contactCenterCounter = 1;
-        config.input.fraction_active_commuters  = 0;
-        config.input.fraction_active_commuters  = 1;
-        config.input.fraction_student_commuters = 0;
-        config.popInfo.popcount_1865_active     = 1;
-        config.input.fraction_1865_active       = 1;
-        config.input.fraction_1826_student      = 0.5;
+        unsigned int       contactCenterCounter   = 1;
+        config.input.fraction_workplace_commuters = 0;
+        config.input.fraction_workplace_commuters = 1;
+        config.input.fraction_college_commuters   = 0;
+        config.popInfo.popcount_workplace         = 1;
+        config.input.particpation_workplace       = 1;
+        config.input.participation_college        = 0.5;
 
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));

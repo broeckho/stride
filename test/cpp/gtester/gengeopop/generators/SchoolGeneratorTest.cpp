@@ -35,7 +35,7 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.input.pop_size                   = 10000;
-        config.popInfo.age_count_k12school        = 2000;
+        config.popInfo.popcount_k12school       = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -55,7 +55,7 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.input.pop_size                   = 10000;
-        config.popInfo.age_count_k12school        = 2000;
+        config.popInfo.popcount_k12school       = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -71,7 +71,7 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.input.pop_size                   = 37542 * 100;
-        config.popInfo.age_count_k12school        = 750840;
+        config.popInfo.popcount_k12school       = 750840;
 
         auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
