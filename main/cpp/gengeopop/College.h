@@ -35,8 +35,11 @@ public:
         /// See ContactCenter::Fill.
         void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) override;
 
+        /// See ContactCenter::GetContactPoolType.
+        stride::ContactPoolType::Id GetContactPoolType() const override {return stride::ContactPoolType::Id::College;}
+
         /// See ContactCenter::GetType.
-        std::string GetType() const override { return "College"; }
+        //std::string GetType() const override {return "College";}
 };
 
 } // namespace gengeopop

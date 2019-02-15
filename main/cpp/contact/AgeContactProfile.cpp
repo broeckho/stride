@@ -23,12 +23,17 @@
 namespace stride {
 
 using namespace std;
+using namespace stride::ContactPoolType;
 using namespace boost::property_tree;
 
-AgeContactProfile::AgeContactProfile(ContactPoolType::Id poolType, const ptree& contactPt)
+AgeContactProfile::AgeContactProfile(Id poolType, const ptree& contactPt)
     : std::array<double, MaximumAge() + 1>()
 {
-        const string key{string("matrices.").append(ContactPoolType::ToString(poolType))};
+        string typeKey = ContactPoolType::ToString(poolType);
+        if (poolType == Id::K12School || poolType == Id::College) {
+                typeKey = "school";
+        }
+        const string key{string("matrices.").append(typeKey)};
         unsigned int i = 0U;
         for (const auto& participant : contactPt.get_child(key)) {
                 double totalContacts = 0;

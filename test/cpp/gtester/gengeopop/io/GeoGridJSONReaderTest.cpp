@@ -16,6 +16,7 @@
 #include "gengeopop/io/GeoGridJSONReader.h"
 #include "gengeopop/ContactCenter.h"
 #include "gengeopop/GeoGrid.h"
+#include "pool/ContactPoolType.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
 
@@ -148,15 +149,18 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
         auto              geoGrid        = getGeoGridForFile("test1.json", Population::Create().get());
         auto              location       = geoGrid->Get(0);
         auto              contactCenters = location->GetContactCenters();
-        map<string, bool> found          = {{"K12School", false},
-                                   {"Primary Community", false},
-                                   {"College", false},
-                                   {"Household", false},
-                                   {"Workplace", false}};
+
+        using namespace stride::ContactPoolType;
+
+        map<Id, bool> found          = {{Id::K12School, false},
+                                   {Id::PrimaryCommunity, false},
+                                   {Id::College, false},
+                                   {Id::Household, false},
+                                   {Id::Work, false}};
 
         for (unsigned int i = 0; i < 5; i++) {
-                EXPECT_FALSE(found[contactCenters[i]->GetType()]);
-                found[contactCenters[i]->GetType()] = true;
+                EXPECT_FALSE(found[contactCenters[i]->GetContactPoolType()]);
+                found[contactCenters[i]->GetContactPoolType()] = true;
         }
         for (auto& type : found) {
                 EXPECT_TRUE(type.second);
@@ -168,8 +172,11 @@ void runPeopleTest(const string& filename)
         auto             pop      = Population::Create();
         auto             geoGrid  = getGeoGridForFile(filename, pop.get());
         auto             location = geoGrid->Get(0);
-        map<int, string> ids      = {{0, "K12School"}, {1, "Primary Community"}, {2, "Secondary Community"},
-                                {3, "College"},   {4, "Household"},         {5, "Workplace"}};
+
+        using namespace stride::ContactPoolType;
+
+        map<int, string> ids      = {{0, "k12school"}, {1, "primary_community"}, {2, "secondary_community"},
+                                {3, "college"},   {4, "household"},         {5, "work"}};
 
         EXPECT_EQ(location->GetID(), 1);
         EXPECT_EQ(location->GetName(), "Bavikhove");
@@ -182,7 +189,7 @@ void runPeopleTest(const string& filename)
         for (const auto& center : contactCenters) {
                 auto pool   = center->GetPools()[0];
                 auto person = *(pool->begin());
-                EXPECT_EQ(ids[center->GetId()], center->GetType());
+                EXPECT_EQ(ids[center->GetId()], ToString(center->GetContactPoolType()));
                 EXPECT_EQ(person->GetId(), 1);
                 EXPECT_EQ(person->GetAge(), 18);
                 EXPECT_EQ(person->GetGender(), 'M');

@@ -33,14 +33,11 @@ public:
         /// See ContactCenter::Fill.
         void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) override;
 
-        /// See ContactCenter::GetMaxPools.
-        // unsigned int GetMaxPools() const override { return 1; }
-
-        /// See ContactCenter::GetPoolSize.
-        // unsigned int GetPoolSize() const override { return 20; }
+        /// See ContactCenter::GetContactPoolType.
+        stride::ContactPoolType::Id GetContactPoolType() const override {return stride::ContactPoolType::Id::Work;}
 
         /// See ContactCenter::GetType.
-        std::string GetType() const override { return "Workplace"; }
+        //std::string GetType() const override { return "Workplace"; }
 };
 
 } // namespace gengeopop

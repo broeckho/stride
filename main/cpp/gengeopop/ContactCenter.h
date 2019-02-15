@@ -16,6 +16,7 @@
 #pragma once
 
 #include "pool/ContactPool.h"
+#include "pool/ContactPoolType.h"
 
 #include <memory>
 #include <vector>
@@ -37,17 +38,17 @@ public:
         /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
         virtual void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) = 0;
 
-        /// Return the ID.
+        /// Return the ID of this ContactCenter.
         unsigned int GetId() const { return m_id; }
 
-        /// Get the pools container.
+        /// Get the ContactPools container.
         const std::vector<stride::ContactPool*>& GetPools() const { return m_pools; }
 
         /// Get a count of total population (first) and total number of infections (second).
         std::pair<unsigned int, unsigned int> GetPopulationAndInfectedCount() const;
 
-        /// Get the name of the type of contact center (e.g. College)
-        virtual std::string GetType() const = 0;
+        /// Get the the type of ContactPools this ContactCenter contains.
+        virtual stride::ContactPoolType::Id GetContactPoolType() const = 0;
 
         /// Register a ContactPool with this ContactCenter.
         void RegisterPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }

@@ -29,7 +29,7 @@ public:
         explicit Community(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::GetType.
-        std::string GetType() const override { return "Community"; }
+        //std::string GetType() const override { return "Community"; }
 };
 
 } // namespace gengeopop

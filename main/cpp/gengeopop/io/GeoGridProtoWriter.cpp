@@ -18,6 +18,7 @@
 #include "gengeopop/ContactCenter.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/io/proto/geogrid.pb.h"
+#include "pool/ContactPoolType.h"
 #include "util/Exception.h"
 
 #include <iostream>
@@ -81,17 +82,18 @@ void GeoGridProtoWriter::WriteCoordinate(const Coordinate&                   coo
 void GeoGridProtoWriter::WriteContactCenter(shared_ptr<ContactCenter>              contactCenter,
                                             proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
-        map<string, proto::GeoGrid_Location_ContactCenter_Type> types = {
-            {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
-            {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
-            {"Primary Community", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-            {"Secondary Community", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-            {"College", proto::GeoGrid_Location_ContactCenter_Type_College},
-            {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
-            {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+        using namespace stride::ContactPoolType;
+
+        map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
+            {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
+            {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+            {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+            {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
+            {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
+            {Id::Work, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
         protoContactCenter->set_id(contactCenter->GetId());
-        protoContactCenter->set_type(types[contactCenter->GetType()]);
+        protoContactCenter->set_type(types[contactCenter->GetContactPoolType()]);
         for (stride::ContactPool* pool : *contactCenter) {
                 WriteContactPool(pool, protoContactCenter->add_pools());
         }

@@ -48,16 +48,17 @@ void fillLocation(int id, unsigned int province, unsigned int population, Coordi
 void fillContactCenter(const shared_ptr<ContactCenter>&       contactCenter,
                        proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
-        map<string, proto::GeoGrid_Location_ContactCenter_Type> types = {
-            {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
-            {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
-            {"Primary Community", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-            {"Secondary Community", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-            {"College", proto::GeoGrid_Location_ContactCenter_Type_College},
-            {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
-            {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+        using namespace stride::ContactPoolType;
 
-        protoContactCenter->set_type(types[contactCenter->GetType()]);
+        map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
+                {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
+                {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+                {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+                {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
+                {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
+                {Id::Work, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+
+        protoContactCenter->set_type(types[contactCenter->GetContactPoolType()]);
         protoContactCenter->set_id(contactCenter->GetId());
 }
 

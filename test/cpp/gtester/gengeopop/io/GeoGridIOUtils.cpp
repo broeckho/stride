@@ -77,17 +77,17 @@ void CompareContactPool(ContactPool*                                            
 void CompareContactCenter(shared_ptr<ContactCenter>                    contactCenter,
                           const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
-        map<string, proto::GeoGrid_Location_ContactCenter_Type> types = {
-            {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
-            {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
-            {"Primary Community", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-            {"Secondary Community", proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-            {"College", proto::GeoGrid_Location_ContactCenter_Type_College},
-            {"Household", proto::GeoGrid_Location_ContactCenter_Type_Household},
-            {"Workplace", proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+
+        map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
+                {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
+                {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+                {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+                {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
+                {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
+                {Id::Work, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
         EXPECT_EQ(contactCenter->GetId(), protoContactCenter.id());
-        EXPECT_EQ(types[contactCenter->GetType()], protoContactCenter.type());
+        EXPECT_EQ(types[contactCenter->GetContactPoolType()], protoContactCenter.type());
         ASSERT_EQ(protoContactCenter.pools_size(), contactCenter->GetPools().size());
 
         // Currently no tests with more than one contactpool

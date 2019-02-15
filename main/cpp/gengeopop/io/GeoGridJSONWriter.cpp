@@ -124,7 +124,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteContactCenter(shared_ptr<Con
 {
         boost::property_tree::ptree contactCenter_root;
         contactCenter_root.put("id", contactCenter->GetId());
-        contactCenter_root.put("type", contactCenter->GetType());
+        contactCenter_root.put("type", ToString(contactCenter->GetContactPoolType()));
         boost::property_tree::ptree pools;
 #pragma omp parallel
 #pragma omp single

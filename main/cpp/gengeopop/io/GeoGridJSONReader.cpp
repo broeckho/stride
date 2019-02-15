@@ -35,6 +35,7 @@ namespace gengeopop {
 
 using namespace std;
 using namespace stride;
+using namespace stride::ContactPoolType;
 using namespace stride::util;
 
 GeoGridJSONReader::GeoGridJSONReader(unique_ptr<istream> inputStream, Population* pop)
@@ -147,22 +148,22 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
 
         shared_ptr<ContactCenter> result;
         ContactPoolType::Id       typeId;
-        if (type == "K12School") {
+        if (type == ToString(Id::K12School)) {
                 result = make_shared<K12School>(id);
-                typeId = ContactPoolType::Id::K12School;
-        } else if (type == "College") {
+                typeId = Id::K12School;
+        } else if (type == ToString(Id::College)) {
                 result = make_shared<College>(id);
                 typeId = ContactPoolType::Id::College;
-        } else if (type == "Household") {
+        } else if (type == ToString(Id::Household)) {
                 result = make_shared<Household>(id);
                 typeId = ContactPoolType::Id::Household;
-        } else if (type == "Primary Community") {
+        } else if (type == ToString(Id::PrimaryCommunity)) {
                 result = make_shared<PrimaryCommunity>(id);
                 typeId = ContactPoolType::Id::PrimaryCommunity;
-        } else if (type == "Secondary Community") {
+        } else if (type == ToString(Id::SecondaryCommunity)) {
                 result = make_shared<SecondaryCommunity>(id);
                 typeId = ContactPoolType::Id::SecondaryCommunity;
-        } else if (type == "Workplace") {
+        } else if (type == ToString(Id::Work)) {
                 result = make_shared<Workplace>(id);
                 typeId = ContactPoolType::Id::Work;
         } else {
