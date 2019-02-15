@@ -107,20 +107,23 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Used to calculate the number of K12Schools (double to eliminate extra cast)
-                double       k12school_size      = 500.0;
+                /// Every houselhold constitutes a single ContactPool.
+                unsigned int pools_per_houselhold = 1U;
+
+                /// Used to calculate the number of K12Schools.
+                unsigned int k12school_size      = 500U;
                 unsigned int pools_per_k12school = 25U;
 
-                /// Used to calculate the number of Colleges (double to eliminate extra cast)
-                double       college_size      = 3000.0;
+                /// Used to calculate the number of Colleges.
+                unsigned int college_size      = 3000U;
                 unsigned int pools_per_college = 20U;
 
-                /// Used to calculate the number of Communities (double to eliminate extra cast)
-                double       community_size      = 2000.0;
+                /// Used to calculate the number of Communities.
+                unsigned int community_size      = 2000U;
                 unsigned int pools_per_community = 1U;
 
-                /// Used to calculate the number of Workplaces (double to eliminate extra cast)
-                double       workplace_size      = 20.0;
+                /// Used to calculate the number of Workplaces.
+                unsigned int workplace_size      = 20U;
                 unsigned int pools_per_workplace = 1U;
         } pools;
 };

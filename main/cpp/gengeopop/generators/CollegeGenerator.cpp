@@ -28,7 +28,8 @@ void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                              unsigned int& contactCenterCounter)
 {
         const auto pupilCount  = geoGridConfig.popInfo.popcount_college;
-        const auto schoolCount = static_cast<unsigned int>(ceil(pupilCount / geoGridConfig.pools.college_size));
+        const auto schoolCount = static_cast<unsigned int>(ceil(pupilCount /
+                static_cast<double>(geoGridConfig.pools.college_size)));
         const auto cities      = geoGrid->TopK(10);
 
         if (cities.empty()) {

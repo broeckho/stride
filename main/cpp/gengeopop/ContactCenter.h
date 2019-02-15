@@ -34,29 +34,24 @@ public:
         /// Construct ContactCenter with assigned ID.
         explicit ContactCenter(unsigned int id) : m_pools(), m_id(id) {}
 
-        /// Add a ContactPool.
-        void AddPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }
 
-        /// Apply this ContactCenter to the GeoGrid.
+        /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
         virtual void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) = 0;
 
         /// Return the ID.
         unsigned int GetId() const { return m_id; }
 
-        /// Get the maximum number of pools for this contact center.
-        virtual unsigned int GetMaxPools() const = 0;
-
         /// Get the pools container.
         const std::vector<stride::ContactPool*>& GetPools() const { return m_pools; }
-
-        /// Get the size (on average) of a pool for this type of contact center.
-        virtual unsigned int GetPoolSize() const = 0;
 
         /// Get a count of total population (first) and total number of infections (second).
         std::pair<unsigned int, unsigned int> GetPopulationAndInfectedCount() const;
 
         /// Get the name of the type of contact center (e.g. College)
         virtual std::string GetType() const = 0;
+
+        /// Register a ContactPool with this ContactCenter.
+        void RegisterPool(stride::ContactPool *pool) { m_pools.emplace_back(pool); }
 
         /// Default destructor, but virtual
         virtual ~ContactCenter() = default;
@@ -72,8 +67,8 @@ public:
         iterator end() { return m_pools.end(); }
 
 protected:
-        std::vector<stride::ContactPool*> m_pools; ///< Our pools
-        unsigned int                      m_id;    ///< The id of this ContactCenter
+        std::vector<stride::ContactPool*> m_pools; ///< ConatctPools for this ContactCenter.
+        unsigned int                      m_id;    ///< The Id of this ContactCenter.
 };
 
 } // namespace gengeopop

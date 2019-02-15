@@ -36,7 +36,8 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         //    people at that location
 
         const auto popCount       = geoGridConfig.input.pop_size;
-        const auto communityCount = static_cast<unsigned int>(ceil(popCount / geoGridConfig.pools.community_size));
+        const auto communityCount = static_cast<unsigned int>(ceil(popCount /
+                static_cast<double>(geoGridConfig.pools.community_size)));
 
         vector<double> weights;
         for (const auto& loc : *geoGrid) {

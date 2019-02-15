@@ -27,6 +27,11 @@ namespace gengeopop {
 
 using namespace std;
 
+GeoGrid::GeoGrid(stride::Population* population)
+        : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
+{
+}
+
 void GeoGrid::AddLocation(shared_ptr<Location> location)
 {
         if (m_finalized) {
@@ -46,11 +51,6 @@ template <typename Policy>
 GeoAggregator<Policy> GeoGrid::BuildAggregator(typename Policy::Args&& args) const
 {
         return GeoAggregator<Policy>(m_tree, std::forward<typename Policy::Args>(args));
-}
-
-GeoGrid::GeoGrid(stride::Population* population)
-    : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
-{
 }
 
 void GeoGrid::CheckFinalized(const string& functionName) const

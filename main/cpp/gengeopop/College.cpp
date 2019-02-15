@@ -16,6 +16,7 @@
 #include "College.h"
 
 #include "GeoGrid.h"
+#include "GeoGridConfig.h"
 
 using namespace stride::ContactPoolType;
 
@@ -23,9 +24,9 @@ namespace gengeopop {
 
 void College::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
 {
-
-        for (std::size_t i = 0; i < GetMaxPools(); ++i) {
-                AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::College));
+        for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_college; ++i) {
+                const auto p = geoGrid->CreateContactPool(stride::ContactPoolType::Id::College);
+                RegisterPool(p);
         }
 }
 

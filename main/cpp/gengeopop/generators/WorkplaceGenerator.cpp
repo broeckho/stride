@@ -35,7 +35,7 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
 
         const auto EmployeeCount = geoGridConfig.popInfo.popcount_workplace;
         const auto WorkplacesCount =
-            static_cast<unsigned int>(ceil(EmployeeCount / geoGridConfig.pools.workplace_size));
+            static_cast<unsigned int>(ceil(EmployeeCount / static_cast<double>(geoGridConfig.pools.workplace_size)));
 
         // = for each location #residents + #incoming commuting people - #outgoing commuting people
         vector<double> weights;

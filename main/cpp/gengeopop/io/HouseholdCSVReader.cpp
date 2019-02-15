@@ -60,7 +60,7 @@ void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Hous
                         p_ptr->SetAge(age);
                         newCP->AddMember(p_ptr);
                 }
-                household->AddPool(newCP);
+                household->RegisterPool(newCP);
                 ref_households.push_back(household);
         }
 }

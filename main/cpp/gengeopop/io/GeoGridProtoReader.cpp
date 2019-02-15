@@ -182,7 +182,7 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
                                 });
                                 if (!e->HasError()) {
 #pragma omp critical
-                                        result->AddPool(pool);
+                                        result->RegisterPool(pool);
                                 }
                         }
                 }

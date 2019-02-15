@@ -182,32 +182,32 @@ shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
         const auto school = make_shared<K12School>(0);
         location->AddContactCenter(school);
         const auto schoolPool = new ContactPool(2, Id::K12School);
-        school->AddPool(schoolPool);
+        school->RegisterPool(schoolPool);
 
         const auto community = make_shared<PrimaryCommunity>(1);
         location->AddContactCenter(community);
         const auto communityPool = new ContactPool(3, Id::PrimaryCommunity);
-        community->AddPool(communityPool);
+        community->RegisterPool(communityPool);
 
         const auto secondaryCommunity = make_shared<SecondaryCommunity>(2);
         location->AddContactCenter(secondaryCommunity);
         const auto secondaryCommunityPool = new ContactPool(7, Id::SecondaryCommunity);
-        secondaryCommunity->AddPool(secondaryCommunityPool);
+        secondaryCommunity->RegisterPool(secondaryCommunityPool);
 
         const auto college = make_shared<College>(3);
         location->AddContactCenter(college);
         const auto collegePool = new ContactPool(4, Id::College);
-        college->AddPool(collegePool);
+        college->RegisterPool(collegePool);
 
         const auto household = make_shared<Household>(4);
         location->AddContactCenter(household);
         const auto householdPool = new ContactPool(5, Id::Household);
-        household->AddPool(householdPool);
+        household->RegisterPool(householdPool);
 
         const auto workplace = make_shared<Workplace>(5);
         location->AddContactCenter(workplace);
         const auto workplacePool = new ContactPool(6, Id::Work);
-        workplace->AddPool(workplacePool);
+        workplace->RegisterPool(workplacePool);
 
         geoGrid->AddLocation(location);
         const auto person = geoGrid->CreatePerson(1, 18, 5, 2, 4, 6, 3, 7);

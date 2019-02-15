@@ -54,7 +54,7 @@ protected:
                 person           = make_shared<Person>();
                 person->SetId(42);
                 contactPool->AddMember(person.get());
-                household->AddPool(contactPool);
+                household->RegisterPool(contactPool);
                 location = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
                 location->AddContactCenter(household);
                 auto pop = Population::Create();
@@ -63,7 +63,7 @@ protected:
 
                 community = make_shared<CommunityType>(1);
                 auto pool = new ContactPool(1, ContactPoolType::Id::Household);
-                community->AddPool(pool);
+                community->RegisterPool(pool);
         }
 
         void OneCommunityTest()
@@ -105,7 +105,7 @@ protected:
                 auto location2  = make_shared<Location>(2, 5, 1500, Coordinate(1, 1), "Brussel");
                 auto community2 = make_shared<PrimaryCommunity>(1);
                 auto pool       = new ContactPool(2, ContactPoolType::Id::PrimaryCommunity);
-                community2->AddPool(pool);
+                community2->RegisterPool(pool);
                 location2->AddContactCenter(community2);
 
                 geoGrid->AddLocation(location2);
@@ -149,7 +149,7 @@ protected:
                 location->AddContactCenter(community);
 
                 auto community2 = make_shared<CommunityType>(2);
-                community2->AddPool(new ContactPool(2, ContactPoolType::Id::PrimaryCommunity));
+                community2->RegisterPool(new ContactPool(2, ContactPoolType::Id::PrimaryCommunity));
                 location->AddContactCenter(community2);
 
                 geoGrid->Finalize();

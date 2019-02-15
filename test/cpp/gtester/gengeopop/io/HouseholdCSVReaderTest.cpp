@@ -37,7 +37,7 @@ shared_ptr<gengeopop::Household> createCP(const vector<unsigned int>& ages)
         }
 
         auto hh = make_shared<gengeopop::Household>();
-        hh->AddPool(cp);
+        hh->RegisterPool(cp);
         return hh;
 }
 

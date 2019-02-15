@@ -48,10 +48,10 @@ public:
         /// Adds a location to this GeoGrid.
         void AddLocation(std::shared_ptr<Location> location);
 
-        /// Create a ContactPool of the given type and return a non-owning pointer.
+        /// Create ContactPool of type in the Population associated withis GeoGrid.
         stride::ContactPool* CreateContactPool(stride::ContactPoolType::Id type);
 
-        /// Create and store a Person in the GeoGrid and return its pointer (which works until deletion of GeoGrid).
+        /// Create Person in the Population associated withis Grid.
         template <typename... Args>
         stride::Person* CreatePerson(Args&&... args)
         {
@@ -61,8 +61,21 @@ public:
         /// Disables the addLocation method and builds the kdtree.
         void Finalize();
 
+        /// Gets a Location by index, doesn't performs a range check.
+        std::shared_ptr<Location> Get(size_t index) const { return (*this)[index]; }
+
+        /// Gets a Location by Id and check if the Id exists.
+        std::shared_ptr<Location> GetById(unsigned int id) const { return m_locationsToIdIndex.at(id); }
+
+        /// Provide access to the GeoGridKdTree spatial lookup structure.
+        const GeoGridKdTree& KdTree() { return m_tree; }
+
+        /// Get the Population associated with this GeoGrid
+        stride::Population* GetPopulation() const { return m_population; }
+
         /// Search for locations in \p radius around \p start.
         std::vector<std::shared_ptr<Location>> LocationsInRadius(std::shared_ptr<Location> start, double radius) const;
+
         /**
          * Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2, lat2).
          * The coordinates must be position on the diagonal, i.e:
@@ -81,18 +94,6 @@ public:
 
         /// Gets the K biggest (in population count) locations of this GeoGrid
         std::vector<std::shared_ptr<Location>> TopK(size_t k) const;
-
-        /// Gets a Location by index, doesn't performs a range check.
-        std::shared_ptr<Location> Get(size_t index) const { return (*this)[index]; }
-
-        /// Gets a Location by id and check if the id exists.
-        std::shared_ptr<Location> GetById(unsigned int id) const { return m_locationsToIdIndex.at(id); }
-
-        /// Provide access to the GeoGridKdTree spatial lookup structure.
-        const GeoGridKdTree& KdTree() { return m_tree; }
-
-        /// Get the population of this GeoGrid
-        stride::Population* GetPopulation() const { return m_population; }
 
         /// Remove element of GeoGrid.
         void Remove(const std::shared_ptr<Location>& location);

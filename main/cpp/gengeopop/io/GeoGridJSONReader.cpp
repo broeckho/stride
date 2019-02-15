@@ -184,7 +184,7 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
                                 });
                                 if (!e->HasError()) {
 #pragma omp critical
-                                        result->AddPool(pool);
+                                        result->RegisterPool(pool);
                                 }
                         }
                 }
