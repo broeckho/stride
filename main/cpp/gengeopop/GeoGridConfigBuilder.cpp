@@ -17,12 +17,14 @@
 
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/io/ReaderFactory.h"
+#include "pool/AgeBrackets.h"
 
 #include <cmath>
 
 namespace gengeopop {
 
 using namespace std;
+using namespace stride::AgeBrackets;
 
 void GeoGridConfigBuilder::SetData(GeoGridConfig& geoGridConfig, const string& householdsFileName)
 {
@@ -31,26 +33,51 @@ void GeoGridConfigBuilder::SetData(GeoGridConfig& geoGridConfig, const string& h
         auto householdsReader = readerFactory.CreateHouseholdReader(householdsFileName);
         householdsReader->SetReferenceHouseholds(geoGridConfig.popInfo.reference_households,
                                                  geoGridConfig.popInfo.persons, geoGridConfig.popInfo.contact_pools);
-
         const auto popSize       = geoGridConfig.input.pop_size;
-        const auto averageHhSize = static_cast<double>(geoGridConfig.popInfo.persons.size()) /
-                                   geoGridConfig.popInfo.reference_households.size();
 
-        geoGridConfig.popInfo.compulsory_pupils =
-            static_cast<unsigned int>(floor(householdsReader->GetFractionCompulsoryPupils() * popSize));
 
-        geoGridConfig.popInfo.popcount_1865 =
-            static_cast<unsigned int>(floor(householdsReader->GetFraction1865Years() * popSize));
+        //----------------------------------------------------------------
+        // Determine age makeup of reference houshold population.
+        //----------------------------------------------------------------
+        const auto ref_hh_count  = geoGridConfig.popInfo.reference_households.size();
+        const auto ref_pop_count = geoGridConfig.popInfo.persons.size();
+        const auto averageHhSize = static_cast<double>(ref_pop_count) / ref_hh_count;
 
-        geoGridConfig.popInfo.popcount_1826 =
-            static_cast<unsigned int>(floor(householdsReader->GetFraction1826Years() * popSize));
+        auto ref_k12school_age = 0U;
+        auto ref_college_age = 0U;
+        auto ref_workplace_age = 0U;
+        for (const auto& p : geoGridConfig.popInfo.persons) {
+        const auto age = p.GetAge();
+                if (K12School::HasAge(age)) {
+                        ref_k12school_age++;
+                }
+                if (College::HasAge(age)) {
+                        ref_college_age++;
+                }
+                if (Workplace::HasAge(age)) {
+                        ref_workplace_age++;
+                }
+        }
+
+        //----------------------------------------------------------------
+        // Scale up to the generated population size.
+        //----------------------------------------------------------------
+        const auto fraction_k12school_age = static_cast<double>(ref_k12school_age)/static_cast<double>(ref_pop_count);
+        const auto fraction_college_age   = static_cast<double>(ref_college_age)/static_cast<double>(ref_pop_count);
+        const auto fraction_workplace_age = static_cast<double>(ref_workplace_age)/static_cast<double>(ref_pop_count);
+
+        const auto age_count_k12school = static_cast<unsigned int>(floor(popSize * fraction_k12school_age));
+        const auto age_count_college   = static_cast<unsigned int>(floor(popSize * fraction_college_age));
+        const auto age_count_workplace = static_cast<unsigned int>(floor(popSize * fraction_workplace_age));
+
+        geoGridConfig.popInfo.age_count_k12school = age_count_k12school;
 
         geoGridConfig.popInfo.popcount_1826_student = static_cast<unsigned int>(
-            floor(geoGridConfig.input.fraction_1826_student * geoGridConfig.popInfo.popcount_1826));
+            floor(geoGridConfig.input.fraction_1826_student * age_count_college));
 
         geoGridConfig.popInfo.popcount_1865_active = static_cast<unsigned int>(
             floor(geoGridConfig.input.fraction_1865_active *
-                  (geoGridConfig.popInfo.popcount_1865 - geoGridConfig.popInfo.popcount_1826_student)));
+                  (age_count_workplace - geoGridConfig.popInfo.popcount_1826_student)));
 
         geoGridConfig.popInfo.households =
             static_cast<unsigned int>(floor(static_cast<double>(popSize) / averageHhSize));

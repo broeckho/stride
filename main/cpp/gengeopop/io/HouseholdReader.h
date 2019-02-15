@@ -43,34 +43,10 @@ public:
         /// Default destructor.
         virtual ~HouseholdReader() = default;
 
-        /// Returns the fraction of the population which are still of an age where they attend school.
-        double GetFractionCompulsoryPupils() const
-        {
-                return static_cast<double>(m_totalCompulsory) / static_cast<double>(m_total);
-        }
-
-        /// Returns the fraction of the population which are between 18 and 26 years of age.
-        double GetFraction1826Years() const
-        {
-                return static_cast<double>(m_total1826Years) / static_cast<double>(m_total);
-        }
-
-        /// Returns the fraction of the population which are between 18 and 65 years of age.
-        double GetFraction1865Years() const
-        {
-                return static_cast<double>(m_total1865Years) / static_cast<double>(m_total);
-        }
-
         /// Add the info on reference households to the GeoGridConfig.
         virtual void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>&            ref_households,
                                             stride::util::SegmentedVector<stride::Person>&      ref_persons,
                                             stride::util::SegmentedVector<stride::ContactPool>& ref_pools) = 0;
-
-protected:
-        unsigned int m_total           = 0; ///< The total population.
-        unsigned int m_total1826Years  = 0; ///< The total number of people between 18 and 26 years of age.
-        unsigned int m_total1865Years  = 0; ///< The total number of people between 18 and 65 years of age.
-        unsigned int m_totalCompulsory = 0; ///< The total number of compulsory pupils.
 };
 
 } // namespace gengeopop

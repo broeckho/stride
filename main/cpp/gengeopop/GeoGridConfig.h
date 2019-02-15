@@ -45,7 +45,7 @@ public:
         friend std::ostream& operator<<(std::ostream& stream, const GeoGridConfig& config);
 
         // -----------------------------------------------------------------------------------------
-        // Input parameters set by constructor with configuratio property tree.
+        // Input parameters set by constructor with configuration property tree.
         // -----------------------------------------------------------------------------------------
         struct
         {
@@ -61,25 +61,21 @@ public:
                 /// Fraction of (calculated._1865_years - calculated._1826_years_and_student) which are active
                 double fraction_1865_active;
 
-                /// Absolute size of the population.
+                /// Target population size for the generated population.
                 unsigned int pop_size;
         } input;
 
         // -----------------------------------------------------------------------------------------
-        // Population info set by GeoGridConfigBuilder::ReadData
+        // Population info set by GeoGridConfigBuilder: these are numbers derived from the
+        // reference and the target size of the generated population. These numbers are used as
+        // targets in the poggen process and (approximately) reproduced in the generated population.
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Numbers of persons for which school is compulsory (i.e. 6-18 years old).
-                unsigned int compulsory_pupils;
+                /// Numbers of persons for which are [6-18) years old.
+                unsigned int age_count_k12school;
 
-                /// Absolute amount of population which are [18, 65) years old.
-                unsigned int popcount_1865;
-
-                /// Absolute amount of population which are [18, 26) years old.
-                unsigned int popcount_1826;
-
-                /// Absolute amount of population which are [18, 26) years old and are a student.
+                /// Number of individuals in this population are [18, 26) years old and are a student.
                 unsigned int popcount_1826_student;
 
                 /// Absolute amount of population which are [18, 65] years old and active.
@@ -103,16 +99,16 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Size used to calculate the amount of Colleges (double to prevent extra cast)
+                /// Size used to calculate the amount of Colleges (double to eliminate extra cast)
                 double mean_college_size = 3000.0;
 
-                /// Size used to calculate the amount of Communities (double to prevent extra cast)
+                /// Size used to calculate the amount of Communities (double to eliminate extra cast)
                 double mean_community_size = 2000.0;
 
-                /// Size used to calculate the amount of K12Schools (double to prevent extra cast)
+                /// Size used to calculate the amount of K12Schools (double to eliminate extra cast)
                 double mean_K12_size = 500.0;
 
-                /// Size used to calculate the amount of Workplaces (double to prevent extra cast)
+                /// Size used to calculate the amount of Workplaces (double to eliminate extra cast)
                 double mean_workplace_school_size = 20.0;
         } constants;
 };

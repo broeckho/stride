@@ -52,13 +52,11 @@ ostream& operator<<(ostream& out, const GeoGridConfig& config)
         out << left << setw(width) << "Population size" << intToDottedString(config.input.pop_size) << endl;
         out << endl;
         out << left << "Calculated:" << endl;
-        out << left << setw(width) << "Compulsory pupils" << intToDottedString(config.popInfo.compulsory_pupils)
-            << endl;
-        out << left << setw(width) << "18-26 years" << intToDottedString(config.popInfo.popcount_1826) << endl;
-        out << left << setw(width) << "18-26 years which are student"
+        out << left << setw(width) << "Number of K12School students:"
+                << intToDottedString(config.popInfo.age_count_k12school) << endl;
+        out << left << setw(width) << "Number of college students:"
             << intToDottedString(config.popInfo.popcount_1826_student) << endl;
-        out << left << setw(width) << "18-65 years" << intToDottedString(config.popInfo.popcount_1865) << endl;
-        out << left << setw(width) << "18-65 years which are active"
+        out << left << setw(width) << "Number of people with workplace:"
             << intToDottedString(config.popInfo.popcount_1865_active) << endl;
         out << endl;
         return out;

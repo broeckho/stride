@@ -36,8 +36,7 @@ void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Hous
 {
         stride::util::CSV reader(*(m_input_stream.get()));
 
-        unsigned int id = 1;
-
+        auto id = 1U;
         for (const stride::util::CSVRow& row : reader) {
                 auto household = std::make_shared<Household>();
 
@@ -53,20 +52,6 @@ void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Hous
                                 // NA
                                 break;
                         }
-
-                        if (age < 18 && age >= 6) {
-                                m_totalCompulsory++;
-                        }
-
-                        if (age >= 18 && age < 26) {
-                                m_total1826Years++;
-                        }
-
-                        if (age >= 18 && age < 65) {
-                                m_total1865Years++;
-                        }
-
-                        m_total++;
 
                         stride::Person p;
                         ref_persons.push_back(p);
