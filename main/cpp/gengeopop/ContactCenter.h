@@ -38,7 +38,7 @@ public:
         void AddPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }
 
         /// Apply this ContactCenter to the GeoGrid.
-        virtual void Fill(const std::shared_ptr<GeoGrid>& geoGrid) = 0;
+        virtual void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) = 0;
 
         /// Return the ID.
         unsigned int GetId() const { return m_id; }

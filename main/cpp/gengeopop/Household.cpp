@@ -21,7 +21,7 @@ using namespace stride::ContactPoolType;
 
 namespace gengeopop {
 
-void Household::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
+void Household::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
 {
         for (std::size_t i = 0; i < GetMaxPools(); ++i) {
                 AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::Household));

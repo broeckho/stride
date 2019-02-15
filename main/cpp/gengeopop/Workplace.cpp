@@ -19,7 +19,7 @@
 
 namespace gengeopop {
 
-void Workplace::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
+void Workplace::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
 {
         AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::Work));
 }

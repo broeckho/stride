@@ -21,7 +21,7 @@ using namespace stride::ContactPoolType;
 
 namespace gengeopop {
 
-void SecondaryCommunity::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
+void SecondaryCommunity::Fill(const GeoGridConfig&, const std::shared_ptr<GeoGrid>& geoGrid)
 {
         if (m_pools.empty()) {
                 AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::SecondaryCommunity));

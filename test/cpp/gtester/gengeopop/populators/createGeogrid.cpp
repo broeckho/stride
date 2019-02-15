@@ -40,8 +40,9 @@ shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, 
             76, 73, 9,  27, 5,  68, 25, 16, 29, 58, 78, 75, 40, 8,  37, 63, 63, 76, 55, 47, 18, 4,  21, 39, 45,
             42, 20, 41, 40, 37, 38, 30, 48, 9,  40, 23, 68, 77, 21, 50, 18, 27, 54, 1,  32, 67, 27, 14, 4,  78};
 
-        const auto populationSize{populationSample.size()};
-        auto       geoGrid = make_shared<GeoGrid>(pop);
+        const auto    populationSize{populationSample.size()};
+        GeoGridConfig config{};
+        auto          geoGrid = make_shared<GeoGrid>(pop);
 
         size_t sampleId = 0;
         int    personId = 0;
@@ -50,13 +51,13 @@ shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, 
 
                 for (int schI = 0; schI < k12SchoolCount; schI++) {
                         auto k12School = make_shared<K12School>(stoi(to_string(locI) + to_string(schI)));
-                        k12School->Fill(geoGrid);
+                        k12School->Fill(config, geoGrid);
                         loc->AddContactCenter(k12School);
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {
                         auto household = make_shared<Household>(stoi(to_string(locI) + to_string(hI)));
-                        household->Fill(geoGrid);
+                        household->Fill(config, geoGrid);
                         auto contactPool = household->GetPools()[0];
 
                         for (int i = 0; i < personCount; i++) {

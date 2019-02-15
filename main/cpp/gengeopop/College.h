@@ -33,7 +33,7 @@ public:
         explicit College(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
-        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+        void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) override;
 
         /// See ContactCenter::GetMaxPools.
         unsigned int GetMaxPools() const override { return 20; };
