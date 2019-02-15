@@ -158,7 +158,7 @@ protected:
                 HouseholdTestCheck(community2);
         }
 
-        virtual void HouseholdTestCheck(shared_ptr<Community> community2) = 0;
+        virtual void HouseholdTestCheck(shared_ptr<CommunityType> community2) = 0;
 
         shared_ptr<Populator>      populator;
         shared_ptr<RnMan>          rnManager;
@@ -182,7 +182,7 @@ protected:
                 populator = make_shared<PrimaryCommunityPopulator>(*rnManager.get(), logger);
         }
 
-        void HouseholdTestCheck(shared_ptr<Community> community2) override
+        void HouseholdTestCheck(shared_ptr<PrimaryCommunity> community2) override
         {
                 {
                         const auto& pools = community->GetPools();
@@ -211,7 +211,7 @@ protected:
                 populator = make_shared<SecondaryCommunityPopulator>(*rnManager.get(), logger);
         }
 
-        void HouseholdTestCheck(shared_ptr<Community> community2) override
+        void HouseholdTestCheck(shared_ptr<SecondaryCommunity> community2) override
         {
                 {
                         const auto& pools = community->GetPools();

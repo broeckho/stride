@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include "Community.h"
+#include "ContactCenter.h"
 
 namespace gengeopop {
 
@@ -24,11 +24,11 @@ class GeoGrid;
 /**
  * A model of a Primary Community (as a ContactCenter)
  */
-class PrimaryCommunity : public Community
+class PrimaryCommunity : public ContactCenter
 {
 public:
         /// Construct community with assigned ID.
-        explicit PrimaryCommunity(unsigned int id) : Community(id) {}
+        explicit PrimaryCommunity(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
         void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) override;

@@ -10,13 +10,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/generators/CommunityGenerator.h"
 #include "../../createlogger.h"
-#include "gengeopop/Community.h"
 #include "gengeopop/Location.h"
+#include "gengeopop/generators/CommunityGenerator.h"
 #include "util/RnMan.h"
 
 #include <gtest/gtest.h>
