@@ -34,7 +34,6 @@ public:
         /// Construct ContactCenter with assigned ID.
         explicit ContactCenter(unsigned int id) : m_pools(), m_id(id) {}
 
-
         /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
         virtual void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) = 0;
 
@@ -51,7 +50,7 @@ public:
         virtual std::string GetType() const = 0;
 
         /// Register a ContactPool with this ContactCenter.
-        void RegisterPool(stride::ContactPool *pool) { m_pools.emplace_back(pool); }
+        void RegisterPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }
 
         /// Default destructor, but virtual
         virtual ~ContactCenter() = default;

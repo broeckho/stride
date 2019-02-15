@@ -75,8 +75,7 @@ TEST(HouseholdCSVReader, test1)
         auto               instream = make_unique<istringstream>(csvString);
         HouseholdCSVReader reader(move(instream));
 
-        reader.SetReferenceHouseholds(geoConfig.refHH.households, geoConfig.refHH.persons,
-                                      geoConfig.refHH.pools);
+        reader.SetReferenceHouseholds(geoConfig.refHH.households, geoConfig.refHH.persons, geoConfig.refHH.pools);
 
         const vector<shared_ptr<gengeopop::Household>>& HHs         = geoConfig.refHH.households;
         const vector<shared_ptr<gengeopop::Household>>& expectedHHS = getExpectedHouseHolds();

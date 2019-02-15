@@ -65,14 +65,14 @@ void RunConfigManager::ConvertToGenGeoPop(ptree& pt)
         <population_file>gengeopop.proto</population_file>
         <population_type>generate</geopopulation_type>
         <geopop_gen>
-                 <population_size>600000</population_size>
-                 <fraction_1826_years_which_are_students>0.5</fraction_1826_years_which_are_students>
-                 <fraction_active_commuting_people>0.5</fraction_active_commuting_people>
-                 <fraction_student_commuting_people>0.5</fraction_student_commuting_people>
-                 <fraction_1865_years_active>0.75</fraction_1865_years_active>
-                 <cities_file>flanders_cities.csv</cities_file>
-                 <commuting_file>flanders_commuting.csv</commuting_file>
-                 <household_file>households_flanders.csv</household_file>
+                <cities_file>flanders_cities.csv</cities_file>
+                <commuting_file>flanders_commuting.csv</commuting_file>
+                <fraction_college_commuters>0.5</fraction_college_commuters>
+                <fraction_workplace_commuters>0.5</fraction_workplace_commuters>
+                <household_file>households_flanders.csv</household_file>
+                <participation_college>0.5</participation_college>
+                <particpation_workplace>0.75</particpation_workplace>
+                <population_size>600000</population_size>
     </geopop_gen>
 </run>
         )###";

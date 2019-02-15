@@ -28,7 +28,7 @@ namespace gengeopop {
 using namespace std;
 
 GeoGrid::GeoGrid(stride::Population* population)
-        : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
+    : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
 {
 }
 

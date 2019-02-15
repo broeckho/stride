@@ -28,12 +28,6 @@ public:
         /// Construct community with assigned ID.
         explicit Community(unsigned int id) : ContactCenter(id) {}
 
-        /// See ContactCenter::GetMaxPools.
-        //unsigned int GetMaxPools() const override { return 1; }
-
-        /// See ContactCenter::GetPoolSize.
-        //unsigned int GetPoolSize() const override { return 2000; }
-
         /// See ContactCenter::GetType.
         std::string GetType() const override { return "Community"; }
 };

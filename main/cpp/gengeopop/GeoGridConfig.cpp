@@ -31,11 +31,11 @@ GeoGridConfig::GeoGridConfig() : input{}, refHH{}, popInfo{}, pools{} {}
 
 GeoGridConfig::GeoGridConfig(const ptree& configPt) : GeoGridConfig()
 {
-        input.pop_size              = configPt.get<unsigned int>("run.geopop_gen.population_size");
-        input.participation_college = configPt.get<double>("run.geopop_gen.fraction_1826_years_which_are_students");
-        input.fraction_workplace_commuters = configPt.get<double>("run.geopop_gen.fraction_active_commuting_people");
-        input.fraction_college_commuters   = configPt.get<double>("run.geopop_gen.fraction_student_commuting_people");
-        input.particpation_workplace       = configPt.get<double>("run.geopop_gen.fraction_1865_years_active");
+        input.pop_size                     = configPt.get<unsigned int>("run.geopop_gen.population_size");
+        input.participation_college        = configPt.get<double>("run.geopop_gen.participation_college");
+        input.fraction_workplace_commuters = configPt.get<double>("run.geopop_gen.fraction_workplace_commuters");
+        input.fraction_college_commuters   = configPt.get<double>("run.geopop_gen.fraction_college_commuters");
+        input.particpation_workplace       = configPt.get<double>("run.geopop_gen.particpation_workplace");
 }
 
 ostream& operator<<(ostream& out, const GeoGridConfig& config)

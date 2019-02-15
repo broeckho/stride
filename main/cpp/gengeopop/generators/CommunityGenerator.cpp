@@ -35,9 +35,9 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         // 2. assign communities to a location using a discrete distribution reflecting the relative number of
         //    people at that location
 
-        const auto popCount       = geoGridConfig.input.pop_size;
-        const auto communityCount = static_cast<unsigned int>(ceil(popCount /
-                static_cast<double>(geoGridConfig.pools.community_size)));
+        const auto popCount = geoGridConfig.input.pop_size;
+        const auto communityCount =
+            static_cast<unsigned int>(ceil(popCount / static_cast<double>(geoGridConfig.pools.community_size)));
 
         vector<double> weights;
         for (const auto& loc : *geoGrid) {
