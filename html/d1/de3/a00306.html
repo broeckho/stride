@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SimController.cpp File Reference</title>
+<title>Stride Reference Manual: Sim.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -107,42 +107,51 @@ $(document).ready(function(){initNavTree('d1/de3/a00306.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SimController.cpp File Reference</div>  </div>
+<div class="title">Sim.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the command line controller.  
+<p>Implementation for the Simulator class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/da2/a00307_source.html">SimController.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/dcd/a00280_source.html">pop/Population.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/d71/a00309_source.html">sim/SimRunner.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/da2/a00307_source.html">Sim.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/daa/a00187_source.html">calendar/DaysOffStandard.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d45/a00175_source.html">pool/ContactPoolType.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dc3/a00284_source.html">pop/Population.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d71/a00309_source.html">sim/SimBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/da2/a00300_source.html">util/RunConfigManager.h</a>&quot;</code><br />
+<code>#include &lt;omp.h&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SimController.cpp:</div>
+Include dependency graph for Sim.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/daa/a00638.gif" border="0" usemap="#SimController_8cpp" alt=""/></div>
-<map name="SimController_8cpp" id="SimController_8cpp">
-<area shape="rect" id="node2" href="../../d0/da2/a00307.html" title="Header for the command line controller. " alt="" coords="640,80,760,107"/>
-<area shape="rect" id="node26" href="../../d0/dcd/a00280.html" title="Header file for the core Population class. " alt="" coords="983,80,1113,107"/>
-<area shape="rect" id="node46" href="../../d2/d71/a00309.html" title="Header for the SimRunner class. " alt="" coords="305,162,434,189"/>
-<area shape="rect" id="node3" href="../../d7/d3f/a00173.html" title="Header for the command line controller. " alt="" coords="639,162,761,189"/>
-<area shape="rect" id="node4" href="../../d4/d5b/a00294.html" title="Interface of RnMan. " alt="" coords="789,251,889,278"/>
-<area shape="rect" id="node17" href="../../dd/db3/a00313.html" title="Definition of Stopwatch. " alt="" coords="26,333,150,360"/>
-<area shape="rect" id="node5" href="../../d6/d82/a00293.html" title="Interface of RnPcg. " alt="" coords="1111,333,1161,360"/>
-<area shape="rect" id="node6" href="../../d4/d6f/a00315.html" title="Miscellaneous string utilities. " alt="" coords="1274,408,1374,435"/>
-<area shape="rect" id="node18" href="../../d4/db5/a00328.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="135,408,251,435"/>
-<area shape="rect" id="node27" href="../../de/d53/a00169.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1953,162,2119,189"/>
-<area shape="rect" id="node38" href="../../da/d50/a00301.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2321,333,2493,360"/>
-<area shape="rect" id="node44" href="../../dd/d56/a00274.html" title="Header file for the Person class. " alt="" coords="1561,162,1668,189"/>
-<area shape="rect" id="node28" href="../../dd/da7/a00168.html" title="Header for the core ContactPool class. " alt="" coords="1965,333,2107,360"/>
-<area shape="rect" id="node30" href="../../d1/d0d/a00171.html" title="Definition of ContactPoolType. " alt="" coords="1828,408,1999,435"/>
-<area shape="rect" id="node34" href="../../d0/d27/a00239.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1828,251,1996,278"/>
-<area shape="rect" id="node29" href="../../d9/d38/a00166.html" title="Header for the ContactLogMode class. " alt="" coords="1609,408,1804,435"/>
-<area shape="rect" id="node39" href="../../de/dc8/a00325.html" title="Interface/Implementation for SVIterator. " alt="" coords="2596,408,2695,435"/>
-<area shape="rect" id="node45" href="../../dc/d98/a00225.html" title="Header for the Health class. " alt="" coords="1653,251,1782,278"/>
-<area shape="rect" id="node47" href="../../da/d2e/a00238.html" title="Definition of EventId. " alt="" coords="173,333,285,360"/>
-<area shape="rect" id="node48" href="../../da/de0/a00317.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="239,251,388,278"/>
-<area shape="rect" id="node49" href="../../d2/d41/a00318.html" title="Interface/Implementation of Subject. " alt="" coords="309,333,414,360"/>
+<div class="center"><img src="../../de/dbb/a00637.gif" border="0" usemap="#Sim_8cpp" alt=""/></div>
+<map name="Sim_8cpp" id="Sim_8cpp">
+<area shape="rect" id="node2" href="../../d0/da2/a00307.html" title="Header for the Simulator class. " alt="" coords="1636,80,1695,107"/>
+<area shape="rect" id="node5" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="777,543,948,569"/>
+<area shape="rect" id="node29" href="../../db/dc3/a00284.html" title="Header file for the core Population class. " alt="" coords="1117,229,1246,256"/>
+<area shape="rect" id="node41" href="../../d6/daa/a00187.html" title="DaysOffStandard class. " alt="" coords="2292,155,2495,181"/>
+<area shape="rect" id="node47" href="../../d2/d71/a00309.html" title="Header for the SimBuilder class. " alt="" coords="2170,229,2299,256"/>
+<area shape="rect" id="node48" href="../../db/da2/a00300.html" title="Produce run config ptree. " alt="" coords="1971,229,2146,256"/>
+<area shape="rect" id="node3" href="../../d5/da7/a00144.html" title="Contact profiles stored in simulator. " alt="" coords="654,155,861,181"/>
+<area shape="rect" id="node16" href="../../d5/dcb/a00170.html" title="Header for the ContactLogMode class. " alt="" coords="1549,543,1744,569"/>
+<area shape="rect" id="node21" href="../../dd/da7/a00168.html" title="Header for the ContactHandler class. " alt="" coords="1558,229,1743,256"/>
+<area shape="rect" id="node22" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="1470,311,1570,338"/>
+<area shape="rect" id="node25" href="../../d0/def/a00256.html" title="Header for the InfectorExec class. " alt="" coords="1153,155,1317,181"/>
+<area shape="rect" id="node27" href="../../da/d75/a00334.html" title="Header for the TransmissionProfile class. " alt="" coords="1779,155,1986,181"/>
+<area shape="rect" id="node28" href="../../d6/d82/a00293.html" title="Header for the PublicHealthAgency class. " alt="" coords="1341,155,1552,181"/>
+<area shape="rect" id="node4" href="../../d7/dce/a00143.html" title="Contact profile. " alt="" coords="496,229,696,256"/>
+<area shape="rect" id="node14" href="../../d6/d82/a00243.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="876,393,1044,420"/>
+<area shape="rect" id="node11" href="../../d5/db1/a00140.html" title="Helpers for age. " alt="" coords="553,311,639,338"/>
+<area shape="rect" id="node15" href="../../d6/dfb/a00172.html" title="Header for the core ContactPool class. " alt="" coords="1285,468,1427,495"/>
+<area shape="rect" id="node23" href="../../d3/d4a/a00297.html" title="Interface of RnPcg. " alt="" coords="1503,393,1553,420"/>
+<area shape="rect" id="node30" href="../../d7/d3f/a00173.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="715,311,880,338"/>
+<area shape="rect" id="node31" href="../../d3/d07/a00305.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="450,393,622,420"/>
+<area shape="rect" id="node37" href="../../dc/d5d/a00278.html" title="Header file for the Person class. " alt="" coords="1128,311,1235,338"/>
+<area shape="rect" id="node32" href="../../dd/d4e/a00329.html" title="Interface/Implementation for SVIterator. " alt="" coords="225,468,324,495"/>
+<area shape="rect" id="node38" href="../../dd/d2d/a00229.html" title="Header for the Health class. " alt="" coords="1247,393,1377,420"/>
+<area shape="rect" id="node42" href="../../d0/d4a/a00147.html" title="Header file for the Calendar class. " alt="" coords="2375,229,2524,256"/>
+<area shape="rect" id="node46" href="../../d2/d94/a00184.html" title="Interface for DaysOff classes. " alt="" coords="2547,229,2746,256"/>
+<area shape="rect" id="node49" href="../../d0/d48/a00165.html" title="Info on configuration. " alt="" coords="2104,393,2224,420"/>
 </map>
 </div>
 </div>
@@ -150,21 +159,21 @@ Include dependency graph for SimController.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/def/a00359"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/def/a00359.html">stride</a></td></tr>
-<tr class="memdesc:d4/def/a00359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
+<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the command line controller. </p>
+<div class="textblock"><p>Implementation for the Simulator class. </p>
 
-<p>Definition in file <a class="el" href="../../d1/de3/a00306_source.html">SimController.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d1/de3/a00306_source.html">Sim.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../d1/de3/a00306.html">SimController.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d1/de3/a00306.html">Sim.cpp</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

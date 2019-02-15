@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: HouseholdCSVReader.cpp File Reference</title>
+<title>Stride Reference Manual: HealthSeeder.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -107,35 +107,38 @@ $(document).ready(function(){initNavTree('d1/da8/a00230.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">HouseholdCSVReader.cpp File Reference</div>  </div>
+<div class="title">HealthSeeder.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d17/a00231_source.html">HouseholdCSVReader.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/d2d/a00229_source.html">gengeopop/Household.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/da7/a00168_source.html">pool/ContactPool.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/d56/a00274_source.html">pop/Person.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/de9/a00176_source.html">util/CSV.h</a>&quot;</code><br />
+
+<p>Implementation for HelthSeeder class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d17/a00231_source.html">HealthSeeder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dc3/a00284_source.html">pop/Population.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d0d/a00298_source.html">util/RnMan.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;trng/uniform01_dist.hpp&gt;</code><br />
+<code>#include &lt;omp.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for HouseholdCSVReader.cpp:</div>
+Include dependency graph for HealthSeeder.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d14/a00522.gif" border="0" usemap="#HouseholdCSVReader_8cpp" alt=""/></div>
-<map name="HouseholdCSVReader_8cpp" id="HouseholdCSVReader_8cpp">
-<area shape="rect" id="node2" href="../../df/d17/a00231.html" title="HouseholdCSVReader.h" alt="" coords="1010,80,1182,107"/>
-<area shape="rect" id="node4" href="../../dd/d2d/a00229.html" title="gengeopop/Household.h" alt="" coords="1258,229,1436,256"/>
-<area shape="rect" id="node6" href="../../dd/da7/a00168.html" title="Header for the core ContactPool class. " alt="" coords="1566,393,1709,420"/>
-<area shape="rect" id="node25" href="../../dd/d56/a00274.html" title="Header file for the Person class. " alt="" coords="1715,229,1822,256"/>
-<area shape="rect" id="node31" href="../../d5/de9/a00176.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="1028,311,1111,338"/>
-<area shape="rect" id="node3" href="../../d7/d40/a00236.html" title="HouseholdReader.h" alt="" coords="1024,155,1169,181"/>
-<area shape="rect" id="node16" href="../../da/d50/a00301.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="286,311,458,338"/>
-<area shape="rect" id="node5" href="../../dd/dae/a00163.html" title="ContactCenter.h" alt="" coords="1309,311,1436,338"/>
-<area shape="rect" id="node7" href="../../d9/d38/a00166.html" title="Header for the ContactLogMode class. " alt="" coords="1540,468,1735,495"/>
-<area shape="rect" id="node9" href="../../d1/d0d/a00171.html" title="Definition of ContactPoolType. " alt="" coords="1890,468,2060,495"/>
-<area shape="rect" id="node17" href="../../de/dc8/a00325.html" title="Interface/Implementation for SVIterator. " alt="" coords="106,393,204,420"/>
-<area shape="rect" id="node26" href="../../dc/d98/a00225.html" title="Header for the Health class. " alt="" coords="1877,311,2006,338"/>
-<area shape="rect" id="node27" href="../../d0/d27/a00239.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1684,311,1852,338"/>
-<area shape="rect" id="node32" href="../../d9/d90/a00178.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="1234,393,1318,420"/>
-<area shape="rect" id="node33" href="../../d4/d6f/a00315.html" title="Miscellaneous string utilities. " alt="" coords="886,468,1008,495"/>
-<area shape="rect" id="node41" href="../../d7/d03/a00254.html" title="Interface/Implementation of is_iterator. " alt="" coords="540,393,660,420"/>
+<div class="center"><img src="../../d7/def/a00521.gif" border="0" usemap="#HealthSeeder_8cpp" alt=""/></div>
+<map name="HealthSeeder_8cpp" id="HealthSeeder_8cpp">
+<area shape="rect" id="node2" href="../../df/d17/a00231.html" title="Header file for the HealthSeeder. " alt="" coords="1225,87,1346,114"/>
+<area shape="rect" id="node5" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="998,259,1098,285"/>
+<area shape="rect" id="node22" href="../../db/dc3/a00284.html" title="Header file for the core Population class. " alt="" coords="1571,87,1701,114"/>
+<area shape="rect" id="node3" href="../../dd/d2d/a00229.html" title="Header for the Health class. " alt="" coords="1357,259,1433,285"/>
+<area shape="rect" id="node4" href="../../dd/da7/a00168.html" title="Header for the ContactHandler class. " alt="" coords="986,177,1171,203"/>
+<area shape="rect" id="node6" href="../../d3/d4a/a00297.html" title="Interface of RnPcg. " alt="" coords="719,333,769,360"/>
+<area shape="rect" id="node7" href="../../de/dab/a00319.html" title="Miscellaneous string utilities. " alt="" coords="301,408,401,435"/>
+<area shape="rect" id="node23" href="../../d7/d3f/a00173.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1951,177,2116,203"/>
+<area shape="rect" id="node35" href="../../d3/d07/a00305.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2202,333,2374,360"/>
+<area shape="rect" id="node42" href="../../dc/d5d/a00278.html" title="Header file for the Person class. " alt="" coords="1820,177,1927,203"/>
+<area shape="rect" id="node24" href="../../d6/dfb/a00172.html" title="Header for the core ContactPool class. " alt="" coords="1567,333,1710,360"/>
+<area shape="rect" id="node26" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="1807,408,1977,435"/>
+<area shape="rect" id="node31" href="../../d6/d82/a00243.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1836,259,2004,285"/>
+<area shape="rect" id="node25" href="../../d5/dcb/a00170.html" title="Header for the ContactLogMode class. " alt="" coords="1407,408,1601,435"/>
+<area shape="rect" id="node36" href="../../dd/d4e/a00329.html" title="Interface/Implementation for SVIterator. " alt="" coords="2495,408,2593,435"/>
 </map>
 </div>
 </div>
@@ -143,16 +146,21 @@ Include dependency graph for HouseholdCSVReader.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">gengeopop</a></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
+<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation for HelthSeeder class. </p>
+
+<p>Definition in file <a class="el" href="../../d1/da8/a00230_source.html">HealthSeeder.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d1/da8/a00230.html">HouseholdCSVReader.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:25 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d1/da8/a00230.html">HealthSeeder.cpp</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

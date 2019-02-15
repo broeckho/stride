@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d2/dee/a00049.html','../../');});
+$(document).ready(function(){initNavTree('d6/d2d/a00047.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,24 +107,25 @@ $(document).ready(function(){initNavTree('d2/dee/a00049.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">gengeopop::RadiusPolicy Member List</div>  </div>
+<div class="title">gengeopop::PrimaryCommunityPopulator Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d2/dee/a00049.html">gengeopop::RadiusPolicy</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d6/d2d/a00047.html">gengeopop::PrimaryCommunityPopulator</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d2/dee/a00049.html#ab7a8c340fbfb47b01ee3cb4cd56441c5">Args</a> typedef</td><td class="entry"><a class="el" href="../../d2/dee/a00049.html">gengeopop::RadiusPolicy</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d2/dee/a00049.html#a4c4d73f9f48e35491d11dcb4947f1860">Contains</a>(const geogrid_detail::KdTree2DPoint &amp;pt) const </td><td class="entry"><a class="el" href="../../d2/dee/a00049.html">gengeopop::RadiusPolicy</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d2/dee/a00049.html#a9ae749f5344e19684fac5c5f9f03b613">GetBoundingBox</a>() const </td><td class="entry"><a class="el" href="../../d2/dee/a00049.html">gengeopop::RadiusPolicy</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d2/dee/a00049.html#a6e9bfbf6bc52f1b42c32f52bf13b1e2f">m_center</a></td><td class="entry"><a class="el" href="../../d2/dee/a00049.html">gengeopop::RadiusPolicy</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d2/dee/a00049.html#a6057ef8f12f388d187d313e5f94bb823">m_radius</a></td><td class="entry"><a class="el" href="../../d2/dee/a00049.html">gengeopop::RadiusPolicy</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d2/dee/a00049.html#a2e112e02719985a20d96193e03f89d2d">RadiusPolicy</a>(Args args)</td><td class="entry"><a class="el" href="../../d2/dee/a00049.html">gengeopop::RadiusPolicy</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#a069875f72dfdc0846fdc3080f4d92b7a">Apply</a>(std::shared_ptr&lt; GeoGrid &gt; geogrid, const GeoGridConfig &amp;) override</td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">gengeopop::PrimaryCommunityPopulator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d97/a00045.html#a1be7bb1209785f0df93689d858fcd4b9">GetPoolInIncreasingRadius</a>(const std::shared_ptr&lt; GeoGrid &gt; &amp;geoGrid, const std::shared_ptr&lt; Location &gt; &amp;start, double startRadius=10.0) const </td><td class="entry"><a class="el" href="../../d6/d97/a00045.html">gengeopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d97/a00045.html#ae0397499e44323b47ce0fa59f995f777">m_logger</a></td><td class="entry"><a class="el" href="../../d6/d97/a00045.html">gengeopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d97/a00045.html#a9337da6e009f7ab6e112e83c3a233f0b">m_rnManager</a></td><td class="entry"><a class="el" href="../../d6/d97/a00045.html">gengeopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d97/a00045.html#a10243610b7115685e2a370db305e2a0e">MakeChoice</a>(double fraction)</td><td class="entry"><a class="el" href="../../d6/d97/a00045.html">gengeopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d97/a00045.html#a1dcf07892020db874293b88856ca7a2c">Populator</a>(stride::util::RnMan &amp;rnManager, std::shared_ptr&lt; spdlog::logger &gt; logger=stride::util::LogUtils::CreateNullLogger())</td><td class="entry"><a class="el" href="../../d6/d97/a00045.html">gengeopop::Populator</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d97/a00045.html#adce42c51b32d49e3855d7915f86a3725">~Populator</a>()=default</td><td class="entry"><a class="el" href="../../d6/d97/a00045.html">gengeopop::Populator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:26 for Stride Reference Manual by
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['location',['Location',['../d5/df9/a00044.html',1,'gengeopop']]],
-  ['logutils',['LogUtils',['../df/d6a/a00119.html',1,'stride::util']]]
+  ['location',['Location',['../d6/d42/a00043.html',1,'gengeopop']]],
+  ['logutils',['LogUtils',['../de/d36/a00123.html',1,'stride::util']]]
 ];

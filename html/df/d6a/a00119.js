@@ -1,7 +1,11 @@
 var a00119 =
 [
-    [ "CreateCliLogger", "df/d6a/a00119.html#a106af93dd3f814adf8b87ffaaf3ef3bb", null ],
-    [ "CreateFileLogger", "df/d6a/a00119.html#a52920faed22a1733b580a42ea065ed0d", null ],
-    [ "CreateNullLogger", "df/d6a/a00119.html#af8edb0cd2ef9049e0347f06e73ae57c2", null ],
-    [ "CreateRotatingLogger", "df/d6a/a00119.html#a137e01100d0d79b122f731bb1292179d", null ]
+    [ "Dirs", "df/d6a/a00119.html#a5c0e642aa05f9c73a9d5edb298b7fa1c", null ],
+    [ "m_current_dir", "df/d6a/a00119.html#ae2629bfa26d9962994c53264cb0855fb", null ],
+    [ "m_exec_path", "df/d6a/a00119.html#a227022d371c97f3990eba1c3de2bcc13", null ],
+    [ "m_bin_dir", "df/d6a/a00119.html#ad00b576a66d494e456c7b21eea8aee0f", null ],
+    [ "m_config_dir", "df/d6a/a00119.html#a0623ed8338513f296ce357c00638c1fa", null ],
+    [ "m_data_dir", "df/d6a/a00119.html#a9003edf17d321bc3df4b4a58530b777c", null ],
+    [ "m_root_dir", "df/d6a/a00119.html#a477aae24028e2fc1a96281e4857f0269", null ],
+    [ "m_tests_dir", "df/d6a/a00119.html#af6ef341a4ac535712e7bfc34dab632e6", null ]
 ];

@@ -1,8 +1,8 @@
 var a00131 =
 [
-    [ "InfectedViewer", "d7/d06/a00131.html#a772cf9c0229d31368250d437f1596ab0", null ],
-    [ "GetInfectionCounts", "d7/d06/a00131.html#a3051b3ab2155b525830220d7a4e1d3d4", null ],
-    [ "Update", "d7/d06/a00131.html#ac539c7549cc8c19530813f0bdb35a14d", null ],
-    [ "m_infected", "d7/d06/a00131.html#a613860070a4a0778c61631fc4f343028", null ],
-    [ "m_runner", "d7/d06/a00131.html#a13b27fd1d407a15fe3b542952168ba33", null ]
+    [ "TimeStamp", "d7/d06/a00131.html#a13a61188e51c4e05d05a91e459c33ffc", null ],
+    [ "ToString", "d7/d06/a00131.html#aea42ff56713aa57c0aafe5efc92f29e5", null ],
+    [ "ToTag", "d7/d06/a00131.html#a5f6eefbc6871a229b1c45dbbd98b41fe", null ],
+    [ "ToTimeT", "d7/d06/a00131.html#aef8a6ec8cb71ef8ed01506fa614e398f", null ],
+    [ "m_tp", "d7/d06/a00131.html#a04acbf03cad1f6a0f62dd3e1128726b6", null ]
 ];

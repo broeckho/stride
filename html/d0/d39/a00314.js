@@ -1,4 +1,5 @@
 var a00314 =
 [
-    [ "main", "d0/d39/a00314.html#a3c04138a5bfe5d72780bb7e82a18e627", null ]
+    [ "SliceIndexer", "df/dcd/a00127.html", "df/dcd/a00127" ],
+    [ "make_slice_indexer", "d0/d39/a00314.html#adc11e43e4e7ef5743ad66f7b2e884782", null ]
 ];

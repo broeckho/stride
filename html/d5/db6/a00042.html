@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::kd::Node&lt; P, D &gt; Class Template Reference</title>
+<title>Stride Reference Manual: gengeopop::KdTree&lt; P &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -108,337 +108,547 @@ $(document).ready(function(){initNavTree('d5/db6/a00042.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
-<a href="../../d7/d49/a00863.html">List of all members</a>  </div>
+<a href="../../d3/d60/a00818.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::kd::Node&lt; P, D &gt; Class Template Reference</div>  </div>
+<div class="title">gengeopop::KdTree&lt; P &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A node in the <a class="el" href="../../d6/d42/a00043.html" title="A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for effi...">KdTree</a> (parameter P: the type of point, parameter D: dimension this node splits on).  
+<p>A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for efficient lookup of points and range queries with an Axis-Aligned Bounding Box (when balanced).  
  <a href="../../d5/db6/a00042.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../da/d53/a00265_source.html">KdNode.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::kd::Node&lt; P, D &gt;:</div>
+Inheritance diagram for gengeopop::KdTree&lt; P &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d1b/a00864.gif" border="0" usemap="#gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_inherit__map" id="gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_inherit__map">
-<area shape="rect" id="node3" href="../../d5/db6/a00042.html" title="{gengeopop::kd::Node\l\&lt; geogrid_detail::KdTree2DPoint, 0 \&gt;\n|&#45; m_point\l&#45; m_left\l&#45; m_right\l|+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="5,477,264,672"/>
-<area shape="rect" id="node4" href="../../d5/db6/a00042.html" title="{gengeopop::kd::Node\l\&lt; P, 0 \&gt;\n|&#45; m_point\l&#45; m_left\l&#45; m_right\l|+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="289,477,447,672"/>
-<area shape="rect" id="node2" href="../../d7/d46/a00002.html" title="A base class for all instantiations of a Node with D. " alt="" coords="136,5,365,156"/>
+<div class="center"><img src="../../d7/d4f/a00819.gif" border="0" usemap="#gengeopop_1_1KdTree_3_01P_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1KdTree_3_01P_01_4_inherit__map" id="gengeopop_1_1KdTree_3_01P_01_4_inherit__map">
+<area shape="rect" id="node2" href="../../d5/db6/a00042.html" title="{gengeopop::KdTree\&lt;\l geogrid_detail::KdTree2DPoint \&gt;\n|&#45; m_size\l&#45; m_root\l|+ KdTree()\l+ Apply()\l+ Apply()\l+ Contains()\l+ Empty()\l+ GetHeight()\l+ Insert()\l+ Query()\l+ Size()\l+ Build()\l&#45; Construct()\l}" alt="" coords="5,321,236,575"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for gengeopop::kd::Node&lt; P, D &gt;:</div>
+Collaboration diagram for gengeopop::KdTree&lt; P &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d7b/a00865.gif" border="0" usemap="#gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_coll__map" id="gengeopop_1_1kd_1_1Node_3_01P_00_01D_01_4_coll__map">
-<area shape="rect" id="node2" href="../../d7/d46/a00002.html" title="A base class for all instantiations of a Node with D. " alt="" coords="164,5,393,156"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="5,263,160,340"/>
+<div class="center"><img src="../../dc/d00/a00820.gif" border="0" usemap="#gengeopop_1_1KdTree_3_01P_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1KdTree_3_01P_01_4_coll__map" id="gengeopop_1_1KdTree_3_01P_01_4_coll__map">
+<area shape="rect" id="node4" href="../../dd/d32/a00041.html" title="{gengeopop::kd::Node\l\&lt; P, 0 \&gt;\n||+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="371,631,529,796"/>
+<area shape="rect" id="node5" href="../../d7/d46/a00002.html" title="A base class for all instantiations of a Node with D. " alt="" coords="487,5,717,156"/>
+<area shape="rect" id="node7" href="../../dd/d32/a00041.html" title="A node in the KdTree (parameter P: the type of point, parameter D: dimension this node splits on)..." alt="" coords="435,219,593,384"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="9,263,163,340"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a02ba27ac4148503a9bdd015c6b7caaf8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a02ba27ac4148503a9bdd015c6b7caaf8">Node</a> (P pt)</td></tr>
-<tr class="separator:a02ba27ac4148503a9bdd015c6b7caaf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1feff6a9480fd9b7c2640934833ea467"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a1feff6a9480fd9b7c2640934833ea467">BorrowLeft</a> () const override</td></tr>
-<tr class="memdesc:a1feff6a9480fd9b7c2640934833ea467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the left child (nullptr if no such child).  <a href="#a1feff6a9480fd9b7c2640934833ea467">More...</a><br /></td></tr>
-<tr class="separator:a1feff6a9480fd9b7c2640934833ea467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa97b067c48e16c1303f9f909debac811"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#aa97b067c48e16c1303f9f909debac811">BorrowRight</a> () const override</td></tr>
-<tr class="memdesc:aa97b067c48e16c1303f9f909debac811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the right child (nullptr if no such child).  <a href="#aa97b067c48e16c1303f9f909debac811">More...</a><br /></td></tr>
-<tr class="separator:aa97b067c48e16c1303f9f909debac811"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9f437cdb9e45dd8195e84867af839cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#aa9f437cdb9e45dd8195e84867af839cf">BorrowSplitChild</a> (const P &amp;point) const override</td></tr>
-<tr class="memdesc:aa9f437cdb9e45dd8195e84867af839cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the child corresponding to the correct split for point.  <a href="#aa9f437cdb9e45dd8195e84867af839cf">More...</a><br /></td></tr>
-<tr class="separator:aa9f437cdb9e45dd8195e84867af839cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa376a34dcf6f2717873ff3db5af7a70d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#aa376a34dcf6f2717873ff3db5af7a70d">AddChild</a> (P point) override</td></tr>
-<tr class="memdesc:aa376a34dcf6f2717873ff3db5af7a70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new child in the right place, according to split.  <a href="#aa376a34dcf6f2717873ff3db5af7a70d">More...</a><br /></td></tr>
-<tr class="separator:aa376a34dcf6f2717873ff3db5af7a70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27eb66747642dce6122ae8725cdf799b"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a27eb66747642dce6122ae8725cdf799b">GetPoint</a> () const override</td></tr>
-<tr class="memdesc:a27eb66747642dce6122ae8725cdf799b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the point for this node.  <a href="#a27eb66747642dce6122ae8725cdf799b">More...</a><br /></td></tr>
-<tr class="separator:a27eb66747642dce6122ae8725cdf799b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00002"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00002')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d7/d46/a00002.html">gengeopop::kd::BaseNode&lt; P &gt;</a></td></tr>
-<tr class="memitem:ab467a72689847a5d23b0e00a36652f7b inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#ab467a72689847a5d23b0e00a36652f7b">~BaseNode</a> ()=default</td></tr>
-<tr class="separator:ab467a72689847a5d23b0e00a36652f7b inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31373f76ffce6f1a479a65fc04f23e5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a31373f76ffce6f1a479a65fc04f23e5b">KdTree</a> ()</td></tr>
+<tr class="memdesc:a31373f76ffce6f1a479a65fc04f23e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor: builds an empty tree.  <a href="#a31373f76ffce6f1a479a65fc04f23e5b">More...</a><br /></td></tr>
+<tr class="separator:a31373f76ffce6f1a479a65fc04f23e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d76910fa3cca092fa8e339226cf0c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#ae9d76910fa3cca092fa8e339226cf0c0">Apply</a> (std::function&lt; bool(const P &amp;)&gt; f) const </td></tr>
+<tr class="memdesc:ae9d76910fa3cca092fa8e339226cf0c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function with each of the points in the tree.  <a href="#ae9d76910fa3cca092fa8e339226cf0c0">More...</a><br /></td></tr>
+<tr class="separator:ae9d76910fa3cca092fa8e339226cf0c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95021032632a7285c93df74194742ac1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a95021032632a7285c93df74194742ac1">Apply</a> (std::function&lt; bool(const P &amp;)&gt; f, const <a class="el" href="../../d1/d7c/a00003.html">AABBox</a>&lt; P &gt; &amp;box) const </td></tr>
+<tr class="memdesc:a95021032632a7285c93df74194742ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function with every point contained in <code>box</code>  <a href="#a95021032632a7285c93df74194742ac1">More...</a><br /></td></tr>
+<tr class="separator:a95021032632a7285c93df74194742ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b0bde4960cf9a4260e03f8ff0547db7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a0b0bde4960cf9a4260e03f8ff0547db7">Contains</a> (const P &amp;point) const </td></tr>
+<tr class="memdesc:a0b0bde4960cf9a4260e03f8ff0547db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test wether a point is contained in the tree.  <a href="#a0b0bde4960cf9a4260e03f8ff0547db7">More...</a><br /></td></tr>
+<tr class="separator:a0b0bde4960cf9a4260e03f8ff0547db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afad11c4405af9e2000dd75f751f4996d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#afad11c4405af9e2000dd75f751f4996d">Empty</a> () const </td></tr>
+<tr class="memdesc:afad11c4405af9e2000dd75f751f4996d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the tree empty.  <a href="#afad11c4405af9e2000dd75f751f4996d">More...</a><br /></td></tr>
+<tr class="separator:afad11c4405af9e2000dd75f751f4996d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152aeb3eb5b9c4e07ca1bb12dfe9e808"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a152aeb3eb5b9c4e07ca1bb12dfe9e808">GetHeight</a> () const </td></tr>
+<tr class="memdesc:a152aeb3eb5b9c4e07ca1bb12dfe9e808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the height of the tree (mostly for testing purposes).  <a href="#a152aeb3eb5b9c4e07ca1bb12dfe9e808">More...</a><br /></td></tr>
+<tr class="separator:a152aeb3eb5b9c4e07ca1bb12dfe9e808"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a9ab7e8f5f5c9e8b561583a0d6e31f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a0a9ab7e8f5f5c9e8b561583a0d6e31f9">Insert</a> (P point)</td></tr>
+<tr class="memdesc:a0a9ab7e8f5f5c9e8b561583a0d6e31f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a new point into the tree, using this often may result in an unbalanced tree.  <a href="#a0a9ab7e8f5f5c9e8b561583a0d6e31f9">More...</a><br /></td></tr>
+<tr class="separator:a0a9ab7e8f5f5c9e8b561583a0d6e31f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351e918d3e449e0b5e6373d996b0690b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; P &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a351e918d3e449e0b5e6373d996b0690b">Query</a> (const <a class="el" href="../../d1/d7c/a00003.html">AABBox</a>&lt; P &gt; &amp;box) const </td></tr>
+<tr class="memdesc:a351e918d3e449e0b5e6373d996b0690b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all points in the tree that lie within <code>box</code>.  <a href="#a351e918d3e449e0b5e6373d996b0690b">More...</a><br /></td></tr>
+<tr class="separator:a351e918d3e449e0b5e6373d996b0690b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dbf9612b7ee27fd4ea2ba216bbbe5fe"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a6dbf9612b7ee27fd4ea2ba216bbbe5fe">Size</a> () const </td></tr>
+<tr class="memdesc:a6dbf9612b7ee27fd4ea2ba216bbbe5fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the tree.  <a href="#a6dbf9612b7ee27fd4ea2ba216bbbe5fe">More...</a><br /></td></tr>
+<tr class="separator:a6dbf9612b7ee27fd4ea2ba216bbbe5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr class="memitem:a9e0da2b6a1dae5d9b84b4a9c7e5998cd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> = <a class="el" href="../../d5/db6/a00042.html">Node</a>&lt; P,(D+1)%P::dim &gt;</td></tr>
-<tr class="separator:a9e0da2b6a1dae5d9b84b4a9c7e5998cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a4bd65372f8d62579a500815e0799b445"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d5/db6/a00042.html">KdTree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a4bd65372f8d62579a500815e0799b445">Build</a> (const std::vector&lt; P &gt; &amp;points)</td></tr>
+<tr class="memdesc:a4bd65372f8d62579a500815e0799b445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a balanced tree from the given set of points efficiently.  <a href="#a4bd65372f8d62579a500815e0799b445">More...</a><br /></td></tr>
+<tr class="separator:a4bd65372f8d62579a500815e0799b445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:acdd7ed97ce4e62a199ef01072d86b3e5"><td class="memTemplParams" colspan="2">template&lt;std::size_t D&gt; </td></tr>
+<tr class="memitem:acdd7ed97ce4e62a199ef01072d86b3e5"><td class="memTemplItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">kd::Node</a>&lt; P, D &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#acdd7ed97ce4e62a199ef01072d86b3e5">Construct</a> (const std::vector&lt; P &gt; &amp;points)</td></tr>
+<tr class="separator:acdd7ed97ce4e62a199ef01072d86b3e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a6e0934a373b9c4f7485d4f71a7de2b12"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a6e0934a373b9c4f7485d4f71a7de2b12">m_point</a></td></tr>
-<tr class="separator:a6e0934a373b9c4f7485d4f71a7de2b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a518b60a5ec3c409358fb97bde0d8e974"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../d5/db6/a00042.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a518b60a5ec3c409358fb97bde0d8e974">m_left</a></td></tr>
-<tr class="separator:a518b60a5ec3c409358fb97bde0d8e974"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad86880280760aaae9ef50dd165ee6c9e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../d5/db6/a00042.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#ad86880280760aaae9ef50dd165ee6c9e">m_right</a></td></tr>
-<tr class="separator:ad86880280760aaae9ef50dd165ee6c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a0d8dc73ff7f8bb9d7b6db0adc4509640"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a0d8dc73ff7f8bb9d7b6db0adc4509640">KdTree&lt; P &gt;</a></td></tr>
-<tr class="separator:a0d8dc73ff7f8bb9d7b6db0adc4509640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a625810b7c176d77e5616f2c610bec58f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a625810b7c176d77e5616f2c610bec58f">m_size</a></td></tr>
+<tr class="memdesc:a625810b7c176d77e5616f2c610bec58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of points in the tree.  <a href="#a625810b7c176d77e5616f2c610bec58f">More...</a><br /></td></tr>
+<tr class="separator:a625810b7c176d77e5616f2c610bec58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99fe9b7899ae84a4ee8637a7e7e5add3"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">kd::Node</a>&lt; P, 0 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a99fe9b7899ae84a4ee8637a7e7e5add3">m_root</a></td></tr>
+<tr class="memdesc:a99fe9b7899ae84a4ee8637a7e7e5add3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root node of the tree.  <a href="#a99fe9b7899ae84a4ee8637a7e7e5add3">More...</a><br /></td></tr>
+<tr class="separator:a99fe9b7899ae84a4ee8637a7e7e5add3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename P, std::size_t D&gt;<br />
-class gengeopop::kd::Node&lt; P, D &gt;</h3>
+<div class="textblock"><h3>template&lt;typename P&gt;<br />
+class gengeopop::KdTree&lt; P &gt;</h3>
 
-<p>A node in the <a class="el" href="../../d6/d42/a00043.html" title="A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for effi...">KdTree</a> (parameter P: the type of point, parameter D: dimension this node splits on). </p>
+<p>A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for efficient lookup of points and range queries with an Axis-Aligned Bounding Box (when balanced). </p>
+<p>The template parameter <code>P</code> should have the following attributes and operations:</p><ul>
+<li>A <code>static constexpr std::size_t dim</code>: the number of dimensions of the point type.</li>
+<li>A <code>template &lt;std::size_d D&gt; get() const</code> returns the coordinate of the <code>D</code>th dimension of the point.</li>
+<li>A nested <code>template &lt;std::size_t D&gt; struct dimension_type</code> has a member type <code>type</code> with return type for <code>Get&lt;D&gt;</code>.</li>
+<li>A default constructor and a copy constructor</li>
+<li>The individual dimensions should each have a total order and equality</li>
+<li>A method <code>bool InBox(const AABB&lt;P&gt;&amp; box) const</code> indicates if a point falls withing the bounding box (only for range queries) </li>
+</ul>
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00058">58</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="a9e0da2b6a1dae5d9b84b4a9c7e5998cd"></a>
+<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00025">25</a> of file <a class="el" href="../../da/d53/a00265_source.html">KdNode.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a31373f76ffce6f1a479a65fc04f23e5b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;typename P &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d5/db6/a00042.html">gengeopop::kd::Node</a>&lt; P, D &gt;::<a class="el" href="../../d5/db6/a00042.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a> =  <a class="el" href="../../d5/db6/a00042.html">Node</a>&lt;P, (D + 1) % P::dim&gt;</td>
+          <td class="memname"><a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::<a class="el" href="../../d5/db6/a00042.html">KdTree</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00092">92</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
+<p>Constructor: builds an empty tree. </p>
+
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00035">35</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a02ba27ac4148503a9bdd015c6b7caaf8"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a4bd65372f8d62579a500815e0799b445"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
+template&lt;typename P&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/db6/a00042.html">gengeopop::kd::Node</a>&lt; P, D &gt;::<a class="el" href="../../d5/db6/a00042.html">Node</a> </td>
+          <td class="memname"><a class="el" href="../../d5/db6/a00042.html">KdTree</a>&lt; P &gt; <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::Build </td>
           <td>(</td>
-          <td class="paramtype">P&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; P &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00061">61</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
+<p>Build a balanced tree from the given set of points efficiently. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>The points to insert in the resulting tree. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A balanced <a class="el" href="../../d5/db6/a00042.html" title="A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for effi...">KdTree</a> containing the given points. </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00040">40</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
+
+<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00109">gengeopop::KdTree&lt; P &gt;::m_root</a>, and <a class="el" href="../../d5/d35/a00266_source.html#l00108">gengeopop::KdTree&lt; P &gt;::m_size</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a1feff6a9480fd9b7c2640934833ea467"></a>
+<a class="anchor" id="ae9d76910fa3cca092fa8e339226cf0c0"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;typename P&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../d5/db6/a00042.html">gengeopop::kd::Node</a>&lt; P, D &gt;::BorrowLeft </td>
+          <td class="memname">void <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::Apply </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::function&lt; bool(const P &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Get a non-owning pointer to the left child (nullptr if no such child). </p>
+<p>Calls a function with each of the points in the tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>A function that will be called with each point, if f returns false, traversal stops. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implements <a class="el" href="../../d7/d46/a00002.html#adfff1216f9ae769b6abd3d3195a9a098">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00049">49</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00063">63</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
+<p>References <a class="el" href="../../d7/d46/a00002.html#adfff1216f9ae769b6abd3d3195a9a098">gengeopop::kd::BaseNode&lt; P &gt;::BorrowLeft()</a>, <a class="el" href="../../d7/d46/a00002.html#a8d9c2b74760fdbcb141202942e9f93f4">gengeopop::kd::BaseNode&lt; P &gt;::BorrowRight()</a>, <a class="el" href="../../d7/d46/a00002.html#a7ca916aa891f2de3c4d1175e927ee406">gengeopop::kd::BaseNode&lt; P &gt;::GetPoint()</a>, and <a class="el" href="../../d5/d35/a00266_source.html#l00109">gengeopop::KdTree&lt; P &gt;::m_root</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/d42/a00269_source.html#l00100">gengeopop::KdTree&lt; P &gt;::Contains()</a>, and <a class="el" href="../../d5/d42/a00269_source.html#l00158">gengeopop::KdTree&lt; P &gt;::Query()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/db6/a00042_ae9d76910fa3cca092fa8e339226cf0c0_cgraph.gif" border="0" usemap="#d5/db6/a00042_ae9d76910fa3cca092fa8e339226cf0c0_cgraph" alt=""/></div>
+<map name="d5/db6/a00042_ae9d76910fa3cca092fa8e339226cf0c0_cgraph" id="d5/db6/a00042_ae9d76910fa3cca092fa8e339226cf0c0_cgraph">
+<area shape="rect" id="node2" href="../../d7/d46/a00002.html#adfff1216f9ae769b6abd3d3195a9a098" title="Get a non&#45;owning pointer to the left child (nullptr if no such child). " alt="" coords="205,5,396,47"/>
+<area shape="rect" id="node3" href="../../d7/d46/a00002.html#a8d9c2b74760fdbcb141202942e9f93f4" title="Get a non&#45;owning pointer to the right child (nullptr if no such child). " alt="" coords="205,71,396,112"/>
+<area shape="rect" id="node4" href="../../d7/d46/a00002.html#a7ca916aa891f2de3c4d1175e927ee406" title="Gets the point for this node. " alt="" coords="205,136,396,177"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/db6/a00042_ae9d76910fa3cca092fa8e339226cf0c0_icgraph.gif" border="0" usemap="#d5/db6/a00042_ae9d76910fa3cca092fa8e339226cf0c0_icgraph" alt=""/></div>
+<map name="d5/db6/a00042_ae9d76910fa3cca092fa8e339226cf0c0_icgraph" id="d5/db6/a00042_ae9d76910fa3cca092fa8e339226cf0c0_icgraph">
+<area shape="rect" id="node2" href="../../d5/db6/a00042.html#a0b0bde4960cf9a4260e03f8ff0547db7" title="Test wether a point is contained in the tree. " alt="" coords="205,5,357,47"/>
+<area shape="rect" id="node3" href="../../d5/db6/a00042.html#a351e918d3e449e0b5e6373d996b0690b" title="Get all points in the tree that lie within box. " alt="" coords="205,71,357,112"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="aa97b067c48e16c1303f9f909debac811"></a>
+<a class="anchor" id="a95021032632a7285c93df74194742ac1"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;typename P&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../d5/db6/a00042.html">gengeopop::kd::Node</a>&lt; P, D &gt;::BorrowRight </td>
+          <td class="memname">void <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::Apply </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::function&lt; bool(const P &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d7c/a00003.html">AABBox</a>&lt; P &gt; &amp;&#160;</td>
+          <td class="paramname"><em>box</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Get a non-owning pointer to the right child (nullptr if no such child). </p>
+<p>Calls a function with every point contained in <code>box</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>A function that will be called with each point within <code>box</code>, if f returns false, traversal stops. </td></tr>
+    <tr><td class="paramname">box</td><td>The containing Axis-Aligned Bounding Box to search for points </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implements <a class="el" href="../../d7/d46/a00002.html#a8d9c2b74760fdbcb141202942e9f93f4">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00076">76</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00065">65</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
+<p>References <a class="el" href="../../d7/d46/a00002.html#ae8fb84db258ffd39632181944f8a879c">gengeopop::kd::BaseNode&lt; P &gt;::BorrowSplitChild()</a>, <a class="el" href="../../d7/d46/a00002.html#a7ca916aa891f2de3c4d1175e927ee406">gengeopop::kd::BaseNode&lt; P &gt;::GetPoint()</a>, <a class="el" href="../../d4/ddd/a00138_source.html#l00027">gengeopop::AABBox&lt; P &gt;::lower</a>, <a class="el" href="../../d5/d35/a00266_source.html#l00109">gengeopop::KdTree&lt; P &gt;::m_root</a>, and <a class="el" href="../../d4/ddd/a00138_source.html#l00029">gengeopop::AABBox&lt; P &gt;::upper</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/db6/a00042_a95021032632a7285c93df74194742ac1_cgraph.gif" border="0" usemap="#d5/db6/a00042_a95021032632a7285c93df74194742ac1_cgraph" alt=""/></div>
+<map name="d5/db6/a00042_a95021032632a7285c93df74194742ac1_cgraph" id="d5/db6/a00042_a95021032632a7285c93df74194742ac1_cgraph">
+<area shape="rect" id="node2" href="../../d7/d46/a00002.html#ae8fb84db258ffd39632181944f8a879c" title="Get a non&#45;owning pointer to the child corresponding to the correct split for point. " alt="" coords="205,5,396,47"/>
+<area shape="rect" id="node3" href="../../d7/d46/a00002.html#a7ca916aa891f2de3c4d1175e927ee406" title="Gets the point for this node. " alt="" coords="205,71,396,112"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="aa9f437cdb9e45dd8195e84867af839cf"></a>
+<a class="anchor" id="a0b0bde4960cf9a4260e03f8ff0547db7"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;typename P&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../d5/db6/a00042.html">gengeopop::kd::Node</a>&lt; P, D &gt;::BorrowSplitChild </td>
+          <td class="memname">bool <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::Contains </td>
           <td>(</td>
           <td class="paramtype">const P &amp;&#160;</td>
           <td class="paramname"><em>point</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Get a non-owning pointer to the child corresponding to the correct split for point. </p>
+<p>Test wether a point is contained in the tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>The point to test. P should support <code>bool operator==(const P&amp;) const</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the point is found in the tree. </dd></dl>
 
-<p>Implements <a class="el" href="../../d7/d46/a00002.html#ae8fb84db258ffd39632181944f8a879c">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00100">100</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00067">67</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
+<p>References <a class="el" href="../../d5/d42/a00269_source.html#l00049">gengeopop::KdTree&lt; P &gt;::Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/db6/a00042_a0b0bde4960cf9a4260e03f8ff0547db7_cgraph.gif" border="0" usemap="#d5/db6/a00042_a0b0bde4960cf9a4260e03f8ff0547db7_cgraph" alt=""/></div>
+<map name="d5/db6/a00042_a0b0bde4960cf9a4260e03f8ff0547db7_cgraph" id="d5/db6/a00042_a0b0bde4960cf9a4260e03f8ff0547db7_cgraph">
+<area shape="rect" id="node2" href="../../d5/db6/a00042.html#ae9d76910fa3cca092fa8e339226cf0c0" title="Calls a function with each of the points in the tree. " alt="" coords="205,71,357,112"/>
+<area shape="rect" id="node3" href="../../d7/d46/a00002.html#adfff1216f9ae769b6abd3d3195a9a098" title="Get a non&#45;owning pointer to the left child (nullptr if no such child). " alt="" coords="405,5,596,47"/>
+<area shape="rect" id="node4" href="../../d7/d46/a00002.html#a8d9c2b74760fdbcb141202942e9f93f4" title="Get a non&#45;owning pointer to the right child (nullptr if no such child). " alt="" coords="405,71,596,112"/>
+<area shape="rect" id="node5" href="../../d7/d46/a00002.html#a7ca916aa891f2de3c4d1175e927ee406" title="Gets the point for this node. " alt="" coords="405,136,596,177"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="aa376a34dcf6f2717873ff3db5af7a70d"></a>
+<a class="anchor" id="afad11c4405af9e2000dd75f751f4996d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;typename P &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d5/db6/a00042.html">gengeopop::kd::Node</a>&lt; P, D &gt;::AddChild </td>
+          <td class="memname">bool <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::Empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Is the tree empty. </p>
+
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00114">114</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
+
+<p>References <a class="el" href="../../d5/d42/a00269_source.html#l00171">gengeopop::KdTree&lt; P &gt;::Size()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/db6/a00042_afad11c4405af9e2000dd75f751f4996d_cgraph.gif" border="0" usemap="#d5/db6/a00042_afad11c4405af9e2000dd75f751f4996d_cgraph" alt=""/></div>
+<map name="d5/db6/a00042_afad11c4405af9e2000dd75f751f4996d_cgraph" id="d5/db6/a00042_afad11c4405af9e2000dd75f751f4996d_cgraph">
+<area shape="rect" id="node2" href="../../d5/db6/a00042.html#a6dbf9612b7ee27fd4ea2ba216bbbe5fe" title="Get the size of the tree. " alt="" coords="205,13,384,39"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a152aeb3eb5b9c4e07ca1bb12dfe9e808"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::GetHeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the height of the tree (mostly for testing purposes). </p>
+
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00120">120</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
+
+<p>References <a class="el" href="../../d7/d46/a00002.html#adfff1216f9ae769b6abd3d3195a9a098">gengeopop::kd::BaseNode&lt; P &gt;::BorrowLeft()</a>, <a class="el" href="../../d7/d46/a00002.html#a8d9c2b74760fdbcb141202942e9f93f4">gengeopop::kd::BaseNode&lt; P &gt;::BorrowRight()</a>, and <a class="el" href="../../d5/d35/a00266_source.html#l00109">gengeopop::KdTree&lt; P &gt;::m_root</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/db6/a00042_a152aeb3eb5b9c4e07ca1bb12dfe9e808_cgraph.gif" border="0" usemap="#d5/db6/a00042_a152aeb3eb5b9c4e07ca1bb12dfe9e808_cgraph" alt=""/></div>
+<map name="d5/db6/a00042_a152aeb3eb5b9c4e07ca1bb12dfe9e808_cgraph" id="d5/db6/a00042_a152aeb3eb5b9c4e07ca1bb12dfe9e808_cgraph">
+<area shape="rect" id="node2" href="../../d7/d46/a00002.html#adfff1216f9ae769b6abd3d3195a9a098" title="Get a non&#45;owning pointer to the left child (nullptr if no such child). " alt="" coords="205,5,396,47"/>
+<area shape="rect" id="node3" href="../../d7/d46/a00002.html#a8d9c2b74760fdbcb141202942e9f93f4" title="Get a non&#45;owning pointer to the right child (nullptr if no such child). " alt="" coords="205,71,396,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0a9ab7e8f5f5c9e8b561583a0d6e31f9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::Insert </td>
           <td>(</td>
           <td class="paramtype">P&#160;</td>
           <td class="paramname"><em>point</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Add a new child in the right place, according to split. </p>
+<p>Insert a new point into the tree, using this often may result in an unbalanced tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>The point to insert into the tree. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implements <a class="el" href="../../d7/d46/a00002.html#a09a8a5870c292d5f39a0efe888e3d7a3">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00139">139</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00078">78</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
+<p>References <a class="el" href="../../d7/d46/a00002.html#a09a8a5870c292d5f39a0efe888e3d7a3">gengeopop::kd::BaseNode&lt; P &gt;::AddChild()</a>, <a class="el" href="../../d7/d46/a00002.html#ae8fb84db258ffd39632181944f8a879c">gengeopop::kd::BaseNode&lt; P &gt;::BorrowSplitChild()</a>, <a class="el" href="../../d5/d35/a00266_source.html#l00109">gengeopop::KdTree&lt; P &gt;::m_root</a>, and <a class="el" href="../../d5/d35/a00266_source.html#l00108">gengeopop::KdTree&lt; P &gt;::m_size</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/db6/a00042_a0a9ab7e8f5f5c9e8b561583a0d6e31f9_cgraph.gif" border="0" usemap="#d5/db6/a00042_a0a9ab7e8f5f5c9e8b561583a0d6e31f9_cgraph" alt=""/></div>
+<map name="d5/db6/a00042_a0a9ab7e8f5f5c9e8b561583a0d6e31f9_cgraph" id="d5/db6/a00042_a0a9ab7e8f5f5c9e8b561583a0d6e31f9_cgraph">
+<area shape="rect" id="node2" href="../../d7/d46/a00002.html#a09a8a5870c292d5f39a0efe888e3d7a3" title="Add a new child in the right place, according to split. " alt="" coords="205,5,396,47"/>
+<area shape="rect" id="node3" href="../../d7/d46/a00002.html#ae8fb84db258ffd39632181944f8a879c" title="Get a non&#45;owning pointer to the child corresponding to the correct split for point. " alt="" coords="205,71,396,112"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a27eb66747642dce6122ae8725cdf799b"></a>
+<a class="anchor" id="a351e918d3e449e0b5e6373d996b0690b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;typename P&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">P <a class="el" href="../../d5/db6/a00042.html">gengeopop::kd::Node</a>&lt; P, D &gt;::GetPoint </td>
+          <td class="memname">std::vector&lt; P &gt; <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::Query </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d1/d7c/a00003.html">AABBox</a>&lt; P &gt; &amp;&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get all points in the tree that lie within <code>box</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">box</td><td>The limiting AABB to search for points. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A collection of points found within <code>box</code>. </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00158">158</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
+
+<p>References <a class="el" href="../../d5/d42/a00269_source.html#l00049">gengeopop::KdTree&lt; P &gt;::Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/db6/a00042_a351e918d3e449e0b5e6373d996b0690b_cgraph.gif" border="0" usemap="#d5/db6/a00042_a351e918d3e449e0b5e6373d996b0690b_cgraph" alt=""/></div>
+<map name="d5/db6/a00042_a351e918d3e449e0b5e6373d996b0690b_cgraph" id="d5/db6/a00042_a351e918d3e449e0b5e6373d996b0690b_cgraph">
+<area shape="rect" id="node2" href="../../d5/db6/a00042.html#ae9d76910fa3cca092fa8e339226cf0c0" title="Calls a function with each of the points in the tree. " alt="" coords="205,71,357,112"/>
+<area shape="rect" id="node3" href="../../d7/d46/a00002.html#adfff1216f9ae769b6abd3d3195a9a098" title="Get a non&#45;owning pointer to the left child (nullptr if no such child). " alt="" coords="405,5,596,47"/>
+<area shape="rect" id="node4" href="../../d7/d46/a00002.html#a8d9c2b74760fdbcb141202942e9f93f4" title="Get a non&#45;owning pointer to the right child (nullptr if no such child). " alt="" coords="405,71,596,112"/>
+<area shape="rect" id="node5" href="../../d7/d46/a00002.html#a7ca916aa891f2de3c4d1175e927ee406" title="Gets the point for this node. " alt="" coords="405,136,596,177"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6dbf9612b7ee27fd4ea2ba216bbbe5fe"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::Size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Gets the point for this node. </p>
+<p>Get the size of the tree. </p>
 
-<p>Implements <a class="el" href="../../d7/d46/a00002.html#a7ca916aa891f2de3c4d1175e927ee406">gengeopop::kd::BaseNode&lt; P &gt;</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00171">171</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00089">89</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
+<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00108">gengeopop::KdTree&lt; P &gt;::m_size</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/d42/a00269_source.html#l00114">gengeopop::KdTree&lt; P &gt;::Empty()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/db6/a00042_a6dbf9612b7ee27fd4ea2ba216bbbe5fe_icgraph.gif" border="0" usemap="#d5/db6/a00042_a6dbf9612b7ee27fd4ea2ba216bbbe5fe_icgraph" alt=""/></div>
+<map name="d5/db6/a00042_a6dbf9612b7ee27fd4ea2ba216bbbe5fe_icgraph" id="d5/db6/a00042_a6dbf9612b7ee27fd4ea2ba216bbbe5fe_icgraph">
+<area shape="rect" id="node2" href="../../d5/db6/a00042.html#afad11c4405af9e2000dd75f751f4996d" title="Is the tree empty. " alt="" coords="232,5,384,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a class="anchor" id="a0d8dc73ff7f8bb9d7b6db0adc4509640"></a>
+<a class="anchor" id="acdd7ed97ce4e62a199ef01072d86b3e5"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
+template&lt;typename P&gt; </div>
+<div class="memtemplate">
+template&lt;std::size_t D&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="../../d6/d42/a00043.html">KdTree</a>&lt; P &gt;</td>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">kd::Node</a>&lt; P, D &gt; &gt; <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::Construct </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; P &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00097">97</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00178">178</a> of file <a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a6e0934a373b9c4f7485d4f71a7de2b12"></a>
+<a class="anchor" id="a625810b7c176d77e5616f2c610bec58f"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
+template&lt;typename P&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">P <a class="el" href="../../d5/db6/a00042.html">gengeopop::kd::Node</a>&lt; P, D &gt;::m_point</td>
+          <td class="memname">std::size_t <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::m_size</td>
         </tr>
       </table>
   </td>
@@ -448,21 +658,25 @@ template&lt;typename P, std::size_t D&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00094">94</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
+<p>The number of points in the tree. </p>
+
+<p>Definition at line <a class="el" href="../../d5/d35/a00266_source.html#l00108">108</a> of file <a class="el" href="../../d5/d35/a00266_source.html">KdTree.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/d42/a00269_source.html#l00040">gengeopop::KdTree&lt; P &gt;::Build()</a>, <a class="el" href="../../d5/d42/a00269_source.html#l00139">gengeopop::KdTree&lt; P &gt;::Insert()</a>, and <a class="el" href="../../d5/d42/a00269_source.html#l00171">gengeopop::KdTree&lt; P &gt;::Size()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a518b60a5ec3c409358fb97bde0d8e974"></a>
+<a class="anchor" id="a99fe9b7899ae84a4ee8637a7e7e5add3"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
+template&lt;typename P&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../d5/db6/a00042.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a>&gt; <a class="el" href="../../d5/db6/a00042.html">gengeopop::kd::Node</a>&lt; P, D &gt;::m_left</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../dd/d32/a00041.html">kd::Node</a>&lt;P, 0&gt; &gt; <a class="el" href="../../d5/db6/a00042.html">gengeopop::KdTree</a>&lt; P &gt;::m_root</td>
         </tr>
       </table>
   </td>
@@ -472,44 +686,26 @@ template&lt;typename P, std::size_t D&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00095">95</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
+<p>The root node of the tree. </p>
+
+<p>Definition at line <a class="el" href="../../d5/d35/a00266_source.html#l00109">109</a> of file <a class="el" href="../../d5/d35/a00266_source.html">KdTree.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/d42/a00269_source.html#l00049">gengeopop::KdTree&lt; P &gt;::Apply()</a>, <a class="el" href="../../d5/d42/a00269_source.html#l00040">gengeopop::KdTree&lt; P &gt;::Build()</a>, <a class="el" href="../../d5/d42/a00269_source.html#l00120">gengeopop::KdTree&lt; P &gt;::GetHeight()</a>, and <a class="el" href="../../d5/d42/a00269_source.html#l00139">gengeopop::KdTree&lt; P &gt;::Insert()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad86880280760aaae9ef50dd165ee6c9e"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename P, std::size_t D&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../d5/db6/a00042.html#a9e0da2b6a1dae5d9b84b4a9c7e5998cd">Child</a>&gt; <a class="el" href="../../d5/db6/a00042.html">gengeopop::kd::Node</a>&lt; P, D &gt;::m_right</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dc/d6a/a00261_source.html#l00095">95</a> of file <a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../dc/d6a/a00261_source.html">KdNode.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../da/d53/a00265_source.html">KdNode.h</a></li>
+<li><a class="el" href="../../d5/d35/a00266_source.html">KdTree.h</a></li>
+<li><a class="el" href="../../d5/d42/a00269_source.html">KdTree_def.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../df/d03/a00348.html">kd</a></li><li class="navelem"><a class="el" href="../../d5/db6/a00042.html">Node</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d5/db6/a00042.html">KdTree</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,8 +1,5 @@
 var a00109 =
 [
-    [ "HaveOpenMP", "dd/d42/a00109.html#ad6fc5f3f3e32a15f059c64b74dfea905", null ],
-    [ "GitRevision", "dd/d42/a00109.html#aea2c9d397f10f54b7ae47f4b0f181799", null ],
-    [ "GetHostname", "dd/d42/a00109.html#a502bd4410a3e77792ea575f77f470d41", null ],
-    [ "NumberAvailableThreads", "dd/d42/a00109.html#a6b4240ce29160e778c69f9e246e1747d", null ],
-    [ "ProcessorCount", "dd/d42/a00109.html#ada59da077e51cbd44e829a88c5cc62e3", null ]
+    [ "StanController", "dd/d42/a00109.html#ae7d704047661116cb88893671bde0c78", null ],
+    [ "Control", "dd/d42/a00109.html#a5cc6905d4a31b469d89177de47007dbe", null ]
 ];

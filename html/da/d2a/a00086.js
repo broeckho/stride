@@ -1,5 +1,7 @@
 var a00086 =
 [
-    [ "GenPopController", "da/d2a/a00086.html#a8d3dc1622fb8586372f9b555aad1ac3d", null ],
-    [ "Control", "da/d2a/a00086.html#a9cef30bd849611feee70025cd9270e96", null ]
+    [ "DaysOffSchool", "da/d2a/a00086.html#ab77c78d8d9b00fe50c8f845fe459a657", null ],
+    [ "IsWorkOff", "da/d2a/a00086.html#a633453bbe4892b56891c42a4f4ac72fd", null ],
+    [ "IsSchoolOff", "da/d2a/a00086.html#a709acf6d0cec5722e20760a797ae35bb", null ],
+    [ "m_calendar", "da/d2a/a00086.html#a5ac5b045ac4db6ae397d91d7dd663784", null ]
 ];

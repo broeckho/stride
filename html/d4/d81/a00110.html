@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::CSV Class Reference</title>
+<title>Stride Reference Manual: stride::SurveySeeder Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -108,138 +108,67 @@ $(document).ready(function(){initNavTree('d4/d81/a00110.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
-<a href="../../d3/daa/a00996.html">List of all members</a>  </div>
+<a href="../../df/dce/a00974.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::CSV Class Reference</div>  </div>
+<div class="title">stride::SurveySeeder Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A collection of <a class="el" href="../../dd/d6d/a00111.html" title="Row in CSV file. ">CSVRow</a> elements.  
+<p>Seeds the population with survey participants.  
  <a href="../../d4/d81/a00110.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/de9/a00176_source.html">CSV.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d4/db5/a00328_source.html">SurveySeeder.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::util::CSV:</div>
+Collaboration diagram for stride::SurveySeeder:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d28/a00997.gif" border="0" usemap="#stride_1_1util_1_1CSV_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1CSV_inherit__map" id="stride_1_1util_1_1CSV_inherit__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="5,5,176,83"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::util::CSV:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/d9a/a00998.gif" border="0" usemap="#stride_1_1util_1_1CSV_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1CSV_coll__map" id="stride_1_1util_1_1CSV_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="5,261,176,339"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="138,160,265,237"/>
-<area shape="rect" id="node4" href="../../db/d34/a00442.html" title="{size_t\n||}" alt="" coords="336,363,395,440"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="293,160,379,237"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="267,5,405,97"/>
+<div class="center"><img src="../../db/dbf/a00975.gif" border="0" usemap="#stride_1_1SurveySeeder_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1SurveySeeder_coll__map" id="stride_1_1SurveySeeder_coll__map">
+<area shape="rect" id="node3" href="../../da/d72/a00124.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7e8326db4a78fcbf21837d61aa4eb201"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a7e8326db4a78fcbf21837d61aa4eb201">CSV</a> (const filesys::path &amp;path, std::initializer_list&lt; std::string &gt; optLabels={})</td></tr>
-<tr class="memdesc:a7e8326db4a78fcbf21837d61aa4eb201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from file. If optLabels not specifed, the file is required.  <a href="#a7e8326db4a78fcbf21837d61aa4eb201">More...</a><br /></td></tr>
-<tr class="separator:a7e8326db4a78fcbf21837d61aa4eb201"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46bba243855b4fc66c20bf3bc55fdc95"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a46bba243855b4fc66c20bf3bc55fdc95">CSV</a> (std::istream &amp;inputStream)</td></tr>
-<tr class="memdesc:a46bba243855b4fc66c20bf3bc55fdc95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from inputstream.  <a href="#a46bba243855b4fc66c20bf3bc55fdc95">More...</a><br /></td></tr>
-<tr class="separator:a46bba243855b4fc66c20bf3bc55fdc95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb2f114de1548f7447292ead90cf74f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a9eb2f114de1548f7447292ead90cf74f">CSV</a> (size_t columnCount)</td></tr>
-<tr class="memdesc:a9eb2f114de1548f7447292ead90cf74f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize with columnCount only; labels default to sequence numbers.  <a href="#a9eb2f114de1548f7447292ead90cf74f">More...</a><br /></td></tr>
-<tr class="separator:a9eb2f114de1548f7447292ead90cf74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc23be4e1354d6fa3f8717edfee37423"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#abc23be4e1354d6fa3f8717edfee37423">CSV</a> (const std::vector&lt; std::string &gt; &amp;labels)</td></tr>
-<tr class="memdesc:abc23be4e1354d6fa3f8717edfee37423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize with header only.  <a href="#abc23be4e1354d6fa3f8717edfee37423">More...</a><br /></td></tr>
-<tr class="separator:abc23be4e1354d6fa3f8717edfee37423"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d4944a529c10da58327ee8351688eca"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
-<tr class="memitem:a6d4944a529c10da58327ee8351688eca"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a6d4944a529c10da58327ee8351688eca">CSV</a> (It labelsBegin, It labelsEnd)</td></tr>
-<tr class="memdesc:a6d4944a529c10da58327ee8351688eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize with header labels only.  <a href="#a6d4944a529c10da58327ee8351688eca">More...</a><br /></td></tr>
-<tr class="separator:a6d4944a529c10da58327ee8351688eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aadfb52b95c349f14469a203d21472b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a6aadfb52b95c349f14469a203d21472b">CSV</a> ()=default</td></tr>
-<tr class="memdesc:a6aadfb52b95c349f14469a203d21472b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor, used for swig.  <a href="#a6aadfb52b95c349f14469a203d21472b">More...</a><br /></td></tr>
-<tr class="separator:a6aadfb52b95c349f14469a203d21472b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f700f0aa2b27d664adb69e27a6eb4b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a2f700f0aa2b27d664adb69e27a6eb4b1">operator==</a> (const <a class="el" href="../../d4/d81/a00110.html">CSV</a> &amp;other) const </td></tr>
-<tr class="memdesc:a2f700f0aa2b27d664adb69e27a6eb4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operator.  <a href="#a2f700f0aa2b27d664adb69e27a6eb4b1">More...</a><br /></td></tr>
-<tr class="separator:a2f700f0aa2b27d664adb69e27a6eb4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ae467f9599974c0f180c529f8a9f298"><td class="memTemplParams" colspan="2">template&lt;typename... T&gt; </td></tr>
-<tr class="memitem:a1ae467f9599974c0f180c529f8a9f298"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a1ae467f9599974c0f180c529f8a9f298">AddRow</a> (const T &amp;...values)</td></tr>
-<tr class="memdesc:a1ae467f9599974c0f180c529f8a9f298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add row of values.  <a href="#a1ae467f9599974c0f180c529f8a9f298">More...</a><br /></td></tr>
-<tr class="separator:a1ae467f9599974c0f180c529f8a9f298"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95a803434a1562b71908b536095c532e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a95a803434a1562b71908b536095c532e">AddRows</a> (const std::vector&lt; std::vector&lt; std::string &gt;&gt; &amp;rows)</td></tr>
-<tr class="memdesc:a95a803434a1562b71908b536095c532e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add multiple rows of strings at the same time.  <a href="#a95a803434a1562b71908b536095c532e">More...</a><br /></td></tr>
-<tr class="separator:a95a803434a1562b71908b536095c532e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29c1deab9054f5a70d16e3b5dcef4970"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a29c1deab9054f5a70d16e3b5dcef4970">AddRow</a> (const std::vector&lt; std::string &gt; &amp;row)</td></tr>
-<tr class="memdesc:a29c1deab9054f5a70d16e3b5dcef4970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a row of strings.  <a href="#a29c1deab9054f5a70d16e3b5dcef4970">More...</a><br /></td></tr>
-<tr class="separator:a29c1deab9054f5a70d16e3b5dcef4970"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fb7f772aabba9465da13e8d2abb197a"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
-<tr class="memitem:a6fb7f772aabba9465da13e8d2abb197a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a6fb7f772aabba9465da13e8d2abb197a">AddRow</a> (typename std::enable_if&lt; <a class="el" href="../../d9/d4b/a00117.html">is_iterator</a>&lt; It &gt;::value, It &gt;::type first, It last)</td></tr>
-<tr class="memdesc:a6fb7f772aabba9465da13e8d2abb197a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add row of values (ToString handles the case when the iterator points to strings).  <a href="#a6fb7f772aabba9465da13e8d2abb197a">More...</a><br /></td></tr>
-<tr class="separator:a6fb7f772aabba9465da13e8d2abb197a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63ffba1157ea6381bbce102c430e189b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d34/a00442.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a63ffba1157ea6381bbce102c430e189b">GetColumnCount</a> () const </td></tr>
-<tr class="memdesc:a63ffba1157ea6381bbce102c430e189b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of columns in the <a class="el" href="../../d4/d81/a00110.html" title="A collection of CSVRow elements. ">CSV</a>.  <a href="#a63ffba1157ea6381bbce102c430e189b">More...</a><br /></td></tr>
-<tr class="separator:a63ffba1157ea6381bbce102c430e189b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed99cf47769a6284b45c2815b08d1bd0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#aed99cf47769a6284b45c2815b08d1bd0">GetIndexForLabel</a> (const std::string &amp;label) const </td></tr>
-<tr class="memdesc:aed99cf47769a6284b45c2815b08d1bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert label to index for more user friendly and robust implementation.  <a href="#aed99cf47769a6284b45c2815b08d1bd0">More...</a><br /></td></tr>
-<tr class="separator:aed99cf47769a6284b45c2815b08d1bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37f3333bbf84b5babbdd63811ed773c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a37f3333bbf84b5babbdd63811ed773c1">Write</a> (const filesys::path &amp;path) const </td></tr>
-<tr class="memdesc:a37f3333bbf84b5babbdd63811ed773c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write <a class="el" href="../../d4/d81/a00110.html" title="A collection of CSVRow elements. ">CSV</a> to file.  <a href="#a37f3333bbf84b5babbdd63811ed773c1">More...</a><br /></td></tr>
-<tr class="separator:a37f3333bbf84b5babbdd63811ed773c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad153bb329555a2b114defc97e53793ad"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#ad153bb329555a2b114defc97e53793ad">GetLabels</a> () const </td></tr>
-<tr class="separator:ad153bb329555a2b114defc97e53793ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a2f3c33a76164f6cbc6e31aab6f8b560d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a2f3c33a76164f6cbc6e31aab6f8b560d">ReadFromStream</a> (std::istream &amp;inputStream)</td></tr>
-<tr class="memdesc:a2f3c33a76164f6cbc6e31aab6f8b560d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read data from input stream.  <a href="#a2f3c33a76164f6cbc6e31aab6f8b560d">More...</a><br /></td></tr>
-<tr class="separator:a2f3c33a76164f6cbc6e31aab6f8b560d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38b31963922766d5da78dfc5b95e6668"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a38b31963922766d5da78dfc5b95e6668">WriteLabels</a> (std::ofstream &amp;file) const </td></tr>
-<tr class="memdesc:a38b31963922766d5da78dfc5b95e6668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write header with labels.  <a href="#a38b31963922766d5da78dfc5b95e6668">More...</a><br /></td></tr>
-<tr class="separator:a38b31963922766d5da78dfc5b95e6668"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8595802615346728b2e76121e1cbda4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a8595802615346728b2e76121e1cbda4c">WriteRows</a> (std::ofstream &amp;file) const </td></tr>
-<tr class="memdesc:a8595802615346728b2e76121e1cbda4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the body of rows.  <a href="#a8595802615346728b2e76121e1cbda4c">More...</a><br /></td></tr>
-<tr class="separator:a8595802615346728b2e76121e1cbda4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a797a748983822c0227fe2326d2a47c16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a797a748983822c0227fe2326d2a47c16">SurveySeeder</a> (const boost::property_tree::ptree &amp;configPt, <a class="el" href="../../d3/d30/a00370.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager)</td></tr>
+<tr class="memdesc:a797a748983822c0227fe2326d2a47c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Seeder.  <a href="#a797a748983822c0227fe2326d2a47c16">More...</a><br /></td></tr>
+<tr class="separator:a797a748983822c0227fe2326d2a47c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81b191380f9a2c93768ff0efcec47f6b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a81b191380f9a2c93768ff0efcec47f6b">Seed</a> (std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt; pop)</td></tr>
+<tr class="memdesc:a81b191380f9a2c93768ff0efcec47f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with survey participants.  <a href="#a81b191380f9a2c93768ff0efcec47f6b">More...</a><br /></td></tr>
+<tr class="separator:a81b191380f9a2c93768ff0efcec47f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a893717de16de8022736a1ecc92dd694c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a893717de16de8022736a1ecc92dd694c">m_labels</a></td></tr>
-<tr class="separator:a893717de16de8022736a1ecc92dd694c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46f209713ecbcb6b2aeb52974b098b86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d34/a00442.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a46f209713ecbcb6b2aeb52974b098b86">m_column_count</a> = 0</td></tr>
-<tr class="separator:a46f209713ecbcb6b2aeb52974b098b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a28ea564a70fdefa611b990e8c8fedd5a"><td class="memItemLeft" align="right" valign="top">std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a28ea564a70fdefa611b990e8c8fedd5a">operator&lt;&lt;</a> (std::ofstream &amp;ofs, const <a class="el" href="../../d4/d81/a00110.html">CSV</a> &amp;csv)</td></tr>
-<tr class="separator:a28ea564a70fdefa611b990e8c8fedd5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b56b25160ae00196ba33d418e2647a3"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a8b56b25160ae00196ba33d418e2647a3">m_config_pt</a></td></tr>
+<tr class="memdesc:a8b56b25160ae00196ba33d418e2647a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config.  <a href="#a8b56b25160ae00196ba33d418e2647a3">More...</a><br /></td></tr>
+<tr class="separator:a8b56b25160ae00196ba33d418e2647a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc087f76a94ae634c80613f893233ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d30/a00370.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a9bc087f76a94ae634c80613f893233ed">m_rn_manager</a></td></tr>
+<tr class="memdesc:a9bc087f76a94ae634c80613f893233ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#a9bc087f76a94ae634c80613f893233ed">More...</a><br /></td></tr>
+<tr class="separator:a9bc087f76a94ae634c80613f893233ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A collection of <a class="el" href="../../dd/d6d/a00111.html" title="Row in CSV file. ">CSVRow</a> elements. </p>
-<p>Iterate with begin and end like STL containers. </p>
+<div class="textblock"><p>Seeds the population with survey participants. </p>
 
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00046">46</a> of file <a class="el" href="../../d5/de9/a00176_source.html">CSV.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00035">35</a> of file <a class="el" href="../../d4/db5/a00328_source.html">SurveySeeder.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a7e8326db4a78fcbf21837d61aa4eb201"></a>
+<a class="anchor" id="a797a748983822c0227fe2326d2a47c16"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::CSV::CSV </td>
+          <td class="memname">stride::SurveySeeder::SurveySeeder </td>
           <td>(</td>
-          <td class="paramtype">const filesys::path &amp;&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>configPt</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::initializer_list&lt; std::string &gt;&#160;</td>
-          <td class="paramname"><em>optLabels</em> = <code>{}</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d3/d30/a00370.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -247,516 +176,76 @@ Friends</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Initialize from file. If optLabels not specifed, the file is required. </p>
+<p>Initialize Seeder. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">configPt</td><td>Configuration parameters. </td></tr>
+    <tr><td class="paramname">rnManager</td><td>Random number manager. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00046">46</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/de9/a00176_source.html#l00125">m_column_count</a>, <a class="el" href="../../d5/de9/a00176_source.html#l00124">m_labels</a>, and <a class="el" href="../../de/d45/a00175_source.html#l00131">ReadFromStream()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a7e8326db4a78fcbf21837d61aa4eb201_cgraph.gif" border="0" usemap="#d4/d81/a00110_a7e8326db4a78fcbf21837d61aa4eb201_cgraph" alt=""/></div>
-<map name="d4/d81/a00110_a7e8326db4a78fcbf21837d61aa4eb201_cgraph" id="d4/d81/a00110_a7e8326db4a78fcbf21837d61aa4eb201_cgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a2f3c33a76164f6cbc6e31aab6f8b560d" title="Read data from input stream. " alt="" coords="208,74,341,115"/>
-<area shape="rect" id="node3" href="../../dd/db5/a00365.html#a01882a252a5e262d442f9a8b8f64e3ef" title="Trim characters at both ends of string. " alt="" coords="393,31,512,57"/>
-<area shape="rect" id="node6" href="../../dd/db5/a00365.html#aadef750132d5d399e7ed8a96eab53c4c" title="Split a string (in order of occurence) by splitting it on the given delimiters. " alt="" coords="392,81,513,108"/>
-<area shape="rect" id="node7" href="../../d4/d81/a00110.html#a1ae467f9599974c0f180c529f8a9f298" title="Add row of values. " alt="" coords="389,133,516,174"/>
-<area shape="rect" id="node4" href="../../dd/db5/a00365.html#a2c5aacbb4d606af3e43a96e8aad692cf" title="Trim characters at left end of string. " alt="" coords="568,5,711,32"/>
-<area shape="rect" id="node5" href="../../dd/db5/a00365.html#a9fa614ccd671679a0e1feff6e0f6da33" title="Trim characters at right end of string. " alt="" coords="564,56,715,83"/>
-<area shape="rect" id="node8" href="../../dd/db5/a00365.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="567,140,711,167"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a46bba243855b4fc66c20bf3bc55fdc95"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::CSV::CSV </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>inputStream</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialize from inputstream. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00068">68</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/d45/a00175_source.html#l00131">ReadFromStream()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a46bba243855b4fc66c20bf3bc55fdc95_cgraph.gif" border="0" usemap="#d4/d81/a00110_a46bba243855b4fc66c20bf3bc55fdc95_cgraph" alt=""/></div>
-<map name="d4/d81/a00110_a46bba243855b4fc66c20bf3bc55fdc95_cgraph" id="d4/d81/a00110_a46bba243855b4fc66c20bf3bc55fdc95_cgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a2f3c33a76164f6cbc6e31aab6f8b560d" title="Read data from input stream. " alt="" coords="208,74,341,115"/>
-<area shape="rect" id="node3" href="../../dd/db5/a00365.html#a01882a252a5e262d442f9a8b8f64e3ef" title="Trim characters at both ends of string. " alt="" coords="393,31,512,57"/>
-<area shape="rect" id="node6" href="../../dd/db5/a00365.html#aadef750132d5d399e7ed8a96eab53c4c" title="Split a string (in order of occurence) by splitting it on the given delimiters. " alt="" coords="392,81,513,108"/>
-<area shape="rect" id="node7" href="../../d4/d81/a00110.html#a1ae467f9599974c0f180c529f8a9f298" title="Add row of values. " alt="" coords="389,133,516,174"/>
-<area shape="rect" id="node4" href="../../dd/db5/a00365.html#a2c5aacbb4d606af3e43a96e8aad692cf" title="Trim characters at left end of string. " alt="" coords="568,5,711,32"/>
-<area shape="rect" id="node5" href="../../dd/db5/a00365.html#a9fa614ccd671679a0e1feff6e0f6da33" title="Trim characters at right end of string. " alt="" coords="564,56,715,83"/>
-<area shape="rect" id="node8" href="../../dd/db5/a00365.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="567,140,711,167"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a9eb2f114de1548f7447292ead90cf74f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::CSV::CSV </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>columnCount</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialize with columnCount only; labels default to sequence numbers. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00072">72</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/de9/a00176_source.html#l00124">m_labels</a>, and <a class="el" href="../../d4/d6f/a00315_source.html#l00090">stride::util::ToString()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a9eb2f114de1548f7447292ead90cf74f_cgraph.gif" border="0" usemap="#d4/d81/a00110_a9eb2f114de1548f7447292ead90cf74f_cgraph" alt=""/></div>
-<map name="d4/d81/a00110_a9eb2f114de1548f7447292ead90cf74f_cgraph" id="d4/d81/a00110_a9eb2f114de1548f7447292ead90cf74f_cgraph">
-<area shape="rect" id="node2" href="../../dd/db5/a00365.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="208,5,352,32"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="abc23be4e1354d6fa3f8717edfee37423"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::CSV::CSV </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
-          <td class="paramname"><em>labels</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialize with header only. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00070">70</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6d4944a529c10da58327ee8351688eca"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename It &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::CSV::CSV </td>
-          <td>(</td>
-          <td class="paramtype">It&#160;</td>
-          <td class="paramname"><em>labelsBegin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">It&#160;</td>
-          <td class="paramname"><em>labelsEnd</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialize with header labels only. </p>
-
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00063">63</a> of file <a class="el" href="../../d5/de9/a00176_source.html">CSV.h</a>.</p>
-
-<p>References <a class="el" href="../../d5/de9/a00176_source.html#l00129">AddRow()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00079">AddRows()</a>, <a class="el" href="../../d4/d81/a00110.html#a6aadfb52b95c349f14469a203d21472b">CSV()</a>, and <a class="el" href="../../de/d45/a00175_source.html#l00086">operator==()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a6d4944a529c10da58327ee8351688eca_cgraph.gif" border="0" usemap="#d4/d81/a00110_a6d4944a529c10da58327ee8351688eca_cgraph" alt=""/></div>
-<map name="d4/d81/a00110_a6d4944a529c10da58327ee8351688eca_cgraph" id="d4/d81/a00110_a6d4944a529c10da58327ee8351688eca_cgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a1ae467f9599974c0f180c529f8a9f298" title="Add row of values. " alt="" coords="411,5,537,47"/>
-<area shape="rect" id="node4" href="../../d4/d81/a00110.html#a95a803434a1562b71908b536095c532e" title="Add multiple rows of strings at the same time. " alt="" coords="222,35,349,76"/>
-<area shape="rect" id="node5" href="../../d4/d81/a00110.html#a6aadfb52b95c349f14469a203d21472b" title="Default constructor, used for swig. " alt="" coords="208,101,363,127"/>
-<area shape="rect" id="node6" href="../../d4/d81/a00110.html#a2f700f0aa2b27d664adb69e27a6eb4b1" title="Comparison operator. " alt="" coords="222,152,349,193"/>
-<area shape="rect" id="node3" href="../../dd/db5/a00365.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="585,13,729,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a6aadfb52b95c349f14469a203d21472b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::CSV::CSV </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default constructor, used for swig. </p>
-
-<p>Referenced by <a class="el" href="../../d5/de9/a00176_source.html#l00063">CSV()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a6aadfb52b95c349f14469a203d21472b_icgraph.gif" border="0" usemap="#d4/d81/a00110_a6aadfb52b95c349f14469a203d21472b_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a6aadfb52b95c349f14469a203d21472b_icgraph" id="d4/d81/a00110_a6aadfb52b95c349f14469a203d21472b_icgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a6d4944a529c10da58327ee8351688eca" title="Initialize with header labels only. " alt="" coords="208,5,363,32"/>
-</map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../d8/dfc/a00327_source.html#l00036">36</a> of file <a class="el" href="../../d8/dfc/a00327_source.html">SurveySeeder.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a2f700f0aa2b27d664adb69e27a6eb4b1"></a>
+<a class="anchor" id="a81b191380f9a2c93768ff0efcec47f6b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::util::CSV::operator== </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt; stride::SurveySeeder::Seed </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d81/a00110.html">CSV</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Comparison operator. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00086">86</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/de9/a00176_source.html#l00124">m_labels</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/de9/a00176_source.html#l00063">CSV()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a2f700f0aa2b27d664adb69e27a6eb4b1_icgraph.gif" border="0" usemap="#d4/d81/a00110_a2f700f0aa2b27d664adb69e27a6eb4b1_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a2f700f0aa2b27d664adb69e27a6eb4b1_icgraph" id="d4/d81/a00110_a2f700f0aa2b27d664adb69e27a6eb4b1_icgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a6d4944a529c10da58327ee8351688eca" title="Initialize with header labels only. " alt="" coords="180,13,335,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a1ae467f9599974c0f180c529f8a9f298"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename... T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::AddRow </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;...&#160;</td>
-          <td class="paramname"><em>values</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Add row of values. </p>
-
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00129">129</a> of file <a class="el" href="../../d5/de9/a00176_source.html">CSV.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d6f/a00315_source.html#l00090">stride::util::ToString()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/d45/a00175_source.html#l00079">AddRows()</a>, <a class="el" href="../../d5/de9/a00176_source.html#l00063">CSV()</a>, and <a class="el" href="../../de/d45/a00175_source.html#l00131">ReadFromStream()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a1ae467f9599974c0f180c529f8a9f298_cgraph.gif" border="0" usemap="#d4/d81/a00110_a1ae467f9599974c0f180c529f8a9f298_cgraph" alt=""/></div>
-<map name="d4/d81/a00110_a1ae467f9599974c0f180c529f8a9f298_cgraph" id="d4/d81/a00110_a1ae467f9599974c0f180c529f8a9f298_cgraph">
-<area shape="rect" id="node2" href="../../dd/db5/a00365.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="180,13,324,39"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a1ae467f9599974c0f180c529f8a9f298_icgraph.gif" border="0" usemap="#d4/d81/a00110_a1ae467f9599974c0f180c529f8a9f298_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a1ae467f9599974c0f180c529f8a9f298_icgraph" id="d4/d81/a00110_a1ae467f9599974c0f180c529f8a9f298_icgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a95a803434a1562b71908b536095c532e" title="Add multiple rows of strings at the same time. " alt="" coords="183,5,310,47"/>
-<area shape="rect" id="node3" href="../../d4/d81/a00110.html#a6d4944a529c10da58327ee8351688eca" title="Initialize with header labels only. " alt="" coords="361,43,516,70"/>
-<area shape="rect" id="node4" href="../../d4/d81/a00110.html#a2f3c33a76164f6cbc6e31aab6f8b560d" title="Read data from input stream. " alt="" coords="180,123,313,164"/>
-<area shape="rect" id="node5" href="../../d4/d81/a00110.html#a7e8326db4a78fcbf21837d61aa4eb201" title="Initialize from file. If optLabels not specifed, the file is required. " alt="" coords="361,98,516,125"/>
-<area shape="rect" id="node6" href="../../d4/d81/a00110.html#a63ffba1157ea6381bbce102c430e189b" title="Number of columns in the CSV. " alt="" coords="373,149,505,191"/>
-<area shape="rect" id="node7" href="../../d7/dd4/a00013.html#a50eaa47a39752b6388d031767f81d40b" title="Add the found Commutes to the provided GeoGrid. " alt="" coords="564,84,808,125"/>
-<area shape="rect" id="node8" href="../../dd/d6d/a00111.html#ab60a313ff2e75d0ae07bc7624c27a861" title="CSVRow initialized with values. Should no be called by user code. CSV has convenience functions..." alt="" coords="614,149,758,191"/>
-<area shape="rect" id="node9" href="../../dd/db5/a00365.html#a9dce01f32b092253d815beac1cd52010" title="specialization for string " alt="" coords="611,215,761,256"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a95a803434a1562b71908b536095c532e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::AddRows </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::vector&lt; std::string &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>rows</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add multiple rows of strings at the same time. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00079">79</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/de9/a00176_source.html#l00129">AddRow()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/de9/a00176_source.html#l00063">CSV()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a95a803434a1562b71908b536095c532e_cgraph.gif" border="0" usemap="#d4/d81/a00110_a95a803434a1562b71908b536095c532e_cgraph" alt=""/></div>
-<map name="d4/d81/a00110_a95a803434a1562b71908b536095c532e_cgraph" id="d4/d81/a00110_a95a803434a1562b71908b536095c532e_cgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a1ae467f9599974c0f180c529f8a9f298" title="Add row of values. " alt="" coords="180,5,307,47"/>
-<area shape="rect" id="node3" href="../../dd/db5/a00365.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="355,13,499,39"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a95a803434a1562b71908b536095c532e_icgraph.gif" border="0" usemap="#d4/d81/a00110_a95a803434a1562b71908b536095c532e_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a95a803434a1562b71908b536095c532e_icgraph" id="d4/d81/a00110_a95a803434a1562b71908b536095c532e_icgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a6d4944a529c10da58327ee8351688eca" title="Initialize with header labels only. " alt="" coords="180,13,335,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a29c1deab9054f5a70d16e3b5dcef4970"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::AddRow </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
-          <td class="paramname"><em>row</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Add a row of strings. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00155">155</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6fb7f772aabba9465da13e8d2abb197a"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename It &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::AddRow </td>
-          <td>(</td>
-          <td class="paramtype">typename std::enable_if&lt; <a class="el" href="../../d9/d4b/a00117.html">is_iterator</a>&lt; It &gt;::value, It &gt;::type&#160;</td>
-          <td class="paramname"><em>first</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">It&#160;</td>
-          <td class="paramname"><em>last</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Add row of values (ToString handles the case when the iterator points to strings). </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">It</td><td>Iterator type pointing to the values. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Seeds the population with survey participants. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">first</td><td>Start of the range to be included </td></tr>
-    <tr><td class="paramname">last</td><td>Past-the-end of the range. </td></tr>
+    <tr><td class="paramname">pop</td><td><a class="el" href="../../d5/d1e/a00103.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00094">94</a> of file <a class="el" href="../../d5/de9/a00176_source.html">CSV.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/dfc/a00327_source.html#l00038">38</a> of file <a class="el" href="../../d8/dfc/a00327_source.html">SurveySeeder.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d4/d6f/a00315_source.html#l00090">stride::util::ToString()</a>.</p>
+<p>References <a class="el" href="../../dc/d5d/a00278_source.html#l00054">stride::Person::GetAge()</a>, <a class="el" href="../../db/dc3/a00284_source.html#l00070">stride::Population::GetContactLogger()</a>, <a class="el" href="../../db/dc3/a00284_source.html#l00073">stride::Population::GetContactPoolSys()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00046">stride::Health::GetEndInfectiousness()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00049">stride::Health::GetEndSymptomatic()</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00057">stride::Person::GetGender()</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00060">stride::Person::GetHealth()</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00066">stride::Person::GetId()</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00069">stride::Person::GetPoolId()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00052">stride::Health::GetStartInfectiousness()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00055">stride::Health::GetStartSymptomatic()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00058">stride::Health::IsImmune()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00061">stride::Health::IsInfected()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00068">stride::Health::IsInfectious()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00074">stride::Health::IsRecovered()</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00075">stride::Person::IsSurveyParticipant()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00077">stride::Health::IsSusceptible()</a>, <a class="el" href="../../d4/db5/a00328_source.html#l00048">m_config_pt</a>, <a class="el" href="../../d4/db5/a00328_source.html#l00049">m_rn_manager</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00078">stride::Person::ParticipateInSurvey()</a>, and <a class="el" href="../../d3/d07/a00305_source.html#l00210">stride::util::SegmentedVector&lt; T, N, Safe &gt;::size()</a>.</p>
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a6fb7f772aabba9465da13e8d2abb197a_cgraph.gif" border="0" usemap="#d4/d81/a00110_a6fb7f772aabba9465da13e8d2abb197a_cgraph" alt=""/></div>
-<map name="d4/d81/a00110_a6fb7f772aabba9465da13e8d2abb197a_cgraph" id="d4/d81/a00110_a6fb7f772aabba9465da13e8d2abb197a_cgraph">
-<area shape="rect" id="node2" href="../../dd/db5/a00365.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="180,13,324,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a63ffba1157ea6381bbce102c430e189b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d34/a00442.html">size_t</a> stride::util::CSV::GetColumnCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Number of columns in the <a class="el" href="../../d4/d81/a00110.html" title="A collection of CSVRow elements. ">CSV</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00101">101</a> of file <a class="el" href="../../d5/de9/a00176_source.html">CSV.h</a>.</p>
-
-<p>References <a class="el" href="../../de/d45/a00175_source.html#l00091">GetIndexForLabel()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00161">GetLabels()</a>, <a class="el" href="../../d5/de9/a00176_source.html#l00125">m_column_count</a>, <a class="el" href="../../d5/de9/a00176_source.html#l00134">operator&lt;&lt;</a>, <a class="el" href="../../de/d45/a00175_source.html#l00131">ReadFromStream()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00100">Write()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00111">WriteLabels()</a>, and <a class="el" href="../../de/d45/a00175_source.html#l00124">WriteRows()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/d4c/a00177_source.html#l00038">stride::util::CSVRow::CSVRow()</a>, <a class="el" href="../../dd/d4c/a00177_source.html#l00051">stride::util::CSVRow::GetValue&lt; std::string &gt;()</a>, and <a class="el" href="../../d1/db7/a00157_source.html#l00033">gengeopop::CommutesCSVReader::FillGeoGrid()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d0f/a00308_source.html#l00042">stride::SimBuilder::Build()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a63ffba1157ea6381bbce102c430e189b_cgraph.gif" border="0" usemap="#d4/d81/a00110_a63ffba1157ea6381bbce102c430e189b_cgraph" alt=""/></div>
-<map name="d4/d81/a00110_a63ffba1157ea6381bbce102c430e189b_cgraph" id="d4/d81/a00110_a63ffba1157ea6381bbce102c430e189b_cgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#aed99cf47769a6284b45c2815b08d1bd0" title="Convert label to index for more user friendly and robust implementation. " alt="" coords="185,5,319,47"/>
-<area shape="rect" id="node3" href="../../d4/d81/a00110.html#ad153bb329555a2b114defc97e53793ad" title="stride::util::CSV::\lGetLabels" alt="" coords="189,71,315,112"/>
-<area shape="rect" id="node4" href="../../d4/d81/a00110.html#a2f3c33a76164f6cbc6e31aab6f8b560d" title="Read data from input stream. " alt="" coords="185,136,319,177"/>
-<area shape="rect" id="node11" href="../../d4/d81/a00110.html#a37f3333bbf84b5babbdd63811ed773c1" title="Write CSV to file. " alt="" coords="189,201,315,243"/>
-<area shape="rect" id="node12" href="../../d4/d81/a00110.html#a38b31963922766d5da78dfc5b95e6668" title="Write header with labels. " alt="" coords="189,267,315,308"/>
-<area shape="rect" id="node13" href="../../d4/d81/a00110.html#a8595802615346728b2e76121e1cbda4c" title="Write the body of rows. " alt="" coords="189,332,315,373"/>
-<area shape="rect" id="node5" href="../../dd/db5/a00365.html#a01882a252a5e262d442f9a8b8f64e3ef" title="Trim characters at both ends of string. " alt="" coords="371,93,489,119"/>
-<area shape="rect" id="node8" href="../../dd/db5/a00365.html#aadef750132d5d399e7ed8a96eab53c4c" title="Split a string (in order of occurence) by splitting it on the given delimiters. " alt="" coords="369,143,491,170"/>
-<area shape="rect" id="node9" href="../../d4/d81/a00110.html#a1ae467f9599974c0f180c529f8a9f298" title="Add row of values. " alt="" coords="367,195,493,236"/>
-<area shape="rect" id="node6" href="../../dd/db5/a00365.html#a2c5aacbb4d606af3e43a96e8aad692cf" title="Trim characters at left end of string. " alt="" coords="545,67,688,94"/>
-<area shape="rect" id="node7" href="../../dd/db5/a00365.html#a9fa614ccd671679a0e1feff6e0f6da33" title="Trim characters at right end of string. " alt="" coords="541,118,692,145"/>
-<area shape="rect" id="node10" href="../../dd/db5/a00365.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="545,202,689,229"/>
+<div class="center"><img src="../../d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_cgraph.gif" border="0" usemap="#d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_cgraph" alt=""/></div>
+<map name="d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_cgraph" id="d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_cgraph">
+<area shape="rect" id="node2" href="../../d9/dcc/a00102.html#ad85ecf5500764ae2c025f7e2aab8003c" title="Get the age. " alt="" coords="253,5,420,32"/>
+<area shape="rect" id="node3" href="../../d5/d1e/a00103.html#a314f886a6abeb0e08aac8fee085e76bd" title="Return the contactlogger. " alt="" coords="263,57,410,98"/>
+<area shape="rect" id="node4" href="../../d5/d1e/a00103.html#a7ba18751ce5eb62217b105e716e61d63" title="The ContactPoolSys of the simulator. " alt="" coords="260,122,413,163"/>
+<area shape="rect" id="node5" href="../../d1/dc1/a00092.html#a8e8b3c6fe823b70820f868bb597ade73" title="stride::Health::GetEndInfectiousness" alt="" coords="209,188,464,215"/>
+<area shape="rect" id="node6" href="../../d1/dc1/a00092.html#aac2a22ae31603c4dbaea3f440974d0d5" title="stride::Health::GetEndSymptomatic" alt="" coords="212,239,461,265"/>
+<area shape="rect" id="node7" href="../../d9/dcc/a00102.html#ada6071b93ce9d5b5611a2151e14d0740" title="Return person&#39;s gender. " alt="" coords="243,289,431,316"/>
+<area shape="rect" id="node8" href="../../d9/dcc/a00102.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="245,340,428,367"/>
+<area shape="rect" id="node9" href="../../d9/dcc/a00102.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="261,391,413,417"/>
+<area shape="rect" id="node10" href="../../d9/dcc/a00102.html#af367cbca887487b367693f344d02048d" title="Get ID of contactpool_type. " alt="" coords="247,441,426,468"/>
+<area shape="rect" id="node11" href="../../d1/dc1/a00092.html#a9eab117bce0fe7009188aad7e534ca82" title="stride::Health::GetStart\lInfectiousness" alt="" coords="251,493,422,534"/>
+<area shape="rect" id="node12" href="../../d1/dc1/a00092.html#adf2c4f06cd9ad0dac95c5a2ffdd39489" title="stride::Health::GetStart\lSymptomatic" alt="" coords="251,558,422,599"/>
+<area shape="rect" id="node13" href="../../d1/dc1/a00092.html#a7c9caae07db1dd15732f726cec514dc2" title="stride::Health::IsImmune" alt="" coords="247,624,426,651"/>
+<area shape="rect" id="node14" href="../../d1/dc1/a00092.html#aa54f0be8ce25462aaf62847ded75a29d" title="stride::Health::IsInfected" alt="" coords="248,675,425,701"/>
+<area shape="rect" id="node15" href="../../d1/dc1/a00092.html#a84c0cb686c22ec8504942b84105eaed2" title="stride::Health::IsInfectious" alt="" coords="243,725,430,752"/>
+<area shape="rect" id="node16" href="../../d1/dc1/a00092.html#a4dae2bfe69375adb5dd89819f6798090" title="stride::Health::IsRecovered" alt="" coords="241,776,433,803"/>
+<area shape="rect" id="node17" href="../../d9/dcc/a00102.html#a5942b9a4f5226e8810dc8b63fb250f3e" title="Does this person participates in the social contact study? " alt="" coords="251,827,423,869"/>
+<area shape="rect" id="node18" href="../../d1/dc1/a00092.html#ae2a3b14e79e08a261ca7122afba9b95c" title="Is this person susceptible? " alt="" coords="237,893,437,920"/>
+<area shape="rect" id="node19" href="../../d9/dcc/a00102.html#a6c27c93e351ca63aa6e3a055cd9110b2" title="Participate in social contact study and log person details. " alt="" coords="244,945,429,986"/>
+<area shape="rect" id="node22" href="../../d4/d31/a00069.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="232,1010,441,1051"/>
+<area shape="rect" id="node20" href="../../d9/dcc/a00102.html#abeed34b336b17866bb881b77237c76c4" title="Update the health status and presence in contact pools. " alt="" coords="512,952,677,979"/>
+<area shape="rect" id="node21" href="../../d9/d9b/a00363.html#a2b354a18a7f6986d363385ff46c9a473" title="Maximum age for Person&#39;s. " alt="" coords="725,952,872,979"/>
 </map>
 </div>
 </p>
@@ -764,317 +253,17 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a63ffba1157ea6381bbce102c430e189b_icgraph.gif" border="0" usemap="#d4/d81/a00110_a63ffba1157ea6381bbce102c430e189b_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a63ffba1157ea6381bbce102c430e189b_icgraph" id="d4/d81/a00110_a63ffba1157ea6381bbce102c430e189b_icgraph">
-<area shape="rect" id="node2" href="../../dd/d6d/a00111.html#ab60a313ff2e75d0ae07bc7624c27a861" title="CSVRow initialized with values. Should no be called by user code. CSV has convenience functions..." alt="" coords="235,5,379,47"/>
-<area shape="rect" id="node3" href="../../dd/db5/a00365.html#a9dce01f32b092253d815beac1cd52010" title="specialization for string " alt="" coords="232,71,383,112"/>
-<area shape="rect" id="node4" href="../../d7/dd4/a00013.html#a50eaa47a39752b6388d031767f81d40b" title="Add the found Commutes to the provided GeoGrid. " alt="" coords="185,136,429,177"/>
+<div class="center"><img src="../../d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_icgraph.gif" border="0" usemap="#d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_icgraph" alt=""/></div>
+<map name="d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_icgraph" id="d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_icgraph">
+<area shape="rect" id="node2" href="../../d7/d70/a00106.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="209,5,344,47"/>
 </map>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="aed99cf47769a6284b45c2815b08d1bd0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t stride::util::CSV::GetIndexForLabel </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>label</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Convert label to index for more user friendly and robust implementation. </p>
-<p>This level of indirection does introduce a perfomance tradeoff. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00091">91</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/de9/a00176_source.html#l00124">m_labels</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/d4c/a00177_source.html#l00061">stride::util::CSVRow::GetValue&lt; std::string &gt;()</a>, and <a class="el" href="../../d5/de9/a00176_source.html#l00101">GetColumnCount()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_aed99cf47769a6284b45c2815b08d1bd0_icgraph.gif" border="0" usemap="#d4/d81/a00110_aed99cf47769a6284b45c2815b08d1bd0_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_aed99cf47769a6284b45c2815b08d1bd0_icgraph" id="d4/d81/a00110_aed99cf47769a6284b45c2815b08d1bd0_icgraph">
-<area shape="rect" id="node2" href="../../dd/db5/a00365.html#a7c45b2cf6c75aee55004e27edb10e745" title="specialization for string " alt="" coords="187,5,337,47"/>
-<area shape="rect" id="node3" href="../../d4/d81/a00110.html#a63ffba1157ea6381bbce102c430e189b" title="Number of columns in the CSV. " alt="" coords="196,71,328,112"/>
-<area shape="rect" id="node4" href="../../dd/d6d/a00111.html#ab60a313ff2e75d0ae07bc7624c27a861" title="CSVRow initialized with values. Should no be called by user code. CSV has convenience functions..." alt="" coords="435,5,579,47"/>
-<area shape="rect" id="node5" href="../../dd/db5/a00365.html#a9dce01f32b092253d815beac1cd52010" title="specialization for string " alt="" coords="432,71,583,112"/>
-<area shape="rect" id="node6" href="../../d7/dd4/a00013.html#a50eaa47a39752b6388d031767f81d40b" title="Add the found Commutes to the provided GeoGrid. " alt="" coords="385,136,629,177"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a37f3333bbf84b5babbdd63811ed773c1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::Write </td>
-          <td>(</td>
-          <td class="paramtype">const filesys::path &amp;&#160;</td>
-          <td class="paramname"><em>path</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write <a class="el" href="../../d4/d81/a00110.html" title="A collection of CSVRow elements. ">CSV</a> to file. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00100">100</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/de9/a00176_source.html#l00101">GetColumnCount()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a37f3333bbf84b5babbdd63811ed773c1_icgraph.gif" border="0" usemap="#d4/d81/a00110_a37f3333bbf84b5babbdd63811ed773c1_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a37f3333bbf84b5babbdd63811ed773c1_icgraph" id="d4/d81/a00110_a37f3333bbf84b5babbdd63811ed773c1_icgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a63ffba1157ea6381bbce102c430e189b" title="Number of columns in the CSV. " alt="" coords="180,71,312,112"/>
-<area shape="rect" id="node3" href="../../dd/d6d/a00111.html#ab60a313ff2e75d0ae07bc7624c27a861" title="CSVRow initialized with values. Should no be called by user code. CSV has convenience functions..." alt="" coords="410,5,554,47"/>
-<area shape="rect" id="node4" href="../../dd/db5/a00365.html#a9dce01f32b092253d815beac1cd52010" title="specialization for string " alt="" coords="407,71,557,112"/>
-<area shape="rect" id="node5" href="../../d7/dd4/a00013.html#a50eaa47a39752b6388d031767f81d40b" title="Add the found Commutes to the provided GeoGrid. " alt="" coords="360,136,604,177"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ad153bb329555a2b114defc97e53793ad"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt; std::string &gt; &amp; stride::util::CSV::GetLabels </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00161">161</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/de9/a00176_source.html#l00124">m_labels</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00033">gengeopop::CommutesCSVReader::FillGeoGrid()</a>, and <a class="el" href="../../d5/de9/a00176_source.html#l00101">GetColumnCount()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_ad153bb329555a2b114defc97e53793ad_icgraph.gif" border="0" usemap="#d4/d81/a00110_ad153bb329555a2b114defc97e53793ad_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_ad153bb329555a2b114defc97e53793ad_icgraph" id="d4/d81/a00110_ad153bb329555a2b114defc97e53793ad_icgraph">
-<area shape="rect" id="node2" href="../../d7/dd4/a00013.html#a50eaa47a39752b6388d031767f81d40b" title="Add the found Commutes to the provided GeoGrid. " alt="" coords="360,5,604,47"/>
-<area shape="rect" id="node3" href="../../d4/d81/a00110.html#a63ffba1157ea6381bbce102c430e189b" title="Number of columns in the CSV. " alt="" coords="180,69,312,111"/>
-<area shape="rect" id="node4" href="../../dd/d6d/a00111.html#ab60a313ff2e75d0ae07bc7624c27a861" title="CSVRow initialized with values. Should no be called by user code. CSV has convenience functions..." alt="" coords="410,71,554,112"/>
-<area shape="rect" id="node5" href="../../dd/db5/a00365.html#a9dce01f32b092253d815beac1cd52010" title="specialization for string " alt="" coords="407,136,557,177"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a2f3c33a76164f6cbc6e31aab6f8b560d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::ReadFromStream </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>inputStream</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Read data from input stream. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00131">131</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/de9/a00176_source.html#l00129">AddRow()</a>, <a class="el" href="../../d5/de9/a00176_source.html#l00125">m_column_count</a>, <a class="el" href="../../d5/de9/a00176_source.html#l00124">m_labels</a>, <a class="el" href="../../d4/d6f/a00315_source.html#l00058">stride::util::Split()</a>, and <a class="el" href="../../d4/d6f/a00315_source.html#l00167">stride::util::Trim()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/d45/a00175_source.html#l00046">CSV()</a>, and <a class="el" href="../../d5/de9/a00176_source.html#l00101">GetColumnCount()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a2f3c33a76164f6cbc6e31aab6f8b560d_cgraph.gif" border="0" usemap="#d4/d81/a00110_a2f3c33a76164f6cbc6e31aab6f8b560d_cgraph" alt=""/></div>
-<map name="d4/d81/a00110_a2f3c33a76164f6cbc6e31aab6f8b560d_cgraph" id="d4/d81/a00110_a2f3c33a76164f6cbc6e31aab6f8b560d_cgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a1ae467f9599974c0f180c529f8a9f298" title="Add row of values. " alt="" coords="187,5,313,47"/>
-<area shape="rect" id="node4" href="../../dd/db5/a00365.html#aadef750132d5d399e7ed8a96eab53c4c" title="Split a string (in order of occurence) by splitting it on the given delimiters. " alt="" coords="189,71,311,98"/>
-<area shape="rect" id="node5" href="../../dd/db5/a00365.html#a01882a252a5e262d442f9a8b8f64e3ef" title="Trim characters at both ends of string. " alt="" coords="191,122,309,149"/>
-<area shape="rect" id="node3" href="../../dd/db5/a00365.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="365,13,509,39"/>
-<area shape="rect" id="node6" href="../../dd/db5/a00365.html#a2c5aacbb4d606af3e43a96e8aad692cf" title="Trim characters at left end of string. " alt="" coords="365,97,508,123"/>
-<area shape="rect" id="node7" href="../../dd/db5/a00365.html#a9fa614ccd671679a0e1feff6e0f6da33" title="Trim characters at right end of string. " alt="" coords="361,147,512,174"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a2f3c33a76164f6cbc6e31aab6f8b560d_icgraph.gif" border="0" usemap="#d4/d81/a00110_a2f3c33a76164f6cbc6e31aab6f8b560d_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a2f3c33a76164f6cbc6e31aab6f8b560d_icgraph" id="d4/d81/a00110_a2f3c33a76164f6cbc6e31aab6f8b560d_icgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a7e8326db4a78fcbf21837d61aa4eb201" title="Initialize from file. If optLabels not specifed, the file is required. " alt="" coords="187,19,341,46"/>
-<area shape="rect" id="node3" href="../../d4/d81/a00110.html#a63ffba1157ea6381bbce102c430e189b" title="Number of columns in the CSV. " alt="" coords="198,71,330,112"/>
-<area shape="rect" id="node4" href="../../dd/d6d/a00111.html#ab60a313ff2e75d0ae07bc7624c27a861" title="CSVRow initialized with values. Should no be called by user code. CSV has convenience functions..." alt="" coords="439,5,583,47"/>
-<area shape="rect" id="node5" href="../../dd/db5/a00365.html#a9dce01f32b092253d815beac1cd52010" title="specialization for string " alt="" coords="436,71,587,112"/>
-<area shape="rect" id="node6" href="../../d7/dd4/a00013.html#a50eaa47a39752b6388d031767f81d40b" title="Add the found Commutes to the provided GeoGrid. " alt="" coords="389,136,633,177"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a38b31963922766d5da78dfc5b95e6668"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::WriteLabels </td>
-          <td>(</td>
-          <td class="paramtype">std::ofstream &amp;&#160;</td>
-          <td class="paramname"><em>file</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Write header with labels. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00111">111</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/de9/a00176_source.html#l00124">m_labels</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/de9/a00176_source.html#l00101">GetColumnCount()</a>, and <a class="el" href="../../d5/de9/a00176_source.html#l00134">stride::util::operator&lt;&lt;()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a38b31963922766d5da78dfc5b95e6668_icgraph.gif" border="0" usemap="#d4/d81/a00110_a38b31963922766d5da78dfc5b95e6668_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a38b31963922766d5da78dfc5b95e6668_icgraph" id="d4/d81/a00110_a38b31963922766d5da78dfc5b95e6668_icgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a63ffba1157ea6381bbce102c430e189b" title="Number of columns in the CSV. " alt="" coords="199,71,331,112"/>
-<area shape="rect" id="node6" href="../../dd/db5/a00365.html#ab8f4ca13e5c3a78333ce8cfa62f36fe1" title="stride::util::operator\&lt;\&lt;" alt="" coords="180,137,351,163"/>
-<area shape="rect" id="node3" href="../../dd/d6d/a00111.html#ab60a313ff2e75d0ae07bc7624c27a861" title="CSVRow initialized with values. Should no be called by user code. CSV has convenience functions..." alt="" coords="449,5,593,47"/>
-<area shape="rect" id="node4" href="../../dd/db5/a00365.html#a9dce01f32b092253d815beac1cd52010" title="specialization for string " alt="" coords="445,71,596,112"/>
-<area shape="rect" id="node5" href="../../d7/dd4/a00013.html#a50eaa47a39752b6388d031767f81d40b" title="Add the found Commutes to the provided GeoGrid. " alt="" coords="399,136,643,177"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a8595802615346728b2e76121e1cbda4c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::CSV::WriteRows </td>
-          <td>(</td>
-          <td class="paramtype">std::ofstream &amp;&#160;</td>
-          <td class="paramname"><em>file</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Write the body of rows. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00124">124</a> of file <a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/de9/a00176_source.html#l00101">GetColumnCount()</a>, and <a class="el" href="../../d5/de9/a00176_source.html#l00134">stride::util::operator&lt;&lt;()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a8595802615346728b2e76121e1cbda4c_icgraph.gif" border="0" usemap="#d4/d81/a00110_a8595802615346728b2e76121e1cbda4c_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a8595802615346728b2e76121e1cbda4c_icgraph" id="d4/d81/a00110_a8595802615346728b2e76121e1cbda4c_icgraph">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a63ffba1157ea6381bbce102c430e189b" title="Number of columns in the CSV. " alt="" coords="199,71,331,112"/>
-<area shape="rect" id="node6" href="../../dd/db5/a00365.html#ab8f4ca13e5c3a78333ce8cfa62f36fe1" title="stride::util::operator\&lt;\&lt;" alt="" coords="180,137,351,163"/>
-<area shape="rect" id="node3" href="../../dd/d6d/a00111.html#ab60a313ff2e75d0ae07bc7624c27a861" title="CSVRow initialized with values. Should no be called by user code. CSV has convenience functions..." alt="" coords="449,5,593,47"/>
-<area shape="rect" id="node4" href="../../dd/db5/a00365.html#a9dce01f32b092253d815beac1cd52010" title="specialization for string " alt="" coords="445,71,596,112"/>
-<area shape="rect" id="node5" href="../../d7/dd4/a00013.html#a50eaa47a39752b6388d031767f81d40b" title="Add the found Commutes to the provided GeoGrid. " alt="" coords="399,136,643,177"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a class="anchor" id="a28ea564a70fdefa611b990e8c8fedd5a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ofstream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ofstream &amp;&#160;</td>
-          <td class="paramname"><em>ofs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d4/d81/a00110.html">CSV</a> &amp;&#160;</td>
-          <td class="paramname"><em>csv</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00134">134</a> of file <a class="el" href="../../d5/de9/a00176_source.html">CSV.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/de9/a00176_source.html#l00101">GetColumnCount()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a893717de16de8022736a1ecc92dd694c"></a>
+<a class="anchor" id="a8b56b25160ae00196ba33d418e2647a3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1082,7 +271,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::string&gt; stride::util::CSV::m_labels</td>
+          <td class="memname">const boost::property_tree::ptree&amp; stride::SurveySeeder::m_config_pt</td>
         </tr>
       </table>
   </td>
@@ -1092,13 +281,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00124">124</a> of file <a class="el" href="../../d5/de9/a00176_source.html">CSV.h</a>.</p>
+<p>Run config. </p>
 
-<p>Referenced by <a class="el" href="../../de/d45/a00175_source.html#l00046">CSV()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00091">GetIndexForLabel()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00161">GetLabels()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00086">operator==()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00131">ReadFromStream()</a>, and <a class="el" href="../../de/d45/a00175_source.html#l00111">WriteLabels()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00048">48</a> of file <a class="el" href="../../d4/db5/a00328_source.html">SurveySeeder.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/dfc/a00327_source.html#l00038">Seed()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a46f209713ecbcb6b2aeb52974b098b86"></a>
+<a class="anchor" id="a9bc087f76a94ae634c80613f893233ed"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1106,7 +297,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d34/a00442.html">size_t</a> stride::util::CSV::m_column_count = 0</td>
+          <td class="memname"><a class="el" href="../../d3/d30/a00370.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a>&amp; stride::SurveySeeder::m_rn_manager</td>
         </tr>
       </table>
   </td>
@@ -1116,23 +307,25 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00125">125</a> of file <a class="el" href="../../d5/de9/a00176_source.html">CSV.h</a>.</p>
+<p>Random number manager. </p>
 
-<p>Referenced by <a class="el" href="../../de/d45/a00175_source.html#l00046">CSV()</a>, <a class="el" href="../../d5/de9/a00176_source.html#l00101">GetColumnCount()</a>, and <a class="el" href="../../de/d45/a00175_source.html#l00131">ReadFromStream()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00049">49</a> of file <a class="el" href="../../d4/db5/a00328_source.html">SurveySeeder.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/dfc/a00327_source.html#l00038">Seed()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/de9/a00176_source.html">CSV.h</a></li>
-<li><a class="el" href="../../de/d45/a00175_source.html">CSV.cpp</a></li>
+<li><a class="el" href="../../d4/db5/a00328_source.html">SurveySeeder.h</a></li>
+<li><a class="el" href="../../d8/dfc/a00327_source.html">SurveySeeder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/def/a00359.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/db5/a00365.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d81/a00110.html">CSV</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d81/a00110.html">SurveySeeder</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

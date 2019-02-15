@@ -1,27 +1,5 @@
 var a00024 =
 [
-    [ "GeoGridConfig", "dc/de2/a00024.html#a402df7e9798ac2206d7e10e0eb158177", null ],
-    [ "GeoGridConfig", "dc/de2/a00024.html#aa801f622f71a87c7446573fdc58361e8", null ],
-    [ "operator<<", "dc/de2/a00024.html#a9f960d6e61af9bf7cc9230f772834b96", null ],
-    [ "fraction_1826_student", "dc/de2/a00024.html#a69abfd2ab60bf95db2370f4edd5830bc", null ],
-    [ "fraction_active_commuters", "dc/de2/a00024.html#a0eefbfdb0820de5768fc6d1b2a502525", null ],
-    [ "fraction_student_commuters", "dc/de2/a00024.html#a2257fe6ac5dbc11edaaed4c45d710cac", null ],
-    [ "fraction_1865_active", "dc/de2/a00024.html#af8b603159147d0966efc74224de3525c", null ],
-    [ "pop_size", "dc/de2/a00024.html#a3ddd23fc13885b57c7e0703aa8ba3237", null ],
-    [ "input", "dc/de2/a00024.html#a932e91e15c65933abb7934ecace53f35", null ],
-    [ "compulsory_pupils", "dc/de2/a00024.html#a8bac7d0a45b7c84a978d1b20f8dc39a2", null ],
-    [ "popcount_1865", "dc/de2/a00024.html#acc0f14d97ab4a9929335b8018744649b", null ],
-    [ "popcount_1826", "dc/de2/a00024.html#ab9bdac1c1b4fd5c09c668ebace490f86", null ],
-    [ "popcount_1826_student", "dc/de2/a00024.html#a9904da8b787e4151de01e5b31a9552c4", null ],
-    [ "popcount_1865_active", "dc/de2/a00024.html#a8e91175ed9a431ee159890512738b5c4", null ],
-    [ "households", "dc/de2/a00024.html#a6c12e7a934465249adfaf5b476d62eaf", null ],
-    [ "reference_households", "dc/de2/a00024.html#a89b9400a6144a9dae98c49f36f8bde2c", null ],
-    [ "persons", "dc/de2/a00024.html#aa7f79539dfe1e8f421363e16f1e3f85c", null ],
-    [ "contact_pools", "dc/de2/a00024.html#ade7c781a82379c9cd12f003bd278c3e5", null ],
-    [ "popInfo", "dc/de2/a00024.html#a250f9ab3cdd993b06e64a7cf0aab4dbf", null ],
-    [ "mean_college_size", "dc/de2/a00024.html#a351b9d5d1621a45281348d2be64361ac", null ],
-    [ "mean_community_size", "dc/de2/a00024.html#afe9608c5b544ec04bb7f2226256b6949", null ],
-    [ "mean_K12_size", "dc/de2/a00024.html#a919f252e6be39e7a535086094c0ae3f0", null ],
-    [ "mean_workplace_school_size", "dc/de2/a00024.html#aa02b9f171c34ed8dc78fab2c137b2f38", null ],
-    [ "constants", "dc/de2/a00024.html#a3c4da1cff0db6235ea49fca4e8102089", null ]
+    [ "GeoGridConfigBuilder", "dc/de2/a00024.html#aab1ad953726f342cf6f5df6be8c4ba9f", null ],
+    [ "SetData", "dc/de2/a00024.html#ab0b18c9d348a5708451cbb00c7be3ae8", null ]
 ];

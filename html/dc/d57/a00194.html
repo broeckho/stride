@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GenPopController.h File Reference</title>
+<title>Stride Reference Manual: FileSys.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -105,65 +105,52 @@ $(document).ready(function(){initNavTree('dc/d57/a00194.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GenPopController.h File Reference</div>  </div>
+<div class="title">FileSys.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the command line controller.  
+<p>Utilities for interaction with filesystem.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d3f/a00173_source.html">ControlHelper.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d2a/a00195_source.html">FileSys.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/dab/a00319_source.html">util/StringUtils.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;regex&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GenPopController.h:</div>
+Include dependency graph for FileSys.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d5e/a00467.gif" border="0" usemap="#GenPopController_8h" alt=""/></div>
-<map name="GenPopController_8h" id="GenPopController_8h">
-<area shape="rect" id="node2" href="../../d7/d3f/a00173.html" title="Header for the command line controller. " alt="" coords="417,87,538,114"/>
-<area shape="rect" id="node3" href="../../d4/d5b/a00294.html" title="Interface of RnMan. " alt="" coords="354,177,454,203"/>
-<area shape="rect" id="node18" href="../../dd/db3/a00313.html" title="Definition of Stopwatch. " alt="" coords="131,259,255,285"/>
-<area shape="rect" id="node4" href="../../d6/d82/a00293.html" title="Interface of RnPcg. " alt="" coords="736,259,787,285"/>
-<area shape="rect" id="node5" href="../../d4/d6f/a00315.html" title="Miscellaneous string utilities. " alt="" coords="455,333,555,360"/>
-<area shape="rect" id="node19" href="../../d4/db5/a00328.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="111,333,227,360"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d38/a00468.gif" border="0" usemap="#GenPopController_8hdep" alt=""/></div>
-<map name="GenPopController_8hdep" id="GenPopController_8hdep">
-<area shape="rect" id="node2" href="../../dd/df4/a00193.html" title="Header for the command line controller. " alt="" coords="5,80,165,107"/>
-<area shape="rect" id="node3" href="../../d0/d39/a00314.html" title="Main program: command line handling. " alt="" coords="189,80,275,107"/>
+<div class="center"><img src="../../db/d2c/a00466.gif" border="0" usemap="#FileSys_8cpp" alt=""/></div>
+<map name="FileSys_8cpp" id="FileSys_8cpp">
+<area shape="rect" id="node2" href="../../d3/d2a/a00195.html" title="Interface for install directory queries. " alt="" coords="292,87,369,114"/>
+<area shape="rect" id="node7" href="../../de/dab/a00319.html" title="Miscellaneous string utilities. " alt="" coords="677,87,800,114"/>
 </map>
 </div>
 </div>
 <p><a href="../../dc/d57/a00194_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d2a/a00086.html">stride::GenPopController</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls a geo-population generation run initiated with the command line interface (cli).  <a href="../../da/d2a/a00086.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/def/a00359"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/def/a00359.html">stride</a></td></tr>
-<tr class="memdesc:d4/def/a00359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
+<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d3/d30/a00370"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html">stride::util</a></td></tr>
+<tr class="memdesc:d3/d30/a00370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the command line controller. </p>
+<div class="textblock"><p>Utilities for interaction with filesystem. </p>
 
-<p>Definition in file <a class="el" href="../../dc/d57/a00194_source.html">GenPopController.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dc/d57/a00194_source.html">FileSys.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../dc/d57/a00194.html">GenPopController.h</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:25 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dc/d57/a00194.html">FileSys.cpp</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

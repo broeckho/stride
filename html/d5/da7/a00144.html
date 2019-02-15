@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CitiesCSVReader.h File Reference</title>
+<title>Stride Reference Manual: AgeContactProfiles.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -105,72 +105,73 @@ $(document).ready(function(){initNavTree('d5/da7/a00144.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">CitiesCSVReader.h File Reference</div>  </div>
+<div class="title">AgeContactProfiles.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">CitiesReader.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/de9/a00176_source.html">util/CSV.h</a>&quot;</code><br />
+
+<p>Contact profiles stored in simulator.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/dce/a00143_source.html">contact/AgeContactProfile.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d45/a00175_source.html">pool/ContactPoolType.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d82/a00243_source.html">pool/IdSubscriptArray.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CitiesCSVReader.h:</div>
+Include dependency graph for AgeContactProfiles.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dc1/a00388.gif" border="0" usemap="#CitiesCSVReader_8h" alt=""/></div>
-<map name="CitiesCSVReader_8h" id="CitiesCSVReader_8h">
-<area shape="rect" id="node2" href="../../da/ddb/a00145.html" title="CitiesReader.h" alt="" coords="1508,80,1620,107"/>
-<area shape="rect" id="node38" href="../../d5/de9/a00176.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2628,311,2711,338"/>
-<area shape="rect" id="node3" href="../../de/db1/a00197.html" title="gengeopop/GeoGrid.h" alt="" coords="1417,155,1580,181"/>
-<area shape="rect" id="node34" href="../../d1/dd4/a00267.html" title="gengeopop/Location.h" alt="" coords="237,311,401,338"/>
-<area shape="rect" id="node4" href="../../da/de7/a00210.html" title="gengeopop/geo/GeoGridKdTree.h" alt="" coords="1192,229,1424,256"/>
-<area shape="rect" id="node17" href="../../dd/da7/a00168.html" title="Header for the core ContactPool class. " alt="" coords="2087,393,2230,420"/>
-<area shape="rect" id="node24" href="../../d0/dcd/a00280.html" title="Header file for the core Population class. " alt="" coords="1701,229,1830,256"/>
-<area shape="rect" id="node5" href="../../d9/d8d/a00262.html" title="gengeopop/geo/KdTree.h" alt="" coords="1218,311,1398,338"/>
-<area shape="rect" id="node13" href="../../d3/dcc/a00264.html" title="gengeopop/geo/KdTree2DPoint.h" alt="" coords="867,311,1098,338"/>
-<area shape="rect" id="node6" href="../../de/d76/a00134.html" title="gengeopop/geo/AABBox.h" alt="" coords="903,393,1092,420"/>
-<area shape="rect" id="node7" href="../../dc/d6a/a00261.html" title="gengeopop/geo/KdNode.h" alt="" coords="1218,393,1406,420"/>
-<area shape="rect" id="node14" href="../../d8/df1/a00174.html" title="gengeopop/Coordinate.h" alt="" coords="597,393,777,420"/>
-<area shape="rect" id="node18" href="../../d9/d38/a00166.html" title="Header for the ContactLogMode class. " alt="" coords="1937,475,2132,502"/>
-<area shape="rect" id="node20" href="../../d1/d0d/a00171.html" title="Definition of ContactPoolType. " alt="" coords="1692,475,1863,502"/>
-<area shape="rect" id="node25" href="../../de/d53/a00169.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1604,311,1769,338"/>
-<area shape="rect" id="node26" href="../../da/d50/a00301.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1814,393,1986,420"/>
-<area shape="rect" id="node28" href="../../dd/d56/a00274.html" title="Header file for the Person class. " alt="" coords="1473,311,1580,338"/>
-<area shape="rect" id="node29" href="../../d4/d5b/a00294.html" title="Interface of RnMan. " alt="" coords="1793,311,1893,338"/>
-<area shape="rect" id="node39" href="../../d9/d90/a00178.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2893,393,2977,420"/>
-<area shape="rect" id="node40" href="../../d4/d6f/a00315.html" title="Miscellaneous string utilities. " alt="" coords="2994,475,3094,502"/>
-<area shape="rect" id="node48" href="../../d7/d03/a00254.html" title="Interface/Implementation of is_iterator. " alt="" coords="2748,393,2868,420"/>
+<div class="center"><img src="../../db/db9/a00387.gif" border="0" usemap="#AgeContactProfiles_8h" alt=""/></div>
+<map name="AgeContactProfiles_8h" id="AgeContactProfiles_8h">
+<area shape="rect" id="node2" href="../../d7/dce/a00143.html" title="Contact profile. " alt="" coords="739,80,939,107"/>
+<area shape="rect" id="node3" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="355,244,525,271"/>
+<area shape="rect" id="node12" href="../../d6/d82/a00243.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="491,80,659,107"/>
+<area shape="rect" id="node9" href="../../d5/db1/a00140.html" title="Helpers for age. " alt="" coords="1050,162,1137,189"/>
+<area shape="rect" id="node13" href="../../d6/dfb/a00172.html" title="Header for the core ContactPool class. " alt="" coords="106,162,249,189"/>
+<area shape="rect" id="node14" href="../../d5/dcb/a00170.html" title="Header for the ContactLogMode class. " alt="" coords="5,244,200,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/dc9/a00389.gif" border="0" usemap="#CitiesCSVReader_8hdep" alt=""/></div>
-<map name="CitiesCSVReader_8hdep" id="CitiesCSVReader_8hdep">
-<area shape="rect" id="node2" href="../../d7/dce/a00143.html" title="CitiesCSVReader.cpp" alt="" coords="5,80,160,107"/>
-<area shape="rect" id="node3" href="../../de/d25/a00290.html" title="ReaderFactory.cpp" alt="" coords="185,80,322,107"/>
+<div class="center"><img src="../../d9/dc1/a00388.gif" border="0" usemap="#AgeContactProfiles_8hdep" alt=""/></div>
+<map name="AgeContactProfiles_8hdep" id="AgeContactProfiles_8hdep">
+<area shape="rect" id="node2" href="../../d0/da2/a00307.html" title="Header for the Simulator class. " alt="" coords="579,80,638,107"/>
+<area shape="rect" id="node3" href="../../d7/d6e/a00190.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="5,155,151,181"/>
+<area shape="rect" id="node4" href="../../d1/de3/a00306.html" title="Implementation for the Simulator class. " alt="" coords="175,155,250,181"/>
+<area shape="rect" id="node5" href="../../d5/d0f/a00308.html" title="Implementation for the SimBuilder class. " alt="" coords="274,155,391,181"/>
+<area shape="rect" id="node6" href="../../d7/df2/a00312.html" title="Implementation for SimRunner. " alt="" coords="415,155,533,181"/>
+<area shape="rect" id="node7" href="../../dd/db2/a00151.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="556,155,661,181"/>
+<area shape="rect" id="node8" href="../../d0/da7/a00250.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="685,155,847,181"/>
+<area shape="rect" id="node9" href="../../dc/ded/a00252.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="871,155,1013,181"/>
+<area shape="rect" id="node10" href="../../d2/d04/a00281.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1037,155,1199,181"/>
+<area shape="rect" id="node11" href="../../de/dc8/a00325.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1223,155,1397,181"/>
 </map>
 </div>
 </div>
 <p><a href="../../d5/da7/a00144_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dad/a00005.html">gengeopop::CitiesCSVReader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Reader that fills a <a class="el" href="../../db/db2/a00020.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> with the cities found in a CSV input stream.  <a href="../../dd/dad/a00005.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">gengeopop</a></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
+<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a0fdf5666e3837bb714ef0f0c58d65256"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html#a0fdf5666e3837bb714ef0f0c58d65256">stride::AgeContactProfiles</a> = ContactPoolType::IdSubscriptArray&lt; AgeContactProfile &gt;</td></tr>
+<tr class="separator:a0fdf5666e3837bb714ef0f0c58d65256"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Contact profiles stored in simulator. </p>
+
+<p>Definition in file <a class="el" href="../../d5/da7/a00144_source.html">AgeContactProfiles.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d5/da7/a00144.html">CitiesCSVReader.h</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:25 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d5/da7/a00144.html">AgeContactProfiles.h</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

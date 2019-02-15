@@ -1,11 +1,8 @@
 var a00089 =
 [
-    [ "HealthSeeder", "db/dab/a00089.html#a7b4785c0728c9f154aa1426034d6e1b5", null ],
-    [ "Seed", "db/dab/a00089.html#ad6a9061857cee5335745fe5501bcb73d", null ],
-    [ "GetDistribution", "db/dab/a00089.html#a7b240a326b204767217481b3fcc46237", null ],
-    [ "Sample", "db/dab/a00089.html#a562b022d2c7f2836b4400e7d19e1b040", null ],
-    [ "m_distrib_start_symptomatic", "db/dab/a00089.html#a09f22ca66e79edf806a249517ec6ac35", null ],
-    [ "m_distrib_time_asymptomatic", "db/dab/a00089.html#a7f7a12751437479ca8b4188151a5481a", null ],
-    [ "m_distrib_time_infectious", "db/dab/a00089.html#a520743c093005b7ccda658475107f0c2", null ],
-    [ "m_distrib_time_symptomatic", "db/dab/a00089.html#a6d190e53a3a83864d7a40cb78b2188e4", null ]
+    [ "DiseaseSeeder", "db/dab/a00089.html#aec696ec6255d5068b34a911f9a45ffc0", null ],
+    [ "Seed", "db/dab/a00089.html#adc5b1f152367382afe3dade9421357da", null ],
+    [ "Vaccinate", "db/dab/a00089.html#a5eaa1cecfcca6bba3bbb26128527f01d", null ],
+    [ "m_config_pt", "db/dab/a00089.html#a564d8b1346c1160f4e68f3ab8ad0bf8a", null ],
+    [ "m_rn_manager", "db/dab/a00089.html#ae14564932092a52307a91d9c8e942c18", null ]
 ];

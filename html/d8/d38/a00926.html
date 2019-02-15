@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('df/d13/a00085.html','../../');});
+$(document).ready(function(){initNavTree('db/ddf/a00088.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,23 +107,25 @@ $(document).ready(function(){initNavTree('df/d13/a00085.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">stride::DiseaseSeeder Member List</div>  </div>
+<div class="title">stride::DefaultPopBuilder Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../df/d13/a00085.html">stride::DiseaseSeeder</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../db/ddf/a00088.html">stride::DefaultPopBuilder</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d13/a00085.html#aec696ec6255d5068b34a911f9a45ffc0">DiseaseSeeder</a>(const boost::property_tree::ptree &amp;configPt, util::RnMan &amp;rnManager)</td><td class="entry"><a class="el" href="../../df/d13/a00085.html">stride::DiseaseSeeder</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../df/d13/a00085.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a></td><td class="entry"><a class="el" href="../../df/d13/a00085.html">stride::DiseaseSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d13/a00085.html#ae14564932092a52307a91d9c8e942c18">m_rn_manager</a></td><td class="entry"><a class="el" href="../../df/d13/a00085.html">stride::DiseaseSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../df/d13/a00085.html#adc5b1f152367382afe3dade9421357da">Seed</a>(std::shared_ptr&lt; Population &gt; pop)</td><td class="entry"><a class="el" href="../../df/d13/a00085.html">stride::DiseaseSeeder</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d13/a00085.html#a5eaa1cecfcca6bba3bbb26128527f01d">Vaccinate</a>(const std::string &amp;immunityType, const std::string &amp;immunizationProfile, T &amp;immunityPools)</td><td class="entry"><a class="el" href="../../df/d13/a00085.html">stride::DiseaseSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/db1/a00070.html#a52383ef977b079cd3677f2c0eb3d15e0">AbstractPopBuilder</a>(const boost::property_tree::ptree &amp;configPt, util::RnMan &amp;rnManager, std::shared_ptr&lt; spdlog::logger &gt; stride_logger=nullptr)</td><td class="entry"><a class="el" href="../../d2/db1/a00070.html">stride::AbstractPopBuilder</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../db/ddf/a00088.html#a8c1071f808ade6b38dd14a74024e64d4">Build</a>(std::shared_ptr&lt; Population &gt; pop) override</td><td class="entry"><a class="el" href="../../db/ddf/a00088.html">stride::DefaultPopBuilder</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/db1/a00070.html#ae531cd041f5d2a849258039f820f9c9a">m_config_pt</a></td><td class="entry"><a class="el" href="../../d2/db1/a00070.html">stride::AbstractPopBuilder</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d2/db1/a00070.html#a3c0d0ab608a32c5938d832e9cab15cb9">m_rn_manager</a></td><td class="entry"><a class="el" href="../../d2/db1/a00070.html">stride::AbstractPopBuilder</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/db1/a00070.html#a6aa42972b4d340a04b0366af0a889b5e">m_stride_logger</a></td><td class="entry"><a class="el" href="../../d2/db1/a00070.html">stride::AbstractPopBuilder</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../db/ddf/a00088.html#a3738040e683004b9ecefc9ba7608eba4">MakePersons</a>(std::shared_ptr&lt; Population &gt; pop)</td><td class="entry"><a class="el" href="../../db/ddf/a00088.html">stride::DefaultPopBuilder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/db1/a00070.html#a938da421d2a2d203e7cb90ead7b91807">~AbstractPopBuilder</a>()=default</td><td class="entry"><a class="el" href="../../d2/db1/a00070.html">stride::AbstractPopBuilder</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:26 for Stride Reference Manual by
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

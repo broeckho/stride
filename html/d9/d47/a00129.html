@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::viewers::CliViewer Class Reference</title>
+<title>Stride Reference Manual: stride::util::Subject&lt; E &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -107,65 +107,188 @@ $(document).ready(function(){initNavTree('d9/d47/a00129.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d7/d46/a01045.html">List of all members</a>  </div>
+<a href="../../d8/d27/a01043.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::viewers::CliViewer Class Reference</div>  </div>
+<div class="title">stride::util::Subject&lt; E &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Viewer of Simulator for commandline interface.  
+<p>Template for Subject/Observer (or Publish/Subscribe).  
  <a href="../../d9/d47/a00129.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/d4a/a00147_source.html">CliViewer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/de9/a00322_source.html">Subject.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::viewers::CliViewer:</div>
+Inheritance diagram for stride::util::Subject&lt; E &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d17/a01046.gif" border="0" usemap="#stride_1_1viewers_1_1CliViewer_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1viewers_1_1CliViewer_coll__map" id="stride_1_1viewers_1_1CliViewer_coll__map">
+<div class="center"><img src="../../d0/ddd/a01044.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" id="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map">
+<area shape="rect" id="node2" href="../../d9/d47/a00129.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="5,233,187,399"/>
+<area shape="rect" id="node3" href="../../d1/dd6/a00108.html" title="The simulation runner drive simulator throufgh time steps. " alt="" coords="29,448,163,657"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::util::Subject&lt; E &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/d46/a01045.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1Subject_3_01E_01_4_coll__map" id="stride_1_1util_1_1Subject_3_01E_01_4_coll__map">
+<area shape="rect" id="node4" href="../../df/dbb/a00698.html" title="{const void\n||}" alt="" coords="5,145,92,223"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="117,145,261,223"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="285,145,417,223"/>
+<area shape="rect" id="node7" href="../../da/d3a/a00694.html" title="{CallbackType\n||}" alt="" coords="540,293,643,370"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac4fa78f455203ba23ab4442d14822895"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> = E</td></tr>
+<tr class="separator:ac4fa78f455203ba23ab4442d14822895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3face8040dba107d2ddcfc5f766aa58d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> = std::function&lt; void(const <a class="el" href="../../d9/d47/a00129.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;)&gt;</td></tr>
+<tr class="separator:a3face8040dba107d2ddcfc5f766aa58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4ddb15ac567fd751c2be3a9d973d1666"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#a4ddb15ac567fd751c2be3a9d973d1666">CliViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d0/dc2/a00104.html">SimRunner</a> &gt; runner, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
-<tr class="memdesc:a4ddb15ac567fd751c2be3a9d973d1666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cli viewer.  <a href="#a4ddb15ac567fd751c2be3a9d973d1666">More...</a><br /></td></tr>
-<tr class="separator:a4ddb15ac567fd751c2be3a9d973d1666"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#a9f3a2f9efda499fa6a80f3871c7298d7">Update</a> (<a class="el" href="../../dc/d59/a00364.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
-<tr class="memdesc:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a9f3a2f9efda499fa6a80f3871c7298d7">More...</a><br /></td></tr>
-<tr class="separator:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#a4853b1d31d30e83840a9ab9a01d460dd">Subject</a> ()</td></tr>
+<tr class="separator:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#ade16fa2818574a0a42874b5f15b1d3ec">~Subject</a> ()</td></tr>
+<tr class="separator:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#acddc520ab930ec98e120790b91fb8021">Register</a> (const std::shared_ptr&lt; U &gt; &amp;u, <a class="el" href="../../d9/d47/a00129.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> f)</td></tr>
+<tr class="separator:acddc520ab930ec98e120790b91fb8021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#aaa38f379243ec0d27b47b5bd110ebe75">Unregister</a> (const std::shared_ptr&lt; U &gt; &amp;u)</td></tr>
+<tr class="separator:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#a8e0f20cb6cc045cf215f5d5a0963046f">UnregisterAll</a> ()</td></tr>
+<tr class="separator:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9496d626bbde63eb55836f0af402522c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#a9496d626bbde63eb55836f0af402522c">Notify</a> (const <a class="el" href="../../d9/d47/a00129.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;e)</td></tr>
+<tr class="separator:a9496d626bbde63eb55836f0af402522c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:acc77dad91899a0d4183493023e082e9f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#acc77dad91899a0d4183493023e082e9f">m_logger</a></td></tr>
-<tr class="separator:acc77dad91899a0d4183493023e082e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af789850b449fdadcc8572def4a0eb4af"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d0/dc2/a00104.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#af789850b449fdadcc8572def4a0eb4af">m_runner</a></td></tr>
-<tr class="separator:af789850b449fdadcc8572def4a0eb4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::weak_ptr&lt; const void &gt;, <a class="el" href="../../d9/d47/a00129.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt; std::weak_ptr&lt; const void &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html#a3d7c672aaa180fc9b0a8c272639bd821">m_observers</a></td></tr>
+<tr class="separator:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Viewer of Simulator for commandline interface. </p>
+<div class="textblock"><h3>template&lt;typename E&gt;<br />
+class stride::util::Subject&lt; E &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00031">31</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">CliViewer.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4ddb15ac567fd751c2be3a9d973d1666"></a>
+<p>Template for Subject/Observer (or Publish/Subscribe). </p>
+<p>Offers flexibility in defining event types and having customized callbacks. Despite the shared_ptrs in the Register/Unregister, the <a class="el" href="../../d9/d47/a00129.html" title="Template for Subject/Observer (or Publish/Subscribe). ">Subject</a> takes no ownership of the observer object and only stores a weak_ptr. </p>
+
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00037">37</a> of file <a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="ac4fa78f455203ba23ab4442d14822895"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/d47/a00129.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d9/d47/a00129.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> =  E</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00040">40</a> of file <a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3face8040dba107d2ddcfc5f766aa58d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/d47/a00129.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d9/d47/a00129.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> =  std::function&lt;void(const <a class="el" href="../../d9/d47/a00129.html#ac4fa78f455203ba23ab4442d14822895">EventType</a>&amp;)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00041">41</a> of file <a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4853b1d31d30e83840a9ab9a01d460dd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::viewers::CliViewer::CliViewer </td>
+          <td class="memname"><a class="el" href="../../d9/d47/a00129.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d9/d47/a00129.html">Subject</a> </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d0/dc2/a00104.html">SimRunner</a> &gt;&#160;</td>
-          <td class="paramname"><em>runner</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00044">44</a> of file <a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ade16fa2818574a0a42874b5f15b1d3ec"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="../../d9/d47/a00129.html">stride::util::Subject</a>&lt; E &gt;::~<a class="el" href="../../d9/d47/a00129.html">Subject</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00046">46</a> of file <a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="acddc520ab930ec98e120790b91fb8021"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/d47/a00129.html">stride::util::Subject</a>&lt; E &gt;::Register </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>logger</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d9/d47/a00129.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -180,70 +303,119 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Instantiate cli viewer. </p>
-
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00035">35</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">CliViewer.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/db6/a00146_source.html#l00039">Update()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/d47/a00129_a4ddb15ac567fd751c2be3a9d973d1666_cgraph.gif" border="0" usemap="#d9/d47/a00129_a4ddb15ac567fd751c2be3a9d973d1666_cgraph" alt=""/></div>
-<map name="d9/d47/a00129_a4ddb15ac567fd751c2be3a9d973d1666_cgraph" id="d9/d47/a00129_a4ddb15ac567fd751c2be3a9d973d1666_cgraph">
-<area shape="rect" id="node2" href="../../d9/d47/a00129.html#a9f3a2f9efda499fa6a80f3871c7298d7" title="Let viewer perform update. " alt="" coords="232,5,411,47"/>
-</map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00049">49</a> of file <a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9f3a2f9efda499fa6a80f3871c7298d7"></a>
+<a class="anchor" id="aaa38f379243ec0d27b47b5bd110ebe75"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::viewers::CliViewer::Update </td>
+          <td class="memname">void <a class="el" href="../../d9/d47/a00129.html">stride::util::Subject</a>&lt; E &gt;::Unregister </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dc/d59/a00364.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
+          <td class="paramname"><em>u</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Let viewer perform update. </p>
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00055">55</a> of file <a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/db6/a00146_source.html#l00039">39</a> of file <a class="el" href="../../d9/db6/a00146_source.html">CliViewer.cpp</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a8e0f20cb6cc045cf215f5d5a0963046f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/d47/a00129.html">stride::util::Subject</a>&lt; E &gt;::UnregisterAll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="../../d0/d4a/a00147_source.html#l00035">CliViewer()</a>, and <a class="el" href="../../d6/dfb/a00172_source.html#l00118">stride::ControlHelper::RegisterViewers()</a>.</p>
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00060">60</a> of file <a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/de9/a00322_source.html#l00046">stride::util::Subject&lt; stride::sim_event::Id &gt;::~Subject()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d47/a00129_a9f3a2f9efda499fa6a80f3871c7298d7_icgraph.gif" border="0" usemap="#d9/d47/a00129_a9f3a2f9efda499fa6a80f3871c7298d7_icgraph" alt=""/></div>
-<map name="d9/d47/a00129_a9f3a2f9efda499fa6a80f3871c7298d7_icgraph" id="d9/d47/a00129_a9f3a2f9efda499fa6a80f3871c7298d7_icgraph">
-<area shape="rect" id="node2" href="../../d9/d47/a00129.html#a4ddb15ac567fd751c2be3a9d973d1666" title="Instantiate cli viewer. " alt="" coords="232,5,411,47"/>
-<area shape="rect" id="node3" href="../../d9/da4/a00078.html#af0131365a6c658898bf3dd49eead3ed7" title="Register the viewers of the SimRunner. " alt="" coords="244,71,399,112"/>
-<area shape="rect" id="node4" href="../../d5/d1e/a00103.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="459,71,612,112"/>
-<area shape="rect" id="node5" href="../../d0/d39/a00314.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="660,78,715,105"/>
+<div class="center"><img src="../../d9/d47/a00129_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph.gif" border="0" usemap="#d9/d47/a00129_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph" alt=""/></div>
+<map name="d9/d47/a00129_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph" id="d9/d47/a00129_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph">
+<area shape="rect" id="node2" href="../../d9/d47/a00129.html#ade16fa2818574a0a42874b5f15b1d3ec" title="stride::util::Subject\l\&lt; stride::sim_event::\lId \&gt;::~Subject" alt="" coords="195,5,349,61"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
+<a class="anchor" id="a9496d626bbde63eb55836f0af402522c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/d47/a00129.html">stride::util::Subject</a>&lt; E &gt;::Notify </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/d47/a00129.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00062">62</a> of file <a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="acc77dad91899a0d4183493023e082e9f"></a>
+<a class="anchor" id="a3d7c672aaa180fc9b0a8c272639bd821"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::viewers::CliViewer::m_logger</td>
+          <td class="memname">std::map&lt;std::weak_ptr&lt;const void&gt;, <a class="el" href="../../d9/d47/a00129.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt;std::weak_ptr&lt;const void&gt; &gt; &gt; <a class="el" href="../../d9/d47/a00129.html">stride::util::Subject</a>&lt; E &gt;::m_observers</td>
         </tr>
       </table>
   </td>
@@ -253,43 +425,22 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00044">44</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">CliViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00075">75</a> of file <a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/de9/a00322_source.html#l00062">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../de/de9/a00322_source.html#l00049">stride::util::Subject&lt; stride::sim_event::Id &gt;::Register()</a>, <a class="el" href="../../de/de9/a00322_source.html#l00055">stride::util::Subject&lt; stride::sim_event::Id &gt;::Unregister()</a>, and <a class="el" href="../../de/de9/a00322_source.html#l00060">stride::util::Subject&lt; stride::sim_event::Id &gt;::UnregisterAll()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af789850b449fdadcc8572def4a0eb4af"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d0/dc2/a00104.html">SimRunner</a>&gt; stride::viewers::CliViewer::m_runner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00045">45</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">CliViewer.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d0/d4a/a00147_source.html">CliViewer.h</a></li>
-<li><a class="el" href="../../d9/db6/a00146_source.html">CliViewer.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../de/de9/a00322_source.html">util/Subject.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/def/a00359.html">stride</a></li><li class="navelem"><a class="el" href="../../d8/d21/a00368.html">viewers</a></li><li class="navelem"><a class="el" href="../../d9/d47/a00129.html">CliViewer</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d30/a00370.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d47/a00129.html">Subject</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ContactCenter.cpp File Reference</title>
+<title>Stride Reference Manual: CommutesCSVReader.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -105,29 +105,65 @@ $(document).ready(function(){initNavTree('db/d44/a00162.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">ContactCenter.cpp File Reference</div>  </div>
+<div class="title">CommutesCSVReader.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/dae/a00163_source.html">ContactCenter.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/dae/a00163_source.html">CommutesReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d86/a00271_source.html">gengeopop/Location.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d81/a00180_source.html">util/CSV.h</a>&quot;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ContactCenter.cpp:</div>
+Include dependency graph for CommutesCSVReader.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/de7/a00417.gif" border="0" usemap="#ContactCenter_8cpp" alt=""/></div>
-<map name="ContactCenter_8cpp" id="ContactCenter_8cpp">
-<area shape="rect" id="node2" href="../../dd/dae/a00163.html" title="ContactCenter.h" alt="" coords="499,80,626,107"/>
-<area shape="rect" id="node3" href="../../dd/da7/a00168.html" title="Header for the core ContactPool class. " alt="" coords="361,155,503,181"/>
-<area shape="rect" id="node4" href="../../d9/d38/a00166.html" title="Header for the ContactLogMode class. " alt="" coords="5,229,200,256"/>
-<area shape="rect" id="node6" href="../../d1/d0d/a00171.html" title="Definition of ContactPoolType. " alt="" coords="224,229,395,256"/>
+<div class="center"><img src="../../d0/dd6/a00415.gif" border="0" usemap="#CommutesCSVReader_8h" alt=""/></div>
+<map name="CommutesCSVReader_8h" id="CommutesCSVReader_8h">
+<area shape="rect" id="node2" href="../../dd/dae/a00163.html" title="CommutesReader.h" alt="" coords="895,80,1043,107"/>
+<area shape="rect" id="node35" href="../../dd/d86/a00271.html" title="gengeopop/Location.h" alt="" coords="309,311,473,338"/>
+<area shape="rect" id="node38" href="../../d0/d81/a00180.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2570,311,2653,338"/>
+<area shape="rect" id="node3" href="../../dd/de3/a00201.html" title="gengeopop/GeoGrid.h" alt="" coords="967,155,1130,181"/>
+<area shape="rect" id="node4" href="../../d3/dd1/a00214.html" title="gengeopop/geo/GeoGridKdTree.h" alt="" coords="975,229,1207,256"/>
+<area shape="rect" id="node17" href="../../d6/dfb/a00172.html" title="Header for the core ContactPool class. " alt="" coords="1997,393,2140,420"/>
+<area shape="rect" id="node24" href="../../db/dc3/a00284.html" title="Header file for the core Population class. " alt="" coords="1925,229,2055,256"/>
+<area shape="rect" id="node5" href="../../d5/d35/a00266.html" title="gengeopop/geo/KdTree.h" alt="" coords="1237,311,1417,338"/>
+<area shape="rect" id="node13" href="../../db/d12/a00268.html" title="gengeopop/geo/KdTree2DPoint.h" alt="" coords="940,311,1171,338"/>
+<area shape="rect" id="node6" href="../../d4/ddd/a00138.html" title="gengeopop/geo/AABBox.h" alt="" coords="975,393,1165,420"/>
+<area shape="rect" id="node7" href="../../da/d53/a00265.html" title="gengeopop/geo/KdNode.h" alt="" coords="1291,393,1479,420"/>
+<area shape="rect" id="node14" href="../../d9/d90/a00178.html" title="gengeopop/Coordinate.h" alt="" coords="669,393,849,420"/>
+<area shape="rect" id="node18" href="../../d5/dcb/a00170.html" title="Header for the ContactLogMode class. " alt="" coords="2206,475,2401,502"/>
+<area shape="rect" id="node20" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="1830,475,2001,502"/>
+<area shape="rect" id="node25" href="../../d7/d3f/a00173.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2310,311,2475,338"/>
+<area shape="rect" id="node26" href="../../d3/d07/a00305.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2164,393,2336,420"/>
+<area shape="rect" id="node28" href="../../dc/d5d/a00278.html" title="Header file for the Person class. " alt="" coords="1815,393,1922,420"/>
+<area shape="rect" id="node29" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="1867,311,1967,338"/>
+<area shape="rect" id="node39" href="../../d7/d25/a00182.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2815,393,2899,420"/>
+<area shape="rect" id="node40" href="../../de/dab/a00319.html" title="Miscellaneous string utilities. " alt="" coords="3031,475,3131,502"/>
+<area shape="rect" id="node48" href="../../d7/d2f/a00258.html" title="Interface/Implementation of is_iterator. " alt="" coords="2670,393,2790,420"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d15/a00416.gif" border="0" usemap="#CommutesCSVReader_8hdep" alt=""/></div>
+<map name="CommutesCSVReader_8hdep" id="CommutesCSVReader_8hdep">
+<area shape="rect" id="node2" href="../../d6/d7d/a00161.html" title="CommutesCSVReader.cpp" alt="" coords="5,80,196,107"/>
+<area shape="rect" id="node3" href="../../d4/d5b/a00294.html" title="ReaderFactory.cpp" alt="" coords="220,80,357,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../db/d44/a00162_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html">gengeopop::CommutesCSVReader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Reader that fills a <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> with the commute info from CSV file.  <a href="../../df/d86/a00012.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">gengeopop</a></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -135,8 +171,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../db/d44/a00162.html">ContactCenter.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:25 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../db/d44/a00162.html">CommutesCSVReader.h</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

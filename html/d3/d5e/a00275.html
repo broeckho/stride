@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: PersonsFile.cpp File Reference</title>
+<title>Stride Reference Manual: Median.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -105,37 +105,31 @@ $(document).ready(function(){initNavTree('d3/d5e/a00275.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">PersonsFile.cpp File Reference</div>  </div>
+<div class="title">Median.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Implementation of the CasesFile class.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d28/a00276_source.html">PersonsFile.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/dcd/a00280_source.html">pop/Population.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/dd0/a00191_source.html">util/FileSys.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PersonsFile.cpp:</div>
+Include dependency graph for Median.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dad/a00591.gif" border="0" usemap="#PersonsFile_8cpp" alt=""/></div>
-<map name="PersonsFile_8cpp" id="PersonsFile_8cpp">
-<area shape="rect" id="node2" href="../../dc/d28/a00276.html" title="Header for the PersonFile class. " alt="" coords="918,80,1023,107"/>
-<area shape="rect" id="node6" href="../../d0/dcd/a00280.html" title="Header file for the core Population class. " alt="" coords="1469,80,1598,107"/>
-<area shape="rect" id="node45" href="../../d9/dd0/a00191.html" title="Interface for install directory queries. " alt="" coords="1122,162,1222,189"/>
-<area shape="rect" id="node7" href="../../de/d53/a00169.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1531,162,1696,189"/>
-<area shape="rect" id="node21" href="../../da/d50/a00301.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2067,333,2239,360"/>
-<area shape="rect" id="node28" href="../../dd/d56/a00274.html" title="Header file for the Person class. " alt="" coords="1400,162,1507,189"/>
-<area shape="rect" id="node31" href="../../d4/d5b/a00294.html" title="Interface of RnMan. " alt="" coords="794,251,894,278"/>
-<area shape="rect" id="node8" href="../../dd/da7/a00168.html" title="Header for the core ContactPool class. " alt="" coords="1770,333,1913,360"/>
-<area shape="rect" id="node10" href="../../d1/d0d/a00171.html" title="Definition of ContactPoolType. " alt="" coords="1537,408,1708,435"/>
-<area shape="rect" id="node16" href="../../d0/d27/a00239.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1611,251,1779,278"/>
-<area shape="rect" id="node9" href="../../d9/d38/a00166.html" title="Header for the ContactLogMode class. " alt="" coords="1319,408,1513,435"/>
-<area shape="rect" id="node22" href="../../de/dc8/a00325.html" title="Interface/Implementation for SVIterator. " alt="" coords="2372,408,2471,435"/>
-<area shape="rect" id="node29" href="../../dc/d98/a00225.html" title="Header for the Health class. " alt="" coords="1355,251,1485,278"/>
-<area shape="rect" id="node32" href="../../d6/d82/a00293.html" title="Interface of RnPcg. " alt="" coords="827,333,877,360"/>
-<area shape="rect" id="node33" href="../../d4/d6f/a00315.html" title="Miscellaneous string utilities. " alt="" coords="301,408,401,435"/>
+<div class="center"><img src="../../d9/dad/a00591.gif" border="0" usemap="#Median_8h" alt=""/></div>
+<map name="Median_8h" id="Median_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/dec/a00592.gif" border="0" usemap="#Median_8hdep" alt=""/></div>
+<map name="Median_8hdep" id="Median_8hdep">
+<area shape="rect" id="node2" href="../../d5/d42/a00269.html" title="KdTree_def.h" alt="" coords="25,80,128,107"/>
+<area shape="rect" id="node3" href="../../d1/de1/a00213.html" title="GeoGridKdTree.cpp" alt="" coords="5,155,148,181"/>
 </map>
 </div>
 </div>
@@ -143,24 +137,24 @@ Include dependency graph for PersonsFile.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/def/a00359"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/def/a00359.html">stride</a></td></tr>
-<tr class="memdesc:d4/def/a00359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:de/dd7/a00362"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dd7/a00362.html">stride::output</a></td></tr>
-<tr class="memdesc:de/dd7/a00362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br /></td></tr>
+<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">gengeopop::kd</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ac1b3f16cd4479b750a5295e835beed3f"><td class="memTemplParams" colspan="2">template&lt;typename P , std::size_t D&gt; </td></tr>
+<tr class="memitem:ac1b3f16cd4479b750a5295e835beed3f"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html#ac1b3f16cd4479b750a5295e835beed3f">gengeopop::kd::Median</a> (const std::vector&lt; P &gt; &amp;points)</td></tr>
+<tr class="separator:ac1b3f16cd4479b750a5295e835beed3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of the CasesFile class. </p>
-
-<p>Definition in file <a class="el" href="../../d3/d5e/a00275_source.html">PersonsFile.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../d3/d5e/a00275.html">PersonsFile.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:25 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_85ec45ba5dbfef0e83dc7422e96344c4.html">geo</a></li><li class="navelem"><a class="el" href="../../d3/d5e/a00275.html">Median.h</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::detail::pair2data&lt; T, Ptree &gt; Struct Template Reference</title>
+<title>Stride Reference Manual: stride::util::BoxPlotData&lt; T &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -108,55 +108,79 @@ $(document).ready(function(){initNavTree('db/d57/a00112.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../db/d14/a01040.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d7/d06/a01005.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::detail::pair2data&lt; T, Ptree &gt; Struct Template Reference</div>  </div>
+<div class="title">stride::util::BoxPlotData&lt; T &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d6/d7f/a00287_source.html">PtreeUtils.h</a>&gt;</code></p>
+<p><a class="el" href="../../db/d57/a00112.html" title="BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...">BoxPlotData</a> calculates total, minimum, maximum, median, lower and upper quartile of the values in the vector.  
+ <a href="../../db/d57/a00112.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::util::detail::pair2data&lt; T, Ptree &gt;:</div>
+Collaboration diagram for stride::util::BoxPlotData&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d83/a01041.gif" border="0" usemap="#stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_inherit__map" id="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_inherit__map">
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::util::detail::pair2data&lt; T, Ptree &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d56/a01042.gif" border="0" usemap="#stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_coll__map" id="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_coll__map">
+<div class="center"><img src="../../dc/d81/a01006.gif" border="0" usemap="#stride_1_1util_1_1BoxPlotData_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1BoxPlotData_3_01T_01_4_coll__map" id="stride_1_1util_1_1BoxPlotData_3_01T_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af75ac339034526cfb3e419d0f175bf07"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#af75ac339034526cfb3e419d0f175bf07">operator()</a> (const typename Ptree::value_type &amp;pair) const </td></tr>
-<tr class="separator:af75ac339034526cfb3e419d0f175bf07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add3e678e6738fbd9b3f1949f8059388f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#add3e678e6738fbd9b3f1949f8059388f">BoxPlotData</a> ()</td></tr>
+<tr class="separator:add3e678e6738fbd9b3f1949f8059388f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a25162798845f45f11620427e4c7baf6b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../db/d57/a00112.html">BoxPlotData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a25162798845f45f11620427e4c7baf6b">Calculate</a> (const std::vector&lt; T &gt; &amp;data)</td></tr>
+<tr class="separator:a25162798845f45f11620427e4c7baf6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a777b86b3f8efb046dc4de8830c720e45"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a777b86b3f8efb046dc4de8830c720e45">m_total</a></td></tr>
+<tr class="separator:a777b86b3f8efb046dc4de8830c720e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7087ab4e72c5c9a6606d76996bfac882"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a7087ab4e72c5c9a6606d76996bfac882">m_min</a></td></tr>
+<tr class="separator:a7087ab4e72c5c9a6606d76996bfac882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41acae191d30af298e9bac71d430cc41"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a41acae191d30af298e9bac71d430cc41">m_max</a></td></tr>
+<tr class="separator:a41acae191d30af298e9bac71d430cc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9433b5584a47b7cba8c8090f081a2e5c"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a9433b5584a47b7cba8c8090f081a2e5c">m_median</a></td></tr>
+<tr class="separator:a9433b5584a47b7cba8c8090f081a2e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a1a8baaa4280bc35b5e58b5185b8471"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a6a1a8baaa4280bc35b5e58b5185b8471">m_quartile1</a></td></tr>
+<tr class="separator:a6a1a8baaa4280bc35b5e58b5185b8471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca894900d4879cf4841408c85deaf92"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a2ca894900d4879cf4841408c85deaf92">m_quartile3</a></td></tr>
+<tr class="separator:a2ca894900d4879cf4841408c85deaf92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class T, class Ptree&gt;<br />
-struct stride::util::detail::pair2data&lt; T, Ptree &gt;</h3>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+struct stride::util::BoxPlotData&lt; T &gt;</h3>
 
+<p><a class="el" href="../../db/d57/a00112.html" title="BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...">BoxPlotData</a> calculates total, minimum, maximum, median, lower and upper quartile of the values in the vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Datatype for which boxplot data get calculated. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00041">41</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">PtreeUtils.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af75ac339034526cfb3e419d0f175bf07"></a>
+<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00035">35</a> of file <a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="add3e678e6738fbd9b3f1949f8059388f"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T , class Ptree &gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="../../db/d57/a00112.html">stride::util::detail::pair2data</a>&lt; T, Ptree &gt;::operator() </td>
+          <td class="memname"><a class="el" href="../../db/d57/a00112.html">stride::util::BoxPlotData</a>&lt; T &gt;::<a class="el" href="../../db/d57/a00112.html">BoxPlotData</a> </td>
           <td>(</td>
-          <td class="paramtype">const typename Ptree::value_type &amp;&#160;</td>
-          <td class="paramname"><em>pair</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -166,20 +190,146 @@ template&lt;class T , class Ptree &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00043">43</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">PtreeUtils.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00038">38</a> of file <a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a25162798845f45f11620427e4c7baf6b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../db/d57/a00112.html">BoxPlotData</a> <a class="el" href="../../db/d57/a00112.html">stride::util::BoxPlotData</a>&lt; T &gt;::Calculate </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00048">48</a> of file <a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a777b86b3f8efb046dc4de8830c720e45"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../db/d57/a00112.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_total</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00040">40</a> of file <a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7087ab4e72c5c9a6606d76996bfac882"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../db/d57/a00112.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_min</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00041">41</a> of file <a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41acae191d30af298e9bac71d430cc41"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../db/d57/a00112.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_max</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00042">42</a> of file <a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9433b5584a47b7cba8c8090f081a2e5c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../db/d57/a00112.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_median</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00043">43</a> of file <a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a1a8baaa4280bc35b5e58b5185b8471"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../db/d57/a00112.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_quartile1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00044">44</a> of file <a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ca894900d4879cf4841408c85deaf92"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../db/d57/a00112.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_quartile3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00045">45</a> of file <a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../d6/d7f/a00287_source.html">PtreeUtils.h</a></li>
+<li><a class="el" href="../../da/ddb/a00145_source.html">BoxPlotData.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/def/a00359.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/db5/a00365.html">util</a></li><li class="navelem"><a class="el" href="../../d2/d3e/a00366.html">detail</a></li><li class="navelem"><a class="el" href="../../db/d57/a00112.html">pair2data</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d30/a00370.html">util</a></li><li class="navelem"><a class="el" href="../../db/d57/a00112.html">BoxPlotData</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

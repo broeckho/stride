@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Workplace.cpp File Reference</title>
+<title>Stride Reference Manual: TimeStamp.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -105,57 +105,73 @@ $(document).ready(function(){initNavTree('d8/df7/a00331.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Workplace.cpp File Reference</div>  </div>
+<div class="title">TimeStamp.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d50/a00332_source.html">Workplace.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/db1/a00197_source.html">GeoGrid.h</a>&quot;</code><br />
+
+<p>TimeStamp class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;ctime&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Workplace.cpp:</div>
+Include dependency graph for TimeStamp.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d31/a00678.gif" border="0" usemap="#Workplace_8cpp" alt=""/></div>
-<map name="Workplace_8cpp" id="Workplace_8cpp">
-<area shape="rect" id="node2" href="../../dc/d50/a00332.html" title="Workplace.h" alt="" coords="1941,80,2040,107"/>
-<area shape="rect" id="node14" href="../../de/db1/a00197.html" title="GeoGrid.h" alt="" coords="1414,80,1501,107"/>
-<area shape="rect" id="node3" href="../../dd/dae/a00163.html" title="ContactCenter.h" alt="" coords="2010,326,2137,353"/>
-<area shape="rect" id="node4" href="../../dd/da7/a00168.html" title="Header for the core ContactPool class. " alt="" coords="761,415,903,442"/>
-<area shape="rect" id="node5" href="../../d9/d38/a00166.html" title="Header for the ContactLogMode class. " alt="" coords="479,505,673,531"/>
-<area shape="rect" id="node7" href="../../d1/d0d/a00171.html" title="Definition of ContactPoolType. " alt="" coords="957,505,1128,531"/>
-<area shape="rect" id="node15" href="../../da/de7/a00210.html" title="gengeopop/geo/GeoGridKdTree.h" alt="" coords="2445,237,2677,263"/>
-<area shape="rect" id="node26" href="../../d0/dcd/a00280.html" title="Header file for the core Population class. " alt="" coords="1393,155,1522,181"/>
-<area shape="rect" id="node16" href="../../d9/d8d/a00262.html" title="gengeopop/geo/KdTree.h" alt="" coords="2190,326,2370,353"/>
-<area shape="rect" id="node21" href="../../d3/dcc/a00264.html" title="gengeopop/geo/KdTree2DPoint.h" alt="" coords="2657,326,2887,353"/>
-<area shape="rect" id="node17" href="../../de/d76/a00134.html" title="gengeopop/geo/AABBox.h" alt="" coords="2429,415,2619,442"/>
-<area shape="rect" id="node18" href="../../dc/d6a/a00261.html" title="gengeopop/geo/KdNode.h" alt="" coords="2115,415,2303,442"/>
-<area shape="rect" id="node22" href="../../d8/df1/a00174.html" title="gengeopop/Coordinate.h" alt="" coords="2926,415,3106,442"/>
-<area shape="rect" id="node27" href="../../de/d53/a00169.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1024,237,1189,263"/>
-<area shape="rect" id="node33" href="../../da/d50/a00301.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="231,415,403,442"/>
-<area shape="rect" id="node38" href="../../dd/d56/a00274.html" title="Header file for the Person class. " alt="" coords="1404,237,1511,263"/>
-<area shape="rect" id="node41" href="../../d4/d5b/a00294.html" title="Interface of RnMan. " alt="" coords="1609,237,1709,263"/>
-<area shape="rect" id="node28" href="../../d0/d27/a00239.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1023,326,1191,353"/>
-<area shape="rect" id="node34" href="../../de/dc8/a00325.html" title="Interface/Implementation for SVIterator. " alt="" coords="124,505,223,531"/>
-<area shape="rect" id="node39" href="../../dc/d98/a00225.html" title="Header for the Health class. " alt="" coords="1393,326,1522,353"/>
-<area shape="rect" id="node42" href="../../d6/d82/a00293.html" title="Interface of RnPcg. " alt="" coords="1657,415,1708,442"/>
-<area shape="rect" id="node43" href="../../d4/d6f/a00315.html" title="Miscellaneous string utilities. " alt="" coords="1633,505,1733,531"/>
+<div class="center"><img src="../../d5/d39/a00676.gif" border="0" usemap="#TimeStamp_8h" alt=""/></div>
+<map name="TimeStamp_8h" id="TimeStamp_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/de4/a00677.gif" border="0" usemap="#TimeStamp_8hdep" alt=""/></div>
+<map name="TimeStamp_8hdep" id="TimeStamp_8hdep">
+<area shape="rect" id="node2" href="../../d5/de9/a00176.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../d2/d41/a00318.html" title="Main program: command line handling. " alt="" coords="165,80,251,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d8/df7/a00331_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d06/a00131.html">stride::util::TimeStamp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides wall-clock time stamp using the time call.  <a href="../../d7/d06/a00131.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">gengeopop</a></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
+<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d3/d30/a00370"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html">stride::util</a></td></tr>
+<tr class="memdesc:d3/d30/a00370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html#a93f9f2ea967f7688a4ed4ef10852b566">stride::util::operator&lt;&lt;</a> (std::ostream &amp;os, TimeStamp t)</td></tr>
+<tr class="memdesc:a93f9f2ea967f7688a4ed4ef10852b566"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/d06/a00131.html" title="Provides wall-clock time stamp using the time call. ">TimeStamp</a> helper inserts string representation in output stream.  <a href="../../d3/d30/a00370.html#a93f9f2ea967f7688a4ed4ef10852b566">More...</a><br /></td></tr>
+<tr class="separator:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>TimeStamp class. </p>
+
+<p>Definition in file <a class="el" href="../../d8/df7/a00331_source.html">TimeStamp.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d8/df7/a00331.html">Workplace.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d8/df7/a00331.html">TimeStamp.h</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

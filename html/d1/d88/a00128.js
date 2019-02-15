@@ -1,8 +1,16 @@
 var a00128 =
 [
-    [ "ToColonString", "d1/d88/a00128.html#ad6dcc9ca1dfee4746a739175240585ce", null ],
-    [ "ToColonString", "d1/d88/a00128.html#a4289b5e11499452e2d8257c7c4bf1393", null ],
-    [ "ToColonString", "d1/d88/a00128.html#a75cf053eac30cd061369b1b3bc8320e2", null ],
-    [ "ToColonString", "d1/d88/a00128.html#a3257445eaf8975e71bd08d8ed6d8dad8", null ],
-    [ "ToColonString", "d1/d88/a00128.html#a7bc634d3b69e570aa22d04aab7c94823", null ]
+    [ "TClock", "d1/d88/a00128.html#aedbb343fde64ffebcdb371dd862aae7f", null ],
+    [ "Stopwatch", "d1/d88/a00128.html#a925b07b32b747a519b37c549ba7f1531", null ],
+    [ "Start", "d1/d88/a00128.html#acaf0b5f9f645a7dd6420420443de5a96", null ],
+    [ "Stop", "d1/d88/a00128.html#a4b6145f590e94467a0048817f348ac75", null ],
+    [ "Reset", "d1/d88/a00128.html#a45e66e4b53acb9c8f1edb7d5fda4f451", null ],
+    [ "IsRunning", "d1/d88/a00128.html#a6afa0761326b35e675517b6a81ffef1f", null ],
+    [ "GetName", "d1/d88/a00128.html#abcec896fa075fcb4b54b13e4bf1fd088", null ],
+    [ "Get", "d1/d88/a00128.html#afe36cf7e76eb1de8cda4490fc5b41829", null ],
+    [ "ToString", "d1/d88/a00128.html#a1a068a66f6b5db8cf68dabe5a8935f22", null ],
+    [ "m_accumulated", "d1/d88/a00128.html#a765784978119de616443c956d98166c4", null ],
+    [ "m_last_start", "d1/d88/a00128.html#ab9c7ba8e093b3c7d933ed5511d16cde4", null ],
+    [ "m_name", "d1/d88/a00128.html#aa22d2b26b456a8895b2e5c8ce62fe071", null ],
+    [ "m_running", "d1/d88/a00128.html#a20bfb79938c423d71cde68c8d2d42fbb", null ]
 ];

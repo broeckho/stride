@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: K12SchoolGenerator.cpp File Reference</title>
+<title>Stride Reference Manual: InfectorMap.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -105,60 +105,74 @@ $(document).ready(function(){initNavTree('d9/d39/a00257.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">K12SchoolGenerator.cpp File Reference</div>  </div>
+<div class="title">InfectorMap.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d2f/a00258_source.html">K12SchoolGenerator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../db/d53/a00202_source.html">gengeopop/GeoGridConfig.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/def/a00256_source.html">gengeopop/K12School.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d1/dd4/a00267_source.html">gengeopop/Location.h</a>&quot;</code><br />
-<code>#include &lt;trng/discrete_dist.hpp&gt;</code><br />
+
+<p>Header for the InfectorMap.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/dcb/a00170_source.html">contact/ContactLogMode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d04/a00255_source.html">contact/Infector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/def/a00256_source.html">contact/InfectorExec.h</a>&quot;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;tuple&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for K12SchoolGenerator.cpp:</div>
+Include dependency graph for InfectorMap.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/dd2/a00565.gif" border="0" usemap="#K12SchoolGenerator_8cpp" alt=""/></div>
-<map name="K12SchoolGenerator_8cpp" id="K12SchoolGenerator_8cpp">
-<area shape="rect" id="node2" href="../../d7/d2f/a00258.html" title="K12SchoolGenerator.h" alt="" coords="1389,80,1554,107"/>
-<area shape="rect" id="node37" href="../../db/d53/a00202.html" title="gengeopop/GeoGridConfig.h" alt="" coords="615,304,818,331"/>
-<area shape="rect" id="node42" href="../../d0/def/a00256.html" title="gengeopop/K12School.h" alt="" coords="1105,155,1283,181"/>
-<area shape="rect" id="node44" href="../../d1/dd4/a00267.html" title="gengeopop/Location.h" alt="" coords="1708,304,1872,331"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00192.html" title="Generator.h" alt="" coords="1422,155,1521,181"/>
-<area shape="rect" id="node4" href="../../de/db1/a00197.html" title="gengeopop/GeoGrid.h" alt="" coords="1225,229,1387,256"/>
-<area shape="rect" id="node24" href="../../d4/d5b/a00294.html" title="Interface of RnMan. " alt="" coords="1249,386,1349,413"/>
-<area shape="rect" id="node39" href="../../da/d15/a00188.html" title="util/ExcAssert.h" alt="" coords="1206,475,1326,502"/>
-<area shape="rect" id="node5" href="../../da/de7/a00210.html" title="gengeopop/geo/GeoGridKdTree.h" alt="" coords="1198,304,1430,331"/>
-<area shape="rect" id="node6" href="../../dd/da7/a00168.html" title="Header for the core ContactPool class. " alt="" coords="1040,557,1183,584"/>
-<area shape="rect" id="node15" href="../../d0/dcd/a00280.html" title="Header file for the core Population class. " alt="" coords="843,304,972,331"/>
-<area shape="rect" id="node7" href="../../d9/d38/a00166.html" title="Header for the ContactLogMode class. " alt="" coords="866,632,1061,659"/>
-<area shape="rect" id="node9" href="../../d1/d0d/a00171.html" title="Definition of ContactPoolType. " alt="" coords="621,632,791,659"/>
-<area shape="rect" id="node16" href="../../dd/d56/a00274.html" title="Header file for the Person class. " alt="" coords="747,386,854,413"/>
-<area shape="rect" id="node26" href="../../da/d50/a00301.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="301,557,473,584"/>
-<area shape="rect" id="node17" href="../../dc/d98/a00225.html" title="Header for the Health class. " alt="" coords="668,475,797,502"/>
-<area shape="rect" id="node18" href="../../d0/d27/a00239.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="475,475,643,502"/>
-<area shape="rect" id="node25" href="../../d6/d82/a00293.html" title="Interface of RnPcg. " alt="" coords="1402,557,1453,584"/>
-<area shape="rect" id="node27" href="../../de/dc8/a00325.html" title="Interface/Implementation for SVIterator. " alt="" coords="135,632,234,659"/>
-<area shape="rect" id="node40" href="../../da/deb/a00189.html" title="util/Exception.h" alt="" coords="1207,557,1325,584"/>
-<area shape="rect" id="node43" href="../../dd/dae/a00163.html" title="ContactCenter.h" alt="" coords="996,304,1123,331"/>
-<area shape="rect" id="node45" href="../../d8/df1/a00174.html" title="gengeopop/Coordinate.h" alt="" coords="2061,386,2241,413"/>
+<div class="center"><img src="../../dc/dae/a00563.gif" border="0" usemap="#InfectorMap_8h" alt=""/></div>
+<map name="InfectorMap_8h" id="InfectorMap_8h">
+<area shape="rect" id="node2" href="../../d5/dcb/a00170.html" title="Header for the ContactLogMode class. " alt="" coords="37,155,232,181"/>
+<area shape="rect" id="node4" href="../../d4/d04/a00255.html" title="Header for the Infector class. " alt="" coords="491,80,624,107"/>
+<area shape="rect" id="node34" href="../../d0/def/a00256.html" title="Header for the InfectorExec class. " alt="" coords="649,80,813,107"/>
+<area shape="rect" id="node5" href="../../da/d75/a00334.html" title="Header for the TransmissionProfile class. " alt="" coords="480,155,635,181"/>
+<area shape="rect" id="node7" href="../../d0/d4a/a00147.html" title="Header file for the Calendar class. " alt="" coords="307,155,456,181"/>
+<area shape="rect" id="node13" href="../../d7/dce/a00143.html" title="Contact profile. " alt="" coords="659,155,859,181"/>
+<area shape="rect" id="node20" href="../../dd/da7/a00168.html" title="Header for the ContactHandler class. " alt="" coords="883,155,1069,181"/>
+<area shape="rect" id="node14" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="53,393,224,420"/>
+<area shape="rect" id="node18" href="../../d5/db1/a00140.html" title="Helpers for age. " alt="" coords="726,237,813,263"/>
+<area shape="rect" id="node21" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="926,237,1026,263"/>
+<area shape="rect" id="node22" href="../../d3/d4a/a00297.html" title="Interface of RnPcg. " alt="" coords="951,319,1001,345"/>
+<area shape="rect" id="node23" href="../../de/dab/a00319.html" title="Miscellaneous string utilities. " alt="" coords="1121,393,1221,420"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/dc2/a00564.gif" border="0" usemap="#InfectorMap_8hdep" alt=""/></div>
+<map name="InfectorMap_8hdep" id="InfectorMap_8hdep">
+<area shape="rect" id="node2" href="../../d5/d0f/a00308.html" title="Implementation for the SimBuilder class. " alt="" coords="5,80,123,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d9/d39/a00257_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html">stride::InfectorMap</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulator can time step and reveal some of the key data.  <a href="../../d1/d44/a00098.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">gengeopop</a></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
+<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header for the InfectorMap. </p>
+
+<p>Definition in file <a class="el" href="../../d9/d39/a00257_source.html">InfectorMap.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d9/d39/a00257.html">K12SchoolGenerator.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:25 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d9/d39/a00257.html">InfectorMap.h</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

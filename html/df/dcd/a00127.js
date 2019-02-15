@@ -1,8 +1,14 @@
 var a00127 =
 [
-    [ "TimeStamp", "df/dcd/a00127.html#a13a61188e51c4e05d05a91e459c33ffc", null ],
-    [ "ToString", "df/dcd/a00127.html#aea42ff56713aa57c0aafe5efc92f29e5", null ],
-    [ "ToTag", "df/dcd/a00127.html#a5f6eefbc6871a229b1c45dbbd98b41fe", null ],
-    [ "ToTimeT", "df/dcd/a00127.html#aef8a6ec8cb71ef8ed01506fa614e398f", null ],
-    [ "m_tp", "df/dcd/a00127.html#a04acbf03cad1f6a0f62dd3e1128726b6", null ]
+    [ "range_type", "df/dcd/a00127.html#aa697693cf36c60a25c469e21b26cb84f", null ],
+    [ "SliceIndexer", "df/dcd/a00127.html#af2bedaa13b9427b736bfc88bcb974741", null ],
+    [ "Get", "df/dcd/a00127.html#ac63541daeed03c7731fb820005e64f06", null ],
+    [ "Get", "df/dcd/a00127.html#aaa3ea63497e88e0f8673cecd56de8b57", null ],
+    [ "Get", "df/dcd/a00127.html#a7c0b86821b30ab6830b3846231b52b9f", null ],
+    [ "Set", "df/dcd/a00127.html#a773c442bcca2708aa1c1f8a8b5ca347c", null ],
+    [ "Set", "df/dcd/a00127.html#a670eb7b0d4bec5445d5a30ea71384be5", null ],
+    [ "check", "df/dcd/a00127.html#a194f218151d935420737a20c40c27a00", null ],
+    [ "m_map", "df/dcd/a00127.html#ad7137d9d5caad8581de354a750b70403", null ],
+    [ "m_slices", "df/dcd/a00127.html#ab5d8b55d94fc42b0c4644621957e5c87", null ],
+    [ "m_t", "df/dcd/a00127.html#a00a95be5edf914ec430a0890a3c82005", null ]
 ];

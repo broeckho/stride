@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Calendar.cpp File Reference</title>
+<title>Stride Reference Manual: AgeBrackets.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -105,52 +105,60 @@ $(document).ready(function(){initNavTree('d5/d4e/a00141.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Calendar.cpp File Reference</div>  </div>
+<div class="title">AgeBrackets.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Implementation file for the Calendar class.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d82/a00142_source.html">Calendar.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/dd0/a00191_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/json_parser.hpp&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for Calendar.cpp:</div>
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d56/a00384.gif" border="0" usemap="#Calendar_8cpp" alt=""/></div>
-<map name="Calendar_8cpp" id="Calendar_8cpp">
-<area shape="rect" id="node2" href="../../d2/d82/a00142.html" title="Header file for the Calendar class. " alt="" coords="285,87,376,114"/>
-<area shape="rect" id="node9" href="../../d9/dd0/a00191.html" title="Interface for install directory queries. " alt="" coords="673,87,773,114"/>
+<div class="center"><img src="../../da/dee/a00383.gif" border="0" usemap="#AgeBrackets_8hdep" alt=""/></div>
+<map name="AgeBrackets_8hdep" id="AgeBrackets_8hdep">
+<area shape="rect" id="node2" href="../../de/dd2/a00207.html" title="GeoGridConfigBuilder.cpp" alt="" coords="5,80,189,107"/>
+<area shape="rect" id="node3" href="../../d1/db7/a00157.html" title="CollegePopulator.cpp" alt="" coords="214,80,370,107"/>
+<area shape="rect" id="node4" href="../../df/da9/a00263.html" title="K12SchoolPopulator.cpp" alt="" coords="395,80,571,107"/>
+<area shape="rect" id="node5" href="../../d0/d01/a00339.html" title="WorkplacePopulator.cpp" alt="" coords="595,80,768,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d5/d4e/a00141_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d4/def/a00359"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/def/a00359.html">stride</a></td></tr>
-<tr class="memdesc:d4/def/a00359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html">stride::AgeBrackets::DayCare</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d6/d2c/a00072.html" title="DayCare with lower (inclusive) and upper (exclusive) age bracket.. ">DayCare</a> with lower (inclusive) and upper (exclusive) age bracket..  <a href="../../d6/d2c/a00072.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html">stride::AgeBrackets::PreSchool</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Preschool with lower (inclusive) and upper (exclusive) age bracket.  <a href="../../db/db6/a00074.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html">stride::AgeBrackets::K12School</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">K12school with lower (inclusive) and upper (exclusive) age bracket.  <a href="../../d1/d6e/a00073.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html">stride::AgeBrackets::College</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d89/a00071.html" title="College with lower (inclusive) and upper (exclusive) age bracket. ">College</a> with lower (inclusive) and upper (exclusive) age bracket.  <a href="../../d0/d89/a00071.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html">stride::AgeBrackets::Workplace</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d89/a00071.html" title="College with lower (inclusive) and upper (exclusive) age bracket. ">College</a> with lower (inclusive) and upper (exclusive) age bracket.  <a href="../../d9/da5/a00075.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a2259b1e0204b8bba8d1e08a0cf53e235"><td class="memItemLeft" align="right" valign="top">date::year_month_day&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/def/a00359.html#a2259b1e0204b8bba8d1e08a0cf53e235">stride::ConvertFromString</a> (const std::string &amp;day)</td></tr>
-<tr class="separator:a2259b1e0204b8bba8d1e08a0cf53e235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
+<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dc/d59/a00364"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d59/a00364.html">stride::AgeBrackets</a></td></tr>
+<tr class="memdesc:dc/d59/a00364"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dc/d59/a00364.html" title="AgeBrackets that determine participation in type of ContactPool. ">AgeBrackets</a> that determine participation in type of <a class="el" href="../../d1/d51/a00079.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation file for the Calendar class. </p>
-
-<p>Definition in file <a class="el" href="../../d5/d4e/a00141_source.html">Calendar.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">Calendar.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:25 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">AgeBrackets.h</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::is_iterator&lt; T, class &gt; Struct Template Reference</title>
+<title>Stride Reference Manual: stride::util::Exception Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 43b30ec</span>
+   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
    </div>
   </td>
  </tr>
@@ -106,46 +106,83 @@ $(document).ready(function(){initNavTree('d9/d4b/a00117.html','../../');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../d0/d56/a01014.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::is_iterator&lt; T, class &gt; Struct Template Reference</div>  </div>
+<div class="title">stride::util::Exception Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>When it 's not an iterator.  
+<p>Basic exception class: needed to prevent clang-tidy warning "thrown exception type is not nothrow copy constructible".  
  <a href="../../d9/d4b/a00117.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d7/d03/a00254_source.html">is_iterator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/df4/a00193_source.html">Exception.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::util::is_iterator&lt; T, class &gt;:</div>
+Inheritance diagram for stride::util::Exception:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d2b/a01010.gif" border="0" usemap="#stride_1_1util_1_1is__iterator_3_01T_00_01class_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1is__iterator_3_01T_00_01class_01_4_inherit__map" id="stride_1_1util_1_1is__iterator_3_01T_00_01class_01_4_inherit__map">
+<div class="center"><img src="../../d3/ded/a01017.gif" border="0" usemap="#stride_1_1util_1_1Exception_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1util_1_1Exception_inherit__map" id="stride_1_1util_1_1Exception_inherit__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="13,131,152,208"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="27,5,139,83"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for stride::util::is_iterator&lt; T, class &gt;:</div>
+Collaboration diagram for stride::util::Exception:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d36/a01011.gif" border="0" usemap="#stride_1_1util_1_1is__iterator_3_01T_00_01class_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1is__iterator_3_01T_00_01class_01_4_coll__map" id="stride_1_1util_1_1is__iterator_3_01T_00_01class_01_4_coll__map">
+<div class="center"><img src="../../d3/d08/a01018.gif" border="0" usemap="#stride_1_1util_1_1Exception_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1Exception_coll__map" id="stride_1_1util_1_1Exception_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="13,131,152,208"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="27,5,139,83"/>
 </map>
 </div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:afa3f2f4a87be564f7f77fbc8cb64bfe1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d4b/a00117.html#afa3f2f4a87be564f7f77fbc8cb64bfe1">Exception</a> (const std::string &amp;msg)</td></tr>
+<tr class="separator:afa3f2f4a87be564f7f77fbc8cb64bfe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class T, class = void&gt;<br />
-struct stride::util::is_iterator&lt; T, class &gt;</h3>
+<div class="textblock"><p>Basic exception class: needed to prevent clang-tidy warning "thrown exception type is not nothrow copy constructible". </p>
 
-<p>When it 's not an iterator. </p>
+<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00027">27</a> of file <a class="el" href="../../dd/df4/a00193_source.html">Exception.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="afa3f2f4a87be564f7f77fbc8cb64bfe1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::util::Exception::Exception </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d03/a00254_source.html#l00043">43</a> of file <a class="el" href="../../d7/d03/a00254_source.html">is_iterator.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../d7/d03/a00254_source.html">is_iterator.h</a></li>
+<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00030">30</a> of file <a class="el" href="../../dd/df4/a00193_source.html">Exception.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dd/df4/a00193_source.html">Exception.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/def/a00359.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/db5/a00365.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d4b/a00117.html">is_iterator</a></li>
-    <li class="footer">Generated on Wed Feb 13 2019 14:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d30/a00370.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d4b/a00117.html">Exception</a></li>
+    <li class="footer">Generated on Fri Feb 15 2019 21:34:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
