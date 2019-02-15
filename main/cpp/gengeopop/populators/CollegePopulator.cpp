@@ -15,13 +15,13 @@
 
 #include "CollegePopulator.h"
 
+#include "gengeopop/College.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
-#include "gengeopop/College.h"
 #include "gengeopop/Household.h"
 #include "gengeopop/Location.h"
+#include "pool/AgeBrackets.h"
 #include "pool/ContactPool.h"
-#include "pool/PoolConfig.h"
 #include "pop/Person.h"
 #include "util/ExcAssert.h"
 
@@ -78,7 +78,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                         ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
-                                if (PoolConfig::College::HasAge(p->GetAge()) &&
+                                if (AgeBrackets::College::HasAge(p->GetAge()) &&
                                     MakeChoice(geoGridConfig.input.fraction_1826_student)) {
                                         students++;
                                         // this person is a student
@@ -90,8 +90,8 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                                                 // id of the location this person is commuting to
                                                 auto locationId = disCommuting();
                                                 // create list of classes for each highschool at this location
-                                                const auto& highSchools = commutingCollege[locationId]
-                                                                              ->GetContactCentersOfType<College>();
+                                                const auto& highSchools =
+                                                    commutingCollege[locationId]->GetContactCentersOfType<College>();
 
                                                 vector<ContactPool*> contactPools;
                                                 for (const auto& hs : highSchools) {

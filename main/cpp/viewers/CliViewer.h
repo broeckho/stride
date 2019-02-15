@@ -19,7 +19,6 @@
  * Observer for SimEvents for commandline interface usage.
  */
 
-
 #include "sim/event/Id.h"
 
 #include <spdlog/spdlog.h>

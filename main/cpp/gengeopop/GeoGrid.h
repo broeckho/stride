@@ -15,7 +15,6 @@
 
 #pragma once
 
-
 #include "gengeopop/geo/GeoGridKdTree.h"
 #include "pool/ContactPool.h"
 #include "pop/Population.h"

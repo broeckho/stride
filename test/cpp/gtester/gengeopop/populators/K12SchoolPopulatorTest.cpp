@@ -13,14 +13,14 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/populators/K12SchoolPopulator.h"
 #include "createGeogrid.h"
-#include "pool/PoolConfig.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
 #include "gengeopop/Location.h"
-#include "gengeopop/populators/K12SchoolPopulator.h"
+#include "pool/AgeBrackets.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -204,10 +204,11 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
 
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (const auto& p : *household->GetPools()[0]) {
-                        if (PoolConfig::K12School::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(p->GetPoolId(Id::K12School) >= 217 && p->GetPoolId(Id::K12School) <= 291);
+                        const auto k12Id = p->GetPoolId(Id::K12School);
+                        if (AgeBrackets::K12School::HasAge(p->GetAge())) {
+                                EXPECT_TRUE(k12Id >= 217 && k12Id <= 291);
                         } else {
-                                EXPECT_EQ(0, p->GetPoolId(Id::K12School));
+                                EXPECT_EQ(0, k12Id);
                         }
                 }
         }

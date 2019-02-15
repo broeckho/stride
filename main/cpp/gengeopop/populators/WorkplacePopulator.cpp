@@ -20,8 +20,8 @@
 #include "gengeopop/Household.h"
 #include "gengeopop/Location.h"
 #include "gengeopop/Workplace.h"
+#include "pool/AgeBrackets.h"
 #include "pool/ContactPool.h"
-#include "pool/PoolConfig.h"
 #include "util/ExcAssert.h"
 
 #include <trng/uniform_int_dist.hpp>
@@ -74,11 +74,12 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 for (const auto& household : loc->GetContactCentersOfType<Household>()) {
                         auto contactPool = household->GetPools()[0];
                         for (auto p : *contactPool) {
-                                if (PoolConfig::Workplace::HasAge((p->GetAge()))) {
+                                if (AgeBrackets::Workplace::HasAge((p->GetAge()))) {
                                         bool isStudent      = MakeChoice(geoGridConfig.input.fraction_1826_student);
                                         bool isActiveWorker = MakeChoice(geoGridConfig.input.fraction_1865_active);
 
-                                        if ((PoolConfig::College::HasAge(p->GetAge()) && !isStudent) || isActiveWorker) {
+                                        if ((AgeBrackets::College::HasAge(p->GetAge()) && !isStudent) ||
+                                            isActiveWorker) {
                                                 AssignActive(p);
                                         } else {
                                                 // this person has no employment

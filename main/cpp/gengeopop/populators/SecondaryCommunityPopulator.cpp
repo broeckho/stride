@@ -15,8 +15,8 @@
 
 #include "SecondaryCommunityPopulator.h"
 
-#include "gengeopop/Household.h"
 #include "gengeopop/GeoGrid.h"
+#include "gengeopop/Household.h"
 #include "gengeopop/Location.h"
 #include "gengeopop/SecondaryCommunity.h"
 #include "pop/Person.h"

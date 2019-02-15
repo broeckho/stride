@@ -15,11 +15,11 @@
 
 #include "K12SchoolPopulator.h"
 
-#include "pool/PoolConfig.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
 #include "gengeopop/Location.h"
+#include "pool/AgeBrackets.h"
 #include "pop/Person.h"
 
 #include <trng/uniform_int_dist.hpp>
@@ -54,7 +54,7 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                         ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
-                                if (PoolConfig::K12School::HasAge(p->GetAge())) {
+                                if (AgeBrackets::K12School::HasAge(p->GetAge())) {
                                         auto& c = classes[dist()];
                                         c->AddMember(p);
                                         p->SetPoolId(Id::K12School, c->GetId());

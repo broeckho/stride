@@ -35,18 +35,14 @@ class Person
 {
 public:
         /// Default construction (for population vector).
-        Person()
-            : m_age(0.0), m_gender('M'), m_health(), m_id(0), m_is_participant(), m_pool_ids(),
-              m_in_pools()
-        {
-        }
+        Person() : m_age(0.0), m_gender('M'), m_health(), m_id(0), m_is_participant(), m_pool_ids(), m_in_pools() {}
 
         /// Constructor: set the person data.
         Person(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId,
                unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
             : m_age(age), m_gender('M'), m_health(), m_id(id),
-              m_is_participant(false), m_pool_ids{householdId, k12SchoolId, collegeId,
-                                                  workId, primaryCommunityId, secondaryCommunityId},
+              m_is_participant(false), m_pool_ids{householdId, k12SchoolId,        collegeId,
+                                                  workId,      primaryCommunityId, secondaryCommunityId},
               m_in_pools(true)
         {
         }

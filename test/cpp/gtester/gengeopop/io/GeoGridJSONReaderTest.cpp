@@ -169,7 +169,7 @@ void runPeopleTest(const string& filename)
         auto             geoGrid  = getGeoGridForFile(filename, pop.get());
         auto             location = geoGrid->Get(0);
         map<int, string> ids      = {{0, "K12School"}, {1, "Primary Community"}, {2, "Secondary Community"},
-                                {3, "College"}, {4, "Household"}, {5, "Workplace"}};
+                                {3, "College"},   {4, "Household"},         {5, "Workplace"}};
 
         EXPECT_EQ(location->GetID(), 1);
         EXPECT_EQ(location->GetName(), "Bavikhove");

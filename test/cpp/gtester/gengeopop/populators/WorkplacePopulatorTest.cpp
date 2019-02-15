@@ -13,6 +13,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/populators/WorkplacePopulator.h"
 #include "createGeogrid.h"
 #include "gengeopop/College.h"
 #include "gengeopop/GeoGridConfig.h"
@@ -21,8 +22,7 @@
 #include "gengeopop/Location.h"
 #include "gengeopop/Workplace.h"
 #include "gengeopop/populators/CollegePopulator.h"
-#include "gengeopop/populators/WorkplacePopulator.h"
-#include "pool/PoolConfig.h"
+#include "pool/AgeBrackets.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -128,9 +128,9 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Work);
-                        if (PoolConfig::Workplace::HasAge(p->GetAge()) && !PoolConfig::College::HasAge(p->GetAge())) {
+                        if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 325 && workId <= 328);
-                        } else if (PoolConfig::College::HasAge(p->GetAge())) {
+                        } else if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE((workId >= 325 && workId <= 328) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
@@ -142,9 +142,9 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Work);
-                        if (PoolConfig::Workplace::HasAge(p->GetAge()) && !PoolConfig::College::HasAge(p->GetAge())) {
+                        if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 325 && workId <= 328);
-                        } else if (PoolConfig::College::HasAge(p->GetAge())) {
+                        } else if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE((workId >= 325 && workId <= 328) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
@@ -156,10 +156,10 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Work);
-                        if (PoolConfig::Workplace::HasAge(p->GetAge()) && !PoolConfig::College::HasAge(p->GetAge())) {
+                        if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 329 && workId <= 330);
-                        } else if (PoolConfig::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 329 && workId <= 330) ||  workId == 0);
+                        } else if (AgeBrackets::College::HasAge(p->GetAge())) {
+                                EXPECT_TRUE((workId >= 329 && workId <= 330) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -214,9 +214,9 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Work);
-                        if (PoolConfig::Workplace::HasAge(p->GetAge()) && !PoolConfig::College::HasAge(p->GetAge())) {
+                        if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 327 && workId <= 328);
-                        } else if (PoolConfig::College::HasAge(p->GetAge())) {
+                        } else if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE((workId >= 327 && workId <= 328) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
@@ -228,9 +228,9 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Work);
-                        if (PoolConfig::Workplace::HasAge(p->GetAge()) && !PoolConfig::College::HasAge(p->GetAge())) {
+                        if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 325 && workId <= 326);
-                        } else if (PoolConfig::College::HasAge(p->GetAge())) {
+                        } else if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE((workId >= 325 && workId <= 326) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
@@ -293,9 +293,9 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Work);
-                        if (PoolConfig::Workplace::HasAge(p->GetAge()) && !PoolConfig::College::HasAge(p->GetAge())) {
+                        if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 329 && workId <= 330);
-                        } else if (PoolConfig::College::HasAge(p->GetAge())) {
+                        } else if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE((workId >= 329 && workId <= 330) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
@@ -307,9 +307,9 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Work);
-                        if (PoolConfig::Workplace::HasAge(p->GetAge()) && !PoolConfig::College::HasAge(p->GetAge())) {
+                        if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 325 && workId <= 328);
-                        } else if (PoolConfig::College::HasAge(p->GetAge())) {
+                        } else if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE((workId >= 325 && workId <= 328) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
@@ -321,10 +321,10 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Work);
-                        if (PoolConfig::Workplace::HasAge(p->GetAge()) && !PoolConfig::College::HasAge(p->GetAge())) {
+                        if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 327 && workId <= 328);
-                        } else if (PoolConfig::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 327 && workId <= 328) ||  workId == 0);
+                        } else if (AgeBrackets::College::HasAge(p->GetAge())) {
+                                EXPECT_TRUE((workId >= 327 && workId <= 328) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }

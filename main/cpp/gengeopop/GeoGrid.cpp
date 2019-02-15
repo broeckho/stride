@@ -49,7 +49,7 @@ GeoAggregator<Policy> GeoGrid::BuildAggregator(typename Policy::Args&& args) con
 }
 
 GeoGrid::GeoGrid(stride::Population* population)
-        : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
+    : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
 {
 }
 
