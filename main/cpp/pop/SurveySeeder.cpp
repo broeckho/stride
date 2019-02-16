@@ -63,7 +63,7 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                                         logger->info(
                                             "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
                                             p.GetId(), p.GetAge(), p.GetGender(), p.GetPoolId(Id::Household),
-                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College), p.GetPoolId(Id::Work),
+                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College), p.GetPoolId(Id::Workplace),
                                             p.GetHealth().IsSusceptible(), p.GetHealth().IsInfected(),
                                             p.GetHealth().IsInfectious(), p.GetHealth().IsRecovered(),
                                             p.GetHealth().IsImmune(), p.GetHealth().GetStartInfectiousness(),
@@ -72,7 +72,7 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                                             poolSys[Id::Household][p.GetPoolId(Id::Household)].GetSize(),
                                             poolSys[Id::K12School][p.GetPoolId(Id::K12School)].GetSize(),
                                             poolSys[Id::College][p.GetPoolId(Id::College)].GetSize(),
-                                            poolSys[Id::Work][p.GetPoolId(Id::Work)].GetSize(),
+                                            poolSys[Id::Workplace][p.GetPoolId(Id::Workplace)].GetSize(),
                                             poolSys[Id::PrimaryCommunity][p.GetPoolId(Id::PrimaryCommunity)].GetSize(),
                                             poolSys[Id::SecondaryCommunity][p.GetPoolId(Id::SecondaryCommunity)]
                                                 .GetSize());
@@ -80,7 +80,7 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                                         logger->info(
                                             "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
                                             p.GetId(), p.GetAge(), p.GetGender(), p.GetPoolId(Id::Household),
-                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College), p.GetPoolId(Id::Work),
+                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College), p.GetPoolId(Id::Workplace),
                                             p.GetHealth().IsSusceptible(), p.GetHealth().IsInfected(),
                                             p.GetHealth().IsInfectious(), p.GetHealth().IsRecovered(),
                                             p.GetHealth().IsImmune(), p.GetHealth().GetStartInfectiousness(),

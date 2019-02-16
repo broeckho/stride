@@ -160,7 +160,7 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Workplace:
                 result = make_shared<Workplace>(id);
-                typeId = stride::ContactPoolType::Id::Work;
+                typeId = stride::ContactPoolType::Id::Workplace;
                 break;
                 break;
         default: throw runtime_error("No such ContactCenter type");

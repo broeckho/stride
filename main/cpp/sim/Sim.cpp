@@ -101,7 +101,7 @@ void Sim::TimeStep()
                 // Skip pools with id = 0, because it means Not Applicable.
                 const auto thread_num = static_cast<unsigned int>(omp_get_thread_num());
                 for (auto typ : ContactPoolType::IdList) {
-                        if ((typ == ContactPoolType::Id::Work && isWorkOff) ||
+                        if ((typ == ContactPoolType::Id::Workplace && isWorkOff) ||
                             (typ == ContactPoolType::Id::K12School && isSchoolOff) ||
                             (typ == ContactPoolType::Id::College && isSchoolOff)) {
                                 continue;

@@ -90,7 +90,7 @@ void GeoGridProtoWriter::WriteContactCenter(shared_ptr<ContactCenter>           
             {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
             {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
             {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
-            {Id::Work, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+            {Id::Workplace, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
         protoContactCenter->set_id(contactCenter->GetId());
         protoContactCenter->set_type(types[contactCenter->GetContactPoolType()]);

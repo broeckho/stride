@@ -162,9 +162,9 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
         } else if (type == ToString(Id::SecondaryCommunity)) {
                 result = make_shared<SecondaryCommunity>(id);
                 typeId = ContactPoolType::Id::SecondaryCommunity;
-        } else if (type == ToString(Id::Work)) {
+        } else if (type == ToString(Id::Workplace)) {
                 result = make_shared<Workplace>(id);
-                typeId = ContactPoolType::Id::Work;
+                typeId = ContactPoolType::Id::Workplace;
         } else {
                 throw Exception("No such ContactCenter type: " + type);
         }

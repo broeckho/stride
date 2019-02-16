@@ -83,7 +83,7 @@ void CompareContactCenter(shared_ptr<ContactCenter>                    contactCe
             {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
             {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
             {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
-            {Id::Work, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+            {Id::Workplace, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
         EXPECT_EQ(contactCenter->GetId(), protoContactCenter.id());
         EXPECT_EQ(types[contactCenter->GetContactPoolType()], protoContactCenter.type());
@@ -145,7 +145,7 @@ void ComparePerson(const proto::GeoGrid_Person& protoPerson)
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::College)], person->GetPoolId(Id::College));
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::K12School)], person->GetPoolId(Id::K12School));
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::Household)], person->GetPoolId(Id::Household));
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::Work)], person->GetPoolId(Id::Work));
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::Workplace)], person->GetPoolId(Id::Workplace));
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::PrimaryCommunity)],
                   person->GetPoolId(Id::PrimaryCommunity));
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::SecondaryCommunity)],
@@ -205,7 +205,7 @@ shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
 
         const auto workplace = make_shared<Workplace>(5);
         location->AddContactCenter(workplace);
-        const auto workplacePool = new ContactPool(6, Id::Work);
+        const auto workplacePool = new ContactPool(6, Id::Workplace);
         workplace->RegisterPool(workplacePool);
 
         geoGrid->AddLocation(location);

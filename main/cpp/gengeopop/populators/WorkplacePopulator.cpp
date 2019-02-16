@@ -83,7 +83,7 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                                                 AssignActive(p);
                                         } else {
                                                 // this person has no employment
-                                                p->SetPoolId(Id::Work, 0);
+                                                p->SetPoolId(Id::Workplace, 0);
                                                 m_assignedTo0++;
                                         }
                                 }
@@ -129,13 +129,13 @@ void WorkplacePopulator::AssignActive(Person* person)
                 const auto& info = m_workplacesInCity[m_commutingLocations[m_disCommuting()]];
                 const auto  id   = info.second(); // id of the location this person is commuting to
                 info.first[id]->AddMember(person);
-                person->SetPoolId(Id::Work, info.first[id]->GetId());
+                person->SetPoolId(Id::Workplace, info.first[id]->GetId());
                 m_assignedCommuting++;
         } else {
                 // this person is not commuting
                 const auto id = m_distNonCommuting();
                 m_nearByWorkplaces[id]->AddMember(person);
-                person->SetPoolId(Id::Work, m_nearByWorkplaces[id]->GetId());
+                person->SetPoolId(Id::Workplace, m_nearByWorkplaces[id]->GetId());
                 m_assignedNotCommuting++;
         }
 }

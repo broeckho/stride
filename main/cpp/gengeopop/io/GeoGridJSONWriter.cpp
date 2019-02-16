@@ -171,7 +171,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WritePerson(Person* person)
         person_root.put("K12School", person->GetPoolId(Id::K12School));
         person_root.put("College", person->GetPoolId(Id::College));
         person_root.put("Household", person->GetPoolId(Id::Household));
-        person_root.put("Workplace", person->GetPoolId(Id::Work));
+        person_root.put("Workplace", person->GetPoolId(Id::Workplace));
         person_root.put("PrimaryCommunity", person->GetPoolId(Id::PrimaryCommunity));
         person_root.put("SecondaryCommunity", person->GetPoolId(Id::SecondaryCommunity));
         return person_root;
