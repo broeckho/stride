@@ -30,7 +30,7 @@ namespace ContactPoolType {
 using namespace std;
 using boost::to_upper;
 
-bool IsType(const string& s)
+bool IsId(const string& s)
 {
         static map<string, Id> ids{
             make_pair("HOUSEHOLD", Id::Household),
@@ -55,10 +55,10 @@ string ToString(Id c)
             make_pair(Id::PrimaryCommunity, "primary_community"),
             make_pair(Id::SecondaryCommunity, "secondary_community"),
         };
-        return (names.count(c) == 1) ? names[c] : "null";
+        return (names.count(c) == 1) ? names[c] : throw runtime_error("ContactPoolType::ToString> not available:");
 }
 
-Id ToType(const string& s)
+Id ToId(const string& s)
 {
         static map<string, Id> ids{
             make_pair("HOUSEHOLD", Id::Household),
@@ -70,7 +70,7 @@ Id ToType(const string& s)
         };
         string t{s};
         to_upper(t);
-        return (ids.count(t) == 1) ? ids[t] : throw runtime_error("ContactPoolType::ToString> not available:" + t);
+        return (ids.count(t) == 1) ? ids[t] : throw runtime_error("ContactPoolType::ToId> not available:" + t);
 }
 
 } // namespace ContactPoolType
