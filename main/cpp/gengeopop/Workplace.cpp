@@ -23,9 +23,9 @@ namespace gengeopop {
 void Workplace::Fill(const GeoGridConfig& /* geoGridConfig */, const std::shared_ptr<GeoGrid>& geoGrid)
 {
         // TODO CheckThisAlgorithm
-        //for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
-                const auto p = geoGrid->CreateContactPool(stride::ContactPoolType::Id::Work);
-                RegisterPool(p);
+        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
+        const auto p = geoGrid->CreateContactPool(stride::ContactPoolType::Id::Work);
+        RegisterPool(p);
         //}
 }
 

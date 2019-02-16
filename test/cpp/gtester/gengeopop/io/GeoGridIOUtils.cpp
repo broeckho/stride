@@ -78,12 +78,12 @@ void CompareContactCenter(shared_ptr<ContactCenter>                    contactCe
 {
 
         map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
-                {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
-                {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-                {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-                {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
-                {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
-                {Id::Work, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+            {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
+            {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+            {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+            {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
+            {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
+            {Id::Work, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
         EXPECT_EQ(contactCenter->GetId(), protoContactCenter.id());
         EXPECT_EQ(types[contactCenter->GetContactPoolType()], protoContactCenter.type());

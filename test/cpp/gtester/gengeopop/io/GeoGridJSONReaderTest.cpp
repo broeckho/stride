@@ -146,17 +146,17 @@ TEST(GeoGridJSONReaderTest, commutesTest)
 
 TEST(GeoGridJSONReaderTest, contactCentersTest)
 {
-        auto              geoGrid        = getGeoGridForFile("test1.json", Population::Create().get());
-        auto              location       = geoGrid->Get(0);
-        auto              contactCenters = location->GetContactCenters();
+        auto geoGrid        = getGeoGridForFile("test1.json", Population::Create().get());
+        auto location       = geoGrid->Get(0);
+        auto contactCenters = location->GetContactCenters();
 
         using namespace stride::ContactPoolType;
 
-        map<Id, bool> found          = {{Id::K12School, false},
-                                   {Id::PrimaryCommunity, false},
-                                   {Id::College, false},
-                                   {Id::Household, false},
-                                   {Id::Work, false}};
+        map<Id, bool> found = {{Id::K12School, false},
+                               {Id::PrimaryCommunity, false},
+                               {Id::College, false},
+                               {Id::Household, false},
+                               {Id::Work, false}};
 
         for (unsigned int i = 0; i < 5; i++) {
                 EXPECT_FALSE(found[contactCenters[i]->GetContactPoolType()]);
@@ -169,13 +169,13 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
 
 void runPeopleTest(const string& filename)
 {
-        auto             pop      = Population::Create();
-        auto             geoGrid  = getGeoGridForFile(filename, pop.get());
-        auto             location = geoGrid->Get(0);
+        auto pop      = Population::Create();
+        auto geoGrid  = getGeoGridForFile(filename, pop.get());
+        auto location = geoGrid->Get(0);
 
         using namespace stride::ContactPoolType;
 
-        map<int, string> ids      = {{0, "k12school"}, {1, "primary_community"}, {2, "secondary_community"},
+        map<int, string> ids = {{0, "k12school"}, {1, "primary_community"}, {2, "secondary_community"},
                                 {3, "college"},   {4, "household"},         {5, "work"}};
 
         EXPECT_EQ(location->GetID(), 1);

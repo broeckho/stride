@@ -51,11 +51,10 @@ bool Populator::MakeChoice(double fraction)
 }
 
 template <typename T>
-vector<ContactPool*> Populator::GetPoolInIncreasingRadius(const shared_ptr<GeoGrid>&  geoGrid,
-                                                                       const shared_ptr<Location>& start,
-                                                                       double startRadius) const
+vector<ContactPool*> Populator::GetNearbyPools(const shared_ptr<GeoGrid>& geoGrid, const shared_ptr<Location>& start,
+                                               double startRadius) const
 {
-        double                            currentRadius = startRadius;
+        double               currentRadius = startRadius;
         vector<ContactPool*> pools;
 
         while (pools.empty()) {
@@ -73,22 +72,28 @@ vector<ContactPool*> Populator::GetPoolInIncreasingRadius(const shared_ptr<GeoGr
         return pools;
 }
 
-template vector<ContactPool*> Populator::GetPoolInIncreasingRadius<College>(
-    const shared_ptr<GeoGrid>& geoGrid, const shared_ptr<Location>& start, double startRadius) const;
+template vector<ContactPool*> Populator::GetNearbyPools<College>(const shared_ptr<GeoGrid>&  geoGrid,
+                                                                 const shared_ptr<Location>& start,
+                                                                 double                      startRadius) const;
 
-template vector<ContactPool*> Populator::GetPoolInIncreasingRadius<Household>(
-    const shared_ptr<GeoGrid>& geoGrid, const shared_ptr<Location>& start, double startRadius) const;
+template vector<ContactPool*> Populator::GetNearbyPools<Household>(const shared_ptr<GeoGrid>&  geoGrid,
+                                                                   const shared_ptr<Location>& start,
+                                                                   double                      startRadius) const;
 
-template vector<ContactPool*> Populator::GetPoolInIncreasingRadius<K12School>(
-    const shared_ptr<GeoGrid>& geoGrid, const shared_ptr<Location>& start, double startRadius) const;
+template vector<ContactPool*> Populator::GetNearbyPools<K12School>(const shared_ptr<GeoGrid>&  geoGrid,
+                                                                   const shared_ptr<Location>& start,
+                                                                   double                      startRadius) const;
 
-template vector<ContactPool*> Populator::GetPoolInIncreasingRadius<PrimaryCommunity>(
-    const shared_ptr<GeoGrid>& geoGrid, const shared_ptr<Location>& start, double startRadius) const;
+template vector<ContactPool*> Populator::GetNearbyPools<PrimaryCommunity>(const shared_ptr<GeoGrid>&  geoGrid,
+                                                                          const shared_ptr<Location>& start,
+                                                                          double startRadius) const;
 
-template vector<ContactPool*> Populator::GetPoolInIncreasingRadius<SecondaryCommunity>(
-    const shared_ptr<GeoGrid>& geoGrid, const shared_ptr<Location>& start, double startRadius) const;
+template vector<ContactPool*> Populator::GetNearbyPools<SecondaryCommunity>(const shared_ptr<GeoGrid>&  geoGrid,
+                                                                            const shared_ptr<Location>& start,
+                                                                            double startRadius) const;
 
-template vector<ContactPool*> Populator::GetPoolInIncreasingRadius<Workplace>(
-    const shared_ptr<GeoGrid>& geoGrid, const shared_ptr<Location>& start, double startRadius) const;
+template vector<ContactPool*> Populator::GetNearbyPools<Workplace>(const shared_ptr<GeoGrid>&  geoGrid,
+                                                                   const shared_ptr<Location>& start,
+                                                                   double                      startRadius) const;
 
 } // namespace gengeopop

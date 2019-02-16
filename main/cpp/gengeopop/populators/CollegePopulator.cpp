@@ -48,7 +48,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                         continue;
                 }
                 // 1. find all highschools in an area of 10-k*10 km
-                const auto& nearByColleges = GetPoolInIncreasingRadius<College>(geoGrid, loc);
+                const auto& nearByColleges = GetNearbyPools<College>(geoGrid, loc);
 
                 ExcAssert(!nearByColleges.empty(), "No HighSchool found due to invalid input in CollegePopulator");
 

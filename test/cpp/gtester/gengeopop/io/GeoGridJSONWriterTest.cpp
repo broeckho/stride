@@ -24,8 +24,8 @@
 #include "gengeopop/io/GeoGridJSONWriter.h"
 #include "util/FileSys.h"
 
-#include <boost/property_tree/xml_parser.hpp>
 #include <boost/property_tree/json_parser.hpp>
+#include <boost/property_tree/xml_parser.hpp>
 #include <gtest/gtest.h>
 #include <iostream>
 #include <sstream>
@@ -72,11 +72,10 @@ bool compareGeoGrid(shared_ptr<GeoGrid> geoGrid, const string& testname)
         read_json(FileSys::GetTestsDir().string() + "/testdata/GeoGridJSON/" + testname, expected);
         sortTree(expected);
 
-
         ostringstream oss1, oss2;
         boost::property_tree::xml_parser::write_xml(oss1, result);
         boost::property_tree::xml_parser::write_xml(oss2, expected);
-        //return result == expected;
+        // return result == expected;
         return oss1.str() == oss2.str();
 }
 

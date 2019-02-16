@@ -26,8 +26,7 @@ using namespace std;
 using namespace stride::ContactPoolType;
 using namespace boost::property_tree;
 
-AgeContactProfile::AgeContactProfile(Id poolType, const ptree& contactPt)
-    : std::array<double, MaximumAge() + 1>()
+AgeContactProfile::AgeContactProfile(Id poolType, const ptree& contactPt) : std::array<double, MaximumAge() + 1>()
 {
         string typeKey = ContactPoolType::ToString(poolType);
         if (poolType == Id::K12School || poolType == Id::College) {

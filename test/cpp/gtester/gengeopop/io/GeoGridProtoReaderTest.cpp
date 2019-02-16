@@ -50,12 +50,12 @@ void fillContactCenter(const shared_ptr<ContactCenter>&       contactCenter,
         using namespace stride::ContactPoolType;
 
         map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
-                {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
-                {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-                {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-                {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
-                {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
-                {Id::Work, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+            {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
+            {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
+            {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
+            {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
+            {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
+            {Id::Work, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
         protoContactCenter->set_type(types[contactCenter->GetContactPoolType()]);
         protoContactCenter->set_id(contactCenter->GetId());

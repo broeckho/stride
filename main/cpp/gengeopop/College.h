@@ -37,9 +37,6 @@ public:
 
         /// See ContactCenter::GetContactPoolType.
         stride::ContactPoolType::Id GetContactPoolType() const override {return stride::ContactPoolType::Id::College;}
-
-        /// See ContactCenter::GetType.
-        //std::string GetType() const override {return "College";}
 };
 
 } // namespace gengeopop
