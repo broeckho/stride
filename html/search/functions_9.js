@@ -22,6 +22,7 @@ var searchData=
   ['inttodottedstring',['intToDottedString',['../d3/d30/a00370.html#a19fc82f584acd29930d95cb07ddd9e5f',1,'stride::util']]],
   ['isdirectorystring',['IsDirectoryString',['../d8/d87/a00118.html#a33c582aaa9397e6ba22efc14b1a44189',1,'stride::util::FileSys']]],
   ['isholiday',['IsHoliday',['../d1/d09/a00077.html#a9d4a023834f98c6ab8af55bbae7bc6df',1,'stride::Calendar']]],
+  ['isid',['IsId',['../d2/d3e/a00366.html#adc1ca4844221d44411bb9dc5435e533f',1,'stride::ContactPoolType']]],
   ['isimmune',['IsImmune',['../d1/dc1/a00092.html#a7c9caae07db1dd15732f726cec514dc2',1,'stride::Health']]],
   ['isinfected',['IsInfected',['../d1/dc1/a00092.html#aa54f0be8ce25462aaf62847ded75a29d',1,'stride::Health']]],
   ['isinfectious',['IsInfectious',['../d1/dc1/a00092.html#a84c0cb686c22ec8504942b84105eaed2',1,'stride::Health']]],
@@ -35,7 +36,7 @@ var searchData=
   ['issurveyparticipant',['IsSurveyParticipant',['../d9/dcc/a00102.html#a5942b9a4f5226e8810dc8b63fb250f3e',1,'stride::Person']]],
   ['issusceptible',['IsSusceptible',['../d1/dc1/a00092.html#ae2a3b14e79e08a261ca7122afba9b95c',1,'stride::Health']]],
   ['issymptomatic',['IsSymptomatic',['../d1/dc1/a00092.html#aaf92d0eeeee7fac8c98854f4ae5a38ac',1,'stride::Health']]],
-  ['istype',['IsType',['../d2/d3e/a00366.html#a1269217f56908f0da981dbe4e43bb73d',1,'stride::ContactPoolType::IsType()'],['../df/dee/a00369.html#a43c0310b3eef6024b540ffaa5c4c39b2',1,'stride::sim_event::IsType()']]],
+  ['istype',['IsType',['../df/dee/a00369.html#a43c0310b3eef6024b540ffaa5c4c39b2',1,'stride::sim_event']]],
   ['isweekend',['IsWeekend',['../d1/d09/a00077.html#a3569df106b24b3df5bf6836849b150a4',1,'stride::Calendar']]],
   ['isworkoff',['IsWorkOff',['../d2/d1f/a00083.html#a61f87cc93335185f90d9d772f168b1bb',1,'stride::DaysOffAll::IsWorkOff()'],['../df/d5d/a00084.html#a2ae431c15cddca106e2a0753fde99f83',1,'stride::DaysOffInterface::IsWorkOff()'],['../df/d13/a00085.html#a6287fa68ca109373fc9be31f3941079d',1,'stride::DaysOffNone::IsWorkOff()'],['../da/d2a/a00086.html#a633453bbe4892b56891c42a4f4ac72fd',1,'stride::DaysOffSchool::IsWorkOff()'],['../d1/d1e/a00087.html#a5f55ab77243cf483c5c47e8f81bf3b2a',1,'stride::DaysOffStandard::IsWorkOff()']]]
 ];

@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a205e61</span>
+   &#160;<span id="projectnumber">- generated for commit 66e2960</span>
    </div>
   </td>
  </tr>
@@ -206,9 +206,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a8732bc1530832775b6c6738c5331312e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#a8732bc1530832775b6c6738c5331312e">stride::ContactPoolType::IdPack_t</a> = IDPack&lt; Id::Household, Id::K12School, Id::College, Id::Work, Id::PrimaryCommunity, Id::SecondaryCommunity &gt;</td></tr>
-<tr class="memdesc:a8732bc1530832775b6c6738c5331312e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placed separately to please swig and avoid syntax errors there.  <a href="../../d2/d3e/a00366.html#a8732bc1530832775b6c6738c5331312e">More...</a><br /></td></tr>
-<tr class="separator:a8732bc1530832775b6c6738c5331312e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38459c8db7bc4a02e4e3e924b038d080"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#a38459c8db7bc4a02e4e3e924b038d080">stride::ContactPoolType::IdPack_t</a> = IDPack&lt; Id::Household, Id::K12School, Id::College, Id::Workplace, Id::PrimaryCommunity, Id::SecondaryCommunity &gt;</td></tr>
+<tr class="memdesc:a38459c8db7bc4a02e4e3e924b038d080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placed separately to please swig and avoid syntax errors there.  <a href="../../d2/d3e/a00366.html#a38459c8db7bc4a02e4e3e924b038d080">More...</a><br /></td></tr>
+<tr class="separator:a38459c8db7bc4a02e4e3e924b038d080"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -216,7 +216,7 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">stride::ContactPoolType::Id::Household</a> = static_cast&lt;size_t&gt;(0), 
 <a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449abab055a361403830ea4fa7bd1c8519b38e">stride::ContactPoolType::Id::K12School</a>, 
 <a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449aba2806259c227f694c678ec9444aec2042">stride::ContactPoolType::Id::College</a>, 
-<a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">stride::ContactPoolType::Id::Work</a>, 
+<a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449aba45c6a290fcb4fad167ee4b610eeea878">stride::ContactPoolType::Id::Workplace</a>, 
 <br />
 &#160;&#160;<a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">stride::ContactPoolType::Id::PrimaryCommunity</a>, 
 <a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactPoolType::Id::SecondaryCommunity</a>
@@ -230,18 +230,18 @@ Functions</h2></td></tr>
 <tr class="memitem:af724b7d598645a8c1054b66306dee629"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#af724b7d598645a8c1054b66306dee629">stride::ContactPoolType::NumOfTypes</a> ()</td></tr>
 <tr class="memdesc:af724b7d598645a8c1054b66306dee629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of <a class="el" href="../../d1/d51/a00079.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types.  <a href="../../d2/d3e/a00366.html#af724b7d598645a8c1054b66306dee629">More...</a><br /></td></tr>
 <tr class="separator:af724b7d598645a8c1054b66306dee629"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1269217f56908f0da981dbe4e43bb73d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#a1269217f56908f0da981dbe4e43bb73d">stride::ContactPoolType::IsType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a1269217f56908f0da981dbe4e43bb73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="../../d2/d3e/a00366.html#a1269217f56908f0da981dbe4e43bb73d">More...</a><br /></td></tr>
-<tr class="separator:a1269217f56908f0da981dbe4e43bb73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc1ca4844221d44411bb9dc5435e533f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#adc1ca4844221d44411bb9dc5435e533f">stride::ContactPoolType::IsId</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:adc1ca4844221d44411bb9dc5435e533f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="../../d2/d3e/a00366.html#adc1ca4844221d44411bb9dc5435e533f">More...</a><br /></td></tr>
+<tr class="separator:adc1ca4844221d44411bb9dc5435e533f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f23ef5954b0a7b0f0d01b1d434eebc2"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#a9f23ef5954b0a7b0f0d01b1d434eebc2">stride::ContactPoolType::ToId</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a9f23ef5954b0a7b0f0d01b1d434eebc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../d2/d3e/a00366.html#a9f23ef5954b0a7b0f0d01b1d434eebc2">More...</a><br /></td></tr>
+<tr class="separator:a9f23ef5954b0a7b0f0d01b1d434eebc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#ac36d342acc9d969f5de3aa55e95b9fe6">stride::ContactPoolType::ToSizeT</a> (Id id)</td></tr>
 <tr class="memdesc:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="../../d2/d3e/a00366.html#ac36d342acc9d969f5de3aa55e95b9fe6">More...</a><br /></td></tr>
 <tr class="separator:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#a0cf9d3425b406cd76acdc02ef9c0286d">stride::ContactPoolType::ToString</a> (Id w)</td></tr>
 <tr class="memdesc:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="../../d2/d3e/a00366.html#a0cf9d3425b406cd76acdc02ef9c0286d">More...</a><br /></td></tr>
 <tr class="separator:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af529300a78547c29c95b81ad8ac62afe"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#af529300a78547c29c95b81ad8ac62afe">stride::ContactPoolType::ToType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:af529300a78547c29c95b81ad8ac62afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../d2/d3e/a00366.html#af529300a78547c29c95b81ad8ac62afe">More...</a><br /></td></tr>
-<tr class="separator:af529300a78547c29c95b81ad8ac62afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -262,7 +262,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../de/d45/a00175.html">ContactPoolType.h</a></li>
-    <li class="footer">Generated on Sat Feb 16 2019 11:31:41 for Stride Reference Manual by
+    <li class="footer">Generated on Sat Feb 16 2019 13:10:36 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
