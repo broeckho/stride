@@ -175,8 +175,8 @@ void runPeopleTest(const string& filename)
 
         using namespace stride::ContactPoolType;
 
-        map<int, string> ids = {{0, "k12school"}, {1, "primary_community"}, {2, "secondary_community"},
-                                {3, "college"},   {4, "household"},         {5, "work"}};
+        map<int, string> ids = {{0, "K12School"}, {1, "PrimaryCommunity"}, {2, "SecondaryCommunity"},
+                                {3, "College"},   {4, "Household"},         {5, "Workplace"}};
 
         EXPECT_EQ(location->GetID(), 1);
         EXPECT_EQ(location->GetName(), "Bavikhove");

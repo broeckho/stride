@@ -48,14 +48,14 @@ inline constexpr unsigned int NumOfTypes() { return 6U; }
 /// Check whether string is name of a ContactPoolType::Id.
 bool IsId(const std::string& s);
 
+/// Converts a string with name to Id.
+Id ToId(const std::string& s);
+
 /// Cast to size_t for indexing.
 inline constexpr std::size_t ToSizeT(Id id) { return static_cast<std::size_t>(id); }
 
 /// Converts a ContactPoolType::Id value to corresponding name.
 std::string ToString(Id w);
-
-/// Converts a string with name to Id.
-Id ToId(const std::string& s);
 
 /// Keeps all available Ids in a template pack and exposes it as a std::initialize_list
 /// Useful when initializing a IdSubscriptArray with a type that is not default constructible

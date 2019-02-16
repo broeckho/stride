@@ -31,6 +31,14 @@ AgeContactProfile::AgeContactProfile(Id poolType, const ptree& contactPt) : std:
         string typeKey = ContactPoolType::ToString(poolType);
         if (poolType == Id::K12School || poolType == Id::College) {
                 typeKey = "school";
+        } else if (poolType == Id::Household) {
+                typeKey = "household";
+        } else if (poolType == Id::Workplace) {
+                typeKey = "work";
+        } else if (poolType == Id::PrimaryCommunity) {
+                typeKey = "primary_community";
+        } else if (poolType == Id::SecondaryCommunity) {
+                typeKey = "secondary_community";
         }
         const string key{string("matrices.").append(typeKey)};
         unsigned int i = 0U;
