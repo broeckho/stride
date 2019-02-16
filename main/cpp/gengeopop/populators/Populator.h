@@ -54,10 +54,9 @@ public:
         virtual void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig) = 0;
 
 protected:
-        /// Find contactpools in `geoGrid` in an exponentially increasing radius.
-        /// Start at `startRadius`, around `start`; as soon as at least one pool is found,
-        /// all pools within the current radius are returne.
-        /// May return an empty vector when there are no pools to be found.
+        /// Find contactpools in startRadius (in km) around start and, if none are found, double
+        /// the radius and search again until the radius gets infinite. May return an empty vector
+        /// when there are no pools to be found.
         template <typename T>
         std::vector<stride::ContactPool*> GetPoolInIncreasingRadius(const std::shared_ptr<GeoGrid>&  geoGrid,
                                                                     const std::shared_ptr<Location>& start,

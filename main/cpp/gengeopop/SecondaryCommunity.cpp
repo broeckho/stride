@@ -22,9 +22,12 @@ using namespace stride::ContactPoolType;
 
 namespace gengeopop {
 
-void SecondaryCommunity::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
+void SecondaryCommunity::Fill(const GeoGridConfig& /* geoGridConfig */, const std::shared_ptr<GeoGrid>& geoGrid)
 {
-        for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
+        // TODO CheckThisAlgorithm
+        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
+        if (m_pools.empty()) {
+
                 const auto p = geoGrid->CreateContactPool(stride::ContactPoolType::Id::SecondaryCommunity);
                 RegisterPool(p);
         }

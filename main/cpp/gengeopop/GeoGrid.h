@@ -73,7 +73,7 @@ public:
         /// Get the Population associated with this GeoGrid
         stride::Population* GetPopulation() const { return m_population; }
 
-        /// Search for locations in \p radius around \p start.
+        /// Search for locations in \p radius (in km) around \p start.
         std::vector<std::shared_ptr<Location>> LocationsInRadius(std::shared_ptr<Location> start, double radius) const;
 
         /**
