@@ -155,7 +155,7 @@ var searchData=
   ['getpoint',['GetPoint',['../d7/d46/a00002.html#a7ca916aa891f2de3c4d1175e927ee406',1,'gengeopop::kd::BaseNode::GetPoint()'],['../dd/d32/a00041.html#a27eb66747642dce6122ae8725cdf799b',1,'gengeopop::kd::Node::GetPoint()'],['../db/db2/a00020.html#afb1122c92acd35a750235e1a8655eb94',1,'gengeopop::geogrid_detail::KdTree2DPoint::GetPoint()']]],
   ['getpool',['GetPool',['../d1/d51/a00079.html#afb9a65718e51a5afa72e9f34724f1fe0',1,'stride::ContactPool']]],
   ['getpoolid',['GetPoolId',['../d9/dcc/a00102.html#af367cbca887487b367693f344d02048d',1,'stride::Person']]],
-  ['getpoolinincreasingradius',['GetPoolInIncreasingRadius',['../d6/d97/a00045.html#a1be7bb1209785f0df93689d858fcd4b9',1,'gengeopop::Populator']]],
+  ['getpoolinincreasingradius',['GetPoolInIncreasingRadius',['../d6/d97/a00045.html#a02e99dcbcbdf0553da4aeecd9f13b7bd',1,'gengeopop::Populator::GetPoolInIncreasingRadius(const std::shared_ptr&lt; GeoGrid &gt; &amp;geoGrid, const std::shared_ptr&lt; Location &gt; &amp;start, double startRadius=10.0) const '],['../d6/d97/a00045.html#a1412cb55839494d9913cd8056a0fe56e',1,'gengeopop::Populator::GetPoolInIncreasingRadius(const shared_ptr&lt; GeoGrid &gt; &amp;geoGrid, const shared_ptr&lt; Location &gt; &amp;start, double startRadius) const ']]],
   ['getpools',['GetPools',['../d2/de7/a00014.html#ad67010237fe5d85ab860a1312e846efc',1,'gengeopop::ContactCenter']]],
   ['getpopcount',['GetPopCount',['../d6/d42/a00043.html#add06474a5055a3380869bf7a47c83db6',1,'gengeopop::Location']]],
   ['getpopulation',['GetPopulation',['../dd/da2/a00019.html#a7ede98db203b7714f05252f0d605345d',1,'gengeopop::GeoGrid::GetPopulation()'],['../d3/d32/a00105.html#ae0d62bc95008a4974dd9227b5084e161',1,'stride::Sim::GetPopulation()']]],

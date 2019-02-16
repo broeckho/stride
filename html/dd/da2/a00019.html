@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 125f4cd</span>
+   &#160;<span id="projectnumber">- generated for commit a205e61</span>
    </div>
   </td>
  </tr>
@@ -188,7 +188,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a7ede98db203b7714f05252f0d605345d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Population associated with this <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a>.  <a href="#a7ede98db203b7714f05252f0d605345d">More...</a><br /></td></tr>
 <tr class="separator:a7ede98db203b7714f05252f0d605345d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af77a4b12e2aa8b91af325de14cfc3f94"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#af77a4b12e2aa8b91af325de14cfc3f94">LocationsInRadius</a> (std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> &gt; start, <a class="el" href="../../d4/d13/a00377.html">double</a> radius) const </td></tr>
-<tr class="memdesc:af77a4b12e2aa8b91af325de14cfc3f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for locations in <code>radius</code> around <code>start</code>.  <a href="#af77a4b12e2aa8b91af325de14cfc3f94">More...</a><br /></td></tr>
+<tr class="memdesc:af77a4b12e2aa8b91af325de14cfc3f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for locations in <code>radius</code> (in km) around <code>start</code>.  <a href="#af77a4b12e2aa8b91af325de14cfc3f94">More...</a><br /></td></tr>
 <tr class="separator:af77a4b12e2aa8b91af325de14cfc3f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa81befada510ff976164aa9b6808cdb3"><td class="memItemLeft" align="right" valign="top">std::set&lt; std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">Location</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#aa81befada510ff976164aa9b6808cdb3">LocationsInBox</a> (<a class="el" href="../../d4/d13/a00377.html">double</a> long1, <a class="el" href="../../d4/d13/a00377.html">double</a> lat1, <a class="el" href="../../d4/d13/a00377.html">double</a> long2, <a class="el" href="../../d4/d13/a00377.html">double</a> lat2) const </td></tr>
 <tr class="memdesc:aa81befada510ff976164aa9b6808cdb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2, lat2).  <a href="#aa81befada510ff976164aa9b6808cdb3">More...</a><br /></td></tr>
@@ -632,7 +632,7 @@ Here is the call graph for this function:</div>
 <map name="dd/da2/a00019_a7ede98db203b7714f05252f0d605345d_cgraph" id="dd/da2/a00019_a7ede98db203b7714f05252f0d605345d_cgraph">
 <area shape="rect" id="node2" href="../../dd/da2/a00019.html#a962bb9e7e7f0aceab9459c9d2673c81f" title="Build a GeoAggregator with a predefined functor and given args for the Policy. " alt="" coords="208,5,363,47"/>
 <area shape="rect" id="node3" href="../../dd/da2/a00019.html#aa81befada510ff976164aa9b6808cdb3" title="Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2..." alt="" coords="208,136,363,177"/>
-<area shape="rect" id="node6" href="../../dd/da2/a00019.html#af77a4b12e2aa8b91af325de14cfc3f94" title="Search for locations in radius around start. " alt="" coords="208,71,363,112"/>
+<area shape="rect" id="node6" href="../../dd/da2/a00019.html#af77a4b12e2aa8b91af325de14cfc3f94" title="Search for locations in radius (in km) around start. " alt="" coords="208,71,363,112"/>
 <area shape="rect" id="node7" href="../../dd/da2/a00019.html#a5cfb0806c3f008b174ab8c97c11c2650" title="Remove element of GeoGrid. " alt="" coords="208,201,363,243"/>
 <area shape="rect" id="node8" href="../../dd/da2/a00019.html#aeb17950838604a88f5d128905cb8bf9c" title="Gets the K biggest (in population count) locations of this GeoGrid. " alt="" coords="208,267,363,308"/>
 <area shape="rect" id="node4" href="../../dd/da2/a00019.html#aa4c75377c4a4c0376997e0851b68e886" title="&lt; Checks whether the GeoGrid is finalized i.e. certain operations can(not) be used. " alt="" coords="429,73,584,115"/>
@@ -667,7 +667,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Search for locations in <code>radius</code> around <code>start</code>. </p>
+<p>Search for locations in <code>radius</code> (in km) around <code>start</code>. </p>
 
 <p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00100">100</a> of file <a class="el" href="../../d3/db1/a00200_source.html">GeoGrid.cpp</a>.</p>
 
@@ -1201,7 +1201,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="../../dd/da2/a00019_aa4c75377c4a4c0376997e0851b68e886_icgraph.gif" border="0" usemap="#dd/da2/a00019_aa4c75377c4a4c0376997e0851b68e886_icgraph" alt=""/></div>
 <map name="dd/da2/a00019_aa4c75377c4a4c0376997e0851b68e886_icgraph" id="dd/da2/a00019_aa4c75377c4a4c0376997e0851b68e886_icgraph">
 <area shape="rect" id="node2" href="../../dd/da2/a00019.html#aa81befada510ff976164aa9b6808cdb3" title="Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2..." alt="" coords="208,71,363,112"/>
-<area shape="rect" id="node5" href="../../dd/da2/a00019.html#af77a4b12e2aa8b91af325de14cfc3f94" title="Search for locations in radius around start. " alt="" coords="208,5,363,47"/>
+<area shape="rect" id="node5" href="../../dd/da2/a00019.html#af77a4b12e2aa8b91af325de14cfc3f94" title="Search for locations in radius (in km) around start. " alt="" coords="208,5,363,47"/>
 <area shape="rect" id="node6" href="../../dd/da2/a00019.html#ac9ad4de211352b09dfa99ebee6fe86cd" title="Gets current size of Location storage. " alt="" coords="208,136,363,177"/>
 <area shape="rect" id="node3" href="../../dd/da2/a00019.html#a7ede98db203b7714f05252f0d605345d" title="Get the Population associated with this GeoGrid. " alt="" coords="411,5,565,47"/>
 <area shape="rect" id="node4" href="../../dd/da2/a00019.html#a22b2318d0b0cb7382d5c4b74284265f0" title="Gets the location in a rectangle defined by the two Locations. " alt="" coords="411,71,565,112"/>
@@ -1351,7 +1351,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dd/da2/a00019.html">GeoGrid</a></li>
-    <li class="footer">Generated on Fri Feb 15 2019 21:34:51 for Stride Reference Manual by
+    <li class="footer">Generated on Sat Feb 16 2019 11:31:42 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
