@@ -9,5 +9,5 @@ var a00199 =
     [ "PolygonPolicy", "d5/df9/a00044.html", "d5/df9/a00044" ],
     [ "RadianToDegree", "d8/d72/a00199.html#a938f08fc654e93c04d874a884bbd6862", null ],
     [ "DegreeToRadian", "d8/d72/a00199.html#a4bc5cba95de279162ab3741d610bb6dc", null ],
-    [ "MakeCollector", "d8/d72/a00199.html#ac0751c01f18f5876055a60905f544670", null ]
+    [ "MakeCollector", "d8/d72/a00199.html#ad29105dc339e24a7c92af01763abce35", null ]
 ];

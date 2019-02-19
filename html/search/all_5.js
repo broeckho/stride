@@ -20,15 +20,15 @@ var searchData=
   ['defaultpopbuilder',['DefaultPopBuilder',['../d5/d1e/a00103.html#aa79c86f4bdecaefcfc763c2b2f5bee37',1,'stride::Population']]],
   ['defaultpopbuilder_2ecpp',['DefaultPopBuilder.cpp',['../da/d15/a00188.html',1,'']]],
   ['defaultpopbuilder_2eh',['DefaultPopBuilder.h',['../da/deb/a00189.html',1,'']]],
-  ['degreetoradian',['DegreeToRadian',['../db/ddc/a00353.html#a4bc5cba95de279162ab3741d610bb6dc',1,'geoaggregator_detail']]],
+  ['degreetoradian',['DegreeToRadian',['../d7/dfc/a00349.html#a4bc5cba95de279162ab3741d610bb6dc',1,'geoaggregator_detail']]],
   ['descriptor',['descriptor',['../d9/db3/a00066.html#ade88045367aa436965f2067b19e6fc00',1,'proto::GeoGrid_Location_Coordinate::descriptor()'],['../de/de1/a00065.html#a4d5ef41455d9c6403443b5738a834510',1,'proto::GeoGrid_Location_ContactCenter_ContactPool::descriptor()'],['../df/d5f/a00064.html#a5f421c2007309ef9491ebff5ad098a06',1,'proto::GeoGrid_Location_ContactCenter::descriptor()'],['../d1/d6f/a00063.html#a8bbf5f1553e06a50fda0eb2f05120d60',1,'proto::GeoGrid_Location_Commute::descriptor()'],['../df/d03/a00062.html#a9142882adec24247d36610ee120d95f5',1,'proto::GeoGrid_Location::descriptor()'],['../dc/ddf/a00067.html#a626c18e0d4a739ae7da52ba5086ba305',1,'proto::GeoGrid_Person::descriptor()'],['../d4/de8/a00061.html#a91917f97a836a3cd49870ff3eb8f18d5',1,'proto::GeoGrid::descriptor()']]],
-  ['dim',['dim',['../db/db2/a00020.html#ae566d93445cee38c82b6f11cb2967b83',1,'gengeopop::geogrid_detail::KdTree2DPoint']]],
-  ['dimension_5ftype',['dimension_type',['../de/d11/a00021.html',1,'gengeopop::geogrid_detail::KdTree2DPoint']]],
+  ['dim',['dim',['../db/db2/a00020.html#a5cd6fad3bd368bcd6571fbe51f728393',1,'geopop::geogrid_detail::KdTree2DPoint']]],
+  ['dimension_5ftype',['dimension_type',['../de/d11/a00021.html',1,'geopop::geogrid_detail::KdTree2DPoint']]],
   ['dirs',['Dirs',['../df/d6a/a00119.html',1,'stride::util::FileSys']]],
   ['dirs',['Dirs',['../df/d6a/a00119.html#a5c0e642aa05f9c73a9d5edb298b7fa1c',1,'stride::util::FileSys::Dirs']]],
   ['diseaseseeder',['DiseaseSeeder',['../db/dab/a00089.html',1,'stride']]],
   ['diseaseseeder',['DiseaseSeeder',['../db/dab/a00089.html#aec696ec6255d5068b34a911f9a45ffc0',1,'stride::DiseaseSeeder']]],
   ['diseaseseeder_2ecpp',['DiseaseSeeder.cpp',['../d7/d6e/a00190.html',1,'']]],
   ['diseaseseeder_2eh',['DiseaseSeeder.h',['../d9/dd0/a00191.html',1,'']]],
-  ['distance',['Distance',['../db/db2/a00020.html#aa75fa16b3e4daa51fa633f420404cda4',1,'gengeopop::geogrid_detail::KdTree2DPoint']]]
+  ['distance',['Distance',['../db/db2/a00020.html#a1ebd0d0592ea210885f32f110d8ec0de',1,'geopop::geogrid_detail::KdTree2DPoint']]]
 ];

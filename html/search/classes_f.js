@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['secondarycommunity',['SecondaryCommunity',['../d5/de0/a00050.html',1,'gengeopop']]],
-  ['secondarycommunitypopulator',['SecondaryCommunityPopulator',['../d2/d79/a00051.html',1,'gengeopop']]],
+  ['secondarycommunity',['SecondaryCommunity',['../d5/de0/a00050.html',1,'geopop']]],
+  ['secondarycommunitypopulator',['SecondaryCommunityPopulator',['../d2/d79/a00051.html',1,'geopop']]],
   ['segmentedvector',['SegmentedVector',['../d4/d31/a00069.html',1,'stride::util']]],
   ['segmentedvector_3c_20person_20_3e',['SegmentedVector&lt; Person &gt;',['../d4/d31/a00069.html',1,'stride::util']]],
   ['segmentedvector_3c_20stride_3a_3astride_3a_3acontactpool_20_3e',['SegmentedVector&lt; stride::stride::ContactPool &gt;',['../d4/d31/a00069.html',1,'stride::util']]],

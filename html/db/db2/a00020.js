@@ -1,17 +1,17 @@
 var a00020 =
 [
     [ "dimension_type", "de/d11/a00021.html", "de/d11/a00021" ],
-    [ "KdTree2DPoint", "db/db2/a00020.html#aafb7766ec32f7f080fa311e419e502e0", null ],
-    [ "KdTree2DPoint", "db/db2/a00020.html#a7127ac5d1a2081cbc7e17bb6d9c694b3", null ],
-    [ "KdTree2DPoint", "db/db2/a00020.html#a2de1575540bea6768d071c9a6ec0a69d", null ],
-    [ "operator==", "db/db2/a00020.html#a694f7edc1a54dcecfbc3acea5624f54f", null ],
-    [ "Distance", "db/db2/a00020.html#aa75fa16b3e4daa51fa633f420404cda4", null ],
-    [ "Get", "db/db2/a00020.html#af040c18b9147f2c83eaf777b5ea07cb9", null ],
-    [ "GetLocation", "db/db2/a00020.html#a0c0684fe18640f925115acb43469328b", null ],
-    [ "GetPoint", "db/db2/a00020.html#afb1122c92acd35a750235e1a8655eb94", null ],
-    [ "InBox", "db/db2/a00020.html#a8d7d3210e54cbd1f4dbc118a0a271d03", null ],
-    [ "InRadius", "db/db2/a00020.html#ae61ac968dfe63f74e4e9229dd196acdf", null ],
-    [ "dim", "db/db2/a00020.html#ae566d93445cee38c82b6f11cb2967b83", null ],
-    [ "m_pt", "db/db2/a00020.html#ae128784dde1bdeb2dd0c644e611bf689", null ],
-    [ "m_location", "db/db2/a00020.html#ad0b7e4e7e4027435241e5d7df41eaa64", null ]
+    [ "KdTree2DPoint", "db/db2/a00020.html#a0c23d2e5d9a47e4bac15340cad434170", null ],
+    [ "KdTree2DPoint", "db/db2/a00020.html#af909c24891cb670bd60152840cb9482c", null ],
+    [ "KdTree2DPoint", "db/db2/a00020.html#a55c22e6a9bff7fa735d0454aa989ac0a", null ],
+    [ "operator==", "db/db2/a00020.html#afcb91ca4f72cf993137486d3f4868b17", null ],
+    [ "Distance", "db/db2/a00020.html#a1ebd0d0592ea210885f32f110d8ec0de", null ],
+    [ "Get", "db/db2/a00020.html#afc2c02e21d03eaf227d9600d792f6326", null ],
+    [ "GetLocation", "db/db2/a00020.html#a0be4c1fd5d83b476897d860f845a2f24", null ],
+    [ "GetPoint", "db/db2/a00020.html#a3b5330463d70e33c9759a02ab68ffc27", null ],
+    [ "InBox", "db/db2/a00020.html#a95b74e013a8d4d2c6c5366e27fd3d951", null ],
+    [ "InRadius", "db/db2/a00020.html#a6b85c29413257e2c0400e376241e91a3", null ],
+    [ "dim", "db/db2/a00020.html#a5cd6fad3bd368bcd6571fbe51f728393", null ],
+    [ "m_pt", "db/db2/a00020.html#a7511d74a1c191a168bc2661aa430fd1a", null ],
+    [ "m_location", "db/db2/a00020.html#ac3dc4e3803ab3423e3f9a315d53fed99", null ]
 ];

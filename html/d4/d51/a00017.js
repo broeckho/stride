@@ -1,7 +1,7 @@
 var a00017 =
 [
-    [ "GeoAggregator", "d4/d51/a00017.html#aee8c9590a79d4dfa0de73db55ac7594b", null ],
-    [ "operator()", "d4/d51/a00017.html#a3fd67008608ddcd3b2131c239abcce0e", null ],
-    [ "m_policy", "d4/d51/a00017.html#a89019815e01d3fba1670db4042f32994", null ],
-    [ "m_tree", "d4/d51/a00017.html#a7a6e6e847b857e9227d164050a456ea8", null ]
+    [ "GeoAggregator", "d4/d51/a00017.html#a98061f715d7f989acc80177244b9e382", null ],
+    [ "operator()", "d4/d51/a00017.html#a9690fa2f2fd4865dc4fc1f36007cae6c", null ],
+    [ "m_policy", "d4/d51/a00017.html#a8869ab6e0b5648b01be252b664c29c4f", null ],
+    [ "m_tree", "d4/d51/a00017.html#a72d96601581d45ac424d0d5b2ff60a5d", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::ReaderFactory Class Reference</title>
+<title>Stride Reference Manual: geopop::ReaderFactory Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a7f58ae</span>
+   &#160;<span id="projectnumber">- generated for commit bbb9c8d</span>
    </div>
   </td>
  </tr>
@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('d2/dee/a00049.html','../../');});
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="../../d3/d13/a00836.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::ReaderFactory Class Reference</div>  </div>
+<div class="title">geopop::ReaderFactory Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -120,39 +120,39 @@ $(document).ready(function(){initNavTree('d2/dee/a00049.html','../../');});
 
 <p><code>#include &lt;<a class="el" href="../../d9/d5e/a00295_source.html">ReaderFactory.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for gengeopop::ReaderFactory:</div>
+Collaboration diagram for geopop::ReaderFactory:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/de6/a00837.gif" border="0" usemap="#gengeopop_1_1ReaderFactory_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1ReaderFactory_coll__map" id="gengeopop_1_1ReaderFactory_coll__map">
+<div class="center"><img src="../../d1/de6/a00837.gif" border="0" usemap="#geopop_1_1ReaderFactory_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1ReaderFactory_coll__map" id="geopop_1_1ReaderFactory_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a24d5244b10fa2253e4113cdb383c73bc"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d21/a00006.html">CitiesReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#a24d5244b10fa2253e4113cdb383c73bc">CreateCitiesReader</a> (const filesys::path &amp;path)</td></tr>
-<tr class="memdesc:a24d5244b10fa2253e4113cdb383c73bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../de/d21/a00006.html" title="Create an abstract Reader which fills a GeoGrid with the cities found in file. ">CitiesReader</a> based on an absolute Boost Filesystem Path pointing to the input file.  <a href="#a24d5244b10fa2253e4113cdb383c73bc">More...</a><br /></td></tr>
-<tr class="separator:a24d5244b10fa2253e4113cdb383c73bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71469df77ae0bf0426ee00993c41bc06"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d21/a00006.html">CitiesReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#a71469df77ae0bf0426ee00993c41bc06">CreateCitiesReader</a> (const std::string &amp;filename)</td></tr>
-<tr class="memdesc:a71469df77ae0bf0426ee00993c41bc06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../de/d21/a00006.html" title="Create an abstract Reader which fills a GeoGrid with the cities found in file. ">CitiesReader</a> based on the filename of the input file, relative to the data directory.  <a href="#a71469df77ae0bf0426ee00993c41bc06">More...</a><br /></td></tr>
-<tr class="separator:a71469df77ae0bf0426ee00993c41bc06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafc60dfb9e6337c0c57ec46cd9e02d71"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d7/dd4/a00013.html">CommutesReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#aafc60dfb9e6337c0c57ec46cd9e02d71">CreateCommutesReader</a> (const std::string &amp;filename)</td></tr>
-<tr class="memdesc:aafc60dfb9e6337c0c57ec46cd9e02d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d7/dd4/a00013.html" title="Create an abstract Reader that fills a GeoGrid with the commute info from file. ">CommutesReader</a> based on an absolute Boost Filesystem Path pointing to the input file.  <a href="#aafc60dfb9e6337c0c57ec46cd9e02d71">More...</a><br /></td></tr>
-<tr class="separator:aafc60dfb9e6337c0c57ec46cd9e02d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa90c350499ea59b15affb6d3369a6416"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d7/dd4/a00013.html">CommutesReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#aa90c350499ea59b15affb6d3369a6416">CreateCommutesReader</a> (const filesys::path &amp;path)</td></tr>
-<tr class="memdesc:aa90c350499ea59b15affb6d3369a6416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d7/dd4/a00013.html" title="Create an abstract Reader that fills a GeoGrid with the commute info from file. ">CommutesReader</a> based on the filename of the input file, relative to the data directory.  <a href="#aa90c350499ea59b15affb6d3369a6416">More...</a><br /></td></tr>
-<tr class="separator:aa90c350499ea59b15affb6d3369a6416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd1bf47bd92f5bf43cd032da257454b5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d1/dc6/a00037.html">HouseholdReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#afd1bf47bd92f5bf43cd032da257454b5">CreateHouseholdReader</a> (const std::string &amp;filename)</td></tr>
-<tr class="memdesc:afd1bf47bd92f5bf43cd032da257454b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d1/dc6/a00037.html" title="Retrieves the reference Household profiles from file. ">HouseholdReader</a> based on the filename of the input file, relative to the data directory.  <a href="#afd1bf47bd92f5bf43cd032da257454b5">More...</a><br /></td></tr>
-<tr class="separator:afd1bf47bd92f5bf43cd032da257454b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0e5de42fe7b43777a3ea8613be3d234"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d1/dc6/a00037.html">HouseholdReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#ac0e5de42fe7b43777a3ea8613be3d234">CreateHouseholdReader</a> (const filesys::path &amp;path)</td></tr>
-<tr class="memdesc:ac0e5de42fe7b43777a3ea8613be3d234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d1/dc6/a00037.html" title="Retrieves the reference Household profiles from file. ">HouseholdReader</a> based on an absolute Boost Filesystem Path pointing to the input file.  <a href="#ac0e5de42fe7b43777a3ea8613be3d234">More...</a><br /></td></tr>
-<tr class="separator:ac0e5de42fe7b43777a3ea8613be3d234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab486027de7ff84b5aff097192aadb722"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d21/a00006.html">CitiesReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#ab486027de7ff84b5aff097192aadb722">CreateCitiesReader</a> (const filesys::path &amp;path)</td></tr>
+<tr class="memdesc:ab486027de7ff84b5aff097192aadb722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../de/d21/a00006.html" title="Create an abstract Reader which fills a GeoGrid with the cities found in file. ">CitiesReader</a> based on an absolute Boost Filesystem Path pointing to the input file.  <a href="#ab486027de7ff84b5aff097192aadb722">More...</a><br /></td></tr>
+<tr class="separator:ab486027de7ff84b5aff097192aadb722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d68d2fec8d5db2608fa39ccac61a327"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d21/a00006.html">CitiesReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#a0d68d2fec8d5db2608fa39ccac61a327">CreateCitiesReader</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:a0d68d2fec8d5db2608fa39ccac61a327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../de/d21/a00006.html" title="Create an abstract Reader which fills a GeoGrid with the cities found in file. ">CitiesReader</a> based on the filename of the input file, relative to the data directory.  <a href="#a0d68d2fec8d5db2608fa39ccac61a327">More...</a><br /></td></tr>
+<tr class="separator:a0d68d2fec8d5db2608fa39ccac61a327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb99b826e135cac651269f27058c9e81"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d7/dd4/a00013.html">CommutesReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#abb99b826e135cac651269f27058c9e81">CreateCommutesReader</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:abb99b826e135cac651269f27058c9e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d7/dd4/a00013.html" title="Create an abstract Reader that fills a GeoGrid with the commute info from file. ">CommutesReader</a> based on an absolute Boost Filesystem Path pointing to the input file.  <a href="#abb99b826e135cac651269f27058c9e81">More...</a><br /></td></tr>
+<tr class="separator:abb99b826e135cac651269f27058c9e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a885c232a2eb6f42e7f20ee73814742cd"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d7/dd4/a00013.html">CommutesReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#a885c232a2eb6f42e7f20ee73814742cd">CreateCommutesReader</a> (const filesys::path &amp;path)</td></tr>
+<tr class="memdesc:a885c232a2eb6f42e7f20ee73814742cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d7/dd4/a00013.html" title="Create an abstract Reader that fills a GeoGrid with the commute info from file. ">CommutesReader</a> based on the filename of the input file, relative to the data directory.  <a href="#a885c232a2eb6f42e7f20ee73814742cd">More...</a><br /></td></tr>
+<tr class="separator:a885c232a2eb6f42e7f20ee73814742cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8f94fd8f5a9cafc1eff4399e2b3e093"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d1/dc6/a00037.html">HouseholdReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#af8f94fd8f5a9cafc1eff4399e2b3e093">CreateHouseholdReader</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:af8f94fd8f5a9cafc1eff4399e2b3e093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d1/dc6/a00037.html" title="Retrieves the reference Household profiles from file. ">HouseholdReader</a> based on the filename of the input file, relative to the data directory.  <a href="#af8f94fd8f5a9cafc1eff4399e2b3e093">More...</a><br /></td></tr>
+<tr class="separator:af8f94fd8f5a9cafc1eff4399e2b3e093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e221561b2f5d30bc9d512a7022df99f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d1/dc6/a00037.html">HouseholdReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#a9e221561b2f5d30bc9d512a7022df99f">CreateHouseholdReader</a> (const filesys::path &amp;path)</td></tr>
+<tr class="memdesc:a9e221561b2f5d30bc9d512a7022df99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d1/dc6/a00037.html" title="Retrieves the reference Household profiles from file. ">HouseholdReader</a> based on an absolute Boost Filesystem Path pointing to the input file.  <a href="#a9e221561b2f5d30bc9d512a7022df99f">More...</a><br /></td></tr>
+<tr class="separator:a9e221561b2f5d30bc9d512a7022df99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a4ecc10a23c29b7f9fc2986a9464a5eec"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#a4ecc10a23c29b7f9fc2986a9464a5eec">OpenFile</a> (const filesys::path &amp;path) const </td></tr>
-<tr class="memdesc:a4ecc10a23c29b7f9fc2986a9464a5eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an istream based on the provided Boost Filesystem Path.  <a href="#a4ecc10a23c29b7f9fc2986a9464a5eec">More...</a><br /></td></tr>
-<tr class="separator:a4ecc10a23c29b7f9fc2986a9464a5eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5640d5e37dfba459afda320885d9db7"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html#aa5640d5e37dfba459afda320885d9db7">OpenFile</a> (const filesys::path &amp;path) const </td></tr>
+<tr class="memdesc:aa5640d5e37dfba459afda320885d9db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an istream based on the provided Boost Filesystem Path.  <a href="#aa5640d5e37dfba459afda320885d9db7">More...</a><br /></td></tr>
+<tr class="separator:aa5640d5e37dfba459afda320885d9db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A Factory for creating the correct implementation of the different Readers which parse the information needed to construct a <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a>, based on the file extension. </p>
@@ -160,12 +160,12 @@ Private Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00042">42</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">ReaderFactory.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a24d5244b10fa2253e4113cdb383c73bc"></a>
+<a class="anchor" id="ab486027de7ff84b5aff097192aadb722"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../de/d21/a00006.html">CitiesReader</a> &gt; gengeopop::ReaderFactory::CreateCitiesReader </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../de/d21/a00006.html">CitiesReader</a> &gt; geopop::ReaderFactory::CreateCitiesReader </td>
           <td>(</td>
           <td class="paramtype">const filesys::path &amp;&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
@@ -178,26 +178,26 @@ Private Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00036">36</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">ReaderFactory.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00047">gengeopop::GeoGridBuilder::GenCities()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00047">geopop::GeoGridBuilder::GenCities()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/dee/a00049_a24d5244b10fa2253e4113cdb383c73bc_icgraph.gif" border="0" usemap="#d2/dee/a00049_a24d5244b10fa2253e4113cdb383c73bc_icgraph" alt=""/></div>
-<map name="d2/dee/a00049_a24d5244b10fa2253e4113cdb383c73bc_icgraph" id="d2/dee/a00049_a24d5244b10fa2253e4113cdb383c73bc_icgraph">
-<area shape="rect" id="node2" href="../../d7/de0/a00022.html#aec3baf65c7bf6aa935c4e299019b7e22" title="Reads the data files. " alt="" coords="245,5,444,47"/>
+<div class="center"><img src="../../d2/dee/a00049_ab486027de7ff84b5aff097192aadb722_icgraph.gif" border="0" usemap="#d2/dee/a00049_ab486027de7ff84b5aff097192aadb722_icgraph" alt=""/></div>
+<map name="d2/dee/a00049_ab486027de7ff84b5aff097192aadb722_icgraph" id="d2/dee/a00049_ab486027de7ff84b5aff097192aadb722_icgraph">
+<area shape="rect" id="node2" href="../../d7/de0/a00022.html#a728ed3c87cb4894771d8e5776a7333c7" title="Reads the data files. " alt="" coords="221,5,396,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a71469df77ae0bf0426ee00993c41bc06"></a>
+<a class="anchor" id="a0d68d2fec8d5db2608fa39ccac61a327"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../de/d21/a00006.html">CitiesReader</a> &gt; gengeopop::ReaderFactory::CreateCitiesReader </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../de/d21/a00006.html">CitiesReader</a> &gt; geopop::ReaderFactory::CreateCitiesReader </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
@@ -215,22 +215,22 @@ Here is the caller graph for this function:</div>
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/dee/a00049_a71469df77ae0bf0426ee00993c41bc06_cgraph.gif" border="0" usemap="#d2/dee/a00049_a71469df77ae0bf0426ee00993c41bc06_cgraph" alt=""/></div>
-<map name="d2/dee/a00049_a71469df77ae0bf0426ee00993c41bc06_cgraph" id="d2/dee/a00049_a71469df77ae0bf0426ee00993c41bc06_cgraph">
-<area shape="rect" id="node2" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="245,5,381,47"/>
-<area shape="rect" id="node3" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="429,13,596,39"/>
+<div class="center"><img src="../../d2/dee/a00049_a0d68d2fec8d5db2608fa39ccac61a327_cgraph.gif" border="0" usemap="#d2/dee/a00049_a0d68d2fec8d5db2608fa39ccac61a327_cgraph" alt=""/></div>
+<map name="d2/dee/a00049_a0d68d2fec8d5db2608fa39ccac61a327_cgraph" id="d2/dee/a00049_a0d68d2fec8d5db2608fa39ccac61a327_cgraph">
+<area shape="rect" id="node2" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="221,5,357,47"/>
+<area shape="rect" id="node3" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="405,13,572,39"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aafc60dfb9e6337c0c57ec46cd9e02d71"></a>
+<a class="anchor" id="abb99b826e135cac651269f27058c9e81"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d7/dd4/a00013.html">CommutesReader</a> &gt; gengeopop::ReaderFactory::CreateCommutesReader </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d7/dd4/a00013.html">CommutesReader</a> &gt; geopop::ReaderFactory::CreateCommutesReader </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
@@ -248,22 +248,22 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/dee/a00049_aafc60dfb9e6337c0c57ec46cd9e02d71_cgraph.gif" border="0" usemap="#d2/dee/a00049_aafc60dfb9e6337c0c57ec46cd9e02d71_cgraph" alt=""/></div>
-<map name="d2/dee/a00049_aafc60dfb9e6337c0c57ec46cd9e02d71_cgraph" id="d2/dee/a00049_aafc60dfb9e6337c0c57ec46cd9e02d71_cgraph">
-<area shape="rect" id="node2" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="245,5,381,47"/>
-<area shape="rect" id="node3" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="429,13,596,39"/>
+<div class="center"><img src="../../d2/dee/a00049_abb99b826e135cac651269f27058c9e81_cgraph.gif" border="0" usemap="#d2/dee/a00049_abb99b826e135cac651269f27058c9e81_cgraph" alt=""/></div>
+<map name="d2/dee/a00049_abb99b826e135cac651269f27058c9e81_cgraph" id="d2/dee/a00049_abb99b826e135cac651269f27058c9e81_cgraph">
+<area shape="rect" id="node2" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="241,5,377,47"/>
+<area shape="rect" id="node3" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="425,13,592,39"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aa90c350499ea59b15affb6d3369a6416"></a>
+<a class="anchor" id="a885c232a2eb6f42e7f20ee73814742cd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d7/dd4/a00013.html">CommutesReader</a> &gt; gengeopop::ReaderFactory::CreateCommutesReader </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../d7/dd4/a00013.html">CommutesReader</a> &gt; geopop::ReaderFactory::CreateCommutesReader </td>
           <td>(</td>
           <td class="paramtype">const filesys::path &amp;&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
@@ -278,12 +278,12 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="afd1bf47bd92f5bf43cd032da257454b5"></a>
+<a class="anchor" id="af8f94fd8f5a9cafc1eff4399e2b3e093"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d1/dc6/a00037.html">HouseholdReader</a> &gt; gengeopop::ReaderFactory::CreateHouseholdReader </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d1/dc6/a00037.html">HouseholdReader</a> &gt; geopop::ReaderFactory::CreateHouseholdReader </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
@@ -298,15 +298,15 @@ Here is the call graph for this function:</div>
 
 <p>References <a class="el" href="../../d3/d2a/a00195_source.html#l00088">stride::util::FileSys::GetDataDir()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/dd2/a00207_source.html#l00029">gengeopop::GeoGridConfigBuilder::SetData()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/dd2/a00207_source.html#l00029">geopop::GeoGridConfigBuilder::SetData()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/dee/a00049_afd1bf47bd92f5bf43cd032da257454b5_cgraph.gif" border="0" usemap="#d2/dee/a00049_afd1bf47bd92f5bf43cd032da257454b5_cgraph" alt=""/></div>
-<map name="d2/dee/a00049_afd1bf47bd92f5bf43cd032da257454b5_cgraph" id="d2/dee/a00049_afd1bf47bd92f5bf43cd032da257454b5_cgraph">
-<area shape="rect" id="node2" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="245,5,381,47"/>
-<area shape="rect" id="node3" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="429,13,596,39"/>
+<div class="center"><img src="../../d2/dee/a00049_af8f94fd8f5a9cafc1eff4399e2b3e093_cgraph.gif" border="0" usemap="#d2/dee/a00049_af8f94fd8f5a9cafc1eff4399e2b3e093_cgraph" alt=""/></div>
+<map name="d2/dee/a00049_af8f94fd8f5a9cafc1eff4399e2b3e093_cgraph" id="d2/dee/a00049_af8f94fd8f5a9cafc1eff4399e2b3e093_cgraph">
+<area shape="rect" id="node2" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="239,5,375,47"/>
+<area shape="rect" id="node3" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="423,13,589,39"/>
 </map>
 </div>
 </p>
@@ -314,25 +314,25 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/dee/a00049_afd1bf47bd92f5bf43cd032da257454b5_icgraph.gif" border="0" usemap="#d2/dee/a00049_afd1bf47bd92f5bf43cd032da257454b5_icgraph" alt=""/></div>
-<map name="d2/dee/a00049_afd1bf47bd92f5bf43cd032da257454b5_icgraph" id="d2/dee/a00049_afd1bf47bd92f5bf43cd032da257454b5_icgraph">
-<area shape="rect" id="node2" href="../../dc/de2/a00024.html#ab0b18c9d348a5708451cbb00c7be3ae8" title="Reads the househould data file, parse it and set data. " alt="" coords="245,39,440,80"/>
-<area shape="rect" id="node3" href="../../da/d82/a00091.html#a23493e205a9a22922b1511b80e64bc1e" title="Generates a synthetic population. " alt="" coords="488,39,648,80"/>
-<area shape="rect" id="node4" href="../../d9/dec/a00090.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="696,5,875,47"/>
-<area shape="rect" id="node6" href="../../d5/d1e/a00103.html#a3ea6a845fa96476b523c3d09d8526c68" title="Create a population initialized by the configuration in property tree. " alt="" coords="719,71,852,112"/>
-<area shape="rect" id="node5" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="923,13,977,39"/>
+<div class="center"><img src="../../d2/dee/a00049_af8f94fd8f5a9cafc1eff4399e2b3e093_icgraph.gif" border="0" usemap="#d2/dee/a00049_af8f94fd8f5a9cafc1eff4399e2b3e093_icgraph" alt=""/></div>
+<map name="d2/dee/a00049_af8f94fd8f5a9cafc1eff4399e2b3e093_icgraph" id="d2/dee/a00049_af8f94fd8f5a9cafc1eff4399e2b3e093_icgraph">
+<area shape="rect" id="node2" href="../../dc/de2/a00024.html#a0164c2d99669fdad0a93748598a8c517" title="Reads the househould data file, parse it and set data. " alt="" coords="239,39,453,80"/>
+<area shape="rect" id="node3" href="../../da/d82/a00091.html#a23493e205a9a22922b1511b80e64bc1e" title="Generates a synthetic population. " alt="" coords="501,39,661,80"/>
+<area shape="rect" id="node4" href="../../d9/dec/a00090.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="709,5,888,47"/>
+<area shape="rect" id="node6" href="../../d5/d1e/a00103.html#a3ea6a845fa96476b523c3d09d8526c68" title="Create a population initialized by the configuration in property tree. " alt="" coords="732,71,865,112"/>
+<area shape="rect" id="node5" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="936,13,991,39"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ac0e5de42fe7b43777a3ea8613be3d234"></a>
+<a class="anchor" id="a9e221561b2f5d30bc9d512a7022df99f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d1/dc6/a00037.html">HouseholdReader</a> &gt; gengeopop::ReaderFactory::CreateHouseholdReader </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../d1/dc6/a00037.html">HouseholdReader</a> &gt; geopop::ReaderFactory::CreateHouseholdReader </td>
           <td>(</td>
           <td class="paramtype">const filesys::path &amp;&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
@@ -347,7 +347,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a4ecc10a23c29b7f9fc2986a9464a5eec"></a>
+<a class="anchor" id="aa5640d5e37dfba459afda320885d9db7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -355,7 +355,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt; std::istream &gt; gengeopop::ReaderFactory::OpenFile </td>
+          <td class="memname">std::unique_ptr&lt; std::istream &gt; geopop::ReaderFactory::OpenFile </td>
           <td>(</td>
           <td class="paramtype">const filesys::path &amp;&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
@@ -384,8 +384,8 @@ Here is the caller graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d2/dee/a00049.html">ReaderFactory</a></li>
-    <li class="footer">Generated on Tue Feb 19 2019 16:44:50 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../db/d10/a00350.html">geopop</a></li><li class="navelem"><a class="el" href="../../d2/dee/a00049.html">ReaderFactory</a></li>
+    <li class="footer">Generated on Tue Feb 19 2019 17:15:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

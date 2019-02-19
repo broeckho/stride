@@ -1,7 +1,7 @@
 var searchData=
 [
   ['k12school',['K12School',['../df/d5f/a00064.html#a7a887481e558ac4e0e049ffdab9cf0b2',1,'proto::GeoGrid_Location_ContactCenter']]],
-  ['k12school_5fsize',['k12school_size',['../d3/d52/a00023.html#a2ecd4c5fd9322230c2454bbe7db902f1',1,'gengeopop::GeoGridConfig']]],
+  ['k12school_5fsize',['k12school_size',['../d3/d52/a00023.html#aac81d7949eee1708c2b11b9c62bd0b1a',1,'geopop::GeoGridConfig']]],
   ['kagefieldnumber',['kAgeFieldNumber',['../dc/ddf/a00067.html#a4f60673197f6e624fab4ac45f2395efc',1,'proto::GeoGrid_Person']]],
   ['kcommutesfieldnumber',['kCommutesFieldNumber',['../df/d03/a00062.html#aced174ea67ca957ba51a1faa8c5f08b8',1,'proto::GeoGrid_Location']]],
   ['kcontactcentersfieldnumber',['kContactCentersFieldNumber',['../df/d03/a00062.html#ac88d39b48a8f6274142c0c915e4eda4c',1,'proto::GeoGrid_Location']]],
