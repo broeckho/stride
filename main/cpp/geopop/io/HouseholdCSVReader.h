@@ -24,7 +24,7 @@ class Person;
 
 } // namespace stride
 
-namespace gengeopop {
+namespace geopop {
 
 class Household;
 
@@ -47,4 +47,4 @@ private:
         std::unique_ptr<std::istream> m_input_stream;
 };
 
-} // namespace gengeopop
+} // namespace geopop

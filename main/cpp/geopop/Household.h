@@ -17,7 +17,7 @@
 
 #include "ContactCenter.h"
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGrid;
 
@@ -37,4 +37,4 @@ public:
         stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::Household; }
 };
 
-} // namespace gengeopop
+} // namespace geopop

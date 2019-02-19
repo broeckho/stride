@@ -44,7 +44,7 @@ namespace filesys = std::filesystem;
 
 using namespace std;
 using namespace stride::util;
-using namespace gengeopop;
+using namespace geopop;
 using namespace boost::property_tree;
 
 namespace stride {

@@ -22,7 +22,7 @@
 
 #include <trng/uniform_int_dist.hpp>
 
-namespace gengeopop {
+namespace geopop {
 
 void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {
@@ -57,4 +57,4 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const Ge
         m_logger->info("Used {} different Primary communities", found.size());
 }
 
-} // namespace gengeopop
+} // namespace geopop

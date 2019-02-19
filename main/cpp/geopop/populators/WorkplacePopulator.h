@@ -23,7 +23,7 @@
 
 #include <trng/discrete_dist.hpp>
 
-namespace gengeopop {
+namespace geopop {
 
 namespace {
 using discreteDist = std::function<trng::discrete_dist::result_type()>;
@@ -80,4 +80,4 @@ private:
         discreteDist           m_disCommuting;       ///< Distribution to choose from m_commutingLocations.
 };
 
-} // namespace gengeopop
+} // namespace geopop

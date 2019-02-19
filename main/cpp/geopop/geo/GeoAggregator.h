@@ -26,7 +26,7 @@
 
 #include <tuple>
 
-BOOST_GEOMETRY_REGISTER_BOX_TEMPLATED(gengeopop::AABBox, lower, upper)
+BOOST_GEOMETRY_REGISTER_BOX_TEMPLATED(geopop::AABBox, lower, upper)
 
 namespace geoaggregator_detail {
 
@@ -36,7 +36,7 @@ inline double DegreeToRadian(double deg) { return deg / 180.0 * M_PI; }
 
 } // namespace geoaggregator_detail
 
-namespace gengeopop {
+namespace geopop {
 
 class Location;
 
@@ -219,4 +219,4 @@ private:
         Args m_poly;
 };
 
-} // namespace gengeopop
+} // namespace geopop

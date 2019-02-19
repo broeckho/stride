@@ -19,7 +19,7 @@
 #include <memory>
 #include <utility>
 
-namespace gengeopop {
+namespace geopop {
 
 template <typename P>
 class KdTree;
@@ -98,4 +98,4 @@ private:
 };
 
 } // namespace kd
-} // namespace gengeopop
+} // namespace geopop

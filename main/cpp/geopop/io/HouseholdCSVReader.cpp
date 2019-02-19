@@ -20,7 +20,7 @@
 #include "pop/Person.h"
 #include "util/CSV.h"
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 using namespace stride::util;
@@ -65,4 +65,4 @@ void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Hous
         }
 }
 
-} // namespace gengeopop
+} // namespace geopop

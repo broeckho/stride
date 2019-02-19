@@ -18,7 +18,7 @@
 #include <gtest/gtest.h>
 
 using namespace std;
-using namespace gengeopop;
+using namespace geopop;
 using namespace stride;
 
 namespace {

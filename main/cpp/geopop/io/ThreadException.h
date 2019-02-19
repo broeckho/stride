@@ -18,7 +18,7 @@
 #include <boost/optional.hpp>
 #include <mutex>
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * Create a wrapper for capturing exceptions thrown in a multi-threaded environment.
@@ -85,4 +85,4 @@ struct ThreadException::RunType<void>
         using type = void;
 };
 
-} // namespace gengeopop
+} // namespace geopop

@@ -16,8 +16,8 @@
 #include "GeoGridKdTree.h"
 #include "KdTree_def.h"
 
-namespace gengeopop {
+namespace geopop {
 
 template class KdTree<geogrid_detail::KdTree2DPoint>;
 
-} // namespace gengeopop
+} // namespace geopop

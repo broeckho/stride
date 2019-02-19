@@ -24,7 +24,7 @@
 #include <utility>
 #include <vector>
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * A k-d tree: a k-dimensional generalization of binary search trees
@@ -109,4 +109,4 @@ private:
         std::unique_ptr<kd::Node<P, 0>> m_root; ///< The root node of the tree
 };
 
-} // namespace gengeopop
+} // namespace geopop

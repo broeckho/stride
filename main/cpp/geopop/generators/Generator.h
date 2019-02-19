@@ -22,7 +22,7 @@
 
 #include <spdlog/logger.h>
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * An interface base class for generators that provide geo data and apply it onto the GeoGrid.
@@ -57,4 +57,4 @@ protected:
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by generators.
 };
 
-} // namespace gengeopop
+} // namespace geopop

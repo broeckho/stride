@@ -24,7 +24,7 @@ namespace stride {
 class ContactPool;
 }
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGrid;
 class GeoGridConfig;
@@ -88,4 +88,4 @@ extern template std::vector<stride::ContactPool*> Populator::GetNearbyPools<Seco
 extern template std::vector<stride::ContactPool*> Populator::GetNearbyPools<Workplace>(
     const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start, double startRadius) const;
 
-} // namespace gengeopop
+} // namespace geopop

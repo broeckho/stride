@@ -18,7 +18,7 @@
 #include "CitiesReader.h"
 #include "util/CSV.h"
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * Create a Reader that fills a GeoGrid with the cities found in a CSV input stream.
@@ -36,4 +36,4 @@ private:
         stride::util::CSV m_reader; ///< The pure CSV reader
 };
 
-} // namespace gengeopop
+} // namespace geopop

@@ -15,7 +15,7 @@
 
 #include "ContactCenter.h"
 
-namespace gengeopop {
+namespace geopop {
 
 std::pair<unsigned int, unsigned int> ContactCenter::GetPopulationAndInfectedCount() const
 {
@@ -30,4 +30,4 @@ std::pair<unsigned int, unsigned int> ContactCenter::GetPopulationAndInfectedCou
         return {population, infected};
 }
 
-} // namespace gengeopop
+} // namespace geopop

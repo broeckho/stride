@@ -18,10 +18,10 @@
 #include "KdTree.h"
 #include "KdTree2DPoint.h"
 
-namespace gengeopop {
+namespace geopop {
 
 extern template class KdTree<geogrid_detail::KdTree2DPoint>;
 
 using GeoGridKdTree = KdTree<geogrid_detail::KdTree2DPoint>;
 
-} // namespace gengeopop
+} // namespace geopop

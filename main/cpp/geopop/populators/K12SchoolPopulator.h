@@ -17,7 +17,7 @@
 
 #include "Populator.h"
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * Populate the K12Schools.
@@ -32,4 +32,4 @@ public:
         void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig&) override;
 };
 
-} // namespace gengeopop
+} // namespace geopop

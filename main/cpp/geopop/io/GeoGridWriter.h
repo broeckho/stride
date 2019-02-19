@@ -18,7 +18,7 @@
 #include <memory>
 #include <ostream>
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGrid;
 
@@ -36,4 +36,4 @@ public:
         virtual void Write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) = 0;
 };
 
-} // namespace gengeopop
+} // namespace geopop

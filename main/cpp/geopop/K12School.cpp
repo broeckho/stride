@@ -18,7 +18,7 @@
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
 
-namespace gengeopop {
+namespace geopop {
 
 void K12School::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
 {
@@ -28,4 +28,4 @@ void K12School::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<G
         }
 }
 
-} // namespace gengeopop
+} // namespace geopop

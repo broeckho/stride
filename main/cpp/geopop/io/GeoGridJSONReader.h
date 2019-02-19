@@ -22,7 +22,7 @@
 
 #include <boost/property_tree/ptree_fwd.hpp>
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGrid;
 
@@ -65,4 +65,4 @@ private:
         std::shared_ptr<GeoGrid> m_geoGrid; ///< The GeoGrid which is being built.
 };
 
-} // namespace gengeopop
+} // namespace geopop

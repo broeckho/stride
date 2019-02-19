@@ -24,7 +24,7 @@
 #include <cmath>
 #include <iostream>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 
@@ -67,4 +67,4 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         }
 }
 
-} // namespace gengeopop
+} // namespace geopop

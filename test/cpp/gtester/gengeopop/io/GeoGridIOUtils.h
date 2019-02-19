@@ -20,7 +20,7 @@
 #include "geopop/Location.h"
 #include "geopop/io/proto/geogrid.pb.h"
 
-using namespace gengeopop;
+using namespace geopop;
 
 void CompareContactPool(stride::ContactPool*                                     contactPool,
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool);

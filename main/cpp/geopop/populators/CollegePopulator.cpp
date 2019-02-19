@@ -28,7 +28,7 @@
 #include <trng/discrete_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 using namespace stride;
@@ -119,4 +119,4 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
         m_logger->info("Number students that commute: ", commuting);
 }
 
-} // namespace gengeopop
+} // namespace geopop

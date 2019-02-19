@@ -21,7 +21,7 @@
 
 using namespace std;
 using namespace stride;
-using namespace gengeopop;
+using namespace geopop;
 
 shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, int houseHoldCount, int personCount,
                                   Population* pop)

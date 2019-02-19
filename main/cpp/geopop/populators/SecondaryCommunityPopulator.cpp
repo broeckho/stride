@@ -23,7 +23,7 @@
 
 #include <set>
 
-namespace gengeopop {
+namespace geopop {
 
 void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {
@@ -66,4 +66,4 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const 
         m_logger->info("Finished populating Secondary Communities");
         m_logger->info("Used {} different Secondary communities", found.size());
 }
-} // namespace gengeopop
+} // namespace geopop

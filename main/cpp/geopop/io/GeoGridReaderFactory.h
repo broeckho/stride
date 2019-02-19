@@ -22,7 +22,7 @@ namespace stride {
 class Population;
 }
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGridReader;
 
@@ -36,4 +36,4 @@ public:
         std::shared_ptr<GeoGridReader> CreateReader(const std::string& filename, stride::Population* pop) const;
 };
 
-} // namespace gengeopop
+} // namespace geopop

@@ -30,7 +30,7 @@
 #include <memory>
 #include <omp.h>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 using namespace stride;
@@ -228,4 +228,4 @@ Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree& person)
                                        secondaryCommunityId);
 }
 
-} // namespace gengeopop
+} // namespace geopop

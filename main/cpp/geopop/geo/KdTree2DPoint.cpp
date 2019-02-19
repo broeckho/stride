@@ -23,7 +23,7 @@
 #include <boost/geometry/geometries/box.hpp>
 #include <boost/geometry/strategies/geographic/distance.hpp>
 
-namespace gengeopop {
+namespace geopop {
 
 namespace geogrid_detail {
 
@@ -45,4 +45,4 @@ double KdTree2DPoint::Distance(const KdTree2DPoint& other) const
 }
 
 } // namespace geogrid_detail
-} // namespace gengeopop
+} // namespace geopop

@@ -31,7 +31,7 @@ namespace filesys = boost::filesystem;
 namespace filesys = std::filesystem;
 #endif
 
-namespace gengeopop {
+namespace geopop {
 
 std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(const std::string& filename) const
 {
@@ -47,4 +47,4 @@ std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(const std::str
         }
 }
 
-} // namespace gengeopop
+} // namespace geopop

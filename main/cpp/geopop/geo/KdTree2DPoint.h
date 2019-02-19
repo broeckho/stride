@@ -21,7 +21,7 @@
 #include <boost/geometry/core/access.hpp>
 #include <memory>
 
-namespace gengeopop {
+namespace geopop {
 
 class Location;
 
@@ -83,4 +83,4 @@ private:
 };
 
 } // namespace geogrid_detail
-} // namespace gengeopop
+} // namespace geopop

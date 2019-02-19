@@ -18,7 +18,7 @@
 #include "util/CSV.h"
 #include "util/CSVRow.h"
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 
@@ -50,4 +50,4 @@ void CitiesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
         }
 }
 
-} // namespace gengeopop
+} // namespace geopop

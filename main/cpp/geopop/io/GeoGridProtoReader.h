@@ -23,7 +23,7 @@
 
 #include <set>
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * An implementation of the GeoGridReader using Protocol Buffers.
@@ -66,4 +66,4 @@ private:
         std::shared_ptr<GeoGrid> m_geoGrid; ///< GeoGrid being built
 };
 
-} // namespace gengeopop
+} // namespace geopop

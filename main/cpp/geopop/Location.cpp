@@ -19,7 +19,7 @@
 
 #include <cmath>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 
@@ -100,4 +100,4 @@ void Location::SetPopCount(unsigned int totalPopCount)
 }
 void Location::SetRelativePopulation(double relativePopulation) { m_pop_fraction = relativePopulation; }
 
-} // namespace gengeopop
+} // namespace geopop

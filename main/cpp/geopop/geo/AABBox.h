@@ -15,7 +15,7 @@
 
 #pragma once
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * AxisAlignedBoundingBox (hyperrectangle defined by lower and upper bound for every dimension).
@@ -29,4 +29,4 @@ struct AABBox
         P upper; ///< The upper bound for every dimension
 };
 
-} // namespace gengeopop
+} // namespace geopop

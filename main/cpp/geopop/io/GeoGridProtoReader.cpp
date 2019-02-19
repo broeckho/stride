@@ -30,7 +30,7 @@
 #include <omp.h>
 #include <stdexcept>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 
@@ -221,4 +221,4 @@ stride::Person* GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& pro
         return m_geoGrid->CreatePerson(protoPerson.id(), protoPerson.age(), 0, 0, 0, 0, 0, 0);
 }
 
-} // namespace gengeopop
+} // namespace geopop

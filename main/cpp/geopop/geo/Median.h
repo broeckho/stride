@@ -21,7 +21,7 @@
 #include <utility>
 #include <vector>
 
-namespace gengeopop {
+namespace geopop {
 namespace kd {
 
 template <typename P, std::size_t D>
@@ -40,4 +40,4 @@ std::size_t Median(const std::vector<P>& points)
 }
 
 } // namespace kd
-} // namespace gengeopop
+} // namespace geopop

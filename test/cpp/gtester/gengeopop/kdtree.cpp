@@ -22,7 +22,7 @@
 #include <set>
 #include <string>
 
-using namespace gengeopop;
+using namespace geopop;
 
 namespace {
 

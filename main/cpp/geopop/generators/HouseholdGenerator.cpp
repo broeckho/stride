@@ -20,7 +20,7 @@
 
 #include <trng/discrete_dist.hpp>
 
-namespace gengeopop {
+namespace geopop {
 
 void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
                                unsigned int& contactCenterCounter)
@@ -45,4 +45,4 @@ void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridCo
         }
 }
 
-} // namespace gengeopop
+} // namespace geopop

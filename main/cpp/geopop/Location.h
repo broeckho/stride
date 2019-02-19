@@ -26,7 +26,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace gengeopop {
+namespace geopop {
 
 class ContactCenter;
 
@@ -146,4 +146,4 @@ private:
         std::unordered_map<std::type_index, std::vector<std::shared_ptr<ContactCenter>>> m_CC_OfType;
 };
 
-} // namespace gengeopop
+} // namespace geopop

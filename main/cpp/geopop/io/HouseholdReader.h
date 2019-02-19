@@ -28,7 +28,7 @@ class ContactPool;
 
 } // namespace stride
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * Retrieves the reference Household profiles from file.
@@ -49,4 +49,4 @@ public:
                                             stride::util::SegmentedVector<stride::ContactPool>& ref_pools) = 0;
 };
 
-} // namespace gengeopop
+} // namespace geopop

@@ -29,7 +29,7 @@
 
 #include <trng/discrete_dist.hpp>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 using namespace stride;
@@ -95,4 +95,4 @@ template vector<ContactPool*> Populator::GetNearbyPools<Workplace>(const shared_
                                                                    const shared_ptr<Location>& start,
                                                                    double                      startRadius) const;
 
-} // namespace gengeopop
+} // namespace geopop

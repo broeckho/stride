@@ -22,7 +22,7 @@
 #include <iostream>
 #include <omp.h>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 using namespace stride;
@@ -177,4 +177,4 @@ boost::property_tree::ptree GeoGridJSONWriter::WritePerson(Person* person)
         return person_root;
 }
 
-} // namespace gengeopop
+} // namespace geopop

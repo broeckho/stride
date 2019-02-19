@@ -24,7 +24,7 @@
 #include <memory>
 
 using namespace std;
-using namespace gengeopop;
+using namespace geopop;
 using namespace stride;
 using namespace util;
 

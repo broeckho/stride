@@ -17,7 +17,7 @@
 
 #include "ContactCenter.h"
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGrid;
 
@@ -40,4 +40,4 @@ public:
         // std::string GetType() const override { return "Workplace"; }
 };
 
-} // namespace gengeopop
+} // namespace geopop

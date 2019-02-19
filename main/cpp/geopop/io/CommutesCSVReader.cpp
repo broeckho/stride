@@ -20,7 +20,7 @@
 
 #include <map>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 using namespace stride::util;
@@ -78,4 +78,4 @@ void CommutesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
         }
 }
 
-} // namespace gengeopop
+} // namespace geopop

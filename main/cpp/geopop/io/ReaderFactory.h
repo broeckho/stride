@@ -32,7 +32,7 @@ namespace filesys = boost::filesystem;
 namespace filesys = std::filesystem;
 #endif
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * A Factory for creating the correct implementation of the different Readers which
@@ -65,4 +65,4 @@ private:
         std::unique_ptr<std::istream> OpenFile(const filesys::path& path) const;
 };
 
-} // namespace gengeopop
+} // namespace geopop

@@ -30,7 +30,7 @@
 #include <iostream>
 #include <sstream>
 using namespace std;
-using namespace gengeopop;
+using namespace geopop;
 using namespace stride;
 using namespace stride::util;
 using boost::property_tree::ptree;

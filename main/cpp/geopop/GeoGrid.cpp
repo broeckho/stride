@@ -23,7 +23,7 @@
 #include <stdexcept>
 #include <utility>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 
@@ -137,8 +137,8 @@ vector<shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 
 void GeoGrid::Remove(const shared_ptr<Location>& location)
 {
-        m_locations.erase(::gengeopop::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
+        m_locations.erase(::geopop::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
         m_locationsToIdIndex.erase(location->GetID());
 }
 
-} // namespace gengeopop
+} // namespace geopop

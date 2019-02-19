@@ -33,7 +33,7 @@ namespace stride {
 
 using namespace std;
 using namespace boost::property_tree;
-using namespace gengeopop;
+using namespace geopop;
 
 shared_ptr<Population> ImportPopBuilder::Build(shared_ptr<Population> pop)
 {

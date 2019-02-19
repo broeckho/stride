@@ -23,7 +23,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace gengeopop {
+namespace geopop {
 
 class Location;
 
@@ -153,4 +153,4 @@ private:
         GeoGridKdTree m_tree;
 };
 
-} // namespace gengeopop
+} // namespace geopop

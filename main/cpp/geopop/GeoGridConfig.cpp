@@ -21,7 +21,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include <iomanip>
 
-namespace gengeopop {
+namespace geopop {
 
 using stride::util::intToDottedString;
 using namespace std;
@@ -65,4 +65,4 @@ ostream& operator<<(ostream& out, const GeoGridConfig& config)
         return out;
 }
 
-} // namespace gengeopop
+} // namespace geopop

@@ -23,7 +23,7 @@
 
 #include <trng/uniform_int_dist.hpp>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 
@@ -51,4 +51,4 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         m_logger->info("Number of persons in households: {}", person_id);
 }
 
-} // namespace gengeopop
+} // namespace geopop

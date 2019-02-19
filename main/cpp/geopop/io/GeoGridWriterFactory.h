@@ -18,7 +18,7 @@
 #include <memory>
 #include <string>
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGridWriter;
 
@@ -32,4 +32,4 @@ public:
         std::shared_ptr<GeoGridWriter> CreateWriter(const std::string& filename) const;
 };
 
-} // namespace gengeopop
+} // namespace geopop

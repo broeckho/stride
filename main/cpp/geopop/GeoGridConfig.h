@@ -23,7 +23,7 @@
 #include <memory>
 #include <ostream>
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGrid;
 class Household;
@@ -128,4 +128,4 @@ public:
         } pools;
 };
 
-} // namespace gengeopop
+} // namespace geopop

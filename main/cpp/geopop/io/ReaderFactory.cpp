@@ -23,7 +23,7 @@
 #include <iostream>
 #include <stdexcept>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 using namespace stride::util;
@@ -71,4 +71,4 @@ std::unique_ptr<std::istream> ReaderFactory::OpenFile(const filesys::path& path)
         }
 }
 
-} // namespace gengeopop
+} // namespace geopop

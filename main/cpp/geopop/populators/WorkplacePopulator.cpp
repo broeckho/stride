@@ -27,7 +27,7 @@
 #include <trng/uniform_int_dist.hpp>
 #include <utility>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 using namespace stride;
@@ -171,4 +171,4 @@ void WorkplacePopulator::CalculateNearbyWorkspaces()
             trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(m_nearByWorkplaces.size())));
 }
 
-} // namespace gengeopop
+} // namespace geopop

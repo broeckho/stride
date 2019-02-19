@@ -20,7 +20,7 @@
 #include <istream>
 #include <memory>
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * Create an abstract Reader that fills a GeoGrid with the commute info from file.
@@ -42,4 +42,4 @@ protected:
         std::unique_ptr<std::istream> m_inputStream; ///< The istream with the file content.
 };
 
-} // namespace gengeopop
+} // namespace geopop

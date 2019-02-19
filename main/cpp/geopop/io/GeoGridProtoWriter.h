@@ -26,7 +26,7 @@ class ContactPool;
 class Person;
 } // namespace stride
 
-namespace gengeopop {
+namespace geopop {
 
 class ContactCenter;
 
@@ -65,4 +65,4 @@ private:
         std::set<stride::Person*> m_persons_found; ///< The persons found when looping over the ContactPools.
 };
 
-} // namespace gengeopop
+} // namespace geopop

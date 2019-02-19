@@ -16,7 +16,7 @@
 
 #include <string>
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGridConfig;
 
@@ -33,4 +33,4 @@ public:
         void SetData(GeoGridConfig& geoGridConfig, const std::string& householdsFileName);
 };
 
-} // namespace gengeopop
+} // namespace geopop

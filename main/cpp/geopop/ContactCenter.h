@@ -21,7 +21,7 @@
 #include <memory>
 #include <vector>
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGrid;
 class GeoGridConfig;
@@ -71,4 +71,4 @@ protected:
         unsigned int                      m_id;    ///< The Id of this ContactCenter.
 };
 
-} // namespace gengeopop
+} // namespace geopop

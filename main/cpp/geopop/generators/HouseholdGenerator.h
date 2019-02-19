@@ -18,7 +18,7 @@
 #include "Generator.h"
 #include "geopop/GeoGridConfig.h"
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * Generator Household contact pools.
@@ -33,4 +33,4 @@ public:
                    unsigned int& contactCenterCounter) override;
 };
 
-} // namespace gengeopop
+} // namespace geopop

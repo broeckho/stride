@@ -19,7 +19,7 @@
 
 #include <string>
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGrid;
 
@@ -39,4 +39,4 @@ public:
         stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::College; }
 };
 
-} // namespace gengeopop
+} // namespace geopop

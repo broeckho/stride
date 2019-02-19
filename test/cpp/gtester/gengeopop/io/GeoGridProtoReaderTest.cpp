@@ -26,7 +26,7 @@
 #include <gtest/gtest.h>
 
 using namespace std;
-using namespace gengeopop;
+using namespace geopop;
 using boost::geometry::get;
 
 namespace {

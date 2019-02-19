@@ -21,7 +21,7 @@
 
 #include <cmath>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 using namespace stride::AgeBrackets;
@@ -82,4 +82,4 @@ void GeoGridConfigBuilder::SetData(GeoGridConfig& geoGridConfig, const string& h
             static_cast<unsigned int>(floor(static_cast<double>(popSize) / averageHhSize));
 }
 
-} // namespace gengeopop
+} // namespace geopop

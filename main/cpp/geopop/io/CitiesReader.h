@@ -22,7 +22,7 @@
 #include <memory>
 #include <string>
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * Create an abstract Reader which fills a GeoGrid with the cities found in file.
@@ -44,4 +44,4 @@ protected:
         std::unique_ptr<std::istream> m_inputStream; ///< The istream with the file content.
 };
 
-} // namespace gengeopop
+} // namespace geopop

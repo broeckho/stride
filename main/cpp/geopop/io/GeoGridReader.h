@@ -26,7 +26,7 @@ class Person;
 class Population;
 } // namespace stride
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGrid;
 
@@ -67,4 +67,4 @@ protected:
         stride::Population*           m_population;  ///< population to use in the GeoGrid may be nullptr.
 };
 
-} // namespace gengeopop
+} // namespace geopop

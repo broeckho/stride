@@ -17,7 +17,7 @@
 
 #include "Generator.h"
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * Generator for Community contact pools.
@@ -31,4 +31,4 @@ public:
                    unsigned int& contactCenterCounter) override;
 };
 
-} // namespace gengeopop
+} // namespace geopop

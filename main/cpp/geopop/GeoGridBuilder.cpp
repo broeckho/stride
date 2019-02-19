@@ -34,7 +34,7 @@
 #include <spdlog/logger.h>
 #include <utility>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 
@@ -95,4 +95,4 @@ void GeoGridBuilder::GenPop(const GeoGridConfig& geoGridConfig)
 
 shared_ptr<GeoGrid> GeoGridBuilder::GetGeoGrid() { return m_geoGrid; }
 
-} // namespace gengeopop
+} // namespace geopop

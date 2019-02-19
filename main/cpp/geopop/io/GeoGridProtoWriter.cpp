@@ -24,13 +24,13 @@
 #include <iostream>
 #include <omp.h>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 
 GeoGridProtoWriter::GeoGridProtoWriter() : m_persons_found() {}
 
-void GeoGridProtoWriter::Write(shared_ptr<gengeopop::GeoGrid> geoGrid, ostream& stream)
+void GeoGridProtoWriter::Write(shared_ptr<geopop::GeoGrid> geoGrid, ostream& stream)
 {
         GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -116,4 +116,4 @@ void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Pers
         protoPerson->set_gender(string(1, person->GetGender()));
 }
 
-} // namespace gengeopop
+} // namespace geopop

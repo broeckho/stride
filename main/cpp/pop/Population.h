@@ -29,7 +29,7 @@
 #include <memory>
 #include <spdlog/spdlog.h>
 
-namespace gengeopop {
+namespace geopop {
 class GeoGrid;
 }
 
@@ -76,7 +76,7 @@ public:
         const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
         /// Get the GeoGrid associated with this population (may be a nullptr).
-        std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
+        std::shared_ptr<geopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
 
 private:
         ///
@@ -87,9 +87,9 @@ private:
         friend class ImportPopBuilder;
 
 private:
-        ContactPoolSys                      m_pool_sys;       ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger>     m_contact_logger; ///< Logger for contact/transmission.
-        std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;        ///< Associated geoGrid may be nullptr.
+        ContactPoolSys                   m_pool_sys;       ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger>  m_contact_logger; ///< Logger for contact/transmission.
+        std::shared_ptr<geopop::GeoGrid> m_geoGrid;        ///< Associated geoGrid may be nullptr.
 
 private:
         std::size_t m_currentContactPoolId = 1; ///< The contact pool counter for assigning pool IDs.

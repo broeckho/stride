@@ -19,7 +19,7 @@
 
 #include <spdlog/logger.h>
 
-namespace gengeopop {
+namespace geopop {
 
 class GeoGrid;
 class GeoGridConfig;
@@ -59,4 +59,4 @@ private:
         unsigned int m_ccCounter = 1;
 };
 
-} // namespace gengeopop
+} // namespace geopop

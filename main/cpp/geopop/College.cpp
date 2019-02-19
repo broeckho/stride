@@ -20,7 +20,7 @@
 
 using namespace stride::ContactType;
 
-namespace gengeopop {
+namespace geopop {
 
 void College::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
 {
@@ -30,4 +30,4 @@ void College::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<Geo
         }
 }
 
-} // namespace gengeopop
+} // namespace geopop

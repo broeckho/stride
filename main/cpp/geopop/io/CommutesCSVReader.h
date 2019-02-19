@@ -21,7 +21,7 @@
 
 #include <memory>
 
-namespace gengeopop {
+namespace geopop {
 
 /**
  * Create a Reader that fills a GeoGrid with the commute info from CSV file.
@@ -39,4 +39,4 @@ private:
         stride::util::CSV m_reader; ///< The pure CSV reader
 };
 
-} // namespace gengeopop
+} // namespace geopop

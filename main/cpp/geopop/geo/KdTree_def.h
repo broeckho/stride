@@ -29,7 +29,7 @@
 #include <utility>
 #include <vector>
 
-namespace gengeopop {
+namespace geopop {
 
 template <typename P>
 KdTree<P>::KdTree() : m_size(0), m_root(nullptr)
@@ -203,4 +203,4 @@ std::unique_ptr<kd::Node<P, D>> KdTree<P>::Construct(const std::vector<P>& point
         return root;
 }
 
-} // namespace gengeopop
+} // namespace geopop

@@ -18,8 +18,8 @@
 #include <boost/geometry/core/cs.hpp>
 #include <boost/geometry/geometries/point.hpp>
 
-namespace gengeopop {
+namespace geopop {
 
 using Coordinate = boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>;
 
-} // namespace gengeopop
+} // namespace geopop

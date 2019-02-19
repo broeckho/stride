@@ -20,7 +20,7 @@
 
 #include <trng/discrete_dist.hpp>
 
-namespace gengeopop {
+namespace geopop {
 
 using namespace std;
 
@@ -61,4 +61,4 @@ void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
         }
 }
 
-} // namespace gengeopop
+} // namespace geopop
