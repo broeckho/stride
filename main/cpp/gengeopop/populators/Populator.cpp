@@ -25,7 +25,7 @@
 #include "gengeopop/SecondaryCommunity.h"
 #include "gengeopop/Workplace.h"
 
-#include "pool/ContactPool.h"
+#include "contact/ContactPool.h"
 
 #include <trng/discrete_dist.hpp>
 

@@ -18,7 +18,7 @@
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
 
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 
 namespace gengeopop {
 
@@ -28,7 +28,7 @@ void SecondaryCommunity::Fill(const GeoGridConfig& /* geoGridConfig */, const st
         // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
         if (m_pools.empty()) {
 
-                const auto p = geoGrid->CreateContactPool(stride::ContactPoolType::Id::SecondaryCommunity);
+                const auto p = geoGrid->CreateContactPool(stride::ContactType::Id::SecondaryCommunity);
                 RegisterPool(p);
         }
 }

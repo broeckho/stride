@@ -20,8 +20,8 @@
 
 #pragma once
 
-#include "pool/ContactPool.h"
-#include "pool/ContactPoolType.h"
+#include "contact/ContactPool.h"
+#include "contact/ContactType.h"
 
 #include <array>
 #include <bitset>
@@ -30,7 +30,7 @@
 #include <stdexcept>
 
 namespace stride {
-namespace ContactPoolType {
+namespace ContactType {
 
 /**
  * An std::array modified to enable subscripting with the constact pool
@@ -97,33 +97,33 @@ public:
         /// explicit IdSubscriptArray(Args&&... args) : std::array<T, NumOfTypes()>{{std::forward<Args>(args)...}}{}
 
         /// Subscripting with pool typ id as argument.
-        typename std::array<T, NumOfTypes()>::reference operator[](ContactPoolType::Id id)
+        typename std::array<T, NumOfTypes()>::reference operator[](ContactType::Id id)
         {
-                return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template array<T, NumOfTypes()>::operator[](ContactType::ToSizeT(id));
         }
 
         /// Subscripting with pool typ id as argument.
-        typename std::array<T, NumOfTypes()>::const_reference operator[](ContactPoolType::Id id) const
+        typename std::array<T, NumOfTypes()>::const_reference operator[](ContactType::Id id) const
         {
-                return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template array<T, NumOfTypes()>::operator[](ContactType::ToSizeT(id));
         }
 
         /// Subscripting with pool typ id as argument.
-        typename std::array<T, NumOfTypes()>::reference at(ContactPoolType::Id id)
+        typename std::array<T, NumOfTypes()>::reference at(ContactType::Id id)
         {
                 if (ToSizeT(id) >= NumOfTypes()) {
                         throw std::out_of_range("IdSubscriptArray::at> Id out of range");
                 }
-                return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template array<T, NumOfTypes()>::operator[](ContactType::ToSizeT(id));
         }
 
         /// Subscripting with pool typ id as argument.
-        typename std::array<T, NumOfTypes()>::const_reference at(ContactPoolType::Id id) const
+        typename std::array<T, NumOfTypes()>::const_reference at(ContactType::Id id) const
         {
                 if (ToSizeT(id) >= NumOfTypes()) {
                         throw std::out_of_range("IdSubscriptArray::at> Id out of range");
                 }
-                return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template array<T, NumOfTypes()>::operator[](ContactType::ToSizeT(id));
         }
 };
 
@@ -163,35 +163,35 @@ public:
         }
 
         /// Subscripting with pool typ id as argument.
-        typename std::bitset<NumOfTypes()>::reference operator[](ContactPoolType::Id id)
+        typename std::bitset<NumOfTypes()>::reference operator[](ContactType::Id id)
         {
-                return this->std::template bitset<NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template bitset<NumOfTypes()>::operator[](ContactType::ToSizeT(id));
         }
 
         /// Subscripting with pool typ id as argument.
-        bool operator[](ContactPoolType::Id id) const
+        bool operator[](ContactType::Id id) const
         {
-                return this->std::template bitset<NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template bitset<NumOfTypes()>::operator[](ContactType::ToSizeT(id));
         }
 
         /// Subscripting with pool typ id as argument.
-        typename bitset<NumOfTypes()>::reference at(ContactPoolType::Id id)
+        typename bitset<NumOfTypes()>::reference at(ContactType::Id id)
         {
                 if (ToSizeT(id) >= NumOfTypes()) {
                         throw std::out_of_range("IdSubscriptArray<bool>::at> Id out of range");
                 }
-                return this->std::template bitset<NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template bitset<NumOfTypes()>::operator[](ContactType::ToSizeT(id));
         }
 
         /// Subscripting with pool typ id as argument.
-        bool at(ContactPoolType::Id id) const
+        bool at(ContactType::Id id) const
         {
                 if (ToSizeT(id) >= NumOfTypes()) {
                         throw std::out_of_range("IdSubscriptArray::at> Id out of range");
                 }
-                return this->std::template bitset<NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template bitset<NumOfTypes()>::operator[](ContactType::ToSizeT(id));
         }
 };
 
-} // namespace ContactPoolType
+} // namespace ContactType
 } // namespace stride

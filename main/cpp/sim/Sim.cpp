@@ -21,7 +21,7 @@
 #include "Sim.h"
 
 #include "calendar/DaysOffStandard.h"
-#include "pool/ContactPoolType.h"
+#include "contact/ContactType.h"
 #include "pop/Population.h"
 #include "sim/SimBuilder.h"
 #include "util/RunConfigManager.h"
@@ -100,10 +100,10 @@ void Sim::TimeStep()
                 // Infector updates individuals for contacts & transmission within each pool.
                 // Skip pools with id = 0, because it means Not Applicable.
                 const auto thread_num = static_cast<unsigned int>(omp_get_thread_num());
-                for (auto typ : ContactPoolType::IdList) {
-                        if ((typ == ContactPoolType::Id::Workplace && isWorkOff) ||
-                            (typ == ContactPoolType::Id::K12School && isSchoolOff) ||
-                            (typ == ContactPoolType::Id::College && isSchoolOff)) {
+                for (auto typ : ContactType::IdList) {
+                        if ((typ == ContactType::Id::Workplace && isWorkOff) ||
+                            (typ == ContactType::Id::K12School && isSchoolOff) ||
+                            (typ == ContactType::Id::College && isSchoolOff)) {
                                 continue;
                         }
 #pragma omp for schedule(static)

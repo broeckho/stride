@@ -15,6 +15,7 @@
 
 #include "GeoGridIOUtils.h"
 
+#include "contact/ContactType.h"
 #include "gengeopop/College.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/Household.h"
@@ -24,7 +25,6 @@
 #include "gengeopop/Workplace.h"
 #include "gengeopop/io/GeoGridProtoReader.h"
 #include "gengeopop/io/GeoGridProtoWriter.h"
-#include "pool/ContactPoolType.h"
 
 #include <gtest/gtest.h>
 #include <map>
@@ -32,7 +32,7 @@
 using namespace std;
 using namespace gengeopop;
 using namespace stride;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 using namespace util;
 
 map<int, Person*>       persons_found;
@@ -137,7 +137,7 @@ void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Locatio
 
 void ComparePerson(const proto::GeoGrid_Person& protoPerson)
 {
-        using namespace ContactPoolType;
+        using namespace ContactType;
 
         const auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());

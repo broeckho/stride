@@ -14,7 +14,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "pool/ContactPool.h"
+#include "contact/ContactPool.h"
 #include "pop/Person.h"
 #include "util/SegmentedVector.h"
 

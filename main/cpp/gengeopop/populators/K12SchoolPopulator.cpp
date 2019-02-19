@@ -15,11 +15,11 @@
 
 #include "K12SchoolPopulator.h"
 
+#include "contact/AgeBrackets.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/Household.h"
 #include "gengeopop/K12School.h"
 #include "gengeopop/Location.h"
-#include "pool/AgeBrackets.h"
 #include "pop/Person.h"
 
 #include <trng/uniform_int_dist.hpp>
@@ -28,7 +28,7 @@ namespace gengeopop {
 
 using namespace std;
 using namespace stride;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 
 void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {

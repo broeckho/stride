@@ -47,7 +47,7 @@ void fillLocation(int id, unsigned int province, unsigned int population, Coordi
 void fillContactCenter(const shared_ptr<ContactCenter>&       contactCenter,
                        proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
-        using namespace stride::ContactPoolType;
+        using namespace stride::ContactType;
 
         map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},

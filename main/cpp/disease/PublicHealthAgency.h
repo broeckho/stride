@@ -19,7 +19,7 @@
  * Header for the PublicHealthAgency class.
  */
 
-#include "pool/ContactPool.h"
+#include "contact/ContactPool.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 

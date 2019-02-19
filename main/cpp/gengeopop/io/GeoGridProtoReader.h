@@ -16,9 +16,9 @@
 #pragma once
 
 #include "GeoGridReader.h"
+#include "contact/ContactPool.h"
+#include "contact/ContactType.h"
 #include "gengeopop/Location.h"
-#include "pool/ContactPool.h"
-#include "pool/ContactPoolType.h"
 #include "proto/geogrid.pb.h"
 
 #include <set>
@@ -57,7 +57,7 @@ private:
 
         /// Create a ContactPool based on the provided protobuf ContactPool.
         stride::ContactPool* ParseContactPool(const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool,
-                                              stride::ContactPoolType::Id                              typeId);
+                                              stride::ContactType::Id                                  typeId);
 
         /// Create a Person based on protobuf Person info.
         stride::Person* ParsePerson(const proto::GeoGrid_Person& person);

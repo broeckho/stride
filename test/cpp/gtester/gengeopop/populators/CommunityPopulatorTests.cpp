@@ -50,7 +50,7 @@ protected:
                 logger->set_level(spdlog::level::off);
 
                 auto household   = make_shared<Household>(2);
-                auto contactPool = new ContactPool(0, ContactPoolType::Id::Household);
+                auto contactPool = new ContactPool(0, ContactType::Id::Household);
                 person           = make_shared<Person>();
                 person->SetId(42);
                 contactPool->AddMember(person.get());
@@ -62,7 +62,7 @@ protected:
                 geoGrid->AddLocation(location);
 
                 community = make_shared<CommunityType>(1);
-                auto pool = new ContactPool(1, ContactPoolType::Id::Household);
+                auto pool = new ContactPool(1, ContactType::Id::Household);
                 community->RegisterPool(pool);
         }
 
@@ -104,7 +104,7 @@ protected:
 
                 auto location2  = make_shared<Location>(2, 5, 1500, Coordinate(1, 1), "Brussel");
                 auto community2 = make_shared<PrimaryCommunity>(1);
-                auto pool       = new ContactPool(2, ContactPoolType::Id::PrimaryCommunity);
+                auto pool       = new ContactPool(2, ContactType::Id::PrimaryCommunity);
                 community2->RegisterPool(pool);
                 location2->AddContactCenter(community2);
 
@@ -149,7 +149,7 @@ protected:
                 location->AddContactCenter(community);
 
                 auto community2 = make_shared<CommunityType>(2);
-                community2->RegisterPool(new ContactPool(2, ContactPoolType::Id::PrimaryCommunity));
+                community2->RegisterPool(new ContactPool(2, ContactType::Id::PrimaryCommunity));
                 location->AddContactCenter(community2);
 
                 geoGrid->Finalize();

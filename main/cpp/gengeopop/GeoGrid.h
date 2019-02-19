@@ -15,8 +15,8 @@
 
 #pragma once
 
+#include "contact/ContactPool.h"
 #include "gengeopop/geo/GeoGridKdTree.h"
-#include "pool/ContactPool.h"
 #include "pop/Population.h"
 
 #include <set>
@@ -49,7 +49,7 @@ public:
         void AddLocation(std::shared_ptr<Location> location);
 
         /// Create ContactPool of type in the Population associated withis GeoGrid.
-        stride::ContactPool* CreateContactPool(stride::ContactPoolType::Id type);
+        stride::ContactPool* CreateContactPool(stride::ContactType::Id type);
 
         /// Create Person in the Population associated withis Grid.
         template <typename... Args>

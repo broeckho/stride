@@ -34,7 +34,7 @@ namespace gengeopop {
 
 using namespace std;
 using namespace stride;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 using namespace stride::util;
 
 GeoGridJSONReader::GeoGridJSONReader(unique_ptr<istream> inputStream, Population* pop)
@@ -146,25 +146,25 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
         const auto id   = boost::lexical_cast<unsigned int>(contactCenter.get<string>("id"));
 
         shared_ptr<ContactCenter> result;
-        ContactPoolType::Id       typeId;
+        ContactType::Id           typeId;
         if (type == ToString(Id::K12School)) {
                 result = make_shared<K12School>(id);
                 typeId = Id::K12School;
         } else if (type == ToString(Id::College)) {
                 result = make_shared<College>(id);
-                typeId = ContactPoolType::Id::College;
+                typeId = ContactType::Id::College;
         } else if (type == ToString(Id::Household)) {
                 result = make_shared<Household>(id);
-                typeId = ContactPoolType::Id::Household;
+                typeId = ContactType::Id::Household;
         } else if (type == ToString(Id::PrimaryCommunity)) {
                 result = make_shared<PrimaryCommunity>(id);
-                typeId = ContactPoolType::Id::PrimaryCommunity;
+                typeId = ContactType::Id::PrimaryCommunity;
         } else if (type == ToString(Id::SecondaryCommunity)) {
                 result = make_shared<SecondaryCommunity>(id);
-                typeId = ContactPoolType::Id::SecondaryCommunity;
+                typeId = ContactType::Id::SecondaryCommunity;
         } else if (type == ToString(Id::Workplace)) {
                 result = make_shared<Workplace>(id);
-                typeId = ContactPoolType::Id::Workplace;
+                typeId = ContactType::Id::Workplace;
         } else {
                 throw Exception("No such ContactCenter type: " + type);
         }
@@ -194,7 +194,7 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
         return result;
 }
 
-ContactPool* GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& contactPool, ContactPoolType::Id typeId)
+ContactPool* GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& contactPool, ContactType::Id typeId)
 {
         // Don't use the id of the ContactPool but the let the Population create an id.
         auto result = m_geoGrid->CreateContactPool(typeId);

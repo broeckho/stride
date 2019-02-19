@@ -34,9 +34,9 @@ public:
         void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) override;
 
         /// See ContactCenter::GetContactPoolType.
-        stride::ContactPoolType::Id GetContactPoolType() const override
+        stride::ContactType::Id GetContactPoolType() const override
         {
-                return stride::ContactPoolType::Id::SecondaryCommunity;
+                return stride::ContactType::Id::SecondaryCommunity;
         }
 };
 

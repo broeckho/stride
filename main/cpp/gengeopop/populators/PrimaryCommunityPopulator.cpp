@@ -48,7 +48,7 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const Ge
                                 auto& pool = nearbyPools[dist()];
                                 found.insert(pool);
                                 pool->AddMember(p);
-                                p->SetPoolId(stride::ContactPoolType::Id::PrimaryCommunity, pool->GetId());
+                                p->SetPoolId(stride::ContactType::Id::PrimaryCommunity, pool->GetId());
                         }
                 }
         }

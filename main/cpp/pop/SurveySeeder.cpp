@@ -28,7 +28,7 @@
 
 using namespace boost::property_tree;
 using namespace stride::util;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 using namespace std;
 
 namespace stride {

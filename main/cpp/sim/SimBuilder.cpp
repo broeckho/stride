@@ -20,10 +20,10 @@
 
 #include "SimBuilder.h"
 
+#include "contact/ContactType.h"
 #include "contact/InfectorMap.h"
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
-#include "pool/ContactPoolType.h"
 #include "pop/SurveySeeder.h"
 #include "sim/Sim.h"
 #include "util/FileSys.h"
@@ -35,7 +35,7 @@ namespace stride {
 using namespace boost::property_tree;
 using namespace std;
 using namespace util;
-using namespace ContactPoolType;
+using namespace ContactType;
 
 SimBuilder::SimBuilder(const ptree& configPt) : m_config_pt(configPt) {}
 

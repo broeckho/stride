@@ -19,7 +19,7 @@
  * Observer for Infected output.
  */
 
-#include "output/InfectedFile.h"
+#include "InfectedFile.h"
 #include "sim/event/Id.h"
 
 #include <iostream>

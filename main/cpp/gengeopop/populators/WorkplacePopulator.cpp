@@ -15,13 +15,13 @@
 
 #include "WorkplacePopulator.h"
 
+#include "contact/AgeBrackets.h"
+#include "contact/ContactPool.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/Household.h"
 #include "gengeopop/Location.h"
 #include "gengeopop/Workplace.h"
-#include "pool/AgeBrackets.h"
-#include "pool/ContactPool.h"
 #include "util/ExcAssert.h"
 
 #include <trng/uniform_int_dist.hpp>
@@ -31,7 +31,7 @@ namespace gengeopop {
 
 using namespace std;
 using namespace stride;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 using namespace util;
 
 WorkplacePopulator::WorkplacePopulator(RnMan& rn_manager, shared_ptr<spdlog::logger> logger)

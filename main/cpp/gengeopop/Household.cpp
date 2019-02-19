@@ -18,14 +18,14 @@
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
 
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 
 namespace gengeopop {
 
 void Household::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
 {
         for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_houselhold; ++i) {
-                const auto p = geoGrid->CreateContactPool(stride::ContactPoolType::Id::Household);
+                const auto p = geoGrid->CreateContactPool(stride::ContactType::Id::Household);
                 RegisterPool(p);
         }
 }

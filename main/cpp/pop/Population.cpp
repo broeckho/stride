@@ -118,7 +118,7 @@ Person* Population::CreatePerson(unsigned int id, double age, unsigned int house
                             secondaryCommunityId);
 }
 
-ContactPool* Population::CreateContactPool(ContactPoolType::Id typeId)
+ContactPool* Population::CreateContactPool(ContactType::Id typeId)
 {
         return m_pool_sys[typeId].emplace_back(m_currentContactPoolId++, typeId);
 }

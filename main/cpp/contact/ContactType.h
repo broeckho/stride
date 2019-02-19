@@ -29,7 +29,7 @@
 #include <vector>
 
 namespace stride {
-namespace ContactPoolType {
+namespace ContactType {
 
 /// Enumerates the ContactPool types.
 enum class Id : std::size_t
@@ -75,5 +75,5 @@ constexpr IdPack_t IdPack;
 /// To allow iteration over the type ids.
 constexpr std::initializer_list<Id> IdList = IdPack_t::AsInitializerList;
 
-} // namespace ContactPoolType
+} // namespace ContactType
 } // namespace stride

@@ -22,7 +22,7 @@ namespace stride {
 namespace AgeBrackets {
 
 /// DayCare with lower (inclusive) and upper (exclusive) age bracket..
-struct DayCare
+struct Daycare
 {
         constexpr static inline double m_lower = 0.0; // if changed, activate test in HasAge!
         constexpr static inline double m_upper = 3.0;

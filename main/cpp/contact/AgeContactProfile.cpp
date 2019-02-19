@@ -23,12 +23,12 @@
 namespace stride {
 
 using namespace std;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 using namespace boost::property_tree;
 
 AgeContactProfile::AgeContactProfile(Id poolType, const ptree& contactPt) : std::array<double, MaximumAge() + 1>()
 {
-        string typeKey = ContactPoolType::ToString(poolType);
+        string typeKey = ContactType::ToString(poolType);
         // TODO ELiminate this hack by fixing the data file
         if (poolType == Id::K12School || poolType == Id::College) {
                 typeKey = "school";

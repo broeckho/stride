@@ -20,9 +20,9 @@
 
 #pragma once
 
+#include "contact/ContactType.h"
+#include "contact/IdSubscriptArray.h"
 #include "disease/Health.h"
-#include "pool/ContactPoolType.h"
-#include "pool/IdSubscriptArray.h"
 
 #include <cstddef>
 
@@ -66,10 +66,10 @@ public:
         unsigned int GetId() const { return m_id; }
 
         /// Get ID of contactpool_type
-        std::size_t GetPoolId(const ContactPoolType::Id& poolType) const { return m_pool_ids[poolType]; }
+        std::size_t GetPoolId(const ContactType::Id& poolType) const { return m_pool_ids[poolType]; }
 
         /// Check if a person is present today in a given contact pool
-        bool IsInPool(const ContactPoolType::Id& poolType) const { return m_in_pools[poolType]; }
+        bool IsInPool(const ContactType::Id& poolType) const { return m_in_pools[poolType]; }
 
         /// Does this person participates in the social contact study?
         bool IsSurveyParticipant() const { return m_is_participant; }
@@ -87,7 +87,7 @@ public:
         void SetId(unsigned int id) { m_id = id; }
 
         /// Sets (for the type of ContactPool) the Id of the ContactPool the person belongs to.
-        void SetPoolId(ContactPoolType::Id type, std::size_t poolId)
+        void SetPoolId(ContactType::Id type, std::size_t poolId)
         {
                 m_pool_ids[type] = poolId;
                 m_in_pools[type] = (poolId != 0); // Means present in Household, absent elsewhere.
@@ -102,10 +102,10 @@ private:
 
         ///< Ids (school, work, etc) of pools you belong to Id value 0 means you do not belong to any
         ///< pool of that type (e.g. school and work are mutually exclusive).
-        ContactPoolType::IdSubscriptArray<std::size_t> m_pool_ids;
+        ContactType::IdSubscriptArray<std::size_t> m_pool_ids;
 
         ///< Is person present/absent in pools of each of the types (school, work, etc)?
-        ContactPoolType::IdSubscriptArray<bool> m_in_pools;
+        ContactType::IdSubscriptArray<bool> m_in_pools;
 };
 
 } // namespace stride

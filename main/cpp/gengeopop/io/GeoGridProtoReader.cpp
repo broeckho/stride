@@ -135,32 +135,32 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         const auto type = protoContactCenter.type();
         const auto id   = protoContactCenter.id();
 
-        shared_ptr<ContactCenter>   result;
-        stride::ContactPoolType::Id typeId;
+        shared_ptr<ContactCenter> result;
+        stride::ContactType::Id   typeId;
         switch (type) {
         case proto::GeoGrid_Location_ContactCenter_Type_K12School:
                 result = make_shared<K12School>(id);
-                typeId = stride::ContactPoolType::Id::K12School;
+                typeId = stride::ContactType::Id::K12School;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
                 result = make_shared<PrimaryCommunity>(id);
-                typeId = stride::ContactPoolType::Id::PrimaryCommunity;
+                typeId = stride::ContactType::Id::PrimaryCommunity;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
                 result = make_shared<SecondaryCommunity>(id);
-                typeId = stride::ContactPoolType::Id::SecondaryCommunity;
+                typeId = stride::ContactType::Id::SecondaryCommunity;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_College:
                 result = make_shared<College>(id);
-                typeId = stride::ContactPoolType::Id::College;
+                typeId = stride::ContactType::Id::College;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Household:
                 result = make_shared<Household>(id);
-                typeId = stride::ContactPoolType::Id::Household;
+                typeId = stride::ContactType::Id::Household;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Workplace:
                 result = make_shared<Workplace>(id);
-                typeId = stride::ContactPoolType::Id::Workplace;
+                typeId = stride::ContactType::Id::Workplace;
                 break;
                 break;
         default: throw runtime_error("No such ContactCenter type");
@@ -193,7 +193,7 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 }
 
 stride::ContactPool* GeoGridProtoReader::ParseContactPool(
-    const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, stride::ContactPoolType::Id type)
+    const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, stride::ContactType::Id type)
 {
         // Don't use the id of the ContactPool but the let the Population create an id
         stride::ContactPool* result;

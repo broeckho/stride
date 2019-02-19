@@ -32,7 +32,7 @@
 namespace stride {
 
 using namespace boost::property_tree;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 using namespace util;
 using namespace std;
 

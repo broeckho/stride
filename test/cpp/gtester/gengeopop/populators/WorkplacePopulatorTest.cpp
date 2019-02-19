@@ -14,6 +14,7 @@
  */
 
 #include "gengeopop/populators/WorkplacePopulator.h"
+#include "contact/AgeBrackets.h"
 #include "createGeogrid.h"
 #include "gengeopop/College.h"
 #include "gengeopop/GeoGridConfig.h"
@@ -22,7 +23,6 @@
 #include "gengeopop/Location.h"
 #include "gengeopop/Workplace.h"
 #include "gengeopop/populators/CollegePopulator.h"
-#include "pool/AgeBrackets.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -31,7 +31,7 @@
 using namespace std;
 using namespace gengeopop;
 using namespace stride;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 using namespace stride::util;
 
 namespace {

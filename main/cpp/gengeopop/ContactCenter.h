@@ -15,8 +15,8 @@
 
 #pragma once
 
-#include "pool/ContactPool.h"
-#include "pool/ContactPoolType.h"
+#include "contact/ContactPool.h"
+#include "contact/ContactType.h"
 
 #include <memory>
 #include <vector>
@@ -48,7 +48,7 @@ public:
         std::pair<unsigned int, unsigned int> GetPopulationAndInfectedCount() const;
 
         /// Get the the type of ContactPools this ContactCenter contains.
-        virtual stride::ContactPoolType::Id GetContactPoolType() const = 0;
+        virtual stride::ContactType::Id GetContactPoolType() const = 0;
 
         /// Register a ContactPool with this ContactCenter.
         void RegisterPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }

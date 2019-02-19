@@ -24,7 +24,7 @@ void Workplace::Fill(const GeoGridConfig& /* geoGridConfig */, const std::shared
 {
         // TODO CheckThisAlgorithm
         // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
-        const auto p = geoGrid->CreateContactPool(stride::ContactPoolType::Id::Workplace);
+        const auto p = geoGrid->CreateContactPool(stride::ContactType::Id::Workplace);
         RegisterPool(p);
         //}
 }

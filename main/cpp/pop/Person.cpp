@@ -20,13 +20,13 @@
 
 #include "Person.h"
 
-#include "pool/ContactPoolType.h"
+#include "contact/ContactType.h"
 #include "pop/Age.h"
 
 namespace stride {
 
 using namespace std;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 
 void Person::Update(bool isWorkOff, bool isSchoolOff, bool adaptiveSymptomaticBehavior)
 {

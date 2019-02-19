@@ -16,9 +16,9 @@
 #pragma once
 
 #include "GeoGridReader.h"
+#include "contact/ContactPool.h"
+#include "contact/ContactType.h"
 #include "gengeopop/Location.h"
-#include "pool/ContactPool.h"
-#include "pool/ContactPoolType.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 
@@ -56,8 +56,7 @@ private:
         std::shared_ptr<ContactCenter> ParseContactCenter(boost::property_tree::ptree& contactCenter);
 
         /// Create a ContactCenter based on the information stored in the provided boost property tree.
-        stride::ContactPool* ParseContactPool(boost::property_tree::ptree& contactPool,
-                                              stride::ContactPoolType::Id  typeId);
+        stride::ContactPool* ParseContactPool(boost::property_tree::ptree& contactPool, stride::ContactType::Id typeId);
 
         /// Create a Person based on the information stored in the provided boost property tree.
         stride::Person* ParsePerson(boost::property_tree::ptree& person);

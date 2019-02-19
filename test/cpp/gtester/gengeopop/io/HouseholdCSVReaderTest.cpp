@@ -29,7 +29,7 @@ namespace {
 
 shared_ptr<gengeopop::Household> createCP(const vector<unsigned int>& ages)
 {
-        auto cp = new ContactPool(0, ContactPoolType::Id::Household);
+        auto cp = new ContactPool(0, ContactType::Id::Household);
         for (unsigned int age : ages) {
                 auto p = new Person();
                 p->SetAge(age);

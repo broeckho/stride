@@ -19,13 +19,13 @@
  * Implementation of ContactPoolType.
  */
 
-#include "ContactPoolType.h"
+#include "ContactType.h"
 
 #include <boost/algorithm/string.hpp>
 #include <map>
 
 namespace stride {
-namespace ContactPoolType {
+namespace ContactType {
 
 using namespace std;
 using boost::to_upper;
@@ -57,7 +57,7 @@ Id ToId(const string& s)
         };
         string t{s};
         to_upper(t);
-        return (ids.count(t) == 1) ? ids[t] : throw runtime_error("ContactPoolType::ToId> not available:" + t);
+        return (ids.count(t) == 1) ? ids[t] : throw runtime_error("ContactType::ToId> not available:" + t);
 }
 
 string ToString(Id c)
@@ -70,8 +70,8 @@ string ToString(Id c)
             make_pair(Id::PrimaryCommunity, "PrimaryCommunity"),
             make_pair(Id::SecondaryCommunity, "SecondaryCommunity"),
         };
-        return (names.count(c) == 1) ? names[c] : throw runtime_error("ContactPoolType::ToString> not available:");
+        return (names.count(c) == 1) ? names[c] : throw runtime_error("ContactType::ToString> not available:");
 }
 
-} // namespace ContactPoolType
+} // namespace ContactType
 } // namespace stride

@@ -15,10 +15,10 @@
 
 #include "GeoGridProtoWriter.h"
 
+#include "contact/ContactType.h"
 #include "gengeopop/ContactCenter.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/io/proto/geogrid.pb.h"
-#include "pool/ContactPoolType.h"
 #include "util/Exception.h"
 
 #include <iostream>
@@ -82,7 +82,7 @@ void GeoGridProtoWriter::WriteCoordinate(const Coordinate&                   coo
 void GeoGridProtoWriter::WriteContactCenter(shared_ptr<ContactCenter>              contactCenter,
                                             proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
-        using namespace stride::ContactPoolType;
+        using namespace stride::ContactType;
 
         map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},

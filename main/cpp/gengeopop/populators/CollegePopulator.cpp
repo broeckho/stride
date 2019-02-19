@@ -15,13 +15,13 @@
 
 #include "CollegePopulator.h"
 
+#include "contact/AgeBrackets.h"
+#include "contact/ContactPool.h"
 #include "gengeopop/College.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/Household.h"
 #include "gengeopop/Location.h"
-#include "pool/AgeBrackets.h"
-#include "pool/ContactPool.h"
 #include "pop/Person.h"
 #include "util/ExcAssert.h"
 
@@ -32,7 +32,7 @@ namespace gengeopop {
 
 using namespace std;
 using namespace stride;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 
 void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
 {

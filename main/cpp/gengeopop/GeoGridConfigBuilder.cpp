@@ -15,9 +15,9 @@
 
 #include "GeoGridConfigBuilder.h"
 
+#include "contact/AgeBrackets.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/io/ReaderFactory.h"
-#include "pool/AgeBrackets.h"
 
 #include <cmath>
 

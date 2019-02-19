@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "pool/ContactPoolSys.h"
+#include "contact/ContactPoolSys.h"
 #include "pop/Person.h"
 #include "util/RnMan.h"
 #include "util/SegmentedVector.h"
@@ -57,7 +57,7 @@ public:
 
 public:
         /// Add a new contact pool of a given type
-        ContactPool* CreateContactPool(ContactPoolType::Id typeId);
+        ContactPool* CreateContactPool(ContactType::Id typeId);
 
         /// Create Person in the population.
         Person* CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,

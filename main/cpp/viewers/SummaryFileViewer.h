@@ -19,7 +19,7 @@
  * Observer for Persons output.
  */
 
-#include "output/SummaryFile.h"
+#include "SummaryFile.h"
 #include "sim/SimRunner.h"
 #include "sim/event/Id.h"
 

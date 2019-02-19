@@ -26,7 +26,7 @@ namespace gengeopop {
 
 using namespace std;
 using namespace stride;
-using namespace stride::ContactPoolType;
+using namespace stride::ContactType;
 
 GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 
@@ -162,7 +162,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(ContactPool* con
 
 boost::property_tree::ptree GeoGridJSONWriter::WritePerson(Person* person)
 {
-        using namespace ContactPoolType;
+        using namespace ContactType;
 
         boost::property_tree::ptree person_root;
         person_root.put("id", person->GetId());

@@ -36,23 +36,32 @@ $Population$ is a collection of $Person$ objects.
 % GenGeoPop
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{GenGeoPop}
+\section{Population on a geographic grid}
 \label{section:gengeopop}
 
 \subsection{Background}
 \label{subsection:background}
 
-To explain the algorithms used for generating the geography of the countries and their respective population, we have to introduce some background concepts:
+To explain the algorithms used for generating the geography of the countries and their respective population, we have to introduce some background concepts. 
 
 \begin{description}
     \item[ContactPool]:
-        A pool of persons that potentially come contacts with each other that potentially lead to disease transmission.
-        We distinguish different types of ContactPools associated with the workplace, school, community and households.
-        Note that there is a difference between the size of a school (for example 500 students) and the size of the ContactPools inside the school (20 students taking their classes together all the time).
+        A pool of persons that may contact with each other which in turn may lead to disease transmission.
+        We distinguish different a number of types of ContactPools associated with the household, the workplace, 
+        the school, \ldots. The Household is a key type because it fixed the home address of a person.
     \item[ContactCenter]:
-        A group of one or more ContactPools of the same type.
-        This allows for a school or College to contain multiple classes (ContactCenter).
-        A ContactCenter may contain a single ContactPool, for example for a Household.
+        A group of one or more ContactPools of the same type, at the same Location.
+        This construct allows e.g for a K12School (ContactCenter) to contain multiple classes (ContactCenter). 
+        The former has a reference size of 500 (again a configurable reference number) pupils in 25 
+        (again a configurable reference number) classes.
+        A ContactCenter may however also associated one-on-one with a ContactPool; this is the case for 
+        ContactCenters of type  Household.
+\item[Age Brackets]: 
+    		We define age brackets that classify individuals in terms of the type of ContactPool they 
+    		can be a member of. Everyone is member of a one Houseold ContacCenter and ContactPool. 
+    		For  6 <= age < 18 one is a K12School student, for 18<= age < 26 one is either a member of a College
+    		ContactCenter or member of a Workplace ContactCenter or neither (i.e. not a college student and not
+    		employed). Details of all the rules can be found in the code documentation.
     \item[K-12 student]: 
     		Persons from 3 until 18 years of age that are required (at least in Belgium) to attend school. 
     		Students that skip or repeat years are not accounted for.
@@ -74,7 +83,11 @@ To explain the algorithms used for generating the geography of the countries and
         but through a set of reference households. This set contains a sample of households which is 
         representative of the whole population in their composition.
     \item[GeoGrid locations]:
-        Our data only allows for a limited geographical resolution. We have the longitude and latitude of cities and municipalities (a distinction we will not make), which we shall use to create GeoGrid locations for the domicile of the households. All households in the same location are mapped to the coordinates of the location's center. These locations with corresponding coordinates will form a grid that covers the simulation area.
+        Our data only allows for a limited geographical resolution. We have the longitude and latitude of cities 
+        and municipalities (a distinction we will not make), which we shall use to create GeoGrid locations for 
+        the domicile of the households. All households in the same location are mapped to the coordinates 
+        of the location's center. These locations with corresponding coordinates will form a grid that covers 
+        the simulation area.
 \end{description}
 
 \subsection{Generating the geography}

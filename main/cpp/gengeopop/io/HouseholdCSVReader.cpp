@@ -15,8 +15,8 @@
 
 #include "HouseholdCSVReader.h"
 
+#include "contact/ContactPool.h"
 #include "gengeopop/Household.h"
-#include "pool/ContactPool.h"
 #include "pop/Person.h"
 #include "util/CSV.h"
 
@@ -41,7 +41,7 @@ void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Hous
                 auto household = std::make_shared<Household>();
 
                 // Create contactpool of the household.
-                ref_pools.emplace_back(id++, stride::ContactPoolType::Id::Household);
+                ref_pools.emplace_back(id++, stride::ContactType::Id::Household);
                 stride::ContactPool* newCP = &ref_pools.back();
 
                 for (std::size_t i = 0; i < 12; i++) {

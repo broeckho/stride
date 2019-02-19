@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "pool/ContactPool.h"
+#include "contact/ContactPool.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
