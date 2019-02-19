@@ -29,6 +29,7 @@ using namespace boost::property_tree;
 AgeContactProfile::AgeContactProfile(Id poolType, const ptree& contactPt) : std::array<double, MaximumAge() + 1>()
 {
         string typeKey = ContactPoolType::ToString(poolType);
+        // TODO ELiminate this hack by fixing the data file
         if (poolType == Id::K12School || poolType == Id::College) {
                 typeKey = "school";
         } else if (poolType == Id::Household) {

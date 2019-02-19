@@ -42,7 +42,6 @@ Compilation and installation of the software creates the following files and dir
 			\item $contact\_matrix\_week$: Social contact rates, given the cluster type. Primary Community cluster has weekend rates, Secondary Community has week rates.
 			\item $disease\_xxx$: Disease characteristics (incubation and infectious period) for xxx.
 			\item $holidays\_xxx$: Holiday characteristics for xxx.
-			\item $pop\_xxx$: Synthetic population data extracted from the 2010 U.S. Synthetic Population Database (Version 1) from RTI International for xxx \cite{wheaton2014a,wheaton2014b}.
 			\item $ref\_2011$: Reference data from EUROSTAT on the Belgian population of 2011. Population ages and household sizes.
 			\item $ref\_fl2010\_xxx$: Reference data on social contacts for Belgium, 2011.
         \end{compactitem}
@@ -65,14 +64,13 @@ The install directory is also the workspace for \texttt{Stride}. The \texttt{Str
 
 From the workspace directory, the simulator can be started  using the command \mbox{``\texttt{./bin/stride}''}. Arguments can be passed to the simulator on the command line:
 \begin{verbatim}
- 
+
 USAGE: 
  
    bin/stride  [-e <clean|dump|sim|genpop>] [-c <CONFIGURATION>] [-o
                <<NAME>=<VALUE>>] ...  [-i] [--stan <COUNT>] [--]
                [--version] [-h]
- 
- 
+               
 Where: 
  
    -e <clean|dump|sim|genpop>,  --exec <clean|dump|sim|genpop>
@@ -119,9 +117,7 @@ Where:
  
    -h,  --help
      Displays usage information and exits.
- 
- 
-   stride
+
 \end{verbatim}
 
 For example if you run with the default configuration file, but you

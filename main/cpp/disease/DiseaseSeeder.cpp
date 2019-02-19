@@ -21,9 +21,7 @@
 #include "DiseaseSeeder.h"
 
 #include "disease/Immunizer.h"
-#include "pool/ContactPoolSys.h"
 #include "pop/Population.h"
-#include "sim/Sim.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/StringUtils.h"

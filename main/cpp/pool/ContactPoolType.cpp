@@ -48,12 +48,12 @@ bool IsId(const string& s)
 Id ToId(const string& s)
 {
         static map<string, Id> ids{
-                make_pair("HOUSEHOLD", Id::Household),
-                make_pair("K12SCHOOL", Id::K12School),
-                make_pair("COLLEGE", Id::College),
-                make_pair("WORKPLACE", Id::Workplace),
-                make_pair("PRIMARY_COMMUNITY", Id::PrimaryCommunity),
-                make_pair("SECONDARY_COMMUNITY", Id::SecondaryCommunity),
+            make_pair("HOUSEHOLD", Id::Household),
+            make_pair("K12SCHOOL", Id::K12School),
+            make_pair("COLLEGE", Id::College),
+            make_pair("WORKPLACE", Id::Workplace),
+            make_pair("PRIMARY_COMMUNITY", Id::PrimaryCommunity),
+            make_pair("SECONDARY_COMMUNITY", Id::SecondaryCommunity),
         };
         string t{s};
         to_upper(t);

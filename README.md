@@ -22,25 +22,24 @@ Current contributors are (in alphabetical order):
 * Lander Willem (lander.willem@uantwerpen.be)
 
 A breakdown of project artefacts (excluding third-party material) generated with the  
-cloc tool on 04/12/2018:
-
+cloc tool on 19/02/2019:
 
 Language|files|blank|comment|code
 :-------|-------:|-------:|-------:|-------:
-C++|147|2552|3112|12278
-C/C++ Header|158|1923|4354|6135
-Python|26|284|351|1116
-R|10|461|483|1082
-CMake|23|123|685|724
+C++|130|2361|2847|11524
+C/C++ Header|145|1982|4058|5750
+R|16|610|935|1253
+Python|24|244|288|997
+CMake|21|113|654|618
 JSON|8|0|0|480
-XML|6|0|0|238
-YAML|1|16|15|135
-Markdown|6|26|0|107
+XML|6|0|0|201
+YAML|1|15|13|115
 Bourne Again Shell|2|17|40|92
-make|1|16|39|74
+Markdown|4|25|0|81
+make|1|17|41|74
 SWIG|6|21|13|73
 Bourne Shell|3|23|65|54
 Protocol Buffers|1|3|14|46
 XSLT|1|8|0|36
 --------|--------|--------|--------|--------
-SUM:|399|5473|9171|22670
+SUM:|369|5439|8968|21394

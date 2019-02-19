@@ -63,12 +63,12 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                                         logger->info(
                                             "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
                                             p.GetId(), p.GetAge(), p.GetGender(), p.GetPoolId(Id::Household),
-                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College), p.GetPoolId(Id::Workplace),
-                                            p.GetHealth().IsSusceptible(), p.GetHealth().IsInfected(),
-                                            p.GetHealth().IsInfectious(), p.GetHealth().IsRecovered(),
-                                            p.GetHealth().IsImmune(), p.GetHealth().GetStartInfectiousness(),
-                                            p.GetHealth().GetStartSymptomatic(), p.GetHealth().GetEndInfectiousness(),
-                                            p.GetHealth().GetEndSymptomatic(),
+                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
+                                            p.GetPoolId(Id::Workplace), p.GetHealth().IsSusceptible(),
+                                            p.GetHealth().IsInfected(), p.GetHealth().IsInfectious(),
+                                            p.GetHealth().IsRecovered(), p.GetHealth().IsImmune(),
+                                            p.GetHealth().GetStartInfectiousness(), p.GetHealth().GetStartSymptomatic(),
+                                            p.GetHealth().GetEndInfectiousness(), p.GetHealth().GetEndSymptomatic(),
                                             poolSys[Id::Household][p.GetPoolId(Id::Household)].GetSize(),
                                             poolSys[Id::K12School][p.GetPoolId(Id::K12School)].GetSize(),
                                             poolSys[Id::College][p.GetPoolId(Id::College)].GetSize(),
@@ -80,12 +80,13 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                                         logger->info(
                                             "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
                                             p.GetId(), p.GetAge(), p.GetGender(), p.GetPoolId(Id::Household),
-                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College), p.GetPoolId(Id::Workplace),
-                                            p.GetHealth().IsSusceptible(), p.GetHealth().IsInfected(),
-                                            p.GetHealth().IsInfectious(), p.GetHealth().IsRecovered(),
-                                            p.GetHealth().IsImmune(), p.GetHealth().GetStartInfectiousness(),
-                                            p.GetHealth().GetStartSymptomatic(), p.GetHealth().GetEndInfectiousness(),
-                                            p.GetHealth().GetEndSymptomatic(), -1, -1, -1, -1, -1, -1, -1);
+                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
+                                            p.GetPoolId(Id::Workplace), p.GetHealth().IsSusceptible(),
+                                            p.GetHealth().IsInfected(), p.GetHealth().IsInfectious(),
+                                            p.GetHealth().IsRecovered(), p.GetHealth().IsImmune(),
+                                            p.GetHealth().GetStartInfectiousness(), p.GetHealth().GetStartSymptomatic(),
+                                            p.GetHealth().GetEndInfectiousness(), p.GetHealth().GetEndSymptomatic(), -1,
+                                            -1, -1, -1, -1, -1, -1);
                                 }
 
                                 num_samples++;

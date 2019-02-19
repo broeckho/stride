@@ -13,32 +13,10 @@ that capture the demographic and geographic distributions, as well as detailed s
 
 Stride is an open source software. License information can be found in the project root directory in the file \texttt{LICENSE.txt}. The authors hope to make large-scale
 agent-based epidemic models more useful to the community.
+
 More info on the project and results obtained with the software
-can be found in: 
-\textit{``Willem L, Stijven S, Tijskens E, Beutels P, Hens N \& Broeckhove J. (2015) Optimizing agent-based transmission models for infectious diseases, BMC Bioinformatics, 16:183''} \cite{willem2015}.
-
-The model population consists of households, schools, workplaces and
-communities, which represent a group of people we define as a ``ContactPool''.
-Social contacts can only happen within a ContactPool.
-When school or work is off, people stay at home and in their primary
-community and can have social contacts with the other members.
-During other days, people are present in their household, secondary community
-and a possible workplace or school.  
+can be found in
+\textit{``Willem L, Stijven S, Tijskens E, Beutels P, Hens N \& Broeckhove J. (2015) Optimizing agent-based transmission models for infectious diseases, BMC Bioinformatics, 16:183''} \cite{willem2015} and also in \textit{``Kuylen, E Stijven, S, Broeckhove,J, \& Willem, L (2017) Social Contact Patterns in an Individual-based Simulator for the Transmission of Infectious Diseases, Procedia Computer Science, 108C:2438''} \cite{kuylen2017}, though a lot functionality in the simulator has been improved, extended and added since those publications.
 
 
-
-We use a $Simulator$ class to organize the activities from the people in the population.
-The ContactPools in a population are grouped into ContactCenters (e.g. the different classes of a school are grouped into one K12School ContactCenter).
-These ContactCenters are geographically grouped into a geographical grid (sometimes called GeoGrid)
-
-The $Contact Handler$ performs Bernoulli trials to decide whether a contact
-between an infectious and susceptible person leads to disease transmission. 
-People transit through Susceptible-Exposed-Infected-Recovered states,
-similar to an influenza-like disease.
-Each $ContactPool$ contains a link to its members and the $Population$ stores all personal
-data, with $Person$ objects.
-The implementation is based on the open source model from Grefenstette et al. \cite{grefenstette2013}. 
-The household, workplace and school clusters are handled separately from the
-community clusters, which are used to model general community contacts. The
-$Population$ is a collection of $Person$ objects.
 
