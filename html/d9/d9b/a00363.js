@@ -1,7 +1,7 @@
 var a00363 =
 [
     [ "AgeBrackets", "dc/d59/a00364.html", "dc/d59/a00364" ],
-    [ "ContactPoolType", "d2/d3e/a00366.html", "d2/d3e/a00366" ],
+    [ "ContactType", "d2/d3e/a00366.html", "d2/d3e/a00366" ],
     [ "output", "df/dc2/a00367.html", "df/dc2/a00367" ],
     [ "util", "d3/d30/a00370.html", "d3/d30/a00370" ],
     [ "viewers", "dc/de3/a00373.html", "dc/de3/a00373" ],

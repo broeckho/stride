@@ -89,13 +89,13 @@ var hierarchy =
     [ "stride::util::SegmentedVector< stride::stride::ContactPool >", "d4/d31/a00069.html", null ],
     [ "stride::util::SegmentedVector< stride::stride::Person >", "d4/d31/a00069.html", null ],
     [ "std::array< T >", null, [
-      [ "stride::ContactPoolType::IdSubscriptArray< AgeContactProfile >", "d9/d73/a00060.html", null ],
-      [ "stride::ContactPoolType::IdSubscriptArray< std::size_t >", "d9/d73/a00060.html", null ],
+      [ "stride::ContactType::IdSubscriptArray< AgeContactProfile >", "d9/d73/a00060.html", null ],
+      [ "stride::ContactType::IdSubscriptArray< std::size_t >", "d9/d73/a00060.html", null ],
       [ "stride::AgeContactProfile", "db/df8/a00076.html", null ],
-      [ "stride::ContactPoolType::IdSubscriptArray< T >", "d9/d73/a00060.html", null ]
+      [ "stride::ContactType::IdSubscriptArray< T >", "d9/d73/a00060.html", null ]
     ] ],
     [ "std::bitset< Bits >", null, [
-      [ "stride::ContactPoolType::IdSubscriptArray< bool >", "d8/d53/a00081.html", null ]
+      [ "stride::ContactType::IdSubscriptArray< bool >", "d8/d53/a00081.html", null ]
     ] ],
     [ "std::exception", null, [
       [ "std::runtime_error", null, [
@@ -128,14 +128,14 @@ var hierarchy =
       [ "stride::ImportPopBuilder", "d9/d77/a00095.html", null ]
     ] ],
     [ "stride::AgeBrackets::College", "d0/d89/a00071.html", null ],
-    [ "stride::AgeBrackets::DayCare", "d6/d2c/a00072.html", null ],
+    [ "stride::AgeBrackets::Daycare", "d6/d2c/a00072.html", null ],
     [ "stride::AgeBrackets::K12School", "d1/d6e/a00073.html", null ],
     [ "stride::AgeBrackets::PreSchool", "db/db6/a00074.html", null ],
     [ "stride::AgeBrackets::Workplace", "d9/da5/a00075.html", null ],
     [ "stride::Calendar", "d1/d09/a00077.html", null ],
     [ "stride::ContactHandler", "d9/da4/a00078.html", null ],
     [ "stride::ContactPool", "d1/d51/a00079.html", null ],
-    [ "stride::ContactPoolType::IDPack< ids >", "da/dec/a00080.html", null ],
+    [ "stride::ContactType::IDPack< ids >", "da/dec/a00080.html", null ],
     [ "stride::ControlHelper", "d4/d63/a00082.html", [
       [ "stride::GenPopController", "d9/dec/a00090.html", null ],
       [ "stride::SimController", "df/d98/a00107.html", null ],

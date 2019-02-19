@@ -2,7 +2,7 @@ var searchData=
 [
   ['agebrackets',['AgeBrackets',['../dc/d59/a00364.html',1,'stride']]],
   ['contactlogmode',['ContactLogMode',['../dd/db5/a00365.html',1,'stride']]],
-  ['contactpooltype',['ContactPoolType',['../d2/d3e/a00366.html',1,'stride']]],
+  ['contacttype',['ContactType',['../d2/d3e/a00366.html',1,'stride']]],
   ['detail',['detail',['../d6/d80/a00371.html',1,'stride::util']]],
   ['ii_5fdetail',['ii_detail',['../db/d7e/a00372.html',1,'stride::util']]],
   ['output',['output',['../df/dc2/a00367.html',1,'stride']]],

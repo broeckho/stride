@@ -4,7 +4,7 @@ var a00103 =
     [ "Create", "d5/d1e/a00103.html#a3ea6a845fa96476b523c3d09d8526c68", null ],
     [ "Create", "d5/d1e/a00103.html#aa4934eba041fe24376c4a627153f28e0", null ],
     [ "Create", "d5/d1e/a00103.html#a7cfcedae698db0dc471770044de4834d", null ],
-    [ "CreateContactPool", "d5/d1e/a00103.html#a257f5572d92ba0104e8618a36d790cd9", null ],
+    [ "CreateContactPool", "d5/d1e/a00103.html#ab4c1b6ced74487b66ffa2fb929281af4", null ],
     [ "CreatePerson", "d5/d1e/a00103.html#a5680667e8da5d16b5f9b2c4d9a0207fa", null ],
     [ "GetInfectedCount", "d5/d1e/a00103.html#a5ffab38c3407832dcc0f1ecbf4e11cbd", null ],
     [ "GetContactLogger", "d5/d1e/a00103.html#a314f886a6abeb0e08aac8fee085e76bd", null ],

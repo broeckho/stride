@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['idpack',['IDPack',['../da/dec/a00080.html',1,'stride::ContactPoolType']]],
-  ['idsubscriptarray',['IdSubscriptArray',['../d9/d73/a00060.html',1,'stride::ContactPoolType']]],
-  ['idsubscriptarray_3c_20agecontactprofile_20_3e',['IdSubscriptArray&lt; AgeContactProfile &gt;',['../d9/d73/a00060.html',1,'stride::ContactPoolType']]],
-  ['idsubscriptarray_3c_20bool_20_3e',['IdSubscriptArray&lt; bool &gt;',['../d8/d53/a00081.html',1,'stride::ContactPoolType']]],
-  ['idsubscriptarray_3c_20std_3a_3asize_5ft_20_3e',['IdSubscriptArray&lt; std::size_t &gt;',['../d9/d73/a00060.html',1,'stride::ContactPoolType']]],
+  ['idpack',['IDPack',['../da/dec/a00080.html',1,'stride::ContactType']]],
+  ['idsubscriptarray',['IdSubscriptArray',['../d9/d73/a00060.html',1,'stride::ContactType']]],
+  ['idsubscriptarray_3c_20agecontactprofile_20_3e',['IdSubscriptArray&lt; AgeContactProfile &gt;',['../d9/d73/a00060.html',1,'stride::ContactType']]],
+  ['idsubscriptarray_3c_20bool_20_3e',['IdSubscriptArray&lt; bool &gt;',['../d8/d53/a00081.html',1,'stride::ContactType']]],
+  ['idsubscriptarray_3c_20std_3a_3asize_5ft_20_3e',['IdSubscriptArray&lt; std::size_t &gt;',['../d9/d73/a00060.html',1,'stride::ContactType']]],
   ['immunizer',['Immunizer',['../dc/d54/a00094.html',1,'stride']]],
   ['importpopbuilder',['ImportPopBuilder',['../d9/d77/a00095.html',1,'stride']]],
   ['infectedfile',['InfectedFile',['../da/d74/a00099.html',1,'stride::output']]],

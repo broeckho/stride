@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['daycare',['DayCare',['../d6/d2c/a00072.html',1,'stride::AgeBrackets']]],
+  ['daycare',['Daycare',['../d6/d2c/a00072.html',1,'stride::AgeBrackets']]],
   ['daysoffall',['DaysOffAll',['../d2/d1f/a00083.html',1,'stride']]],
   ['daysoffinterface',['DaysOffInterface',['../df/d5d/a00084.html',1,'stride']]],
   ['daysoffnone',['DaysOffNone',['../df/d13/a00085.html',1,'stride']]],

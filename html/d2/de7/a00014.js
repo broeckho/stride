@@ -7,7 +7,7 @@ var a00014 =
     [ "GetId", "d2/de7/a00014.html#a41db67c04a80efb125efdbfa4a39b4ad", null ],
     [ "GetPools", "d2/de7/a00014.html#ad67010237fe5d85ab860a1312e846efc", null ],
     [ "GetPopulationAndInfectedCount", "d2/de7/a00014.html#af8b55f34ee88976dc4e4cd124f508ffa", null ],
-    [ "GetContactPoolType", "d2/de7/a00014.html#ababb73a01f0af8f30148d50e718b9af4", null ],
+    [ "GetContactPoolType", "d2/de7/a00014.html#aeace63a841829721373f6c0ed883bc36", null ],
     [ "RegisterPool", "d2/de7/a00014.html#ac3152fbcba7792e0415586aa34d22242", null ],
     [ "begin", "d2/de7/a00014.html#a88dac97cec790bd1e55bc8e89323de7c", null ],
     [ "end", "d2/de7/a00014.html#aea7b447b01f46a59deed95162c3a0128", null ],

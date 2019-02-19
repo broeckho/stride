@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ContactPoolType.cpp File Reference</title>
+<title>Stride Reference Manual: ContactType.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 29b523f</span>
+   &#160;<span id="projectnumber">- generated for commit a7f58ae</span>
    </div>
   </td>
  </tr>
@@ -108,21 +108,21 @@ $(document).ready(function(){initNavTree('d8/df1/a00174.html','../../');});
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">ContactPoolType.cpp File Reference</div>  </div>
+<div class="title">ContactType.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Implementation of ContactPoolType.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../de/d45/a00175_source.html">ContactPoolType.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/d45/a00175_source.html">ContactType.h</a>&quot;</code><br />
 <code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ContactPoolType.cpp:</div>
+Include dependency graph for ContactType.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/dc5/a00435.gif" border="0" usemap="#ContactPoolType_8cpp" alt=""/></div>
-<map name="ContactPoolType_8cpp" id="ContactPoolType_8cpp">
-<area shape="rect" id="node2" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="152,80,291,107"/>
+<div class="center"><img src="../../d0/dc5/a00435.gif" border="0" usemap="#ContactType_8cpp" alt=""/></div>
+<map name="ContactType_8cpp" id="ContactType_8cpp">
+<area shape="rect" id="node2" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="165,80,277,107"/>
 </map>
 </div>
 </div>
@@ -133,33 +133,33 @@ Namespaces</h2></td></tr>
 <tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
 <tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d2/d3e/a00366"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html">stride::ContactPoolType</a></td></tr>
+<tr class="memitem:d2/d3e/a00366"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html">stride::ContactType</a></td></tr>
 <tr class="memdesc:d2/d3e/a00366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of <a class="el" href="../../d1/d51/a00079.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adc1ca4844221d44411bb9dc5435e533f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#adc1ca4844221d44411bb9dc5435e533f">stride::ContactPoolType::IsId</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:adc1ca4844221d44411bb9dc5435e533f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="../../d2/d3e/a00366.html#adc1ca4844221d44411bb9dc5435e533f">More...</a><br /></td></tr>
-<tr class="separator:adc1ca4844221d44411bb9dc5435e533f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f23ef5954b0a7b0f0d01b1d434eebc2"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#a9f23ef5954b0a7b0f0d01b1d434eebc2">stride::ContactPoolType::ToId</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a9f23ef5954b0a7b0f0d01b1d434eebc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../d2/d3e/a00366.html#a9f23ef5954b0a7b0f0d01b1d434eebc2">More...</a><br /></td></tr>
-<tr class="separator:a9f23ef5954b0a7b0f0d01b1d434eebc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#a0cf9d3425b406cd76acdc02ef9c0286d">stride::ContactPoolType::ToString</a> (Id w)</td></tr>
-<tr class="memdesc:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="../../d2/d3e/a00366.html#a0cf9d3425b406cd76acdc02ef9c0286d">More...</a><br /></td></tr>
-<tr class="separator:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab74302c4c0591098d750ca4e676a7ec1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#ab74302c4c0591098d750ca4e676a7ec1">stride::ContactType::IsId</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:ab74302c4c0591098d750ca4e676a7ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a ContactPoolType::Id.  <a href="../../d2/d3e/a00366.html#ab74302c4c0591098d750ca4e676a7ec1">More...</a><br /></td></tr>
+<tr class="separator:ab74302c4c0591098d750ca4e676a7ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02e504d5b5a0ca2434971345323be3a2"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#a02e504d5b5a0ca2434971345323be3a2">stride::ContactType::ToId</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a02e504d5b5a0ca2434971345323be3a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../d2/d3e/a00366.html#a02e504d5b5a0ca2434971345323be3a2">More...</a><br /></td></tr>
+<tr class="separator:a02e504d5b5a0ca2434971345323be3a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c3d076da6b82e6b4d082e1ae58740b6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html#a0c3d076da6b82e6b4d082e1ae58740b6">stride::ContactType::ToString</a> (Id w)</td></tr>
+<tr class="memdesc:a0c3d076da6b82e6b4d082e1ae58740b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ContactPoolType::Id value to corresponding name.  <a href="../../d2/d3e/a00366.html#a0c3d076da6b82e6b4d082e1ae58740b6">More...</a><br /></td></tr>
+<tr class="separator:a0c3d076da6b82e6b4d082e1ae58740b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of ContactPoolType. </p>
 
-<p>Definition in file <a class="el" href="../../d8/df1/a00174_source.html">ContactPoolType.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d8/df1/a00174_source.html">ContactType.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d8/df1/a00174.html">ContactPoolType.cpp</a></li>
-    <li class="footer">Generated on Tue Feb 19 2019 16:25:35 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d8/df1/a00174.html">ContactType.cpp</a></li>
+    <li class="footer">Generated on Tue Feb 19 2019 16:44:49 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 29b523f</span>
+   &#160;<span id="projectnumber">- generated for commit a7f58ae</span>
    </div>
   </td>
  </tr>
@@ -126,7 +126,7 @@ Namespaces</h2></td></tr>
 <tr class="memitem:dd/db5/a00365"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db5/a00365.html">ContactLogMode</a></td></tr>
 <tr class="memdesc:dd/db5/a00365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum specifiying the level of logging required: <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d2/d3e/a00366"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html">ContactPoolType</a></td></tr>
+<tr class="memitem:d2/d3e/a00366"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html">ContactType</a></td></tr>
 <tr class="memdesc:d2/d3e/a00366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of <a class="el" href="../../d1/d51/a00079.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:df/dc2/a00367"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc2/a00367.html">output</a></td></tr>
@@ -245,14 +245,14 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a0fdf5666e3837bb714ef0f0c58d65256"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html#a0fdf5666e3837bb714ef0f0c58d65256">AgeContactProfiles</a> = <a class="el" href="../../d9/d73/a00060.html">ContactPoolType::IdSubscriptArray</a>&lt; <a class="el" href="../../db/df8/a00076.html">AgeContactProfile</a> &gt;</td></tr>
-<tr class="separator:a0fdf5666e3837bb714ef0f0c58d65256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6433f51e4d5010d2397178ba05258879"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html#a6433f51e4d5010d2397178ba05258879">AgeContactProfiles</a> = <a class="el" href="../../d9/d73/a00060.html">ContactType::IdSubscriptArray</a>&lt; <a class="el" href="../../db/df8/a00076.html">AgeContactProfile</a> &gt;</td></tr>
+<tr class="separator:a6433f51e4d5010d2397178ba05258879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ab04d0028460e38f9cd10286445d361"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html#a7ab04d0028460e38f9cd10286445d361">ContactPoolSys</a> = <a class="el" href="../../d9/d73/a00060.html">ContactType::IdSubscriptArray</a>&lt; <a class="el" href="../../d4/d31/a00069.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d1/d51/a00079.html">ContactPool</a> &gt;&gt;</td></tr>
+<tr class="memdesc:a7ab04d0028460e38f9cd10286445d361"><td class="mdescLeft">&#160;</td><td class="mdescRight">ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all of the contcatpools of the type.  <a href="#a7ab04d0028460e38f9cd10286445d361">More...</a><br /></td></tr>
+<tr class="separator:a7ab04d0028460e38f9cd10286445d361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e7b27e9cd0a9f422bfc9f310bc5f13d"><td class="memItemLeft" align="right" valign="top">typedef void(&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html#a5e7b27e9cd0a9f422bfc9f310bc5f13d">InfectorExec</a>) (<a class="el" href="../../d1/d51/a00079.html">ContactPool</a> &amp;pool, const <a class="el" href="../../db/df8/a00076.html">AgeContactProfile</a> &amp;profile, const <a class="el" href="../../dd/d6d/a00111.html">TransmissionProfile</a> &amp;trans_profile, <a class="el" href="../../d9/da4/a00078.html">ContactHandler</a> &amp;c_handler, unsigned short int sim_day, std::shared_ptr&lt; spdlog::logger &gt; c_logger)</td></tr>
 <tr class="memdesc:a5e7b27e9cd0a9f422bfc9f310bc5f13d"><td class="mdescLeft">&#160;</td><td class="mdescRight">For use in the <a class="el" href="../../d1/d44/a00098.html" title="Simulator can time step and reveal some of the key data. ">InfectorMap</a> and <a class="el" href="../../d3/d32/a00105.html" title="Simulator can time step and reveal some of the key data. ">Sim</a>; executes infector.  <a href="#a5e7b27e9cd0a9f422bfc9f310bc5f13d">More...</a><br /></td></tr>
 <tr class="separator:a5e7b27e9cd0a9f422bfc9f310bc5f13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49dce703c45af99fbc6215835b94327d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html#a49dce703c45af99fbc6215835b94327d">ContactPoolSys</a> = <a class="el" href="../../d9/d73/a00060.html">ContactPoolType::IdSubscriptArray</a>&lt; <a class="el" href="../../d4/d31/a00069.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d1/d51/a00079.html">ContactPool</a> &gt;&gt;</td></tr>
-<tr class="memdesc:a49dce703c45af99fbc6215835b94327d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all of the contcatpools of the type.  <a href="#a49dce703c45af99fbc6215835b94327d">More...</a><br /></td></tr>
-<tr class="separator:a49dce703c45af99fbc6215835b94327d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -287,17 +287,34 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main namespace for the project. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a class="anchor" id="a0fdf5666e3837bb714ef0f0c58d65256"></a>
+<a class="anchor" id="a6433f51e4d5010d2397178ba05258879"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/d9b/a00363.html#a0fdf5666e3837bb714ef0f0c58d65256">stride::AgeContactProfiles</a> = typedef <a class="el" href="../../d9/d73/a00060.html">ContactPoolType::IdSubscriptArray</a>&lt;<a class="el" href="../../db/df8/a00076.html">AgeContactProfile</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d9/d9b/a00363.html#a6433f51e4d5010d2397178ba05258879">stride::AgeContactProfiles</a> = typedef <a class="el" href="../../d9/d73/a00060.html">ContactType::IdSubscriptArray</a>&lt;<a class="el" href="../../db/df8/a00076.html">AgeContactProfile</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d5/da7/a00144_source.html#l00029">29</a> of file <a class="el" href="../../d5/da7/a00144_source.html">AgeContactProfiles.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ab04d0028460e38f9cd10286445d361"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/d9b/a00363.html#a7ab04d0028460e38f9cd10286445d361">stride::ContactPoolSys</a> = typedef <a class="el" href="../../d9/d73/a00060.html">ContactType::IdSubscriptArray</a>&lt;<a class="el" href="../../d4/d31/a00069.html">util::SegmentedVector</a>&lt;<a class="el" href="../../d1/d51/a00079.html">ContactPool</a>&gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all of the contcatpools of the type. </p>
+<p>The ContactPoolSys container is an std::array extended to be subscriptable with the enum class of the pool types. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00034">34</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">ContactPoolSys.h</a>.</p>
 
 </div>
 </div>
@@ -314,23 +331,6 @@ Functions</h2></td></tr>
 <p>For use in the <a class="el" href="../../d1/d44/a00098.html" title="Simulator can time step and reveal some of the key data. ">InfectorMap</a> and <a class="el" href="../../d3/d32/a00105.html" title="Simulator can time step and reveal some of the key data. ">Sim</a>; executes infector. </p>
 
 <p>Definition at line <a class="el" href="../../d0/def/a00256_source.html#l00033">33</a> of file <a class="el" href="../../d0/def/a00256_source.html">InfectorExec.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a49dce703c45af99fbc6215835b94327d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d9/d9b/a00363.html#a49dce703c45af99fbc6215835b94327d">stride::ContactPoolSys</a> = typedef <a class="el" href="../../d9/d73/a00060.html">ContactPoolType::IdSubscriptArray</a>&lt;<a class="el" href="../../d4/d31/a00069.html">util::SegmentedVector</a>&lt;<a class="el" href="../../d1/d51/a00079.html">ContactPool</a>&gt;&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all of the contcatpools of the type. </p>
-<p>The ContactPoolSys container is an std::array extended to be subscriptable with the enum class of the pool types. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00034">34</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">ContactPoolSys.h</a>.</p>
 
 </div>
 </div>
@@ -535,7 +535,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li>
-    <li class="footer">Generated on Tue Feb 19 2019 16:25:36 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Feb 19 2019 16:44:50 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

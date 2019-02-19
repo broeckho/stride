@@ -8,7 +8,7 @@ var files =
     ] ],
     [ "Age.h", "d5/db1/a00140.html", "d5/db1/a00140" ],
     [ "AgeBrackets.h", "d5/d4e/a00141.html", [
-      [ "DayCare", "d6/d2c/a00072.html", "d6/d2c/a00072" ],
+      [ "Daycare", "d6/d2c/a00072.html", "d6/d2c/a00072" ],
       [ "PreSchool", "db/db6/a00074.html", "db/db6/a00074" ],
       [ "K12School", "d1/d6e/a00073.html", "d1/d6e/a00073" ],
       [ "College", "d0/d89/a00071.html", "d0/d89/a00071" ],
@@ -78,8 +78,8 @@ var files =
       [ "ContactPool", "d1/d51/a00079.html", "d1/d51/a00079" ]
     ] ],
     [ "ContactPoolSys.h", "d7/d3f/a00173.html", "d7/d3f/a00173" ],
-    [ "ContactPoolType.cpp", "d8/df1/a00174.html", "d8/df1/a00174" ],
-    [ "ContactPoolType.h", "de/d45/a00175.html", "de/d45/a00175" ],
+    [ "ContactType.cpp", "d8/df1/a00174.html", "d8/df1/a00174" ],
+    [ "ContactType.h", "de/d45/a00175.html", "de/d45/a00175" ],
     [ "ControlHelper.cpp", "d5/de9/a00176.html", null ],
     [ "ControlHelper.h", "dd/d4c/a00177.html", [
       [ "ControlHelper", "d4/d63/a00082.html", "d4/d63/a00082" ]

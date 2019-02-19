@@ -2,7 +2,7 @@ var searchData=
 [
   ['workplace',['Workplace',['../d4/d6d/a00055.html',1,'gengeopop']]],
   ['workplace',['Workplace',['../d9/da5/a00075.html',1,'stride::AgeBrackets']]],
-  ['workplace',['Workplace',['../df/d5f/a00064.html#adba138a3a614713524869a3d761cfdaa',1,'proto::GeoGrid_Location_ContactCenter::Workplace()'],['../d4/d6d/a00055.html#a2a5776adcfa1badbfb93f59dfa61137f',1,'gengeopop::Workplace::Workplace()'],['../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449aba45c6a290fcb4fad167ee4b610eeea878',1,'stride::ContactPoolType::Workplace()']]],
+  ['workplace',['Workplace',['../df/d5f/a00064.html#adba138a3a614713524869a3d761cfdaa',1,'proto::GeoGrid_Location_ContactCenter::Workplace()'],['../d4/d6d/a00055.html#a2a5776adcfa1badbfb93f59dfa61137f',1,'gengeopop::Workplace::Workplace()'],['../d2/d3e/a00366.html#a4e4309e1cddddec8f12b981ab3fbc4fba45c6a290fcb4fad167ee4b610eeea878',1,'stride::ContactType::Workplace()']]],
   ['workplace_2ecpp',['Workplace.cpp',['../df/d91/a00335.html',1,'']]],
   ['workplace_2eh',['Workplace.h',['../dd/d1d/a00336.html',1,'']]],
   ['workplace_5fsize',['workplace_size',['../d3/d52/a00023.html#ab89fa7126741fda6e10916fa57693093',1,'gengeopop::GeoGridConfig']]],

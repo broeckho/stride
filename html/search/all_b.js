@@ -1,7 +1,7 @@
 var searchData=
 [
   ['k12school',['K12School',['../d8/d41/a00038.html',1,'gengeopop']]],
-  ['k12school',['K12School',['../df/d5f/a00064.html#a7a887481e558ac4e0e049ffdab9cf0b2',1,'proto::GeoGrid_Location_ContactCenter::K12School()'],['../d8/d41/a00038.html#a5deacd923a5dbde43feb7b481937cb43',1,'gengeopop::K12School::K12School()'],['../d2/d3e/a00366.html#aaa214aee675050e781497b0dd15449abab055a361403830ea4fa7bd1c8519b38e',1,'stride::ContactPoolType::K12School()']]],
+  ['k12school',['K12School',['../df/d5f/a00064.html#a7a887481e558ac4e0e049ffdab9cf0b2',1,'proto::GeoGrid_Location_ContactCenter::K12School()'],['../d8/d41/a00038.html#a5deacd923a5dbde43feb7b481937cb43',1,'gengeopop::K12School::K12School()'],['../d2/d3e/a00366.html#a4e4309e1cddddec8f12b981ab3fbc4fbab055a361403830ea4fa7bd1c8519b38e',1,'stride::ContactType::K12School()']]],
   ['k12school',['K12School',['../d1/d6e/a00073.html',1,'stride::AgeBrackets']]],
   ['k12school_2ecpp',['K12School.cpp',['../d0/d2f/a00259.html',1,'']]],
   ['k12school_2eh',['K12School.h',['../dd/dd7/a00260.html',1,'']]],
