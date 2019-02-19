@@ -15,13 +15,13 @@
 
 #include "GeoGridIOUtils.h"
 
-#include "gengeopop/College.h"
-#include "gengeopop/GeoGridConfig.h"
-#include "gengeopop/Household.h"
-#include "gengeopop/K12School.h"
-#include "gengeopop/PrimaryCommunity.h"
-#include "gengeopop/Workplace.h"
-#include "gengeopop/io/GeoGridJSONWriter.h"
+#include "geopop/College.h"
+#include "geopop/GeoGridConfig.h"
+#include "geopop/Household.h"
+#include "geopop/K12School.h"
+#include "geopop/PrimaryCommunity.h"
+#include "geopop/Workplace.h"
+#include "geopop/io/GeoGridJSONWriter.h"
 #include "util/FileSys.h"
 
 #include <boost/property_tree/json_parser.hpp>

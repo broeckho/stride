@@ -16,15 +16,15 @@
 #include "GeoGridIOUtils.h"
 
 #include "contact/ContactType.h"
-#include "gengeopop/College.h"
-#include "gengeopop/GeoGridConfig.h"
-#include "gengeopop/Household.h"
-#include "gengeopop/K12School.h"
-#include "gengeopop/PrimaryCommunity.h"
-#include "gengeopop/SecondaryCommunity.h"
-#include "gengeopop/Workplace.h"
-#include "gengeopop/io/GeoGridProtoReader.h"
-#include "gengeopop/io/GeoGridProtoWriter.h"
+#include "geopop/College.h"
+#include "geopop/GeoGridConfig.h"
+#include "geopop/Household.h"
+#include "geopop/K12School.h"
+#include "geopop/PrimaryCommunity.h"
+#include "geopop/SecondaryCommunity.h"
+#include "geopop/Workplace.h"
+#include "geopop/io/GeoGridProtoReader.h"
+#include "geopop/io/GeoGridProtoWriter.h"
 
 #include <gtest/gtest.h>
 #include <map>

@@ -13,12 +13,12 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/populators/HouseholdPopulator.h"
-#include "gengeopop/Coordinate.h"
-#include "gengeopop/GeoGrid.h"
-#include "gengeopop/GeoGridConfig.h"
-#include "gengeopop/Household.h"
-#include "gengeopop/Location.h"
+#include "geopop/populators/HouseholdPopulator.h"
+#include "geopop/Coordinate.h"
+#include "geopop/GeoGrid.h"
+#include "geopop/GeoGridConfig.h"
+#include "geopop/Household.h"
+#include "geopop/Location.h"
 #include "pop/Population.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"

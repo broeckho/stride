@@ -20,9 +20,9 @@
 
 #include "GenPopController.h"
 
-#include "gengeopop/GeoGrid.h"
-#include "gengeopop/io/GeoGridWriter.h"
-#include "gengeopop/io/GeoGridWriterFactory.h"
+#include "geopop/GeoGrid.h"
+#include "geopop/io/GeoGridWriter.h"
+#include "geopop/io/GeoGridWriterFactory.h"
 
 #include "pop/GeoPopBuilder.h"
 #include "pop/Population.h"

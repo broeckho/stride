@@ -13,10 +13,10 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/io/GeoGridJSONReader.h"
+#include "geopop/io/GeoGridJSONReader.h"
 #include "contact/ContactType.h"
-#include "gengeopop/ContactCenter.h"
-#include "gengeopop/GeoGrid.h"
+#include "geopop/ContactCenter.h"
+#include "geopop/GeoGrid.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
 

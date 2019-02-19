@@ -13,7 +13,7 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/io/CitiesCSVReader.h"
+#include "geopop/io/CitiesCSVReader.h"
 
 #include <gtest/gtest.h>
 

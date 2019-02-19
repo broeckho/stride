@@ -20,9 +20,9 @@
 
 #include "ImportPopBuilder.h"
 
-#include "gengeopop/GeoGrid.h"
-#include "gengeopop/io/GeoGridReader.h"
-#include "gengeopop/io/GeoGridReaderFactory.h"
+#include "geopop/GeoGrid.h"
+#include "geopop/io/GeoGridReader.h"
+#include "geopop/io/GeoGridReaderFactory.h"
 #include "util/LogUtils.h"
 
 #include <boost/property_tree/ptree.hpp>

@@ -13,14 +13,14 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/populators/K12SchoolPopulator.h"
+#include "geopop/populators/K12SchoolPopulator.h"
 #include "contact/AgeBrackets.h"
 #include "createGeogrid.h"
-#include "gengeopop/GeoGrid.h"
-#include "gengeopop/GeoGridConfig.h"
-#include "gengeopop/Household.h"
-#include "gengeopop/K12School.h"
-#include "gengeopop/Location.h"
+#include "geopop/GeoGrid.h"
+#include "geopop/GeoGridConfig.h"
+#include "geopop/Household.h"
+#include "geopop/K12School.h"
+#include "geopop/Location.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 

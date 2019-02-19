@@ -20,9 +20,9 @@
 
 #include "GeoPopBuilder.h"
 
-#include "gengeopop/GeoGridBuilder.h"
-#include "gengeopop/GeoGridConfig.h"
-#include "gengeopop/GeoGridConfigBuilder.h"
+#include "geopop/GeoGridBuilder.h"
+#include "geopop/GeoGridConfig.h"
+#include "geopop/GeoGridConfigBuilder.h"
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"

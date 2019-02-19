@@ -15,8 +15,8 @@
 
 #pragma once
 
-#include "gengeopop/GeoGrid.h"
-#include "gengeopop/GeoGridConfig.h"
+#include "geopop/GeoGrid.h"
+#include "geopop/GeoGridConfig.h"
 
 std::shared_ptr<gengeopop::GeoGrid> CreateGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount,
                                                   int personCount, stride::Population* pop);

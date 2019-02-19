@@ -13,7 +13,7 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/geo/KdTree_def.h"
+#include "geopop/geo/KdTree_def.h"
 #include "util/FileSys.h"
 
 #include <cmath>

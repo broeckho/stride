@@ -15,9 +15,9 @@
 
 #include "createGeogrid.h"
 
-#include "gengeopop/Household.h"
-#include "gengeopop/K12School.h"
-#include "gengeopop/Location.h"
+#include "geopop/Household.h"
+#include "geopop/K12School.h"
+#include "geopop/Location.h"
 
 using namespace std;
 using namespace stride;

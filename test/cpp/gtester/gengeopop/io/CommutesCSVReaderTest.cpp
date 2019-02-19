@@ -13,8 +13,8 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/io/CommutesCSVReader.h"
-#include "gengeopop/io/HouseholdCSVReader.h"
+#include "geopop/io/CommutesCSVReader.h"
+#include "geopop/io/HouseholdCSVReader.h"
 
 #include <gtest/gtest.h>
 #include <memory>
