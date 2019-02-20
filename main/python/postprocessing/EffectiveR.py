@@ -17,7 +17,7 @@ def getEffectiveR(outputDir, scenarioName, seed):
                 totalInfected += 1
     return totalInfected
 
-def createEffectiveRPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName):
+def createEffectiveRPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, xLabel, figName):
     allEffectiveRs = []
     for scenario in scenarioNames:
         seeds = getRngSeeds(outputDir, scenario)
@@ -25,7 +25,7 @@ def createEffectiveRPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSiz
             effectiveRs = pool.starmap(getEffectiveR, [(outputDir, scenario, s) for s in seeds])
             allEffectiveRs.append(effectiveRs)
     plt.boxplot(allEffectiveRs, labels=scenarioDisplayNames)
-    plt.xlabel("Calendar year")
+    plt.xlabel(xLabel)
     plt.ylabel("Effective R")
     saveFig(outputDir, figName)
 
