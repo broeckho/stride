@@ -23,12 +23,25 @@
 namespace stride {
 
 using namespace std;
+using namespace stride::ContactPoolType;
 using namespace boost::property_tree;
 
-AgeContactProfile::AgeContactProfile(ContactPoolType::Id poolType, const ptree& contactPt)
-    : std::array<double, MaximumAge() + 1>()
+AgeContactProfile::AgeContactProfile(Id poolType, const ptree& contactPt) : std::array<double, MaximumAge() + 1>()
 {
-        const string key{string("matrices.").append(ContactPoolType::ToString(poolType))};
+        string typeKey = ContactPoolType::ToString(poolType);
+        // TODO ELiminate this hack by fixing the data file
+        if (poolType == Id::K12School || poolType == Id::College) {
+                typeKey = "school";
+        } else if (poolType == Id::Household) {
+                typeKey = "household";
+        } else if (poolType == Id::Workplace) {
+                typeKey = "work";
+        } else if (poolType == Id::PrimaryCommunity) {
+                typeKey = "primary_community";
+        } else if (poolType == Id::SecondaryCommunity) {
+                typeKey = "secondary_community";
+        }
+        const string key{string("matrices.").append(typeKey)};
         unsigned int i = 0U;
         for (const auto& participant : contactPt.get_child(key)) {
                 double totalContacts = 0;

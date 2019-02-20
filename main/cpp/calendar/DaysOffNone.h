@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -22,6 +21,8 @@
 #include "calendar/Calendar.h"
 #include "calendar/DaysOffInterface.h"
 
+#pragma once
+
 namespace stride {
 
 /**
@@ -31,7 +32,7 @@ class DaysOffNone : public DaysOffInterface
 {
 public:
         /// Initialize calendar.
-        explicit DaysOffNone(std::shared_ptr<Calendar>) {}
+        explicit DaysOffNone(const std::shared_ptr<Calendar>&) {}
 
         /// See DaysOffInterface.
         bool IsWorkOff() override { return false; }

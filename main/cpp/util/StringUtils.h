@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file.
  * Miscellaneous string utilities.
  */
+
+#pragma once
 
 #include <boost/algorithm/string.hpp>
 #include <algorithm>
@@ -166,6 +167,27 @@ inline std::string TrimLeft(const std::string& source, const std::string& t = " 
 inline std::string Trim(const std::string& source, const std::string& t = " ")
 {
         return TrimLeft(TrimRight(source, t), t);
+}
+
+template <typename T>
+inline std::string intToDottedString(const T& value)
+{
+        std::string valueStr = std::to_string(value);
+
+        std::string res;
+        std::size_t rest = valueStr.length() % 3;
+
+        res += valueStr.substr(0, rest);
+
+        for (size_t i = rest; i < valueStr.length(); i += 3) {
+                res += "." + valueStr.substr(i, 3);
+        }
+
+        if (res[0] == '.') {
+                return res.substr(1);
+        }
+
+        return res;
 }
 
 } // namespace util

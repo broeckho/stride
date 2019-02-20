@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,9 +18,10 @@
  * Produce run config ptree.
  */
 
+#pragma once
+
 #include "util/ConfigInfo.h"
 
-#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <string>
 
@@ -54,6 +54,9 @@ public:
 
         ///
         static std::string ToShortSha1(const boost::property_tree::ptree& pt, unsigned int n = 7U);
+
+        ///
+        static void ConvertToGenGeoPop(boost::property_tree::ptree&);
 
 private:
         ///

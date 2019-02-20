@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the DiseaseSeeder class.
  */
+
+#pragma once
 
 #include "pool/ContactPool.h"
 #include "pop/Population.h"
@@ -45,8 +46,8 @@ public:
 
 private:
         /// Seed for vaccination/natural immunity.
-        void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
-                       std::vector<ContactPool>& immunityPools);
+        template <typename T>
+        void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile, T& immunityPools);
 
 private:
         const boost::property_tree::ptree& m_config_pt;  ///< Run config.

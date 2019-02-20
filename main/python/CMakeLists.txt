@@ -26,6 +26,16 @@ add_subdirectory(examples)
 add_subdirectory(measles_in_flanders)
 add_subdirectory(age_immunity_shift)
 
+#================================================================================================
+# Create the library that performs as a wrapper for some C++ code that is incompatible with SWIG.
+#================================================================================================
+
+set(SWIG_WRAPPER
+    swig/cpp/create_sim.cpp
+)
+set_source_files_properties( ${SWIG_WRAPPER} PROPERTIES COMPILE_FLAGS "-fPIC")
+add_library(swigwrapper ${SWIG_WRAPPER})
+
 #============================================================================
 # Build & install the Swig files for python environment.
 #============================================================================
@@ -43,7 +53,7 @@ include(${SWIG_USE_FILE})
 include_directories(${PYTHON_INCLUDE_DIRS})
 set_property(SOURCE ${SWIG_IFACE} PROPERTY CPLUSPLUS ON)
 swig_add_library(stride LANGUAGE python SOURCES swig/stride.i TYPE MODULE)
-swig_link_libraries(stride PUBLIC libstride ${PYTHON_LIBRARIES})
+swig_link_libraries(stride PUBLIC libstride swigwrapper ${PYTHON_LIBRARIES})
 
 #================================================================================================
 # Install Python package.
@@ -57,7 +67,6 @@ add_custom_target(pythonInstallPyStride ALL
 )
 
 add_custom_command(OUTPUT _pythonInstallPyStride
-		#COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/stride pystride/stride
 		COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/main/python/stride.py pystride/stride/stride.py
 		COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/main/python/_stride.so pystride/stride/_stride.so
 )

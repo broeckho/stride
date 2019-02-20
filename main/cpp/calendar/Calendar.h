@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,13 +18,20 @@
  * Header file for the Calendar class.
  */
 
-#include "boost/date_time/gregorian/gregorian.hpp"
+#pragma once
+
 #include <boost/property_tree/ptree.hpp>
 
 #include <algorithm>
 #include <cstdlib>
 #include <memory>
 #include <vector>
+
+#ifdef BOOST_FOUND
+#include "boost/date_time/gregorian/gregorian.hpp"
+#else
+#include <date/date.h>
+#endif
 
 namespace stride {
 
@@ -43,31 +49,31 @@ public:
         void AdvanceDay();
 
         /// Current day of the month in the simulated calendar.
-        std::size_t GetDay() const { return m_date.day(); }
+        std::size_t GetDay() const;
 
         /// Current day of the week (0 (Sunday), ..., 6 (Saturday)) in the simulated calendar.
-        std::size_t GetDayOfTheWeek() const { return m_date.day_of_week(); }
+        std::size_t GetDayOfTheWeek() const;
 
         /// Current month in the simulated calendar.
-        std::size_t GetMonth() const { return m_date.month(); }
+        std::size_t GetMonth() const;
 
         /// Current simulated day since the start of the simulation.
-        unsigned short int GetSimulationDay() const { return m_day; }
+        unsigned short int GetSimulationDay() const;
 
         /// Current year in the simulated calendar.
-        std::size_t GetYear() const { return m_date.year(); }
+        std::size_t GetYear() const;
 
-        /// Check if it's a holiday
+        /// Check if it's a holiday.
         bool IsHoliday() const { return (std::find(m_holidays.begin(), m_holidays.end(), m_date) != m_holidays.end()); }
 
-        /// Check if it's a school holiday
+        /// Check if it's a school holiday.
         bool IsSchoolHoliday() const
         {
                 return (std::find(m_school_holidays.begin(), m_school_holidays.end(), m_date) !=
                         m_school_holidays.end());
         }
 
-        /// Check if it's the weekend
+        /// Check if it's the weekend.
         bool IsWeekend() const { return (GetDayOfTheWeek() == 6 || GetDayOfTheWeek() == 0); }
 
 private:
@@ -75,10 +81,16 @@ private:
         void InitializeHolidays(const boost::property_tree::ptree& configPt);
 
 private:
+#ifdef BOOST_FOUND
         boost::gregorian::date              m_date;            ///< Current simulated date.
-        unsigned short int                  m_day;             ///< Current day since start of simulation.
         std::vector<boost::gregorian::date> m_holidays;        ///< Vector of general holidays
         std::vector<boost::gregorian::date> m_school_holidays; ///< Vector of school holidays
+#else
+        date::year_month_day              m_date;            ///< Current simulated date.
+        std::vector<date::year_month_day> m_holidays;        ///< Vector of general holidays
+        std::vector<date::year_month_day> m_school_holidays; ///< Vector of school holidays
+#endif
+        unsigned short int m_day; ///< Current day since start of simulation.
 };
 
 } // namespace stride

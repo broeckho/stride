@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,10 +18,10 @@
  * Interface/Implementation for RangeIndexer.
  */
 
+#pragma once
+
 #include <boost/range.hpp>
 #include <boost/range/adaptors.hpp>
-//#include <boost/range/algorithm.hpp>
-//#include <boost/range/algorithm_ext.hpp>
 #include <iterator>
 
 namespace stride {

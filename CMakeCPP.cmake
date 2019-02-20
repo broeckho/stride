@@ -39,12 +39,18 @@ include(ProcessorCount)
 ProcessorCount(PROCCOUNT)
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
 #
+# Required to avoid ld problems on Mac
+set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
+#
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wextra -pedantic -Weffc++")
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wno-unknown-pragmas")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
 set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
 #
 include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
+
+# Prevents (static) libraries having a double "lib" prefix (when they are named libxxx).
+set(CMAKE_STATIC_LIBRARY_PREFIX "")
 
 #----------------------------------------------------------------------------
 # Platform dependent compile flags
@@ -89,6 +95,12 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/inc
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 
 #----------------------------------------------------------------------------
+# ProtoBuf
+#----------------------------------------------------------------------------
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/gengeopop/io/proto)
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+
+#----------------------------------------------------------------------------
 # SHA1 hash code.
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/sha1/include)
@@ -97,9 +109,24 @@ set(LIBS ${LIBS} sha1)
 #----------------------------------------------------------------------------
 # Boost
 #----------------------------------------------------------------------------
-find_package(Boost COMPONENTS filesystem thread date_time system REQUIRED)
-include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
-set(LIBS   ${LIBS} ${Boost_LIBRARIES})
+if (NOT STRIDE_FORCE_NO_BOOST)
+    find_package(Boost COMPONENTS filesystem thread date_time system)
+endif()
+if (Boost_FOUND)
+    include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+    add_compile_definitions(BOOST_FOUND)
+    set(LIBS   ${LIBS} ${Boost_LIBRARIES})
+else()
+    include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/boost/include)
+    include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/date/include)
+    find_package(Threads)
+    set(LIBS ${LIBS} ${CMAKE_THREAD_LIBS_INIT})
+    if(CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?Clang" AND CMAKE_HOST_APPLE)
+        set(LIBS ${LIBS} c++fs)
+    else()
+        set(LIBS ${LIBS} stdc++fs)
+    endif()
+endif()
 
 #----------------------------------------------------------------------------
 # OpenMP
@@ -131,70 +158,6 @@ endif()
 # If not found, use the dummy omp.
 if(NOT OPENMP_FOUND)
     include_directories(${CMAKE_HOME_DIRECTORY}/main/resources/lib/domp/include)
-endif()
-
-#----------------------------------------------------------------------------
-# Qt : not a definitive list of components yet; these are placeholders
-#----------------------------------------------------------------------------
-find_package(Qt5 COMPONENTS Core Gui PrintSupport Widgets Qml QUIET)
-if (Qt5_FOUND)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQt5_FOUND=true")
-    set(QT_INCLUDES
-        ${Qt5Core_INCLUDE_DIRS}
-        ${Qt5Gui_INCLUDE_DIRS}
-        ${Qt5PrintSupport_INCLUDE_DIRS}
-        ${QtQml_INCLUDE_DIRS}
-        ${Qt5Widgets_INCLUDE_DIRS}
-        )
-	include_directories(SYSTEM ${QT_INCLUDES})
-	add_definitions(
-        ${Qt5Core_DEFINITIONS}
-        ${Qt5Gui_DEFINITIONS}
-        ${Qt5PrintSupport_DEFINITIONS}
-        ${QtQml_DEFINITIONS}
-        ${Qt5Widgets_DEFINITIONS}
-    )
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
-    set(QT_LIBRARIES
-        ${Qt5Core_LIBRARIES}
-        ${Qt5Gui_LIBRARIES}
-        ${Qt5PrintSupport_LIBRARIES}
-        ${QtQml_LIBRARIES}
-        ${Qt5Widgets_LIBRARIES}
-        )
-    if( CMAKE_BUILD_TYPE MATCHES "Release" )
-        add_definitions( -DQT_NO_DEBUG_OUTPUT -DQT_NO_WARNING_OUTPUT )
-    endif()
-    if( CMAKE_BUILD_TYPE MATCHES "Debug" )
-        add_definitions( -DQDEBUG_OUTPUT )
-    endif()
-else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQt5_FOUND=false")
-endif()
-
-#----------------------------------------------------------------------------
-# HDF5 Library
-# Try to find the C variant of libhdf5, if found, USE_HDF5 is defined
-# and passed to the compilers to allow compilation of selective features
-# through preprocessor commands like #ifdef USE_HDF5 and friends.
-# Additional defs are required on Ubuntu where lib are installed
-# with hdf5 v1.6 as default behavior.
-#----------------------------------------------------------------------------
-if(STRIDE_FORCE_NO_HDF5)
-	message(STATUS "---> Skipping HDF5, STRIDE_FORCE_NO_HDF5 set.")
-else()
-	find_package(HDF5 COMPONENTS C HL)
-	if(HDF5_FOUND)
-		include_directories(SYSTEM ${HDF5_INCLUDE_DIRS})
-		set(LIBS   ${LIBS}   ${HDF5_LIBRARIES})
-		add_definitions(-DUSE_HDF5 -DH5_NO_DEPRECATED_SYMBOLS)
-		add_definitions(-DH5Dcreate_vers=2 -DH5Dopen_vers=2)
-		add_definitions(-DH5Acreate_vers=2 -DH5Gcreate_vers=2)
-		add_definitions(-DH5Gopen_vers=2 )
-	else()
-		# This is done to eliminate blank output of undefined CMake variables.
-		set(HDF5_FOUND FALSE)
-	endif()
 endif()
 
 #############################################################################

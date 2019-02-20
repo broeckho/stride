@@ -23,10 +23,10 @@
 #include "sim/SimRunner.h"
 #include "sim/event/Id.h"
 
-#include <iostream>
-#include <spdlog/spdlog.h>
-
 namespace stride {
+
+class SimRunner;
+
 namespace viewers {
 
 /// Viewer of Simulator for cases output.

@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the Health class.
  */
+
+#pragma once
 
 namespace stride {
 
@@ -80,6 +81,9 @@ public:
         {
                 return m_status == HealthStatus::Symptomatic || m_status == HealthStatus::InfectiousAndSymptomatic;
         }
+
+        /// Have the symptoms started today?
+        bool SymptomsStartedToday() const { return GetDiseaseCounter() == m_start_symptomatic; }
 
         /// Set health state to immune.
         void SetImmune();

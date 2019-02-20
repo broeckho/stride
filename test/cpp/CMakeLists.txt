@@ -12,15 +12,23 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, 2018 Willem L, Kuylen E & Broeckhove J
+#  Copyright 2019 Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
 #============================================================================
 # Define smoke test. DO NOT BREAK THE COMMAND LINE.
 #============================================================================
-add_test(NAME smoke
+add_test(NAME sim_default_pop_smoke
     WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-    COMMAND ${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/smoke_test
+    COMMAND ${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/sim_default_pop_smoke
+	)
+add_test(NAME sim_gen_pop_smoke
+	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
+	COMMAND ${BIN_INSTALL_LOCATION}/stride -c run_generate_default.xml --override output_prefix=tests/sim_generate_smoke
+	)
+add_test(NAME genpop_smoke
+	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
+	COMMAND ${BIN_INSTALL_LOCATION}/stride -e genpop -c run_generate_default.xml --override output_prefix=tests/genpop_smoke
 	)
 
 #============================================================================
@@ -28,5 +36,6 @@ add_test(NAME smoke
 #============================================================================
 add_subdirectory(btester)
 add_subdirectory(gtester)
+add_subdirectory(myhayai)
 
 #############################################################################

@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,11 +18,14 @@
  * Header for the Simulator class.
  */
 
+#pragma once
+
 #include "contact/AgeContactProfiles.h"
 #include "contact/ContactHandler.h"
 #include "contact/ContactLogMode.h"
 #include "contact/InfectorExec.h"
 #include "contact/TransmissionProfile.h"
+#include "disease/PublicHealthAgency.h"
 #include "util/RnMan.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -42,11 +44,13 @@ class Sim
 {
 public:
         /// Create Sim initialized by the configuration in property tree and population.
-        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt,
-                                           std::shared_ptr<Population>        pop);
+        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
+                                           util::RnMan& rnManager);
 
-        /// For use in python environment: create using configuration string i.o ptree.
-        static std::shared_ptr<Sim> Create(const std::string& configString, std::shared_ptr<Population> pop);
+        /// For use in SWIG: use shared_ptr to an rnManager and make the Sim have ownership so it won't be destroyed.
+        /// It cannot be owned by the python environment since SWIG cannot handle the RnMan.
+        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
+                                           std::shared_ptr<util::RnMan> rnManager);
 
         /// Calendar for the simulated world. Initialized with the start date in the simulation
         /// world. Use GetCalendar()->GetSimulationDay() for the number of days simulated.
@@ -74,26 +78,32 @@ public:
         double GetTransmissionRate() const { return m_transmission_profile.GetRate(); }
 
 private:
-        /// Default constructor for empty Simulator.
-        Sim();
+        /// Constructor for empty Simulator.
+        explicit Sim(util::RnMan&);
+
+        /// Constructor for empty Simulator, used in Python environment
+        explicit Sim(std::shared_ptr<util::RnMan> rnMan);
 
         /// SimBuilder accesses the default constructor to build Sim using config.
         friend class SimBuilder;
 
 private:
-        boost::property_tree::ptree m_config_pt;         ///< Configuration property tree
-        ContactLogMode::Id          m_contact_log_mode;  ///< Specifies contact/transmission logging mode.
-        unsigned int                m_num_threads;       ///< The number of (OpenMP) threads.
-        bool                        m_track_index_case;  ///< General simulation or tracking index case.
-        std::string                 m_local_info_policy; ///< Local information policy name.
+        boost::property_tree::ptree m_config_pt;                     ///< Configuration property tree
+        ContactLogMode::Id          m_contact_log_mode;              ///< Specifies contact/transmission logging mode.
+        unsigned int                m_num_threads;                   ///< The number of (OpenMP) threads.
+        bool                        m_track_index_case;              ///< General simulation or tracking index case.
+        bool                        m_adaptive_symptomatic_behavior; ///< Should symptomatic cases stay home?
 
-        std::shared_ptr<Calendar>   m_calendar;             ///< Management of calendar.
-        AgeContactProfiles          m_contact_profiles;     ///< Contact profiles w.r.t age.
-        std::vector<ContactHandler> m_handlers;             ///< Contact handlers (rng & rates).
-        InfectorExec*               m_infector;             ///< Executes contacts/transmission loops in contact pool.
-        std::shared_ptr<Population> m_population;           ///< Pointer to the Population.
-        util::RnMan                 m_rn_manager;           ///< Random number generation management.
-        TransmissionProfile         m_transmission_profile; ///< Profile of disease.
+        std::shared_ptr<Calendar>    m_calendar;         ///< Management of calendar.
+        AgeContactProfiles           m_contact_profiles; ///< Contact profiles w.r.t age.
+        std::vector<ContactHandler>  m_handlers;         ///< Contact handlers (rng & rates).
+        InfectorExec*                m_infector;         ///< Executes contacts/transmission loops in contact pool.
+        std::shared_ptr<Population>  m_population;       ///< Pointer to the Population.
+        util::RnMan&                 m_rn_manager;       ///< Random number generation management.
+        std::shared_ptr<util::RnMan> m_rn_manager_ptr =
+            nullptr; ///< Used when created from the Python environment to keep it from being destructed.
+        TransmissionProfile m_transmission_profile; ///< Profile of disease.
+        PublicHealthAgency  m_public_health_agency; ///< Agency to implement reactive strategies.
 };
 
 } // namespace stride

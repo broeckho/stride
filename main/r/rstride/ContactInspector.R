@@ -33,9 +33,38 @@ if(0==1) # for debugging
 }
 
 #############################################################################
+# INSPECT SOCIAL CONTACT PATTERNS                                          ##
+#############################################################################
+
+inspect_contact_data <- function(project_dir){
+  
+  # load summary
+  project_summary <- .rstride$load_project_summary(project_dir)
+  
+  # start slave nodes
+  .rstride$start_slaves()
+  
+  # analyse data
+  i_exp <- 1
+  foreach(i_exp = 1:nrow(project_summary)) %do% 
+  {  
+    # plot contacts
+    .rstride$plot_contacts(project_summary[i_exp,],'./data')
+  }
+  
+  # end slave nodes
+  .rstride$end_slaves()
+  
+  # terminal message
+  .rstride$cli_print('INSPECTION OF SOCIAL CONTACTS PATTERNS COMPLETE')
+}
+
+#############################################################################
 # FUNCTION TO PLOT SOCIAL CONTACT MATRICES AND COUNTS                      ##
 #############################################################################
-plot_contacts <- function(exp_summary,data_dir)
+# exp_summary <- project_summary[i_exp,]
+# data_dir <- './data'
+.rstride$plot_contacts <- function(exp_summary,data_dir)
 {
   
   ######################
@@ -46,7 +75,7 @@ plot_contacts <- function(exp_summary,data_dir)
   data_cnt      <- .rstride$load_aggregated_output(project_dir,'data_contacts',exp_summary$exp_id)
   data_part     <- .rstride$load_aggregated_output(project_dir,'data_participants',exp_summary$exp_id)
   
-  if(dim(data_cnt)[1]>0 && dim(data_part)[1]>0)
+  if(nrow(data_cnt)>0 && nrow(data_part)>0)
   {
     
     ## people without contacts
@@ -60,8 +89,11 @@ plot_contacts <- function(exp_summary,data_dir)
     L <- 80
     num_days      <- exp_summary$num_days
     
-    pdf(paste0(exp_summary$output_prefix,'_cnt_patterns.pdf'),10,5)
+    # open pdf stream  
+    exp_tag <- .rstride$create_exp_tag(exp_summary$exp_id)
+    .rstride$create_pdf(project_dir,paste0(exp_tag,'_cnt_patterns'),10,5)
     #par(mfrow=c(2,2))
+    
     ## TOTAL
     mij_total  <- .rstride$plot_cnt_matrix(data_cnt,data_part,'total',L,num_days)
     
@@ -84,14 +116,15 @@ plot_contacts <- function(exp_summary,data_dir)
     
     ref_data_tag <- 'ref_fl2010'
     if(grepl('15touch',exp_summary$age_contact_matrix_file)){
-      ref_data_tag <- 'ref_fl2010_15touch'
+      #ref_data_tag <- 'ref_fl2010_15touch'
+      .rstride$cli_print("NO REFERENCE 15_touch CONTACT DATA AVAIABLE",WARNING = TRUE)
     }
     
     # LOAD SURVEY DATA FROM FLANDERS AND FULLY CONNECTED HOUSEHOLDS
     #survey_mij_hh         <- read.table(file=paste0(project_dir,'/data/ref_miami_household_gam_mij_rec.csv'),sep=';',dec=',',header=T)
     survey_mij_hh         <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_household_gam_mij_rec.csv')),sep=';',dec=',',header=T)
-    survey_mij_school     <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_school_student_age24_gam_mij_median.csv')),sep=';',dec=',',header=T)
-    survey_mij_work       <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_workplace_employed_age_gam_mij_median.csv')),sep=';',dec=',',header=T)
+    survey_mij_school     <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_school_conditional_age23_gam_mij_rec_median.csv')),sep=';',dec=',',header=T)
+    survey_mij_work       <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_workplace_conditional_gam_mij_rec_median.csv')),sep=';',dec=',',header=T)
     survey_mij_community  <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_community_gam_mij_rec.csv')),sep=';',dec=',',header=T)
     survey_mij_total      <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_gam_mij_rec.csv')),sep=';',dec=',',header=T)
     
@@ -99,6 +132,11 @@ plot_contacts <- function(exp_summary,data_dir)
     survey_mij_work_weekend       <- survey_mij_work*0
     survey_mij_community_weekend  <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_weekend_community_gam_mij_rec.csv')),sep=';',dec=',',header=T)
     survey_mij_total_weekend      <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_weekend_gam_mij_rec.csv')),sep=';',dec=',',header=T)
+    
+    ## SPECIAL CASE: TEACHERS
+    if(grepl('teacher',exp_summary$age_contact_matrix_file)){
+      survey_mij_school     <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_school_conditional_age23_teachers_gam_mij_rec_median.csv')),sep=';',dec=',',header=T)
+    }
     
     
     ## COMPARE
@@ -136,13 +174,31 @@ plot_contacts <- function(exp_summary,data_dir)
     
     dev.off() # close pdf stream
     
-    # terminal message
-    .rstride$cli_print('SOCIAL CONTACTS PLOTS COMPLETE FOR', exp_summary$output_prefix)
-
+    
+    # new
+    .rstride$create_pdf(project_dir,paste0(exp_tag,'_cnt_transm_probability'))
+    par(mfrow=c(2,2))
+    cnt_location_opt <- c('cnt_home', 'cnt_school', 'cnt_work', 'cnt_prim_comm', 'cnt_sec_comm')
+    for(i_cnt in cnt_location_opt){
+      flag <- data_cnt[,i_cnt] == 1
+      if(any(flag))
+        boxplot(cnt_prob ~ part_age, data=data_cnt[flag,],
+                main=paste(i_cnt, '[CNT]'),xlab='age',ylab='contact probability')
+    }
+    
+    for(i_cnt in cnt_location_opt){
+      flag <- data_cnt[,i_cnt] == 1
+      if(any(flag))
+        boxplot(trm_prob ~ part_age, data=data_cnt[flag,],
+                main=paste(i_cnt, '[TRM]'),xlab='age',ylab='transmission probability')
+    }
+    
+    dev.off() # close pdf stream
+    
   } # end if dim(data)...
 } # end function
 
-#################################  EMBEDDED HELP FUNCTIONS  #################################
+#################################  OTHER HELP FUNCTIONS  #################################
 
 ## HELP FUNCTION: RESHAPE DATA AND PLOT
 .rstride$plot_cnt_matrix <- function(f_data_cnt,f_data_part,tag,L,num_days)
@@ -296,4 +352,3 @@ plot_contacts <- function(exp_summary,data_dir)
   return(g_plot)
   
 }
-

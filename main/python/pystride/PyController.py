@@ -1,8 +1,6 @@
 import os
 import time
 
-from pystride.stride.stride import Population
-
 import pystride
 from .Config import Config
 from .PyObserver import PyObserver
@@ -74,9 +72,7 @@ class PyController:
         os.makedirs(self.getOutputPrefix(), exist_ok=True)
         self.runConfig.toFile(os.path.join(self.getOutputPrefix(), "config.xml"))
 
-        # Build population and simulator
-        population = Population.Create(self.runConfig.toString())
-        self.runner.setup(self.runConfig, population)
+        self.runner.setup(self.runConfig)
         self.observer.setSimulator(self.runner.getSimulator())
         self.runner.run()
         print("PyController closing off at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))

@@ -47,17 +47,18 @@ num_seeds  <- 2
 exp_design <- expand.grid(r0                         = seq(12,12,2),
                           num_days                   = c(90),
                           rng_seed                   = seq(num_seeds),
-                          num_participants_survey    = 3000,
+                          num_participants_survey    = 0,
                           track_index_case           = 'false',
                           contact_log_level          = 'Transmissions',
-                          seeding_rate               = 0.00004,#0.000002,
-                          disease_config_file        = 'disease_measles.xml',
-                          population_file            = 'pop_flanders600.csv',
-                          age_contact_matrix_file    = 'contact_matrix_flanders_subpop.xml',
-                          immunity_profile           = 'AgeDependent',
-                          immunity_distribution_file = 'data/immunity_measles_belgium.xml',
-                          immunity_link_probability  = 0,
-                          immunity_rate              = 0.9,
+                          seeding_rate               = 0.000002,
+                          disease_config_file        = 'disease_measles_adaptive_behavior.xml',
+                          adaptive_symptomatic_behavior = 'true',
+                          population_file            = 'pop_flanders500_c1000_class_teachers.csv',
+                          age_contact_matrix_file    = 'contact_matrix_flanders_conditional_teachers.xml',
+                          immunity_profile           = 'AgeDependent',                        # 'None', 'Random', 'AgeDependent'
+                          immunity_distribution_file = 'data/immunity_measles_belgium.xml',   # to be used with 'AgeDependent'
+                          immunity_link_probability  = 0,                                     # to be used with 'AgeDependent'
+                          immunity_rate              = 0,                                     # to be used with 'Random'
                           stringsAsFactors = F)
 
 
@@ -74,19 +75,19 @@ project_dir <- run_rStride(exp_design,dir_postfix)
 #################################################
 ## EXPLORE SUMMARY                             ##
 #################################################
-explore_summary(project_dir)
+inspect_summary(project_dir)
 
 
 #################################################
 ## EXPLORE SURVEY PARTICIPANT DATA             ##
 #################################################
-explore_participant_data(project_dir)
+inspect_participant_data(project_dir)
 
 
 #################################################
 ## EXPLORE TRANSMISSION & OUTBREAKS            ##
 #################################################
-explore_outbreaks(project_dir)
+inspect_transmission_data(project_dir)
 
 
 

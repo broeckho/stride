@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Interface of RnPcg.
  */
+
+#pragma once
 
 #include "StringUtils.h"
 
@@ -136,7 +137,7 @@ public:
         }
 
 private:
-        /// Actual first-time seeding. Procedure varies according to engine type, see scpecialisations.
+        /// Actual first-time seeding. Procedure varies according to engine type, see specialisations.
         void Seed(randutils::seed_seq_fe128& seseq)
         {
                 auto seeds = pcg_extras::generate_one<unsigned long>(seseq);

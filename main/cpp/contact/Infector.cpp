@@ -35,7 +35,7 @@ class LOG_POLICY
 {
 public:
         static void Contact(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*, ContactPoolType::Id,
-                            unsigned short int)
+                            unsigned short int, const double, const double)
         {
         }
 
@@ -51,15 +51,15 @@ class LOG_POLICY<ContactLogMode::Id::Transmissions>
 {
 public:
         static void Contact(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*, ContactPoolType::Id,
-                            unsigned short int)
+                            unsigned short int, const double, const double)
         {
         }
 
         static void Trans(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
                           ContactPoolType::Id type, unsigned short int sim_day)
         {
-                logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(),
-                		          p2->GetAge(), p1->GetAge(), ToString(type), sim_day);
+                logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(), p2->GetAge(), p1->GetAge(),
+                             ToString(type), sim_day);
         }
 };
 
@@ -69,24 +69,26 @@ class LOG_POLICY<ContactLogMode::Id::All>
 {
 public:
         static void Contact(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
-                            ContactPoolType::Id type, unsigned short int sim_day)
+                            ContactPoolType::Id type, unsigned short int sim_day, const double c_rate,
+                            const double t_rate)
         {
                 if (p1->IsSurveyParticipant()) {
-                        logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
-                                     static_cast<unsigned int>(type == ContactPoolType::Id::Household),
-                                     static_cast<unsigned int>(type == ContactPoolType::Id::School),
-                                     static_cast<unsigned int>(type == ContactPoolType::Id::Work),
+                        logger->info("[CONT] {} {} {} {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(),
+                                     p2->GetAge(), static_cast<unsigned int>(type == ContactPoolType::Id::Household),
+                                     static_cast<unsigned int>(type == ContactPoolType::Id::K12School),
+                                     static_cast<unsigned int>(type == ContactPoolType::Id::College),
+                                     static_cast<unsigned int>(type == ContactPoolType::Id::Workplace),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::PrimaryCommunity),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::SecondaryCommunity),
-                                     sim_day);
+                                     sim_day, c_rate, t_rate);
                 }
         }
 
         static void Trans(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
                           ContactPoolType::Id type, unsigned short int sim_day)
         {
-        			logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(),
-        	                		  p2->GetAge(), p1->GetAge(), ToString(type), sim_day);
+                logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(), p2->GetAge(), p1->GetAge(),
+                             ToString(type), sim_day);
         }
 };
 
@@ -96,7 +98,7 @@ class LOG_POLICY<ContactLogMode::Id::Susceptibles>
 {
 public:
         static void Contact(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
-                            ContactPoolType::Id, unsigned short int)
+                            ContactPoolType::Id, unsigned short int, const double, const double)
         {
                 if (p1->IsSurveyParticipant() && p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
                         logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
@@ -140,12 +142,11 @@ namespace stride {
 //-------------------------------------------------------------------------------------------------
 // Definition for primary template covers the situation for ContactLogMode::None &
 // ContactLogMode::Transmissions, both with track_index_case false and true.
-// And every local information policy except NoLocalInformation
 //-------------------------------------------------------------------------------------------------
-template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
-void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile& profile,
-                                      const TransmissionProfile& transProfile, ContactHandler& cHandler,
-                                      unsigned short int simDay, shared_ptr<spdlog::logger> cLogger)
+template <ContactLogMode::Id LL, bool TIC, bool TO>
+void Infector<LL, TIC, TO>::Exec(ContactPool& pool, const AgeContactProfile& profile,
+                                 const TransmissionProfile& transProfile, ContactHandler& cHandler,
+                                 unsigned short int simDay, shared_ptr<spdlog::logger> cLogger)
 {
         using LP = LOG_POLICY<LL>;
 
@@ -171,12 +172,9 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
                                                 // check for contact
                                                 if (cHandler.HasContact(c_rate)) {
                                                         // log contact if person 1 is participating in survey
-                                                        LP::Contact(cLogger, p1, p2, pType, simDay);
+                                                        LP::Contact(cLogger, p1, p2, pType, simDay, c_rate, tRate);
                                                         // log contact if person 2 is participating in survey
-                                                        LP::Contact(cLogger, p2, p1, pType, simDay);
-
-                                                        // exchange info about health state & beliefs
-                                                        LIP::Update(p1, p2);
+                                                        LP::Contact(cLogger, p2, p1, pType, simDay, c_rate, tRate);
 
                                                         // transmission & infection.
                                                         if (cHandler.HasTransmission(tRate)) {
@@ -209,10 +207,9 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
 // combination with None || Transmission logging.
 //-------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC>
-void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const AgeContactProfile& profile,
-                                                       const TransmissionProfile& transProfile,
-                                                       ContactHandler& cHandler, unsigned short int simDay,
-                                                       shared_ptr<spdlog::logger> cLogger)
+void Infector<LL, TIC, true>::Exec(ContactPool& pool, const AgeContactProfile& profile,
+                                   const TransmissionProfile& transProfile, ContactHandler& cHandler,
+                                   unsigned short int simDay, shared_ptr<spdlog::logger> cLogger)
 {
         using LP = LOG_POLICY<LL>;
 
@@ -268,24 +265,13 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const 
 //--------------------------------------------------------------------------
 // All explicit instantiations.
 //--------------------------------------------------------------------------
-template class Infector<ContactLogMode::Id::None, false, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::None, false, LocalDiscussion>;
-template class Infector<ContactLogMode::Id::None, true, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::None, true, LocalDiscussion>;
-
-template class Infector<ContactLogMode::Id::Transmissions, false, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::Transmissions, false, LocalDiscussion>;
-template class Infector<ContactLogMode::Id::Transmissions, true, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::Transmissions, true, LocalDiscussion>;
-
-template class Infector<ContactLogMode::Id::All, false, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::All, false, LocalDiscussion>;
-template class Infector<ContactLogMode::Id::All, true, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::All, true, LocalDiscussion>;
-
-template class Infector<ContactLogMode::Id::Susceptibles, false, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::Susceptibles, false, LocalDiscussion>;
-template class Infector<ContactLogMode::Id::Susceptibles, true, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::Susceptibles, true, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::None, false>;
+template class Infector<ContactLogMode::Id::None, true>;
+template class Infector<ContactLogMode::Id::Transmissions, false>;
+template class Infector<ContactLogMode::Id::Transmissions, true>;
+template class Infector<ContactLogMode::Id::All, false>;
+template class Infector<ContactLogMode::Id::All, true>;
+template class Infector<ContactLogMode::Id::Susceptibles, false>;
+template class Infector<ContactLogMode::Id::Susceptibles, true>;
 
 } // namespace stride

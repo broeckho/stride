@@ -28,7 +28,7 @@ namespace Tests {
 class ScenarioData
 {
 public:
-        static std::tuple<boost::property_tree::ptree, unsigned int, double> Get(const std::string& tag);
+        static std::tuple<boost::property_tree::ptree, unsigned int, double> Get(std::string tag);
 };
 
 } // namespace Tests

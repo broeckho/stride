@@ -34,9 +34,9 @@ ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type)
 {
 }
 
-void ContactPool::AddMember(const Person* p)
+void ContactPool::AddMember(Person* p)
 {
-        m_members.emplace_back(const_cast<Person*>(p));
+        m_members.emplace_back(p);
         m_index_immune++;
 }
 
@@ -73,6 +73,18 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
                 }
         }
         return std::make_tuple(infectious_cases, num_cases);
+}
+
+std::size_t ContactPool::GetInfectedCount()
+{
+        unsigned int infected = 0;
+
+        for (stride::Person* person : m_members) {
+                if (person->GetHealth().IsInfected()) {
+                        infected++;
+                }
+        }
+        return infected;
 }
 
 } // namespace stride

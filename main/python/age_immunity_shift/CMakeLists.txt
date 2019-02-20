@@ -21,7 +21,7 @@
 INSTALL(FILES
       ageImmunityEffectiveR.py
       ageImmunityPostProcessing.py
-  		ageImmunityShift.py
+  	  ageImmunityShift.py
       ageImmunityShiftUniform.py
       createImmunityDistributionFiles.py
 	DESTINATION ${BIN_INSTALL_LOCATION}

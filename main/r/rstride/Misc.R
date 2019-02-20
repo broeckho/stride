@@ -21,7 +21,7 @@
 #############################################################################
 
 #.rstride$set_wd()  #DEVELOPMENT: to set the work directory as the latest stride install dir 
-#.rstride$load_pd() #DEVELOPMENT: to retrieve the latest project_dir
+#.rstride$load_pd() #DEVELOPMENT: to retrieve the latest project directory (project_dir)
 
 # load R packages
 library(XML,quietly = TRUE)
@@ -36,28 +36,29 @@ if(!(exists('.rstride'))){
 ###############################
 
 .rstride$cli_print <- function(...,WARNING=F) {
-
+  
   # get function arguments
   function_arguments <- as.list(match.call(expand.dots=FALSE))$...
   
   # get function-call environment (to retrieve variable from that environment) 
   pf <- parent.frame()
-
+  
   # parse list => make character vector
   function_arguments <- foreach(i=1:length(function_arguments),.combine='cbind') %do%{
     eval(unlist(function_arguments[[i]]),envir = pf)
   }
- 
+  
   # add a space to each function arguments
   function_arguments <- paste(' ',function_arguments)
   
-  text_color <- ''
-  if(WARNING){
-    text_color   <- '\033[0;31m'
-  }
+  # set text color: black (default) or red (warning)
+  web_color_black <- '\033[0;30m'
+  web_color_red   <- '\033[0;31m'
+  text_color      <- ifelse(WARNING,web_color_red,web_color_black)
   
   # print time + arguments (without spaces)
-  cli_out <- paste0(c('echo "',text_color, '[',format(Sys.time()),']',function_arguments,'"'),collapse = '')
+  cli_out <- paste0(c('echo "',text_color, '[',format(Sys.time()),']',
+                      function_arguments, web_color_black,'"'),collapse = '')
   system(cli_out)
 }
 
@@ -85,8 +86,8 @@ if(!(exists('.rstride'))){
   # CREATE GLOBAL VARIABLE
   par_nodes_info <<- list(par_cluster = par_cluster,
                           pid_slave1 = pid_slave1)
-
-  }
+  
+}
 
 .rstride$end_slaves <- function()
 {
@@ -100,9 +101,9 @@ if(!(exists('.rstride'))){
 
 .rstride$print_progress <- function(i_current,i_total,pid_slave1){
   
-   if(Sys.getpid() == pid_slave1){
-     .rstride$cli_print('RUNNING...',i_current,'/',i_total)
-   }
+  if(Sys.getpid() == pid_slave1){
+    .rstride$cli_print('RUNNING...',i_current,'/',i_total)
+  }
   
 }
 
@@ -112,7 +113,12 @@ if(!(exists('.rstride'))){
 ###############################
 
 .rstride$load_project_summary <- function(project_dir){
- 
+  
+  # check if project_dir exists
+  if(.rstride$dir_not_present(project_dir)){
+    stop('PROJECT DIR NOT PRESENT')
+  }
+  
   # get the filename in the project dir that contains "summary.csv" (full path)
   project_summary_filename <- file.path(project_dir,dir(project_dir,pattern = 'summary.csv'))
   
@@ -121,6 +127,35 @@ if(!(exists('.rstride'))){
   
   # return the data.frame
   return(project_summary)
+}
+
+###############################
+## OPEN PDF STREAM           ##
+###############################
+
+.rstride$create_pdf <- function(project_dir,file_name,width=7,height=7){
+  
+  # load project summary
+  project_summary   <- .rstride$load_project_summary(project_dir)
+  
+  # get run_tag
+  run_tag           <- unique(project_summary$run_tag)
+  
+  # get file name with path
+  file_name_path    <- file.path(project_dir,paste0(run_tag,'_',file_name,'.pdf'))
+  
+  # open pdf stream
+  pdf(file_name_path,width,height)
+  
+}
+
+###############################
+## CREATE EXPERIMENT TAG     ##
+###############################
+
+# create experiment tag
+.rstride$create_exp_tag <- function(i_exp){
+  return(paste0('exp',sprintf("%04s", i_exp)))
 }
 
 
@@ -179,7 +214,7 @@ if(!(exists('.rstride'))){
 ###############################
 
 .rstride$get_equal_rows <- function(f_matrix,f_vector){
-  return(as.logical(colSums(t(f_matrix[,names(f_vector)]) == as.numeric(t(f_vector))) == length(f_vector)))
+  return(as.logical(colSums(t(f_matrix[,names(f_vector)]) == c(f_vector)) == length(f_vector)))
 }
 
 
@@ -194,43 +229,62 @@ if(!(exists('.rstride'))){
   
   # id increment factor
   max_pop_size <- max(project_summary$population_size)
-  id_factor <- 10^ceiling(log10(max_pop_size))
+  id_factor    <- 10^ceiling(log10(max_pop_size))
   
-  data_type <- 'data_transmission.RData'
-  for(data_type in c('data_transmission.RData',
-                     'data_participants.RData',
-                     'data_contacts.RData',
-                     'data_prevalence.RData'))
+  # get output data types
+  data_type_opt <- unique(dir(file.path(project_summary$output_prefix),pattern='.RData'))
+  
+  data_type <- data_type_opt[2]
+  for(data_type in data_type_opt)
   {
-    # check if output exists for the specified data_type
-    if(file.exists(file.path(project_summary$output_prefix[1],data_type))){
-      # load all project experiments
-      i_exp <- 1
-      data_all <- foreach(i_exp = 1:nrow(project_summary),.combine='rbind') %do%
-      {
-       
-        # get file name
-        exp_file_name <- file.path(project_summary$output_prefix[i_exp],data_type)
+    
+    data_filenames <- dir(project_dir,pattern=data_type,recursive = T,full.names = T)
+    
+    # load all project experiments
+    i_exp <- 2
+    data_all <- foreach(i_exp = 1:nrow(project_summary),.combine='rbind') %do%
+    {
+      # get file name
+      exp_file_name <- file.path(project_summary$output_prefix[i_exp],data_type)
+      
+      # check if output exists for the specified data_type
+      if(file.exists(exp_file_name)){
         
         # load output data
-        param_name <- load(exp_file_name)
+        param_name  <- load(exp_file_name)
         
-        # remove original file
-        unlink(exp_file_name)
+        # load data
+        data_exp    <- get(param_name)
+        
+        # for prevalence data, check the number of days
+        if(grepl('prevalence',exp_file_name)){
+          
+          # create full-size data frame to include the maximum number of days
+          data_tmp        <- data.frame(matrix(NA,ncol=max(project_summary$num_days)+2)) # +1 for day 0 and +1 for exp_id
+          names(data_tmp) <-  c(paste0('day',0:max(project_summary$num_days)),
+                                'exp_id')
+          
+          # insert the experiment data
+          data_tmp[names(data_exp)] <- data_exp
+          
+          # replace the experiment data by the newly constructed data.frame
+          data_exp <- data_tmp
+        }
         
         # add run index
-        data_exp <- get(param_name)
         data_exp$exp_id <- project_summary$exp_id[i_exp]
+        
+        # remove the original data file
+        unlink(exp_file_name)
         
         # return experiment data
         data_exp
       }
-      
-      # save
-      run_tag <- unique(project_summary$run_tag)
-      save(data_all,file=file.path(project_dir,paste0(run_tag,'_',data_type)))
-      
     }
+    
+    # save
+    run_tag <- unique(project_summary$run_tag)
+    save(data_all,file=file.path(project_dir,paste0(run_tag,'_',data_type)))
   }
 }
 
@@ -242,6 +296,11 @@ if(!(exists('.rstride'))){
   # get ouput filenames
   dir_files       <- dir(project_dir,full.names = TRUE)
   output_filename <- dir_files[grepl(file_type,dir_files)]
+  
+  # if the file does not exists, return NA
+  if(length(output_filename)==0){
+    return(NA)
+  }
   
   # load output
   param_name          <- load(output_filename)
@@ -271,6 +330,11 @@ if(!(exists('.rstride'))){
 ## DEFENSIVE PROGRAMMING     ##
 ###############################
 
+.rstride$no_return_value <- function(){
+  
+  return(invisible())
+}
+
 .rstride$dir_not_present <- function(path_dir){
   
   # if directory does not exists, return TRUE (+warning)
@@ -282,7 +346,7 @@ if(!(exists('.rstride'))){
   # else, return FALSE
   return(FALSE)
 }
-  
+
 # check file presence
 .rstride$data_files_exist <- function(design_of_experiment = exp_design){
   
@@ -295,10 +359,10 @@ if(!(exists('.rstride'))){
   # add the path to the data folder
   data_dir <- './data'
   file_names <- file.path(data_dir,file_names)
-
+  
   # check the existance of the files
   file_not_exist_bool   <- !file.exists(file_names)
-
+  
   # if any file missing => return FALSE
   if(any(file_not_exist_bool)){
     .rstride$cli_print('DATA FILE(S) MISSING:', paste(file_names[file_not_exist_bool],collapse = ' '),WARNING=T)
@@ -312,7 +376,7 @@ if(!(exists('.rstride'))){
 # log level
 # check file presence
 .rstride$log_levels_exist <- function(design_of_experiment = exp_design){
-
+  
   valid_levels <- design_of_experiment$contact_log_level %in% c('None','Transmissions','All')
   
   if(any(!valid_levels)){
@@ -359,7 +423,7 @@ if(!(exists('.rstride'))){
   
   immunity_profiles <- unique(c(design_of_experiment$immunity_profile,design_of_experiment$vaccine_profile))
   
-   # get immunity profile names
+  # get immunity profile names
   disease_immunity_profiles <- c('None','Random','AgeDependent','Cocoon')
   
   # check if given profile names are valid
@@ -382,7 +446,10 @@ if(!(exists('.rstride'))){
 
 # load last project_dir
 .rstride$load_pd <- function(){
-
+  
+  # set most recent build as work directory
+  .rstride$set_wd()
+  
   # default output dir
   output_dir              <- 'sim_output'
   
@@ -400,7 +467,7 @@ if(!(exists('.rstride'))){
 # set most recent stride install directory as work directory 
 #.rstride$set_wd()
 .rstride$set_wd <- function(){
-
+  
   # default install directory
   install_dir              <- system('echo $HOME/opt',intern=T)
   
@@ -412,9 +479,8 @@ if(!(exists('.rstride'))){
   
   # set work directory
   setwd(file.path(install_dir,last_stride_dir))
-
+  
   # terminal message
   cat('NEW WORK DIRECTORY ',file.path(install_dir,last_stride_dir))
-
+  
 }
-

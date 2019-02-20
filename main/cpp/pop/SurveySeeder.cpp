@@ -23,6 +23,7 @@
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <trng/uniform_int_dist.hpp>
 
 using namespace boost::property_tree;
@@ -39,6 +40,7 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
         const string log_level = m_config_pt.get<string>("run.contact_log_level", "None");
         if (log_level != "None") {
                 Population& population   = *pop;
+                auto&       poolSys      = population.GetContactPoolSys();
                 auto&       logger       = population.GetContactLogger();
                 const auto  max_index    = static_cast<unsigned int>(population.size() - 1);
                 auto        generator    = m_rn_manager[0].variate_generator(trng::uniform_int_dist(0, max_index));
@@ -51,13 +53,42 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                         Person& p = population[generator()];
                         if (!p.IsSurveyParticipant()) {
                                 p.ParticipateInSurvey();
-                                logger->info("[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {}", p.GetId(), p.GetAge(),
-                                             p.GetGender(), p.GetPoolId(Id::School), p.GetPoolId(Id::Work),
-                                             p.GetHealth().IsSusceptible(), p.GetHealth().IsInfected(),
-                                             p.GetHealth().IsInfectious(), p.GetHealth().IsRecovered(),
-                                             p.GetHealth().IsImmune(),p.GetHealth().GetStartInfectiousness(),
-                                             p.GetHealth().GetStartSymptomatic(),p.GetHealth().GetEndInfectiousness(),
-											p.GetHealth().GetEndSymptomatic());
+
+                                // TODO: create a more elegant solution
+                                // - gengeopop population ==>> unique pool id over all pool types, so ID != index in
+                                // poolType-vector
+                                // - default population   ==>> unique pool id per pool type, so ID == index in
+                                // poolType-vector
+                                if (p.GetPoolId(Id::SecondaryCommunity) < poolSys[Id::SecondaryCommunity].size()) {
+                                        logger->info(
+                                            "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
+                                            p.GetId(), p.GetAge(), p.GetGender(), p.GetPoolId(Id::Household),
+                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
+                                            p.GetPoolId(Id::Workplace), p.GetHealth().IsSusceptible(),
+                                            p.GetHealth().IsInfected(), p.GetHealth().IsInfectious(),
+                                            p.GetHealth().IsRecovered(), p.GetHealth().IsImmune(),
+                                            p.GetHealth().GetStartInfectiousness(), p.GetHealth().GetStartSymptomatic(),
+                                            p.GetHealth().GetEndInfectiousness(), p.GetHealth().GetEndSymptomatic(),
+                                            poolSys[Id::Household][p.GetPoolId(Id::Household)].GetSize(),
+                                            poolSys[Id::K12School][p.GetPoolId(Id::K12School)].GetSize(),
+                                            poolSys[Id::College][p.GetPoolId(Id::College)].GetSize(),
+                                            poolSys[Id::Workplace][p.GetPoolId(Id::Workplace)].GetSize(),
+                                            poolSys[Id::PrimaryCommunity][p.GetPoolId(Id::PrimaryCommunity)].GetSize(),
+                                            poolSys[Id::SecondaryCommunity][p.GetPoolId(Id::SecondaryCommunity)]
+                                                .GetSize());
+                                } else {
+                                        logger->info(
+                                            "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
+                                            p.GetId(), p.GetAge(), p.GetGender(), p.GetPoolId(Id::Household),
+                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
+                                            p.GetPoolId(Id::Workplace), p.GetHealth().IsSusceptible(),
+                                            p.GetHealth().IsInfected(), p.GetHealth().IsInfectious(),
+                                            p.GetHealth().IsRecovered(), p.GetHealth().IsImmune(),
+                                            p.GetHealth().GetStartInfectiousness(), p.GetHealth().GetStartSymptomatic(),
+                                            p.GetHealth().GetEndInfectiousness(), p.GetHealth().GetEndSymptomatic(), -1,
+                                            -1, -1, -1, -1, -1, -1);
+                                }
+
                                 num_samples++;
                         }
                 }

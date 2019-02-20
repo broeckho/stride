@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -22,6 +21,8 @@
  *  http://www.boost.org/LICENSE_1_0.txt)
  *  For more information, see http://www.boost.org
  */
+
+#pragma once
 
 #include <array>
 

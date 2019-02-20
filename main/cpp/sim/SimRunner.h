@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,8 +18,11 @@
  * Header for the SimRunner class.
  */
 
+#pragma once
+
 #include "sim/event/Id.h"
 #include "sim/event/Subject.h"
+#include "util/RnMan.h"
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -45,7 +47,8 @@ class SimRunner : public util::Subject<stride::sim_event::Id>
 public:
         /// Initialization with property tree.
         /// \param configPt config info for run and for config of simulator
-        explicit SimRunner(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop);
+        explicit SimRunner(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
+                           util::RnMan& rnManager);
 
         /// Destructor
         ~SimRunner() override = default;

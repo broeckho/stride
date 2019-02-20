@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
  * Logging (spdlog) utilities.
  */
 
+#pragma once
+
 #include <memory>
 #include <spdlog/spdlog.h>
 #include <string>
@@ -32,18 +33,18 @@ namespace util {
 class LogUtils
 {
 public:
-        /// Return a (not-yet-registered) commandline logger, without registering it.
+        /// Return a (not-yet-registered) commandline and file logger, without registering it.
         /// Throws iff logger already registered or if spdlog throws.
         static std::shared_ptr<spdlog::logger> CreateCliLogger(const std::string& logger_name,
                                                                const std::string& file_name);
 
-        /// Return a (not-yet-registered) commandline logger, without registering it.
+        /// Return a (not-yet-registered) file logger, without registering it.
         /// Throws iff logger already registered or if spdlog throws.
         static std::shared_ptr<spdlog::logger> CreateFileLogger(const std::string& logger_name,
                                                                 const std::string& file_name);
         /// Return a (not-yet-registered) null logger, without registering it.
         /// Throws iff logger already registered or if spdlog throws.
-        static std::shared_ptr<spdlog::logger> CreateNullLogger(const std::string& logger_name);
+        static std::shared_ptr<spdlog::logger> CreateNullLogger(const std::string& logger_name = "null_logger");
 
         /// Return a (not-yet-registered) rotating logger, without registering it.
         /// Throws iff logger already registered or if spdlog throws.

@@ -19,12 +19,14 @@
  * Observer for SimEvents for commandline interface usage.
  */
 
-#include "sim/SimRunner.h"
 #include "sim/event/Id.h"
 
 #include <spdlog/spdlog.h>
 
 namespace stride {
+
+class SimRunner;
+
 namespace viewers {
 
 /// Viewer of Simulator for commandline interface.

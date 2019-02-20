@@ -41,19 +41,21 @@ dir_postfix <- '_r0'
 #names(xmlToList('./config/run_default.xml'))
 
 # set the number of realisations per configuration set
-num_seeds  <- 5
+num_seeds  <- 4
 
 # add parameters and values to combine in a full-factorial grid
-exp_design <- expand.grid(r0                   = seq(0,24,3),
-                          num_days             = c(20),
-                          rng_seed             = seq(num_seeds),
-                          start_date           = c("2017-01-01"),#,"2017-01-02","2017-01-03","2017-01-04","2017-01-05","2017-01-06","2017-01-07"),
-                          track_index_case     = 'true',
-                          contact_log_level    = "Transmissions",
-                          num_threads          = 1,
-                          seeding_rate         = 0.00002,
-                          disease_config_file  = "disease_measles.xml",
-                          age_contact_matrix_file   = "contact_matrix_flanders_subpop.xml",
+exp_design <- expand.grid(r0                            = seq(0,27,3),
+                          num_days                      = c(20),
+                          rng_seed                      = seq(num_seeds),
+                          start_date                    = c("2017-01-01"),#,"2017-01-02","2017-01-03","2017-01-04","2017-01-05","2017-01-06","2017-01-07"),
+                          track_index_case              = 'true',
+                          contact_log_level             = "Transmissions",
+                          num_threads                   = 1,
+                          seeding_rate                  = 0.00002,
+                          disease_config_file           = "disease_measles_constant_behavior.xml",
+                          population_file               = "pop_flanders500_c1000_class_teachers.csv",
+                          age_contact_matrix_file       = "contact_matrix_flanders_conditional.xml",
+                          adaptive_symptomatic_behavior = 'false',
                           stringsAsFactors = F)
 
 # add a unique seed for each run
@@ -69,5 +71,5 @@ project_dir <- run_rStride(exp_design,dir_postfix)
 ##################################
 ## REPRODUCTION NUMBER          ##
 ##################################
-callibrate_r0(project_dir)
+analyse_transmission_data_for_r0(project_dir)
 

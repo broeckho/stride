@@ -11,6 +11,7 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 /**
@@ -29,12 +30,13 @@ namespace ContactPoolType {
 using namespace std;
 using boost::to_upper;
 
-bool IsType(const string& s)
+bool IsId(const string& s)
 {
         static map<string, Id> ids{
             make_pair("HOUSEHOLD", Id::Household),
-            make_pair("SCHOOL", Id::School),
-            make_pair("WORK", Id::Work),
+            make_pair("SCHOOL", Id::K12School),
+            make_pair("SCHOOL", Id::College),
+            make_pair("WORKPLACE", Id::Workplace),
             make_pair("PRIMARY_COMMUNITY", Id::PrimaryCommunity),
             make_pair("SECONDARY_COMMUNITY", Id::SecondaryCommunity),
         };
@@ -43,30 +45,32 @@ bool IsType(const string& s)
         return (ids.count(t) == 1);
 }
 
-string ToString(Id c)
-{
-        static map<Id, string> names{
-            make_pair(Id::Household, "household"),
-            make_pair(Id::School, "school"),
-            make_pair(Id::Work, "work"),
-            make_pair(Id::PrimaryCommunity, "primary_community"),
-            make_pair(Id::SecondaryCommunity, "secondary_community"),
-        };
-        return (names.count(c) == 1) ? names[c] : "null";
-}
-
-Id ToType(const string& s)
+Id ToId(const string& s)
 {
         static map<string, Id> ids{
             make_pair("HOUSEHOLD", Id::Household),
-            make_pair("SCHOOL", Id::School),
-            make_pair("WORK", Id::Work),
+            make_pair("K12SCHOOL", Id::K12School),
+            make_pair("COLLEGE", Id::College),
+            make_pair("WORKPLACE", Id::Workplace),
             make_pair("PRIMARY_COMMUNITY", Id::PrimaryCommunity),
             make_pair("SECONDARY_COMMUNITY", Id::SecondaryCommunity),
         };
         string t{s};
         to_upper(t);
-        return (ids.count(t) == 1) ? ids[t] : throw runtime_error("ContactPoolType::ToString> not available:" + t);
+        return (ids.count(t) == 1) ? ids[t] : throw runtime_error("ContactPoolType::ToId> not available:" + t);
+}
+
+string ToString(Id c)
+{
+        static map<Id, string> names{
+            make_pair(Id::Household, "Household"),
+            make_pair(Id::K12School, "K12School"),
+            make_pair(Id::College, "College"),
+            make_pair(Id::Workplace, "Workplace"),
+            make_pair(Id::PrimaryCommunity, "PrimaryCommunity"),
+            make_pair(Id::SecondaryCommunity, "SecondaryCommunity"),
+        };
+        return (names.count(c) == 1) ? names[c] : throw runtime_error("ContactPoolType::ToString> not available:");
 }
 
 } // namespace ContactPoolType

@@ -21,9 +21,7 @@
 #include "DiseaseSeeder.h"
 
 #include "disease/Immunizer.h"
-#include "pool/ContactPoolSys.h"
 #include "pop/Population.h"
-#include "sim/Sim.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/StringUtils.h"
@@ -78,8 +76,8 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         }
 }
 
-void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
-                              std::vector<ContactPool>& immunityPools)
+template <typename T>
+void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string& immunizationProfile, T& immunityPools)
 {
         std::vector<double> immunityDistribution;
         double              linkProbability = 0;
@@ -92,13 +90,14 @@ void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string
                 }
                 immunizer.Random(immunityPools, immunityDistribution, linkProbability);
         } else if (immunizationProfile == "AgeDependent") {
-                const auto   immunityFile = m_config_pt.get<string>("run." + ToLower(immunityType) + "_distribution_file");
-                const ptree& immunity_pt  = FileSys::ReadPtreeFile(immunityFile);
+                const auto immunityFile =
+                    m_config_pt.get<string>("run." + ToLower(immunityType) + "_distribution_file");
+                const ptree& immunity_pt = FileSys::ReadPtreeFile(immunityFile);
 
                 linkProbability = m_config_pt.get<double>("run." + ToLower(immunityType) + "_link_probability");
 
                 for (unsigned int index_age = 0; index_age < 100; index_age++) {
-                        double immunityRate = immunity_pt.get<double>("immunity.age" + std::to_string(index_age));
+                        auto immunityRate = immunity_pt.get<double>("immunity.age" + std::to_string(index_age));
                         immunityDistribution.push_back(immunityRate);
                 }
                 immunizer.Random(immunityPools, immunityDistribution, linkProbability);

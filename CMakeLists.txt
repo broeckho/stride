@@ -12,23 +12,24 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2019, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 #
 #  CMake config.
 #
 #############################################################################
 cmake_minimum_required(VERSION 3.5)
-include(CMakeConfig.cmake)
-include(CMakeLocal.cmake OPTIONAL)
 if(CMAKE_VERSION VERSION_LESS 3.8)
     set(STRIDE_FORCE_NO_PYTHON ON)
 endif()
+include(CMakeConfig.cmake)
+include(CMakeLocal.cmake OPTIONAL)
 
 #============================================================================
 # Configuration for CMake, for build & install.
 #============================================================================
 project(STRIDE)
+include(CMakeLocalProject.cmake OPTIONAL)
 
 #============================================================================
 # INSTALL LOCATION for bin, doc etc.

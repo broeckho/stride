@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
  * DaysOffAll class: everybody gets the day off.
  */
 
+#pragma once
+
 #include "DaysOffInterface.h"
 
 #include <memory>
@@ -33,7 +34,7 @@ class DaysOffAll : public DaysOffInterface
 {
 public:
         /// Initialize calendar.
-        explicit DaysOffAll(std::shared_ptr<Calendar>) {}
+        explicit DaysOffAll(const std::shared_ptr<Calendar>&) {}
 
         /// See DaysOffInterface.
         bool IsWorkOff() override { return true; }

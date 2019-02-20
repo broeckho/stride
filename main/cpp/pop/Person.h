@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,15 +18,15 @@
  * Header file for the Person class.
  */
 
+#pragma once
+
 #include "disease/Health.h"
 #include "pool/ContactPoolType.h"
 #include "pool/IdSubscriptArray.h"
 
-#include <boost/property_tree/ptree.hpp>
+#include <cstddef>
 
 namespace stride {
-
-class Belief;
 
 /**
  * Store and handle person data.
@@ -36,18 +35,14 @@ class Person
 {
 public:
         /// Default construction (for population vector).
-        Person()
-            : m_age(0.0), m_belief(nullptr), m_gender('M'), m_health(), m_id(0), m_is_participant(), m_pool_ids(),
-              m_in_pools()
-        {
-        }
+        Person() : m_age(0.0), m_gender('M'), m_health(), m_id(0), m_is_participant(), m_pool_ids(), m_in_pools() {}
 
         /// Constructor: set the person data.
-        Person(unsigned int id, double age, unsigned int householdId, unsigned int schoolId, unsigned int workId,
-               unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
-            : m_age(age), m_belief(nullptr), m_gender('M'), m_health(), m_id(id),
-              m_is_participant(false), m_pool_ids{householdId, schoolId, workId, primaryCommunityId,
-                                                  secondaryCommunityId},
+        Person(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId,
+               unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
+            : m_age(age), m_gender('M'), m_health(), m_id(id),
+              m_is_participant(false), m_pool_ids{householdId, k12SchoolId,        collegeId,
+                                                  workId,      primaryCommunityId, secondaryCommunityId},
               m_in_pools(true)
         {
         }
@@ -57,17 +52,6 @@ public:
 
         /// Get the age.
         double GetAge() const { return m_age; }
-
-        /// Return belief info.
-        Belief* GetBelief() { return m_belief; }
-
-        /// Return belief info.
-        const Belief* GetBelief() const { return m_belief; }
-
-        /// Get ID of contactpool_type
-        unsigned int GetPoolId(const ContactPoolType::Id& poolType) const { return m_pool_ids[poolType]; }
-
-        unsigned int GetHouseholdId() const { return m_pool_ids[ContactPoolType::Id::Household]; }
 
         /// Return person's gender.
         char GetGender() const { return m_gender; }
@@ -81,7 +65,10 @@ public:
         /// Get the id.
         unsigned int GetId() const { return m_id; }
 
-        /// Check if a person is present today in a given contactpool
+        /// Get ID of contactpool_type
+        std::size_t GetPoolId(const ContactPoolType::Id& poolType) const { return m_pool_ids[poolType]; }
+
+        /// Check if a person is present today in a given contact pool
         bool IsInPool(const ContactPoolType::Id& poolType) const { return m_in_pools[poolType]; }
 
         /// Does this person participates in the social contact study?
@@ -90,26 +77,32 @@ public:
         /// Participate in social contact study and log person details
         void ParticipateInSurvey() { m_is_participant = true; }
 
-        /// Set the beliefs. Pointer into Population's beliefcontainer.
-        void SetBelief(Belief* belief) { m_belief = belief; };
+        /// Update the health status and presence in contact pools.
+        void Update(bool isWorkOff, bool isSchoolOff, bool adaptiveSymptomaticBehavior);
 
-        /// Update the health status and presence in contactpools.
-        void Update(bool isWorkOff, bool isSchoolOff);
+        /// Set the age of the person
+        void SetAge(unsigned int newAge) { m_age = newAge; }
 
-        ///
-        void Update(Person* p);
+        /// Set the id.
+        void SetId(unsigned int id) { m_id = id; }
+
+        /// Sets (for the type of ContactPool) the Id of the ContactPool the person belongs to.
+        void SetPoolId(ContactPoolType::Id type, std::size_t poolId)
+        {
+                m_pool_ids[type] = poolId;
+                m_in_pools[type] = (poolId != 0); // Means present in Household, absent elsewhere.
+        }
 
 private:
-        double       m_age;    ///< The age.
-        Belief*      m_belief; ///< Health beliefs related data (raw pointer intentional).
-        char         m_gender;
+        double       m_age;            ///< The age.
+        char         m_gender;         ///< Gender.
         Health       m_health;         ///< Health info for this person.
         unsigned int m_id;             ///< The id.
         bool         m_is_participant; ///< Is participating in the social contact study
 
         ///< Ids (school, work, etc) of pools you belong to Id value 0 means you do not belong to any
-        ///< pool of that type (e.g. school and work are mutually exclusive.
-        ContactPoolType::IdSubscriptArray<unsigned int> m_pool_ids;
+        ///< pool of that type (e.g. school and work are mutually exclusive).
+        ContactPoolType::IdSubscriptArray<std::size_t> m_pool_ids;
 
         ///< Is person present/absent in pools of each of the types (school, work, etc)?
         ContactPoolType::IdSubscriptArray<bool> m_in_pools;

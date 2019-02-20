@@ -20,8 +20,6 @@
 
 #include "Sim.h"
 
-#include "behaviour/information_policies/LocalDiscussion.h"
-#include "behaviour/information_policies/NoLocalInformation.h"
 #include "calendar/DaysOffStandard.h"
 #include "pool/ContactPoolType.h"
 #include "pop/Population.h"
@@ -29,6 +27,7 @@
 #include "util/RunConfigManager.h"
 
 #include <omp.h>
+#include <utility>
 
 namespace stride {
 
@@ -37,26 +36,37 @@ using namespace trng;
 using namespace util;
 using namespace ContactLogMode;
 
-Sim::Sim()
-    : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false), m_local_info_policy(),
-      m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(), m_population(nullptr), m_rn_manager(),
-      m_transmission_profile()
+Sim::Sim(util::RnMan& rnMan)
+    : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false),
+      m_adaptive_symptomatic_behavior(false), m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(),
+      m_population(nullptr), m_rn_manager(rnMan), m_transmission_profile(), m_public_health_agency()
 {
 }
 
-std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop)
+Sim::Sim(std::shared_ptr<util::RnMan> rnMan) : Sim(*rnMan.get()) { m_rn_manager_ptr = rnMan; }
+
+std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop,
+                                 util::RnMan& rnManager)
 {
         struct make_shared_enabler : public Sim
         {
+                explicit make_shared_enabler(util::RnMan& rnManager) : Sim(rnManager) {}
         };
-        shared_ptr<Sim> sim = make_shared<make_shared_enabler>();
+        shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnManager);
         SimBuilder(configPt).Build(sim, std::move(pop));
         return sim;
 }
 
-std::shared_ptr<Sim> Sim::Create(const string& configString, shared_ptr<Population> pop)
+std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop,
+                                 std::shared_ptr<util::RnMan> rnManager)
 {
-        return Create(RunConfigManager::FromString(configString), std::move(pop));
+        struct make_shared_enabler : public Sim
+        {
+                explicit make_shared_enabler(std::shared_ptr<util::RnMan> rnManager) : Sim(std::move(rnManager)) {}
+        };
+        shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnManager);
+        SimBuilder(configPt).Build(sim, std::move(pop));
+        return sim;
 }
 
 void Sim::TimeStep()
@@ -76,19 +86,24 @@ void Sim::TimeStep()
 
 #pragma omp parallel num_threads(m_num_threads)
         {
-                // Update health status and presence/absence in pools
-                // depending on health status, work/school day.
+                // Update health status and presence/absence in contact pools
+                // depending on health status, work/school day and whether
+                // we want to track index cases without adaptive behavior
 #pragma omp for schedule(static)
                 for (size_t i = 0; i < population.size(); ++i) {
-                        population[i].Update(isWorkOff, isSchoolOff);
+                        population[i].Update(isWorkOff, isSchoolOff, m_adaptive_symptomatic_behavior);
                 }
+
+                // after the health update, let the public health agency perform their work
+                m_public_health_agency.Exec(m_population, m_rn_manager, simDay);
 
                 // Infector updates individuals for contacts & transmission within each pool.
                 // Skip pools with id = 0, because it means Not Applicable.
                 const auto thread_num = static_cast<unsigned int>(omp_get_thread_num());
                 for (auto typ : ContactPoolType::IdList) {
-                        if ((typ == ContactPoolType::Id::Work && isWorkOff) ||
-                            (typ == ContactPoolType::Id::School && isSchoolOff)) {
+                        if ((typ == ContactPoolType::Id::Workplace && isWorkOff) ||
+                            (typ == ContactPoolType::Id::K12School && isSchoolOff) ||
+                            (typ == ContactPoolType::Id::College && isSchoolOff)) {
                                 continue;
                         }
 #pragma omp for schedule(static)

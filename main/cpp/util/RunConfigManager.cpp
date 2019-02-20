@@ -58,30 +58,49 @@ ptree RunConfigManager::Create(const std::string& configName)
         return FromString(creators.at(configName)());
 }
 
+void RunConfigManager::ConvertToGenGeoPop(ptree& pt)
+{
+        std::string gengeopop_str   = R"###(
+<run>
+        <population_file>gengeopop.proto</population_file>
+        <population_type>generate</geopopulation_type>
+        <geopop_gen>
+                <cities_file>flanders_cities.csv</cities_file>
+                <commuting_file>flanders_commuting.csv</commuting_file>
+                <fraction_college_commuters>0.5</fraction_college_commuters>
+                <fraction_workplace_commuters>0.5</fraction_workplace_commuters>
+                <household_file>households_flanders.csv</household_file>
+                <participation_college>0.5</participation_college>
+                <particpation_workplace>0.75</particpation_workplace>
+                <population_size>600000</population_size>
+    </geopop_gen>
+</run>
+        )###";
+        ptree       gengeopop_ptree = FromString(gengeopop_str);
+        pt.put_child("run.population_file", gengeopop_ptree.get_child("run.population_file"));
+        pt.put_child("run.population_type", gengeopop_ptree.get_child("run.population_type"));
+        pt.put_child("run.geopop_gen", gengeopop_ptree.get_child("run.geopop_gen"));
+}
+
 string RunConfigManager::CreateBenchInfluenza()
 {
         return R"###(
 <?xml version="1.0" encoding="utf-8"?>
 <run>
         <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
-        <behaviour_policy>NoBehaviour</behaviour_policy>
-        <belief_policy>
-                <name>NoBelief</name>
-        </belief_policy>
         <contact_log_level>None</contact_log_level>
         <contact_output_file>false</contact_output_file>
         <disease_config_file>disease_influenza.xml</disease_config_file>
-        <global_information_policy>NoGlobalInformation</global_information_policy>
         <holidays_file>holidays_none.json</holidays_file>
         <immunity_link_probability>0</immunity_link_probability>
         <immunity_profile>Random</immunity_profile>
         <immunity_rate>0</immunity_rate>
-        <local_information_policy>NoLocalInformation</local_information_policy>
         <num_days>14</num_days>
         <num_participants_survey>10</num_participants_survey>
         <num_threads>1</num_threads>
         <output_prefix>BenchRuns</output_prefix>
         <population_file>pop_flanders1600.csv</population_file>
+        <population_type>default</geopopulation_type>
         <rng_seed>343869</rng_seed>
         <rng_type>mrg2</rng_type>
         <r0>1.5</r0>
@@ -103,10 +122,6 @@ string RunConfigManager::CreateDefault()
 <?xml version="1.0" encoding="utf-8"?>
 <run>
         <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
-        <behaviour_policy>NoBehaviour</behaviour_policy>
-        <belief_policy>
-                <name>NoBelief</name>
-        </belief_policy>
         <contact_log_level>Transmissions</contact_log_level>
         <contact_output_file>true</contact_output_file>
         <disease_config_file>disease_measles.xml</disease_config_file>
@@ -114,7 +129,6 @@ string RunConfigManager::CreateDefault()
         <holidays_file>holidays_none.json</holidays_file>
         <immunity_profile>None</immunity_profile>
         <immunity_rate>0.8</immunity_rate>
-        <local_information_policy>NoLocalInformation</local_information_policy>
         <num_days>30</num_days>
         <num_participants_survey>10</num_participants_survey>
         <num_threads>1</num_threads>
@@ -124,6 +138,7 @@ string RunConfigManager::CreateDefault()
         <output_prefix></output_prefix>
         <output_summary>false</output_summary>
         <population_file>pop_flanders600.csv</population_file>
+        <population_type>default</geopopulation_type>
         <rng_seed>1</rng_seed>
         <rng_type>mrg2</rng_type>
         <r0>11</r0>
@@ -147,23 +162,18 @@ string RunConfigManager::CreateBenchMeasles()
 <?xml version="1.0" encoding="utf-8"?>
 <run>
         <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
-        <behaviour_policy>NoBehaviour</behaviour_policy>
-        <belief_policy>
-                <name>NoBelief</name>
-        </belief_policy>
         <contact_log_level>None</contact_log_level>
         <contact_output_file>false</contact_output_file>
         <disease_config_file>disease_measles.xml</disease_config_file>
-        <global_information_policy>NoGlobalInformation</global_information_policy>
         <holidays_file>holidays_none.json</holidays_file>
         <immunity_profile>None</immunity_profile>
         <immunity_rate>0.01</immunity_rate>
-        <local_information_policy>NoLocalInformation</local_information_policy>
         <num_days>30</num_days>
         <num_participants_survey>10</num_participants_survey>
         <num_threads>1</num_threads>
         <output_prefix>bench</output_prefix>
         <population_file>pop_flanders600.csv</population_file>
+        <population_type>default</geopopulation_type>
         <rng_seed>1</rng_seed>
         <rng_type>mrg2</rng_type>
         <r0>12</r0>
@@ -211,24 +221,19 @@ string RunConfigManager::CreateTestsInfluenza()
 <?xml version="1.0" encoding="utf-8"?>
 <run>
         <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
-        <behaviour_policy>NoBehaviour</behaviour_policy>
-        <belief_policy>
-                <name>NoBelief</name>
-        </belief_policy>
         <contact_log_level>None</contact_log_level>
         <contact_output_file>false</contact_output_file>
         <disease_config_file>disease_influenza.xml</disease_config_file>
-        <global_information_policy>NoGlobalInformation</global_information_policy>
         <holidays_file>holidays_none.json</holidays_file>
         <immunity_link_probability>0</immunity_link_probability>
         <immunity_profile>Random</immunity_profile>
         <immunity_rate>0</immunity_rate>
-        <local_information_policy>NoLocalInformation</local_information_policy>
         <num_days>30</num_days>
         <num_participants_survey>10</num_participants_survey>
         <num_threads>1</num_threads>
         <output_prefix>BenchRuns</output_prefix>
         <population_file>pop_flanders600.csv</population_file>
+        <population_type>default</geopopulation_type>
         <rng_seed>2015</rng_seed>
         <rng_type>mrg2</rng_type>
         <r0>3</r0>
@@ -250,23 +255,18 @@ string RunConfigManager::CreateTestsMeasles()
 <?xml version="1.0" encoding="utf-8"?>
 <run>
         <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
-        <behaviour_policy>NoBehaviour</behaviour_policy>
-        <belief_policy>
-                <name>NoBelief</name>
-        </belief_policy>
         <contact_log_level>Transmissions</contact_log_level>
         <contact_output_file>false</contact_output_file>
         <disease_config_file>disease_measles.xml</disease_config_file>
-        <global_information_policy>NoGlobalInformation</global_information_policy>
         <holidays_file>holidays_none.json</holidays_file>
         <immunity_rate>0.80000000000000004</immunity_rate>
         <immunity_profile>None</immunity_profile>
-        <local_information_policy>NoLocalInformation</local_information_policy>
         <num_days>50</num_days>
         <num_participants_survey>10</num_participants_survey>
         <num_threads>1</num_threads>
         <output_prefix>BenchRuns</output_prefix>
         <population_file>pop_flanders600.csv</population_file>
+        <population_type>default</geopopulation_type>
         <rng_seed>1</rng_seed>
         <rng_type>mrg2</rng_type>
         <seeding_age_max>99</seeding_age_max>

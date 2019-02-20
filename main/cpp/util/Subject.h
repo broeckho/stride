@@ -1,4 +1,4 @@
-#pragma once
+
 /*
  * Copyright 2011-2016 Universiteit Antwerpen
  *
@@ -17,6 +17,8 @@
  * @file
  * Interface/Implementation of Subject.
  */
+
+#pragma once
 
 #include <functional>
 #include <map>

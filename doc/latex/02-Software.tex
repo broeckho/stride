@@ -6,21 +6,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % System Requirements
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{System Requirements}
-\label{section:system}
+\section{Source code}
+\label{section:source}
+The source code is maintained in a GitHub repository \url{https://github.com/broeckho/stride}. We use continuous integration via the TravisCI service. Every new revision is built and tested automatically at commit. Results of this proces can be viewed at \url{https://travis-ci.org/broeckho/stride/branches}, where you should look for the master branch. The integration status (of the master branch) is flagged in the GitHub repsitory front page for the project. 
 
-Stride is written in C++ and portable over all platforms that have the GNU C++ compiler. 
-De software has no dependencies on external libraries. The following tools needs to be installed:
+Stride is written in C++ and is portable over Linux and Mac OSX platforms that have a sufficiently recent version of a C++ compiler. To build and install \texttt{Stride}, the following tools need to be available on the system:
 \begin{compactitem}
-    \item g++
+    \item A fairly recent GNU g++ or LLVM clang++
     \item make
-    \item CMake
-    \item Boost
-    \item Python (optional, for automatization)
-    \item Doxygen (optional, for documentation)
-    \item LaTeX (optional, for documentation)
+    \item A fairly recent CMake
+    \item The Boost library
+    \item Python and SWIG (optional, for calling Stride in Python scripts)
+    \item Doxygen  and LaTeX (optional, for documentation only)
 \end{compactitem}
-
+A detailed list of current versions of operating system, compiler, build and run tools can be found in the project root directory in the file \texttt{PLATFORMS.txt}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Installation
@@ -28,12 +27,12 @@ De software has no dependencies on external libraries. The following tools needs
 \section{Installation}
 \label{section:Installation}
 
-To install the project, first obtain the source code by cloning the repository to a directory or download a zip file with all project
-material from the Bitbucket website and de-compress the archive. 
-The build system for Stride uses the CMake tool. This is used to build and install the software at a high level of abstraction and almost platform independent (see \url{http://www.cmake.org/}). 
-The project includes the conventional make targets to ``build'', ``install'', ``test'' and ``clean'' the project. There is one additional target ``configure'' to set up the CMake/make structure that will actually do all the work.
-For those users that do not have a working knowledge of CMake, a front end Makefile has been provided that invokes the appropriate CMake commands.
-More details on building the software can be found in ``INSTALL.txt'' in the source folder.
+To install the project, first obtain the source code by cloning the code repository to a directory .
+The build system for \texttt{Stride} uses the \texttt{CMake} tool. This is used to build and install the software at a high level of abstraction and almost platform independent (see \url{http://www.cmake.org/}).
+The project also include a traditional \texttt{make} front to \texttt{CMake}  with 
+For those users that do not have a working knowledge of \texttt{CMake}, a front end \texttt{Makefile} has been provided that invokes the appropriate \texttt{CMake} commands. It provide the conventional targets to ``build'', ``install'', ``test'' and ``clean'' the project trough an invocation of make. There is one additional target ``configure'' to set up the \texttt{CMake}/\texttt{make} structure that will actually do all the work.
+
+More details on building the software can be found in the file \texttt{INSTALL.txt} in the project root directory.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,9 +41,10 @@ More details on building the software can be found in ``INSTALL.txt'' in the sou
 \section{Documentation}
 \label{section:documentation}
 
-The Application Programmer Interface (API) documentation is generated automatically 
-using the Doxygen tool ((see \url{www.doxygen.org}) from documentation instructions 
-embedded in the code . 
+The Application Programmer Interface (API) documentation is generated automatically
+using the Doxygen tool (see \url{www.doxygen.org}) from documentation instructions
+embedded in the code . A copy of this documentation for the latest revision of the code
+in the GitHub repository can be found online at \url{https://broeckho.github.io/stride/}.
 
 The user manual distributed with the source code has been written in \LaTeX (see \url{www.latex-project.org}).
 
@@ -56,19 +56,19 @@ The user manual distributed with the source code has been written in \LaTeX (see
 \section{Directory layout}
 
 The project directory structure is very systematic.
-Everything used to build the software is stored in the directory \texttt{./src}:
+Everything used to build the software is stored in the root directory:
 \begin{compactitem}
-    \item \texttt{src/main}: Code related files (sources, third party libraries and headers, ...)
+    \item \texttt{main}: Code related files (sources, third party libraries and headers, ...)
       	\begin{itemize}
-        		\item \texttt{src/main/<language>}: source code, per coding language: cpp (for C++), python, R,   
-        		\item \texttt{src/main/resources}: third party resources included in the project: 
+        		\item \texttt{main/<language>}: source code, per language: cpp, python, R
+        		\item \texttt{main/resources}: third party resources included in the project:
         \end{itemize}
-    \item \texttt{src/doc}: documentation files (API, manual, ...)
+    \item \texttt{doc}: documentation files (API, manual, ...)
       	\begin{itemize}
-        		\item \texttt{src/doc/doxygen\_ref\_man}: files needed to generate the reference documentation with Doxygen
-        		\item \texttt{src/doc/latex\_man}: files needed to generate the user manual with Latex
+        		\item \texttt{doc/doxygen}: files to generate reference documentation with Doxygen
+        		\item \texttt{doc/latex}: files needed to generate the user manual with Latex
         \end{itemize}
-    \item \texttt{src/test}: test related files (scripts, regression files, ...)
+    \item \texttt{test}: test related files (scripts, regression files, ...)
 \end{compactitem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -77,28 +77,28 @@ Everything used to build the software is stored in the directory \texttt{./src}:
 \section{File formats}
 \label{section:FileFormats}
 
-The Stride software supports different file formats: 
-\begin{description}
+The Stride software supports different file formats:
+\begin{compactdesc}
 	\item [CSV] \ \\
 	Comma separated values, used for population input data and simulator output.
-	\item [HDF5] \ \\
-	Hierarchical Data Format 5, designed to store and organize large amounts of data.
 	\item [JSON] \ \\
 	JavaScript Object Notation, an open standard format that uses human-readable text to transmit objects consisting of attribute-value pairs. 	 \mbox{(see \url{www.json.org})}
 	\item [TXT] \ \\
-	Text files, for the logger. 
+	Text files, for the logger.
 	\item [XML] \ \\
 	Extensible Markup Language, a markup language (both human-readable and machine-readable) that defines a set of rules for encoding documents.
-\end{description}
+    \item [Proto] \ \\
+    Protocol Buffers, used for exporting and importing the generated population and geographical grid.
+\end{compactdesc}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Testing}
-Unit tests and install checks are added to Stride based on Google's ``gtest" framework and CMake's ``ctest" tool. 
-In addition, the code base contains assertions to verify the simulator logic. 
-They are activated when the application is built in debug mode and can be used to catch errors at run time. 
+Unit tests and install checks are added to Stride based on Google's ``gtest" framework and CMake's ``ctest" tool.
+In addition, the code base contains assertions to verify the simulator logic.
+They are activated when the application is built in debug mode and can be used to catch errors at run time.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,7 +108,7 @@ They are activated when the application is built in debug mode and can be used t
 \label{section:Results}
 
 The software can generates different output files:
-\begin{description}
+\begin{compactdesc}
 	\item [cases.csv] \ \\
 	Cumulative number of cases per day.
 	\item [summary.csv] \ \\
@@ -117,7 +117,30 @@ The software can generates different output files:
 	Individual details on infection characteristics.
 	\item [logfile.txt] \ \\
 	Details on transmission and/or social contacts events.
-\end{description}	
-	
-	
-	
+    \item [gengeopop.proto] \ \\
+    Generated population and geographical grid.
+\end{compactdesc}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Protobuf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Protocol Buffers}
+\label{section:protobuf}
+
+Protocol Buffers\footnote{\url{https://developers.google.com/protocol-buffers/}} is a library used for serializing structured data. We use it to read and write the synthethic populations generated by GenGeoPop (see \ref{section:gengeopop}).
+
+Protocol Buffers uses an interface description language that describes the structure of the data we want to store, in this case the GeoGrid. The file that describes how the GeoGrid is structured is located at:
+\texttt{main/cpp/gengeopop/io/proto/geogrid.proto}. It is used by the Procol Buffer tool to generate the C++ code to read and write our GeoGrid structure. We include this generated code in the project, so it's not necessary to install the \texttt{protobuf-c} package\footnote{\url{https://github.com/protobuf-c/protobuf-c}} in order to compile Stride. These generated source files can be found in the same folder.
+
+If you want to change the structure, for example due to changes in the way the population is generated, you will need to install the \texttt{protobuf-c}  package and re-generate the necessary code. To make this easier, we provided a CMake parameter and target that will generate the code and copy it to the source directory respectively. In that case, \texttt{Stride} needs to be compiled using the ``\texttt{STRIDE\_GEN\_PROTO=true}" macro setting. This will generate the code based on the \texttt{geogrid.proto} file and use that instead of the version included in the source directory. If you then want to copy this code to the correct location in the source, you can use ``\texttt{make proto}". If the version of \texttt{protobuf-c} you're using is significantly newer than the \texttt{protobuf} included in this repository, you might also need to update the files stored \texttt{main/resources/lib/protobuf}.
+
+At the time of writing, this is done in the following way, although this may be subject to change:
+\begin{compactitem}
+    \item Copy all files from \url{https://github.com/protocolbuffers/protobuf/tree/master/src/google/protobuf} to \texttt{main/resources/lib/protobuf/google/protobuf}.
+    \item Copy the \texttt{libprotobuf\_files} and \texttt{libprotobuf\_includes} from \url{https://github.com/protocolbuffers/protobuf/blob/master/cmake/libprotobuf.cmake} and \url{https://github.com/protocolbuffers/protobuf/blob/master/cmake/libprotobuf-lite.cmake}
+    \item Remove the prefix \texttt{\${protobuf\_source\_dir}/src/} from these listings.\\
+        For example \texttt{\${protobuf\_source\_dir}/src/google/protobuf/any.cc} becomes \texttt{google/protobuf/any.cc}.
+    \item Edit the \texttt{CMakeLists.text} at \texttt{main/resources/lib/protobuf} and replace the current values of \texttt{libprotobuf\_files} and \texttt{libprotobuf\_includes} with the ones we just obtained.
+\end{compactitem}
+The classes that are responsible for reading and writing a GeoGrid to an \texttt{istream} containing the serialized data are the \texttt{GeoGridProtoReader} and \texttt{GeoGridProtoWriter} respectively.

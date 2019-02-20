@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
  * Info on configuration..
  */
 
+#pragma once
+
 #include <string>
 
 namespace stride {
@@ -30,7 +31,7 @@ namespace util {
 class ConfigInfo
 {
 public:
-        ///
+        /// True if OpenMP in executable, false otherwise.
         static constexpr bool HaveOpenMP()
         {
 #ifdef _OPENMP
@@ -40,19 +41,16 @@ public:
 #endif
         }
 
-        ///
-        static constexpr bool HaveQt5() { return Qt5_FOUND; }
-
-        ///
+        /// Return git revision string.
         static std::string GitRevision();
 
-        ///
+        /// Return current hostname.
         static std::string GetHostname();
 
-        ///
+        /// Return number of threads (in case of OpenMP).
         static unsigned int NumberAvailableThreads();
 
-        ///
+        /// Return processor count for system.
         static constexpr unsigned int ProcessorCount() { return PROCCOUNT; }
 };
 

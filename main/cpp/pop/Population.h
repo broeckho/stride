@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,37 +18,55 @@
  * Header file for the core Population class
  */
 
+#pragma once
+
 #include "pool/ContactPoolSys.h"
 #include "pop/Person.h"
-#include "util/Any.h"
+#include "util/RnMan.h"
 #include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
-#include <mutex>
 #include <spdlog/spdlog.h>
+
+namespace gengeopop {
+class GeoGrid;
+}
 
 namespace stride {
 
 /**
- * Container for persons in population.
+ * Key Data structure: container for
+ * (a) all individuals in the population
+ * (b) the ContactPoolSys wchich is used to loop over ContactPools of each type
+ * (c) (if present) geographical grid of Locations with ContactCenters at that location.
  */
 class Population : public util::SegmentedVector<Person>
 {
 public:
         /// Create a population initialized by the configuration in property tree.
-        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt);
+        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
+                                                  std::shared_ptr<spdlog::logger> stride_logger = nullptr);
 
         /// For use in python environment: create using configuration string i.o ptree.
-        static std::shared_ptr<Population> Create(const std::string& configString);
+        static std::shared_ptr<Population> Create(const std::string& configString, util::RnMan& rnManager,
+                                                  std::shared_ptr<spdlog::logger> stride_logger = nullptr);
 
-        ///
-        unsigned int GetAdoptedCount() const;
+        /// Create an empty Population, used in gengeopop.
+        static std::shared_ptr<Population> Create();
 
+public:
+        /// Add a new contact pool of a given type
+        ContactPool* CreateContactPool(ContactPoolType::Id typeId);
+
+        /// Create Person in the population.
+        Person* CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,
+                             unsigned int college, unsigned int workId, unsigned int primaryCommunityId,
+                             unsigned int secondaryCommunityId);
         /// Get the cumulative number of cases.
         unsigned int GetInfectedCount() const;
 
-        ///
+        /// Return the contactlogger.
         std::shared_ptr<spdlog::logger>& GetContactLogger() { return m_contact_logger; }
 
         /// The ContactPoolSys of the simulator.
@@ -58,46 +75,24 @@ public:
         /// The ContactPoolSys of the simulator.
         const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
+        /// Get the GeoGrid associated with this population (may be a nullptr).
+        std::shared_ptr<gengeopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
+
 private:
         ///
-        Population() : m_beliefs(), m_pool_sys(), m_contact_logger() {}
+        Population() : m_pool_sys(), m_contact_logger(), m_geoGrid() {}
 
-        /// Create Person in the population.
-        void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
-
-        /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
-        /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
-        /// locking did not work in OpenMP parallel for's on Mac OSX.
-        template <typename BeliefPolicy>
-        void InitBeliefPolicy()
-        {
-                if (!m_beliefs) {
-                        m_beliefs.emplace<util::SegmentedVector<BeliefPolicy>>(this->size());
-                } else {
-                        throw std::runtime_error("_func_ : Error, already initialized!");
-                }
-        }
-
-        /// Assign the belief policy.
-        /// \tparam BeliefPolicy Template type param (we could use plain overloading here, i guess)
-        /// \param belief        belief object that wille be associated with the person
-        /// \param i             subscript to person associated with this belief object
-        // Cannot follow my preference for declaration of required explicit specializations, because SWIG
-        // does not like that. Hence include of the template method definition in the header file.
-        template <typename BeliefPolicy>
-        void SetBeliefPolicy(std::size_t i, const BeliefPolicy& belief = BeliefPolicy())
-        {
-                (*this)[i].SetBelief(m_beliefs.cast<util::SegmentedVector<BeliefPolicy>>()->emplace(i, belief));
-        }
-
-        friend class PopBuilder;
-        friend class BeliefSeeder;
+        friend class DefaultPopBuilder;
+        friend class GeoPopBuilder;
+        friend class ImportPopBuilder;
 
 private:
-        util::Any                       m_beliefs;        ///< Container holds belief data for the persons.
-        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
+        ContactPoolSys                      m_pool_sys;       ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger>     m_contact_logger; ///< Logger for contact/transmission.
+        std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;        ///< Associated geoGrid may be nullptr.
+
+private:
+        std::size_t m_currentContactPoolId = 1; ///< The contact pool counter for assigning pool IDs.
 };
 
 } // namespace stride

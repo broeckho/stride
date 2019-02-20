@@ -28,32 +28,31 @@ namespace stride {
 using namespace std;
 using namespace stride::ContactPoolType;
 
-void Person::Update(bool isWorkOff, bool isSchoolOff)
+void Person::Update(bool isWorkOff, bool isSchoolOff, bool adaptiveSymptomaticBehavior)
 {
+        // Update health and disease status
         m_health.Update();
 
-        // Update presence in contactpools.
-        if (m_health.IsSymptomatic()) {
-                m_in_pools[Id::School]             = false;
-                m_in_pools[Id::Work]               = false;
+        // Update presence in contact pools.
+        if (m_health.IsSymptomatic() && adaptiveSymptomaticBehavior) {
+                m_in_pools[Id::K12School]          = false;
+                m_in_pools[Id::College]            = false;
+                m_in_pools[Id::Workplace]          = false;
                 m_in_pools[Id::PrimaryCommunity]   = false;
                 m_in_pools[Id::SecondaryCommunity] = false;
         } else if (isWorkOff || (m_age <= MinAdultAge() && isSchoolOff)) {
-                m_in_pools[Id::School]             = false;
-                m_in_pools[Id::Work]               = false;
+                m_in_pools[Id::K12School]          = false;
+                m_in_pools[Id::College]            = false;
+                m_in_pools[Id::Workplace]          = false;
                 m_in_pools[Id::PrimaryCommunity]   = true;
                 m_in_pools[Id::SecondaryCommunity] = false;
         } else {
-                m_in_pools[Id::School]             = true;
-                m_in_pools[Id::Work]               = true;
+                m_in_pools[Id::K12School]          = true;
+                m_in_pools[Id::College]            = true;
+                m_in_pools[Id::Workplace]          = true;
                 m_in_pools[Id::PrimaryCommunity]   = false;
                 m_in_pools[Id::SecondaryCommunity] = true;
         }
-}
-
-void Person::Update(Person*)
-{
-        // TODO update beliefs
 }
 
 } // namespace stride

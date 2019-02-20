@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,9 +18,10 @@
  * Header file of base class for config that needs to be read from a file.
  */
 
+#pragma once
+
 #include "util/StringUtils.h"
 
-#include <boost/filesystem/path.hpp>
 #include <boost/lexical_cast.hpp>
 #include <iostream>
 #include <ostream>
