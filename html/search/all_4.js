@@ -66,7 +66,7 @@ var searchData=
   ['cliviewer',['CliViewer',['../d0/de8/a00133.html#a4ddb15ac567fd751c2be3a9d973d1666',1,'stride::viewers::CliViewer']]],
   ['cliviewer_2ecpp',['CliViewer.cpp',['../dd/db2/a00151.html',1,'']]],
   ['cliviewer_2eh',['CliViewer.h',['../d7/d9a/a00152.html',1,'']]],
-  ['cocoon',['Cocoon',['../dc/d54/a00094.html#a687eaab4246581183bd9f31be6fc08a5',1,'stride::Immunizer']]],
+  ['cocoon',['Cocoon',['../dc/d54/a00094.html#a9b4435f990b9a24bc0ededbd9af4877b',1,'stride::Immunizer']]],
   ['collector',['Collector',['../de/d5e/a00007.html',1,'geopop']]],
   ['collector',['Collector',['../de/d5e/a00007.html#a51d50ff423abe3d4c568a01db3df5f98',1,'geopop::Collector']]],
   ['college',['College',['../d4/dee/a00008.html',1,'geopop']]],

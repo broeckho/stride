@@ -52,7 +52,7 @@ var searchData=
   ['clear_5fto',['clear_to',['../d1/d6f/a00063.html#a671b741220de340ed4940eb727dc8eda',1,'proto::GeoGrid_Location_Commute']]],
   ['clear_5ftype',['clear_type',['../df/d5f/a00064.html#ab9f7f6b0d48791b01bf3937cbc73ed26',1,'proto::GeoGrid_Location_ContactCenter']]],
   ['cliviewer',['CliViewer',['../d0/de8/a00133.html#a4ddb15ac567fd751c2be3a9d973d1666',1,'stride::viewers::CliViewer']]],
-  ['cocoon',['Cocoon',['../dc/d54/a00094.html#a687eaab4246581183bd9f31be6fc08a5',1,'stride::Immunizer']]],
+  ['cocoon',['Cocoon',['../dc/d54/a00094.html#a9b4435f990b9a24bc0ededbd9af4877b',1,'stride::Immunizer']]],
   ['collector',['Collector',['../de/d5e/a00007.html#a51d50ff423abe3d4c568a01db3df5f98',1,'geopop::Collector']]],
   ['college',['College',['../d4/dee/a00008.html#a5f280df1beb416993ef27b2cfd1b1900',1,'geopop::College']]],
   ['commutes',['commutes',['../df/d03/a00062.html#af51162270a0c084022903489941101ab',1,'proto::GeoGrid_Location::commutes(int index) const '],['../df/d03/a00062.html#aad662c74f5a93da4636449ab3dc8a9e6',1,'proto::GeoGrid_Location::commutes() const ']]],
