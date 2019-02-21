@@ -21,15 +21,15 @@
 #pragma once
 
 #include "contact/ContactPool.h"
-#include "pop/Population.h"
 #include "util/RnMan.h"
+#include "util/SegmentedVector.h"
 
-#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
+class Population;
 class Sim;
 
 /**
@@ -46,8 +46,8 @@ public:
 
 private:
         /// Seed for vaccination/natural immunity.
-        template <typename T>
-        void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile, T& immunityPools);
+        void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
+                       const util::SegmentedVector<ContactPool>& immunityPools);
 
 private:
         const boost::property_tree::ptree& m_config_pt;  ///< Run config.

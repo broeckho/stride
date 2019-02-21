@@ -26,6 +26,7 @@
 #include "util/LogUtils.h"
 #include "util/StringUtils.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
 
@@ -33,7 +34,7 @@ namespace stride {
 
 using namespace boost::property_tree;
 using namespace stride::ContactType;
-using namespace util;
+using namespace stride::util;
 using namespace std;
 
 DiseaseSeeder::DiseaseSeeder(const ptree& configPt, RnMan& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager)
@@ -76,8 +77,8 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         }
 }
 
-template <typename T>
-void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string& immunizationProfile, T& immunityPools)
+void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
+                              const SegmentedVector<ContactPool>& immunityPools)
 {
         std::vector<double> immunityDistribution;
         double              linkProbability = 0;

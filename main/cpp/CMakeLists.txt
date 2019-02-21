@@ -35,6 +35,7 @@ set(LIB_SRC
     disease/DiseaseSeeder.cpp
 	disease/Health.cpp
     disease/HealthSeeder.cpp
+	disease/Immunizer.cpp
     disease/PublicHealthAgency.cpp
 #---
 	execs/ControlHelper.cpp
