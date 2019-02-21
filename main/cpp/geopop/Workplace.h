@@ -35,9 +35,6 @@ public:
 
         /// See ContactCenter::GetContactPoolType.
         stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::Workplace; }
-
-        /// See ContactCenter::GetType.
-        // std::string GetType() const override { return "Workplace"; }
 };
 
 } // namespace geopop

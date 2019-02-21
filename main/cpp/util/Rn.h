@@ -22,13 +22,9 @@
 
 #include "StringUtils.h"
 
-#include <trng/lcg64.hpp>
-#include <cctype>
-#include <functional>
+//#include <trng/lcg64.hpp>
 #include <pcg/pcg_random.hpp>
 #include <randutils/randutils.hpp>
-#include <sstream>
-#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -82,91 +78,29 @@ public:
         Rn& operator=(const Rn&) = delete;
 
         /// Equality of states
-        bool operator==(const Rn& other)
-        {
-                bool status = m_stream_count == other.m_stream_count;
-                if (status) {
-                        for (size_t i = 0; i < size(); ++i) {
-                                status = status && ((*this)[i] == other[i]);
-                        }
-                }
-                return status;
-        }
+        bool operator==(const Rn& other);
 
         /// Return the state of the random engines.
-        Info GetInfo() const
-        {
-                Info              info;
-                std::stringstream ss;
-                for (auto& e : *this) {
-                        ss << e.engine();
-                }
-                info.m_seed_seq_init = m_seed_seq_init;
-                info.m_state         = ss.str();
-                info.m_stream_count  = m_stream_count;
-                return info;
-        }
+        Info GetInfo() const;
 
         /// Initalize with data in Info.
-        void Initialize(const Info& info = Info())
-        {
-                if (m_stream_count != info.m_stream_count) {
-                        m_stream_count = info.m_stream_count;
-                        this->resize(m_stream_count);
-                }
-                m_seed_seq_init = info.m_seed_seq_init;
-
-                auto state = info.m_state;
-                if (state.empty()) {
-                        std::vector<unsigned int> seseq_init_vec;
-                        for (const auto& e : Split(m_seed_seq_init, ",")) {
-                                if (!CheckAllDigits(e)) {
-                                        throw std::runtime_error("Rn::Seed> Error in seeding definiton.");
-                                }
-                                seseq_init_vec.push_back(FromString<unsigned int>(e));
-                        }
-                        randutils::seed_seq_fe128 seseq(seseq_init_vec.begin(), seseq_init_vec.end());
-
-                        Seed(seseq);
-                } else {
-                        std::stringstream ss(state);
-                        for (size_t i = 0; i < m_stream_count; ++i) {
-                                ss >> (*this)[i].engine();
-                        }
-                }
-        }
+        void Initialize(const Info& info = Info());
 
 private:
         /// Actual first-time seeding. Procedure varies according to engine type, see specialisations.
-        void Seed(randutils::seed_seq_fe128& seseq)
-        {
-                auto seeds = pcg_extras::generate_one<unsigned long>(seseq);
-                for (size_t i = 0; i < m_stream_count; ++i) {
-                        (*this)[i].engine().seed(seeds);
-                        (*this)[i].engine().split(m_stream_count, i);
-                }
-        }
+        void Seed(randutils::seed_seq_fe128& seseq);
 
 private:
         std::string  m_seed_seq_init; ///< Seed sequence initializer used with engines.
         unsigned int m_stream_count;  ///< Number of threads/streams set up with the engine.
 };
 
-/// Specialization of seeding for pcg64.
+
 template <>
-inline void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq)
-{
-        if (2 * m_stream_count > 64) {
-                throw std::runtime_error("RnPcg64 generate seed vector, cannot handle large n.");
-        }
-        auto seeds = pcg_extras::generate_vector<pcg64::state_type, 64>(seseq);
-        for (size_t i = 0; i < m_stream_count; ++i) {
-                (*this)[i].engine().seed(seeds[i + 1], seeds[i]);
-        }
-}
+void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq);
 
 extern template class Rn<pcg64>;
-extern template class Rn<trng::lcg64>;
+//extern template class Rn<trng::lcg64>;
 
 } // namespace util
 } // namespace stride

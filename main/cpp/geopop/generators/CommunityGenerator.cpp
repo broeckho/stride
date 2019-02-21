@@ -19,6 +19,7 @@
 #include "geopop/Location.h"
 #include "geopop/PrimaryCommunity.h"
 #include "geopop/SecondaryCommunity.h"
+#include "util/RnMan.h"
 
 #include <trng/discrete_dist.hpp>
 #include <cmath>

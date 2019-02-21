@@ -17,6 +17,7 @@
 
 #include "geopop/Location.h"
 #include "geopop/Workplace.h"
+#include "util/RnMan.h"
 
 #include <trng/discrete_dist.hpp>
 

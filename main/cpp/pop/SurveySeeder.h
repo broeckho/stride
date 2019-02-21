@@ -20,14 +20,16 @@
 
 #pragma once
 
-#include "util/RnMan.h"
-
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
 
 namespace stride {
 
 class Population;
+
+namespace util {
+class RnMan;
+}
 
 /**
  * Seeds the population with survey participants.

@@ -26,7 +26,6 @@
 #include "contact/InfectorExec.h"
 #include "contact/TransmissionProfile.h"
 #include "disease/PublicHealthAgency.h"
-#include "util/RnMan.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <string>
@@ -35,6 +34,10 @@ namespace stride {
 
 class Calendar;
 class Population;
+
+namespace util {
+class RnMan;
+}
 
 /**
  * Simulator can time step and reveal some of the key data.

@@ -18,9 +18,14 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "util/ExcAssert.h"
-#include "util/RnMan.h"
 
 #include <spdlog/logger.h>
+
+namespace stride {
+namespace util {
+class RnMan;
+}
+}
 
 namespace geopop {
 

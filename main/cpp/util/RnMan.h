@@ -26,9 +26,16 @@ namespace stride {
 namespace util {
 
 using RnPcg64 = Rn<pcg64>;
-using RnLcg64 = Rn<trng::lcg64>;
+//using RnLcg64 = Rn<trng::lcg64>;
 
-using RnMan = RnPcg64;
+/*
+ * A using statement here, would bar having RnMan in forward class declarations.
+ */
+class RnMan : public RnPcg64
+{
+public:
+        using RnPcg64::RnPcg64; // make constructors accessible.
+};
 
 } // namespace util
 } // namespace stride

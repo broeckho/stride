@@ -15,11 +15,14 @@
 
 #pragma once
 
-#include "contact/ContactPool.h"
 #include "contact/ContactType.h"
 
 #include <memory>
 #include <vector>
+
+namespace stride{
+class ContactPool;
+}
 
 namespace geopop {
 

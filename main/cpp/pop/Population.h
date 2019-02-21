@@ -22,7 +22,6 @@
 
 #include "contact/ContactPoolSys.h"
 #include "pop/Person.h"
-#include "util/RnMan.h"
 #include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
@@ -34,6 +33,11 @@ class GeoGrid;
 }
 
 namespace stride {
+
+namespace util {
+class RnMan;
+}
+
 
 /**
  * Key Data structure: container for

@@ -18,6 +18,7 @@
 #include "geopop/GeoGridConfig.h"
 #include "geopop/K12School.h"
 #include "geopop/Location.h"
+#include "util/RnMan.h"
 
 #include <trng/discrete_dist.hpp>
 

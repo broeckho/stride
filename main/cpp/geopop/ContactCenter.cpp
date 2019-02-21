@@ -15,6 +15,8 @@
 
 #include "ContactCenter.h"
 
+#include "contact/ContactPool.h"
+
 namespace geopop {
 
 std::pair<unsigned int, unsigned int> ContactCenter::GetPopulationAndInfectedCount() const

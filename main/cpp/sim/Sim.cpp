@@ -33,7 +33,6 @@
 namespace stride {
 
 using namespace std;
-using namespace trng;
 using namespace util;
 using namespace ContactLogMode;
 

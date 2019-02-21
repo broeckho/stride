@@ -24,6 +24,7 @@
 #include "contact/ContactLogMode.h"
 #include "contact/ContactType.h"
 #include "contact/IdSubscriptArray.h"
+#include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
 #include "util/RnMan.h"

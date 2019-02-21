@@ -15,14 +15,20 @@
  */
 
 #include "pop/Population.h"
-#include "util/RnMan.h"
 
 #include <spdlog/logger.h>
+
+namespace stride {
+namespace util {
+class RnMan;
+}
+}
 
 namespace geopop {
 
 class GeoGrid;
 class GeoGridConfig;
+
 
 /**
  * Controls the complete generation and population of a GeoGrid.

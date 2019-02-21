@@ -21,9 +21,6 @@
 
 #pragma once
 
-#include "pop/Population.h"
-#include "util/RnMan.h"
-
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
 #include <spdlog/logger.h>
@@ -31,6 +28,9 @@
 namespace stride {
 
 class Population;
+namespace util {
+class RnMan;
+}
 
 /**
  * Base Class for PopBuilders.
