@@ -46,13 +46,13 @@ inspect_summary <- function(project_dir)
   
   r0_axis_factor     <- median(project_summary$num_cases / project_summary$AR)
   r0_axis_scale      <- diff(range_num_cases)/r0_axis_factor
-
+  
   num_digits        <- ceiling(abs(log10(r0_axis_scale)))
   ticks_r0          <- round(ticks_cases/r0_axis_factor,digits=num_digits)
   
   # OPEN PDF STREAM
   .rstride$create_pdf(project_dir,'summary_inspection',10,7)
-
+  
   # loop over the changing input parameters => plot cases and incidence
   #par(mfrow=c(2,2))
   par(mar = c(10, 4, 4, 4) + 0.3)  # Leave space for 3rd axis
@@ -92,7 +92,7 @@ inspect_summary <- function(project_dir)
   
   
   dev.off()
-
+  
   # terminal message
   .rstride$cli_print('INSPECTION OF SUMMARY DATA COMPLETE')
   
@@ -118,7 +118,7 @@ inspect_summary <- function(project_dir)
   }
   
   return(input_opt_design)
-
+  
 }
 
 ## HELP FUNCTION
@@ -134,4 +134,3 @@ inspect_summary <- function(project_dir)
   # return
   return(input_opt)
 }
-

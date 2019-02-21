@@ -88,13 +88,13 @@ inspect_contact_data <- function(project_dir){
     ## SETTINGS 
     L <- 80
     num_days      <- exp_summary$num_days
-  
+    
     # open pdf stream  
     exp_tag <- .rstride$create_exp_tag(exp_summary$exp_id)
     .rstride$create_pdf(project_dir,paste0(exp_tag,'_cnt_patterns'),10,5)
     #par(mfrow=c(2,2))
     
-     ## TOTAL
+    ## TOTAL
     mij_total  <- .rstride$plot_cnt_matrix(data_cnt,data_part,'total',L,num_days)
     
     ## HOUSEHOLD
@@ -194,7 +194,7 @@ inspect_contact_data <- function(project_dir){
     }
     
     dev.off() # close pdf stream
-
+    
   } # end if dim(data)...
 } # end function
 
@@ -352,4 +352,3 @@ inspect_contact_data <- function(project_dir){
   return(g_plot)
   
 }
-

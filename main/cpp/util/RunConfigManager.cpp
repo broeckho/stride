@@ -176,7 +176,7 @@ string RunConfigManager::CreateBenchMeasles()
         <population_type>default</geopopulation_type>
         <rng_seed>1</rng_seed>
         <rng_type>mrg2</rng_type>
-        <r0>15</r0>
+        <r0>12</r0>
         <seeding_age_max>99</seeding_age_max>
         <seeding_age_min>1</seeding_age_min>
         <seeding_rate>0.02</seeding_rate>

@@ -24,6 +24,7 @@ add_subdirectory(examples)
 # Scripts for 'Measles in Flanders' study
 #============================================================================
 add_subdirectory(measles_in_flanders)
+add_subdirectory(age_immunity_shift)
 
 #================================================================================================
 # Create the library that performs as a wrapper for some C++ code that is incompatible with SWIG.
@@ -77,6 +78,9 @@ INSTALL(DIRECTORY pystride
         DESTINATION ${BIN_INSTALL_LOCATION})
 INSTALL(DIRECTORY ${CMAKE_BINARY_DIR}/main/python/pystride/stride
         DESTINATION ${BIN_INSTALL_LOCATION}/pystride/)
+        
+INSTALL(DIRECTORY postprocessing
+		DESTINATION ${BIN_INSTALL_LOCATION})
 
 #================================================================================================
 # Clean up

@@ -22,12 +22,12 @@
 
 # load R packages
 for(package_i in c('XML','doParallel','ggplot2','gridExtra')){
-
+  
   # if not present => install
   if(!package_i %in% rownames(installed.packages())){
     install.packages(package_i)
   }
-
+  
   # load package
   library(package_i,character.only=TRUE, quietly = T, verbose = F)
 }
@@ -51,7 +51,7 @@ source('./bin/rstride/TransmissionInspector.R')
 run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
                         ignore_stride_stdout = TRUE, remove_tmp_output = TRUE)
 {
-
+  
   # command line message
   .rstride$cli_print('STARTING rSTRIDE CONTROLLER')
   
@@ -132,67 +132,67 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
                      .combine='rbind',
                      .packages='XML',
                      .verbose=FALSE) %dopar%
-  {  
-
-    # print progress (only slave1)
-    .rstride$print_progress(i_exp,nrow(design_of_experiment),pid_slave1)
-   
-    # create experiment tag
-    exp_tag <- .rstride$create_exp_tag(i_exp)
-    
-    # copy default param
-    config_exp <-   config_default
-    
-    # add design parameters
-    for(i_param in 1:ncol(design_of_experiment)){
-      config_exp[names(design_of_experiment)[i_param]] <- design_of_experiment[i_exp,i_param]
-    }  
-  
-    # update experiment output prefix
-    config_exp$output_prefix <- file.path(run_dir,exp_tag)
-    
-    # create xml file
-    config_exp_filename <- .rstride$save_config_xml(config_exp,'run',config_exp$output_prefix)
-    
-    # run stride (using the C++ Controller)
-    system(paste(stride_bin,config_opt,paste0('../',config_exp_filename)),ignore.stdout=ignore_stride_stdout)
-  
-    # load output summary
-    summary_filename <- file.path(config_exp$output_prefix,'summary.csv')
-    run_summary      <- read.table(summary_filename,header=T,sep=',')
-    
-    # merge output summary with input param
-    config_df   <- as.data.frame(config_exp)
-    run_summary <- merge(run_summary,config_df)
-  
-    # parse contact_log (if present)
-    contact_log_filename <- file.path(config_exp$output_prefix,'contact_log.txt')
-    if(file.exists(contact_log_filename)){
-      parse_contact_logfile(contact_log_filename)
-    }
-    
-    # convert 'cases' file (if present) => "prevalence"
-    cases_filename <- file.path(config_exp$output_prefix,'cases.csv')
-    if(file.exists(cases_filename)){
-      data_cases        <- read.table(cases_filename,sep=',')
-      names(data_cases) <- paste0('day',seq(length(data_cases))-1)
-      data_cases$exp_id <- config_exp$exp_id
-      save(data_cases,file=file.path(config_exp$output_prefix,'data_prevalence.RData'))
-    }
-    
-    # remove experiment output folder
-    if(remove_tmp_output){
-      unlink(summary_filename,recursive = T)
-      unlink(cases_filename,recursive = T)
-      unlink(config_exp_filename,recursive = T)
-      unlink(contact_log_filename,recursive = T)
-      unlink(file.path(config_exp$output_prefix,'stride_log.txt'),recursive = T)
-    }
-   
-
-    # return experiment output summary
-    return(run_summary)
-  }
+                     {  
+                       
+                       # print progress (only slave1)
+                       .rstride$print_progress(i_exp,nrow(design_of_experiment),pid_slave1)
+                       
+                       # create experiment tag
+                       exp_tag <- .rstride$create_exp_tag(i_exp)
+                       
+                       # copy default param
+                       config_exp <-   config_default
+                       
+                       # add design parameters
+                       for(i_param in 1:ncol(design_of_experiment)){
+                         config_exp[names(design_of_experiment)[i_param]] <- design_of_experiment[i_exp,i_param]
+                       }  
+                       
+                       # update experiment output prefix
+                       config_exp$output_prefix <- file.path(run_dir,exp_tag)
+                       
+                       # create xml file
+                       config_exp_filename <- .rstride$save_config_xml(config_exp,'run',config_exp$output_prefix)
+                       
+                       # run stride (using the C++ Controller)
+                       system(paste(stride_bin,config_opt,paste0('../',config_exp_filename)),ignore.stdout=ignore_stride_stdout)
+                       
+                       # load output summary
+                       summary_filename <- file.path(config_exp$output_prefix,'summary.csv')
+                       run_summary      <- read.table(summary_filename,header=T,sep=',')
+                       
+                       # merge output summary with input param
+                       config_df   <- as.data.frame(config_exp)
+                       run_summary <- merge(run_summary,config_df)
+                       
+                       # parse contact_log (if present)
+                       contact_log_filename <- file.path(config_exp$output_prefix,'contact_log.txt')
+                       if(file.exists(contact_log_filename)){
+                         parse_contact_logfile(contact_log_filename)
+                       }
+                       
+                       # convert 'cases' file (if present) => "prevalence"
+                       cases_filename <- file.path(config_exp$output_prefix,'cases.csv')
+                       if(file.exists(cases_filename)){
+                         data_cases        <- read.table(cases_filename,sep=',')
+                         names(data_cases) <- paste0('day',seq(length(data_cases))-1)
+                         data_cases$exp_id <- config_exp$exp_id
+                         save(data_cases,file=file.path(config_exp$output_prefix,'data_prevalence.RData'))
+                       }
+                       
+                       # remove experiment output folder
+                       if(remove_tmp_output){
+                         unlink(summary_filename,recursive = T)
+                         unlink(cases_filename,recursive = T)
+                         unlink(config_exp_filename,recursive = T)
+                         unlink(contact_log_filename,recursive = T)
+                         unlink(file.path(config_exp$output_prefix,'stride_log.txt'),recursive = T)
+                       }
+                       
+                       
+                       # return experiment output summary
+                       return(run_summary)
+                     }
   
   # save overal summary
   write.table(par_out,file=file.path(run_dir,paste0(run_tag,'_summary.csv')),sep=',',row.names=F)
@@ -206,13 +206,13 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
   if(remove_tmp_output){
     unlink(par_out$output_prefix,recursive = T)
   }
-
+  
   
   ###############################
   ## TERMINATE PARALLEL NODES  ##
   ###############################
   .rstride$end_slaves()
-
+  
   # command line message
   .rstride$cli_print('rSTRIDE CONTROLLER FINISHED')
   

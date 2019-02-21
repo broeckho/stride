@@ -36,18 +36,18 @@ if(!(exists('.rstride'))){
 ###############################
 
 .rstride$cli_print <- function(...,WARNING=F) {
-
+  
   # get function arguments
   function_arguments <- as.list(match.call(expand.dots=FALSE))$...
   
   # get function-call environment (to retrieve variable from that environment) 
   pf <- parent.frame()
-
+  
   # parse list => make character vector
   function_arguments <- foreach(i=1:length(function_arguments),.combine='cbind') %do%{
     eval(unlist(function_arguments[[i]]),envir = pf)
   }
- 
+  
   # add a space to each function arguments
   function_arguments <- paste(' ',function_arguments)
   
@@ -86,8 +86,8 @@ if(!(exists('.rstride'))){
   # CREATE GLOBAL VARIABLE
   par_nodes_info <<- list(par_cluster = par_cluster,
                           pid_slave1 = pid_slave1)
-
-  }
+  
+}
 
 .rstride$end_slaves <- function()
 {
@@ -101,9 +101,9 @@ if(!(exists('.rstride'))){
 
 .rstride$print_progress <- function(i_current,i_total,pid_slave1){
   
-   if(Sys.getpid() == pid_slave1){
-     .rstride$cli_print('RUNNING...',i_current,'/',i_total)
-   }
+  if(Sys.getpid() == pid_slave1){
+    .rstride$cli_print('RUNNING...',i_current,'/',i_total)
+  }
   
 }
 
@@ -113,7 +113,7 @@ if(!(exists('.rstride'))){
 ###############################
 
 .rstride$load_project_summary <- function(project_dir){
- 
+  
   # check if project_dir exists
   if(.rstride$dir_not_present(project_dir)){
     stop('PROJECT DIR NOT PRESENT')
@@ -233,7 +233,7 @@ if(!(exists('.rstride'))){
   
   # get output data types
   data_type_opt <- unique(dir(file.path(project_summary$output_prefix),pattern='.RData'))
- 
+  
   data_type <- data_type_opt[2]
   for(data_type in data_type_opt)
   {
@@ -263,7 +263,7 @@ if(!(exists('.rstride'))){
           data_tmp        <- data.frame(matrix(NA,ncol=max(project_summary$num_days)+2)) # +1 for day 0 and +1 for exp_id
           names(data_tmp) <-  c(paste0('day',0:max(project_summary$num_days)),
                                 'exp_id')
-                                 
+          
           # insert the experiment data
           data_tmp[names(data_exp)] <- data_exp
           
@@ -331,7 +331,7 @@ if(!(exists('.rstride'))){
 ###############################
 
 .rstride$no_return_value <- function(){
-
+  
   return(invisible())
 }
 
@@ -346,7 +346,7 @@ if(!(exists('.rstride'))){
   # else, return FALSE
   return(FALSE)
 }
-  
+
 # check file presence
 .rstride$data_files_exist <- function(design_of_experiment = exp_design){
   
@@ -359,10 +359,10 @@ if(!(exists('.rstride'))){
   # add the path to the data folder
   data_dir <- './data'
   file_names <- file.path(data_dir,file_names)
-
+  
   # check the existance of the files
   file_not_exist_bool   <- !file.exists(file_names)
-
+  
   # if any file missing => return FALSE
   if(any(file_not_exist_bool)){
     .rstride$cli_print('DATA FILE(S) MISSING:', paste(file_names[file_not_exist_bool],collapse = ' '),WARNING=T)
@@ -376,7 +376,7 @@ if(!(exists('.rstride'))){
 # log level
 # check file presence
 .rstride$log_levels_exist <- function(design_of_experiment = exp_design){
-
+  
   valid_levels <- design_of_experiment$contact_log_level %in% c('None','Transmissions','All')
   
   if(any(!valid_levels)){
@@ -423,7 +423,7 @@ if(!(exists('.rstride'))){
   
   immunity_profiles <- unique(c(design_of_experiment$immunity_profile,design_of_experiment$vaccine_profile))
   
-   # get immunity profile names
+  # get immunity profile names
   disease_immunity_profiles <- c('None','Random','AgeDependent','Cocoon')
   
   # check if given profile names are valid
@@ -446,7 +446,7 @@ if(!(exists('.rstride'))){
 
 # load last project_dir
 .rstride$load_pd <- function(){
-
+  
   # set most recent build as work directory
   .rstride$set_wd()
   
@@ -467,7 +467,7 @@ if(!(exists('.rstride'))){
 # set most recent stride install directory as work directory 
 #.rstride$set_wd()
 .rstride$set_wd <- function(){
-
+  
   # default install directory
   install_dir              <- system('echo $HOME/opt',intern=T)
   
@@ -479,9 +479,8 @@ if(!(exists('.rstride'))){
   
   # set work directory
   setwd(file.path(install_dir,last_stride_dir))
-
+  
   # terminal message
   cat('NEW WORK DIRECTORY ',file.path(install_dir,last_stride_dir))
-
+  
 }
-

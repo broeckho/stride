@@ -36,7 +36,7 @@ if(0==1){
 
 parse_contact_logfile <- function(contact_log_filename)
 {
-
+  
   # terminal message
   cat("PARSING LOGFILE:",contact_log_filename,fill=TRUE)
   
@@ -46,7 +46,7 @@ parse_contact_logfile <- function(contact_log_filename)
   # load log file using a specified number of columns and fill empty columns
   # By default, the first record determines the number of columns, so info might get lost
   data_log  <- read.table(contact_log_filename, sep=' ',fill=T,col.names = paste0("V", seq_len(data_ncol)),stringsAsFactors = F)
- 
+  
   # experiment output directory
   exp_dir <- dirname(contact_log_filename)
   
@@ -151,7 +151,7 @@ parse_contact_logfile <- function(contact_log_filename)
     save(data_vacc,file=file.path(exp_dir,'data_vaccination.RData'))
     
   }
-
+  
   # terminal message
   cat("LOG PARSING COMPLETE",fill=TRUE)
   

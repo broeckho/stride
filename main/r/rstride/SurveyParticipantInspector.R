@@ -52,7 +52,7 @@ inspect_participant_data <- function(project_dir)
     flag_exp            <- .rstride$get_equal_rows(project_summary,input_opt_design[i_config,])
     data_part           <- .rstride$load_aggregated_output(project_dir,'data_participants',project_summary$exp_id[flag_exp])
     num_runs_exp        <- sum(flag_exp)
-
+    
     num_part <- nrow(data_part)
     freq_start_inf  <- table(data_part$start_infectiousness) / num_part
     freq_start_symp <- table(data_part$start_symptomatic)    / num_part
@@ -68,7 +68,7 @@ inspect_participant_data <- function(project_dir)
     points(1:30,colMeans(all_symp),lwd=3,col=4,type='b')
     legend('topright',c('infectious','symptomatic'),col=c(2,4),lwd=4,cex=0.8)
     abline(v=6:9,lty=3)
-  
+    
     f_data <- data_part$start_infectiousness; f_main <- 'debug'
     plot_cum_distr <- function(f_data,f_main){
       tbl_data <- table(f_data)/length(f_data)
@@ -86,7 +86,7 @@ inspect_participant_data <- function(project_dir)
     plot_cum_distr(f_data=data_part$start_symptomatic-data_part$start_infectiousness,f_main='days infectious \n& not symptomatic')
     plot_cum_distr(data_part$start_symptomatic,f_main='start_symptomatic')
     plot_cum_distr(data_part$end_symptomatic-data_part$start_symptomatic,f_main='days symptomatic')
-  
+    
     
     ## POPULATION
     population_age <- as.data.frame(table(part_age = data_part$part_age))
@@ -104,7 +104,7 @@ inspect_participant_data <- function(project_dir)
          ylab='fraction susceptible',
          main='population susceptibility',
          pch=19, lwd=3
-         )
+    )
     
     names(data_part)
     
