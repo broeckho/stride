@@ -19,11 +19,11 @@
  * Header for the PublicHealthAgency class.
  */
 
-#include "contact/ContactPool.h"
-#include "pop/Population.h"
 #include "util/RnMan.h"
 
 namespace stride {
+
+class Population;
 
 class PublicHealthAgency
 {
@@ -44,4 +44,4 @@ private:
         double m_case_detection_probability; ///< Detection probability of symptomatic cases
 };
 
-} /* namespace stride */
+} // namespace stride

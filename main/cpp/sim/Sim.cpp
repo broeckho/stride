@@ -22,6 +22,7 @@
 
 #include "calendar/DaysOffStandard.h"
 #include "contact/ContactType.h"
+#include "contact/InfectorExec.h"
 #include "pop/Population.h"
 #include "sim/SimBuilder.h"
 #include "util/RunConfigManager.h"

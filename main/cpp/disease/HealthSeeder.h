@@ -24,7 +24,6 @@
 #include "contact/ContactHandler.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
-#include <functional>
 #include <memory>
 #include <string>
 #include <vector>

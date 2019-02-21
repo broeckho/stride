@@ -100,10 +100,13 @@ private:
         InfectorExec*                m_infector;         ///< Executes contacts/transmission loops in contact pool.
         std::shared_ptr<Population>  m_population;       ///< Pointer to the Population.
         util::RnMan&                 m_rn_manager;       ///< Random number generation management.
-        std::shared_ptr<util::RnMan> m_rn_manager_ptr =
-            nullptr; ///< Used when created from the Python environment to keep it from being destructed.
+
         TransmissionProfile m_transmission_profile; ///< Profile of disease.
         PublicHealthAgency  m_public_health_agency; ///< Agency to implement reactive strategies.
+
+private:
+        ///< Used when created from the Python environment to prevent it from being destructed.
+        std::shared_ptr<util::RnMan> m_rn_manager_ptr = nullptr;
 };
 
 } // namespace stride
