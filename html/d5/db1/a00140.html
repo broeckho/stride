@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Age.h File Reference</title>
+<title>Stride Reference Manual: AbstractPopBuilder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7009c71</span>
+   &#160;<span id="projectnumber">- generated for commit 5c3205e</span>
    </div>
   </td>
  </tr>
@@ -105,71 +105,69 @@ $(document).ready(function(){initNavTree('d5/db1/a00140.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Age.h File Reference</div>  </div>
+<div class="title">AbstractPopBuilder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Helpers for age.  
+<p>Base Class for PopBuilders.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;spdlog/logger.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for AbstractPopBuilder.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d8/ddd/a00380.gif" border="0" usemap="#AbstractPopBuilder_8h" alt=""/></div>
+<map name="AbstractPopBuilder_8h" id="AbstractPopBuilder_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d45/a00382.gif" border="0" usemap="#Age_8hdep" alt=""/></div>
-<map name="Age_8hdep" id="Age_8hdep">
-<area shape="rect" id="node2" href="../../d7/dce/a00143.html" title="Contact profile. " alt="" coords="623,80,771,107"/>
-<area shape="rect" id="node17" href="../../d1/d0d/a00171.html" title="Implementation for the core ContcatPool class. " alt="" coords="795,80,922,107"/>
-<area shape="rect" id="node18" href="../../d6/d4b/a00277.html" title="Header file for the Person class. " alt="" coords="947,80,1040,107"/>
-<area shape="rect" id="node3" href="../../d2/d82/a00142.html" title="Contact profile. " alt="" coords="433,155,596,181"/>
-<area shape="rect" id="node4" href="../../d5/da7/a00144.html" title="Contact profiles stored in simulator. " alt="" coords="620,155,775,181"/>
-<area shape="rect" id="node14" href="../../d4/d04/a00255.html" title="Header for the Infector class. " alt="" coords="933,155,1014,181"/>
-<area shape="rect" id="node5" href="../../d0/da2/a00307.html" title="Header for the Simulator class. " alt="" coords="601,229,660,256"/>
-<area shape="rect" id="node6" href="../../d1/de3/a00306.html" title="Implementation for the Simulator class. " alt="" coords="5,304,80,331"/>
-<area shape="rect" id="node7" href="../../d5/d0f/a00308.html" title="Implementation for the SimBuilder class. " alt="" coords="1109,304,1227,331"/>
-<area shape="rect" id="node8" href="../../d7/df2/a00312.html" title="Implementation for SimRunner. " alt="" coords="104,304,221,331"/>
-<area shape="rect" id="node9" href="../../dd/db2/a00151.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="245,304,350,331"/>
-<area shape="rect" id="node10" href="../../d0/da7/a00250.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="374,304,535,331"/>
-<area shape="rect" id="node11" href="../../dc/ded/a00252.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="560,304,701,331"/>
-<area shape="rect" id="node12" href="../../d2/d04/a00281.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="726,304,887,331"/>
-<area shape="rect" id="node13" href="../../de/dc8/a00325.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="912,304,1085,331"/>
-<area shape="rect" id="node15" href="../../d7/d03/a00254.html" title="Implementation of Infector algorithms. " alt="" coords="925,229,1021,256"/>
-<area shape="rect" id="node16" href="../../d9/d39/a00257.html" title="Header for the InfectorMap. " alt="" coords="1079,229,1188,256"/>
+<div class="center"><img src="../../de/d08/a00381.gif" border="0" usemap="#AbstractPopBuilder_8hdep" alt=""/></div>
+<map name="AbstractPopBuilder_8hdep" id="AbstractPopBuilder_8hdep">
+<area shape="rect" id="node2" href="../../d7/d6e/a00190.html" title="Initialize populations. " alt="" coords="177,80,324,107"/>
+<area shape="rect" id="node5" href="../../de/dc2/a00228.html" title="Initialize populations. " alt="" coords="349,80,475,107"/>
+<area shape="rect" id="node8" href="../../dd/dd7/a00248.html" title="Initialize populations. " alt="" coords="499,80,642,107"/>
+<area shape="rect" id="node3" href="../../da/deb/a00189.html" title="Initialize populations: implementation. " alt="" coords="5,155,168,181"/>
+<area shape="rect" id="node4" href="../../db/dc3/a00284.html" title="Core Population class. " alt="" coords="193,155,309,181"/>
+<area shape="rect" id="node6" href="../../d7/da0/a00198.html" title="Header for the command line controller. " alt="" coords="333,155,493,181"/>
+<area shape="rect" id="node7" href="../../d9/d01/a00227.html" title="Initialize populations: implementation. " alt="" coords="518,155,661,181"/>
+<area shape="rect" id="node9" href="../../d0/d1f/a00247.html" title="Initialize populations: implementation. " alt="" coords="685,155,843,181"/>
 </map>
 </div>
 </div>
 <p><a href="../../d5/db1/a00140_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
-<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base Class for PopBuilders.  <a href="../../d2/db1/a00070.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ae2682ff4058ec78d0809d073dcdea2d1"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html#ae2682ff4058ec78d0809d073dcdea2d1">stride::MaximumAge</a> ()</td></tr>
-<tr class="memdesc:ae2682ff4058ec78d0809d073dcdea2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum age for Persons.  <a href="../../d9/d9b/a00363.html#ae2682ff4058ec78d0809d073dcdea2d1">More...</a><br /></td></tr>
-<tr class="separator:ae2682ff4058ec78d0809d073dcdea2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b354a18a7f6986d363385ff46c9a473"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html#a2b354a18a7f6986d363385ff46c9a473">stride::MinAdultAge</a> ()</td></tr>
-<tr class="memdesc:a2b354a18a7f6986d363385ff46c9a473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum age for <a class="el" href="../../d9/dcc/a00102.html" title="Store and handle person data. ">Person</a>'s.  <a href="../../d9/d9b/a00363.html#a2b354a18a7f6986d363385ff46c9a473">More...</a><br /></td></tr>
-<tr class="separator:a2b354a18a7f6986d363385ff46c9a473"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe2f1ef509d97ae6c13bdcd187e495f2"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html#abe2f1ef509d97ae6c13bdcd187e495f2">stride::EffectiveAge</a> (unsigned int age)</td></tr>
-<tr class="memdesc:abe2f1ef509d97ae6c13bdcd187e495f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effective age (topping of at maximum).  <a href="../../d9/d9b/a00363.html#abe2f1ef509d97ae6c13bdcd187e495f2">More...</a><br /></td></tr>
-<tr class="separator:abe2f1ef509d97ae6c13bdcd187e495f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:dc/d59/a00364"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d59/a00364.html">stride</a></td></tr>
+<tr class="memdesc:dc/d59/a00364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d6/d80/a00371"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d80/a00371.html">stride::util</a></td></tr>
+<tr class="memdesc:d6/d80/a00371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Helpers for age. </p>
+<div class="textblock"><p>Base Class for PopBuilders. </p>
 
-<p>Definition in file <a class="el" href="../../d5/db1/a00140_source.html">Age.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d5/db1/a00140_source.html">AbstractPopBuilder.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d5/db1/a00140.html">Age.h</a></li>
-    <li class="footer">Generated on Thu Feb 21 2019 16:11:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d5/db1/a00140.html">AbstractPopBuilder.h</a></li>
+    <li class="footer">Generated on Thu Feb 21 2019 21:01:05 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -106,7 +106,7 @@ var hierarchy =
       [ "stride::util::is_iterator< T, class >", "d8/dfa/a00121.html", null ]
     ] ],
     [ "iterator", null, [
-      [ "stride::util::SVIterator< T, N, Safe, P, R, is_const_iterator >", "d6/db3/a00130.html", null ]
+      [ "stride::util::SVIterator< T, N, Safe, P, R, is_const_iterator >", "d7/d06/a00131.html", null ]
     ] ],
     [ "std::map< K, T >", null, [
       [ "stride::InfectorMap", "d1/d44/a00098.html", null ]
@@ -120,7 +120,9 @@ var hierarchy =
     ] ],
     [ "std::vector< T >", null, [
       [ "stride::util::CSV", "d8/d17/a00114.html", null ],
-      [ "stride::util::Rn< E >", "da/d72/a00124.html", null ]
+      [ "stride::util::Rn< E >", "da/d72/a00124.html", [
+        [ "stride::util::RnMan", "d7/d12/a00126.html", null ]
+      ] ]
     ] ],
     [ "stride::AbstractPopBuilder", "d2/db1/a00070.html", [
       [ "stride::DefaultPopBuilder", "db/ddf/a00088.html", null ],
@@ -170,19 +172,19 @@ var hierarchy =
     [ "stride::util::ii_detail::make_void< Ts >", "d4/d98/a00120.html", null ],
     [ "stride::util::LogUtils", "de/d36/a00123.html", null ],
     [ "stride::util::Rn< E >::Info", "dc/dfe/a00125.html", null ],
-    [ "stride::util::RunConfigManager", "d7/d12/a00126.html", null ],
+    [ "stride::util::RunConfigManager", "df/dcd/a00127.html", null ],
     [ "stride::util::SegmentedVector< T, N, Safe >", "d4/d31/a00069.html", null ],
-    [ "stride::util::SliceIndexer< T, Key >", "df/dcd/a00127.html", null ],
-    [ "stride::util::Stopwatch< T >", "d1/d88/a00128.html", null ],
-    [ "stride::util::Subject< E >", "d9/d47/a00129.html", null ],
-    [ "stride::util::TimeStamp", "d7/d06/a00131.html", null ],
-    [ "stride::util::TimeToString", "d5/deb/a00132.html", null ],
-    [ "stride::viewers::CliViewer", "d0/de8/a00133.html", null ],
-    [ "stride::viewers::InfectedFileViewer", "de/d76/a00134.html", null ],
-    [ "stride::viewers::InfectedViewer", "d5/d5b/a00135.html", null ],
-    [ "stride::viewers::PersonsFileViewer", "d0/d5e/a00136.html", null ],
-    [ "stride::viewers::SummaryFileViewer", "d2/df5/a00137.html", null ],
-    [ "stride::util::Subject< stride::sim_event::Id >", "d9/d47/a00129.html", [
+    [ "stride::util::SliceIndexer< T, Key >", "d1/d88/a00128.html", null ],
+    [ "stride::util::Stopwatch< T >", "d9/d47/a00129.html", null ],
+    [ "stride::util::Subject< E >", "d6/db3/a00130.html", null ],
+    [ "stride::util::TimeStamp", "d5/deb/a00132.html", null ],
+    [ "stride::util::TimeToString", "d0/de8/a00133.html", null ],
+    [ "stride::viewers::CliViewer", "de/d76/a00134.html", null ],
+    [ "stride::viewers::InfectedFileViewer", "d5/d5b/a00135.html", null ],
+    [ "stride::viewers::InfectedViewer", "d0/d5e/a00136.html", null ],
+    [ "stride::viewers::PersonsFileViewer", "d2/df5/a00137.html", null ],
+    [ "stride::viewers::SummaryFileViewer", "d4/ddd/a00138.html", null ],
+    [ "stride::util::Subject< stride::sim_event::Id >", "d6/db3/a00130.html", [
       [ "stride::SimRunner", "d1/dd6/a00108.html", null ]
     ] ],
     [ "CallbackType", "da/d3a/a00694.html", null ],

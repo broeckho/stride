@@ -23,7 +23,7 @@ var a00105 =
     [ "m_infector", "d3/d32/a00105.html#a36d96f3112de535bd8a48b8694545212", null ],
     [ "m_population", "d3/d32/a00105.html#ab558b35470a8f91f051a32f374e54e00", null ],
     [ "m_rn_manager", "d3/d32/a00105.html#acec00fb79fb58700e4eef6f0a20209ac", null ],
-    [ "m_rn_manager_ptr", "d3/d32/a00105.html#a88a205a5cfbd78547c63e7643f19de5a", null ],
     [ "m_transmission_profile", "d3/d32/a00105.html#a07c55a625ad780341af4eef33ad3d5cf", null ],
-    [ "m_public_health_agency", "d3/d32/a00105.html#a30f793306aa22a3f1623d0ceb4e8a252", null ]
+    [ "m_public_health_agency", "d3/d32/a00105.html#a30f793306aa22a3f1623d0ceb4e8a252", null ],
+    [ "m_rn_manager_ptr", "d3/d32/a00105.html#a88a205a5cfbd78547c63e7643f19de5a", null ]
 ];

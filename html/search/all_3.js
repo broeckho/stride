@@ -9,7 +9,7 @@ var searchData=
   ['borrowsplitchild',['BorrowSplitChild',['../d7/d46/a00002.html#aa3b60863467493bc693049f77a110f4a',1,'geopop::kd::BaseNode::BorrowSplitChild()'],['../dd/d32/a00041.html#a46a7604ed3cfbefb8ab1aded6d498e2d',1,'geopop::kd::Node::BorrowSplitChild()']]],
   ['boxplotdata',['BoxPlotData',['../db/d57/a00112.html',1,'stride::util']]],
   ['boxplotdata',['BoxPlotData',['../db/d57/a00112.html#add3e678e6738fbd9b3f1949f8059388f',1,'stride::util::BoxPlotData']]],
-  ['boxplotdata_2eh',['BoxPlotData.h',['../da/ddb/a00145.html',1,'']]],
+  ['boxplotdata_2eh',['BoxPlotData.h',['../d9/db6/a00146.html',1,'']]],
   ['boxpolicy',['BoxPolicy',['../d0/d0b/a00004.html',1,'geopop']]],
   ['boxpolicy',['BoxPolicy',['../d0/d0b/a00004.html#a7a8bbf705e77239124592fb8bd21a917',1,'geopop::BoxPolicy']]],
   ['build',['Build',['../d5/db6/a00042.html#a1d40a1a8b7fee81108aea82d92ae83c0',1,'geopop::KdTree::Build()'],['../d2/db1/a00070.html#a864865f7e88c7b737ad91a245f49f466',1,'stride::AbstractPopBuilder::Build()'],['../db/ddf/a00088.html#a8c1071f808ade6b38dd14a74024e64d4',1,'stride::DefaultPopBuilder::Build()'],['../da/d82/a00091.html#a23493e205a9a22922b1511b80e64bc1e',1,'stride::GeoPopBuilder::Build()'],['../d9/d77/a00095.html#a78076cb42a88b90e4183bfb805d8361f',1,'stride::ImportPopBuilder::Build()'],['../d7/d70/a00106.html#a94ce5fb3cae915f0bdb261498f31c444',1,'stride::SimBuilder::Build()']]],

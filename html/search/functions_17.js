@@ -23,7 +23,7 @@ var searchData=
   ['_7epopulator',['~Populator',['../d6/d97/a00045.html#ac218f00867d01c6507088582162710c9',1,'geopop::Populator']]],
   ['_7esegmentedvector',['~SegmentedVector',['../d4/d31/a00069.html#a8631db1786767b0e083f002f2a284757',1,'stride::util::SegmentedVector']]],
   ['_7esimrunner',['~SimRunner',['../d1/dd6/a00108.html#ad59e65dfe839b8a589b1c6ffa805ba2f',1,'stride::SimRunner']]],
-  ['_7esubject',['~Subject',['../d9/d47/a00129.html#ade16fa2818574a0a42874b5f15b1d3ec',1,'stride::util::Subject']]],
+  ['_7esubject',['~Subject',['../d6/db3/a00130.html#ade16fa2818574a0a42874b5f15b1d3ec',1,'stride::util::Subject']]],
   ['_7esummaryfile',['~SummaryFile',['../d4/d3a/a00101.html#ade602b6935ee6c38f21f15b5bcc77847',1,'stride::output::SummaryFile']]],
   ['_7ethreadexception',['~ThreadException',['../d1/d84/a00052.html#a725efd368a13d2990a73cb10cc1ebaf5',1,'geopop::ThreadException']]]
 ];

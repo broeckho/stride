@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SliceIndexer.h File Reference</title>
+<title>Stride Reference Manual: SimRunner.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7009c71</span>
+   &#160;<span id="projectnumber">- generated for commit 5c3205e</span>
    </div>
   </td>
  </tr>
@@ -106,23 +106,51 @@ $(document).ready(function(){initNavTree('d0/d39/a00314.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SliceIndexer.h File Reference</div>  </div>
+<div class="title">SimRunner.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface/Implementation for RangeIndexer.  
+<p>Header for the SimRunner class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/range.hpp&gt;</code><br />
-<code>#include &lt;boost/range/adaptors.hpp&gt;</code><br />
-<code>#include &lt;iterator&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/d82/a00243_source.html">sim/event/Id.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/de9/a00322_source.html">sim/event/Subject.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d95/a00299_source.html">util/RnMan.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d41/a00318_source.html">util/Stopwatch.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SliceIndexer.h:</div>
+Include dependency graph for SimRunner.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d6b/a00649.gif" border="0" usemap="#SliceIndexer_8h" alt=""/></div>
-<map name="SliceIndexer_8h" id="SliceIndexer_8h">
+<div class="center"><img src="../../d3/d8e/a00647.gif" border="0" usemap="#SimRunner_8h" alt=""/></div>
+<map name="SimRunner_8h" id="SimRunner_8h">
+<area shape="rect" id="node2" href="../../d6/d82/a00243.html" title="Definition of EventId. " alt="" coords="556,169,668,196"/>
+<area shape="rect" id="node5" href="../../de/de9/a00322.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="392,87,541,114"/>
+<area shape="rect" id="node10" href="../../df/d95/a00299.html" title="Interface of RnMan. " alt="" coords="617,87,717,114"/>
+<area shape="rect" id="node21" href="../../d2/d41/a00318.html" title="Definition of Stopwatch. " alt="" coords="94,169,218,196"/>
+<area shape="rect" id="node6" href="../../de/d55/a00323.html" title="Interface/Implementation of Subject. " alt="" coords="403,169,509,196"/>
+<area shape="rect" id="node11" href="../../d9/d0d/a00298.html" title="Interface of RnPcg. " alt="" coords="941,169,992,196"/>
+<area shape="rect" id="node12" href="../../dd/de2/a00320.html" title="Miscellaneous string utilities. " alt="" coords="1166,244,1266,271"/>
+<area shape="rect" id="node22" href="../../d2/d0a/a00333.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="74,244,190,271"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/d1f/a00648.gif" border="0" usemap="#SimRunner_8hdep" alt=""/></div>
+<map name="SimRunner_8hdep" id="SimRunner_8hdep">
+<area shape="rect" id="node2" href="../../dd/d4c/a00177.html" title="Header for the command line controller. " alt="" coords="454,155,590,181"/>
+<area shape="rect" id="node3" href="../../d1/d5d/a00311.html" title="Header for the command line controller. " alt="" coords="25,80,160,107"/>
+<area shape="rect" id="node4" href="../../d3/db8/a00316.html" title="Header for the command line controller. " alt="" coords="184,80,324,107"/>
+<area shape="rect" id="node5" href="../../dd/db3/a00313.html" title="Implementation for SimRunner. " alt="" coords="349,80,466,107"/>
+<area shape="rect" id="node6" href="../../d7/d9a/a00152.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="489,80,595,107"/>
+<area shape="rect" id="node7" href="../../d3/d1a/a00251.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="619,80,780,107"/>
+<area shape="rect" id="node8" href="../../d0/d3e/a00253.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="805,80,946,107"/>
+<area shape="rect" id="node9" href="../../dc/dc9/a00282.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="971,80,1132,107"/>
+<area shape="rect" id="node10" href="../../d8/dfc/a00327.html" title="Observer for Persons output. " alt="" coords="1156,80,1315,107"/>
+<area shape="rect" id="node11" href="../../d8/d23/a00326.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1207,155,1381,181"/>
 </map>
 </div>
 </div>
@@ -130,36 +158,27 @@ Include dependency graph for SliceIndexer.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcd/a00127.html">stride::util::SliceIndexer&lt; T, Key &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Datastructure to index a container (supporting RandomAccessIterators) with slices.  <a href="../../df/dcd/a00127.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html">stride::SimRunner</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The simulation runner drive simulator throufgh time steps.  <a href="../../d1/dd6/a00108.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
-<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:dc/d59/a00364"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d59/a00364.html">stride</a></td></tr>
+<tr class="memdesc:dc/d59/a00364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/d30/a00370"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html">stride::util</a></td></tr>
-<tr class="memdesc:d3/d30/a00370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memTemplItemLeft" align="right" valign="top">SliceIndexer&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html#adc11e43e4e7ef5743ad66f7b2e884782">stride::util::make_slice_indexer</a> (T &amp;t)</td></tr>
-<tr class="separator:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface/Implementation for RangeIndexer. </p>
+<div class="textblock"><p>Header for the SimRunner class. </p>
 
-<p>Definition in file <a class="el" href="../../d0/d39/a00314_source.html">SliceIndexer.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d0/d39/a00314_source.html">SimRunner.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d0/d39/a00314.html">SliceIndexer.h</a></li>
-    <li class="footer">Generated on Thu Feb 21 2019 16:11:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d0/d39/a00314.html">SimRunner.h</a></li>
+    <li class="footer">Generated on Thu Feb 21 2019 21:01:05 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

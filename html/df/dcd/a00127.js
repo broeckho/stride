@@ -1,14 +1,16 @@
 var a00127 =
 [
-    [ "range_type", "df/dcd/a00127.html#aa697693cf36c60a25c469e21b26cb84f", null ],
-    [ "SliceIndexer", "df/dcd/a00127.html#af2bedaa13b9427b736bfc88bcb974741", null ],
-    [ "Get", "df/dcd/a00127.html#ac63541daeed03c7731fb820005e64f06", null ],
-    [ "Get", "df/dcd/a00127.html#aaa3ea63497e88e0f8673cecd56de8b57", null ],
-    [ "Get", "df/dcd/a00127.html#a7c0b86821b30ab6830b3846231b52b9f", null ],
-    [ "Set", "df/dcd/a00127.html#a773c442bcca2708aa1c1f8a8b5ca347c", null ],
-    [ "Set", "df/dcd/a00127.html#a670eb7b0d4bec5445d5a30ea71384be5", null ],
-    [ "check", "df/dcd/a00127.html#a194f218151d935420737a20c40c27a00", null ],
-    [ "m_map", "df/dcd/a00127.html#ad7137d9d5caad8581de354a750b70403", null ],
-    [ "m_slices", "df/dcd/a00127.html#ab5d8b55d94fc42b0c4644621957e5c87", null ],
-    [ "m_t", "df/dcd/a00127.html#a00a95be5edf914ec430a0890a3c82005", null ]
+    [ "CleanConfigFile", "df/dcd/a00127.html#ac2f08ab87856eaeb81a229c6553e9cc8", null ],
+    [ "Create", "df/dcd/a00127.html#ab4007f793a1924a65458824fef455208", null ],
+    [ "CreateNumThreads", "df/dcd/a00127.html#ae981d7a6d9a41f62815541ba874e59a0", null ],
+    [ "FromString", "df/dcd/a00127.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb", null ],
+    [ "ToString", "df/dcd/a00127.html#af968f949efaf2876f48a86da65faa5ca", null ],
+    [ "ToSha1", "df/dcd/a00127.html#a32ec1961852a81d4873a519f6bea1e36", null ],
+    [ "ToShortSha1", "df/dcd/a00127.html#ad91f6d29e307567fdb3b0a2e7c7772c0", null ],
+    [ "ConvertToGenGeoPop", "df/dcd/a00127.html#ab32cb016640e360141a18c60cbda20e3", null ],
+    [ "CreateBenchInfluenza", "df/dcd/a00127.html#a7014479a2c8efe57b292b9f61435ab61", null ],
+    [ "CreateBenchMeasles", "df/dcd/a00127.html#abf62ab97dafdce994e503296fe5d9394", null ],
+    [ "CreateDefault", "df/dcd/a00127.html#a93470c7c74cc217254876c704fa81a0f", null ],
+    [ "CreateTestsInfluenza", "df/dcd/a00127.html#a61a9ce9ce2d50ffbafa78b2a7f757598", null ],
+    [ "CreateTestsMeasles", "df/dcd/a00127.html#aa430eb71461536d855db5725ebc59cda", null ]
 ];

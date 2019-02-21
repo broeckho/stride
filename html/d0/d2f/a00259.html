@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: K12School.cpp File Reference</title>
+<title>Stride Reference Manual: is_iterator.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7009c71</span>
+   &#160;<span id="projectnumber">- generated for commit 5c3205e</span>
    </div>
   </td>
  </tr>
@@ -105,60 +105,84 @@ $(document).ready(function(){initNavTree('d0/d2f/a00259.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">K12School.cpp File Reference</div>  </div>
+<div class="title">is_iterator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/dd7/a00260_source.html">K12School.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/de3/a00201_source.html">GeoGrid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>&quot;</code><br />
+
+<p>Interface/Implementation of is_iterator.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;iterator&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for K12School.cpp:</div>
+Include dependency graph for is_iterator.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/dd7/a00567.gif" border="0" usemap="#K12School_8cpp" alt=""/></div>
-<map name="K12School_8cpp" id="K12School_8cpp">
-<area shape="rect" id="node2" href="../../dd/dd7/a00260.html" title="K12School.h" alt="" coords="1657,80,1759,107"/>
-<area shape="rect" id="node14" href="../../dd/de3/a00201.html" title="GeoGrid.h" alt="" coords="1479,80,1566,107"/>
-<area shape="rect" id="node49" href="../../d5/df1/a00206.html" title="GeoGridConfig.h" alt="" coords="1277,155,1403,181"/>
-<area shape="rect" id="node3" href="../../dc/de6/a00167.html" title="ContactCenter.h" alt="" coords="1678,319,1805,345"/>
-<area shape="rect" id="node4" href="../../d6/dfb/a00172.html" title="Header for the core ContactPool class. " alt="" coords="1356,401,1519,427"/>
-<area shape="rect" id="node5" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="773,490,885,517"/>
-<area shape="rect" id="node11" href="../../d5/dcb/a00170.html" title="Header for the ContactLogMode class. " alt="" coords="1099,490,1293,517"/>
-<area shape="rect" id="node15" href="../../d3/dd1/a00214.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="1920,237,2128,263"/>
-<area shape="rect" id="node26" href="../../db/dc3/a00284.html" title="Header file for the core Population class. " alt="" coords="1058,155,1187,181"/>
-<area shape="rect" id="node16" href="../../d5/d35/a00266.html" title="KdTree.h" alt="" coords="1986,319,2062,345"/>
-<area shape="rect" id="node21" href="../../db/d12/a00268.html" title="KdTree2DPoint.h" alt="" coords="2367,319,2494,345"/>
-<area shape="rect" id="node17" href="../../d4/ddd/a00138.html" title="AABBox.h" alt="" coords="2192,401,2277,427"/>
-<area shape="rect" id="node18" href="../../da/d53/a00265.html" title="KdNode.h" alt="" coords="1982,401,2066,427"/>
-<area shape="rect" id="node22" href="../../d9/d90/a00178.html" title="geopop/Coordinate.h" alt="" coords="2635,401,2791,427"/>
-<area shape="rect" id="node27" href="../../d7/d3f/a00173.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="803,237,989,263"/>
-<area shape="rect" id="node33" href="../../d3/d07/a00305.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="366,401,538,427"/>
-<area shape="rect" id="node39" href="../../dc/d5d/a00278.html" title="Header file for the Person class. " alt="" coords="1069,237,1176,263"/>
-<area shape="rect" id="node41" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="1129,319,1229,345"/>
-<area shape="rect" id="node28" href="../../d6/d82/a00243.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="827,319,965,345"/>
-<area shape="rect" id="node34" href="../../dd/d4e/a00329.html" title="Interface/Implementation for SVIterator. " alt="" coords="179,490,277,517"/>
-<area shape="rect" id="node40" href="../../dd/d2d/a00229.html" title="Header for the Health class. " alt="" coords="1253,319,1382,345"/>
-<area shape="rect" id="node42" href="../../d3/d4a/a00297.html" title="Interface of RnPcg. " alt="" coords="1179,401,1229,427"/>
-<area shape="rect" id="node43" href="../../de/dab/a00319.html" title="Miscellaneous string utilities. " alt="" coords="1318,490,1418,517"/>
+<div class="center"><img src="../../d8/dd2/a00565.gif" border="0" usemap="#is__iterator_8h" alt=""/></div>
+<map name="is__iterator_8h" id="is__iterator_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/d3e/a00566.gif" border="0" usemap="#is__iterator_8hdep" alt=""/></div>
+<map name="is__iterator_8hdep" id="is__iterator_8hdep">
+<area shape="rect" id="node2" href="../../d8/d64/a00181.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="505,80,563,107"/>
+<area shape="rect" id="node3" href="../../d3/db8/a00316.html" title="Header for the command line controller. " alt="" coords="5,155,145,181"/>
+<area shape="rect" id="node4" href="../../d9/d7d/a00150.html" title="CitiesCSVReader.h" alt="" coords="221,155,359,181"/>
+<area shape="rect" id="node5" href="../../da/d1e/a00149.html" title="CitiesCSVReader.cpp" alt="" coords="113,229,267,256"/>
+<area shape="rect" id="node7" href="../../dd/dae/a00163.html" title="CommutesCSVReader.h" alt="" coords="384,155,559,181"/>
+<area shape="rect" id="node8" href="../../db/d44/a00162.html" title="CommutesCSVReader.cpp" alt="" coords="493,229,684,256"/>
+<area shape="rect" id="node9" href="../../d3/d42/a00235.html" title="HouseholdCSVReader.cpp" alt="" coords="634,155,821,181"/>
+<area shape="rect" id="node10" href="../../d0/d81/a00180.html" title="Source file of csv. " alt="" coords="845,155,919,181"/>
+<area shape="rect" id="node11" href="../../d7/d25/a00182.html" title="Source file of CSVRow. " alt="" coords="943,155,1042,181"/>
+<area shape="rect" id="node6" href="../../d9/d5e/a00295.html" title="ReaderFactory.cpp" alt="" coords="305,229,443,256"/>
 </map>
 </div>
 </div>
 <p><a href="../../d0/d2f/a00259_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html">stride::util::ii_detail::make_void&lt; Ts &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html">stride::util::is_iterator&lt; T, class &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">When it 's not an iterator.  <a href="../../d8/dfa/a00121.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc8/a00122.html">stride::util::is_iterator&lt; T, ii_detail::void_t&lt; typename std::iterator_traits&lt; T &gt;::iterator_category &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">When it is an iterator.  <a href="../../df/dc8/a00122.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:db/d10/a00350"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d10/a00350.html">geopop</a></td></tr>
-<tr class="memdesc:db/d10/a00350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:dc/d59/a00364"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d59/a00364.html">stride</a></td></tr>
+<tr class="memdesc:dc/d59/a00364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d6/d80/a00371"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d80/a00371.html">stride::util</a></td></tr>
+<tr class="memdesc:d6/d80/a00371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dc/de3/a00373"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de3/a00373.html">stride::util::ii_detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a5548d91f3cf721a08ab97267e8dd80ec"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
+<tr class="memitem:a5548d91f3cf721a08ab97267e8dd80ec"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/de3/a00373.html#a5548d91f3cf721a08ab97267e8dd80ec">stride::util::ii_detail::void_t</a> = typename make_void&lt; Ts... &gt;::type</td></tr>
+<tr class="separator:a5548d91f3cf721a08ab97267e8dd80ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface/Implementation of is_iterator. </p>
+
+<p>Definition in file <a class="el" href="../../d0/d2f/a00259_source.html">is_iterator.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../d0/d2f/a00259.html">K12School.cpp</a></li>
-    <li class="footer">Generated on Thu Feb 21 2019 16:11:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d0/d2f/a00259.html">is_iterator.h</a></li>
+    <li class="footer">Generated on Thu Feb 21 2019 21:01:05 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

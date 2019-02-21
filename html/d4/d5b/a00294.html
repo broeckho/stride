@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ReaderFactory.cpp File Reference</title>
+<title>Stride Reference Manual: PublicHealthAgency.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7009c71</span>
+   &#160;<span id="projectnumber">- generated for commit 5c3205e</span>
    </div>
   </td>
  </tr>
@@ -105,63 +105,68 @@ $(document).ready(function(){initNavTree('d4/d5b/a00294.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">ReaderFactory.cpp File Reference</div>  </div>
+<div class="title">PublicHealthAgency.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d5e/a00295_source.html">ReaderFactory.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/d1e/a00149_source.html">CitiesCSVReader.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../db/d44/a00162_source.html">CommutesCSVReader.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/d42/a00235_source.html">HouseholdCSVReader.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/d2a/a00195_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;stdexcept&gt;</code><br />
+
+<p>Header for the PublicHealthAgency class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d95/a00299_source.html">util/RnMan.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ReaderFactory.cpp:</div>
+Include dependency graph for PublicHealthAgency.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d85/a00618.gif" border="0" usemap="#ReaderFactory_8cpp" alt=""/></div>
-<map name="ReaderFactory_8cpp" id="ReaderFactory_8cpp">
-<area shape="rect" id="node2" href="../../d9/d5e/a00295.html" title="ReaderFactory.h" alt="" coords="611,80,733,107"/>
-<area shape="rect" id="node34" href="../../da/d1e/a00149.html" title="CitiesCSVReader.h" alt="" coords="1215,80,1353,107"/>
-<area shape="rect" id="node46" href="../../db/d44/a00162.html" title="CommutesCSVReader.h" alt="" coords="809,80,983,107"/>
-<area shape="rect" id="node47" href="../../d3/d42/a00235.html" title="HouseholdCSVReader.h" alt="" coords="390,80,562,107"/>
-<area shape="rect" id="node48" href="../../d3/d2a/a00195.html" title="Interface for install directory queries. " alt="" coords="2782,155,2882,181"/>
-<area shape="rect" id="node3" href="../../d9/d7d/a00150.html" title="CitiesReader.h" alt="" coords="1228,155,1340,181"/>
-<area shape="rect" id="node28" href="../../dd/dae/a00163.html" title="CommutesReader.h" alt="" coords="710,155,858,181"/>
-<area shape="rect" id="node30" href="../../d9/d21/a00240.html" title="HouseholdReader.h" alt="" coords="357,155,502,181"/>
-<area shape="rect" id="node4" href="../../dd/de3/a00201.html" title="geopop/GeoGrid.h" alt="" coords="1077,237,1216,263"/>
-<area shape="rect" id="node22" href="../../dd/d86/a00271.html" title="geopop/Location.h" alt="" coords="1558,237,1698,263"/>
-<area shape="rect" id="node5" href="../../d6/dfb/a00172.html" title="Header for the core ContactPool class. " alt="" coords="543,393,705,420"/>
-<area shape="rect" id="node7" href="../../d3/dd1/a00214.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="907,319,1115,345"/>
-<area shape="rect" id="node8" href="../../db/dc3/a00284.html" title="Header file for the core Population class. " alt="" coords="601,319,730,345"/>
-<area shape="rect" id="node9" href="../../d3/d07/a00305.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="122,393,294,420"/>
-<area shape="rect" id="node10" href="../../dd/d4e/a00329.html" title="Interface/Implementation for SVIterator. " alt="" coords="245,468,344,495"/>
-<area shape="rect" id="node23" href="../../d9/d90/a00178.html" title="geopop/Coordinate.h" alt="" coords="1917,319,2073,345"/>
-<area shape="rect" id="node31" href="../../d6/de1/a00233.html" title="geopop/Household.h" alt="" coords="328,237,483,263"/>
-<area shape="rect" id="node32" href="../../dc/de6/a00167.html" title="ContactCenter.h" alt="" coords="347,319,474,345"/>
-<area shape="rect" id="node35" href="../../d0/d81/a00180.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2244,155,2327,181"/>
-<area shape="rect" id="node36" href="../../d7/d25/a00182.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2401,237,2485,263"/>
-<area shape="rect" id="node37" href="../../de/dab/a00319.html" title="Miscellaneous string utilities. " alt="" coords="2295,319,2395,345"/>
-<area shape="rect" id="node44" href="../../d7/d2f/a00258.html" title="Interface/Implementation of is_iterator. " alt="" coords="820,468,940,495"/>
+<div class="center"><img src="../../db/db5/a00616.gif" border="0" usemap="#PublicHealthAgency_8h" alt=""/></div>
+<map name="PublicHealthAgency_8h" id="PublicHealthAgency_8h">
+<area shape="rect" id="node2" href="../../df/d95/a00299.html" title="Interface of RnMan. " alt="" coords="643,80,743,107"/>
+<area shape="rect" id="node3" href="../../d9/d0d/a00298.html" title="Interface of RnPcg. " alt="" coords="668,155,719,181"/>
+<area shape="rect" id="node4" href="../../dd/de2/a00320.html" title="Miscellaneous string utilities. " alt="" coords="365,229,465,256"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/dc4/a00617.gif" border="0" usemap="#PublicHealthAgency_8hdep" alt=""/></div>
+<map name="PublicHealthAgency_8hdep" id="PublicHealthAgency_8hdep">
+<area shape="rect" id="node2" href="../../d6/d82/a00293.html" title="Implementation for the PublicHealthAgency class. " alt="" coords="291,80,464,107"/>
+<area shape="rect" id="node3" href="../../d5/d0f/a00308.html" title="Header for the Simulator class. " alt="" coords="488,80,547,107"/>
+<area shape="rect" id="node4" href="../../d0/da2/a00307.html" title="Implementation for the Simulator class. " alt="" coords="5,155,80,181"/>
+<area shape="rect" id="node5" href="../../d2/d71/a00309.html" title="Implementation for the SimBuilder class. " alt="" coords="104,155,221,181"/>
+<area shape="rect" id="node6" href="../../dd/db3/a00313.html" title="Implementation for SimRunner. " alt="" coords="245,155,363,181"/>
+<area shape="rect" id="node7" href="../../d7/d9a/a00152.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="386,155,491,181"/>
+<area shape="rect" id="node8" href="../../d3/d1a/a00251.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="515,155,677,181"/>
+<area shape="rect" id="node9" href="../../d0/d3e/a00253.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="701,155,843,181"/>
+<area shape="rect" id="node10" href="../../dc/dc9/a00282.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="867,155,1029,181"/>
+<area shape="rect" id="node11" href="../../d8/d23/a00326.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1053,155,1227,181"/>
 </map>
 </div>
 </div>
 <p><a href="../../d4/d5b/a00294_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html">stride::PublicHealthAgency</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:db/d10/a00350"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d10/a00350.html">geopop</a></td></tr>
-<tr class="memdesc:db/d10/a00350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:dc/d59/a00364"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d59/a00364.html">stride</a></td></tr>
+<tr class="memdesc:dc/d59/a00364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header for the PublicHealthAgency class. </p>
+
+<p>Definition in file <a class="el" href="../../d4/d5b/a00294_source.html">PublicHealthAgency.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d4/d5b/a00294.html">ReaderFactory.cpp</a></li>
-    <li class="footer">Generated on Thu Feb 21 2019 16:11:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d4/d5b/a00294.html">PublicHealthAgency.h</a></li>
+    <li class="footer">Generated on Thu Feb 21 2019 21:01:05 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
