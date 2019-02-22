@@ -5,7 +5,7 @@ from postprocessing import EffectiveR
 
 def main(outputDir, R0s, poolSize):
     start = time.perf_counter()
-    scenarioNames = ["UNIFORM_NOCLUSTERING", "AGEDEPENDENT_NOCLUSTERING", "AGEDEPENDENT_CLUSTERING", "AGEDEPENDENT_CLUSTERING"]
+    scenarioNames = ["UNIFORM_NOCLUSTERING", "AGEDEPENDENT_NOCLUSTERING", "UNIFORM_CLUSTERING", "AGEDEPENDENT_CLUSTERING"]
     scenarioDisplayNames = ["A", "B", "C", "D"]
     # Overview of different R0 values vs effective Rs
     EffectiveR.createEffectiveROverviewPlot(outputDir, scenarioNames,
