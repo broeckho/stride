@@ -40,12 +40,12 @@ source('./bin/rstride/misc.R')
 
 # load specific functions
 source('./bin/rstride/ContactInspector.R')
+source('./bin/rstride/HealthEconomist.R')
 source('./bin/rstride/LogParser.R')
 source('./bin/rstride/SummaryInspector.R')
 source('./bin/rstride/SurveyParticipantInspector.R')
 source('./bin/rstride/TransmissionAnalyst.R')
 source('./bin/rstride/TransmissionInspector.R')
-
 
 # Function to run rStride for a given design of experiment
 run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
