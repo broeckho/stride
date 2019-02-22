@@ -31,6 +31,7 @@ def createEffectiveRPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSiz
 
 def createEffectiveROverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, R0s, poolSize, xLabel, figName, stat="mean"):
     ax = plt.axes(projection="3d")
+    colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown']
     z = 0
     for R0 in R0s:
         results = []
@@ -45,7 +46,7 @@ def createEffectiveROverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
                     results.append(statistics.median(effectiveRs))
                 else:
                     print("No valid statistic supplied!")
-        ax.bar(range(len(results)), results, zs=z, zdir="y", alpha=0.7)
+        ax.bar(range(len(results)), results, zs=z, zdir="y", color=colors[z], alpha=0.4)
         z += 1
     ax.set_xlabel(xLabel)
     ax.set_xticks(range(len(scenarioNames)))
