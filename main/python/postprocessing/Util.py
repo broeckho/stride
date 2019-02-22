@@ -24,8 +24,8 @@ def getRngSeeds(outputDir, scenarioName):
                 seeds.append(int(s))
     return seeds
 
-def saveFig(outputDir, figName):
-    plt.savefig(os.path.join(outputDir, figName + ".eps"), format='eps', dpi=1000)
+def saveFig(outputDir, figName, extension="eps"):
+    plt.savefig(os.path.join(outputDir, figName + "." + extension), format=extension, dpi=1000)
     plt.clf()
 
 '''

@@ -29,7 +29,7 @@ def createEffectiveRPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSiz
     plt.ylabel("Effective R")
     saveFig(outputDir, figName)
 
-def createEffectiveROverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, R0s, poolSize, figName, stat="mean"):
+def createEffectiveROverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, R0s, poolSize, xLabel, figName, stat="mean"):
     ax = plt.axes(projection="3d")
     z = 0
     for R0 in R0s:
@@ -45,13 +45,13 @@ def createEffectiveROverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
                     results.append(statistics.median(effectiveRs))
                 else:
                     print("No valid statistic supplied!")
-        ax.bar(range(len(results)), results, zs=z, zdir="y", alpha=0.8)
+        ax.bar(range(len(results)), results, zs=z, zdir="y", alpha=0.7)
         z += 1
-    ax.set_xlabel("Calendar year")
+    ax.set_xlabel(xLabel)
     ax.set_xticks(range(len(scenarioNames)))
     ax.set_xticklabels(scenarioDisplayNames)
     ax.set_ylabel(r'$R_0$')
     ax.set_yticks(range(len(R0s)))
     ax.set_yticklabels(R0s)
     ax.set_zlabel("Effective R")
-    saveFig(outputDir, figName)
+    saveFig(outputDir, figName, "png")

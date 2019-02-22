@@ -5,9 +5,18 @@ from postprocessing import EffectiveR
 
 def main(outputDir, R0s, poolSize):
     start = time.perf_counter()
-    scenarioNames = ["UNIFORM_NOCLUSTERING", "AGEDEPENDENT_NOCLUSTERING", "AGEDEPENDENT_CLUSTERING"]
-    scenarioDisplayNames = ["A", "B", "C"]
-    # TODO Overview of different R0 values vs effective Rs
+    scenarioNames = ["AGEDEPENDENT_NOCLUSTERING", "AGEDEPENDENT_CLUSTERING"]
+    scenarioDisplayNames = ["A", "B"]
+    # Overview of different R0 values vs effective Rs
+    EffectiveR.createEffectiveROverviewPlot(outputDir, scenarioNames,
+                                                scenarioDisplayNames, R0s,
+                                                poolSize, "Scenario",
+                                                "All_EffectiveR_Mean")
+    EffectiveR.createEffectiveROverviewPlot(outputDir, scenarioNames,
+                                                scenarioDisplayNames, R0s,
+                                                poolSize, "Scenario",
+                                                "All_EffectiveR_Median",
+                                                stat="median")
     for R0 in R0s:
         scenarioNamesFull = [s + "_R0_" + str(R0) for s in scenarioNames]
         EffectiveR.createEffectiveRPlot(outputDir, scenarioNamesFull,
