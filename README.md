@@ -1,3 +1,11 @@
+# Gooey project 
+
+This repository is a fork of the original stride repository, which can be found [here](https://github.com/broeckho/stride.git). 
+
+We are Evelien Daems, Benjamin Vandersmissen, Frank-Jan Fekkes and Lars Van Roy and we form the student group called Gooey. We will use Stride to perform simulations of the evolution of diseases within generated populations.
+
+The current status of this repository is: [![Build Status](https://travis-ci.com/larsVanRoy/stride.svg?branch=master)](https://travis-ci.com/larsVanRoy/stride)
+
 # Stride project 
 
 The Stride acronym stands for **S**imulate **tr**ansmission of **i**nfectious **d**is**e**ases.
