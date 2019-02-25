@@ -54,5 +54,5 @@ def createEffectiveROverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
     ax.set_ylabel(r'$R_0$')
     ax.set_yticks(range(len(R0s)))
     ax.set_yticklabels(R0s)
-    ax.set_zlabel("Effective R")
+    ax.set_zlabel("Effective R ({})".format(stat))
     saveFig(outputDir, figName, "png")
