@@ -20,6 +20,7 @@
 
 #include "DiseaseSeeder.h"
 
+#include <boost/optional.hpp>
 #include "disease/Immunizer.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
@@ -54,7 +55,6 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Seed infected persons.
         // --------------------------------------------------------------
-        const auto   sRate       = m_config_pt.get<double>("run.seeding_rate");
         const auto   sAgeMin     = m_config_pt.get<double>("run.seeding_age_min", 1);
         const auto   sAgeMax     = m_config_pt.get<double>("run.seeding_age_max", 99);
         const auto   popSize     = pop->size();
@@ -63,7 +63,15 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         auto&        logger      = pop->GetContactLogger();
         const string log_level   = m_config_pt.get<string>("run.contact_log_level", "None");
 
-        auto numInfected = static_cast<unsigned int>(floor(static_cast<double>(popSize) * sRate));
+        unsigned int numInfected = 0;
+        boost::optional<float> sRate = m_config_pt.get_optional<float>("run.seeding_rate");
+        if (sRate) {
+        		numInfected = static_cast<unsigned int>(floor(static_cast<double>(popSize) * (*sRate)));
+        } else {
+        		numInfected = m_config_pt.get<int>("run.num_index_cases");
+        }
+
+
         while (numInfected > 0) {
                 Person& p = pop->at(static_cast<size_t>(generator()));
                 if (p.GetHealth().IsSusceptible() && (p.GetAge() >= sAgeMin) && (p.GetAge() <= sAgeMax)) {

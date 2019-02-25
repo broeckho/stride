@@ -85,15 +85,18 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         //------------------------------------------------
         // Check validity of input data.
         //------------------------------------------------
-        const auto seeding_rate = m_config_pt.get<double>("run.seeding_rate");
-        if (seeding_rate > 1.0) {
-                throw runtime_error(string(__func__) + "> Bad input data for seeding_rate.");
-        }
+    		boost::optional<float> seeding_rate = m_config_pt.get_optional<float>("run.seeding_rate");
+    		if (seeding_rate) {
+    			if (*seeding_rate > 1.0) {
+    				throw runtime_error(string(__func__) + "> Bad input data for seeding_rate.");
+    			}
+    		}
 
         //------------------------------------------------
         // Add persons
         //------------------------------------------------
         MakePersons(pop);
+
 
         // --------------------------------------------------------------
         // Determine maximum pool ids in population.

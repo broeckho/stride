@@ -30,6 +30,9 @@ namespace output {
 using namespace std;
 using namespace stride::util;
 
+// FIXME Some of the parameters written to this file have become optional over time.
+// Seeding rate + immmunity rate
+
 SummaryFile::SummaryFile(const string& output_prefix) : m_fstream() { Initialize(output_prefix); }
 
 SummaryFile::~SummaryFile() { m_fstream.close(); }
@@ -53,7 +56,7 @@ void SummaryFile::Print(const boost::property_tree::ptree& config_pt, unsigned i
                         unsigned int total_time)
 {
         m_fstream << config_pt.get<string>("run.population_file") << "," << config_pt.get<unsigned int>("run.num_days")
-                  << "," << population_size << "," << config_pt.get<double>("run.seeding_rate") << ","
+                  << "," << population_size << "," << config_pt.get<double>("run.seeding_rate", 0.0) << ","
                   << config_pt.get<double>("run.r0") << "," << transmission_rate << ","
                   << config_pt.get<double>("run.immunity_rate") << "," << config_pt.get<unsigned int>("run.num_threads")
                   << "," << config_pt.get<unsigned int>("run.rng_seed") << "," << run_time << "," << total_time << ","
