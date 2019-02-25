@@ -13,6 +13,17 @@ class Config:
             if self._etree.find(name).text != None:
                 return self._etree.find(name).text
 
+    def getFileParameters(self):
+        """
+            Get names of all parameters that contain a file name.
+        """
+        fileParameters = []
+        for elem in ET.ElementTree(self._etree).iter():
+            tag = elem.tag
+            if tag.endswith("_file") and tag != "contact_output_file":
+                fileParameters.append(tag)
+        return fileParameters
+
     def setParameter(self, name: str, value):
         if self._etree.find(name) != None:
             self._etree.find(name).text = str(value)

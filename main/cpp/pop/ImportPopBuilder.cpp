@@ -38,17 +38,12 @@ using namespace gengeopop;
 shared_ptr<Population> ImportPopBuilder::Build(shared_ptr<Population> pop)
 {
         auto stride_logger = spdlog::get("stride_logger");
-
         const auto importFile = m_config_pt.get<string>("run.population_file");
-
         GeoGridReaderFactory             geoGridReaderFactory;
         const shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile, pop.get());
-
-        stride_logger->debug("Importing population from " + importFile);
-
+        //stride_logger->debug("Importing population from " + importFile); FIXME This gives a segmentation error when running from Python?
         pop->m_geoGrid = reader->Read();
         pop->m_geoGrid->Finalize();
-
         return pop;
 }
 

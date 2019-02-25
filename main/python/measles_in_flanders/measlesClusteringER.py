@@ -105,15 +105,14 @@ def runSimulations(numRuns, R0, scenarioName, extraParams, poolSize):
 
 def main(numRuns, R0s, immunityFileChildren, immunityFileAdults, poolSize):
     start = time.perf_counter()
-    scenarioNames = ["UNIFORM_NOCLUSTERING", "AGEDEPENDENT_NOCLUSTERING",
-                        "UNIFORM_CLUSTERING", "AGEDEPENDENT_CLUSTERING"]
+    scenarioNames = ["AGEDEPENDENT_NOCLUSTERING","AGEDEPENDENT_CLUSTERING"]
     numDays = 100
     scenarioParameters = {
         "UNIFORM_NOCLUSTERING": {
-            "immunity_distribution_file": os.path.join("data", "measles_uniform_adult_immunity.xml"),
+            "immunity_distribution_file": "measles_uniform_adult_immunity.xml",
             "num_days": numDays,
             "track_index_case": "true",
-            "vaccine_distribution_file": os.path.join("data", "measles_uniform_child_immunity.xml"),
+            "vaccine_distribution_file": "measles_uniform_child_immunity.xml",
             "vaccine_link_probability": 0,
         },
         "AGEDEPENDENT_NOCLUSTERING": {
@@ -124,10 +123,10 @@ def main(numRuns, R0s, immunityFileChildren, immunityFileAdults, poolSize):
             "vaccine_link_probability": 0,
         },
         "UNIFORM_CLUSTERING": {
-            "immunity_distribution_file": os.path.join("data", "measles_uniform_adult_immunity.xml"),
+            "immunity_distribution_file": "measles_uniform_adult_immunity.xml",
             "num_days": numDays,
             "track_index_case": "true",
-            "vaccine_distribution_file": os.path.join("data", "measles_uniform_child_immunity.xml"),
+            "vaccine_distribution_file": "measles_uniform_child_immunity.xml",
             "vaccine_link_probability": 1,
         },
         "AGEDEPENDENT_CLUSTERING": {
@@ -158,8 +157,8 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--numRuns", type=int, default=10, help="Number of runs per scenario")
     parser.add_argument("--R0s", type=int, nargs="+", default=[12, 18], help="Values of R0 to test")
-    parser.add_argument("--immunityFileChildren", type=str, default=os.path.join("data", "2020_measles_child_immunity.xml"))
-    parser.add_argument("--immunityFileAdults", type=str, default=os.path.join("data", "2020_measles_adult_immunity.xml"))
+    parser.add_argument("--immunityFileChildren", type=str, default="2020_measles_child_immunity.xml")
+    parser.add_argument("--immunityFileAdults", type=str, default="2020_measles_adult_immunity.xml")
     parser.add_argument("--poolSize", type=str, default=8, help="Number of workers in multiprocessing pool")
 
     args = parser.parse_args()

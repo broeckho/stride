@@ -1,5 +1,6 @@
 import os
 import time
+import xml.etree.ElementTree as ET
 
 import pystride
 from .Config import Config
@@ -39,15 +40,11 @@ class PyController:
         return os.path.join(self.getWorkingDirectory(), self.getOutputPrefix())
 
     def linkData(self):
-        file_params = [
-            "population_file",
-            "holidays_file",
-            "age_contact_matrix_file",
-            "disease_config_file",
-        ]
+        file_params = self.runConfig.getFileParameters()
         for param in file_params:
-            src = os.path.join(self.dataDir, os.path.basename(self.runConfig.getParameter(param)))
-            self.runConfig.setParameter(param, src)
+            e = ET.ElementTree(self.runConfig._etree).find(".//"+param)
+            src = os.path.join(self.dataDir, os.path.basename(e.text))
+            e.text = src
 
     def registerCallback(self, callback, event_type):
         self.observer.registerCallback(callback, event_type)
