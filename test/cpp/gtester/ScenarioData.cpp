@@ -48,7 +48,7 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
         std::map<std::string, double> sigmas_default = {{"influenza_a", 120.0},
                                                         {"influenza_b", 0},
                                                         {"influenza_c", 0.2},
-                                                        {"measles_16", 1000.0},
+                                                        {"measles_16", 8000.0},
                                                         {"measles_26", 1000.0},
                                                         {"r0_0", targets_default["r0_0"] * 0.1},
                                                         {"r0_4", targets_default["r0_4"] * 0.1},
@@ -68,10 +68,10 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                                                           {"measles_16_gengeopop", 2000.0},
                                                           {"measles_26_gengeopop", 1000.0},
                                                           {"r0_0_gengeopop", 1.6278820596099706},
-                                                          {"r0_12_gengeopop", 166.31972222199025},
-                                                          {"r0_16_gengeopop", 150.96290935193321},
-                                                          {"r0_4_gengeopop", 919.14878556194594},
-                                                          {"r0_8_gengeopop", 233.54134537593123}};
+                                                          {"r0_12_gengeopop", 400.0},
+                                                          {"r0_16_gengeopop", 200.0},
+                                                          {"r0_4_gengeopop", 1000.0},
+                                                          {"r0_8_gengeopop", 300.0}};
 
         unsigned int target;
         double       sigma;
