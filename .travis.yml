@@ -24,40 +24,20 @@ addons:
 matrix:
   include:
 
-    - os: linux
-      compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && MAKE_TEST=true"
-      addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
-
-    - os: linux
-      compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && CMAKE_BUILD_TYPE=Debug"
-      addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
-
-    - os: linux
-      compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8 && TRAVIS_BUILD_DOCS=true"
-      addons: {apt: { packages: [*default_packages, g++-8], sources: [*default_sources]}}
-      
-    - os: linux
+    - os: osx
+      osx_image: xcode10.1
       compiler: clang
-      env: MATRIX_EVAL="CC=clang && CXX=clang++"
-      addons: {apt: { packages: [*default_packages], sources: [*default_sources]}}
+      env: MATRIX_EVAL="CXX_ID=clang6 && CC=/usr/local/opt/llvm@6/bin/clang && CXX=/usr/local/opt/llvm@6/bin/clang++ && MAKE_TEST=true"
 
     - os: osx
       osx_image: xcode10.1
       compiler: clang
-      env: MATRIX_EVAL="CXX_ID=apple && CC=cc && CXX=c++ && MAKE_TEST=true"
+      env: MATRIX_EVAL="CXX_ID=clang7 && CC=/usr/local/opt/llvm@7/bin/clang && CXX=/usr/local/opt/llvm@7/bin/clang++"
 
     - os: osx
       osx_image: xcode10.1
-      compiler: clang
-      env: MATRIX_EVAL="CXX_ID=clang6 && CC=/usr/local/opt/llvm@6/bin/clang && CXX=/usr/local/opt/llvm@6/bin/clang++"
-
-    #- os: osx
-    #  osx_image: xcode10.1
-    #  compiler: clang
-    #  env: MATRIX_EVAL="CXX_ID=clang7 && CC=/usr/local/opt/llvm@7/bin/clang && CXX=/usr/local/opt/llvm@7/bin/clang++"
+      compiler: gcc
+      env: MATRIX_EVAL="CXX_ID=gcc7 && CC=gcc-7 && CXX=g++-7"
 
 before_install:
   - eval "${MATRIX_EVAL}"
@@ -81,6 +61,10 @@ before_install:
       brew link --force --overwrite llvm@7
       export PATH="/usr/local/opt/llvm@7/bin:$PATH"
       ls $(brew --prefix llvm@7)/bin
+    fi
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc7" ]]; then
+      brew install gcc
     fi
 
 install:
