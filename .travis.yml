@@ -24,20 +24,20 @@ addons:
 matrix:
   include:
 
-    - os: osx
-      osx_image: xcode10.1
-      compiler: clang
-      env: MATRIX_EVAL="CXX_ID=clang6 && CC=/usr/local/opt/llvm@6/bin/clang && CXX=/usr/local/opt/llvm@6/bin/clang++ && MAKE_TEST=true"
+    #- os: osx
+    #  osx_image: xcode10.1
+    #  compiler: clang
+    #  env: MATRIX_EVAL="CXX_ID=clang6 && CC=/usr/local/opt/llvm@6/bin/clang && CXX=/usr/local/opt/llvm@6/bin/clang++ && MAKE_TEST=true"
 
-    - os: osx
-      osx_image: xcode10.1
-      compiler: clang
-      env: MATRIX_EVAL="CXX_ID=clang7 && CC=/usr/local/opt/llvm@7/bin/clang && CXX=/usr/local/opt/llvm@7/bin/clang++"
+    #- os: osx
+    #  osx_image: xcode10.1
+    #  compiler: clang
+    #  env: MATRIX_EVAL="CXX_ID=clang7 && CC=/usr/local/opt/llvm@7/bin/clang && CXX=/usr/local/opt/llvm@7/bin/clang++"
 
     - os: osx
       osx_image: xcode10.1
       compiler: gcc
-      env: MATRIX_EVAL="CXX_ID=gcc7 && CC=/usr/local/Cellar/gcc/8.3.0/bin/gcc-8 && CXX=/usr/local/Cellar/gcc/8.3.0/bin/g++-8"
+      env: MATRIX_EVAL="CXX_ID=gcc && CC=gcc-8 && CXX=g++-8"
 
 before_install:
   - eval "${MATRIX_EVAL}"
@@ -62,9 +62,9 @@ before_install:
       export PATH="/usr/local/opt/llvm@7/bin:$PATH"
     fi
   - |
-    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc7" ]]; then
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
       brew install gcc
-      export PATH="/usr/local/Cellar/gcc/8.3.0/bin:$PATH"
+      export PATH="/usr/local/bin:/usr/local/Cellar/gcc/8.3.0/bin:$PATH"
     fi
 
 install:
