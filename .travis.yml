@@ -63,7 +63,7 @@ before_install:
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc7" ]]; then
-      brew update && brew install gcc
+      brew install gcc
       export PATH="/usr/local/Cellar/gcc/8.3.0/bin:PATH"
     fi
 
