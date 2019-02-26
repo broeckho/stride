@@ -64,7 +64,7 @@ before_install:
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc7" ]]; then
       brew install gcc
-      export PATH="/usr/local/Cellar/gcc/8.3.0/bin:PATH"
+      export PATH="/usr/local/Cellar/gcc/8.3.0/bin:$PATH"
     fi
 
 install:
@@ -87,8 +87,8 @@ install:
     #--------- OSX
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-    # brew upgrade python cmake
-    #  brew install ccache swig
+      brew upgrade python cmake
+      brew install ccache swig
     fi
     #--------- All platforms
   - |
