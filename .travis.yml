@@ -57,14 +57,15 @@ before_install:
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "clang7" ]]; then
-      brew install --with-clang llvm@7
+      brew install llvm@7
       brew link --force --overwrite llvm@7
       export PATH="/usr/local/opt/llvm@7/bin:$PATH"
-      ls $(brew --prefix llvm@7)/bin
+      ls /usr/local/Cellar/llvm/7.0.1/bin
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc7" ]]; then
       brew install gcc
+      ls /usr/local/Cellar/gcc/8.3.0/bin
     fi
 
 install:
