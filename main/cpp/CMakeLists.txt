@@ -77,6 +77,8 @@ set(LIB_SRC
     viewers/PersonsFileViewer.cpp
     viewers/SummaryFileViewer.cpp
 )
+set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
+	COMPILE_DEFINITIONS "STRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 
 #============================================================================
 # Build the Stride library.
@@ -84,7 +86,6 @@ set(LIB_SRC
 add_library(libstride ${LIB_SRC})
 target_link_libraries(libstride ${LIBS} libgengeopop)
 target_compile_options(libstride PUBLIC "-fPIC")
-target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 set_target_properties(libstride PROPERTIES PREFIX "")
 
 #============================================================================
