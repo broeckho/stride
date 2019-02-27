@@ -15,8 +15,8 @@
 
 #pragma once
 
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
+//#include "geopop/GeoGrid.h"
+//#include "geopop/GeoGridConfig.h"
 #include "util/ExcAssert.h"
 
 #include <spdlog/logger.h>
@@ -28,6 +28,9 @@ class RnMan;
 } // namespace stride
 
 namespace geopop {
+
+class GeoGrid;
+class GeoGridConfig;
 
 /**
  * An interface base class for generators that provide geo data and apply it onto the GeoGrid.

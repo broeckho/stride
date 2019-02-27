@@ -15,6 +15,8 @@
 
 #include "HouseholdGenerator.h"
 
+#include "geopop/GeoGrid.h"
+#include "geopop/GeoGridConfig.h"
 #include "geopop/Household.h"
 #include "geopop/Location.h"
 #include "util/RnMan.h"

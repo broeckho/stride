@@ -16,6 +16,8 @@
 #include "CollegeGenerator.h"
 
 #include "geopop/College.h"
+#include "geopop/GeoGrid.h"
+#include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
 #include "util/RnMan.h"
 
