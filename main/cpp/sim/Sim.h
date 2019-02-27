@@ -97,12 +97,12 @@ private:
         bool                        m_track_index_case;              ///< General simulation or tracking index case.
         bool                        m_adaptive_symptomatic_behavior; ///< Should symptomatic cases stay home?
 
-        std::shared_ptr<Calendar>    m_calendar;         ///< Management of calendar.
-        AgeContactProfiles           m_contact_profiles; ///< Contact profiles w.r.t age.
-        std::vector<ContactHandler>  m_handlers;         ///< Contact handlers (rng & rates).
-        InfectorExec*                m_infector;         ///< Executes contacts/transmission loops in contact pool.
-        std::shared_ptr<Population>  m_population;       ///< Pointer to the Population.
-        util::RnMan&                 m_rn_manager;       ///< Random number generation management.
+        std::shared_ptr<Calendar>   m_calendar;         ///< Management of calendar.
+        AgeContactProfiles          m_contact_profiles; ///< Contact profiles w.r.t age.
+        std::vector<ContactHandler> m_handlers;         ///< Contact handlers (rng & rates).
+        InfectorExec*               m_infector;         ///< Executes contacts/transmission loops in contact pool.
+        std::shared_ptr<Population> m_population;       ///< Pointer to the Population.
+        util::RnMan&                m_rn_manager;       ///< Random number generation management.
 
         TransmissionProfile m_transmission_profile; ///< Profile of disease.
         PublicHealthAgency  m_public_health_agency; ///< Agency to implement reactive strategies.

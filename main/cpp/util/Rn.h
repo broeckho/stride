@@ -95,12 +95,11 @@ private:
         unsigned int m_stream_count;  ///< Number of threads/streams set up with the engine.
 };
 
-
 template <>
 void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq);
 
 extern template class Rn<pcg64>;
-//extern template class Rn<trng::lcg64>;
+// extern template class Rn<trng::lcg64>;
 
 } // namespace util
 } // namespace stride

@@ -21,18 +21,18 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride::util;
 
-CitiesCSVReader::CitiesCSVReader(unique_ptr<istream> inputStream)
-    : CitiesReader(move(inputStream)), m_reader(*(m_inputStream.get()))
-{
-}
+CitiesCSVReader::CitiesCSVReader(unique_ptr<istream> inputStream) : CitiesReader(move(inputStream)) {}
 
 void CitiesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
 {
         vector<pair<shared_ptr<Location>, int>> addedLocations;
 
+        CSV  reader(*(m_inputStream.get()));
         auto totalPopulation = 0U;
-        for (const stride::util::CSVRow& row : m_reader) {
+
+        for (const CSVRow& row : reader) {
                 const auto id = row.GetValue<int>(0);
                 // In file: id,province,population,x_coord,y_coord,latitude,longitude,name
                 // Ignore x and y, we do not use them,

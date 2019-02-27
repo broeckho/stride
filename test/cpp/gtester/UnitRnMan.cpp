@@ -142,7 +142,7 @@ TYPED_TEST_P(UnitRnMan, Uniform2)
 
 REGISTER_TYPED_TEST_CASE_P(UnitRnMan, DefaultInfo, Reset1, Reset2, Distribution, Uniform1, Uniform2);
 
-//typedef ::testing::Types<RnPcg64, RnLcg64> TestedTypes;
+// typedef ::testing::Types<RnPcg64, RnLcg64> TestedTypes;
 typedef ::testing::Types<RnPcg64> TestedTypes;
 INSTANTIATE_TYPED_TEST_CASE_P(Rn, UnitRnMan, TestedTypes);
 

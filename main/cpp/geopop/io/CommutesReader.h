@@ -15,12 +15,14 @@
 
 #pragma once
 
-#include "geopop/GeoGrid.h"
+//#include "geopop/GeoGrid.h"
 
 #include <istream>
 #include <memory>
 
 namespace geopop {
+
+class GeoGrid;
 
 /**
  * Create an abstract Reader that fills a GeoGrid with the commute info from file.

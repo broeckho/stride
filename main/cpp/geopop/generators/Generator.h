@@ -25,7 +25,7 @@ namespace stride {
 namespace util {
 class RnMan;
 }
-}
+} // namespace stride
 
 namespace geopop {
 

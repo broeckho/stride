@@ -30,14 +30,14 @@ HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream
 {
 }
 
-void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>&            ref_households,
-                                                stride::util::SegmentedVector<stride::Person>&      ref_persons,
-                                                stride::util::SegmentedVector<stride::ContactPool>& ref_pools)
+void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
+                                                SegmentedVector<stride::Person>&         ref_persons,
+                                                SegmentedVector<stride::ContactPool>&    ref_pools)
 {
-        stride::util::CSV reader(*(m_input_stream.get()));
+        CSV reader(*(m_input_stream.get()));
 
         auto id = 1U;
-        for (const stride::util::CSVRow& row : reader) {
+        for (const CSVRow& row : reader) {
                 auto household = std::make_shared<Household>();
 
                 // Create contactpool of the household.

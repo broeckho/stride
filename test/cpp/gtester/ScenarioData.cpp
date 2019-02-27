@@ -62,16 +62,11 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
             {"r0_12_gengeopop", 39362U},        {"r0_16_gengeopop", 71220U},       {"r0_4_gengeopop", 4354U},
             {"r0_8_gengeopop", 15849U}};
 
-        std::map<std::string, double> sigmas_gengeopop = {{"influenza_a_gengeopop", 400.0},
-                                                          {"influenza_b_gengeopop", 0},
-                                                          {"influenza_c_gengeopop", 0.2},
-                                                          {"measles_16_gengeopop", 2000.0},
-                                                          {"measles_26_gengeopop", 1000.0},
-                                                          {"r0_0_gengeopop", 1.6278820596099706},
-                                                          {"r0_12_gengeopop", 500.0},
-                                                          {"r0_16_gengeopop", 500.0},
-                                                          {"r0_4_gengeopop", 1000.0},
-                                                          {"r0_8_gengeopop", 300.0}};
+        std::map<std::string, double> sigmas_gengeopop = {
+            {"influenza_a_gengeopop", 400.0}, {"influenza_b_gengeopop", 0},     {"influenza_c_gengeopop", 0.2},
+            {"measles_16_gengeopop", 2000.0}, {"measles_26_gengeopop", 1000.0}, {"r0_0_gengeopop", 1.6278820596099706},
+            {"r0_12_gengeopop", 500.0},       {"r0_16_gengeopop", 500.0},       {"r0_4_gengeopop", 1000.0},
+            {"r0_8_gengeopop", 300.0}};
 
         unsigned int target;
         double       sigma;

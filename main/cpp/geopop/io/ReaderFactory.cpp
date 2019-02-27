@@ -21,6 +21,7 @@
 #include "util/FileSys.h"
 
 #include <iostream>
+#include <fstream>
 #include <stdexcept>
 
 namespace geopop {
