@@ -32,9 +32,9 @@ var searchData=
   ['m_5fdata_5fdir',['m_data_dir',['../df/d6a/a00119.html#a9003edf17d321bc3df4b4a58530b777c',1,'stride::util::FileSys::Dirs']]],
   ['m_5fdate',['m_date',['../d1/d09/a00077.html#a52c72045d2805141b5c8f7cf23f2b586',1,'stride::Calendar']]],
   ['m_5fday',['m_day',['../d1/d09/a00077.html#a9d8a87a703604c326355557e1b72d119',1,'stride::Calendar']]],
-  ['m_5fdiscommuting',['m_disCommuting',['../d1/d22/a00057.html#a1a57690130304704d42193ecfea09377',1,'geopop::WorkplacePopulator']]],
+  ['m_5fdiscommuting',['m_disCommuting',['../d1/d22/a00057.html#a4143391fc358763213eade2611efdb13',1,'geopop::WorkplacePopulator']]],
   ['m_5fdisease_5fcounter',['m_disease_counter',['../d1/dc1/a00092.html#a75bc9a662485465d4de779b5cbaf979a',1,'stride::Health']]],
-  ['m_5fdistnoncommuting',['m_distNonCommuting',['../d1/d22/a00057.html#aa213239b52ee67092adb5d467124bfb4',1,'geopop::WorkplacePopulator']]],
+  ['m_5fdistnoncommuting',['m_distNonCommuting',['../d1/d22/a00057.html#a8a467c7eb9a8c5d999bcb57828b00186',1,'geopop::WorkplacePopulator']]],
   ['m_5fdistrib_5fstart_5fsymptomatic',['m_distrib_start_symptomatic',['../d4/d7d/a00093.html#a09f22ca66e79edf806a249517ec6ac35',1,'stride::HealthSeeder']]],
   ['m_5fdistrib_5ftime_5fasymptomatic',['m_distrib_time_asymptomatic',['../d4/d7d/a00093.html#a7f7a12751437479ca8b4188151a5481a',1,'stride::HealthSeeder']]],
   ['m_5fdistrib_5ftime_5finfectious',['m_distrib_time_infectious',['../d4/d7d/a00093.html#a520743c093005b7ccda658475107f0c2',1,'stride::HealthSeeder']]],
@@ -106,7 +106,6 @@ var searchData=
   ['m_5fquartile1',['m_quartile1',['../db/d57/a00112.html#a6a1a8baaa4280bc35b5e58b5185b8471',1,'stride::util::BoxPlotData']]],
   ['m_5fquartile3',['m_quartile3',['../db/d57/a00112.html#a2ca894900d4879cf4841408c85deaf92',1,'stride::util::BoxPlotData']]],
   ['m_5fradius',['m_radius',['../d4/dca/a00048.html#a821d856a8ec37727229092ae9227cc90',1,'geopop::RadiusPolicy']]],
-  ['m_5freader',['m_reader',['../dd/dad/a00005.html#a3a672f9a1356570abdcf443cb1e95925',1,'geopop::CitiesCSVReader::m_reader()'],['../df/d86/a00012.html#a7752fe9c1005a66039bfc92e4edb944e',1,'geopop::CommutesCSVReader::m_reader()']]],
   ['m_5fright',['m_right',['../dd/d32/a00041.html#a8bf28b75d0a2154828f3690a13cf492e',1,'geopop::kd::Node']]],
   ['m_5frn_5fmanager',['m_rn_manager',['../db/dab/a00089.html#ae14564932092a52307a91d9c8e942c18',1,'stride::DiseaseSeeder::m_rn_manager()'],['../dc/d54/a00094.html#a5231c62a7ca03433f4b72006f7351004',1,'stride::Immunizer::m_rn_manager()'],['../d4/d63/a00082.html#a4a77b224b46f5ea8b57d91c410e7da5b',1,'stride::ControlHelper::m_rn_manager()'],['../d2/db1/a00070.html#a3c0d0ab608a32c5938d832e9cab15cb9',1,'stride::AbstractPopBuilder::m_rn_manager()'],['../d4/d81/a00110.html#a9bc087f76a94ae634c80613f893233ed',1,'stride::SurveySeeder::m_rn_manager()'],['../d3/d32/a00105.html#acec00fb79fb58700e4eef6f0a20209ac',1,'stride::Sim::m_rn_manager()']]],
   ['m_5frn_5fmanager_5fptr',['m_rn_manager_ptr',['../d3/d32/a00105.html#a88a205a5cfbd78547c63e7643f19de5a',1,'stride::Sim']]],
@@ -140,5 +139,5 @@ var searchData=
   ['m_5fupper',['m_upper',['../d6/d2c/a00072.html#aecbb22709a02f81d71c807ba5af572c7',1,'stride::AgeBrackets::Daycare::m_upper()'],['../db/db6/a00074.html#a89fe0445f6e76be418d79fc577c264a0',1,'stride::AgeBrackets::PreSchool::m_upper()'],['../d1/d6e/a00073.html#a4a530a6fa53e4e6b7151ae714c9cf9bb',1,'stride::AgeBrackets::K12School::m_upper()'],['../d0/d89/a00071.html#a7ff124dd1641223d7e51a4c6b8c6356b',1,'stride::AgeBrackets::College::m_upper()'],['../d9/da5/a00075.html#afd6ef948191e43526874f2c4fe6555a9',1,'stride::AgeBrackets::Workplace::m_upper()']]],
   ['m_5fuse_5finstall_5fdirs',['m_use_install_dirs',['../d4/d63/a00082.html#a9a7386ab81543b81bbc888176c55d7e0',1,'stride::ControlHelper']]],
   ['m_5fvalues',['m_values',['../d2/da3/a00115.html#a6e59d67d64bb1bf8681d7718be92d74f',1,'stride::util::CSVRow']]],
-  ['m_5fworkplacesincity',['m_workplacesInCity',['../d1/d22/a00057.html#a47667d06e14ba158eb89bb6bd8749fa7',1,'geopop::WorkplacePopulator']]]
+  ['m_5fworkplacesincity',['m_workplacesInCity',['../d1/d22/a00057.html#a9d21a5a7ca27e488eb5586d171a6b792',1,'geopop::WorkplacePopulator']]]
 ];

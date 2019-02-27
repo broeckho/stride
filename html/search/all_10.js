@@ -44,7 +44,7 @@ var searchData=
   ['popcount_5fk12school',['popcount_k12school',['../d3/d52/a00023.html#a4aa5218a500d6f3fa7d3827495bc532d',1,'geopop::GeoGridConfig']]],
   ['popcount_5fworkplace',['popcount_workplace',['../d3/d52/a00023.html#a0ed4fde37b92426045b2539bfeb5970d',1,'geopop::GeoGridConfig']]],
   ['popinfo',['popInfo',['../d3/d52/a00023.html#aa7ab12667956a7a9f263bb8be8f07155',1,'geopop::GeoGridConfig']]],
-  ['population',['population',['../df/d03/a00062.html#a8f722f8a9c6609c033a0654fd3bef9d8',1,'proto::GeoGrid_Location::population()'],['../d5/d1e/a00103.html#a23ca2c3c5ef45fe26a11e0bc47cbe8ca',1,'stride::Population::Population()']]],
+  ['population',['Population',['../d5/d1e/a00103.html#a23ca2c3c5ef45fe26a11e0bc47cbe8ca',1,'stride::Population::Population()'],['../df/d03/a00062.html#a8f722f8a9c6609c033a0654fd3bef9d8',1,'proto::GeoGrid_Location::population()']]],
   ['population',['Population',['../d5/d1e/a00103.html',1,'stride']]],
   ['population_2ecpp',['Population.cpp',['../db/dc3/a00284.html',1,'']]],
   ['population_2eh',['Population.h',['../d3/d58/a00285.html',1,'']]],

@@ -51,7 +51,7 @@ var searchData=
   ['simbuilder',['SimBuilder',['../d7/d70/a00106.html#ada7d6656e97857b9bacd2285f7784021',1,'stride::SimBuilder']]],
   ['simcontroller',['SimController',['../df/d98/a00107.html#a0ed25223763305726ff956005ac6a523',1,'stride::SimController']]],
   ['simrunner',['SimRunner',['../d1/dd6/a00108.html#a0f1cdbcca511bc11fd898dc3a872718d',1,'stride::SimRunner']]],
-  ['size',['size',['../dd/da2/a00019.html#ae61efee2bf342aa8ac955e8d9e2a6d2e',1,'geopop::GeoGrid::size()'],['../d4/d31/a00069.html#a0e279c31f261b01f7798355e27401bfe',1,'stride::util::SegmentedVector::size()'],['../d5/db6/a00042.html#a6126332993392bfb955f1352128f04bc',1,'geopop::KdTree::Size()']]],
+  ['size',['Size',['../d5/db6/a00042.html#a6126332993392bfb955f1352128f04bc',1,'geopop::KdTree::Size()'],['../dd/da2/a00019.html#ae61efee2bf342aa8ac955e8d9e2a6d2e',1,'geopop::GeoGrid::size()'],['../d4/d31/a00069.html#a0e279c31f261b01f7798355e27401bfe',1,'stride::util::SegmentedVector::size()']]],
   ['sliceindexer',['SliceIndexer',['../d1/d88/a00128.html#af2bedaa13b9427b736bfc88bcb974741',1,'stride::util::SliceIndexer']]],
   ['sortmembers',['SortMembers',['../d1/d51/a00079.html#a6c90e9734ee7c6566bdf1f4416e99fd8',1,'stride::ContactPool']]],
   ['split',['Split',['../d6/d80/a00371.html#aadef750132d5d399e7ed8a96eab53c4c',1,'stride::util']]],

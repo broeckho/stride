@@ -13,10 +13,10 @@ var a00057 =
     [ "m_currentLoc", "d1/d22/a00057.html#a740ffd1cd149e685ec21052a685ce591", null ],
     [ "m_geoGrid", "d1/d22/a00057.html#a306607e4da3fbba6bb8702851e99fd1d", null ],
     [ "m_geoGridConfig", "d1/d22/a00057.html#a07ca46ceba7c225289f134890d51137d", null ],
-    [ "m_workplacesInCity", "d1/d22/a00057.html#a47667d06e14ba158eb89bb6bd8749fa7", null ],
+    [ "m_workplacesInCity", "d1/d22/a00057.html#a9d21a5a7ca27e488eb5586d171a6b792", null ],
     [ "m_fractionCommutingStudents", "d1/d22/a00057.html#aa72ef990cba381ee5247fc14bf603b49", null ],
     [ "m_nearByWorkplaces", "d1/d22/a00057.html#a4bd622c717ebd42cc4275cf9a8e61826", null ],
-    [ "m_distNonCommuting", "d1/d22/a00057.html#aa213239b52ee67092adb5d467124bfb4", null ],
+    [ "m_distNonCommuting", "d1/d22/a00057.html#a8a467c7eb9a8c5d999bcb57828b00186", null ],
     [ "m_commutingLocations", "d1/d22/a00057.html#a07153983faa4bd34677ef57bd4f31095", null ],
-    [ "m_disCommuting", "d1/d22/a00057.html#a1a57690130304704d42193ecfea09377", null ]
+    [ "m_disCommuting", "d1/d22/a00057.html#a4143391fc358763213eade2611efdb13", null ]
 ];
