@@ -38,14 +38,14 @@ class Population;
 class HealthSeeder
 {
 public:
-        /// Constructor requires diease data.
+        /// Constructor requires disease data.
         explicit HealthSeeder(const boost::property_tree::ptree& diseasePt);
 
         /// Seeds the population with Health data.
         void Seed(const std::shared_ptr<Population>& pop, std::vector<ContactHandler>& handlers);
 
 private:
-        /// Utility method to etract distribution from data in ptree.
+        /// Utility method to extract distribution from data in ptree.
         void GetDistribution(std::vector<double>& distribution, const boost::property_tree::ptree& rootPt,
                              const std::string& xmlTag);
 

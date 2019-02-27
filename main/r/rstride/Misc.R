@@ -460,7 +460,7 @@ if(!(exists('.rstride'))){
   project_dir <<- file.path(output_dir,sim_dirs[length(sim_dirs)])
   
   # terminal message
-  cat('SET PROJECT DIR TO ', project_dir)
+  .rstride$cli_print('SET PROJECT DIR TO ', project_dir)
   
 }
 
@@ -481,6 +481,6 @@ if(!(exists('.rstride'))){
   setwd(file.path(install_dir,last_stride_dir))
   
   # terminal message
-  cat('NEW WORK DIRECTORY ',file.path(install_dir,last_stride_dir))
+  .rstride$cli_print('NEW WORK DIRECTORY ',file.path(install_dir,last_stride_dir))
   
 }

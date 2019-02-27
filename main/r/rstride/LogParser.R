@@ -92,7 +92,7 @@ parse_contact_logfile <- function(contact_log_filename)
   if(any(c("[PRIM]","[TRAN]") %in% data_log[,1]))
   {
     header_transm       <- c('local_id', 'infector_id','part_age',
-                             'infector_age','cnt_location','sim_day')
+                             'infector_age','cnt_location','sim_day','id_index_case')
     data_transm         <- data_log[data_log[,1] == "[PRIM]" | data_log[,1] == "[TRAN]",seq_len(length(header_transm))+1]
     names(data_transm)  <- header_transm
     data_transm[51,]

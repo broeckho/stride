@@ -28,7 +28,7 @@ Health::Health(unsigned short int start_infectiousness, unsigned short int start
                unsigned short int time_infectious, unsigned short int time_symptomatic)
     : m_disease_counter(0U), m_status(HealthStatus::Susceptible), m_start_infectiousness(start_infectiousness),
       m_start_symptomatic(start_symptomatic), m_end_infectiousness(start_infectiousness + time_infectious),
-      m_end_symptomatic(start_symptomatic + time_symptomatic)
+      m_end_symptomatic(start_symptomatic + time_symptomatic), m_id_index_case(0U)
 {
 }
 
@@ -36,12 +36,13 @@ void Health::SetImmune() { m_status = HealthStatus::Immune; }
 
 void Health::SetSusceptible() { m_status = HealthStatus::Susceptible; }
 
-void Health::StartInfection()
+void Health::StartInfection(unsigned int id_index_case)
 {
         assert(m_status == HealthStatus::Susceptible && "Health::StartInfection: m_health_status == "
                                                         "DiseaseStatus::Susceptible fails.");
         m_status = HealthStatus::Exposed;
         ResetDiseaseCounter();
+        m_id_index_case = id_index_case;
 }
 
 void Health::StopInfection()

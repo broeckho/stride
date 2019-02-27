@@ -40,7 +40,7 @@ public:
         }
 
         static void Trans(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*, ContactType::Id,
-                          unsigned short int)
+                          unsigned short int, unsigned int)
         {
         }
 };
@@ -56,10 +56,10 @@ public:
         }
 
         static void Trans(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
-                          ContactType::Id type, unsigned short int sim_day)
+                          ContactType::Id type, unsigned short int sim_day, unsigned int id_index_case)
         {
-                logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(), p2->GetAge(), p1->GetAge(),
-                             ToString(type), sim_day);
+                logger->info("[TRAN] {} {} {} {} {} {} {}", p2->GetId(), p1->GetId(), p2->GetAge(), p1->GetAge(),
+                             ToString(type), sim_day, id_index_case);
         }
 };
 
@@ -84,10 +84,10 @@ public:
         }
 
         static void Trans(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
-                          ContactType::Id type, unsigned short int sim_day)
+                          ContactType::Id type, unsigned short int sim_day, unsigned int id_index_case)
         {
-                logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(), p2->GetAge(), p1->GetAge(),
-                             ToString(type), sim_day);
+                logger->info("[TRAN] {} {} {} {} {} {} {}", p2->GetId(), p1->GetId(), p2->GetAge(), p1->GetAge(),
+                             ToString(type), sim_day, id_index_case);
         }
 };
 
@@ -105,7 +105,7 @@ public:
         }
 
         static void Trans(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*, ContactType::Id,
-                          unsigned short int)
+                          unsigned short int, unsigned int)
         {
         }
 };
@@ -182,13 +182,13 @@ void Infector<LL, TIC, TO>::Exec(ContactPool& pool, const AgeContactProfile& pro
                                                                 // No secondary infections with TIC; just mark
                                                                 // p2 as being recovered
                                                                 if (h1.IsInfectious() && h2.IsSusceptible()) {
-                                                                        LP::Trans(cLogger, p1, p2, pType, simDay);
-                                                                        h2.StartInfection();
+                                                                        LP::Trans(cLogger, p1, p2, pType, simDay, h1.GetIdIndexCase());
+                                                                        h2.StartInfection(h1.GetIdIndexCase());
                                                                         if (TIC)
                                                                                 h2.StopInfection();
                                                                 } else if (h2.IsInfectious() && h1.IsSusceptible()) {
-                                                                        LP::Trans(cLogger, p2, p1, pType, simDay);
-                                                                        h1.StartInfection();
+                                                                        LP::Trans(cLogger, p2, p1, pType, simDay, h2.GetIdIndexCase());
+                                                                        h1.StartInfection(h2.GetIdIndexCase());
                                                                         if (TIC)
                                                                                 h1.StopInfection();
                                                                 }
@@ -246,12 +246,12 @@ void Infector<LL, TIC, true>::Exec(ContactPool& pool, const AgeContactProfile& p
                                                     cHandler.HasContactAndTransmission(c_rate_p2, t_rate)) {
                                                         auto& h2 = p2->GetHealth();
                                                         if (h1.IsInfectious() && h2.IsSusceptible()) {
-                                                                h2.StartInfection();
+                                                                h2.StartInfection(h1.GetIdIndexCase());
                                                                 // No secondary infections with TIC; just mark
                                                                 // p2 as being recovered
                                                                 if (TIC)
                                                                         h2.StopInfection();
-                                                                LP::Trans(cLogger, p1, p2, c_type, simDay);
+                                                                LP::Trans(cLogger, p1, p2, c_type, simDay, h1.GetIdIndexCase());
                                                         }
                                                 }
                                         }

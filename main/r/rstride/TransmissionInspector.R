@@ -158,30 +158,9 @@ inspect_transmission_data <- function(project_dir)
     }
     
     ## OUTBREAKS
-    data_outbreak                   <- data_transm                       # copy all info
-    data_outbreak$outbreak_id       <- NA                                # create placeholder for the outbreak id
-    flag                            <- is.na(data_outbreak$infector_id)  # infectious seeds
-    data_outbreak$outbreak_id[flag] <- seq(sum(flag))                    # give the infectious seeds a unique outbreak id
-    data_outbreak$infector_id[flag] <- data_outbreak$local_id[flag]
+    data_transm$outbreak_id <- as.numeric(as.factor(data_transm$id_index_case))
     
-    while(any(is.na(data_outbreak$outbreak_id))){
-      # get individuals that are part of an outbreak
-      d_source <- data_outbreak[!is.na(data_outbreak$outbreak_id),c('local_id','outbreak_id')]
-      dim(d_source)
-      
-      # # get individuals that are not (yet) part of an outbreak
-      d_sink   <- data_outbreak[,names(data_outbreak) != 'outbreak_id']
-      dim(d_sink)
-      
-      # rename column in 'source' to set them as 'infector'
-      names(d_source)[1] <- 'infector_id'
-      
-      # merge source and sink => transfer outbreak id
-      data_outbreak      <- merge(d_sink,d_source,all.x = TRUE)
-      
-    }
-    
-    outbreak_size_data <- c(table(data_outbreak$outbreak_id))
+    outbreak_size_data   <- as.numeric(table(data_transm$outbreak_id))
     outbreak_size_breaks <- c(1,2,5,10,20,50,max(c(100,outbreak_size_data+1)))
     outbreak_size_cat    <- cut(outbreak_size_data,breaks=outbreak_size_breaks,right = F)
     levels(outbreak_size_cat)[6] <- "[50,+]"
@@ -189,22 +168,22 @@ inspect_transmission_data <- function(project_dir)
     bplot <- barplot(percentage_plot,
                      ylab='%',
                      xlab='outbreak size',
-                     main=paste0('outbreak size (n:',max(data_outbreak$outbreak_id),')'),
+                     main=paste0('outbreak size (n:',length(outbreak_size_data),')'),
                      las=2,
                      ylim=c(0,100),
                      cex.names = 0.8)
     # add some info to the legend
-    num_infected_seeds <- max(data_outbreak$outbreak_id) / length(unique(data_outbreak$exp_id))
+    num_infected_seeds <- length(outbreak_size_data) / length(unique(data_transm$exp_id))
     legend('top',c(paste('num. runs',num_runs_exp),paste('outbreaks / run',num_infected_seeds)),cex=0.8)
     # add values
     label_plot    <- paste0(percentage_plot,'%')
     text(bplot,percentage_plot,label_plot,pos=3)
     
     # count / day
-    tbl_all <- table(data_outbreak$sim_day+1,data_outbreak$outbreak_id)
+    tbl_all <- table(data_transm$sim_day+1,data_transm$outbreak_id)
     
     # insert this in standard matrix: [sim_day;outbreak_id]
-    tbl_all_matrix <- matrix(0,nrow=max(project_summary$num_days),ncol=max(data_outbreak$outbreak_id))
+    tbl_all_matrix <- matrix(0,nrow=max(project_summary$num_days),ncol=max(data_transm$outbreak_id))
     tbl_all_matrix[as.numeric(row.names(tbl_all)),] <- tbl_all
     rownames(tbl_all_matrix) <- 0:max(project_summary$num_days-1)
     
@@ -238,19 +217,19 @@ inspect_transmission_data <- function(project_dir)
     
     # plot the number of ongoing outbreaks over time
     plot(outbreaks_over_time$day,outbreaks_over_time$count,
-         ylim=c(0,max(data_outbreak$outbreak_id)),
+         ylim=c(0,max(data_transm$outbreak_id)),
          xlab='day of last infection',ylab='count (oubtreaks)',
          main='number ongoing outbreaks over time')
     
     # cases by age
-    names(data_outbreak)
-    hist(data_outbreak$part_age,0:99,right = F,
+    names(data_transm)
+    hist(data_transm$part_age,0:99,right = F,
          freq = F,xlab='age of a case',
          ylim = c(0,0.2),
          main = 'incidence by age')  
     
     # plot age-interval per outbreak
-    data_outbreak_tmp <- data_outbreak
+    data_outbreak_tmp <- data_transm
     data_outbreak_tmp$sim_day[is.na(data_outbreak_tmp$sim_day)] <- -10
     bymedian <- with(data_outbreak_tmp, reorder(outbreak_id, -part_age, median))
     boxplot(part_age ~ bymedian, data = data_outbreak_tmp,
@@ -268,11 +247,11 @@ inspect_transmission_data <- function(project_dir)
     ###############################
     
     # get age distribution in the (secondary) cases
-    data_case_age     <- cut(data_outbreak$part_age,c(0,1,5,10,15,20,25,30,100),right=F)
-    data_sec_case_age <- cut(data_outbreak$part_age[data_outbreak$sim_day>0],c(0,1,5,10,15,20,25,30,100),right=F)
+    data_case_age     <- cut(data_transm$part_age,c(0,1,5,10,15,20,25,30,100),right=F)
+    data_sec_case_age <- cut(data_transm$part_age[data_transm$sim_day>0],c(0,1,5,10,15,20,25,30,100),right=F)
     
     # define the number of outbreaks
-    num_outbreaks <- sum(data_outbreak$sim_day==0)
+    num_outbreaks <- sum(data_transm$sim_day==0)
     
     # calculate the incidence 
     inc_case_age     <- table(data_case_age) / num_outbreaks

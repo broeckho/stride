@@ -68,10 +68,10 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         while (numInfected > 0) {
                 Person& p = pop->at(static_cast<size_t>(generator()));
                 if (p.GetHealth().IsSusceptible() && (p.GetAge() >= sAgeMin) && (p.GetAge() <= sAgeMax)) {
-                        p.GetHealth().StartInfection();
+                        p.GetHealth().StartInfection(p.GetId());
                         numInfected--;
                         if (log_level != "None") {
-                                logger->info("[PRIM] {} {} {} {} {} {}", p.GetId(), -1, p.GetAge(), -1, -1, -1);
+                                logger->info("[PRIM] {} {} {} {} {} {} {}", p.GetId(), -1, p.GetAge(), -1, -1, -1, p.GetId());
                         }
                 }
         }

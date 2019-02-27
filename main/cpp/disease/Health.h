@@ -55,6 +55,9 @@ public:
         unsigned short int GetStartSymptomatic() const { return m_start_symptomatic; }
 
         ///
+        unsigned int GetIdIndexCase() const { return m_id_index_case; }
+
+        ///
         bool IsImmune() const { return m_status == HealthStatus::Immune; }
 
         ///
@@ -92,7 +95,7 @@ public:
         void SetSusceptible();
 
         /// Start the infection.
-        void StartInfection();
+        void StartInfection(unsigned int id_index_case);
 
         /// Stop the infection.
         void StopInfection();
@@ -118,6 +121,8 @@ private:
         unsigned short int m_start_symptomatic;    ///< Days after infection to become symptomatic.
         unsigned short int m_end_infectiousness;   ///< Days after infection to end infectious state.
         unsigned short int m_end_symptomatic;      ///< Days after infection to end symptomatic state.
+
+        unsigned int       m_id_index_case;        ///< ID of the index case, given infection
 };
 
 } // namespace stride
