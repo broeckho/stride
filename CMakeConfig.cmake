@@ -56,7 +56,7 @@ set(STRIDE_FORCE_NO_OPENMP	FALSE
 set(STRIDE_FORCE_NO_PYTHON FALSE
 	CACHE BOOL "Force CMake to act as if Python or SWIG had not been found.")
 set(STRIDE_FORCE_NO_BOOST FALSE
-    CACHE BOOL "Do NOT use Boost even if available.")
+    CACHE BOOL "Do NOT use installed Boost even if available.")
 
 #============================================================================
 # Additional CMake modules:
