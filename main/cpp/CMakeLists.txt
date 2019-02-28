@@ -87,7 +87,7 @@ set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${LIB_SRC})
-target_link_libraries(libstride ${LIBS} libgengeopop)
+target_link_libraries(libstride libgengeopop ${LIBS})
 target_compile_options(libstride PUBLIC "-fPIC")
 set_target_properties(libstride PROPERTIES PREFIX "")
 
@@ -95,7 +95,7 @@ set_target_properties(libstride PROPERTIES PREFIX "")
 # Build the stride binary.
 #============================================================================
 add_executable(stride execs/stride.cpp)
-target_link_libraries(stride ${LIBS} libstride libgengeopop)
+target_link_libraries(stride libgengeopop libstride)
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 
 #============================================================================
