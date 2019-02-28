@@ -67,6 +67,7 @@ public:
 
         /// Get ID of contactpool_type
         std::size_t GetPoolId(const ContactPoolType::Id& poolType) const { return m_pool_ids[poolType]; }
+        std::size_t GetHouseholdId() const { return m_pool_ids[ContactPoolType::Id::Household]; }
 
         /// Check if a person is present today in a given contact pool
         bool IsInPool(const ContactPoolType::Id& poolType) const { return m_in_pools[poolType]; }

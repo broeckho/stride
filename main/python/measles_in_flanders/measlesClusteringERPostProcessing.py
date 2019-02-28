@@ -1,6 +1,7 @@
 import argparse
 import time
 
+from postprocessing import AgeImmunity
 from postprocessing import EffectiveR
 
 def main(outputDir, R0s, poolSize):
@@ -19,6 +20,10 @@ def main(outputDir, R0s, poolSize):
                                                 stat="median")
     for R0 in R0s:
         scenarioNamesFull = [s + "_R0_" + str(R0) for s in scenarioNames]
+        AgeImmunity.createAgeImmunityPlot(outputDir, scenarioNamesFull, scenarioDisplayNames,
+                                            poolSize, "R0_" + str(R0) + "_AgeImmunityPlot")
+        AgeImmunity.createHouseholdConstitutionPlot(outputDir, scenarioNamesFull, scenarioDisplayNames,
+                                            poolSize, "R0_" + str(R0) + "_HHConstitutionPlot")
         EffectiveR.createEffectiveRPlot(outputDir, scenarioNamesFull,
                                             scenarioDisplayNames, poolSize,
                                             "Scenario",

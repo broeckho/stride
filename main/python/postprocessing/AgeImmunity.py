@@ -32,6 +32,45 @@ def createHouseholdConstitutionPlots(outputDir, scenarioNames):
             plt.show()
 """
 
+def getHouseholdConstitutions(outputDir, scenarioName, seed):
+    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
+    with open(susceptiblesFile) as csvfile:
+        reader = csv.DictReader(csvfile)
+        households = {}
+        for row in reader:
+            age = int(float(row["age"]))
+            if age < 18:
+                hhID = int(row["hh_id"])
+                isSusceptible = int(row["susceptible"])
+                if hhID in households:
+                    households[hhID].append(isSusceptible)
+                else:
+                    households[hhID] = [isSusceptible]
+        return households
+
+def createHouseholdConstitutionPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName):
+    for scenario in scenarioNames:
+        seeds = getRngSeeds(outputDir, scenario)
+        with multiprocessing.Pool(processes=poolSize) as pool:
+            households = pool.starmap(getHouseholdConstitutions, [(outputDir, scenario, s) for s in seeds])
+            for run in households:
+                constitutions = {}
+                for hh in run.values():
+                    if len(hh) in constitutions:
+                        constitutions[len(hh)].append(hh)
+                    else:
+                        constitutions[len(hh)] = [hh]
+                for size in constitutions:
+                    a = [sum(x) / len(x) for x in constitutions[size]]
+                    constitutions[size] = {}
+                    for fr in a:
+                        if fr in constitutions[size]:
+                            constitutions[size][fr] += 1
+                        else:
+                            constitutions[size][fr] = 1
+                print(constitutions)
+
+
 def getTargetRates(outputDir, targetRatesFile):
     targetRatesTree = ET.parse(os.path.join(outputDir, 'data', targetRatesFile))
     targetRates = []

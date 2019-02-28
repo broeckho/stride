@@ -5,9 +5,35 @@ import os
 import time
 import xml.etree.ElementTree as ET
 
+from pystride.Event import Event, EventType
 from pystride.PyController import PyController
 
 MAX_AGE = 99
+
+def registerSusceptibles(simulator, event):
+    outputPrefix = simulator.GetConfigValue("run.output_prefix")
+    pop = simulator.GetPopulation()
+    totalSusceptible = 0
+    totalPop = 0
+    with open(os.path.join(outputPrefix, "susceptibles.csv"), "w") as csvfile:
+        fieldnames = ["age", "hh_id", "susceptible"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for i in range(pop.size()):
+            person = pop[i]
+            totalPop += 1
+            age = person.GetAge()
+            hhID = person.GetHouseholdId()
+            isSusceptible = person.GetHealth().IsSusceptible()
+            # Convert boolean to int for easier reading from file in different langs
+            if isSusceptible:
+                isSusceptible = 1
+                totalSusceptible += 1
+            else:
+                isSusceptible = 0
+            writer.writerow({"age": age, "hh_id": hhID, "susceptible": isSusceptible})
+        print(totalSusceptible)
+        print(totalPop)
 
 def generateRngSeeds(numSeeds):
     seeds = []
@@ -95,6 +121,7 @@ def runSimulation(R0, scenarioName, seed, extraParams):
                                     scenarioName + "_R0_" + str(R0) + "_" + str(seed))
     control.runConfig.setParameter("rng_seed", seed)
     control.runConfig.setParameter("r0", R0)
+    control.registerCallback(registerSusceptibles, EventType.AtStart)
     control.control()
 
 def runSimulations(numRuns, R0, scenarioName, extraParams, poolSize):
@@ -105,14 +132,14 @@ def runSimulations(numRuns, R0, scenarioName, extraParams, poolSize):
 
 def main(numRuns, R0s, immunityFileChildren, immunityFileAdults, poolSize):
     start = time.perf_counter()
-    scenarioNames = ["AGEDEPENDENT_NOCLUSTERING","AGEDEPENDENT_CLUSTERING"]
+    scenarioNames = ["UNIFORM_NOCLUSTERING","AGEDEPENDENT_NOCLUSTERING","UNIFORM_CLUSTERING","AGEDEPENDENT_CLUSTERING"]
     numDays = 100
     scenarioParameters = {
         "UNIFORM_NOCLUSTERING": {
-            "immunity_distribution_file": "measles_uniform_adult_immunity.xml",
+            "immunity_distribution_file": os.path.join("data", "measles_uniform_adult_immunity.xml"),
             "num_days": numDays,
             "track_index_case": "true",
-            "vaccine_distribution_file": "measles_uniform_child_immunity.xml",
+            "vaccine_distribution_file": os.path.join("data", "measles_uniform_child_immunity.xml"),
             "vaccine_link_probability": 0,
         },
         "AGEDEPENDENT_NOCLUSTERING": {
@@ -123,10 +150,10 @@ def main(numRuns, R0s, immunityFileChildren, immunityFileAdults, poolSize):
             "vaccine_link_probability": 0,
         },
         "UNIFORM_CLUSTERING": {
-            "immunity_distribution_file": "measles_uniform_adult_immunity.xml",
+            "immunity_distribution_file": os.path.join("data", "measles_uniform_adult_immunity.xml"),
             "num_days": numDays,
             "track_index_case": "true",
-            "vaccine_distribution_file": "measles_uniform_child_immunity.xml",
+            "vaccine_distribution_file": os.path.join("data", "measles_uniform_child_immunity.xml"),
             "vaccine_link_probability": 1,
         },
         "AGEDEPENDENT_CLUSTERING": {
@@ -157,8 +184,8 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--numRuns", type=int, default=10, help="Number of runs per scenario")
     parser.add_argument("--R0s", type=int, nargs="+", default=[12, 18], help="Values of R0 to test")
-    parser.add_argument("--immunityFileChildren", type=str, default="2020_measles_child_immunity.xml")
-    parser.add_argument("--immunityFileAdults", type=str, default="2020_measles_adult_immunity.xml")
+    parser.add_argument("--immunityFileChildren", type=str, default=os.path.join("data", "2020_measles_child_immunity.xml"))
+    parser.add_argument("--immunityFileAdults", type=str, default=os.path.join("data", "2020_measles_adult_immunity.xml"))
     parser.add_argument("--poolSize", type=str, default=8, help="Number of workers in multiprocessing pool")
 
     args = parser.parse_args()
