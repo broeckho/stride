@@ -1,4 +1,4 @@
 var a00358 =
 [
-    [ "TableStruct", "da/d24/a00068.html", "da/d24/a00068" ]
+    [ "is_proto_enum<::proto::GeoGrid_Location_ContactCenter_Type >", "d7/df7/a00058.html", null ]
 ];

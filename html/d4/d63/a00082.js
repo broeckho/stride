@@ -8,7 +8,7 @@ var a00082 =
     [ "LogShutdown", "d4/d63/a00082.html#aa40b02ef62cb1b4a2db78eb847ffe964", null ],
     [ "LogStartup", "d4/d63/a00082.html#adc021af008df0bf673682b81aa8d0010", null ],
     [ "RegisterViewers", "d4/d63/a00082.html#af0131365a6c658898bf3dd49eead3ed7", null ],
-    [ "m_config_pt", "d4/d63/a00082.html#ae233d4c8a65307b49f65327093bdda59", null ],
+    [ "m_config", "d4/d63/a00082.html#af57444517953ea82349a6783bcbab608", null ],
     [ "m_name", "d4/d63/a00082.html#a84806de1e330126ab6c895924d1296f4", null ],
     [ "m_output_prefix", "d4/d63/a00082.html#a3be4db55fc19e28be55d6f3de9cc4c08", null ],
     [ "m_rn_manager", "d4/d63/a00082.html#a4a77b224b46f5ea8b57d91c410e7da5b", null ],

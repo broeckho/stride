@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: TimeToString.h File Reference</title>
+<title>Stride Reference Manual: TimeStamp.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c21d56d</span>
+   &#160;<span id="projectnumber">- generated for commit 05d4d08</span>
    </div>
   </td>
  </tr>
@@ -106,50 +106,33 @@ $(document).ready(function(){initNavTree('d2/d0a/a00333.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">TimeToString.h File Reference</div>  </div>
+<div class="title">TimeStamp.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities to tag clocks and reformat clock readout to string.  
+<p>TimeStamp class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;iomanip&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;ostream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for TimeToString.h:</div>
+Include dependency graph for TimeStamp.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d31/a00678.gif" border="0" usemap="#TimeToString_8h" alt=""/></div>
-<map name="TimeToString_8h" id="TimeToString_8h">
+<div class="center"><img src="../../d2/d85/a00679.gif" border="0" usemap="#TimeStamp_8h" alt=""/></div>
+<map name="TimeStamp_8h" id="TimeStamp_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d85/a00679.gif" border="0" usemap="#TimeToString_8hdep" alt=""/></div>
-<map name="TimeToString_8hdep" id="TimeToString_8hdep">
-<area shape="rect" id="node2" href="../../d2/d41/a00318.html" title="Definition of Stopwatch. " alt="" coords="607,80,708,107"/>
-<area shape="rect" id="node3" href="../../db/dd9/a00179.html" title="Header for the command line controller. " alt="" coords="331,155,453,181"/>
-<area shape="rect" id="node12" href="../../d0/d39/a00314.html" title="Header for the SimRunner class. " alt="" coords="873,155,975,181"/>
-<area shape="rect" id="node4" href="../../d9/d90/a00178.html" title="Header for the command line controller. " alt="" coords="760,304,896,331"/>
-<area shape="rect" id="node5" href="../../d8/d72/a00199.html" title="Header for the command line controller. " alt="" coords="13,229,158,256"/>
-<area shape="rect" id="node8" href="../../d7/df2/a00312.html" title="Header for the command line controller. " alt="" coords="332,229,452,256"/>
-<area shape="rect" id="node10" href="../../da/de0/a00317.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="183,229,308,256"/>
-<area shape="rect" id="node6" href="../../d7/da0/a00198.html" title="Header for the command line controller. " alt="" coords="5,304,165,331"/>
-<area shape="rect" id="node7" href="../../de/dab/a00319.html" title="Main program: command line handling. " alt="" coords="203,304,288,331"/>
-<area shape="rect" id="node9" href="../../d1/d5d/a00311.html" title="Header for the command line controller. " alt="" coords="511,304,646,331"/>
-<area shape="rect" id="node11" href="../../d3/db8/a00316.html" title="Header for the command line controller. " alt="" coords="325,304,465,331"/>
-<area shape="rect" id="node13" href="../../dd/db3/a00313.html" title="Implementation for SimRunner. " alt="" coords="865,229,983,256"/>
-<area shape="rect" id="node14" href="../../da/d01/a00153.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1006,229,1111,256"/>
-<area shape="rect" id="node15" href="../../d3/d1a/a00251.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1370,229,1531,256"/>
-<area shape="rect" id="node16" href="../../d0/d3e/a00253.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1556,229,1697,256"/>
-<area shape="rect" id="node17" href="../../dc/dc9/a00282.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="629,229,790,256"/>
-<area shape="rect" id="node18" href="../../d8/dfc/a00327.html" title="Observer for Persons output. " alt="" coords="1135,229,1294,256"/>
-<area shape="rect" id="node19" href="../../d8/d23/a00326.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1187,304,1360,331"/>
+<div class="center"><img src="../../d4/d9b/a00680.gif" border="0" usemap="#TimeStamp_8hdep" alt=""/></div>
+<map name="TimeStamp_8hdep" id="TimeStamp_8hdep">
+<area shape="rect" id="node2" href="../../d9/d90/a00178.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../de/dab/a00319.html" title="Main program: command line handling. " alt="" coords="165,80,251,107"/>
+<area shape="rect" id="node4" href="../../dc/d50/a00332.html" title="TimeStamp class. " alt="" coords="275,80,397,107"/>
 </map>
 </div>
 </div>
@@ -157,30 +140,36 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/a00133.html">stride::util::TimeToString</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities to tag clocks and to reformat number of ticks to a string.  <a href="../../d0/de8/a00133.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/deb/a00132.html">stride::util::TimeStamp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides wall-clock time stamp using the time call.  <a href="../../d5/deb/a00132.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/d59/a00364"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d59/a00364.html">stride</a></td></tr>
-<tr class="memdesc:dc/d59/a00364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d2/d3e/a00366"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html">stride</a></td></tr>
+<tr class="memdesc:d2/d3e/a00366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d6/d80/a00371"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d80/a00371.html">stride::util</a></td></tr>
-<tr class="memdesc:d6/d80/a00371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:dc/de3/a00373"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de3/a00373.html">stride::util</a></td></tr>
+<tr class="memdesc:dc/de3/a00373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de3/a00373.html#a93f9f2ea967f7688a4ed4ef10852b566">stride::util::operator&lt;&lt;</a> (std::ostream &amp;os, TimeStamp t)</td></tr>
+<tr class="memdesc:a93f9f2ea967f7688a4ed4ef10852b566"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d5/deb/a00132.html" title="Provides wall-clock time stamp using the time call. ">TimeStamp</a> helper inserts string representation in output stream.  <a href="../../dc/de3/a00373.html#a93f9f2ea967f7688a4ed4ef10852b566">More...</a><br /></td></tr>
+<tr class="separator:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities to tag clocks and reformat clock readout to string. </p>
+<div class="textblock"><p>TimeStamp class. </p>
 
-<p>Definition in file <a class="el" href="../../d2/d0a/a00333_source.html">TimeToString.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d2/d0a/a00333_source.html">TimeStamp.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d2/d0a/a00333.html">TimeToString.h</a></li>
-    <li class="footer">Generated on Thu Feb 28 2019 18:22:33 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d2/d0a/a00333.html">TimeStamp.h</a></li>
+    <li class="footer">Generated on Thu Feb 28 2019 21:14:24 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

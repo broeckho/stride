@@ -12,7 +12,7 @@ var a00105 =
     [ "GetConfigValue", "d3/d32/a00105.html#a1b5ec0fca8e7496868ca067afe83f560", null ],
     [ "GetTransmissionRate", "d3/d32/a00105.html#a484ffc98b4b45673cf1533a0571f38fd", null ],
     [ "SimBuilder", "d3/d32/a00105.html#a9a439036c5f4a413765b48764c0b1741", null ],
-    [ "m_config_pt", "d3/d32/a00105.html#ac0f1837c346b11b4cea734b6769b8d1d", null ],
+    [ "m_config", "d3/d32/a00105.html#a6862a358332922c825f15bd9e770ccf0", null ],
     [ "m_contact_log_mode", "d3/d32/a00105.html#af58f9eda3c97affca6acbfde33bc68c0", null ],
     [ "m_num_threads", "d3/d32/a00105.html#a6ea31f057cd8b04a29439301a786790f", null ],
     [ "m_track_index_case", "d3/d32/a00105.html#a4d51a48a2354c6c138552edbfaf57870", null ],

@@ -8,7 +8,7 @@ var a00108 =
     [ "Run", "d1/dd6/a00108.html#a81720a1766d513eb248cb443d948567f", null ],
     [ "Run", "d1/dd6/a00108.html#a233f76f6af0cef8c5971112b6d2235d0", null ],
     [ "m_clock", "d1/dd6/a00108.html#ae2de72162f806fe5b7008e81854bdc2d", null ],
-    [ "m_config_pt", "d1/dd6/a00108.html#a1c4778adb0be5161932d107c2a84d477", null ],
+    [ "m_config", "d1/dd6/a00108.html#a83447e89523054d043db597e17d4d501", null ],
     [ "m_output_prefix", "d1/dd6/a00108.html#a78babbce6074c1f0d612c67febfb388e", null ],
     [ "m_sim", "d1/dd6/a00108.html#a4ff961d97649b68ef661d38c098baaf0", null ]
 ];

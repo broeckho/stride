@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['radiantodegree',['RadianToDegree',['../db/d10/a00350.html#a938f08fc654e93c04d874a884bbd6862',1,'geoaggregator_detail']]],
+  ['radiantodegree',['RadianToDegree',['../d6/d9c/a00352.html#a938f08fc654e93c04d874a884bbd6862',1,'geoaggregator_detail']]],
   ['radiuspolicy',['RadiusPolicy',['../d4/dca/a00048.html',1,'geopop']]],
   ['radiuspolicy',['RadiusPolicy',['../d4/dca/a00048.html#aa869fa4c0225f7d6a14d35702edae08f',1,'geopop::RadiusPolicy']]],
   ['random',['Random',['../dc/d54/a00094.html#ac187b34c18ec3cd1efccaf8f197766fc',1,'stride::Immunizer']]],
@@ -14,7 +14,7 @@ var searchData=
   ['readerfactory_2eh',['ReaderFactory.h',['../db/d7b/a00296.html',1,'']]],
   ['readfromstream',['ReadFromStream',['../d8/d17/a00114.html#a2f3c33a76164f6cbc6e31aab6f8b560d',1,'stride::util::CSV']]],
   ['readptreefile',['ReadPtreeFile',['../d8/d87/a00118.html#a5d54b4b545adf557c65c238ad2fb7801',1,'stride::util::FileSys::ReadPtreeFile(const filesys::path &amp;f_p)'],['../d8/d87/a00118.html#ad397ab1440ed0fb182ed9afc7ea6fa10',1,'stride::util::FileSys::ReadPtreeFile(const std::string &amp;f_n)']]],
-  ['recovered',['Recovered',['../dc/d59/a00364.html#a738f5251821f53315d2aebf214fbd070a5c4c4cf7bbab0d76fe61420aee14a5ca',1,'stride']]],
+  ['recovered',['Recovered',['../d2/d3e/a00366.html#a738f5251821f53315d2aebf214fbd070a5c4c4cf7bbab0d76fe61420aee14a5ca',1,'stride']]],
   ['refhh',['refHH',['../d3/d52/a00023.html#a9662b39487348642124af214d4c6ca82',1,'geopop::GeoGridConfig']]],
   ['register',['Register',['../d6/db3/a00130.html#acddc520ab930ec98e120790b91fb8021',1,'stride::util::Subject']]],
   ['registerpool',['RegisterPool',['../d2/de7/a00014.html#a9de5bdce36efb88e40be7ebe21fcad11',1,'geopop::ContactCenter']]],
@@ -34,7 +34,7 @@ var searchData=
   ['rn_2eh',['Rn.h',['../d9/d0d/a00298.html',1,'']]],
   ['rnman',['RnMan',['../d7/d12/a00126.html',1,'stride::util']]],
   ['rnman_2eh',['RnMan.h',['../df/d95/a00299.html',1,'']]],
-  ['rnpcg64',['RnPcg64',['../d6/d80/a00371.html#a04e6abe0232303b6b6dc62b903197230',1,'stride::util']]],
+  ['rnpcg64',['RnPcg64',['../dc/de3/a00373.html#a04e6abe0232303b6b6dc62b903197230',1,'stride::util']]],
   ['rntype',['RnType',['../da/d72/a00124.html#a33bdc913e6a82dbdc349484dc76cd6f2',1,'stride::util::Rn']]],
   ['run',['Run',['../d1/d84/a00052.html#a31c9155741791ef543efdbbe5f43f10e',1,'geopop::ThreadException::Run()'],['../d1/dd6/a00108.html#a81720a1766d513eb248cb443d948567f',1,'stride::SimRunner::Run()'],['../d1/dd6/a00108.html#a233f76f6af0cef8c5971112b6d2235d0',1,'stride::SimRunner::Run(unsigned int numSteps)']]],
   ['runconfigmanager',['RunConfigManager',['../df/dcd/a00127.html',1,'stride::util']]],
