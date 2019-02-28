@@ -39,7 +39,7 @@ std::string ConfigInfo::GetHostname()
         return hostname;
 }
 
-unsigned int ProcessorCount() { return PROCCOUNT; }
+unsigned int ConfigInfo::ProcessorCount() { return PROCCOUNT; }
 
 unsigned int ConfigInfo::NumberAvailableThreads()
 {
