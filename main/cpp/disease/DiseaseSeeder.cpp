@@ -28,7 +28,6 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <trng/uniform_int_dist.hpp>
-#include <cassert>
 
 namespace stride {
 

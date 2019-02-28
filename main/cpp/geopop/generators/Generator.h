@@ -15,17 +15,13 @@
 
 #pragma once
 
-//#include "geopop/GeoGrid.h"
-//#include "geopop/GeoGridConfig.h"
-#include "util/ExcAssert.h"
-
 #include <spdlog/logger.h>
 
 namespace stride {
 namespace util {
 class RnMan;
 }
-} // namespace stride
+}
 
 namespace geopop {
 
@@ -50,15 +46,6 @@ public:
 
         /// Virtual destructor for inheritance
         virtual ~Generator() = default;
-
-protected:
-        /// Make sure we're using a valid weight for random numbers.
-        void CheckWeight(const std::string& func, double weight)
-        {
-                ExcAssert(weight >= 0 && weight <= 1 && !std::isnan(weight),
-                          "Invalid weight due to invalid input data in " + func +
-                              ", weight: " + std::to_string(weight));
-        }
 
 protected:
         stride::util::RnMan&            m_rnManager; ///< RnManager used by generators.

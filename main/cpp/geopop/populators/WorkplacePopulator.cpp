@@ -22,8 +22,7 @@
 #include "geopop/Household.h"
 #include "geopop/Location.h"
 #include "geopop/Workplace.h"
-#include "util/ExcAssert.h"
-
+#include "util/Assert.h"
 #include <trng/uniform_int_dist.hpp>
 #include <utility>
 
@@ -153,8 +152,8 @@ void WorkplacePopulator::CalculateCommutingLocations()
                         m_commutingLocations.push_back(commute.first);
                         const auto weight = commute.second - (commute.second * m_fractionCommutingStudents);
                         commutingWeights.push_back(weight);
-                        ExcAssert(weight >= 0 && weight <= 1 && !isnan(weight),
-                                  "Invalid weight due to data in WorkplacePopulator, weight: " + to_string(weight));
+                        AssertThrow(weight >= 0.0 && weight <= 1.0 && !isnan(weight),
+                                    "Invalid weight: " + to_string(weight), m_logger);
                 }
         }
 
