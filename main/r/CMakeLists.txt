@@ -18,13 +18,11 @@
 #================================================================================================
 # Copy the rStride scripts to the bin folder.
 #================================================================================================
-
 # rStride main files
 INSTALL(DIRECTORY
 		   rstride
 	   DESTINATION ${BIN_INSTALL_LOCATION}
-	   )
-
+)
 
 # rStride analysis scripts
 INSTALL( FILES 			
@@ -36,6 +34,6 @@ INSTALL( FILES
             rStride_reactive.R
 	DESTINATION ${BIN_INSTALL_LOCATION}  
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
-	)
+)
 
 #############################################################################
