@@ -109,7 +109,7 @@ set(LIBS ${LIBS} sha1)
 # Boost
 #----------------------------------------------------------------------------
 if (NOT STRIDE_FORCE_NO_BOOST)
-    find_package(Boost COMPONENTS filesystem thread date_time system)
+    find_package(Boost COMPONENTS filesystem date_time)
 endif()
 if (Boost_FOUND)
     include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
