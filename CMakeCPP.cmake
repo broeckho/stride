@@ -94,9 +94,13 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/inc
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 
 #----------------------------------------------------------------------------
-# ProtoBuf (FindThreads required after eliminating boost thread lib)
+# System threads required by protobuf anf gtest
 #----------------------------------------------------------------------------
 find_package(Threads)
+
+#----------------------------------------------------------------------------
+# ProtoBuf
+#----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/gengeopop/io/proto)
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
 
@@ -105,11 +109,6 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/sha1/include)
 set(LIBS ${LIBS} sha1)
-
-#----------------------------------------------------------------------------
-# Required by proto.
-#----------------------------------------------------------------------------
-
 
 #----------------------------------------------------------------------------
 # Boost
@@ -124,8 +123,6 @@ if (Boost_FOUND)
 else()
     include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/boost/include)
     include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/date/include)
-    find_package(Threads)
-    set(LIBS ${LIBS} ${CMAKE_THREAD_LIBS_INIT})
     if(CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?Clang" AND CMAKE_HOST_APPLE)
         set(LIBS ${LIBS} c++fs)
     else()

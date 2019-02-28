@@ -17,7 +17,7 @@
 #============================================================================
 # Sources.
 #============================================================================
-set(GENGEOPOP_LIB
+set(GENGEOPOP_SRC
 #
     College.cpp
     ContactCenter.cpp
@@ -81,22 +81,21 @@ else()
         file(GLOB PROTO_HEADER "../geopop/io/proto/*.pb.h")
         file(GLOB PROTO_SRC "../geopop/io/proto/*.pb.cc")
 endif()
-add_library(libproto ${PROTO_HEADER} ${PROTO_SRC})
-target_link_libraries(libproto libprotobuf_insrc)
 
-set_target_properties(libproto PROPERTIES COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
-set_property(TARGET libproto PROPERTY POSITION_INDEPENDENT_CODE ON)
+set_property(SOURCE ${PROTO_HEADER} ${PROTO_SRC}
+    PROPERTY
+        COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
 
 #============================================================================
 # Build the GenGeoPop library.
 #============================================================================
-add_library(libgengeopop ${GENGEOPOP_LIB})
-target_link_libraries(libgengeopop ${LIBS} libprotobuf_insrc libproto libstride)
+add_library(libgengeopop ${GENGEOPOP_SRC} ${PROTO_HEADER} ${PROTO_SRC})
+target_link_libraries(libgengeopop PRIVATE libprotobuf_insrc)
 set_property(TARGET libgengeopop PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 #============================================================================
 # Clean up.
 #============================================================================
-unset(GENGEOPOP_LIB)
+unset(GENGEOPOP_SRC)
 
 #############################################################################
