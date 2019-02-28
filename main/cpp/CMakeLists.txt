@@ -162,11 +162,12 @@ set_target_properties(libstride
 include(CheckIPOSupported)
 
 # For future use: inter procedural optimization
-check_ipo_supported(RESULT ipo_result)
-if(ipo_result)
-    set_target_properties(libstride PROPERTIES INTERPROCEDURAL_OPTIMIZATION TRUE)
-endif()
-message( STATUS "CheckIPOSupported: ${ipo_result}" )
+# Disabled for now because of issues with gcc 8.1.0 on travis.
+#check_ipo_supported(RESULT ipo_result)
+#if(ipo_result)
+#    set_target_properties(libstride PROPERTIES INTERPROCEDURAL_OPTIMIZATION TRUE)
+#endif()
+#message( STATUS "CheckIPOSupported: ${ipo_result}" )
 
 #============================================================================
 # Build the stride binary.
