@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CollegeGenerator.cpp File Reference</title>
+<title>Stride Reference Manual: College.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c056bcb</span>
+   &#160;<span id="projectnumber">- generated for commit 45c0205</span>
    </div>
   </td>
  </tr>
@@ -105,53 +105,45 @@ $(document).ready(function(){initNavTree('d2/d34/a00156.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CollegeGenerator.cpp File Reference</div>  </div>
+<div class="title">College.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d1/db7/a00157_source.html">CollegeGenerator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/df8/a00155_source.html">geopop/College.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../db/d53/a00202_source.html">geopop/GeoGrid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/dd2/a00207_source.html">geopop/GeoGridConfig.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/dd6/a00272_source.html">geopop/Location.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../df/d95/a00299_source.html">util/RnMan.h</a>&quot;</code><br />
-<code>#include &lt;trng/discrete_dist.hpp&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/d53/a00169_source.html">geopop/ContactCenter.h</a>&quot;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CollegeGenerator.cpp:</div>
+Include dependency graph for College.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/de8/a00405.gif" border="0" usemap="#CollegeGenerator_8cpp" alt=""/></div>
-<map name="CollegeGenerator_8cpp" id="CollegeGenerator_8cpp">
-<area shape="rect" id="node2" href="../../d1/db7/a00157.html" title="CollegeGenerator.h" alt="" coords="113,80,258,107"/>
-<area shape="rect" id="node7" href="../../d3/df8/a00155.html" title="geopop/College.h" alt="" coords="515,237,648,263"/>
-<area shape="rect" id="node15" href="../../db/d53/a00202.html" title="geopop/GeoGrid.h" alt="" coords="692,80,831,107"/>
-<area shape="rect" id="node42" href="../../de/dd2/a00207.html" title="geopop/GeoGridConfig.h" alt="" coords="1460,155,1639,181"/>
-<area shape="rect" id="node44" href="../../d9/dd6/a00272.html" title="geopop/Location.h" alt="" coords="471,319,611,345"/>
-<area shape="rect" id="node47" href="../../df/d95/a00299.html" title="Interface of RnMan. " alt="" coords="321,80,421,107"/>
-<area shape="rect" id="node3" href="../../de/db1/a00197.html" title="Generator.h" alt="" coords="105,155,204,181"/>
-<area shape="rect" id="node4" href="../../dd/df4/a00193.html" title="util/ExcAssert.h" alt="" coords="5,319,125,345"/>
-<area shape="rect" id="node8" href="../../dd/da7/a00168.html" title="geopop/ContactCenter.h" alt="" coords="824,319,1003,345"/>
-<area shape="rect" id="node9" href="../../d5/de9/a00176.html" title="Definition of ContactPoolType. " alt="" coords="1526,475,1690,502"/>
-<area shape="rect" id="node16" href="../../d7/d3f/a00173.html" title="Header for the core ContactPool class. " alt="" coords="1351,393,1513,420"/>
-<area shape="rect" id="node19" href="../../d3/dd5/a00215.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="824,237,1032,263"/>
-<area shape="rect" id="node26" href="../../d3/d58/a00285.html" title="Header file for the core Population class. " alt="" coords="1306,155,1435,181"/>
-<area shape="rect" id="node17" href="../../d1/d0d/a00171.html" title="Header for the ContactLogMode class. " alt="" coords="1076,475,1271,502"/>
-<area shape="rect" id="node20" href="../../d1/dd4/a00267.html" title="KdTree.h" alt="" coords="1281,319,1357,345"/>
-<area shape="rect" id="node22" href="../../d5/d42/a00269.html" title="KdTree2DPoint.h" alt="" coords="1027,319,1154,345"/>
-<area shape="rect" id="node23" href="../../db/dd9/a00179.html" title="geopop/Coordinate.h" alt="" coords="774,393,930,420"/>
-<area shape="rect" id="node27" href="../../d8/df1/a00174.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1579,237,1765,263"/>
-<area shape="rect" id="node31" href="../../d1/de3/a00306.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1987,319,2159,345"/>
-<area shape="rect" id="node36" href="../../d2/d82/a00279.html" title="Header file for the Person class. " alt="" coords="1789,237,1896,263"/>
-<area shape="rect" id="node28" href="../../d6/d08/a00244.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1589,319,1726,345"/>
-<area shape="rect" id="node32" href="../../dd/dbb/a00330.html" title="Interface/Implementation for SVIterator. " alt="" coords="2292,393,2391,420"/>
-<area shape="rect" id="node37" href="../../d1/da8/a00230.html" title="Header for the Health class. " alt="" coords="1750,319,1879,345"/>
-<area shape="rect" id="node48" href="../../d9/d0d/a00298.html" title="Interface of RnPcg. " alt="" coords="227,393,277,420"/>
-<area shape="rect" id="node49" href="../../dd/de2/a00320.html" title="Miscellaneous string utilities. " alt="" coords="285,475,385,502"/>
+<div class="center"><img src="../../de/de8/a00405.gif" border="0" usemap="#College_8h" alt=""/></div>
+<map name="College_8h" id="College_8h">
+<area shape="rect" id="node2" href="../../de/d53/a00169.html" title="geopop/ContactCenter.h" alt="" coords="94,80,273,107"/>
+<area shape="rect" id="node3" href="../../dd/d4c/a00177.html" title="Definition of ContactPoolType. " alt="" coords="175,155,339,181"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d8b/a00406.gif" border="0" usemap="#College_8hdep" alt=""/></div>
+<map name="College_8hdep" id="College_8hdep">
+<area shape="rect" id="node2" href="../../d3/df8/a00155.html" title="College.cpp" alt="" coords="5,80,101,107"/>
+<area shape="rect" id="node3" href="../../d1/db7/a00157.html" title="CollegeGenerator.cpp" alt="" coords="125,80,285,107"/>
+<area shape="rect" id="node4" href="../../da/de7/a00210.html" title="GeoGridJSONReader.cpp" alt="" coords="309,80,485,107"/>
+<area shape="rect" id="node5" href="../../d6/d43/a00216.html" title="GeoGridProtoReader.cpp" alt="" coords="509,80,688,107"/>
+<area shape="rect" id="node6" href="../../de/db9/a00159.html" title="CollegePopulator.cpp" alt="" coords="713,80,869,107"/>
+<area shape="rect" id="node7" href="../../d5/d7b/a00286.html" title="Populator.cpp" alt="" coords="893,80,1003,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d2/d34/a00156_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html">geopop::College</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Models a <a class="el" href="../../d4/dee/a00008.html" title="Models a College (institution of higher education). ">College</a> (institution of higher education).  <a href="../../d4/dee/a00008.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:d0/d48/a00351"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d48/a00351.html">geopop</a></td></tr>
@@ -163,8 +155,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_02b8471d88aea77fae7c19982808da05.html">generators</a></li><li class="navelem"><a class="el" href="../../d2/d34/a00156.html">CollegeGenerator.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 27 2019 15:10:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../d2/d34/a00156.html">College.h</a></li>
+    <li class="footer">Generated on Thu Feb 28 2019 12:37:23 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

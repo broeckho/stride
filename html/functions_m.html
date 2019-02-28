@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c056bcb</span>
+   &#160;<span id="projectnumber">- generated for commit 45c0205</span>
    </div>
   </td>
  </tr>
@@ -260,18 +260,6 @@ $(document).ready(function(){initNavTree('functions_m.html','');});
 <li>m_distNonCommuting
 : <a class="el" href="d1/d22/a00057.html#a8a467c7eb9a8c5d999bcb57828b00186">geopop::WorkplacePopulator</a>
 </li>
-<li>m_distrib_start_symptomatic
-: <a class="el" href="d4/d7d/a00093.html#a09f22ca66e79edf806a249517ec6ac35">stride::HealthSeeder</a>
-</li>
-<li>m_distrib_time_asymptomatic
-: <a class="el" href="d4/d7d/a00093.html#a7f7a12751437479ca8b4188151a5481a">stride::HealthSeeder</a>
-</li>
-<li>m_distrib_time_infectious
-: <a class="el" href="d4/d7d/a00093.html#a520743c093005b7ccda658475107f0c2">stride::HealthSeeder</a>
-</li>
-<li>m_distrib_time_symptomatic
-: <a class="el" href="d4/d7d/a00093.html#a6d190e53a3a83864d7a40cb78b2188e4">stride::HealthSeeder</a>
-</li>
 <li>m_end_infectiousness
 : <a class="el" href="d1/dc1/a00092.html#af68b0d0713728f5981e4830eb9f0ad4a">stride::Health</a>
 </li>
@@ -403,6 +391,9 @@ $(document).ready(function(){initNavTree('functions_m.html','');});
 </li>
 <li>m_min
 : <a class="el" href="db/d57/a00112.html#a7087ab4e72c5c9a6606d76996bfac882">stride::util::BoxPlotData&lt; T &gt;</a>
+</li>
+<li>m_msg
+: <a class="el" href="d9/d4b/a00117.html#a5f5e43370eb477d14fe94f0e1b452629">stride::util::Exception</a>
 </li>
 <li>m_name
 : <a class="el" href="d6/d42/a00043.html#ad7466c729b9e64162cc6d350f6f91466">geopop::Location</a>
@@ -558,6 +549,7 @@ $(document).ready(function(){initNavTree('functions_m.html','');});
 </li>
 <li>m_start_symptomatic
 : <a class="el" href="d1/dc1/a00092.html#a7be1828a7863a4f1e89a3181770fd759">stride::Health</a>
+, <a class="el" href="d4/d7d/a00093.html#a4521a7113e70e8e8243da7180d5b1d5e">stride::HealthSeeder</a>
 </li>
 <li>m_state
 : <a class="el" href="dc/dfe/a00125.html#a490ea3a4ab4d9ed306da0e001e862d22">stride::util::Rn&lt; E &gt;::Info</a>
@@ -581,6 +573,15 @@ $(document).ready(function(){initNavTree('functions_m.html','');});
 </li>
 <li>m_tests_dir
 : <a class="el" href="df/d6a/a00119.html#af6ef341a4ac535712e7bfc34dab632e6">stride::util::FileSys::Dirs</a>
+</li>
+<li>m_time_asymptomatic
+: <a class="el" href="d4/d7d/a00093.html#ab33626e940aee2fe1e6e4c22875f6af1">stride::HealthSeeder</a>
+</li>
+<li>m_time_infectious
+: <a class="el" href="d4/d7d/a00093.html#a40f8e0eb1bc5b7eabb6ec85ec5f210e1">stride::HealthSeeder</a>
+</li>
+<li>m_time_symptomatic
+: <a class="el" href="d4/d7d/a00093.html#aa2dea61097996a03e8c5d113dd81696c">stride::HealthSeeder</a>
 </li>
 <li>m_total
 : <a class="el" href="db/d57/a00112.html#a777b86b3f8efb046dc4de8830c720e45">stride::util::BoxPlotData&lt; T &gt;</a>
@@ -640,7 +641,7 @@ $(document).ready(function(){initNavTree('functions_m.html','');});
 , <a class="el" href="df/d03/a00062.html#a6e21b8e328ccf8dbe5cebf642ffdbfed">proto::GeoGrid_Location</a>
 , <a class="el" href="d1/d6f/a00063.html#ade383248f37f7748bc532cfcc23cd3c1">proto::GeoGrid_Location_Commute</a>
 , <a class="el" href="df/d5f/a00064.html#a9b659f300283317a446f03274960a07f">proto::GeoGrid_Location_ContactCenter</a>
-, <a class="el" href="de/de1/a00065.html#ae27c40c8f9bb1e8485d5d718921203df">proto::GeoGrid_Location_ContactCenter_ContactPool</a>
+, <a class="el" href="de/de1/a00065.html#a25d9a63cc20ee8128468c699e6f6a9ad">proto::GeoGrid_Location_ContactCenter_ContactPool</a>
 , <a class="el" href="d9/db3/a00066.html#a53917a3b9ed924a26415dd445896a152">proto::GeoGrid_Location_Coordinate</a>
 , <a class="el" href="dc/ddf/a00067.html#a384142d262ab46c3daf727f18e16204a">proto::GeoGrid_Person</a>
 </li>
@@ -675,10 +676,10 @@ $(document).ready(function(){initNavTree('functions_m.html','');});
 : <a class="el" href="de/de1/a00065.html#a5ad14b47056157caf26375d855510019">proto::GeoGrid_Location_ContactCenter_ContactPool</a>
 </li>
 <li>mutable_persons()
-: <a class="el" href="d4/de8/a00061.html#a9dad9d30efd49e95ea9f5eb1a7da85d9">proto::GeoGrid</a>
+: <a class="el" href="d4/de8/a00061.html#a6fad890daf2aa7bf4ebf6b6cbb3a9ac4">proto::GeoGrid</a>
 </li>
 <li>mutable_pools()
-: <a class="el" href="df/d5f/a00064.html#add0bb5b7943e7885e81151edcd06987b">proto::GeoGrid_Location_ContactCenter</a>
+: <a class="el" href="df/d5f/a00064.html#a6fe01c08c23e9fa0b37db1c1cd061bb7">proto::GeoGrid_Location_ContactCenter</a>
 </li>
 <li>mutable_unknown_fields()
 : <a class="el" href="d4/de8/a00061.html#a4c697b72f2ff8ed9b6ad9d1dee86f30e">proto::GeoGrid</a>
@@ -695,7 +696,7 @@ $(document).ready(function(){initNavTree('functions_m.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 27 2019 15:10:09 for Stride Reference Manual by
+    <li class="footer">Generated on Thu Feb 28 2019 12:37:25 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

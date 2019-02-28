@@ -98,9 +98,7 @@ var hierarchy =
       [ "stride::ContactType::IdSubscriptArray< bool >", "d8/d53/a00081.html", null ]
     ] ],
     [ "std::exception", null, [
-      [ "std::runtime_error", null, [
-        [ "stride::util::Exception", "d9/d4b/a00117.html", null ]
-      ] ]
+      [ "stride::util::Exception", "d9/d4b/a00117.html", null ]
     ] ],
     [ "false_type", null, [
       [ "stride::util::is_iterator< T, class >", "d8/dfa/a00121.html", null ]
@@ -192,6 +190,6 @@ var hierarchy =
     [ "const void", "df/dbb/a00698.html", null ],
     [ "double", "d4/d13/a00377.html", null ],
     [ "random_generator< E, randutils::seed_seq_fe128 >", "dd/d57/a00701.html", null ],
-    [ "size_t", "de/d84/a00447.html", null ],
+    [ "size_t", "d9/d10/a00449.html", null ],
     [ "tuple< stride::ContactLogMode::Id, bool >", "d4/d6a/a00704.html", null ]
 ];

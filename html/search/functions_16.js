@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['what',['what',['../d9/d4b/a00117.html#ad933b798ce411d1acfe2ff86f178f219',1,'stride::util::Exception']]],
   ['workplace',['Workplace',['../d4/d6d/a00055.html#a5426be9264b6cb5f80db11d208fc07e7',1,'geopop::Workplace']]],
   ['workplacepopulator',['WorkplacePopulator',['../d1/d22/a00057.html#aaf227b7b6aaafb46db6074c0eedba58a',1,'geopop::WorkplacePopulator']]],
   ['write',['Write',['../d6/d5b/a00026.html#af984bb77723e4b49a57a44eafb28e570',1,'geopop::GeoGridJSONWriter::Write()'],['../dc/d3c/a00028.html#a6f709a9e0724d34905806b0ae13688f0',1,'geopop::GeoGridProtoWriter::Write()'],['../df/d61/a00031.html#af7342f0a2876a0bfeb2668c69c52897c',1,'geopop::GeoGridWriter::Write()'],['../d8/d17/a00114.html#a37f3333bbf84b5babbdd63811ed773c1',1,'stride::util::CSV::Write()']]],

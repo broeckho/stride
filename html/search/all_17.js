@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['what',['what',['../d9/d4b/a00117.html#ad933b798ce411d1acfe2ff86f178f219',1,'stride::util::Exception']]],
   ['workplace',['Workplace',['../d4/d6d/a00055.html',1,'geopop']]],
   ['workplace',['Workplace',['../d9/da5/a00075.html',1,'stride::AgeBrackets']]],
   ['workplace',['Workplace',['../df/d5f/a00064.html#adba138a3a614713524869a3d761cfdaa',1,'proto::GeoGrid_Location_ContactCenter::Workplace()'],['../d4/d6d/a00055.html#a5426be9264b6cb5f80db11d208fc07e7',1,'geopop::Workplace::Workplace()'],['../df/dc2/a00367.html#a4e4309e1cddddec8f12b981ab3fbc4fba45c6a290fcb4fad167ee4b610eeea878',1,'stride::ContactType::Workplace()']]],

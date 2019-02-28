@@ -7,6 +7,7 @@ var searchData=
   ['_7econtactcenter',['~ContactCenter',['../d2/de7/a00014.html#a7cf008ffb539c3f3e2883031a29e5c6d',1,'geopop::ContactCenter']]],
   ['_7econtactpool',['~ContactPool',['../d1/d51/a00079.html#adee0ae5ebfa3ec1ccd684b2a4e16542c',1,'stride::ContactPool']]],
   ['_7edaysoffinterface',['~DaysOffInterface',['../df/d5d/a00084.html#afec638f8fcc3e653e389f47bd30d63e1',1,'stride::DaysOffInterface']]],
+  ['_7eexception',['~Exception',['../d9/d4b/a00117.html#a1c14e1f62d8cf7c69a4c6c08ec296a83',1,'stride::util::Exception']]],
   ['_7egenerator',['~Generator',['../dd/d1b/a00015.html#abf1362cb66b511c7c7fba7feb4fc70f1',1,'geopop::Generator']]],
   ['_7egeogrid',['~GeoGrid',['../d4/de8/a00061.html#ae33322ada2b25c723eb29ce985c62694',1,'proto::GeoGrid']]],
   ['_7egeogrid_5flocation',['~GeoGrid_Location',['../df/d03/a00062.html#a5ef9e62896feceea1467d67e8c09ba27',1,'proto::GeoGrid_Location']]],

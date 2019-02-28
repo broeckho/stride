@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CommutesCSVReader.cpp File Reference</title>
+<title>Stride Reference Manual: CommunityGenerator.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c056bcb</span>
+   &#160;<span id="projectnumber">- generated for commit 45c0205</span>
    </div>
   </td>
  </tr>
@@ -105,48 +105,39 @@ $(document).ready(function(){initNavTree('db/d44/a00162.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CommutesCSVReader.cpp File Reference</div>  </div>
+<div class="title">CommunityGenerator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/dae/a00163_source.html">CommutesCSVReader.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../db/d53/a00202_source.html">geopop/GeoGrid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/dd6/a00272_source.html">geopop/Location.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/d64/a00181_source.html">util/CSV.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dc/d57/a00194_source.html">util/Exception.h</a>&quot;</code><br />
-<code>#include &lt;map&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/db1/a00197_source.html">Generator.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CommutesCSVReader.cpp:</div>
+Include dependency graph for CommunityGenerator.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/dbc/a00414.gif" border="0" usemap="#CommutesCSVReader_8cpp" alt=""/></div>
-<map name="CommutesCSVReader_8cpp" id="CommutesCSVReader_8cpp">
-<area shape="rect" id="node2" href="../../dd/dae/a00163.html" title="CommutesCSVReader.h" alt="" coords="186,155,360,181"/>
-<area shape="rect" id="node6" href="../../db/d53/a00202.html" title="geopop/GeoGrid.h" alt="" coords="621,80,760,107"/>
-<area shape="rect" id="node33" href="../../d9/dd6/a00272.html" title="geopop/Location.h" alt="" coords="1099,237,1239,263"/>
-<area shape="rect" id="node36" href="../../d8/d64/a00181.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2081,237,2164,263"/>
-<area shape="rect" id="node49" href="../../dc/d57/a00194.html" title="util/Exception.h" alt="" coords="1458,80,1576,107"/>
-<area shape="rect" id="node3" href="../../db/ddf/a00164.html" title="CommutesReader.h" alt="" coords="79,237,227,263"/>
-<area shape="rect" id="node7" href="../../d7/d3f/a00173.html" title="Header for the core ContactPool class. " alt="" coords="1137,319,1300,345"/>
-<area shape="rect" id="node16" href="../../d3/dd5/a00215.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="385,155,593,181"/>
-<area shape="rect" id="node23" href="../../d3/d58/a00285.html" title="Header file for the core Population class. " alt="" coords="775,155,904,181"/>
-<area shape="rect" id="node8" href="../../d5/de9/a00176.html" title="Definition of ContactPoolType. " alt="" coords="1046,401,1158,427"/>
-<area shape="rect" id="node14" href="../../d1/d0d/a00171.html" title="Header for the ContactLogMode class. " alt="" coords="1262,401,1457,427"/>
-<area shape="rect" id="node17" href="../../d1/dd4/a00267.html" title="KdTree.h" alt="" coords="251,237,327,263"/>
-<area shape="rect" id="node19" href="../../d5/d42/a00269.html" title="KdTree2DPoint.h" alt="" coords="415,237,542,263"/>
-<area shape="rect" id="node18" href="../../de/d14/a00139.html" title="AABBox.h" alt="" coords="240,319,325,345"/>
-<area shape="rect" id="node20" href="../../db/dd9/a00179.html" title="geopop/Coordinate.h" alt="" coords="450,319,606,345"/>
-<area shape="rect" id="node24" href="../../d8/df1/a00174.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1353,237,1540,263"/>
-<area shape="rect" id="node25" href="../../d1/de3/a00306.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1575,319,1747,345"/>
-<area shape="rect" id="node28" href="../../d2/d82/a00279.html" title="Header file for the Person class. " alt="" coords="846,319,953,345"/>
-<area shape="rect" id="node37" href="../../dc/d52/a00183.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2294,319,2378,345"/>
-<area shape="rect" id="node38" href="../../dd/de2/a00320.html" title="Miscellaneous string utilities. " alt="" coords="2398,401,2521,427"/>
-<area shape="rect" id="node46" href="../../d0/d2f/a00259.html" title="Interface/Implementation of is_iterator. " alt="" coords="1840,319,1960,345"/>
+<div class="center"><img src="../../d4/dbc/a00414.gif" border="0" usemap="#CommunityGenerator_8h" alt=""/></div>
+<map name="CommunityGenerator_8h" id="CommunityGenerator_8h">
+<area shape="rect" id="node2" href="../../de/db1/a00197.html" title="Generator.h" alt="" coords="42,80,141,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/dd6/a00415.gif" border="0" usemap="#CommunityGenerator_8hdep" alt=""/></div>
+<map name="CommunityGenerator_8hdep" id="CommunityGenerator_8hdep">
+<area shape="rect" id="node2" href="../../d6/d7d/a00161.html" title="CommunityGenerator.cpp" alt="" coords="5,80,192,107"/>
+<area shape="rect" id="node3" href="../../d1/d72/a00204.html" title="GeoGridBuilder.cpp" alt="" coords="216,80,360,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../db/d44/a00162_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html">geopop::CommunityGenerator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dd/d1b/a00015.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid...">Generator</a> for Community contact pools.  <a href="../../da/d45/a00011.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:d0/d48/a00351"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d48/a00351.html">geopop</a></td></tr>
@@ -158,8 +149,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../db/d44/a00162.html">CommutesCSVReader.cpp</a></li>
-    <li class="footer">Generated on Wed Feb 27 2019 15:10:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_02b8471d88aea77fae7c19982808da05.html">generators</a></li><li class="navelem"><a class="el" href="../../db/d44/a00162.html">CommunityGenerator.h</a></li>
+    <li class="footer">Generated on Thu Feb 28 2019 12:37:23 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
