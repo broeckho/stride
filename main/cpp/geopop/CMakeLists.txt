@@ -15,6 +15,29 @@
 #############################################################################
 
 #============================================================================
+# Protocol Buffers.
+#============================================================================
+if(STRIDE_GEN_PROTO)
+    include(FindProtobuf)
+    find_package(Protobuf)
+    if(${PROTOBUF_FOUND} AND NOT ${PROTOBUF_PROTOC_EXECUTABLE} STREQUAL "Protobuf_PROTOC_EXECUTABLE-NOTFOUND")
+        file(GLOB proto_source "../geopop/io/proto/*.proto")
+        protobuf_generate_cpp(PROTO_SRC PROTO_HEADER ${proto_source})
+        add_custom_target(proto
+            COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_HEADER} io/proto
+            COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_SRC} io/proto
+            )
+    endif()
+else()
+    file(GLOB PROTO_HEADER "../geopop/io/proto/*.pb.h")
+    file(GLOB PROTO_SRC "../geopop/io/proto/*.pb.cc")
+endif()
+
+set_property(SOURCE ${PROTO_HEADER} ${PROTO_SRC}
+    PROPERTY
+    COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
+
+#============================================================================
 # Sources.
 #============================================================================
 set(GENGEOPOP_SRC
@@ -61,41 +84,11 @@ set(GENGEOPOP_SRC
     io/GeoGridWriterFactory.cpp
     io/HouseholdCSVReader.cpp
     io/ReaderFactory.cpp
+#
+    ${PROTO_HEADER}
+    ${PROTO_SRC}
 )
 
-#============================================================================
-# Protocol Buffers.
-#============================================================================
-if(STRIDE_GEN_PROTO)
-        include(FindProtobuf)
-        find_package(Protobuf)
-        if(${PROTOBUF_FOUND} AND NOT ${PROTOBUF_PROTOC_EXECUTABLE} STREQUAL "Protobuf_PROTOC_EXECUTABLE-NOTFOUND")
-            file(GLOB proto_source "../geopop/io/proto/*.proto")
-            protobuf_generate_cpp(PROTO_SRC PROTO_HEADER ${proto_source})
-            add_custom_target(proto
-                COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_HEADER} io/proto
-                COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_SRC} io/proto
-            )
-        endif()
-else()
-        file(GLOB PROTO_HEADER "../geopop/io/proto/*.pb.h")
-        file(GLOB PROTO_SRC "../geopop/io/proto/*.pb.cc")
-endif()
-
-set_property(SOURCE ${PROTO_HEADER} ${PROTO_SRC}
-    PROPERTY
-        COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
-
-#============================================================================
-# Build the GenGeoPop library.
-#============================================================================
-add_library(libgengeopop ${GENGEOPOP_SRC} ${PROTO_HEADER} ${PROTO_SRC})
-target_link_libraries(libgengeopop PRIVATE libprotobuf_insrc)
-set_property(TARGET libgengeopop PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-#============================================================================
-# Clean up.
-#============================================================================
-unset(GENGEOPOP_SRC)
+message(STATUS "HAHAHAHA ${GENGEOPOP_SRC}")
 
 #############################################################################
