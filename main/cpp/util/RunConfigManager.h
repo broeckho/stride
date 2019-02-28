@@ -24,6 +24,7 @@
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <string>
+#include <vector>
 
 namespace stride {
 namespace util {
@@ -37,7 +38,7 @@ public:
         /// Clean (i.e. indent, sort and produde the sha1) the ptree config file.
         static void CleanConfigFile(boost::property_tree::ptree pt);
 
-        ///
+        /// Produce property tree for config with given name.
         static boost::property_tree::ptree Create(const std::string& configName);
 
         /// Set of threadcounts to use for tests based an nomber of available OpenMP threads.

@@ -29,7 +29,6 @@
 #include <sha1.h>
 #include <sstream>
 #include <string>
-#include <vector>
 
 using namespace boost::property_tree;
 using namespace boost::property_tree::xml_parser;

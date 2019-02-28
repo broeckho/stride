@@ -21,6 +21,7 @@
 #pragma once
 
 #include "BenchmarkRunner.h"
+
 #include <regex>
 #include <string>
 #include <vector>

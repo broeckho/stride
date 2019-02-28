@@ -147,9 +147,9 @@ set(STRIDE_SRC
 # MACROS to inject in ConfigInfo.cpp
 #============================================================================
 set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
-    COMPILE_DEFINITIONS "STRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
+    COMPILE_FLAGS "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
-    COMPILE_DEFINITIONS "PROCCOUNT=${PROCCOUNT}")
+    COMPILE_FLAGS "-DPROCCOUNT=${PROCCOUNT}")
 
 #============================================================================
 # Build the Stride library.

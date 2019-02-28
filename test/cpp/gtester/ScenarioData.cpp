@@ -21,6 +21,7 @@
 #include "ScenarioData.h"
 #include "util/RunConfigManager.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <map>
 
 using namespace std;
