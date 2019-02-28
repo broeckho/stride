@@ -35,8 +35,8 @@ class Generator
 {
 public:
         /// Constructor with random number manager and logger.
-        explicit Generator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger)
-            : m_rnManager(rn_manager), m_logger(std::move(logger))
+        explicit Generator(stride::util::RnMan& rnManager, std::shared_ptr<spdlog::logger> logger)
+            : m_rnManager(rnManager), m_logger(std::move(logger))
         {
         }
 

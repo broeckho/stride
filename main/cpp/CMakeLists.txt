@@ -133,6 +133,7 @@ set(STRIDE_SRC
     util/ConfigInfo.cpp
     util/FileSys.cpp
     util/RunConfigManager.cpp
+    util/TimeToString.cpp
     #---
     viewers/InfectedFileViewer.cpp
     viewers/InfectedViewer.cpp

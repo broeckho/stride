@@ -65,7 +65,7 @@ void GenPopController::Control()
         // Set up the GenPopBuilder and build population with GeoGrid.
         // --------------------------------------------------------------
         m_stride_logger->info("GenPopBuilder invoked.");
-        GeoPopBuilder geoPopBuilder(m_config_pt, m_rn_manager, m_stride_logger);
+        GeoPopBuilder geoPopBuilder(m_config, m_rn_manager, m_stride_logger);
         const auto    pop = Population::Create();
 
         geoPopBuilder.Build(pop);
@@ -74,8 +74,8 @@ void GenPopController::Control()
         // --------------------------------------------------------------
         // Write to file.
         // --------------------------------------------------------------
-        const auto prefix      = m_config_pt.get<string>("run.output_prefix");
-        const auto popFileName = m_config_pt.get<string>("run.population_file", "gengeopop.proto");
+        const auto prefix      = m_config.get<string>("run.output_prefix");
+        const auto popFileName = m_config.get<string>("run.population_file", "gengeopop.proto");
         const auto popFilePath = FileSys::BuildPath(prefix, popFileName);
         m_stride_logger->info("Writing to population file {}.", popFilePath.string());
 

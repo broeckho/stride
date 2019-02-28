@@ -22,6 +22,7 @@
 #include "util/ConfigInfo.h"
 #include "util/FileSys.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <initializer_list>
 #include <map>

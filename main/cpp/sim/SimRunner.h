@@ -57,7 +57,7 @@ public:
         const util::Stopwatch<>& GetClock() const { return m_clock; }
 
         /// Return the run & sim configuration.
-        const boost::property_tree::ptree& GetConfig() const { return m_config_pt; }
+        const boost::property_tree::ptree& GetConfig() const { return m_config; }
 
         /// Return the Simulator.
         std::shared_ptr<Sim> GetSim() const { return m_sim; }
@@ -70,7 +70,7 @@ public:
 
 private:
         util::Stopwatch<>           m_clock;         ///< Stopwatch for timing the computation.
-        boost::property_tree::ptree m_config_pt;     ///< Ptree with configuration.
+        boost::property_tree::ptree m_config;        ///< Ptree with configuration.
         std::string                 m_output_prefix; ///< Prefix for output data files.
         std::shared_ptr<Sim>        m_sim;           ///< Simulator object.
 };

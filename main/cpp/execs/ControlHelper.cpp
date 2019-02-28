@@ -41,7 +41,7 @@ using namespace boost::property_tree::xml_parser;
 namespace stride {
 
 ControlHelper::ControlHelper()
-    : m_config_pt(), m_name(), m_output_prefix(), m_rn_manager(), m_run_clock("run"), m_stride_logger(nullptr),
+    : m_config(), m_name(), m_output_prefix(), m_rn_manager(), m_run_clock("run"), m_stride_logger(nullptr),
       m_use_install_dirs()
 
 {
@@ -50,13 +50,13 @@ ControlHelper::ControlHelper()
 ControlHelper::ControlHelper(string name, const ptree& configPt) : ControlHelper()
 {
         m_run_clock.Start();
-        m_config_pt        = configPt;
+        m_config        = configPt;
         m_name             = std::move(name);
-        m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
-        m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
+        m_output_prefix    = m_config.get<string>("run.output_prefix");
+        m_use_install_dirs = m_config.get<bool>("run.use_install_dirs");
 
-        m_rn_manager.Initialize(RnMan::Info{m_config_pt.get<string>("pop.rng_seed", "1,2,3,4"), "",
-                                            m_config_pt.get<unsigned int>("run.num_threads")});
+        m_rn_manager.Initialize(RnMan::Info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
+                                            m_config.get<unsigned int>("run.num_threads")});
 }
 
 void ControlHelper::CheckEnv()
@@ -80,7 +80,7 @@ void ControlHelper::InstallLogger()
 {
         // spd log levels are: trace, debug, info, warn, error, critical, off
         const auto path     = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
-        const auto logLevel = m_config_pt.get<string>("run.stride_log_level");
+        const auto logLevel = m_config.get<string>("run.stride_log_level");
         m_stride_logger     = LogUtils::CreateCliLogger("stride_logger", path.string());
         m_stride_logger->set_level(spdlog::level::from_str(logLevel));
         m_stride_logger->flush_on(spdlog::level::err);
@@ -109,7 +109,7 @@ void ControlHelper::LogStartup()
                 m_stride_logger->info("Max number OpenMP threads in this environment: {}",
                                       ConfigInfo::NumberAvailableThreads());
                 m_stride_logger->info("Configured number of threads: {}",
-                                      m_config_pt.get<unsigned int>("run.num_threads"));
+                                      m_config.get<unsigned int>("run.num_threads"));
         } else {
                 m_stride_logger->info("Not using OpenMP threads.");
         }
@@ -123,21 +123,21 @@ void ControlHelper::RegisterViewers(shared_ptr<SimRunner> runner)
         runner->Register(cli_v, bind(&viewers::CliViewer::Update, cli_v, placeholders::_1));
 
         // Infection counts viewer
-        if (m_config_pt.get<bool>("run.output_cases", false)) {
+        if (m_config.get<bool>("run.output_cases", false)) {
                 m_stride_logger->info("Registering InfectedFileViewer");
                 const auto v = make_shared<viewers::InfectedFileViewer>(runner, m_output_prefix);
                 runner->Register(v, bind(&viewers::InfectedFileViewer::Update, v, placeholders::_1));
         }
 
         // Persons viewer
-        if (m_config_pt.get<bool>("run.output_persons", false)) {
+        if (m_config.get<bool>("run.output_persons", false)) {
                 m_stride_logger->info("Registering PersonsFileViewer.");
                 const auto v = make_shared<viewers::PersonsFileViewer>(runner, m_output_prefix);
                 runner->Register(v, bind(&viewers::PersonsFileViewer::Update, v, placeholders::_1));
         }
 
         // Summary viewer
-        if (m_config_pt.get<bool>("run.output_summary", false)) {
+        if (m_config.get<bool>("run.output_summary", false)) {
                 m_stride_logger->info("Registering SummaryFileViewer");
                 const auto v = make_shared<viewers::SummaryFileViewer>(runner, m_output_prefix);
                 runner->Register(v, bind(&viewers::SummaryFileViewer::Update, v, placeholders::_1));

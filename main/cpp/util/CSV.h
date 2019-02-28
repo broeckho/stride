@@ -25,7 +25,7 @@
 #include "util/StringUtils.h"
 #include "util/is_iterator.h"
 
-#include <fstream>
+#include <iosfwd>
 #include <type_traits>
 #include <vector>
 
