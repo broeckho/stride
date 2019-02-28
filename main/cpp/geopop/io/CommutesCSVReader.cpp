@@ -27,10 +27,7 @@ namespace geopop {
 using namespace std;
 using namespace stride::util;
 
-CommutesCSVReader::CommutesCSVReader(unique_ptr<istream> inputStream)
-    : CommutesReader(move(inputStream))
-{
-}
+CommutesCSVReader::CommutesCSVReader(unique_ptr<istream> inputStream) : CommutesReader(move(inputStream)) {}
 
 void CommutesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
 {

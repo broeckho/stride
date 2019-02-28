@@ -20,8 +20,8 @@
 #include "HouseholdCSVReader.h"
 #include "util/FileSys.h"
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <stdexcept>
 
 namespace geopop {

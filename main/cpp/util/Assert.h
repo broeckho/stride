@@ -22,19 +22,20 @@
 
 #include "util/Exception.h"
 
-#include <spdlog/logger.h>
-#include <string>
-#include <sstream>
 #include <iostream>
+#include <spdlog/logger.h>
+#include <sstream>
+#include <string>
 
 namespace stride {
 namespace util {
 
 inline std::string AssertMessage(const char* condition, const std::string& message,
-                const std::shared_ptr<spdlog::logger>& logger, const char* file, int line)
+                                 const std::shared_ptr<spdlog::logger>& logger, const char* file, int line)
 {
         std::ostringstream os;
-        os << "Assert: '" << condition << "'" << " fails in: '" << file << "' line: " << line << " with: " << message;
+        os << "Assert: '" << condition << "'"
+           << " fails in: '" << file << "' line: " << line << " with: " << message;
         const auto msg = os.str();
         if (logger) {
                 logger->critical(msg);
@@ -45,23 +46,24 @@ inline std::string AssertMessage(const char* condition, const std::string& messa
         return msg;
 }
 
-}
-}
+} // namespace util
+} // namespace stride
 
 // Assert that CONDITION evaluates to true, if not produce failure info string
 // including file and line of the failure and its MESSAGE and
 // then (for AssertAndLog) log with LOGGER or with std::cerr (iff LOOGER==nullptr),
 // or (for AssertAndThrow) raise an Exception with infor string as content.
-#ifndef STRIDE_INCLUDE_STRIDE_ASSERTS
-#define AssertLog(CONDITION, MESSAGE, LOGGER) if(!(CONDITION)) { \
-               stride::util::AssertMessage(#CONDITION, MESSAGE, LOGGER, __FILE__, __LINE__); \
-           }
-#define AssertThrow(CONDITION, MESSAGE, LOGGER) if(!(CONDITION)) { \
-               throw stride::util::Exception( \
-                       stride::util::AssertMessage(#CONDITION, MESSAGE, LOGGER, __FILE__, __LINE__)); \
-           }
+#ifdef STRIDE_INCLUDE_STRIDE_ASSERTS
+#define AssertLog(CONDITION, MESSAGE, LOGGER)                                                                          \
+        if (!(CONDITION)) {                                                                                            \
+                stride::util::AssertMessage(#CONDITION, MESSAGE, LOGGER, __FILE__, __LINE__);                          \
+        }
+#define AssertThrow(CONDITION, MESSAGE, LOGGER)                                                                        \
+        if (!(CONDITION)) {                                                                                            \
+                throw stride::util::Exception(                                                                         \
+                    stride::util::AssertMessage(#CONDITION, MESSAGE, LOGGER, __FILE__, __LINE__));                     \
+        }
 #else
 #define AssertLog(CONDITION, MESSAGE, LOGGER) ((void)0)
 #define AssertThrow(CONDITION, MESSAGE, LOGGER) ((void)0)
 #endif
-

@@ -31,7 +31,7 @@ public:
         explicit Exception(std::string msg) : m_msg(std::move(msg)) {}
 
         /// Return the message.
-        const char* what() const noexcept override {return m_msg.c_str();}
+        const char* what() const noexcept override { return m_msg.c_str(); }
 
         /// Default constructor
         ~Exception() noexcept override = default;

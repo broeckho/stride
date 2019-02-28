@@ -13,12 +13,12 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "geopop/generators/CollegeGenerator.h"
 #include "../../createlogger.h"
 #include "geopop/College.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/generators/CollegeGenerator.h"
 #include "geopop/generators/K12SchoolGenerator.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"

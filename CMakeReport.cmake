@@ -70,7 +70,6 @@ if( NOT STRIDE_FORCE_NO_OPENMP )
     message( STATUS " " )
 	message( STATUS "------> HAVE_CHECKED_OpenMP         : ${HAVE_CHECKED_OpenMP}"     )
 	message( STATUS "------> HAVE_FOUND_OpenMP           : ${HAVE_FOUND_OpenMP}"       )
-	message( STATUS "------> OpenMP_C_FLAGS              : ${OpenMP_C_FLAGS}"          )
 	message( STATUS "------> OpenMP_CXX_FLAGS            : ${OpenMP_CXX_FLAGS} "       )
 endif()
 #

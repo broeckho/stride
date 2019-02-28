@@ -22,8 +22,8 @@
 
 #include "util/FileSys.h"
 
-#include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
+#include <boost/property_tree/ptree.hpp>
 
 namespace stride {
 
@@ -125,7 +125,7 @@ void Calendar::InitializeHolidays(const ptree& configPt)
         // Load json file
         ptree holidaysPt;
         {
-                const string fName{configPt.get<string>("run.holidays_file", "holidays_flanders_2017.json")};
+                const string           fName{configPt.get<string>("run.holidays_file", "holidays_flanders_2017.json")};
                 const filesystem::path fPath{FileSys::GetDataDir() /= fName};
                 if (!is_regular_file(fPath)) {
                         throw runtime_error(string(__func__) + "Holidays file " + fPath.string() + " not present.");
@@ -142,8 +142,8 @@ void Calendar::InitializeHolidays(const ptree& configPt)
                 for (const auto& date : holidaysPt.get_child("general." + month)) {
                         stringstream d;
                         /// Append zero's due to a bug in stdc++ https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896
-                        d << year << "-" << setw(2) << setfill('0') << month << "-" << setw(2)
-                          << setfill('0') << date.second.get_value<string>();
+                        d << year << "-" << setw(2) << setfill('0') << month << "-" << setw(2) << setfill('0')
+                          << date.second.get_value<string>();
                         m_holidays.push_back(ConvertFromString(d.str()));
                 }
 
@@ -151,8 +151,8 @@ void Calendar::InitializeHolidays(const ptree& configPt)
                 for (const auto& date : holidaysPt.get_child("school." + month)) {
                         stringstream d;
                         /// Append zero's due to a bug in stdc++ https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896
-                        d << year << "-" << setw(2) << setfill('0') << month << "-" << setw(2)
-                          << setfill('0') << date.second.get_value<string>();
+                        d << year << "-" << setw(2) << setfill('0') << month << "-" << setw(2) << setfill('0')
+                          << date.second.get_value<string>();
                         m_school_holidays.push_back(ConvertFromString(d.str()));
                 }
         }

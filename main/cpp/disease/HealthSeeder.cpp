@@ -76,11 +76,10 @@ void HealthSeeder::Seed(const std::shared_ptr<stride::Population>& pop, vector<C
                 auto& gen01 = handlers[static_cast<size_t>(omp_get_thread_num())];
 #pragma omp for
                 for (size_t i = 0; i < population.size(); ++i) {
-                        const auto startSymptomatic = Sample(m_start_symptomatic, gen01());
-                        const auto startInfectiousness =
-                            startSymptomatic - Sample(m_time_asymptomatic, gen01());
-                        const auto timeInfectious  = Sample(m_time_infectious, gen01());
-                        const auto timeSymptomatic = Sample(m_time_symptomatic, gen01());
+                        const auto startSymptomatic    = Sample(m_start_symptomatic, gen01());
+                        const auto startInfectiousness = startSymptomatic - Sample(m_time_asymptomatic, gen01());
+                        const auto timeInfectious      = Sample(m_time_infectious, gen01());
+                        const auto timeSymptomatic     = Sample(m_time_symptomatic, gen01());
                         population[i].GetHealth() =
                             Health(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);
                 }

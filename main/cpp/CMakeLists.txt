@@ -77,8 +77,11 @@ set(LIB_SRC
     viewers/PersonsFileViewer.cpp
     viewers/SummaryFileViewer.cpp
 )
+# MACROS to inject in ConfigInfo.cpp
 set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
 	COMPILE_DEFINITIONS "STRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
+set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
+	COMPILE_DEFINITIONS "PROCCOUNT=${PROCCOUNT}")
 
 #============================================================================
 # Build the Stride library.

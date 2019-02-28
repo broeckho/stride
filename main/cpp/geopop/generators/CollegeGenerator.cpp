@@ -52,7 +52,7 @@ void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
         for (const auto& c : cities) {
                 const auto weight = static_cast<double>(c->GetPopCount()) / static_cast<double>(totalPop);
                 AssertThrow(weight >= 0 && weight <= 1 && !std::isnan(weight),
-                          "CollegeGenerator> Invalid weight: " + to_string(weight), m_logger);
+                            "CollegeGenerator> Invalid weight: " + to_string(weight), m_logger);
                 weights.push_back(weight);
         }
 

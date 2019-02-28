@@ -13,11 +13,11 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "geopop/generators/WorkplaceGenerator.h"
 #include "../../createlogger.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/generators/WorkplaceGenerator.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
