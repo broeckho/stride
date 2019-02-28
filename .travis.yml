@@ -124,12 +124,12 @@ install:
       export STRIDE_FORCE_NO_BOOST=ON
       export STRIDE_BOOST_NO_SYSTEM_PATHS=ON
     else
-      export BOOST_ROOT=$HOME/deps/boost_1_66_0
+      export BOOST_ROOT=$HOME/deps/boost_1_69_0
       if [[ -z "$(ls -A $BOOST_ROOT)" ]]; then
         cd /tmp/
-        wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
-        tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
-        cd boost_1_66_0/
+        wget https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.gz -q
+        tar xf boost_1_69_0.tar.gz > /dev/null 2>&1
+        cd boost_1_69_0/
         ./bootstrap.sh --prefix=$BOOST_ROOT --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
         ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
         cd $TRAVIS_BUILD_DIR;
