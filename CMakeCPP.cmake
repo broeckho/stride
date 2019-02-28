@@ -94,8 +94,9 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/inc
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 
 #----------------------------------------------------------------------------
-# ProtoBuf
+# ProtoBuf (FindThreads required after eliminating boost thread lib)
 #----------------------------------------------------------------------------
+find_package(Threads)
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/gengeopop/io/proto)
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
 
@@ -104,6 +105,11 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/sha1/include)
 set(LIBS ${LIBS} sha1)
+
+#----------------------------------------------------------------------------
+# Required by proto.
+#----------------------------------------------------------------------------
+
 
 #----------------------------------------------------------------------------
 # Boost
