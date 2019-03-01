@@ -62,7 +62,7 @@ calculate_cost_effectiveness <- function(project_dir){
   outbreak_summary <- data.frame(exp_id       = project_summary$exp_id,
                                  population_size     = project_summary$population_size,
                                  seeding_rate = project_summary$seeding_rate,
-                                 intervention = as.numeric(as.factor(project_summary$case_detection_probability)))
+                                 intervention = as.numeric(as.factor(project_summary[,col_intervention])))
   
   outbreak_summary <- merge(outbreak_summary,tmp_tbl,all=T)
   outbreak_summary$num_vaccines[is.na(outbreak_summary$num_vaccines)] <- 0
@@ -77,8 +77,8 @@ calculate_cost_effectiveness <- function(project_dir){
   outbreak_mean    <- aggregate(. ~ intervention, data=outbreak_summary,mean)
   
   num_samples <- 10000
-  hist(rnorm(num_samples,outbreak_mean$`cases_age_[0,5)`[1],outbreak_std_err$`cases_age_[0,5)`[1]),seq(0,10,0.1),freq = F,xlim=c(0,10),ylim=0:1)
-  hist(rnorm(num_samples,outbreak_mean$`cases_age_[0,5)`[2],outbreak_std_err$`cases_age_[0,5)`[2]),seq(-1,10,0.1),freq = F,add=T,col=2)
+  hist(rnorm(num_samples,outbreak_mean$`cases_age_[0,5)`[1],outbreak_std_err$`cases_age_[0,5)`[1]),seq(-1,20,0.1),freq = F,xlim=c(0,10),ylim=0:1)
+  hist(rnorm(num_samples,outbreak_mean$`cases_age_[0,5)`[2],outbreak_std_err$`cases_age_[0,5)`[2]),seq(-10,20,0.1),freq = F,add=T,col=2)
   
   hist(outbreak_summary$`cases_age_[0,5)`[outbreak_summary$intervention==1],seq(0,15,1),freq = F,xlim=c(0,15),ylim=0:1)
   hist(outbreak_summary$`cases_age_[0,5)`[outbreak_summary$intervention==2],seq(0,15,1),freq = F,add=T,col=2)
@@ -214,8 +214,10 @@ get_averted_burden <- function(project_dir){
   
   # get vaccines per outbreak
   data_intervention
-  outbreak_total_vaccines <- data.frame(table(data_intervention$id_index_case))
-  names(outbreak_total_vaccines) <- c('id_index_case','total_vaccines')
+  # outbreak_total_vaccines <- data.frame(table(data_intervention$id_index_case))
+  # names(outbreak_total_vaccines) <- c('id_index_case','total_vaccines')
+  outbreak_total_vaccines <- data.frame(table(data_intervention$exp_id))
+  names(outbreak_total_vaccines) <- c('exp_id','total_vaccines')
   
   # aggregate outbreak data
   outbreak_summary <- merge(outbreak_total_cases,outbreak_exp_id)

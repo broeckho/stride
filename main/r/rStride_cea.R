@@ -55,11 +55,14 @@ exp_design <- expand.grid(r0                         = 12,
                           population_file            = 'pop_flanders1300_c1000_class_teachers.csv',
                           age_contact_matrix_file    = 'contact_matrix_flanders_conditional_teachers.xml',
                           adaptive_symptomatic_behavior = 'true',
-                          immunity_profile              = 'AgeDependent',
+                          immunity_profile              = 'AgeDependent',           # 'None', 'Random', 'AgeDependent'
                           immunity_distribution_file    = 'data/immunity_measles_belgium.xml',
                           immunity_link_probability     = 0,
-                          immunity_rate                 = 0,
-                          case_detection_probability    = c(0,0.9),      # Enable case finding
+                          vaccine_profile               = c('None','Random'),       # 'None', 'Random', 'AgeDependent'
+                          vaccine_rate                  = 0.9,                      # to be used with 'Random'
+                          vaccine_min_age               = 20,                       # to be used with 'Random'
+                          vaccine_max_age               = 25,                       # to be used with 'Random'
+                          case_detection_probability    = 0,                        # Enable case finding
                           stringsAsFactors = F)
 
 

@@ -47,10 +47,10 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         // Population immunity (natural immunity & vaccination).
         // --------------------------------------------------------------
         const auto immunityProfile = m_config_pt.get<std::string>("run.immunity_profile");
-        Vaccinate("immunity", immunityProfile, pop->GetContactPoolSys()[Id::Household]);
+        Vaccinate("immunity", immunityProfile, pop->GetContactPoolSys()[Id::Household],pop);
 
         const auto vaccinationProfile = m_config_pt.get<std::string>("run.vaccine_profile");
-        Vaccinate("vaccine", vaccinationProfile, pop->GetContactPoolSys()[Id::Household]);
+        Vaccinate("vaccine", vaccinationProfile, pop->GetContactPoolSys()[Id::Household],pop);
 
         // --------------------------------------------------------------
         // Seed infected persons.
@@ -78,7 +78,7 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
 }
 
 void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
-                              const SegmentedVector<ContactPool>& immunityPools)
+                              const SegmentedVector<ContactPool>& immunityPools,std::shared_ptr<Population> pop)
 {
         std::vector<double> immunityDistribution;
         double              linkProbability = 0;
@@ -86,10 +86,18 @@ void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string
 
         if (immunizationProfile == "Random") {
                 const auto immunityRate = m_config_pt.get<double>("run." + ToLower(immunityType) + "_rate");
+                const auto immunity_min_age = m_config_pt.get<double>("run." + ToLower(immunityType) + "_min_age",0);
+                const auto immunity_max_age = m_config_pt.get<double>("run." + ToLower(immunityType) + "_max_age",100);
+
+                // Initialize a vector to count the population per age class [0-100].
                 for (unsigned int index_age = 0; index_age < 100; index_age++) {
-                        immunityDistribution.push_back(immunityRate);
+                        if(index_age >= immunity_min_age && index_age <= immunity_max_age){
+                        	immunityDistribution.push_back(immunityRate);
+                        } else{
+                        	immunityDistribution.push_back(0);
+                        }
                 }
-                immunizer.Random(immunityPools, immunityDistribution, linkProbability);
+                immunizer.Random(immunityPools, immunityDistribution, linkProbability, pop, true);
         } else if (immunizationProfile == "AgeDependent") {
                 const auto immunityFile =
                     m_config_pt.get<string>("run." + ToLower(immunityType) + "_distribution_file");
@@ -101,7 +109,7 @@ void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string
                         auto immunityRate = immunity_pt.get<double>("immunity.age" + std::to_string(index_age));
                         immunityDistribution.push_back(immunityRate);
                 }
-                immunizer.Random(immunityPools, immunityDistribution, linkProbability);
+                immunizer.Random(immunityPools, immunityDistribution, linkProbability, pop, false);
 
         } else if (immunizationProfile == "Cocoon") {
                 immunizer.Cocoon(immunityPools, immunityDistribution, linkProbability);

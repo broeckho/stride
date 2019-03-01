@@ -95,12 +95,16 @@ parse_contact_logfile <- function(contact_log_filename)
                              'infector_age','cnt_location','sim_day','id_index_case')
     data_transm         <- data_log[data_log[,1] == "[PRIM]" | data_log[,1] == "[TRAN]",seq_len(length(header_transm))+1]
     names(data_transm)  <- header_transm
-    data_transm[51,]
+    data_transm[1,]
     
     # make sure, all values are stored as integers
     if(any(apply(data_transm, 2, typeof) != 'integer')){
       location_col <- names(data_transm) == 'cnt_location'
-      data_transm[,!location_col] <- data.frame(apply(data_transm[,!location_col], 2, as.double))
+      if(nrow(data_transm)>1){
+        data_transm[,!location_col] <- data.frame(apply(data_transm[,!location_col], 2, as.double))
+      } else {
+        data_transm[,!location_col] <- c(apply(data_transm[,!location_col], 2, as.double))
+      }
     }
     
     # set local_id and cnt_location from the seed infected cases to NA (instead as -1)

@@ -188,13 +188,19 @@ inspect_transmission_data <- function(project_dir)
     rownames(tbl_all_matrix) <- 0:max(project_summary$num_days-1)
     
     # take the inverse for the cummulative sum
+    # and analyse the outbreaks over time
     tbl_all_inv  <- tbl_all_matrix[nrow(tbl_all_matrix):1,] 
-    tbl_all_cum  <- apply(tbl_all_inv,2,cumsum)
+    if(typeof(tbl_all_inv)=="double"){
+      tbl_all_cum  <- cumsum(tbl_all_inv)
+      outbreaks_over_time <- data.frame(day = 1:length(tbl_all_cum),
+                                        count = tbl_all_cum)
+    } else {
+      tbl_all_cum  <- apply(tbl_all_inv,2,cumsum)
+      outbreaks_over_time <- data.frame(day = as.numeric(rownames(tbl_all_cum)),
+                                        count = rowSums(tbl_all_cum > 0))
+    }
     
-    # analyse the outbreaks over time
-    outbreaks_over_time <- data.frame(day = as.numeric(rownames(tbl_all_cum)),
-                                      count = rowSums(tbl_all_cum > 0))
-    
+
     # plot outbreak size over time
     for(i in 2:length(levels(outbreak_size_cat))){
       if(sum(as.numeric(outbreak_size_cat) == i) > 1){

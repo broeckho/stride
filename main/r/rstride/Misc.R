@@ -230,14 +230,14 @@ if(!(exists('.rstride'))){
   # get output data types
   data_type_opt <- unique(dir(file.path(project_summary$output_prefix),pattern='.RData'))
   
-  data_type <- data_type_opt[2]
+  data_type <- data_type_opt[3]
   for(data_type in data_type_opt)
   {
     
     data_filenames <- dir(project_dir,pattern=data_type,recursive = T,full.names = T)
     
     # load all project experiments
-    i_exp <- 2
+    i_exp <- 1
     data_all <- foreach(i_exp = 1:nrow(project_summary),.combine='rbind') %do%
     {
       # get file name
@@ -269,9 +269,6 @@ if(!(exists('.rstride'))){
         
         # add run index
         data_exp$exp_id <- project_summary$exp_id[i_exp]
-        
-        # remove the original data file
-        unlink(exp_file_name)
         
         # return experiment data
         data_exp

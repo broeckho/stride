@@ -41,13 +41,13 @@ dir_postfix <- '_imm'
 #names(xmlToList('./config/run_default.xml'))
 
 # set the number of realisations per configuration set
-num_seeds  <- 2
+num_seeds  <- 8
 
 # add parameters and values to combine in a full-factorial grid
 exp_design <- expand.grid(r0                         = seq(12,12,2),
                           num_days                   = c(90),
                           rng_seed                   = seq(num_seeds),
-                          num_participants_survey    = 0,
+                          num_participants_survey    = 3000,
                           track_index_case           = 'false',
                           contact_log_level          = 'Transmissions',
                           seeding_rate               = 0.000002,
@@ -58,12 +58,15 @@ exp_design <- expand.grid(r0                         = seq(12,12,2),
                           immunity_profile           = 'AgeDependent',                        # 'None', 'Random', 'AgeDependent'
                           immunity_distribution_file = 'data/immunity_measles_belgium.xml',   # to be used with 'AgeDependent'
                           immunity_link_probability  = 0,                                     # to be used with 'AgeDependent'
-                          immunity_rate              = 0,                                     # to be used with 'Random'
+                          vaccine_profile           = c('None','Random'),                     # 'None', 'Random', 'AgeDependent'
+                          vaccine_rate              = 0.9,                                   # to be used with 'Random'
+                          vaccine_min_age           = 20,                                    # to be used with 'Random'
+                          vaccine_max_age           = 25,                                    # to be used with 'Random'
                           stringsAsFactors = F)
 
 
 # add a unique seed for each run
-set.seed(125)
+set.seed(1255)
 exp_design$rng_seed <- sample(1e4,nrow(exp_design))
 
 #################################################
