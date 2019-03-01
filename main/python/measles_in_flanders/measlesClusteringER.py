@@ -13,27 +13,21 @@ MAX_AGE = 99
 def registerSusceptibles(simulator, event):
     outputPrefix = simulator.GetConfigValue("run.output_prefix")
     pop = simulator.GetPopulation()
-    totalSusceptible = 0
-    totalPop = 0
     with open(os.path.join(outputPrefix, "susceptibles.csv"), "w") as csvfile:
         fieldnames = ["age", "hh_id", "susceptible"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for i in range(pop.size()):
             person = pop[i]
-            totalPop += 1
             age = person.GetAge()
             hhID = person.GetHouseholdId()
             isSusceptible = person.GetHealth().IsSusceptible()
             # Convert boolean to int for easier reading from file in different langs
             if isSusceptible:
                 isSusceptible = 1
-                totalSusceptible += 1
             else:
                 isSusceptible = 0
             writer.writerow({"age": age, "hh_id": hhID, "susceptible": isSusceptible})
-        print(totalSusceptible)
-        print(totalPop)
 
 def generateRngSeeds(numSeeds):
     seeds = []

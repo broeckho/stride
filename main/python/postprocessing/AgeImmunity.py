@@ -1,3 +1,4 @@
+import collections
 import csv
 import matplotlib.pyplot as plt
 import multiprocessing
@@ -6,31 +7,6 @@ import statistics
 import xml.etree.ElementTree as ET
 
 from .Util import getRngSeeds, saveFig, MAX_AGE
-
-"""
-def createHouseholdConstitutionPlots(outputDir, scenarioNames):
-    for scenario in scenarioNames:
-        seeds = getRngSeeds(outputDir, scenario)
-        for s in seeds[:1]:
-            households = {}
-            susceptiblesFile = os.path.join(outputDir, scenario + str(s), 'susceptibles.csv')
-            with open(susceptiblesFile) as csvfile:
-                reader = csv.DictReader(csvfile)
-                for row in reader:
-                    hhId = int(row['household'])
-                    isSusceptible = int(row['susceptible'])
-                    if hhId in households:
-                        households[hhId].append(isSusceptible)
-                    else:
-                        households[hhId] = [isSusceptible]
-            householdImmunities = []
-            for hhId, members in households.items():
-                pctImmune = 1 - (sum(members) / len(members))
-                householdImmunities.append(pctImmune)
-            plt.hist(householdImmunities)
-            plt.title(scenario)
-            plt.show()
-"""
 
 def getHouseholdConstitutions(outputDir, scenarioName, seed):
     susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
@@ -46,30 +22,63 @@ def getHouseholdConstitutions(outputDir, scenarioName, seed):
                     households[hhID].append(isSusceptible)
                 else:
                     households[hhID] = [isSusceptible]
-        return households
+        return list(households.values())
 
-def createHouseholdConstitutionPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName):
-    for scenario in scenarioNames:
-        seeds = getRngSeeds(outputDir, scenario)
-        with multiprocessing.Pool(processes=poolSize) as pool:
-            households = pool.starmap(getHouseholdConstitutions, [(outputDir, scenario, s) for s in seeds])
-            for run in households:
-                constitutions = {}
-                for hh in run.values():
-                    if len(hh) in constitutions:
-                        constitutions[len(hh)].append(hh)
+def createHouseholdConstitutionPlot(outputDir, scenarioName, poolSize, figName, stat="mean"):
+    seeds = getRngSeeds(outputDir, scenarioName)
+    allConstitutions = {}
+    with multiprocessing.Pool(processes=poolSize) as pool:
+        households = pool.starmap(getHouseholdConstitutions, [(outputDir, scenarioName, s) for s in seeds])
+        allConstitutionFreqs = {}
+        for run in households:
+            allSizes = {}
+            for hh in run:
+                if len(hh) in allSizes:
+                    allSizes[len(hh)].append(sum(hh) / len(hh))
+                else:
+                    allSizes[len(hh)] = [sum(hh) / len(hh)]
+            for hhSize in allSizes:
+                hhConstitutions = allSizes[hhSize]
+                constitutionFreqs = {}
+                for constitution in hhConstitutions:
+                    if constitution in constitutionFreqs:
+                        constitutionFreqs[constitution] += 1
                     else:
-                        constitutions[len(hh)] = [hh]
-                for size in constitutions:
-                    a = [sum(x) / len(x) for x in constitutions[size]]
-                    constitutions[size] = {}
-                    for fr in a:
-                        if fr in constitutions[size]:
-                            constitutions[size][fr] += 1
+                        constitutionFreqs[constitution] = 1
+                for constitution in constitutionFreqs:
+                    constitutionFreqs[constitution] /= len(hhConstitutions)
+                    if hhSize in allConstitutionFreqs:
+                        if constitution in allConstitutionFreqs[hhSize]:
+                            allConstitutionFreqs[hhSize][constitution].append(constitutionFreqs[constitution])
                         else:
-                            constitutions[size][fr] = 1
-                print(constitutions)
-
+                            allConstitutionFreqs[hhSize][constitution] = [constitutionFreqs[constitution]]
+                    else:
+                        allConstitutionFreqs[hhSize] = {constitution : [constitutionFreqs[constitution]]}
+        allConstitutions = []
+        if stat == "mean":
+            for hhSize in allConstitutionFreqs:
+                for constitution in allConstitutionFreqs[hhSize]:
+                    if constitution not in allConstitutions:
+                        allConstitutions.append(constitution)
+                    allConstitutionFreqs[hhSize][constitution] = sum(allConstitutionFreqs[hhSize][constitution]) / len(allConstitutionFreqs[hhSize][constitution])
+        allConstitutions.sort()
+        ax = plt.axes(projection="3d")
+        colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown', 'magenta', 'yellow', "cyan"]
+        for z in range(1, len(allConstitutionFreqs.keys()) + 1):
+            results = []
+            for c in allConstitutions:
+                if c in allConstitutionFreqs[z]:
+                    results.append(allConstitutionFreqs[z][c])
+                else:
+                    results.append(0)
+            ax.bar(range(len(allConstitutions)), results, zs=z, zdir="y", color=colors[z-1], alpha=0.5)
+        ax.set_xlabel("Pct susceptibles")
+        ax.set_xticks(range(len(allConstitutions)))
+        ax.set_xticklabels([int(x * 100) for x in allConstitutions], rotation=90)
+        ax.set_ylabel("Number of children in hh")
+        ax.set_zlabel("Fraction of households")
+        ax.set_zlim(0, 1)
+        saveFig(outputDir, figName, "png")
 
 def getTargetRates(outputDir, targetRatesFile):
     targetRatesTree = ET.parse(os.path.join(outputDir, 'data', targetRatesFile))

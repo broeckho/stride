@@ -21,13 +21,17 @@ def main(outputDir, R0s, poolSize):
     for R0 in R0s:
         scenarioNamesFull = [s + "_R0_" + str(R0) for s in scenarioNames]
         AgeImmunity.createAgeImmunityPlot(outputDir, scenarioNamesFull, scenarioDisplayNames,
-                                            poolSize, "R0_" + str(R0) + "_AgeImmunityPlot")
-        AgeImmunity.createHouseholdConstitutionPlot(outputDir, scenarioNamesFull, scenarioDisplayNames,
-                                            poolSize, "R0_" + str(R0) + "_HHConstitutionPlot")
+                                            poolSize, "R0_" + str(R0) + "_AgeImmunityPlot",
+                                            targetRatesFile="2020_measles_immunity.xml")
         EffectiveR.createEffectiveRPlot(outputDir, scenarioNamesFull,
                                             scenarioDisplayNames, poolSize,
                                             "Scenario",
                                             "R0_" + str(R0) + "_EffectiveR")
+        for scenario in scenarioNamesFull:
+            AgeImmunity.createHouseholdConstitutionPlot(outputDir, scenario,
+                                                poolSize,
+                                                "R0_" + str(R0) + "_" + scenario + "_HHConstitutionPlot")
+
     end = time.perf_counter()
     totalTime = end - start
     hours = int(totalTime / 3600)
