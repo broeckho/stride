@@ -76,10 +76,10 @@ void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, uti
                                                                 p_member->GetHealth().SetImmune();
 
                                                                 // TODO: check log_level
-                                                                logger->info("[VACC] {} {} {} {} {} {} {}",
+                                                                logger->info("[VACC] {} {} {} {} {} {} {} {}",
                                                                              p_member->GetId(), p_member->GetAge(),
                                                                              ToString(typ), poolId, p_case.GetId(),
-                                                                             p_case.GetAge(), simDay);
+                                                                             p_case.GetAge(), simDay, p_case.GetHealth().GetIdIndexCase());
                                                         }
                                                 }
                                         }

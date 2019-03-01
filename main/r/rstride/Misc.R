@@ -227,10 +227,6 @@ if(!(exists('.rstride'))){
   # load project summary
   project_summary      <- .rstride$load_project_summary(project_dir)
   
-  # id increment factor
-  max_pop_size <- max(project_summary$population_size)
-  id_factor    <- 10^ceiling(log10(max_pop_size))
-  
   # get output data types
   data_type_opt <- unique(dir(file.path(project_summary$output_prefix),pattern='.RData'))
   
@@ -279,13 +275,26 @@ if(!(exists('.rstride'))){
         
         # return experiment data
         data_exp
+      } # end 'if file exists'
+    } # end exp_id loop
+    
+    # make id's unique => by adding a exp_id tag with leading zero's
+    names_id_columns  <- names(data_all)[grepl('id',names(data_all)) & names(data_all) != 'exp_id']
+    num_exp_id_digits <- nchar(max(data_all$exp_id))+1
+    
+    if(length(names_id_columns)>0) {
+      for(i_id_column in names_id_columns){
+        row_is_id  <- !is.na(data_all[,i_id_column]) & data_all[,i_id_column] != 0
+        data_all[row_is_id,i_id_column] <- as.numeric(sprintf(paste0('%d%0',num_exp_id_digits,'d'),
+                                                                    data_all[row_is_id,i_id_column],
+                                                                    data_all$exp_id[row_is_id]))
       }
     }
-    
+      
     # save
     run_tag <- unique(project_summary$run_tag)
     save(data_all,file=file.path(project_dir,paste0(run_tag,'_',data_type)))
-  }
+  } # end data-type loop
 }
 
 .rstride$load_aggregated_output <- function(project_dir,file_type,exp_id_opt = NA){
@@ -312,13 +321,6 @@ if(!(exists('.rstride'))){
   if(!any(is.na(exp_id_opt))){
     data_out <- data_out[data_out$exp_id %in% exp_id_opt,]
   }
-  
-  # make person ids unique over all experiment, using a person id increment factor
-  max_pop_size <- max(project_summary$population_size)
-  id_factor    <- 10^ceiling(log10(max_pop_size))
-  col_names    <- c('local_id','infector_id')
-  col_names    <- col_names[col_names %in% names(data_out)]
-  data_out[,col_names] <- data_out[,col_names] + (data_out$exp_id*id_factor)
   
   # return
   return(data_out)

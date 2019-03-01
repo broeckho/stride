@@ -137,7 +137,7 @@ parse_contact_logfile <- function(contact_log_filename)
   ###################### 
   if(any(data_log[,1] == "[VACC]"))
   {
-    header_cnt          <- c('local_id', 'part_age', 'pool_type', 'pool_id', 'case_id', 'case_age','sim_day')
+    header_cnt          <- c('local_id', 'part_age', 'pool_type', 'pool_id', 'case_id', 'case_age','sim_day','id_index_case')
     data_vacc           <- data_log[data_log[,1] == "[VACC]",seq_len(length(header_cnt))+1]
     names(data_vacc)    <- header_cnt
     data_vacc[1,]

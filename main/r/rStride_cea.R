@@ -41,11 +41,11 @@ dir_postfix <- '_cea'
 #names(xmlToList('./config/run_default.xml'))
 
 # set the number of realisations per configuration set
-num_seeds  <- 25
+num_seeds  <- 4
 
 # add parameters and values to combine in a full-factorial grid
-exp_design <- expand.grid(r0                         = seq(12,12,2),
-                          num_days                   = c(60),
+exp_design <- expand.grid(r0                         = 12,
+                          num_days                   = 60,
                           rng_seed                   = seq(num_seeds),
                           num_participants_survey    = 3000,
                           track_index_case           = 'false',
@@ -59,13 +59,14 @@ exp_design <- expand.grid(r0                         = seq(12,12,2),
                           immunity_distribution_file    = 'data/immunity_measles_belgium.xml',
                           immunity_link_probability     = 0,
                           immunity_rate                 = 0,
-                          case_detection_probability    = c(0,0.80),      # Enable case finding
+                          case_detection_probability    = c(0,0.9),      # Enable case finding
                           stringsAsFactors = F)
 
 
 # add a unique seed for each run
-set.seed(125)
-exp_design$rng_seed <- sample(1e4,nrow(exp_design))
+# set.seed(125)
+# exp_design$rng_seed <- sample(1e4,nrow(exp_design))
+
 
 #################################################
 ## RUN rSTRIDE                                 ##
@@ -95,3 +96,4 @@ inspect_transmission_data(project_dir)
 ## PERFORM COST EFFECTIVENESS ANALYSIS         ##
 #################################################
 calculate_cost_effectiveness(project_dir)
+

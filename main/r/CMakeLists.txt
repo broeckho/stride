@@ -21,14 +21,16 @@
 
 # rStride main files
 INSTALL(DIRECTORY
-		   rstride
-	   DESTINATION ${BIN_INSTALL_LOCATION}
+	   rstride
+	DESTINATION ${BIN_INSTALL_LOCATION}
+	PATTERN "*.Rproj" EXCLUDE
 	   )
 
 
 # rStride analysis scripts
 INSTALL( FILES 			
             rStride_all.R
+            rStride_cea.R
             rStride_contacts.R
             rStride_explore.R
             rStride_immunity.R

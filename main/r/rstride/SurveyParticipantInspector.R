@@ -33,11 +33,6 @@ inspect_participant_data <- function(project_dir)
     return(.rstride$no_return_value())
   }
   
-  # person id increment factor, to obtain unique ids in each experiment
-  max_pop_size <- max(project_summary$population_size)
-  id_factor <- 10^ceiling(log10(max_pop_size))
-  
-  
   # retrieve all variable model parameters
   input_opt_design        <- .rstride$get_variable_model_param(project_summary)
   

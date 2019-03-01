@@ -91,16 +91,16 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
   # add dir_postfix
   run_tag <- paste0(run_tag,dir_postfix)
   
-  # create run directory
-  run_dir <- file.path(output_dir,run_tag)
+  # create project directory
+  project_dir <- file.path(output_dir,run_tag)
   # if it does not exist: create full path using the recursive option
-  if(!file.exists(run_dir)){
-    dir.create(run_dir, recursive =  TRUE)
+  if(!file.exists(project_dir)){
+    dir.create(project_dir, recursive =  TRUE)
   }
   
   # command line message
   .rstride$cli_print('WORKING DIR',getwd())
-  .rstride$cli_print('PROJECT DIR',run_dir)
+  .rstride$cli_print('PROJECT DIR',project_dir)
   
   ##################################
   ## GENERAL CONFIG MODIFICATIONS ##
@@ -149,7 +149,7 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
                        }  
                        
                        # update experiment output prefix
-                       config_exp$output_prefix <- file.path(run_dir,exp_tag)
+                       config_exp$output_prefix <- file.path(project_dir,exp_tag)
                        
                        # create xml file
                        config_exp_filename <- .rstride$save_config_xml(config_exp,'run',config_exp$output_prefix)
@@ -195,12 +195,12 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
                      }
   
   # save overal summary
-  write.table(par_out,file=file.path(run_dir,paste0(run_tag,'_summary.csv')),sep=',',row.names=F)
+  write.table(par_out,file=file.path(project_dir,paste0(run_tag,'_summary.csv')),sep=',',row.names=F)
   
   ###############################
   ## AGGREGATE OUTPUT          ##
   ###############################
-  .rstride$aggregate_exp_output(run_dir)
+  .rstride$aggregate_exp_output(project_dir)
   
   # remove project output
   if(remove_tmp_output){
@@ -216,6 +216,6 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
   # command line message
   .rstride$cli_print('rSTRIDE CONTROLLER FINISHED')
   
-  return(run_dir)
+  return(project_dir)
   
 } # end run_rStride function
