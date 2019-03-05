@@ -1,39 +1,49 @@
-'''import argparse
+import argparse
 import csv
 import multiprocessing
 import os
 import time
-import xml.etree.ElementTree as ET
 
 from pystride.Event import Event, EventType
 from pystride.PyController import PyController
 
-from postprocessing.AgeImmunity import getAvgOverallImmunityRate
+from measlesClusteringParameters import getCommonParameters, getScenarioParameters
+from measlesClusteringUtil import generateRngSeeds, writeRngSeeds
+from measlesClusteringUtil import calculateUniformImmunityLevel, createUniformImmunityDistributionFiles
 
-# Callback function to register person's age and immunity status
-# at the beginning of the simulation
 def registerSusceptibles(simulator, event):
-    outputPrefix = simulator.GetConfigValue('run.output_prefix')
+    outputPrefix = simulator.GetConfigValue("run.output_prefix")
     pop = simulator.GetPopulation()
-    totalPopulation = 0
-    totalSusceptible = 0
-    with open(os.path.join(outputPrefix, 'susceptibles.csv'), 'w') as csvfile:
-        fieldnames = ["age", "susceptible"]
+    with open(os.path.join(outputPrefix, "susceptibles.csv"), "w") as csvfile:
+        fieldnames = ["age", "hh_id", "susceptible"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        # Write header
         writer.writeheader()
-        # Write susceptibility info per person
         for i in range(pop.size()):
-            totalPopulation += 1
             person = pop[i]
             age = person.GetAge()
+            hhID = person.GetHouseholdId()
             isSusceptible = person.GetHealth().IsSusceptible()
+            # Convert boolean to int for easier reading from file in different langs
             if isSusceptible:
                 isSusceptible = 1
-                totalSusceptible += 1
             else:
                 isSusceptible = 0
-            writer.writerow({"age": age, "susceptible": isSusceptible})
+            writer.writerow({"age": age, "hh_id": hhID, "susceptible": isSusceptible})
+
+def trackCases(simulator, event):
+    """
+        Callback function to track cumulative cases
+        at each time-step.
+    """
+    outputPrefix = simulator.GetConfigValue("run.output_prefix")
+    timestep = event.timestep
+    cases = simulator.GetPopulation().GetInfectedCount()
+    with open(os.path.join(outputPrefix, "cases.csv"), "a") as csvfile:
+        fieldnames = ["timestep", "cases"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        if timestep == 0:
+            writer.writeheader()
+        writer.writerow({"timestep": timestep, "cases": cases})
 
 def registerAgesInfected(simulator, event):
     outputPrefix = simulator.GetConfigValue('run.output_prefix')
@@ -52,107 +62,75 @@ def registerAgesInfected(simulator, event):
                 beenInfected = 0
             writer.writerow({"age": age, "infected": beenInfected})
 
-# Callback function to track the cumulative cases
-# at each timestep
-def trackCases(simulator, event):
-    outputPrefix = simulator.GetConfigValue("run.output_prefix")
-    timestep = event.timestep
-    cases = simulator.GetPopulation().GetInfectedCount()
-    with open(os.path.join(outputPrefix, "cases.csv"), "a") as csvfile:
-        fieldnames = ["timestep", "cases"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        if timestep == 0:
-            writer.writeheader()
-        writer.writerow({"timestep": timestep, "cases": cases})
-
-def generateRngSeeds(numSeeds):
-    seeds = []
-    for i in range(numSeeds):
-        random_data = os.urandom(4)
-        seeds.append(int.from_bytes(random_data, byteorder='big'))
-    return seeds
-
-def writeSeeds(scenarioName, R0, seeds):
-    with open(scenarioName + "_R0_" + str(R0) + "_seeds.csv", "w") as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(seeds)
-
-def createRandomImmunityDistributionFiles(immunityRate):
-    randomChildImmunity = ET.Element('immunity')
-    randomAdultImmunity = ET.Element('immunity')
-    for age in range(18):
-        elemChild = ET.SubElement(randomChildImmunity, 'age' + str(age))
-        elemChild.text = str(immunityRate)
-        elemAdult = ET.SubElement(randomAdultImmunity, 'age' + str(age))
-        elemAdult.text = str(0)
-    for age in range(18, 100):
-        elemChild = ET.SubElement(randomChildImmunity, 'age' + str(age))
-        elemChild.text = str(0)
-        elemAdult = ET.SubElement(randomAdultImmunity, 'age' + str(age))
-        elemAdult.text = str(immunityRate)
-
-    ET.ElementTree(randomChildImmunity).write(os.path.join('data', 'measles_random_child_immunity.xml'))
-    ET.ElementTree(randomAdultImmunity).write(os.path.join('data', 'measles_random_adult_immunity.xml'))
-
-def runSimulation(scenarioName, R0, seed, extraParams):
-    configFile = os.path.join("config", "measles" + scenarioName + ".xml")
-    fullScenarioName = scenarioName + "_R0_" + str(R0) + "_" + str(seed)
+def runSimulation(R0, scenarioName, seed, immunityFileChildren, immunityFileAdults, extraParams):
     control = PyController(data_dir="data")
-    control.loadRunConfig(configFile)
-    control.runConfig.setParameter("output_prefix", fullScenarioName)
-    control.runConfig.setParameter("rng_seed", seed)
-    control.runConfig.setParameter("r0", R0)
+    # Get common + scenario-dependent parameters
+    extraParams.update(getCommonParameters())
+    extraParams.update(getScenarioParameters(scenarioName, immunityFileChildren, immunityFileAdults))
     for paramName, paramValue in extraParams.items():
         control.runConfig.setParameter(paramName, paramValue)
+    control.runConfig.setParameter("r0", R0)
+    control.runConfig.setParameter("rng_seed", seed)
+    control.runConfig.setParameter("output_prefix", scenarioName + "_R0_" + str(R0) + "_" + str(seed))
     # Register callbacks
     control.registerCallback(registerSusceptibles, EventType.AtStart)
     control.registerCallback(trackCases, EventType.Stepped)
     control.registerCallback(registerAgesInfected, EventType.AtFinished)
     control.control()
 
-def runSimulations(numRuns, scenarioName, R0, extraParams, poolSize):
-    seeds = generateRngSeeds(numRuns)
-    writeSeeds(scenarioName, R0, seeds)
-    with multiprocessing.Pool(processes=poolSize) as pool:
-        pool.starmap(runSimulation, [(scenarioName, R0, s, extraParams) for s in seeds])
+def runSimulations(trackIndexCase, numRuns, R0, scenarioName, numDays,
+    immunityFileChildren, immunityFileAdults, poolSize):
+    trackIndexCaseStr = "false"
+    if trackIndexCase:
+        trackIndexCaseStr = "true"
+    extraParams = {
+        "track_index_case": trackIndexCaseStr,
+        "num_days": numDays,
+    }
 
-def main(numRuns, R0s, immunityFileChildren, immunityFileAdults, poolSize):
+    seeds = generateRngSeeds(numRuns)
+    writeRngSeeds(scenarioName, R0, seeds)
+    with multiprocessing.Pool(processes=poolSize) as pool:
+        pool.starmap(runSimulation, [(R0, scenarioName, s,
+                                        immunityFileChildren, immunityFileAdults,
+                                        extraParams) for s in seeds])
+
+def main(trackIndexCase, numRuns, R0s, numDays, immunityFileChildren, immunityFileAdults, poolSize):
     start = time.perf_counter()
-    adScenarios = ["AD_NCLU", "AD_CLUS"]
+    scenarioNames = ["UNIFORM_NOCLUSTERING","AGEDEPENDENT_NOCLUSTERING",
+                        "UNIFORM_CLUSTERING","AGEDEPENDENT_CLUSTERING"]
+
+    # Calculate uniform immunity rate
+    uniformImmunityLevel = calculateUniformImmunityLevel(os.path.join("data", getCommonParameters()["population_file"]),
+                                                            immunityFileChildren,
+                                                            immunityFileAdults)
+    # Create uniform immunity files
+    createUniformImmunityDistributionFiles(uniformImmunityLevel)
+
+    # Run simulations
     for R0 in R0s:
-        print("Running simulations for R0 {}".format(R0))
-        # Run scenarios with age-dependent immunity levels
-        avgImmunityRates = []
-        for scenario in adScenarios:
-            runSimulations(numRuns, scenario, R0,
-                            {"vaccine_distribution_file": immunityFileChildren,
-                            "immunity_distribution_file": immunityFileAdults},
-                            poolSize)
-            avgImmunityRates.append(getAvgOverallImmunityRate(".", scenario + "_R0_" + str(R0), poolSize))
-        avgImmunity = sum(avgImmunityRates) / len(avgImmunityRates)
-        print(avgImmunity)
-        createRandomImmunityDistributionFiles(avgImmunity)
-        # Run scenarios with uniform immunity levels
-        runSimulations(numRuns, "UN_NCLU", R0, {"immunity_rate": avgImmunity}, poolSize)
-        runSimulations(numRuns, "UN_CLUS", R0,
-                        {"vaccine_distribution_file": "data/measles_random_child_immunity.xml",
-                        "immunity_distribution_file": "data/measles_random_adult_immunity.xml"},
-                        poolSize)
+        for scenario in scenarioNames:
+            runSimulations(trackIndexCase, numRuns, R0, scenario, numDays,
+                            immunityFileChildren, immunityFileAdults, poolSize)
+
     end = time.perf_counter()
-    totalTimeSeconds = end - start
-    totalTimeMinutes = totalTimeSeconds / 60
-    totalTimeHours = totalTimeMinutes / 60
-    print("Total time: {} seconds or {} minutes or {} hours".format(totalTimeSeconds,
-                                                                totalTimeMinutes,
-                                                                totalTimeHours))
+    totalTime = end - start
+    hours = int(totalTime / 3600)
+    minutes = int((totalTime - (hours * 3600)) / 60)
+    seconds = totalTime - (hours * 3600) - (minutes * 60)
+    print("Total time: {} hours, {} minutes and {} seconds".format(hours, minutes, seconds))
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--numRuns", type=int, default=5, help="Number of simulation runs per scenario")
-    parser.add_argument("--R0s", type=int, nargs="+", default=[12, 13], help="Different vallues for R0 to test")
-    parser.add_argument("--immunityFileChildren", type=str, default="data/measles_child_immunity_90.xml")
-    parser.add_argument("--immunityFileAdults", type=str, default="data/measles_adult_immunity_90.xml")
-    parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in pool for multiprocessing")
+    parser.add_argument("trackIndexCase", type=bool,
+                        help="Only simulate secondary cases? Useful for effective R calcuation")
+    parser.add_argument("--numRuns", type=int, default=10, help="Number of runs per scenario")
+    parser.add_argument("--R0s", type=int, nargs="+", default=[12, 18], help="Values of R0 to test")
+    parser.add_argument("--numDays", type=int, default=365, help="Number of time-steps to simulate")
+    parser.add_argument("--immunityFileChildren", type=str, default=os.path.join("data", "2020_measles_child_immunity.xml"))
+    parser.add_argument("--immunityFileAdults", type=str, default=os.path.join("data", "2020_measles_adult_immunity.xml"))
+    parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in multiprocessing pool")
     args = parser.parse_args()
-    main(args.numRuns, args.R0s, args.immunityFileChildren, args.immunityFileAdults, args.poolSize)
-'''
+    main(args.trackIndexCase, args.numRuns, args.R0s, args.numDays,
+            args.immunityFileChildren, args.immunityFileAdults,
+            args.poolSize)
