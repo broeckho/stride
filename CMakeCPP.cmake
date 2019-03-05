@@ -102,6 +102,7 @@ find_package(Threads)
 # ProtoBuf
 #----------------------------------------------------------------------------
 if(NOT STRIDE_FORCE_NO_PROTOC)
+    include(FindProtobuf)
     find_package(Protobuf)
 endif()
 if(Protobuf_FOUND)
