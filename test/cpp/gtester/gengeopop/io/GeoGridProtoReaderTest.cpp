@@ -21,7 +21,7 @@
 #include "geopop/PrimaryCommunity.h"
 #include "geopop/SecondaryCommunity.h"
 #include "geopop/Workplace.h"
-#include "geopop/io/proto/geogrid.pb.h"
+#include "geopop/io/proto_pb/geogrid.pb.h"
 
 #include <gtest/gtest.h>
 

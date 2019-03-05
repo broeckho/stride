@@ -23,7 +23,7 @@
 #include "geopop/PrimaryCommunity.h"
 #include "geopop/SecondaryCommunity.h"
 #include "geopop/Workplace.h"
-#include "geopop/io/proto/geogrid.pb.h"
+//#include "geopop/io/proto_pb/geogrid.pb.h"
 #include "pop/Person.h"
 
 #include <iostream>

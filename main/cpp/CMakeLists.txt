@@ -18,26 +18,17 @@
 #============================================================================
 # Protocol Buffers.
 #============================================================================
-set(PROTO_DIR geopop/io/proto)
-if(STRIDE_GEN_PROTO)
-    include(FindProtobuf)
-    find_package(Protobuf)
-    if(${PROTOBUF_FOUND} AND NOT ${PROTOBUF_PROTOC_EXECUTABLE} STREQUAL "Protobuf_PROTOC_EXECUTABLE-NOTFOUND")
-        file(GLOB proto_source "${PROTO_DIR}/*.proto")
-        protobuf_generate_cpp(PROTO_SRC PROTO_HEADER ${proto_source})
-        add_custom_target(proto
-            COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_HEADER} io/proto
-            COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_SRC} io/proto
-            )
-    endif()
+if(Protobuf_FOUND)
+    protobuf_generate_cpp(PROTO_SRC PROTO_HDR geopop/io/proto/geogrid.proto)
 else()
-    file(GLOB PROTO_HEADER "${PROTO_DIR}/*.pb.h")
-    file(GLOB PROTO_SRC "${PROTO_DIR}/*.pb.cc")
+    set(PROTO_SRC geopop/io/proto_pb/geogrid.pb.cc)
+    set(PROTO_HDR geopop/io/proto_pb/geogrid.pb.h)
 endif()
 
-set_property(SOURCE ${PROTO_HEADER} ${PROTO_SRC}
+set_property(SOURCE ${PROTO_HDR} ${PROTO_SRC}
     PROPERTY
-    COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
+    COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic"
+)
 
 #============================================================================
 # Sources.
@@ -92,10 +83,14 @@ set(STRIDE_SRC
     geopop/io/GeoGridJSONReader.cpp
     geopop/io/GeoGridJSONWriter.cpp
     geopop/io/GeoGridProtoReader.cpp
+    geopop/io/GeoGridProtoReader.h
     geopop/io/GeoGridProtoWriter.cpp
+    geopop/io/GeoGridProtoWriter.h
     geopop/io/GeoGridReader.cpp
     geopop/io/GeoGridReaderFactory.cpp
+    geopop/io/GeoGridReaderFactory.h
     geopop/io/GeoGridWriterFactory.cpp
+    geopop/io/GeoGridWriterFactory.h
     geopop/io/HouseholdCSVReader.cpp
     geopop/io/ReaderFactory.cpp
     geopop/populators/CollegePopulator.cpp
@@ -151,10 +146,24 @@ set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
 set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
     COMPILE_FLAGS "-DPROCCOUNT=${PROCCOUNT}")
 
+set_source_files_properties(
+    geopop/io/GeoGridProtoReader.cpp
+    geopop/io/GeoGridProtoReader.h
+    geopop/io/GeoGridReaderFactory.cpp
+    geopop/io/GeoGridReaderFactory.h
+    geopop/io/GeoGridProtoWriter.cpp
+    geopop/io/GeoGridProtoWriter.h
+    geopop/io/GeoGridWriterFactory.cpp
+    geopop/io/GeoGridWriterFactory.h
+    PROPERTIES
+    COMPILE_FLAGS "-I${Protobuf_INCLUDE_PBS}"
+)
+
 #============================================================================
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${STRIDE_SRC})
+include_directories(libstride Protobuf_INCLUDE_PBS)
 target_link_libraries(libstride ${LIBS} libprotobuf_insrc)
 set_target_properties(libstride
     PROPERTIES

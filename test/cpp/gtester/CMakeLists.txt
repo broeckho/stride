@@ -24,6 +24,17 @@ add_definitions(-DGTEST_LANG_CXX11)
 #============================================================================
 # Build & install the (OpenMP enabled if OpenMP available) executable.
 #============================================================================
+
+set_source_files_properties(
+    gengeopop/io/GeoGridIOUtils.cpp
+    gengeopop/io/GeoGridIOUtils.h
+    gengeopop/io/GeoGridProtoWriterTest.h
+    gengeopop/io/GeoGridProtoWriterTest.cpp
+    PROPERTIES
+    COMPILE_FLAGS "-I${Protobuf_INCLUDE_PBS}"
+)
+
+
 set(EXEC gtester)
 set(SRC
     BatchRuns.cpp

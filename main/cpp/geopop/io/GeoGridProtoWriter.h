@@ -17,7 +17,8 @@
 
 #include "GeoGridWriter.h"
 #include "geopop/Location.h"
-#include "geopop/io/proto/geogrid.pb.h"
+//#include "geopop/io/proto_pb/geogrid.pb.h"
+#include "geogrid.pb.h"
 
 #include <set>
 
