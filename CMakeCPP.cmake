@@ -101,20 +101,15 @@ find_package(Threads)
 #----------------------------------------------------------------------------
 # ProtoBuf
 #----------------------------------------------------------------------------
-set(PROTO_DIR geopop/io/proto)
-set(PROTO_PROTO geopop/io/proto/geogrid.proto)
 if(NOT STRIDE_FORCE_NO_PROTOC)
-    find_package(Protobuf REQUIRED)
+    find_package(Protobuf)
 endif()
 if(Protobuf_FOUND)
-    set(Protobuf_INCLUDE_PBS ${CMAKE_CURRENT_BINARY_DIR}/main/cpp)
+    set(Protobuf_PBS_DIR ${CMAKE_CURRENT_BINARY_DIR}/main/cpp)
     include_directories(SYSTEM ${Protobuf_INCLUDE_DIRS})
-    set(LIBS   ${LIBS} ${Protobuf_LIBRARIES})
 else()
-    set(Protobuf_INCLUDE_PBS ${CMAKE_CURRENT_SOURCE_DIR}main/cpp/geopop/io/proto/proto_pb)
+    set(Protobuf_PBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/main/cpp/geopop/io/proto_pb)
     include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
-    include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/geopop/io/proto_pb)
-    set(LIBS   ${LIBS})
 endif()
 
 #----------------------------------------------------------------------------

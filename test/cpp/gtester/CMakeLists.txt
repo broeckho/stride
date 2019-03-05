@@ -28,7 +28,7 @@ set_source_files_properties(
     gengeopop/io/GeoGridIOUtils.cpp
     gengeopop/io/GeoGridProtoReaderTest.cpp
     PROPERTIES
-    COMPILE_FLAGS "-I${Protobuf_INCLUDE_PBS}"
+    COMPILE_FLAGS "-I${Protobuf_PBS_DIR}"
 )
 
 set(EXEC gtester)

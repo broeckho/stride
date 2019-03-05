@@ -16,26 +16,20 @@
 #############################################################################
 
 #============================================================================
-# Protocol Buffers.
+# Protocol Buffer sources.
 #============================================================================
 if(Protobuf_FOUND)
     protobuf_generate_cpp(PROTO_SRC PROTO_HDR geopop/io/proto/geogrid.proto)
 else()
-    set(PROTO_SRC geopop/io/proto_pb/geogrid.pb.cc)
-    set(PROTO_HDR geopop/io/proto_pb/geogrid.pb.h)
+    set(PROTO_SRC ${Protobuf_PBS_DIR}/geogrid.pb.cc)
+    set(PROTO_HDR ${Protobuf_PBS_DIR}/geogrid.pb.h)
 endif()
 
 set_source_files_properties(
     geopop/io/GeoGridProtoReader.cpp
-#    geopop/io/GeoGridProtoReader.h
-#    geopop/io/GeoGridReaderFactory.cpp
-#    geopop/io/GeoGridReaderFactory.h
     geopop/io/GeoGridProtoWriter.cpp
-#    geopop/io/GeoGridProtoWriter.h
-#    geopop/io/GeoGridWriterFactory.cpp
-#    geopop/io/GeoGridWriterFactory.h
     PROPERTIES
-    COMPILE_FLAGS "-I${CMAKE_SOURCE_DIR}/main/cpp/geopop/io/proto_pb"
+    COMPILE_FLAGS "-I${Protobuf_PBS_DIR}"
 )
 
 set_property(SOURCE ${PROTO_HDR} ${PROTO_SRC}
