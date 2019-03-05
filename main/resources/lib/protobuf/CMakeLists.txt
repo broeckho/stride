@@ -164,7 +164,7 @@ set(libprotobuf_lite_includes
 )
 
 
-add_library(libprotobuf_insrc
+add_library(libprotobuf
     ${libprotobuf_files} ${libprotobuf_includes}
     ${libprotobuf_lite_files} ${libprotobuf_lite_includes}
 )
@@ -175,15 +175,15 @@ endif()
 
 find_package(ZLIB)
 if(ZLIB_FOUND)
-    target_include_directories(libprotobuf_insrc PRIVATE ${ZLIB_INCLUDE_DIRS})
-    target_link_libraries(libprotobuf_insrc ${ZLIB_LIBRARIES})
+    target_include_directories(libprotobuf PRIVATE ${ZLIB_INCLUDE_DIRS})
+    target_link_libraries(libprotobuf ${ZLIB_LIBRARIES})
 endif()
 
 add_definitions(-DGOOGLE_PROTOBUF_CMAKE_BUILD)
 
-set_target_properties(libprotobuf_insrc PROPERTIES COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
-set_property(TARGET libprotobuf_insrc PROPERTY POSITION_INDEPENDENT_CODE ON)
-target_link_libraries(libprotobuf_insrc ${CMAKE_THREAD_LIBS_INIT})
+set_target_properties(libprotobuf PROPERTIES COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
+set_property(TARGET libprotobuf PROPERTY POSITION_INDEPENDENT_CODE ON)
+target_link_libraries(libprotobuf ${CMAKE_THREAD_LIBS_INIT})
 
 # To avoid tho "has no symbol warnings for empty .o's in static libs
 if(CMAKE_HOST_APPLE)

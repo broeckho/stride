@@ -35,7 +35,7 @@ set_source_files_properties(
     geopop/io/GeoGridWriterFactory.cpp
     geopop/io/GeoGridWriterFactory.h
     PROPERTIES
-    COMPILE_FLAGS "-I${Protobuf_INCLUDE_PBS}"
+    COMPILE_FLAGS "-I${CMAKE_CURRENT_SOURCE_DIR}/geopop/io/proto_pb"
 )
 
 set_property(SOURCE ${PROTO_HDR} ${PROTO_SRC}
@@ -157,8 +157,12 @@ set(STRIDE_SRC
 add_library(libstride ${STRIDE_SRC})
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 target_compile_definitions(libstride PUBLIC "-DPROCCOUNT=${PROCCOUNT}")
-include_directories(libstride Protobuf_INCLUDE_PBS)
-target_link_libraries(libstride ${LIBS} libprotobuf_insrc)
+target_link_libraries(libstride PRIVATE ${LIBS})
+if(Protobuf_FOUND)
+    target_link_libraries(libstride PRIVATE ${Protobuf_LIBRARIES})
+else()
+    target_link_libraries(libstride PRIVATE libprotobuf)
+endif()
 set_target_properties(libstride
     PROPERTIES
         POSITION_INDEPENDENT_CODE ON

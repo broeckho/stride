@@ -101,21 +101,21 @@ find_package(Threads)
 #----------------------------------------------------------------------------
 # ProtoBuf
 #----------------------------------------------------------------------------
-#============================================================================
-# Protocol Buffers.
-#============================================================================
 set(PROTO_DIR geopop/io/proto)
 set(PROTO_PROTO geopop/io/proto/geogrid.proto)
 if(NOT STRIDE_FORCE_NO_PROTOC)
-    find_package(Protobuf)
-    if(Protobuf_FOUND)
-        set(Protobuf_INCLUDE_PBS ${CMAKE_CURRENT_BINARY_DIR}/main/cpp)
-    else()
-        set(Protobuf_INCLUDE_PBS ${CMAKE_CURRENT_SOURCE_DIR}main/cpp/geopop/io/proto/proto_pb)
-    endif()
+    find_package(Protobuf REQUIRED)
 endif()
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/gengeopop/io/proto)
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+if(Protobuf_FOUND)
+    set(Protobuf_INCLUDE_PBS ${CMAKE_CURRENT_BINARY_DIR}/main/cpp)
+    include_directories(SYSTEM ${Protobuf_INCLUDE_DIRS})
+    set(LIBS   ${LIBS} ${Protobuf_LIBRARIES})
+else()
+    set(Protobuf_INCLUDE_PBS ${CMAKE_CURRENT_SOURCE_DIR}main/cpp/geopop/io/proto/proto_pb)
+    include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+    include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/geopop/io/proto_pb)
+    set(LIBS   ${LIBS})
+endif()
 
 #----------------------------------------------------------------------------
 # SHA1 hash code.
