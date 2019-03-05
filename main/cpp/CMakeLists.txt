@@ -25,6 +25,19 @@ else()
     set(PROTO_HDR geopop/io/proto_pb/geogrid.pb.h)
 endif()
 
+set_source_files_properties(
+    geopop/io/GeoGridProtoReader.cpp
+    geopop/io/GeoGridProtoReader.h
+    geopop/io/GeoGridReaderFactory.cpp
+    geopop/io/GeoGridReaderFactory.h
+    geopop/io/GeoGridProtoWriter.cpp
+    geopop/io/GeoGridProtoWriter.h
+    geopop/io/GeoGridWriterFactory.cpp
+    geopop/io/GeoGridWriterFactory.h
+    PROPERTIES
+    COMPILE_FLAGS "-I${Protobuf_INCLUDE_PBS}"
+)
+
 set_property(SOURCE ${PROTO_HDR} ${PROTO_SRC}
     PROPERTY
     COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic"
@@ -139,30 +152,11 @@ set(STRIDE_SRC
 )
 
 #============================================================================
-# MACROS to inject in ConfigInfo.cpp
-#============================================================================
-set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
-    COMPILE_FLAGS "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
-set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
-    COMPILE_FLAGS "-DPROCCOUNT=${PROCCOUNT}")
-
-set_source_files_properties(
-    geopop/io/GeoGridProtoReader.cpp
-    geopop/io/GeoGridProtoReader.h
-    geopop/io/GeoGridReaderFactory.cpp
-    geopop/io/GeoGridReaderFactory.h
-    geopop/io/GeoGridProtoWriter.cpp
-    geopop/io/GeoGridProtoWriter.h
-    geopop/io/GeoGridWriterFactory.cpp
-    geopop/io/GeoGridWriterFactory.h
-    PROPERTIES
-    COMPILE_FLAGS "-I${Protobuf_INCLUDE_PBS}"
-)
-
-#============================================================================
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${STRIDE_SRC})
+target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
+target_compile_definitions(libstride PUBLIC "-DPROCCOUNT=${PROCCOUNT}")
 include_directories(libstride Protobuf_INCLUDE_PBS)
 target_link_libraries(libstride ${LIBS} libprotobuf_insrc)
 set_target_properties(libstride

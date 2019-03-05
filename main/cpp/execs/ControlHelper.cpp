@@ -96,7 +96,8 @@ void ControlHelper::LogShutdown()
 void ControlHelper::LogStartup()
 {
         m_stride_logger->info("{} starting up at: {}", m_name, TimeStamp().ToString());
-        m_stride_logger->info("Executing revision {}", ConfigInfo::GitRevision());
+        m_stride_logger->info("Executing revision: {}", ConfigInfo::GitRevision());
+        m_stride_logger->info("Processor count: {}", ConfigInfo::ProcessorCount());
         m_stride_logger->info("Creating dir:  {}", m_output_prefix);
         m_stride_logger->trace("Executing:           {}", FileSys::GetExecPath().string());
         m_stride_logger->trace("Current directory:   {}", FileSys::GetCurrentDir().string());
