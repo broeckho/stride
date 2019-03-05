@@ -18,7 +18,21 @@
 #include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/Location.h"
-#include "geopop/io/proto_pb/geogrid.pb.h"
+
+
+namespace proto {
+class GeoGrid;
+class GeoGrid_Location;
+class GeoGrid_Location_Coordinate;
+class GeoGrid_Location_ContactCenter;
+class GeoGrid_Location_ContactCenter_ContactPool;
+class GeoGrid_Person;
+}
+
+namespace stride {
+class ContactPool;
+class Population;
+}
 
 using namespace geopop;
 

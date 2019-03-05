@@ -27,15 +27,15 @@ endif()
 
 set_source_files_properties(
     geopop/io/GeoGridProtoReader.cpp
-    geopop/io/GeoGridProtoReader.h
-    geopop/io/GeoGridReaderFactory.cpp
-    geopop/io/GeoGridReaderFactory.h
+#    geopop/io/GeoGridProtoReader.h
+#    geopop/io/GeoGridReaderFactory.cpp
+#    geopop/io/GeoGridReaderFactory.h
     geopop/io/GeoGridProtoWriter.cpp
-    geopop/io/GeoGridProtoWriter.h
-    geopop/io/GeoGridWriterFactory.cpp
-    geopop/io/GeoGridWriterFactory.h
+#    geopop/io/GeoGridProtoWriter.h
+#    geopop/io/GeoGridWriterFactory.cpp
+#    geopop/io/GeoGridWriterFactory.h
     PROPERTIES
-    COMPILE_FLAGS "-I${CMAKE_CURRENT_SOURCE_DIR}/geopop/io/proto_pb"
+    COMPILE_FLAGS "-I${CMAKE_SOURCE_DIR}/main/cpp/geopop/io/proto_pb"
 )
 
 set_property(SOURCE ${PROTO_HDR} ${PROTO_SRC}

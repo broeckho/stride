@@ -13,6 +13,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
+#include "geogrid.pb.h"
 #include "GeoGridIOUtils.h"
 #include "geopop/College.h"
 #include "geopop/GeoGridConfig.h"
@@ -21,7 +22,6 @@
 #include "geopop/PrimaryCommunity.h"
 #include "geopop/SecondaryCommunity.h"
 #include "geopop/Workplace.h"
-#include "geopop/io/proto_pb/geogrid.pb.h"
 
 #include <gtest/gtest.h>
 

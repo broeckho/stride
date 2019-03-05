@@ -15,6 +15,7 @@
 
 #include "GeoGridIOUtils.h"
 
+#include "geogrid.pb.h"
 #include "contact/ContactType.h"
 #include "geopop/College.h"
 #include "geopop/GeoGridConfig.h"

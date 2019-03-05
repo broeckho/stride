@@ -29,6 +29,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <sstream>
+
 using namespace std;
 using namespace geopop;
 using namespace stride;

@@ -15,10 +15,10 @@
 
 #include "GeoGridProtoWriter.h"
 
+#include "geogrid.pb.h"
 #include "contact/ContactType.h"
 #include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
-//#include "geopop/io/proto_pb/geogrid.pb.h"
 #include "util/Exception.h"
 
 #include <iostream>
