@@ -24,59 +24,64 @@ def getHouseholdConstitutions(outputDir, scenarioName, seed):
                     households[hhID] = [isSusceptible]
         return list(households.values())
 
+def groupBySizeAndConstitution(households, bins):
+    allSizes = {}
+    for hh in households:
+        if len(hh) not in allSizes:
+            allSizes[len(hh)] = bins
+        pctSusceptible = (sum(hh) / len(hh)) * 100
+        for b in bins:
+            if pctSusceptible >= b[0] and pctSusceptible <= b[1]:
+                allSizes[len(hh)][b] += 1
+                break
+    for s in allSizes:
+        numHHOfSize = sum(allSizes[s].values())
+        for b in allSizes[s]:
+            allSizes[s][b] /= numHHOfSize
+    return allSizes
+
 def createHouseholdConstitutionPlot(outputDir, scenarioName, poolSize, figName, stat="mean"):
+    ax = plt.axes(projection="3d")
+    bins = {
+        (0, 0): 0,
+        (1, 10): 0,
+        (11, 20): 0,
+        (21, 30): 0,
+        (31, 40): 0,
+        (41, 50): 0,
+        (51, 60): 0,
+        (61, 70): 0,
+        (71, 80): 0,
+        (81, 90): 0,
+        (91, 100): 0,
+    }
     seeds = getRngSeeds(outputDir, scenarioName)
-    allConstitutions = {}
+    colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown', 'magenta', 'yellow', "cyan"]
     with multiprocessing.Pool(processes=poolSize) as pool:
         households = pool.starmap(getHouseholdConstitutions, [(outputDir, scenarioName, s) for s in seeds])
-        allConstitutionFreqs = {}
+        allSizes = []
+        allGrouped = []
         for run in households:
-            allSizes = {}
-            for hh in run:
-                if len(hh) in allSizes:
-                    allSizes[len(hh)].append(sum(hh) / len(hh))
-                else:
-                    allSizes[len(hh)] = [sum(hh) / len(hh)]
-            for hhSize in allSizes:
-                hhConstitutions = allSizes[hhSize]
-                constitutionFreqs = {}
-                for constitution in hhConstitutions:
-                    if constitution in constitutionFreqs:
-                        constitutionFreqs[constitution] += 1
-                    else:
-                        constitutionFreqs[constitution] = 1
-                for constitution in constitutionFreqs:
-                    constitutionFreqs[constitution] /= len(hhConstitutions)
-                    if hhSize in allConstitutionFreqs:
-                        if constitution in allConstitutionFreqs[hhSize]:
-                            allConstitutionFreqs[hhSize][constitution].append(constitutionFreqs[constitution])
-                        else:
-                            allConstitutionFreqs[hhSize][constitution] = [constitutionFreqs[constitution]]
-                    else:
-                        allConstitutionFreqs[hhSize] = {constitution : [constitutionFreqs[constitution]]}
-        allConstitutions = []
-        if stat == "mean":
-            for hhSize in allConstitutionFreqs:
-                for constitution in allConstitutionFreqs[hhSize]:
-                    if constitution not in allConstitutions:
-                        allConstitutions.append(constitution)
-                    allConstitutionFreqs[hhSize][constitution] = sum(allConstitutionFreqs[hhSize][constitution]) / len(allConstitutionFreqs[hhSize][constitution])
-        allConstitutions.sort()
-        ax = plt.axes(projection="3d")
-        colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown', 'magenta', 'yellow', "cyan"]
-        for z in range(1, len(allConstitutionFreqs.keys()) + 1):
-            results = []
-            for c in allConstitutions:
-                if c in allConstitutionFreqs[z]:
-                    results.append(allConstitutionFreqs[z][c])
-                else:
-                    results.append(0)
-            ax.bar(range(len(allConstitutions)), results, zs=z, zdir="y", color=colors[z-1], alpha=0.5)
+            grouped = groupBySizeAndConstitution(run, bins)
+            allSizes += [hhSize for hhSize in grouped.keys() if hhSize not in allSizes]
+            allGrouped.append(grouped)
+        allSizes.sort()
+        for hhSize in allSizes:
+            xs = []
+            ys = []
+            for b in bins:
+                xs.append(b)
+                allFrequencies = [run[hhSize][b] for run in allGrouped]
+                if stat == "mean":
+                    ys.append(sum(allFrequencies) / len(allFrequencies))
+                elif stat == "median":
+                    ys.append(statistics.median(allFrequencies))
+            ax.bar(range(len(xs)), ys, zs=hhSize, zdir="y", color=colors[hhSize - 1], alpha=0.5)
         ax.set_xlabel("Pct susceptibles")
-        ax.set_xticks(range(len(allConstitutions)))
-        ax.set_xticklabels([int(x * 100) for x in allConstitutions], rotation=90)
+        ax.set_xticks(range(len(bins)))
+        ax.set_xticklabels([b[1] for b in bins])
         ax.set_ylabel("Number of children in hh")
-        ax.set_zlabel("Fraction of households")
+        ax.set_zlabel("Fraction of hhs this size")
         ax.set_zlim(0, 1)
         saveFig(outputDir, figName, "png")
 
