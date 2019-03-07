@@ -79,7 +79,6 @@ endif()
 #
 message( STATUS "" )
 if( Protobuf_FOUND )
-	message( STATUS " " )
 	message( STATUS "------> Protobuf_FOUND              : ${Protobuf_FOUND}"          )
 	message( STATUS "------> Protobuf_INCLUDE_DIRS       : ${Protobuf_INCLUDE_DIRS} "  )
 	message( STATUS "------> Protobuf_LIBRARIES          : ${Protobuf_LIBRARIES} "     )

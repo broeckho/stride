@@ -33,8 +33,8 @@ set_source_files_properties(
 
 set(EXEC gtester)
 set(SRC
-    BatchRuns.cpp
     ScenarioData.cpp
+    ScenarioRuns.cpp
     #---
     UnitCsvTest.cpp
     UnitIsIterator.cpp
@@ -82,9 +82,9 @@ set(SRC
     main.cpp
 )
 
-if (OPENMP_FOUND)
-        set(SRC ${SRC} ParallelRuns.cpp)
-endif ()
+#if (OPENMP_FOUND)
+#        set(SRC ${SRC} ParallelRuns.cpp)
+#endif ()
 
 include_directories(${CMAKE_SOURCE_DIR}/test/cpp)
 add_executable(${EXEC} ${SRC})

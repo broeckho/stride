@@ -38,7 +38,7 @@ using boost::property_tree::ptree;
 
 namespace Tests {
 
-class BatchRuns : public ::testing::TestWithParam<const char*>
+class ScenarioRuns : public ::testing::TestWithParam<const char*>
 {
 public:
         /// TestCase set up.
@@ -49,7 +49,7 @@ public:
 
 protected:
         /// Destructor has to be virtual.
-        ~BatchRuns() override = default;
+        ~ScenarioRuns() override = default;
 
         /// Set up for the test fixture
         void SetUp() override {}
@@ -58,15 +58,15 @@ protected:
         void TearDown() override {}
 };
 
-class BatchRunsDefault : public BatchRuns
+class RunsDefault : public ScenarioRuns
 {
 };
 
-class BatchRunsGeoPop : public BatchRuns
+class RunsGeoPop : public ScenarioRuns
 {
 };
 
-void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d)
+void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsigned int numThreads)
 {
         // -----------------------------------------------------------------------------------------
         // Scenario configuration and target numbers.
@@ -74,6 +74,7 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d)
         auto       configPt = get<0>(d);
         const auto target   = get<1>(d);
         const auto margin   = get<2>(d);
+        configPt.put("run.num_threads", numThreads);
 
         // -----------------------------------------------------------------------------------------
         // Actual simulator run.
@@ -92,22 +93,50 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d)
         EXPECT_NEAR(res, target, target * margin);
         cerr.setf(ios_base::scientific, ios_base::floatfield);
         cerr.precision(2);
-        cerr << "Test: " << testTag << ", result: " << res << ", target: " << target
+        cerr << "Test: " << testTag << ", number of threads: " << numThreads
+                << ",  result: " << res
+                << ",  target: " << target
                 << ",  % delta: " << fabs(static_cast<double>(res)-static_cast<double>(target))/(1.0e-8+fabs(target))
                 << ",  margin: " << margin<< endl;
 }
 
-TEST_P(BatchRunsDefault, Run)
+TEST_P(RunsDefault, SingleThreadRun)
 {
         const string testTag = GetParam();
-        RunTest(testTag, ScenarioData::Get(testTag));
+        RunTest(testTag, ScenarioData::Get(testTag), 1U);
 }
 
-TEST_P(BatchRunsGeoPop, Run)
+TEST_P(RunsGeoPop, SingleThreadRun)
 {
         const string testTag = string(GetParam()).append("_geopop");
-        RunTest(testTag,  ScenarioData::Get(testTag));
+        RunTest(testTag,  ScenarioData::Get(testTag), 1U);
 }
+
+#ifdef _OPENMP
+TEST_P(RunsDefault, MultiThreadRuns)
+{
+        const auto numThreads = RunConfigManager::CreateNumThreads();
+        const string testTag = GetParam();
+        for (const auto n : numThreads) {
+                if (n == 1U) { // Skip single thread test
+                        continue;
+                }
+                RunTest(testTag, ScenarioData::Get(testTag), n);
+        }
+}
+
+TEST_P(RunsGeoPop, MultiThreadRuns)
+{
+        const auto numThreads = RunConfigManager::CreateNumThreads();
+        const string testTag = string(GetParam()).append("_geopop");
+        for (const auto n : numThreads) {
+                if (n == 1U) { // Skip single thread test
+                        continue;
+                }
+                RunTest(testTag, ScenarioData::Get(testTag), n);
+        }
+}
+#endif
 
 namespace {
 
@@ -119,16 +148,16 @@ const char* tags_r0[] = {"r0_0", "r0_4", "r0_8", "r0_12", "r0_16"};
 
 } // namespace
 
-INSTANTIATE_TEST_CASE_P(influenza, BatchRunsDefault, ValuesIn(tags_influenza));
+INSTANTIATE_TEST_CASE_P(influenza, RunsDefault, ValuesIn(tags_influenza));
 
-INSTANTIATE_TEST_CASE_P(measles, BatchRunsDefault, ValuesIn(tags_measles));
+INSTANTIATE_TEST_CASE_P(measles, RunsDefault, ValuesIn(tags_measles));
 
-INSTANTIATE_TEST_CASE_P(r0, BatchRunsDefault, ValuesIn(tags_r0));
+INSTANTIATE_TEST_CASE_P(r0, RunsDefault, ValuesIn(tags_r0));
 
-INSTANTIATE_TEST_CASE_P(influenza_geopop, BatchRunsGeoPop, ValuesIn(tags_influenza));
+INSTANTIATE_TEST_CASE_P(influenza_geopop, RunsGeoPop, ValuesIn(tags_influenza));
 
-INSTANTIATE_TEST_CASE_P(measles_geopop, BatchRunsGeoPop, ValuesIn(tags_measles));
+INSTANTIATE_TEST_CASE_P(measles_geopop, RunsGeoPop, ValuesIn(tags_measles));
 
-INSTANTIATE_TEST_CASE_P(r0_geopop, BatchRunsGeoPop, ValuesIn(tags_r0));
+INSTANTIATE_TEST_CASE_P(r0_geopop, RunsGeoPop, ValuesIn(tags_r0));
 
 } // namespace Tests

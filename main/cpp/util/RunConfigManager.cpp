@@ -96,11 +96,11 @@ string RunConfigManager::CreateBenchInfluenza()
         <immunity_link_probability>0</immunity_link_probability>
         <immunity_profile>Random</immunity_profile>
         <immunity_rate>0</immunity_rate>
-        <num_days>14</num_days>
+        <num_days>10</num_days>
         <num_participants_survey>10</num_participants_survey>
         <num_threads>1</num_threads>
         <output_prefix>BenchRuns</output_prefix>
-        <population_file>pop_flanders1600.csv</population_file>
+        <population_file>pop_flanders600.csv</population_file>
         <population_type>default</geopopulation_type>
         <rng_seed>343869</rng_seed>
         <rng_type>mrg2</rng_type>
@@ -113,6 +113,41 @@ string RunConfigManager::CreateBenchInfluenza()
         <track_index_case>false</track_index_case>
         <use_install_dirs>true</use_install_dirs>
         <vaccine_profile>None</vaccine_profile>
+</run>
+        )###";
+}
+
+string RunConfigManager::CreateBenchMeasles()
+{
+        return R"###(
+<?xml version="1.0" encoding="utf-8"?>
+<run>
+        <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
+        <contact_log_level>None</contact_log_level>
+        <contact_output_file>false</contact_output_file>
+        <disease_config_file>disease_measles.xml</disease_config_file>
+        <holidays_file>holidays_none.json</holidays_file>
+        <immunity_profile>None</immunity_profile>
+        <immunity_rate>0.01</immunity_rate>
+        <num_days>30</num_days>
+        <num_participants_survey>10</num_participants_survey>
+        <num_threads>1</num_threads>
+        <output_prefix>bench</output_prefix>
+        <population_file>pop_flanders600.csv</population_file>
+        <population_type>default</geopopulation_type>
+        <rng_seed>1</rng_seed>
+        <rng_type>mrg2</rng_type>
+        <r0>16</r0>
+        <seeding_age_max>99</seeding_age_max>
+        <seeding_age_min>1</seeding_age_min>
+        <seeding_rate>0.05</seeding_rate>
+        <start_date>2017-01-01</start_date>
+        <stride_log_level>critical</stride_log_level>
+        <track_index_case>false</track_index_case>
+        <use_install_dirs>true</use_install_dirs>
+        <vaccine_link_probability>0</vaccine_link_probability>
+        <vaccine_profile>Random</vaccine_profile>
+        <vaccine_rate>0</vaccine_rate>
 </run>
         )###";
 }
@@ -157,60 +192,25 @@ string RunConfigManager::CreateDefault()
         )###";
 }
 
-string RunConfigManager::CreateBenchMeasles()
-{
-        return R"###(
-<?xml version="1.0" encoding="utf-8"?>
-<run>
-        <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
-        <contact_log_level>None</contact_log_level>
-        <contact_output_file>false</contact_output_file>
-        <disease_config_file>disease_measles.xml</disease_config_file>
-        <holidays_file>holidays_none.json</holidays_file>
-        <immunity_profile>None</immunity_profile>
-        <immunity_rate>0.01</immunity_rate>
-        <num_days>30</num_days>
-        <num_participants_survey>10</num_participants_survey>
-        <num_threads>1</num_threads>
-        <output_prefix>bench</output_prefix>
-        <population_file>pop_flanders600.csv</population_file>
-        <population_type>default</geopopulation_type>
-        <rng_seed>1</rng_seed>
-        <rng_type>mrg2</rng_type>
-        <r0>12</r0>
-        <seeding_age_max>99</seeding_age_max>
-        <seeding_age_min>1</seeding_age_min>
-        <seeding_rate>0.02</seeding_rate>
-        <start_date>2017-01-01</start_date>
-        <stride_log_level>critical</stride_log_level>
-        <track_index_case>false</track_index_case>
-        <use_install_dirs>true</use_install_dirs>
-        <vaccine_link_probability>0</vaccine_link_probability>
-        <vaccine_profile>Random</vaccine_profile>
-        <vaccine_rate>0</vaccine_rate>
-</run>
-        )###";
-}
-
 vector<unsigned int> RunConfigManager::CreateNumThreads(unsigned int maxNum)
 {
         maxNum = max(maxNum, ConfigInfo::NumberAvailableThreads());
         initializer_list<unsigned int> num{1U};
 
-        if (maxNum >= 2) {
+        if (4 > maxNum && maxNum >= 2) {
                 num = {1U, 2U};
         }
-        if (maxNum >= 4) {
-                num = {1U, 2U, 3U, 4U};
+        if (8 > maxNum && maxNum >= 4) {
+                num = {1U, 2U, 4U};
         }
-        if (maxNum >= 8) {
-                num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U};
+        if (12 > maxNum && maxNum >= 8) {
+                num = {1U, 2U, 4U, 8U};
         }
-        if (maxNum >= 12) {
-                num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 10U, 12U};
+        if (16 > maxNum && maxNum >= 12) {
+                num = {1U, 4U, 6U, 8U, 12U};
         }
         if (maxNum >= 16) {
-                num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 10U, 12U, 16U};
+                num = {1U, 4U, 8U, 12U, 16U};
         }
 
         return num;

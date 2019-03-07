@@ -163,7 +163,7 @@ set(libprotobuf_lite_includes
     google/protobuf/wire_format_lite.h
 )
 
-
+set(CMAKE_CXX_FLAGS       "${CMAKE_CXX_FLAGS} -w")
 add_library(libprotobuf
     ${libprotobuf_files} ${libprotobuf_includes}
     ${libprotobuf_lite_files} ${libprotobuf_lite_includes}

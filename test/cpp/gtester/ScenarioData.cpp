@@ -43,26 +43,26 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                 RunConfigManager::AddGeoPopConfig(pt);
 
         const map<string, unsigned int> targets_default = {
-            {"influenza_a", 550000U}, {"influenza_b", 0U}, {"influenza_c", 5U}, {"measles_16", 271000U},
+            {"influenza_a", 550000U}, {"influenza_b", 0U}, {"influenza_c", 5U}, {"measles_16", 275000U},
             {"measles_26", 600000U},  {"r0_0", 1200U},     {"r0_4", 4000U},     {"r0_8", 14600U},
             {"r0_12", 38500U},        {"r0_16", 71000U}};
 
         const map<string, double> margins_default = {
-            {"influenza_a", 1.0e-03}, {"influenza_b", 0.0}, {"influenza_c", 1.0e-01}, {"measles_16", 2.0e-02},
+            {"influenza_a", 1.0e-03}, {"influenza_b", 0.0}, {"influenza_c", 1.0e-01}, {"measles_16", 5.0e-02},
             {"measles_26", 1.0e-03},  {"r0_0", 5.0e-02},    {"r0_4", 5.0e-02},        {"r0_8", 5.0e-02},
             {"r0_12", 1.0e-01},       {"r0_16", 8.0e-02}};
 
         const map<string, unsigned int> targets_geopop = {{"influenza_a_geopop", 554000U}, {"influenza_b_geopop", 0U},
-                                                          {"influenza_c_geopop", 5U},      {"measles_16_geopop", 275600U},
+                                                          {"influenza_c_geopop", 5U},      {"measles_16_geopop", 270000U},
                                                           {"measles_26_geopop", 600000U},  {"r0_0_geopop", 1200U},
                                                           {"r0_12_geopop", 39300U},        {"r0_16_geopop", 71200U},
-                                                          {"r0_4_geopop", 4350U},          {"r0_8_geopop", 15900U}};
+                                                          {"r0_4_geopop", 4300U},          {"r0_8_geopop", 15900U}};
 
-        const map<string, double> margins_geopop = {{"influenza_a_geopop", 1.0e-03}, {"influenza_b_geopop", 0.0},
-                                                    {"influenza_c_geopop", 1.0e-1},  {"measles_16_geopop", 1.0e-03},
+        const map<string, double> margins_geopop = {{"influenza_a_geopop", 3.0e-03}, {"influenza_b_geopop", 0.0},
+                                                    {"influenza_c_geopop", 1.0e-1},  {"measles_16_geopop", 8.0e-02},
                                                     {"measles_26_geopop", 2.0e-03},  {"r0_0_geopop", 1.0e-03},
                                                     {"r0_12_geopop", 1.0e-02},       {"r0_16_geopop", 5.0e-03},
-                                                    {"r0_4_geopop", 1.0e-02},        {"r0_8_geopop", 1.0e-02}};
+                                                    {"r0_4_geopop", 5.0e-02},        {"r0_8_geopop", 5.0e-02}};
 
         unsigned int target;
         double       margin;
