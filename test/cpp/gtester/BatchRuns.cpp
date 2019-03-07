@@ -67,7 +67,7 @@ void RunTest(tuple<ptree, unsigned int, double> d)
         // -----------------------------------------------------------------------------------------
         auto       configPt = get<0>(d);
         const auto target   = get<1>(d);
-        const auto sigma    = get<2>(d);
+        const auto margin    = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
         // Actual simulator run.
@@ -80,11 +80,10 @@ void RunTest(tuple<ptree, unsigned int, double> d)
         runner->Run();
 
         // -----------------------------------------------------------------------------------------
-        // Check results against target number.
+        // Check results against target number (|res - target| < target * margin).
         // -----------------------------------------------------------------------------------------
         const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
-        // Check within a 95% confidence interval (distance of 2 std deviations)
-        EXPECT_NEAR(res, target, target*sigma * 2.0);
+        EXPECT_NEAR(res, target, target * margin);
 }
 
 TEST_P(BatchRuns, Run) { RunTest(ScenarioData::Get(GetParam())); }

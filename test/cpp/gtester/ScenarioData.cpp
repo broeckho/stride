@@ -46,11 +46,11 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
             {"measles_26", 600000U},  {"r0_0", 1200U},     {"r0_4", 4077U},     {"r0_8", 14588U},
             {"r0_12", 39234U},        {"r0_16", 71171}};
 
-        std::map<std::string, double> sigmas_default = {{"influenza_a", 5.0e-04},
+        std::map<std::string, double> margins_default = {{"influenza_a", 1.0e-03},
                                                         {"influenza_b", 0.0},
-                                                        {"influenza_c", 2.0e-01},
-                                                        {"measles_16", 3.0e-02},
-                                                        {"measles_26", 2.0e-03},
+                                                        {"influenza_c", 4.0e-01},
+                                                        {"measles_16", 6.0e-02},
+                                                        {"measles_26", 4.0e-03},
                                                         {"r0_0", 1.0e-01},
                                                         {"r0_4", 1.0e-01},
                                                         {"r0_8", 1.0e-01},
@@ -63,20 +63,20 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
             {"r0_12_geopop", 39362U},        {"r0_16_geopop", 71220U},       {"r0_4_geopop", 4354U},
             {"r0_8_geopop", 15849U}};
 
-        std::map<std::string, double> sigmas_geopop = {
-            {"influenza_a_geopop", 8.0e-04}, {"influenza_b_geopop", 0.0},     {"influenza_c_geopop", 2.0e-1},
-            {"measles_16_geopop", 8.0e-03}, {"measles_26_geopop", 2.0e-03}, {"r0_0_geopop", 1.5e-03},
-            {"r0_12_geopop", 1.3e-01},       {"r0_16_geopop", 7.0e-02},       {"r0_4_geopop", 2.2e-01},
-            {"r0_8_geopop", 1.9e-01}};
+        std::map<std::string, double> margins_geopop = {
+            {"influenza_a_geopop", 1.6e-03}, {"influenza_b_geopop", 0.0},     {"influenza_c_geopop", 4.0e-1},
+            {"measles_16_geopop", 1.6e-02}, {"measles_26_geopop", 4.0e-03}, {"r0_0_geopop", 3.0e-03},
+            {"r0_12_geopop", 2.6e-01},       {"r0_16_geopop", 1.4e-01},       {"r0_4_geopop", 4.4e-01},
+            {"r0_8_geopop", 3.8e-01}};
 
         unsigned int target;
-        double       sigma;
+        double       margin;
         if (geopop) {
                 target = targets_geopop[tag];
-                sigma  = sigmas_geopop[tag];
+                margin  = margins_geopop[tag];
         } else {
                 target = targets_default[tag];
-                sigma  = sigmas_default[tag];
+                margin  = margins_default[tag];
         }
         if (geopop) {
                 tag = tag.substr(0, tag.size() - std::string("_geopop").size());
@@ -114,7 +114,7 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
         if (tag == "r0_16") {
                 pt.put("run.r0", 16.0);
         }
-        return make_tuple(pt, target, sigma);
+        return make_tuple(pt, target, margin);
 }
 
 } // namespace Tests
