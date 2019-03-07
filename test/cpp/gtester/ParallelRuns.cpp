@@ -28,6 +28,8 @@
 #include <boost/property_tree/ptree.hpp>
 #include <gtest/gtest.h>
 #include <omp.h>
+#include <cmath>
+#include <iomanip>
 #include <tuple>
 
 using namespace std;
@@ -95,9 +97,14 @@ TEST_P(ParallelRuns, Run)
                 auto pop    = Population::Create(configPt, rn_manager);
                 auto runner = make_shared<SimRunner>(configPt, pop, rn_manager);
                 runner->Run();
-                const auto result = runner->GetSim()->GetPopulation()->GetInfectedCount();
-                EXPECT_NEAR(result, target, target * margin)
-                    << "!! CHANGES:" << testTag << " with #threads: " << n << endl;
+                const auto res = runner->GetSim()->GetPopulation()->GetInfectedCount();
+                EXPECT_NEAR(res, target, target * margin);
+                cerr.setf(ios_base::scientific, ios_base::floatfield);
+                cerr.precision(2);
+                cerr << "Test: " << testTag << ",  result: " << res << ", target: " << target
+                        << ",  % delta: "
+                        << fabs(static_cast<double>(res)-static_cast<double>(target))/(1.0e-8+fabs(target))
+                        << ",  margin: " << margin<< endl;
         }
 }
 

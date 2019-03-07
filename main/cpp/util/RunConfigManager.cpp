@@ -61,7 +61,7 @@ ptree RunConfigManager::Create(const std::string& configName)
 
 void RunConfigManager::AddGeoPopConfig(ptree& pt)
 {
-        std::string geopop_str   = R"###(
+         const string geopop_str   = R"###(
 <run>
         <population_file>gengeopop.proto</population_file>
         <population_type>generate</geopopulation_type>
@@ -192,24 +192,24 @@ string RunConfigManager::CreateBenchMeasles()
         )###";
 }
 
-vector<unsigned int> RunConfigManager::CreateNumThreads(unsigned int max)
+vector<unsigned int> RunConfigManager::CreateNumThreads(unsigned int maxNum)
 {
-        max = std::max(max, ConfigInfo::NumberAvailableThreads());
+        maxNum = max(maxNum, ConfigInfo::NumberAvailableThreads());
         initializer_list<unsigned int> num{1U};
 
-        if (max >= 2) {
+        if (maxNum >= 2) {
                 num = {1U, 2U};
         }
-        if (max >= 4) {
+        if (maxNum >= 4) {
                 num = {1U, 2U, 3U, 4U};
         }
-        if (max >= 8) {
+        if (maxNum >= 8) {
                 num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U};
         }
-        if (max >= 12) {
+        if (maxNum >= 12) {
                 num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 10U, 12U};
         }
-        if (max >= 16) {
+        if (maxNum >= 16) {
                 num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 10U, 12U, 16U};
         }
 

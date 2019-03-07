@@ -26,6 +26,8 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <gtest/gtest.h>
+#include <cmath>
+#include <iomanip>
 #include <tuple>
 
 using namespace std;
@@ -56,25 +58,29 @@ protected:
         void TearDown() override {}
 };
 
+class BatchRunsDefault : public BatchRuns
+{
+};
+
 class BatchRunsGeoPop : public BatchRuns
 {
 };
 
-void RunTest(tuple<ptree, unsigned int, double> d)
+void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d)
 {
         // -----------------------------------------------------------------------------------------
         // Scenario configuration and target numbers.
         // -----------------------------------------------------------------------------------------
         auto       configPt = get<0>(d);
         const auto target   = get<1>(d);
-        const auto margin    = get<2>(d);
+        const auto margin   = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
         // Actual simulator run.
         // -----------------------------------------------------------------------------------------
         stride::util::RnMan rn_manager;
-        rn_manager.Initialize(RnMan::Info{configPt.get<std::string>("run.rng_seed", "1,2,3,4"),
-                                          configPt.get<std::string>("run.rng_state", ""),
+        rn_manager.Initialize(RnMan::Info{configPt.get<string>("run.rng_seed", "1,2,3,4"),
+                                          configPt.get<string>("run.rng_state", ""),
                                           configPt.get<unsigned int>("run.num_threads")});
         auto runner = make_shared<SimRunner>(configPt, Population::Create(configPt, rn_manager), rn_manager);
         runner->Run();
@@ -84,11 +90,24 @@ void RunTest(tuple<ptree, unsigned int, double> d)
         // -----------------------------------------------------------------------------------------
         const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
         EXPECT_NEAR(res, target, target * margin);
+        cerr.setf(ios_base::scientific, ios_base::floatfield);
+        cerr.precision(2);
+        cerr << "Test: " << testTag << ", result: " << res << ", target: " << target
+                << ",  % delta: " << fabs(static_cast<double>(res)-static_cast<double>(target))/(1.0e-8+fabs(target))
+                << ",  margin: " << margin<< endl;
 }
 
-TEST_P(BatchRuns, Run) { RunTest(ScenarioData::Get(GetParam())); }
+TEST_P(BatchRunsDefault, Run)
+{
+        const string testTag = GetParam();
+        RunTest(testTag, ScenarioData::Get(testTag));
+}
 
-TEST_P(BatchRunsGeoPop, Run) { RunTest(ScenarioData::Get(std::string(GetParam()) + "_geopop")); }
+TEST_P(BatchRunsGeoPop, Run)
+{
+        const string testTag = string(GetParam()).append("_geopop");
+        RunTest(testTag,  ScenarioData::Get(testTag));
+}
 
 namespace {
 
@@ -100,11 +119,11 @@ const char* tags_r0[] = {"r0_0", "r0_4", "r0_8", "r0_12", "r0_16"};
 
 } // namespace
 
-INSTANTIATE_TEST_CASE_P(influenza, BatchRuns, ValuesIn(tags_influenza));
+INSTANTIATE_TEST_CASE_P(influenza, BatchRunsDefault, ValuesIn(tags_influenza));
 
-INSTANTIATE_TEST_CASE_P(measles, BatchRuns, ValuesIn(tags_measles));
+INSTANTIATE_TEST_CASE_P(measles, BatchRunsDefault, ValuesIn(tags_measles));
 
-INSTANTIATE_TEST_CASE_P(r0, BatchRuns, ValuesIn(tags_r0));
+INSTANTIATE_TEST_CASE_P(r0, BatchRunsDefault, ValuesIn(tags_r0));
 
 INSTANTIATE_TEST_CASE_P(influenza_geopop, BatchRunsGeoPop, ValuesIn(tags_influenza));
 

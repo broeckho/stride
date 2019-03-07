@@ -45,7 +45,7 @@ public:
         static boost::property_tree::ptree Create(const std::string& configName);
 
         /// Set of threadcounts to use for tests based an nomber of available OpenMP threads.
-        static std::vector<unsigned int> CreateNumThreads(unsigned int max = ConfigInfo::ProcessorCount());
+        static std::vector<unsigned int> CreateNumThreads(unsigned int maxNum = ConfigInfo::ProcessorCount());
 
         /// Reconstitute property tree from string representation.
         static boost::property_tree::ptree FromString(const std::string& s);
