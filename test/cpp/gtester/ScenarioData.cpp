@@ -46,16 +46,16 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
             {"measles_26", 600000U},  {"r0_0", 1200U},     {"r0_4", 4077U},     {"r0_8", 14588U},
             {"r0_12", 39234U},        {"r0_16", 71171}};
 
-        std::map<std::string, double> sigmas_default = {{"influenza_a", 120.0},
-                                                        {"influenza_b", 0},
-                                                        {"influenza_c", 0.2},
-                                                        {"measles_16", 8000.0},
-                                                        {"measles_26", 1000.0},
-                                                        {"r0_0", targets_default["r0_0"] * 0.1},
-                                                        {"r0_4", targets_default["r0_4"] * 0.1},
-                                                        {"r0_8", targets_default["r0_8"] * 0.1},
-                                                        {"r0_12", targets_default["r0_12"] * 0.1},
-                                                        {"r0_16", targets_default["r0_16"] * 0.1}};
+        std::map<std::string, double> sigmas_default = {{"influenza_a", 5.0e-04},
+                                                        {"influenza_b", 0.0},
+                                                        {"influenza_c", 2.0e-01},
+                                                        {"measles_16", 3.0e-02},
+                                                        {"measles_26", 2.0e-03},
+                                                        {"r0_0", 1.0e-01},
+                                                        {"r0_4", 1.0e-01},
+                                                        {"r0_8", 1.0e-01},
+                                                        {"r0_12", 1.0e-01},
+                                                        {"r0_16", 1.0e-01}};
 
         std::map<std::string, unsigned int> targets_geopop = {
             {"influenza_a_geopop", 554299U}, {"influenza_b_geopop", 0},      {"influenza_c_geopop", 5},
@@ -64,10 +64,10 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
             {"r0_8_geopop", 15849U}};
 
         std::map<std::string, double> sigmas_geopop = {
-            {"influenza_a_geopop", 400.0}, {"influenza_b_geopop", 0},     {"influenza_c_geopop", 0.2},
-            {"measles_16_geopop", 2000.0}, {"measles_26_geopop", 1000.0}, {"r0_0_geopop", 1.6278820596099706},
-            {"r0_12_geopop", 500.0},       {"r0_16_geopop", 500.0},       {"r0_4_geopop", 1000.0},
-            {"r0_8_geopop", 300.0}};
+            {"influenza_a_geopop", 8.0e-04}, {"influenza_b_geopop", 0.0},     {"influenza_c_geopop", 2.0e-1},
+            {"measles_16_geopop", 8.0e-03}, {"measles_26_geopop", 2.0e-03}, {"r0_0_geopop", 1.5e-03},
+            {"r0_12_geopop", 1.3e-01},       {"r0_16_geopop", 7.0e-02},       {"r0_4_geopop", 2.2e-01},
+            {"r0_8_geopop", 1.9e-01}};
 
         unsigned int target;
         double       sigma;

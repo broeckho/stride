@@ -84,7 +84,7 @@ void RunTest(tuple<ptree, unsigned int, double> d)
         // -----------------------------------------------------------------------------------------
         const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
         // Check within a 95% confidence interval (distance of 2 std deviations)
-        EXPECT_NEAR(res, target, sigma * 2);
+        EXPECT_NEAR(res, target, target*sigma * 2.0);
 }
 
 TEST_P(BatchRuns, Run) { RunTest(ScenarioData::Get(GetParam())); }
