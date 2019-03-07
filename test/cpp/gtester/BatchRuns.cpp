@@ -80,7 +80,7 @@ void RunTest(tuple<ptree, unsigned int, double> d)
         runner->Run();
 
         // -----------------------------------------------------------------------------------------
-        // Check resuts against target number.
+        // Check results against target number.
         // -----------------------------------------------------------------------------------------
         const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
         // Check within a 95% confidence interval (distance of 2 std deviations)
@@ -89,7 +89,7 @@ void RunTest(tuple<ptree, unsigned int, double> d)
 
 TEST_P(BatchRuns, Run) { RunTest(ScenarioData::Get(GetParam())); }
 
-TEST_P(BatchRunsGeoPop, Run) { RunTest(ScenarioData::Get(std::string(GetParam()) + "_gengeopop")); }
+TEST_P(BatchRunsGeoPop, Run) { RunTest(ScenarioData::Get(std::string(GetParam()) + "_geopop")); }
 
 namespace {
 
@@ -107,10 +107,10 @@ INSTANTIATE_TEST_CASE_P(measles, BatchRuns, ValuesIn(tags_measles));
 
 INSTANTIATE_TEST_CASE_P(r0, BatchRuns, ValuesIn(tags_r0));
 
-INSTANTIATE_TEST_CASE_P(influenza_gengeopop, BatchRunsGeoPop, ValuesIn(tags_influenza));
+INSTANTIATE_TEST_CASE_P(influenza_geopop, BatchRunsGeoPop, ValuesIn(tags_influenza));
 
-INSTANTIATE_TEST_CASE_P(measles_gengeopop, BatchRunsGeoPop, ValuesIn(tags_measles));
+INSTANTIATE_TEST_CASE_P(measles_geopop, BatchRunsGeoPop, ValuesIn(tags_measles));
 
-INSTANTIATE_TEST_CASE_P(r0_gengeopop, BatchRunsGeoPop, ValuesIn(tags_r0));
+INSTANTIATE_TEST_CASE_P(r0_geopop, BatchRunsGeoPop, ValuesIn(tags_r0));
 
 } // namespace Tests
