@@ -35,11 +35,11 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
 {
         ptree pt = tag.substr(0, 2) != "r0" ? RunConfigManager::Create("TestsInfluenza")
                                             : RunConfigManager::Create("TestsMeasles");
-        bool gengeopop = tag.size() > std::string("gengeopop").size() &&
+        bool geopop = tag.size() > std::string("gengeopop").size() &&
                          tag.substr(tag.size() - std::string("gengeopop").size(), tag.size() - 1) == "gengeopop";
 
-        if (gengeopop)
-                RunConfigManager::ConvertToGenGeoPop(pt);
+        if (geopop)
+                RunConfigManager::AddGeoPopConfig(pt);
 
         std::map<std::string, unsigned int> targets_default = {
             {"influenza_a", 550429U}, {"influenza_b", 0U}, {"influenza_c", 5U}, {"measles_16", 273372U},
@@ -57,13 +57,13 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                                                         {"r0_12", targets_default["r0_12"] * 0.1},
                                                         {"r0_16", targets_default["r0_16"] * 0.1}};
 
-        std::map<std::string, unsigned int> targets_gengeopop = {
+        std::map<std::string, unsigned int> targets_geopop = {
             {"influenza_a_gengeopop", 554299U}, {"influenza_b_gengeopop", 0},      {"influenza_c_gengeopop", 5},
             {"measles_16_gengeopop", 275643U},  {"measles_26_gengeopop", 600000U}, {"r0_0_gengeopop", 1199U},
             {"r0_12_gengeopop", 39362U},        {"r0_16_gengeopop", 71220U},       {"r0_4_gengeopop", 4354U},
             {"r0_8_gengeopop", 15849U}};
 
-        std::map<std::string, double> sigmas_gengeopop = {
+        std::map<std::string, double> sigmas_geopop = {
             {"influenza_a_gengeopop", 400.0}, {"influenza_b_gengeopop", 0},     {"influenza_c_gengeopop", 0.2},
             {"measles_16_gengeopop", 2000.0}, {"measles_26_gengeopop", 1000.0}, {"r0_0_gengeopop", 1.6278820596099706},
             {"r0_12_gengeopop", 500.0},       {"r0_16_gengeopop", 500.0},       {"r0_4_gengeopop", 1000.0},
@@ -71,14 +71,14 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
 
         unsigned int target;
         double       sigma;
-        if (gengeopop) {
-                target = targets_gengeopop[tag];
-                sigma  = sigmas_gengeopop[tag];
+        if (geopop) {
+                target = targets_geopop[tag];
+                sigma  = sigmas_geopop[tag];
         } else {
                 target = targets_default[tag];
                 sigma  = sigmas_default[tag];
         }
-        if (gengeopop) {
+        if (geopop) {
                 tag = tag.substr(0, tag.size() - std::string("_gengeopop").size());
         }
 

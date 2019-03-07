@@ -35,6 +35,9 @@ namespace util {
 class RunConfigManager
 {
 public:
+        /// Adapt the configuration by adding the gengeopop data items.
+        static void AddGeoPopConfig(boost::property_tree::ptree& pt);
+
         /// Clean (i.e. indent, sort and produde the sha1) the ptree config file.
         static void CleanConfigFile(boost::property_tree::ptree pt);
 
@@ -55,9 +58,6 @@ public:
 
         /// Produce the short sha1 hash of property tree (of it's string representation).
         static std::string ToShortSha1(const boost::property_tree::ptree& pt, unsigned int n = 7U);
-
-        /// Adapt the configuration by adding the gengeopop data items.
-        static void ConvertToGenGeoPop(boost::property_tree::ptree&);
 
 private:
         /// Produce Influenza config for Benchmarking.

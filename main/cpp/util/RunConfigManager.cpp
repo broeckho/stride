@@ -59,9 +59,9 @@ ptree RunConfigManager::Create(const std::string& configName)
         return FromString(creators.at(configName)());
 }
 
-void RunConfigManager::ConvertToGenGeoPop(ptree& pt)
+void RunConfigManager::AddGeoPopConfig(ptree& pt)
 {
-        std::string gengeopop_str   = R"###(
+        std::string geopop_str   = R"###(
 <run>
         <population_file>gengeopop.proto</population_file>
         <population_type>generate</geopopulation_type>
@@ -77,10 +77,10 @@ void RunConfigManager::ConvertToGenGeoPop(ptree& pt)
     </geopop_gen>
 </run>
         )###";
-        ptree       gengeopop_ptree = FromString(gengeopop_str);
-        pt.put_child("run.population_file", gengeopop_ptree.get_child("run.population_file"));
-        pt.put_child("run.population_type", gengeopop_ptree.get_child("run.population_type"));
-        pt.put_child("run.geopop_gen", gengeopop_ptree.get_child("run.geopop_gen"));
+        ptree       geopop_ptree = FromString(geopop_str);
+        pt.put_child("run.population_file", geopop_ptree.get_child("run.population_file"));
+        pt.put_child("run.population_type", geopop_ptree.get_child("run.population_type"));
+        pt.put_child("run.geopop_gen", geopop_ptree.get_child("run.geopop_gen"));
 }
 
 string RunConfigManager::CreateBenchInfluenza()

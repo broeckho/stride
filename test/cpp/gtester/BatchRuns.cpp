@@ -56,7 +56,7 @@ protected:
         void TearDown() override {}
 };
 
-class BatchRunsGenGeoPop : public BatchRuns
+class BatchRunsGeoPop : public BatchRuns
 {
 };
 
@@ -89,7 +89,7 @@ void RunTest(tuple<ptree, unsigned int, double> d)
 
 TEST_P(BatchRuns, Run) { RunTest(ScenarioData::Get(GetParam())); }
 
-TEST_P(BatchRunsGenGeoPop, Run) { RunTest(ScenarioData::Get(std::string(GetParam()) + "_gengeopop")); }
+TEST_P(BatchRunsGeoPop, Run) { RunTest(ScenarioData::Get(std::string(GetParam()) + "_gengeopop")); }
 
 namespace {
 
@@ -107,10 +107,10 @@ INSTANTIATE_TEST_CASE_P(measles, BatchRuns, ValuesIn(tags_measles));
 
 INSTANTIATE_TEST_CASE_P(r0, BatchRuns, ValuesIn(tags_r0));
 
-INSTANTIATE_TEST_CASE_P(influenza_gengeopop, BatchRunsGenGeoPop, ValuesIn(tags_influenza));
+INSTANTIATE_TEST_CASE_P(influenza_gengeopop, BatchRunsGeoPop, ValuesIn(tags_influenza));
 
-INSTANTIATE_TEST_CASE_P(measles_gengeopop, BatchRunsGenGeoPop, ValuesIn(tags_measles));
+INSTANTIATE_TEST_CASE_P(measles_gengeopop, BatchRunsGeoPop, ValuesIn(tags_measles));
 
-INSTANTIATE_TEST_CASE_P(r0_gengeopop, BatchRunsGenGeoPop, ValuesIn(tags_r0));
+INSTANTIATE_TEST_CASE_P(r0_gengeopop, BatchRunsGeoPop, ValuesIn(tags_r0));
 
 } // namespace Tests
