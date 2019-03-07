@@ -14,6 +14,7 @@
  */
 
 #include "geopop/generators/HouseholdGenerator.h"
+
 #include "../../createlogger.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"

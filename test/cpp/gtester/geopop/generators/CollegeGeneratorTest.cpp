@@ -14,6 +14,7 @@
  */
 
 #include "geopop/generators/CollegeGenerator.h"
+
 #include "../../createlogger.h"
 #include "geopop/College.h"
 #include "geopop/GeoGrid.h"

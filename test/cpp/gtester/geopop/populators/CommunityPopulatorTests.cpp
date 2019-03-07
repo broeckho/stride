@@ -13,6 +13,9 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
+#include "geopop/populators/PrimaryCommunityPopulator.h"
+#include "geopop/populators/SecondaryCommunityPopulator.h"
+
 #include "geopop/Coordinate.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
@@ -20,8 +23,6 @@
 #include "geopop/Location.h"
 #include "geopop/PrimaryCommunity.h"
 #include "geopop/SecondaryCommunity.h"
-#include "geopop/populators/PrimaryCommunityPopulator.h"
-#include "geopop/populators/SecondaryCommunityPopulator.h"
 #include "pop/Population.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"

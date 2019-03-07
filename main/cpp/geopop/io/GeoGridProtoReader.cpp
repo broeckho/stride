@@ -15,8 +15,8 @@
 
 #include "GeoGridProtoReader.h"
 
-#include "geogrid.pb.h"
 #include "ThreadException.h"
+#include "geogrid.pb.h"
 #include "geopop/College.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/Household.h"

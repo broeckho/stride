@@ -13,8 +13,8 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "geogrid.pb.h"
 #include "GeoGridIOUtils.h"
+#include "geogrid.pb.h"
 #include "geopop/College.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Household.h"

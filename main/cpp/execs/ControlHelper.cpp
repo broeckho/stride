@@ -50,7 +50,7 @@ ControlHelper::ControlHelper()
 ControlHelper::ControlHelper(string name, const ptree& configPt) : ControlHelper()
 {
         m_run_clock.Start();
-        m_config        = configPt;
+        m_config           = configPt;
         m_name             = std::move(name);
         m_output_prefix    = m_config.get<string>("run.output_prefix");
         m_use_install_dirs = m_config.get<bool>("run.use_install_dirs");

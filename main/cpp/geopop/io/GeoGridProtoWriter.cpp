@@ -15,8 +15,8 @@
 
 #include "GeoGridProtoWriter.h"
 
-#include "geogrid.pb.h"
 #include "contact/ContactType.h"
+#include "geogrid.pb.h"
 #include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "util/Exception.h"

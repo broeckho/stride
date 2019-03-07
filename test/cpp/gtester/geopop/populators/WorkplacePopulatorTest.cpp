@@ -14,6 +14,7 @@
  */
 
 #include "geopop/populators/WorkplacePopulator.h"
+
 #include "contact/AgeBrackets.h"
 #include "createGeogrid.h"
 #include "geopop/College.h"

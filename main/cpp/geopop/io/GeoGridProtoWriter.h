@@ -23,7 +23,7 @@
 namespace stride {
 class ContactPool;
 class Person;
-}
+} // namespace stride
 
 namespace proto {
 class GeoGrid_Location;
@@ -31,7 +31,7 @@ class GeoGrid_Location_Coordinate;
 class GeoGrid_Location_ContactCenter;
 class GeoGrid_Location_ContactCenter_ContactPool;
 class GeoGrid_Person;
-}
+} // namespace proto
 
 namespace geopop {
 
