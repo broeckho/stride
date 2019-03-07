@@ -1,0 +1,66 @@
+\documentclass[runningheads]{llncs}
+
+\usepackage{graphicx}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+
+\begin{document}
+%
+\title{Simulation Paper}
+
+\author{Benjamin Vandersmissen\inst{1} \and
+Lars Van Roy\inst{2} \and \\
+Evelien Daems\inst{3} \and
+Frank Jan Fekkes\inst{4}}
+%
+\authorrunning{F. Author et al.}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{
+\email{benjamin.vandersmissen@student.uantwerpen.be} \and
+\email{lars.vanroy@student.uantwerpen.be} \and
+\email{evelien.daems@student.uantwerpen.be} \and
+\email{franciscus.fekkes@student.uantwerpen.be}}
+%
+\maketitle              % typeset the header of the contribution
+%
+\begin{abstract}
+In this paper we will examine the Stride tool and discover its functionalities.
+We will discuss some findings about the use of different parameters, populations and more.
+In the end there is a briefly discussion of the performance of the program, a very important topic within computer related problems.
+
+%\keywords{First keyword  \and Second keyword \and Another keyword.}
+\end{abstract}
+
+\section{Simulation}
+
+\subsection{Stochastic variation}
+We use the Stan (STochatsic ANalysis) controller to examine the influence of stochasticity on the results obtained from the simulation. \newline
+In Figure \ref{fig1} the number of cummulatice cases per time-step is plotted. Here we can observe an exponantial grow of the number of cases througout time. This is not surprisingly because it can be deducted from common reason. If per time more people are affected, a larger contactpool is possibly infected. These people who are now new carriers of the disease will enter their personal contactpool and again more people will be reached.\\
+Towards the end a flattening of the curve occurs. This can be explained because the population is obviously not infinite. At one point anyone who can be infected will effectively become a carrier of the disease.
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{fig1.png}
+	\caption{Result of a number of stochastic runs. The figure displays the distribution of the number of cummulative cases per time-step.} 	\label{fig1}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{fig2.png}
+	\caption{Result of a number of stochastic runs. The figure displays the distribution of the number of new cases per time-step.} 
+	\label{fig2}
+\end{figure}
+
+
+\subsection{Determining an extinction treshold}
+\subsection{Estimating the immunity level}
+\subsection{Estimating R\textsubscript{0}}
+
+\section{Population generation}
+\subsection{Investigating the influence of demography on epidemics}
+\subsection{Vaccinating on campus}
+\subsection{Is commuting to work important for disease spread?}
+
+\section{Performance profiling of sequential code}
+
+\end{document}
