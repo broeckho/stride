@@ -31,13 +31,13 @@ using namespace std;
 namespace stride {
 
 SimRunner::SimRunner(const ptree& configPt, shared_ptr<Population> pop, util::RnMan& rnManager)
-    : m_clock("total_clock"), m_config_pt(configPt), m_output_prefix(""), m_sim(nullptr)
+    : m_clock("total_clock"), m_config(configPt), m_output_prefix(""), m_sim(nullptr)
 {
         m_clock.Start();
         Notify(Id::SetupBegin);
 
-        m_output_prefix = m_config_pt.get<string>("run.output_prefix");
-        m_sim           = Sim::Create(m_config_pt, std::move(pop), rnManager);
+        m_output_prefix = m_config.get<string>("run.output_prefix");
+        m_sim           = Sim::Create(m_config, std::move(pop), rnManager);
 
         Notify(Id::SetupEnd);
         m_clock.Stop();
@@ -49,7 +49,7 @@ void SimRunner::Run(unsigned int numSteps)
         if (numSteps != 0U) {
                 // Prelims.
                 m_clock.Start();
-                const auto numDays = m_config_pt.get<unsigned int>("run.num_days");
+                const auto numDays = m_config.get<unsigned int>("run.num_days");
 
                 // We are AtStart: no steps have taken yet, so signal AtStart.
                 if (m_sim->GetCalendar()->GetSimulationDay() == 0) {
@@ -78,6 +78,6 @@ void SimRunner::Run(unsigned int numSteps)
         }
 }
 
-void SimRunner::Run() { Run(m_config_pt.get<unsigned int>("run.num_days")); }
+void SimRunner::Run() { Run(m_config.get<unsigned int>("run.num_days")); }
 
 } // namespace stride

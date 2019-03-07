@@ -37,7 +37,7 @@ using namespace util;
 using namespace ContactLogMode;
 
 Sim::Sim(util::RnMan& rnMan)
-    : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false),
+    : m_config(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false),
       m_adaptive_symptomatic_behavior(false), m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(),
       m_population(nullptr), m_rn_manager(rnMan), m_transmission_profile(), m_public_health_agency()
 {

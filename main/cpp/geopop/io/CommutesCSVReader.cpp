@@ -15,6 +15,8 @@
 
 #include "CommutesCSVReader.h"
 
+#include "geopop/GeoGrid.h"
+#include "geopop/Location.h"
 #include "util/CSV.h"
 #include "util/Exception.h"
 
@@ -25,38 +27,35 @@ namespace geopop {
 using namespace std;
 using namespace stride::util;
 
-CommutesCSVReader::CommutesCSVReader(unique_ptr<istream> inputStream)
-    : CommutesReader(move(inputStream)), m_reader(*(m_inputStream.get()))
-{
-}
+CommutesCSVReader::CommutesCSVReader(unique_ptr<istream> inputStream) : CommutesReader(move(inputStream)) {}
 
 void CommutesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
 {
         // flanders_commuting format
         // kolom: stad van vertrek (headers = id)
         // rij: stad van aankomst (volgorde = volgorde van kolommen = id).
+        CSV reader(*(m_inputStream.get()));
 
         // represents the location id for column x
         vector<unsigned int> header;
 
-        for (const string& label : m_reader.GetLabels()) {
+        for (const string& label : reader.GetLabels()) {
                 header.push_back(static_cast<unsigned int>(stoi(label.substr(3))));
         }
 
-        const size_t columnCount = m_reader.GetColumnCount();
-
+        const size_t                    columnCount = reader.GetColumnCount();
         map<unsigned int, unsigned int> sizes; // indexed by header/row id
 
         // Since columns represent the "from city" and the proportion is calculated using the from city,
         // the total population of a city is calculated using the values found in the columns.
-        for (const CSVRow& row : m_reader) {
+        for (const CSVRow& row : reader) {
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         sizes[columnIndex] += row.GetValue<int>(columnIndex);
                 }
         }
 
         size_t rowIndex = 0;
-        for (const CSVRow& row : m_reader) {
+        for (const CSVRow& row : reader) {
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         auto abs = row.GetValue<double>(columnIndex);
                         if (abs != 0 && columnIndex != rowIndex) {

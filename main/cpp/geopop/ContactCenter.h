@@ -20,7 +20,7 @@
 #include <memory>
 #include <vector>
 
-namespace stride{
+namespace stride {
 class ContactPool;
 }
 

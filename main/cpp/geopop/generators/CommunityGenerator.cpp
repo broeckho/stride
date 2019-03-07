@@ -15,15 +15,18 @@
 
 #include "CommunityGenerator.h"
 
+#include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
 #include "geopop/PrimaryCommunity.h"
 #include "geopop/SecondaryCommunity.h"
+#include "util/Assert.h"
 #include "util/RnMan.h"
 
 #include <trng/discrete_dist.hpp>
 #include <cmath>
 #include <iostream>
+#include <stdexcept>
 
 namespace geopop {
 
@@ -43,7 +46,8 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         vector<double> weights;
         for (const auto& loc : *geoGrid) {
                 const auto weight = static_cast<double>(loc->GetPopCount()) / static_cast<double>(popCount);
-                CheckWeight("CommunityGenerator", weight);
+                AssertThrow(weight >= 0 && weight <= 1 && !std::isnan(weight),
+                            "CommunityGenerator> Invalid weight: " + to_string(weight), m_logger);
                 weights.push_back(weight);
         }
 

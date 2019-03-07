@@ -22,8 +22,7 @@
 #include "geopop/Household.h"
 #include "geopop/Location.h"
 #include "geopop/Workplace.h"
-#include "util/ExcAssert.h"
-
+#include "util/Assert.h"
 #include <trng/uniform_int_dist.hpp>
 #include <utility>
 
@@ -53,9 +52,9 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         m_assignedTo0          = 0;
         m_assignedCommuting    = 0;
         m_assignedNotCommuting = 0;
-        m_distNonCommuting     = discreteDist();
+        m_distNonCommuting     = DiscreteDistType();
         m_nearByWorkplaces.clear();
-        m_disCommuting = discreteDist();
+        m_disCommuting = DiscreteDistType();
         m_commutingLocations.clear();
 
         CalculateFractionCommutingStudents();
@@ -144,7 +143,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
 {
         // find all Workplaces were employees from this location commute to
         m_commutingLocations.clear();
-        m_disCommuting = discreteDist();
+        m_disCommuting = DiscreteDistType();
 
         vector<double> commutingWeights;
         for (const pair<Location*, double>& commute : m_currentLoc->GetOutgoingCommutingCities()) {
@@ -153,8 +152,8 @@ void WorkplacePopulator::CalculateCommutingLocations()
                         m_commutingLocations.push_back(commute.first);
                         const auto weight = commute.second - (commute.second * m_fractionCommutingStudents);
                         commutingWeights.push_back(weight);
-                        ExcAssert(weight >= 0 && weight <= 1 && !isnan(weight),
-                                  "Invalid weight due to data in WorkplacePopulator, weight: " + to_string(weight));
+                        AssertThrow(weight >= 0.0 && weight <= 1.0 && !isnan(weight),
+                                    "Invalid weight: " + to_string(weight), m_logger);
                 }
         }
 

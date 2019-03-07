@@ -15,8 +15,11 @@
 
 #include "WorkplaceGenerator.h"
 
+#include "geopop/GeoGrid.h"
+#include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
 #include "geopop/Workplace.h"
+#include "util/Assert.h"
 #include "util/RnMan.h"
 
 #include <trng/discrete_dist.hpp>
@@ -48,7 +51,8 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                          geoGridConfig.input.particpation_workplace);
 
                 const double weight = ActivePeopleCount / EmployeeCount;
-                CheckWeight("WorkplaceGenerator", weight);
+                AssertThrow(weight >= 0 && weight <= 1 && !std::isnan(weight), "Invalid weight: " + to_string(weight),
+                            m_logger);
                 weights.push_back(weight);
         }
 

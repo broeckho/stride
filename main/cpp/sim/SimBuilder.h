@@ -53,7 +53,7 @@ private:
         boost::property_tree::ptree ReadDiseasePtree();
 
 private:
-        boost::property_tree::ptree m_config_pt; ///< Run config in ptree.
+        boost::property_tree::ptree m_config; ///< Run config in ptree.
 };
 
 } // namespace stride

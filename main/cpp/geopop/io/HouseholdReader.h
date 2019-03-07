@@ -15,7 +15,6 @@
 
 #pragma once
 
-#include "geopop/Household.h"
 #include "util/SegmentedVector.h"
 
 #include <memory>
@@ -29,6 +28,8 @@ class ContactPool;
 } // namespace stride
 
 namespace geopop {
+
+class Household;
 
 /**
  * Retrieves the reference Household profiles from file.

@@ -20,7 +20,7 @@
 
 #include "Health.h"
 
-#include <cassert>
+#include "util/Assert.h"
 
 namespace stride {
 
@@ -32,32 +32,22 @@ Health::Health(unsigned short int start_infectiousness, unsigned short int start
 {
 }
 
-void Health::SetImmune() { m_status = HealthStatus::Immune; }
-
-void Health::SetSusceptible() { m_status = HealthStatus::Susceptible; }
-
 void Health::StartInfection()
 {
-        assert(m_status == HealthStatus::Susceptible && "Health::StartInfection: m_health_status == "
-                                                        "DiseaseStatus::Susceptible fails.");
+        AssertThrow(m_status == HealthStatus::Susceptible, "Inconsistent Health change", nullptr);
         m_status = HealthStatus::Exposed;
         ResetDiseaseCounter();
 }
 
 void Health::StopInfection()
 {
-        assert((m_status == HealthStatus::Exposed || m_status == HealthStatus::Infectious ||
-                m_status == HealthStatus::Symptomatic || m_status == HealthStatus::InfectiousAndSymptomatic) &&
-               "Health::StopInfection> person not infected");
+        AssertThrow(IsInfected(), "Person not infected", nullptr);
         m_status = HealthStatus::Recovered;
 }
 
 void Health::Update()
 {
-        const bool infected = m_status == HealthStatus::Exposed || m_status == HealthStatus::Infectious ||
-                              m_status == HealthStatus::Symptomatic ||
-                              m_status == HealthStatus::InfectiousAndSymptomatic;
-        if (infected) {
+        if (IsInfected()) {
                 IncrementDiseaseCounter();
                 if (GetDiseaseCounter() == m_start_infectiousness) {
                         if (m_status == HealthStatus::Symptomatic) {

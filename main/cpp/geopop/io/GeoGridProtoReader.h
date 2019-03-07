@@ -63,7 +63,7 @@ private:
         stride::Person* ParsePerson(const proto::GeoGrid_Person& person);
 
 private:
-        std::shared_ptr<GeoGrid> m_geoGrid; ///< GeoGrid being built
+        std::shared_ptr<GeoGrid> m_geoGrid; ///< GeoGrid being built.
 };
 
 } // namespace geopop

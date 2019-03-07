@@ -16,7 +16,10 @@
 #include "CollegeGenerator.h"
 
 #include "geopop/College.h"
+#include "geopop/GeoGrid.h"
+#include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
+#include "util/Assert.h"
 #include "util/RnMan.h"
 
 #include <trng/discrete_dist.hpp>
@@ -48,7 +51,8 @@ void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
         vector<double> weights;
         for (const auto& c : cities) {
                 const auto weight = static_cast<double>(c->GetPopCount()) / static_cast<double>(totalPop);
-                CheckWeight("CollegeGenerator", weight);
+                AssertThrow(weight >= 0 && weight <= 1 && !std::isnan(weight),
+                            "CollegeGenerator> Invalid weight: " + to_string(weight), m_logger);
                 weights.push_back(weight);
         }
 

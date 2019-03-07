@@ -23,7 +23,7 @@
 #include "geopop/Household.h"
 #include "geopop/Location.h"
 #include "pop/Person.h"
-#include "util/ExcAssert.h"
+#include "util/Assert.h"
 
 #include <trng/discrete_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
@@ -50,12 +50,12 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                 // 1. find all highschools in an area of 10-k*10 km
                 const auto& nearByColleges = GetNearbyPools<College>(geoGrid, loc);
 
-                ExcAssert(!nearByColleges.empty(), "No HighSchool found due to invalid input in CollegePopulator");
+                AssertThrow(!nearByColleges.empty(), "No HighSchool found!", m_logger);
 
                 const auto distNonCommuting = m_rnManager[0].variate_generator(
                     trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(nearByColleges.size())));
 
-                // 2. find all colleges were students from this location commute to
+                // 2. find all colleges where students from this location commute to
                 vector<Location*> commutingCollege;
                 vector<double>    commutingWeights;
                 for (const auto& commute : loc->GetOutgoingCommutingCities()) {

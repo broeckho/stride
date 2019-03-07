@@ -14,17 +14,17 @@
  */
 
 #include "geopop/io/GeoGridJSONReader.h"
+
 #include "contact/ContactType.h"
 #include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "pop/Population.h"
+#include "util/Exception.h"
 #include "util/FileSys.h"
 
 #include <fstream>
 #include <gtest/gtest.h>
-#include <iomanip>
 #include <memory>
-#include <stdexcept>
 
 using namespace std;
 using namespace geopop;
@@ -211,25 +211,25 @@ TEST(GeoGridJSONReaderTest, emptyStreamTest)
         auto              instream = make_unique<istringstream>("");
         auto              pop      = Population::Create();
         GeoGridJSONReader geoGridJSONReader(move(instream), pop.get());
-        EXPECT_THROW(geoGridJSONReader.Read(), runtime_error);
+        EXPECT_THROW(geoGridJSONReader.Read(), Exception);
 }
 
 TEST(GeoGridJSONReaderTest, invalidTypeTest)
 {
         auto pop = Population::Create();
-        EXPECT_THROW(getGeoGridForFile("test4.json", pop.get()), runtime_error);
+        EXPECT_THROW(getGeoGridForFile("test4.json", pop.get()), Exception);
 }
 
 TEST(GeoGridJSONReaderTest, invalidPersonTest)
 {
         auto pop = Population::Create();
-        EXPECT_THROW(getGeoGridForFile("test5.json", pop.get()), runtime_error);
+        EXPECT_THROW(getGeoGridForFile("test5.json", pop.get()), Exception);
 }
 
 TEST(GeoGridJSONReaderTest, invalidJSONTest)
 {
         auto pop = Population::Create();
-        EXPECT_THROW(getGeoGridForFile("test6.json", pop.get()), runtime_error);
+        EXPECT_THROW(getGeoGridForFile("test6.json", pop.get()), Exception);
 }
 
 } // namespace

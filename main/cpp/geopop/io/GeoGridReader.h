@@ -63,8 +63,8 @@ protected:
         ///< Commutes from, to, number.
         std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes;
 
-        std::unique_ptr<std::istream> m_inputStream; ///< file to read.
-        stride::Population*           m_population;  ///< population to use in the GeoGrid may be nullptr.
+        std::unique_ptr<std::istream> m_inputStream; ///< File to read.
+        stride::Population*           m_population;  ///< Population to use in the GeoGrid may be nullptr.
 };
 
 } // namespace geopop

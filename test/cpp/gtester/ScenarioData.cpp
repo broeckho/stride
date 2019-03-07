@@ -21,6 +21,7 @@
 #include "ScenarioData.h"
 #include "util/RunConfigManager.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <map>
 
 using namespace std;
@@ -45,11 +46,11 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
             {"measles_26", 600000U},  {"r0_0", 1200U},     {"r0_4", 4077U},     {"r0_8", 14588U},
             {"r0_12", 39234U},        {"r0_16", 71171}};
 
-        std::map<std::string, double> sigmas_default = {{"influenza_a", 116.60326645015648},
+        std::map<std::string, double> sigmas_default = {{"influenza_a", 120.0},
                                                         {"influenza_b", 0},
                                                         {"influenza_c", 0.2},
-                                                        {"measles_16", 660.8227044636814},
-                                                        {"measles_26", 660},
+                                                        {"measles_16", 8000.0},
+                                                        {"measles_26", 1000.0},
                                                         {"r0_0", targets_default["r0_0"] * 0.1},
                                                         {"r0_4", targets_default["r0_4"] * 0.1},
                                                         {"r0_8", targets_default["r0_8"] * 0.1},
@@ -62,16 +63,11 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
             {"r0_12_gengeopop", 39362U},        {"r0_16_gengeopop", 71220U},       {"r0_4_gengeopop", 4354U},
             {"r0_8_gengeopop", 15849U}};
 
-        std::map<std::string, double> sigmas_gengeopop = {{"influenza_a_gengeopop", 87.347638777473549},
-                                                          {"influenza_b_gengeopop", 0},
-                                                          {"influenza_c_gengeopop", 0.2},
-                                                          {"measles_16_gengeopop", 510.60262435674969},
-                                                          {"measles_26_gengeopop", 515.93547077129722},
-                                                          {"r0_0_gengeopop", 1.6278820596099706},
-                                                          {"r0_12_gengeopop", 166.31972222199025},
-                                                          {"r0_16_gengeopop", 150.96290935193321},
-                                                          {"r0_4_gengeopop", 919.14878556194594},
-                                                          {"r0_8_gengeopop", 233.54134537593123}};
+        std::map<std::string, double> sigmas_gengeopop = {
+            {"influenza_a_gengeopop", 400.0}, {"influenza_b_gengeopop", 0},     {"influenza_c_gengeopop", 0.2},
+            {"measles_16_gengeopop", 2000.0}, {"measles_26_gengeopop", 1000.0}, {"r0_0_gengeopop", 1.6278820596099706},
+            {"r0_12_gengeopop", 500.0},       {"r0_16_gengeopop", 500.0},       {"r0_4_gengeopop", 1000.0},
+            {"r0_8_gengeopop", 300.0}};
 
         unsigned int target;
         double       sigma;

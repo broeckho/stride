@@ -57,7 +57,7 @@ void StanController::Control()
         // -----------------------------------------------------------------------------------------
         // Seeds for the stochastic analysis.
         // -----------------------------------------------------------------------------------------
-        const auto                              stanCount = m_config_pt.get<size_t>("run.stan_count");
+        const auto                              stanCount = m_config.get<size_t>("run.stan_count");
         random_device                           rd;
         vector<std::random_device::result_type> seeds;
         for (unsigned int i = 0; i < stanCount; i++) {
@@ -69,10 +69,10 @@ void StanController::Control()
         // Instantiate simRunners & run, once for each seed.
         // Multiple runs in parallel, individual runs not.
         // -----------------------------------------------------------------------------------------
-        m_config_pt.put("run.num_threads", 1);
+        m_config.put("run.num_threads", 1);
 #pragma omp parallel for num_threads(ConfigInfo::NumberAvailableThreads())
         for (unsigned int i = 0U; i < seeds.size(); ++i) {
-                ptree configPt(m_config_pt);
+                ptree configPt(m_config);
                 configPt.put("run.rng_seed", seeds[i]);
                 m_stride_logger->info("Starting run using seed {}", seeds[i]);
 
@@ -88,7 +88,7 @@ void StanController::Control()
         // -----------------------------------------------------------------------------------------
         // Output to file.
         // -----------------------------------------------------------------------------------------
-        const auto numDays = m_config_pt.get<unsigned int>("run.num_days");
+        const auto numDays = m_config.get<unsigned int>("run.num_days");
         CSV        csv(seeds.begin(), seeds.end());
         for (unsigned int i = 0U; i < numDays + 1; ++i) {
                 vector<unsigned int> v;
@@ -97,7 +97,7 @@ void StanController::Control()
                 }
                 csv.AddRow(v.begin(), v.end());
         }
-        csv.Write(FileSys::BuildPath(m_config_pt.get<string>("run.output_prefix"), "stan_infected.csv"));
+        csv.Write(FileSys::BuildPath(m_config.get<string>("run.output_prefix"), "stan_infected.csv"));
 
         // -----------------------------------------------------------------------------------------
         // Shutdown.

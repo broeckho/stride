@@ -22,13 +22,12 @@ namespace stride {
 namespace util {
 class RnMan;
 }
-}
+} // namespace stride
 
 namespace geopop {
 
 class GeoGrid;
 class GeoGridConfig;
-
 
 /**
  * Controls the complete generation and population of a GeoGrid.

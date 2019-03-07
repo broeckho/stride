@@ -26,7 +26,7 @@ namespace stride {
 namespace util {
 
 using RnPcg64 = Rn<pcg64>;
-//using RnLcg64 = Rn<trng::lcg64>;
+// using RnLcg64 = Rn<trng::lcg64>;
 
 /*
  * A using statement here, would bar having RnMan in forward class declarations.

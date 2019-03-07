@@ -114,9 +114,6 @@ void Rn<E>::Seed(randutils::seed_seq_fe128& seseq)
         }
 }
 
-
-
-
 template class Rn<pcg64>;
 template class Rn<trng::lcg64>;
 

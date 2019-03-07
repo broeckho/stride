@@ -21,6 +21,9 @@
 
 #include "CSV.h"
 
+#include <iostream>
+#include <ostream>
+
 namespace {
 
 inline bool IsFloat(const std::string& s)

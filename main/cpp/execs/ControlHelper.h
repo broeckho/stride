@@ -72,7 +72,7 @@ protected:
         void RegisterViewers(std::shared_ptr<SimRunner> runner);
 
 protected:
-        boost::property_tree::ptree     m_config_pt;        ///< Main configuration for run and sim.
+        boost::property_tree::ptree     m_config;           ///< Main configuration for run and sim.
         std::string                     m_name;             ///< Contoller's name.
         std::string                     m_output_prefix;    ///< Prefix to output (name prefix or prefix dir)
         util::RnMan                     m_rn_manager;       ///< The manager for random numbers

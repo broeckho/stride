@@ -20,6 +20,7 @@
 #include "HouseholdCSVReader.h"
 #include "util/FileSys.h"
 
+#include <fstream>
 #include <iostream>
 #include <stdexcept>
 

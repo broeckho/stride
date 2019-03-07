@@ -46,8 +46,8 @@ void SimController::Control()
         // -----------------------------------------------------------------------------------------
         // The action.
         // -----------------------------------------------------------------------------------------
-        auto pop    = Population::Create(m_config_pt, m_rn_manager, m_stride_logger);
-        auto runner = make_shared<SimRunner>(m_config_pt, pop, m_rn_manager);
+        auto pop    = Population::Create(m_config, m_rn_manager, m_stride_logger);
+        auto runner = make_shared<SimRunner>(m_config, pop, m_rn_manager);
         RegisterViewers(runner);
         runner->Run();
 

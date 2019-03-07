@@ -54,23 +54,23 @@ public:
         ///
         unsigned short int GetStartSymptomatic() const { return m_start_symptomatic; }
 
-        ///
+        /// Is this person immune?
         bool IsImmune() const { return m_status == HealthStatus::Immune; }
 
-        ///
+        /// Is this person infected?
         bool IsInfected() const
         {
                 return m_status == HealthStatus::Exposed || m_status == HealthStatus::Infectious ||
                        m_status == HealthStatus::InfectiousAndSymptomatic || m_status == HealthStatus::Symptomatic;
         }
 
-        ///
+        /// Is this person infectious.
         bool IsInfectious() const
         {
                 return m_status == HealthStatus::Infectious || m_status == HealthStatus::InfectiousAndSymptomatic;
         }
 
-        ///
+        /// Is this person recovered?
         bool IsRecovered() const { return m_status == HealthStatus::Recovered; }
 
         /// Is this person susceptible?
@@ -86,10 +86,10 @@ public:
         bool SymptomsStartedToday() const { return GetDiseaseCounter() == m_start_symptomatic; }
 
         /// Set health state to immune.
-        void SetImmune();
+        void SetImmune() { m_status = HealthStatus::Immune; }
 
         /// Set health state to susceptible
-        void SetSusceptible();
+        void SetSusceptible() { m_status = HealthStatus::Susceptible; }
 
         /// Start the infection.
         void StartInfection();

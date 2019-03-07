@@ -38,7 +38,6 @@ namespace util {
 class RnMan;
 }
 
-
 /**
  * Key Data structure: container for
  * (a) all individuals in the population

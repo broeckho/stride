@@ -14,7 +14,10 @@
  */
 
 #include "geopop/io/CommutesCSVReader.h"
+#include "geopop/GeoGrid.h"
+#include "geopop/Location.h"
 #include "geopop/io/HouseholdCSVReader.h"
+#include "pop/Population.h"
 
 #include <gtest/gtest.h>
 #include <memory>

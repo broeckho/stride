@@ -47,6 +47,7 @@ set(SRC
     gengeopop/generators/HouseholdGeneratorTest.cpp
     gengeopop/generators/SchoolGeneratorTest.cpp
     gengeopop/generators/WorkplaceGeneratorTest.cpp
+    #---
     gengeopop/io/CitiesCSVReaderTest.cpp
     gengeopop/io/CommutesCSVReaderTest.cpp
     gengeopop/io/GeoGridIOUtils.cpp
@@ -56,7 +57,9 @@ set(SRC
     gengeopop/io/GeoGridProtoWriterTest.cpp
     gengeopop/io/HouseholdCSVReaderTest.cpp
     gengeopop/io/ReaderFactoryTest.cpp
+    #---
     gengeopop/kdtree.cpp
+    #---
     gengeopop/populators/CommunityPopulatorTests.cpp
     gengeopop/populators/CollegePopulatorTest.cpp
     gengeopop/populators/HouseholdPopulatorTest.cpp
@@ -78,7 +81,7 @@ endif ()
 
 include_directories(${CMAKE_SOURCE_DIR}/test/cpp)
 add_executable(${EXEC} ${SRC})
-target_link_libraries(${EXEC} gtest pthread libstride libgengeopop libmyhayai ${LIBS})
+target_link_libraries(${EXEC} gtest libmyhayai libstride ${CMAKE_THREAD_LIBS_INIT})
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 
@@ -89,11 +92,6 @@ add_test(NAME ${EXEC}
         WORKING_DIRECTORY ${TESTS_DIR}
         COMMAND ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
         --gtest_output=xml:gtester_all.xml
-        )
-#============================================================================
-# Clean up.
-#============================================================================
-unset(EXEC)
-unset(SRC)
+)
 
 #############################################################################

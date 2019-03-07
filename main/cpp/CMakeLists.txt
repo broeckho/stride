@@ -16,61 +16,126 @@
 #############################################################################
 
 #============================================================================
-# Subdirectories.
+# Protocol Buffers.
 #============================================================================
-add_subdirectory(geopop)
+set(PROTO_DIR geopop/io/proto)
+if(STRIDE_GEN_PROTO)
+    include(FindProtobuf)
+    find_package(Protobuf)
+    if(${PROTOBUF_FOUND} AND NOT ${PROTOBUF_PROTOC_EXECUTABLE} STREQUAL "Protobuf_PROTOC_EXECUTABLE-NOTFOUND")
+        file(GLOB proto_source "${PROTO_DIR}/*.proto")
+        protobuf_generate_cpp(PROTO_SRC PROTO_HEADER ${proto_source})
+        add_custom_target(proto
+            COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_HEADER} io/proto
+            COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_SRC} io/proto
+            )
+    endif()
+else()
+    file(GLOB PROTO_HEADER "${PROTO_DIR}/*.pb.h")
+    file(GLOB PROTO_SRC "${PROTO_DIR}/*.pb.cc")
+endif()
+
+set_property(SOURCE ${PROTO_HEADER} ${PROTO_SRC}
+    PROPERTY
+    COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
 
 #============================================================================
 # Sources.
 #============================================================================
-set(LIB_SRC
-#---
+set(STRIDE_SRC
+    #---
     calendar/Calendar.cpp
-#---
-	contact/AgeContactProfile.cpp
-	contact/ContactLogMode.cpp
-	contact/Infector.cpp
+    #---
+    contact/AgeContactProfile.cpp
+    contact/ContactLogMode.cpp
+    contact/ContactPool.cpp
+    contact/ContactType.cpp
+    contact/Infector.cpp
     contact/TransmissionProfile.cpp
-#---
+    #---
     disease/DiseaseSeeder.cpp
-	disease/Health.cpp
+    disease/Health.cpp
     disease/HealthSeeder.cpp
-	disease/Immunizer.cpp
+    disease/Immunizer.cpp
     disease/PublicHealthAgency.cpp
-#---
-	execs/ControlHelper.cpp
-	execs/GenPopController.cpp
-	execs/SimController.cpp
-	execs/StanController.cpp
-#---
-	viewers/InfectedFile.cpp
-	viewers/PersonsFile.cpp
-	viewers/SummaryFile.cpp
-#---
-	contact/ContactPool.cpp
-	contact/ContactType.cpp
-#---
+    #---
+    execs/ControlHelper.cpp
+    execs/GenPopController.cpp
+    execs/SimController.cpp
+    execs/StanController.cpp
+    #---
+    geopop/College.cpp
+    geopop/ContactCenter.cpp
+    geopop/Coordinate.h
+    geopop/GeoGrid.cpp
+    geopop/GeoGridBuilder.cpp
+    geopop/GeoGridConfig.cpp
+    geopop/GeoGridConfigBuilder.cpp
+    geopop/Household.cpp
+    geopop/K12School.cpp
+    geopop/Location.cpp
+    geopop/PrimaryCommunity.cpp
+    geopop/SecondaryCommunity.cpp
+    geopop/Workplace.cpp
+    #---
+    geopop/geo/GeoGridKdTree.cpp
+    geopop/geo/KdTree2DPoint.cpp
+    #---
+    geopop/generators/CollegeGenerator.cpp
+    geopop/generators/CommunityGenerator.cpp
+    geopop/generators/HouseholdGenerator.cpp
+    geopop/generators/K12SchoolGenerator.cpp
+    geopop/generators/WorkplaceGenerator.cpp
+    #---
+    geopop/io/CitiesCSVReader.cpp
+    geopop/io/CommutesCSVReader.cpp
+    geopop/io/GeoGridJSONReader.cpp
+    geopop/io/GeoGridJSONWriter.cpp
+    geopop/io/GeoGridProtoReader.cpp
+    geopop/io/GeoGridProtoWriter.cpp
+    geopop/io/GeoGridReader.cpp
+    geopop/io/GeoGridReaderFactory.cpp
+    geopop/io/GeoGridWriterFactory.cpp
+    geopop/io/HouseholdCSVReader.cpp
+    geopop/io/ReaderFactory.cpp
+    geopop/populators/CollegePopulator.cpp
+    geopop/populators/HouseholdPopulator.cpp
+    geopop/populators/K12SchoolPopulator.cpp
+    geopop/populators/Populator.cpp
+    geopop/populators/PrimaryCommunityPopulator.cpp
+    geopop/populators/SecondaryCommunityPopulator.cpp
+    geopop/populators/WorkplacePopulator.cpp
+    #---
+    ${PROTO_HEADER}
+    ${PROTO_SRC}
+    #---
+    viewers/InfectedFile.cpp
+    viewers/PersonsFile.cpp
+    viewers/SummaryFile.cpp
+    #---
     pop/Person.cpp
     pop/Population.cpp
     pop/DefaultPopBuilder.cpp
     pop/GeoPopBuilder.cpp
     pop/ImportPopBuilder.cpp
     pop/SurveySeeder.cpp
-#---
-	sim/SimRunner.cpp
+    #---
+    sim/SimRunner.cpp
     sim/Sim.cpp
     sim/SimBuilder.cpp
     sim/event/Id.cpp
-	sim/event/Subject.cpp
-#---
-	util/CSVRow.cpp
-	util/LogUtils.cpp
-	util/Rn.cpp
+    sim/event/Subject.cpp
+    #---
+    util/CSVRow.cpp
+    util/LogUtils.cpp
+    util/Rn.cpp
     util/CSV.cpp
     util/ConfigInfo.cpp
     util/FileSys.cpp
     util/RunConfigManager.cpp
-#---
+    util/TimeStamp.cpp
+    util/TimeToString.cpp
+    #---
     viewers/InfectedFileViewer.cpp
     viewers/InfectedViewer.cpp
     viewers/CliViewer.cpp
@@ -79,24 +144,38 @@ set(LIB_SRC
 )
 
 #============================================================================
+# MACROS to inject in ConfigInfo.cpp
+#============================================================================
+set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
+    COMPILE_FLAGS "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
+set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
+    COMPILE_FLAGS "-DPROCCOUNT=${PROCCOUNT}")
+
+#============================================================================
 # Build the Stride library.
 #============================================================================
-add_library(libstride ${LIB_SRC})
-target_link_libraries(libstride ${LIBS} libgengeopop)
-target_compile_options(libstride PUBLIC "-fPIC")
-target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
-set_target_properties(libstride PROPERTIES PREFIX "")
+add_library(libstride ${STRIDE_SRC})
+target_link_libraries(libstride ${LIBS} libprotobuf_insrc)
+set_target_properties(libstride
+    PROPERTIES
+        POSITION_INDEPENDENT_CODE ON
+        PREFIX ""
+)
+include(CheckIPOSupported)
+
+# For future use: inter procedural optimization
+# Disabled for now because of issues with gcc 8.1.0 on travis.
+#check_ipo_supported(RESULT ipo_result)
+#if(ipo_result)
+#    set_target_properties(libstride PROPERTIES INTERPROCEDURAL_OPTIMIZATION TRUE)
+#endif()
+#message( STATUS "CheckIPOSupported: ${ipo_result}" )
 
 #============================================================================
 # Build the stride binary.
 #============================================================================
 add_executable(stride execs/stride.cpp)
-target_link_libraries(stride ${LIBS} libstride libgengeopop)
+target_link_libraries(stride libstride)
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
-
-#============================================================================
-# Clean up.
-#============================================================================
-unset(LIB_SRC)
 
 #############################################################################

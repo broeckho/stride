@@ -1,4 +1,4 @@
-%module stride
+%module pystride
 
 // for handling errors.
 %include <exception.i>

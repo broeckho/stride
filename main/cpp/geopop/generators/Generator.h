@@ -15,19 +15,18 @@
 
 #pragma once
 
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
-#include "util/ExcAssert.h"
-
 #include <spdlog/logger.h>
 
 namespace stride {
 namespace util {
 class RnMan;
 }
-}
+} // namespace stride
 
 namespace geopop {
+
+class GeoGrid;
+class GeoGridConfig;
 
 /**
  * An interface base class for generators that provide geo data and apply it onto the GeoGrid.
@@ -36,8 +35,8 @@ class Generator
 {
 public:
         /// Constructor with random number manager and logger.
-        explicit Generator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger)
-            : m_rnManager(rn_manager), m_logger(std::move(logger))
+        explicit Generator(stride::util::RnMan& rnManager, std::shared_ptr<spdlog::logger> logger)
+            : m_rnManager(rnManager), m_logger(std::move(logger))
         {
         }
 
@@ -47,15 +46,6 @@ public:
 
         /// Virtual destructor for inheritance
         virtual ~Generator() = default;
-
-protected:
-        /// Make sure we're using a valid weight for random numbers.
-        void CheckWeight(const std::string& func, double weight)
-        {
-                ExcAssert(weight >= 0 && weight <= 1 && !std::isnan(weight),
-                          "Invalid weight due to invalid input data in " + func +
-                              ", weight: " + std::to_string(weight));
-        }
 
 protected:
         stride::util::RnMan&            m_rnManager; ///< RnManager used by generators.

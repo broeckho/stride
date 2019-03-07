@@ -15,6 +15,7 @@
 
 #include "K12SchoolGenerator.h"
 
+#include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/K12School.h"
 #include "geopop/Location.h"

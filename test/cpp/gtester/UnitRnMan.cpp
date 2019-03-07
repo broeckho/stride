@@ -21,15 +21,14 @@
 #include "util/RnMan.h"
 #include "util/StringUtils.h"
 
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/xml_parser.hpp>
-#include <chrono>
-#include <exception>
+//#include <boost/property_tree/ptree.hpp>
+//#include <boost/property_tree/xml_parser.hpp>
 #include <gtest/gtest.h>
+
+#include <chrono>
+//#include <exception>
 #include <iostream>
-#include <pcg/pcg_random.hpp>
 #include <random>
-#include <randutils/randutils.hpp>
 #include <sstream>
 #include <thread>
 
@@ -142,7 +141,7 @@ TYPED_TEST_P(UnitRnMan, Uniform2)
 
 REGISTER_TYPED_TEST_CASE_P(UnitRnMan, DefaultInfo, Reset1, Reset2, Distribution, Uniform1, Uniform2);
 
-//typedef ::testing::Types<RnPcg64, RnLcg64> TestedTypes;
+// typedef ::testing::Types<RnPcg64, RnLcg64> TestedTypes;
 typedef ::testing::Types<RnPcg64> TestedTypes;
 INSTANTIATE_TYPED_TEST_CASE_P(Rn, UnitRnMan, TestedTypes);
 
