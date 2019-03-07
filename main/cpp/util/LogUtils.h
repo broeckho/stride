@@ -34,11 +34,13 @@ class LogUtils
 {
 public:
         /// Return a (not-yet-registered) commandline and file logger, without registering it.
+        /// The file, if it already exits is truncated when opened.
         /// Throws iff logger already registered or if spdlog throws.
         static std::shared_ptr<spdlog::logger> CreateCliLogger(const std::string& logger_name,
                                                                const std::string& file_name);
 
         /// Return a (not-yet-registered) file logger, without registering it.
+        /// The file, if it already exits is truncated when opened.
         /// Throws iff logger already registered or if spdlog throws.
         static std::shared_ptr<spdlog::logger> CreateFileLogger(const std::string& logger_name,
                                                                 const std::string& file_name);

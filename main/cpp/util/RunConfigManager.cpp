@@ -207,7 +207,7 @@ vector<unsigned int> RunConfigManager::CreateNumThreads(unsigned int maxNum)
                 num = {1U, 2U, 4U, 8U};
         }
         if (16 > maxNum && maxNum >= 12) {
-                num = {1U, 4U, 6U, 8U, 12U};
+                num = {1U, 4U, 8U, 12U};
         }
         if (maxNum >= 16) {
                 num = {1U, 4U, 8U, 12U, 16U};

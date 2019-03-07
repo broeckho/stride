@@ -23,11 +23,13 @@
 #include "sim/Sim.h"
 #include "sim/SimRunner.h"
 #include "util/RunConfigManager.h"
+#include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <gtest/gtest.h>
 #include <cmath>
 #include <iomanip>
+#include <sstream>
 #include <tuple>
 
 using namespace std;
@@ -66,7 +68,7 @@ class RunsGeoPop : public ScenarioRuns
 {
 };
 
-void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsigned int numThreads)
+void RunTest(tuple<ptree, unsigned int, double> d, unsigned int numThreads, const shared_ptr<spdlog::logger>& logger)
 {
         // -----------------------------------------------------------------------------------------
         // Scenario configuration and target numbers.
@@ -75,68 +77,61 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsign
         const auto target   = get<1>(d);
         const auto margin   = get<2>(d);
         configPt.put("run.num_threads", numThreads);
+        util::Stopwatch<> stopclock;
 
         // -----------------------------------------------------------------------------------------
         // Actual simulator run.
         // -----------------------------------------------------------------------------------------
+        stopclock.Start();
         stride::util::RnMan rn_manager;
         rn_manager.Initialize(RnMan::Info{configPt.get<string>("run.rng_seed", "1,2,3,4"),
                                           configPt.get<string>("run.rng_state", ""),
                                           configPt.get<unsigned int>("run.num_threads")});
         auto runner = make_shared<SimRunner>(configPt, Population::Create(configPt, rn_manager), rn_manager);
         runner->Run();
+        stopclock.Stop();
 
         // -----------------------------------------------------------------------------------------
         // Check results against target number (|res - target| < target * margin).
         // -----------------------------------------------------------------------------------------
         const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
-        EXPECT_NEAR(res, target, target * margin);
-        cerr.setf(ios_base::scientific, ios_base::floatfield);
-        cerr.precision(2);
-        cerr << "Test: " << testTag << ", number of threads: " << numThreads
-                << ",  result: " << res
-                << ",  target: " << target
+        stringstream ss;
+        ss.setf(ios_base::scientific, ios_base::floatfield);
+        ss.precision(2);
+        ss << "number of threads: " << numThreads << ",  result: " << res << ",  target: " << target
                 << ",  % delta: " << fabs(static_cast<double>(res)-static_cast<double>(target))/(1.0e-8+fabs(target))
-                << ",  margin: " << margin<< endl;
+                << ",  margin: " << margin << ",  elapsed time: " << stopclock.ToString();
+        logger->info("{}", ss.str());
+        logger->flush();
+        EXPECT_NEAR(res, target, target * margin);
+
 }
 
-TEST_P(RunsDefault, SingleThreadRun)
+TEST_P(RunsDefault, Runs)
 {
-        const string testTag = GetParam();
-        RunTest(testTag, ScenarioData::Get(testTag), 1U);
-}
-
-TEST_P(RunsGeoPop, SingleThreadRun)
-{
-        const string testTag = string(GetParam()).append("_geopop");
-        RunTest(testTag,  ScenarioData::Get(testTag), 1U);
-}
-
-#ifdef _OPENMP
-TEST_P(RunsDefault, MultiThreadRuns)
-{
+        auto logger = spdlog::get("gtester_logger");
         const auto numThreads = RunConfigManager::CreateNumThreads();
         const string testTag = GetParam();
+
+        logger->info("ScenarioTag: {}", testTag);
+        logger->flush();
         for (const auto n : numThreads) {
-                if (n == 1U) { // Skip single thread test
-                        continue;
-                }
-                RunTest(testTag, ScenarioData::Get(testTag), n);
+                RunTest(ScenarioData::Get(testTag), n, logger);
         }
 }
 
-TEST_P(RunsGeoPop, MultiThreadRuns)
+TEST_P(RunsGeoPop, Runs)
 {
+        auto logger = spdlog::get("gtester_logger");
         const auto numThreads = RunConfigManager::CreateNumThreads();
         const string testTag = string(GetParam()).append("_geopop");
+
+        logger->info("ScenarioTag: {}", testTag);
+        logger->flush();
         for (const auto n : numThreads) {
-                if (n == 1U) { // Skip single thread test
-                        continue;
-                }
-                RunTest(testTag, ScenarioData::Get(testTag), n);
+                RunTest(ScenarioData::Get(testTag), n, logger);
         }
 }
-#endif
 
 namespace {
 
