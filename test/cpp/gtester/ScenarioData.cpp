@@ -48,8 +48,8 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
             {"r0_12", 38500U},        {"r0_16", 71000U}};
 
         const map<string, double> margins_default = {
-            {"influenza_a", 1.0e-03}, {"influenza_b", 0.0}, {"influenza_c", 1.0e-01}, {"measles_16", 5.0e-02},
-            {"measles_26", 1.0e-03},  {"r0_0", 5.0e-02},    {"r0_4", 5.0e-02},        {"r0_8", 5.0e-02},
+            {"influenza_a", 2.0e-03}, {"influenza_b", 0.0}, {"influenza_c", 2.0e-01}, {"measles_16", 8.0e-02},
+            {"measles_26", 1.0e-03},  {"r0_0", 5.0e-02},    {"r0_4", 8.0e-02},        {"r0_8", 8.0e-02},
             {"r0_12", 1.0e-01},       {"r0_16", 8.0e-02}};
 
         const map<string, unsigned int> targets_geopop = {{"influenza_a_geopop", 554000U}, {"influenza_b_geopop", 0U},
@@ -61,7 +61,7 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
         const map<string, double> margins_geopop = {{"influenza_a_geopop", 3.0e-03}, {"influenza_b_geopop", 0.0},
                                                     {"influenza_c_geopop", 1.0e-1},  {"measles_16_geopop", 8.0e-02},
                                                     {"measles_26_geopop", 2.0e-03},  {"r0_0_geopop", 1.0e-03},
-                                                    {"r0_12_geopop", 1.0e-02},       {"r0_16_geopop", 3.0e-02},
+                                                    {"r0_12_geopop", 5.0e-02},       {"r0_16_geopop", 5.0e-02},
                                                     {"r0_4_geopop", 5.0e-02},        {"r0_8_geopop", 5.0e-02}};
 
         unsigned int target;

@@ -68,7 +68,8 @@ class RunsGeoPop : public ScenarioRuns
 {
 };
 
-void RunTest(tuple<ptree, unsigned int, double> d, unsigned int numThreads, const shared_ptr<spdlog::logger>& logger)
+void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsigned int numThreads,
+        const shared_ptr<spdlog::logger>& logger)
 {
         // -----------------------------------------------------------------------------------------
         // Scenario configuration and target numbers.
@@ -103,7 +104,9 @@ void RunTest(tuple<ptree, unsigned int, double> d, unsigned int numThreads, cons
                 << ",  margin: " << margin << ",  elapsed time: " << stopclock.ToString();
         logger->info("{}", ss.str());
         logger->flush();
-        EXPECT_NEAR(res, target, target * margin);
+        EXPECT_NEAR(res, target, target * margin)
+                << "Failure at scenario: " << testTag
+                << " with number of threads: " << numThreads << endl;
 
 }
 
@@ -116,7 +119,7 @@ TEST_P(RunsDefault, Runs)
         logger->info("ScenarioTag: {}", testTag);
         logger->flush();
         for (const auto n : numThreads) {
-                RunTest(ScenarioData::Get(testTag), n, logger);
+                RunTest(testTag, ScenarioData::Get(testTag), n, logger);
         }
 }
 
@@ -129,7 +132,7 @@ TEST_P(RunsGeoPop, Runs)
         logger->info("ScenarioTag: {}", testTag);
         logger->flush();
         for (const auto n : numThreads) {
-                RunTest(ScenarioData::Get(testTag), n, logger);
+                RunTest(testTag, ScenarioData::Get(testTag), n, logger);
         }
 }
 

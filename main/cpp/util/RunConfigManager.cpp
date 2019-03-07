@@ -195,22 +195,30 @@ string RunConfigManager::CreateDefault()
 vector<unsigned int> RunConfigManager::CreateNumThreads(unsigned int maxNum)
 {
         maxNum = max(maxNum, ConfigInfo::NumberAvailableThreads());
-        initializer_list<unsigned int> num{1U};
+        vector<unsigned int> num{1U};
 
         if (4 > maxNum && maxNum >= 2) {
-                num = {1U, 2U};
+                num.push_back(2U);
         }
         if (8 > maxNum && maxNum >= 4) {
-                num = {1U, 2U, 4U};
+                num.push_back(2U);
+                num.push_back(4U);
         }
         if (12 > maxNum && maxNum >= 8) {
-                num = {1U, 2U, 4U, 8U};
+                num.push_back(2U);
+                num.push_back(4U);
+                num.push_back(8U);
         }
         if (16 > maxNum && maxNum >= 12) {
-                num = {1U, 4U, 8U, 12U};
+                num.push_back(4U);
+                num.push_back(8U);
+                num.push_back(12U);
         }
         if (maxNum >= 16) {
-                num = {1U, 4U, 8U, 12U, 16U};
+                num.push_back(4U);
+                num.push_back(8U);
+                num.push_back(12U);
+                num.push_back(16U);
         }
 
         return num;
