@@ -1,3 +1,4 @@
+import csv
 import matplotlib.pyplot as plt
 import multiprocessing
 import os
@@ -20,7 +21,7 @@ def getEffectiveR(outputDir, scenarioName, seed):
 def getExpectedR(outputDir, R0, scenarioName, seed):
     totalSusceptibles = 0
     totalPersons = 0
-    susceptiblesfile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
+    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
     with open(susceptiblesFile) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
@@ -31,14 +32,21 @@ def getExpectedR(outputDir, R0, scenarioName, seed):
     fracSusceptibles = totalSusceptibles / totalPersons
     return R0 * fracSusceptibles
 
-def createEffectiveRPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, xLabel, figName):
+def createEffectiveRPlot(outputDir, R0, scenarioNames, scenarioDisplayNames, poolSize, xLabel, figName):
     allEffectiveRs = []
+    allExpectedRs = []
     for scenario in scenarioNames:
         seeds = getRngSeeds(outputDir, scenario)
         with multiprocessing.Pool(processes=poolSize) as pool:
             effectiveRs = pool.starmap(getEffectiveR, [(outputDir, scenario, s) for s in seeds])
+            expectedRS = pool.starmap(getExpectedR, [(outputDir, R0, scenario, s) for s in seeds])
+            allExpectedRs += expectedRS
             allEffectiveRs.append(effectiveRs)
+
+    meanExpectedR = sum(allExpectedRs) / len(allExpectedRs)
+    plt.axhline(meanExpectedR)
     plt.boxplot(allEffectiveRs, labels=scenarioDisplayNames)
+    plt.legend(["Expected R = {0:.3f}".format(meanExpectedR)])
     plt.xlabel(xLabel)
     plt.ylabel("Effective R")
     saveFig(outputDir, figName)
