@@ -47,9 +47,9 @@ void InfluenzaBench()
                 };
         };
 
-        const vector<string> levels{"None", "Transmissions", "Susceptibles"};
+        const vector<string> levels{"None", "Transmissions"};
         for (const auto& s : levels) {
                 auto info = [s]() { return ptree().put("contact_log_level", s); };
-                BenchmarkRunner::RegisterTest("Influenza", "ContactLog." + s, 7, builder(s), info);
+                BenchmarkRunner::RegisterTest("Influenza", "ContactLog." + s, 5, builder(s), info);
         }
 }

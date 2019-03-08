@@ -72,10 +72,7 @@ public:
         void TimeStep();
 
         /// Get the Sim configuration for the given attribute.
-        std::string GetConfigValue(const std::string& attribute) const
-        {
-                return m_config.get<std::string>(attribute);
-        }
+        std::string GetConfigValue(const std::string& attribute) const { return m_config.get<std::string>(attribute); }
 
         /// Get the stored transmission rate.
         double GetTransmissionRate() const { return m_transmission_profile.GetRate(); }

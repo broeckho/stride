@@ -13,22 +13,33 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-syntax = "proto2";
+syntax = "proto3";
 package proto;
 
+// GeoGrid consists of multiple Locations and multiplePersons.
 message GeoGrid {
+
+    // Location of UUID, name, province and population count, coordinate,
+    // multiple ContactCenters and (outgoing) Commute data.
     message Location {
-        required int64 id = 1;
-        required string name = 2;
-        required int64 province = 3;
-        required int64 population = 4;
+
+        int64 id = 1;
+        string name = 2;
+        int64 province = 3;
+        int64 population = 4;
+
+        // Coordinate with longitude and latitude.
         message Coordinate {
-            required double longitude = 1;
-            required double latitude = 2;
+            double longitude = 1;
+            double latitude = 2;
         }
-        required Coordinate coordinate = 5;
+        Coordinate coordinate = 5;
+
+        // ContactCenter with UUID, type ID amd multiple ContactPools.
         message ContactCenter {
-            required int64 id = 1;
+
+            int64 id = 1;
+
             enum Type {
                 K12School = 0;
                 Community = 1;
@@ -38,26 +49,32 @@ message GeoGrid {
                 Household = 5;
                 Workplace = 6;
             }
-            required Type type = 2;
+            Type type = 2;
+
+            // ContactPool with UUID and people count.
             message ContactPool {
-                required int64 id = 1;
+                int64 id = 1;
                 repeated int64 people = 2;
             }
             repeated ContactPool pools = 3;
         }
         repeated ContactCenter contactCenters = 6;
+
         message Commute {
-            required int64 to = 1;
-            required double proportion = 2;
+            int64 to = 1;
+            double proportion = 2;
         }
         repeated Commute commutes = 7;
     }
+
+    // Person with UUID, age and gender.
     message Person {
-        required int64 id = 1;
-        required int64 age = 2;
-        required string gender = 3;
+        int64 id = 1;
+        int64 age = 2;
+        string gender = 3;
     }
+
+    // The actual message content: multiple Locations and multiple Persons.
     repeated Location locations = 1;
     repeated Person persons = 2;
-
 }

@@ -101,8 +101,17 @@ find_package(Threads)
 #----------------------------------------------------------------------------
 # ProtoBuf
 #----------------------------------------------------------------------------
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/gengeopop/io/proto)
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+if(NOT STRIDE_FORCE_NO_PROTOC)
+    include(FindProtobuf)
+    find_package(Protobuf)
+endif()
+if(Protobuf_FOUND)
+    set(Protobuf_PBS_DIR ${CMAKE_CURRENT_BINARY_DIR}/main/cpp)
+    include_directories(SYSTEM ${Protobuf_INCLUDE_DIRS})
+else()
+    set(Protobuf_PBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/main/cpp/geopop/io/proto_pb)
+    include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+endif()
 
 #----------------------------------------------------------------------------
 # SHA1 hash code.

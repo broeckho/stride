@@ -39,8 +39,7 @@ string TimeToString::ToColonString(chrono::minutes d)
         hours         hh = duration_cast<hours>(d);
         minutes       mm = duration_cast<minutes>(d % hours(1));
 
-        oss << right << setfill('0') << setw(2) << hh.count() << ":" << setw(2) << mm.count() << ":" << setw(2)
-            << 0;
+        oss << right << setfill('0') << setw(2) << hh.count() << ":" << setw(2) << mm.count() << ":" << setw(2) << 0;
         return oss.str();
 }
 
@@ -106,8 +105,8 @@ string TimeToString::ToColonString(chrono::nanoseconds d)
         nanoseconds   nano  = duration_cast<nanoseconds>(d % microseconds(1));
 
         oss << right << setfill('0') << setw(2) << hh.count() << ":" << setw(2) << mm.count() << ":" << setw(2)
-            << ss.count() << ":" << setw(3) << milli.count() << ":" << setw(3) << micro.count() << ":"
-            << setw(3) << nano.count() << endl;
+            << ss.count() << ":" << setw(3) << milli.count() << ":" << setw(3) << micro.count() << ":" << setw(3)
+            << nano.count() << endl;
         return oss.str();
 }
 
