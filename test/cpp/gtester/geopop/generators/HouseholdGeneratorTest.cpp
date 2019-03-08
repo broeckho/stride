@@ -34,8 +34,8 @@ namespace {
 
 TEST(HouseholdGeneratorTest, OneLocationTest)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.popInfo.count_households         = 4;
@@ -53,8 +53,8 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
 
 TEST(HouseholdGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.popInfo.count_households         = 4;
@@ -68,8 +68,8 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
 
 TEST(HouseholdGeneratorTest, FiveLocationsTest)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.popInfo.count_households         = 4000;

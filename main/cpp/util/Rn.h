@@ -63,8 +63,11 @@ public:
         using ContainerType::at;
         using ContainerType::size;
 
+        /// Default constructor build empty manager.
+        Rn() : ContainerType (), m_seed_seq_init(""), m_stream_count(0U) {}
+
         /// Initializes.
-        explicit Rn(const Info& info = Info())
+        explicit Rn(const Info& info)
             : ContainerType(info.m_stream_count), m_seed_seq_init(info.m_seed_seq_init),
               m_stream_count(info.m_stream_count)
         {
@@ -84,7 +87,10 @@ public:
         Info GetInfo() const;
 
         /// Initalize with data in Info.
-        void Initialize(const Info& info = Info());
+        void Initialize(const Info& info);
+
+        /// Is this een empty (i.e. non-initialized Rn)?
+        bool IsInitialized() const { return ContainerType::empty() || (m_stream_count == 0U); }
 
 private:
         /// Actual first-time seeding. Procedure varies according to engine type, see specialisations.

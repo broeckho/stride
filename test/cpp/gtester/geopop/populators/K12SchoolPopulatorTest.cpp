@@ -137,7 +137,7 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
 
 TEST(K12SchoolPopulatorTest, TwoLocationTest)
 {
-        auto rnManager = RnMan{};
+        auto rnManager = RnMan{RnMan::Info{}};
         auto pop       = Population::Create();
         auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
