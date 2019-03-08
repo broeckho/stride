@@ -79,5 +79,42 @@ It should be noted that this threshold will change for al lot of variables. Vari
 \subsection{Is commuting to work important for disease spread?}
 
 \section{Performance profiling of sequential code}
+To study the performance of the code we will discuss a few parameters.
+\\
+First we will choose a random number of days to run a simulation and look at the time needed to complete the algorithm.
+
+\begin{center}
+	\begin{tabular}{ | c | c |}
+	\hline
+	Number of days & Time needed \\ \hline
+	10 & 00:00:03:192:028 \\ \hline
+	50 & 00:00:04:827:135 \\ \hline
+	150 & 00:00:09:313:779 \\ \hline
+	500 & 00:00:22:090:867 \\ \hline
+	1000 & 00:00:39:660:327 \\
+	\hline	
+	\end{tabular}
+\end{center}
+
+As could be expected, there is an increase in execution time when we take a larger amount of days. But surprisingly enough is the simulation even with 1000 days rapidly. This is because after a period of time everyone will be infected and thus no further computation is necessary for the remaining amount of days. Only increasing the number of days will not make a difference in the performance of the simulation.
+
+IMMUNITY\\
+(days = 50)
+\begin{center}
+	\begin{tabular}{ | c | c |}
+		\hline
+		Immunity rate & Time needed \\ \hline
+		0.2 & 00:00:04:869:367 \\ \hline
+		0.4 & 00:00:04:873:811 \\ \hline
+		0.6 & 00:00:04:966:409 \\ \hline
+		0.8 & 00:00:05:035:361 \\ \hline
+		0.99 & 00:00:04:921:399 \\
+		\hline	
+	\end{tabular}
+\end{center} 
+
+Varying the immunity rate, there is not a significant difference in runtime for different configurations.
+
+When
 
 \end{document}
