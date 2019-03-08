@@ -1,6 +1,7 @@
 var a00085 =
 [
-    [ "DaysOffNone", "df/d13/a00085.html#afa7a609a793bf8aa77b5ee94fdb94fda", null ],
-    [ "IsWorkOff", "df/d13/a00085.html#a6287fa68ca109373fc9be31f3941079d", null ],
-    [ "IsSchoolOff", "df/d13/a00085.html#a939df1a48d594f56ec3099d1edcfdca7", null ]
+    [ "DaysOffSchool", "df/d13/a00085.html#ab77c78d8d9b00fe50c8f845fe459a657", null ],
+    [ "IsWorkOff", "df/d13/a00085.html#a633453bbe4892b56891c42a4f4ac72fd", null ],
+    [ "IsSchoolOff", "df/d13/a00085.html#a709acf6d0cec5722e20760a797ae35bb", null ],
+    [ "m_calendar", "df/d13/a00085.html#a5ac5b045ac4db6ae397d91d7dd663784", null ]
 ];

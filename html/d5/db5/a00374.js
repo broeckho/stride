@@ -1,4 +1,4 @@
 var a00374 =
 [
-    [ "pair2data", "d4/d3e/a00116.html", "d4/d3e/a00116" ]
+    [ "make_void", "df/d6a/a00119.html", "df/d6a/a00119" ]
 ];

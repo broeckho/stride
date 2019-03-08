@@ -1,30 +1,4 @@
 var searchData=
 [
-  ['parsecontactcenter',['ParseContactCenter',['../d3/dfe/a00025.html#abaeef4e66bbc02c415a8c9235a2eb908',1,'geopop::GeoGridJSONReader::ParseContactCenter()'],['../d0/d33/a00027.html#a913aee104b2c1982d1cb4164f7ad0e65',1,'geopop::GeoGridProtoReader::ParseContactCenter()']]],
-  ['parsecontactpool',['ParseContactPool',['../d3/dfe/a00025.html#a54f28880557331abe18038f0627738c3',1,'geopop::GeoGridJSONReader::ParseContactPool()'],['../d0/d33/a00027.html#aa6dbedaf2a8098e075607c358066a849',1,'geopop::GeoGridProtoReader::ParseContactPool()']]],
-  ['parsecoordinate',['ParseCoordinate',['../d3/dfe/a00025.html#ad72dfb7c01de362ee7ba10324ad76ac5',1,'geopop::GeoGridJSONReader::ParseCoordinate()'],['../d0/d33/a00027.html#a25bb12687d13e26a40d0d15d44220744',1,'geopop::GeoGridProtoReader::ParseCoordinate()']]],
-  ['parselocation',['ParseLocation',['../d3/dfe/a00025.html#a6d75cabadab49fcffe00d193dc7da4a6',1,'geopop::GeoGridJSONReader::ParseLocation()'],['../d0/d33/a00027.html#a2d7e93b8c38a12f8c662d18973e14a79',1,'geopop::GeoGridProtoReader::ParseLocation()']]],
-  ['parseperson',['ParsePerson',['../d3/dfe/a00025.html#ad0a3616bc2e064fee78d65dc172a3d81',1,'geopop::GeoGridJSONReader::ParsePerson()'],['../d0/d33/a00027.html#af379f9881c0626dd1efbb969798ab38e',1,'geopop::GeoGridProtoReader::ParsePerson()']]],
-  ['participateinsurvey',['ParticipateInSurvey',['../d9/dcc/a00102.html#a6c27c93e351ca63aa6e3a055cd9110b2',1,'stride::Person']]],
-  ['people',['people',['../de/de1/a00065.html#a0de33357e50cb2549d9aad7b987dcc5a',1,'proto::GeoGrid_Location_ContactCenter_ContactPool::people(int index) const '],['../de/de1/a00065.html#aad4c950c66b1b56be011dfa48c6fb808',1,'proto::GeoGrid_Location_ContactCenter_ContactPool::people() const ']]],
-  ['people_5fsize',['people_size',['../de/de1/a00065.html#af18dfe27121c6513a6edf82892651fab',1,'proto::GeoGrid_Location_ContactCenter_ContactPool']]],
-  ['performcasefinding',['PerformCaseFinding',['../d0/dc2/a00104.html#ae2e5eeecbee00888b7e687bce43a8cd8',1,'stride::PublicHealthAgency']]],
-  ['person',['Person',['../d9/dcc/a00102.html#a991cf4f69af6c6c75bf8a628dcccf986',1,'stride::Person::Person()'],['../d9/dcc/a00102.html#a4ecbb52e6cc2825f0a1397123478b26d',1,'stride::Person::Person(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId, unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)']]],
-  ['persons',['persons',['../d4/de8/a00061.html#af24fe8aeed116df8e4dc62d33c871653',1,'proto::GeoGrid::persons(int index) const '],['../d4/de8/a00061.html#a6137bac35dabdae659f09f5514819ca5',1,'proto::GeoGrid::persons() const ']]],
-  ['persons_5fsize',['persons_size',['../d4/de8/a00061.html#a2305009892d1e70cf58a9ff9b422a21d',1,'proto::GeoGrid']]],
-  ['personsfile',['PersonsFile',['../d0/d61/a00100.html#ab2c1e70237152817647dded0f5906c6b',1,'stride::output::PersonsFile']]],
-  ['personsfileviewer',['PersonsFileViewer',['../d2/df5/a00137.html#a3a0f69649baabe6b4403195283d860bb',1,'stride::viewers::PersonsFileViewer']]],
-  ['polygonpolicy',['PolygonPolicy',['../d5/df9/a00044.html#a9f6a7862371bdb5991a62af32bfc44fe',1,'geopop::PolygonPolicy']]],
-  ['pools',['pools',['../df/d5f/a00064.html#ad72f8f06adf64bedd21c233827dc8d65',1,'proto::GeoGrid_Location_ContactCenter::pools(int index) const '],['../df/d5f/a00064.html#a04750f01fca724a997216fade5abfd9b',1,'proto::GeoGrid_Location_ContactCenter::pools() const ']]],
-  ['pools_5fsize',['pools_size',['../df/d5f/a00064.html#a2fba27d68b28b8f526346d0fe1d3cdd6',1,'proto::GeoGrid_Location_ContactCenter']]],
-  ['pop_5fback',['pop_back',['../d4/d31/a00069.html#a4e0b15a5f6a72420feedc9a006d17fa7',1,'stride::util::SegmentedVector']]],
-  ['population',['population',['../df/d03/a00062.html#a8f722f8a9c6609c033a0654fd3bef9d8',1,'proto::GeoGrid_Location::population()'],['../d5/d1e/a00103.html#a23ca2c3c5ef45fe26a11e0bc47cbe8ca',1,'stride::Population::Population()']]],
-  ['populator',['Populator',['../d6/d97/a00045.html#a90939da0643eae65780f4a4dd125c411',1,'geopop::Populator']]],
-  ['primarycommunity',['PrimaryCommunity',['../d3/dea/a00046.html#a19430d62991b9e86630c389353c99799',1,'geopop::PrimaryCommunity']]],
-  ['print',['Print',['../da/d74/a00099.html#ae42038f7696374e29aef434de61d386d',1,'stride::output::InfectedFile::Print()'],['../d0/d61/a00100.html#ac72a90d142c34ca2137bdf09760ba2c4',1,'stride::output::PersonsFile::Print()'],['../d4/d3a/a00101.html#a9b4fb82839ddf6a7c8d10fc119bf22fb',1,'stride::output::SummaryFile::Print()']]],
-  ['processorcount',['ProcessorCount',['../d3/d00/a00113.html#a9b191149cb109105f73c84df61bebbb6',1,'stride::util::ConfigInfo']]],
-  ['proportion',['proportion',['../d1/d6f/a00063.html#a84004e570416a8aaae361bb53f57d8f6',1,'proto::GeoGrid_Location_Commute']]],
-  ['province',['province',['../df/d03/a00062.html#aefd4205f29912c851f50c5cc9858b96c',1,'proto::GeoGrid_Location']]],
-  ['publichealthagency',['PublicHealthAgency',['../d0/dc2/a00104.html#a03ebd97271af159e0831b61b43e6e62f',1,'stride::PublicHealthAgency']]],
-  ['push_5fback',['push_back',['../d4/d31/a00069.html#a74bf9839c2e38750216689f965a647de',1,'stride::util::SegmentedVector::push_back(const T &amp;obj)'],['../d4/d31/a00069.html#a63f248bcd2fc8b5f6f9fb2f75266c81c',1,'stride::util::SegmentedVector::push_back(T &amp;&amp;obj)']]]
+  ['query',['Query',['../d5/db6/a00042.html#a241c1c9e7e7a32299d84ef31ca23de41',1,'geopop::KdTree']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::SurveySeeder Class Reference</title>
+<title>Stride Reference Manual: stride::TransmissionProfile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9e9a998</span>
+   &#160;<span id="projectnumber">- generated for commit f11e457</span>
    </div>
   </td>
  </tr>
@@ -109,58 +109,133 @@ $(document).ready(function(){initNavTree('d4/d81/a00110.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d2/ddd/a00978.html">List of all members</a>  </div>
+<a href="../../d8/d49/a00979.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::SurveySeeder Class Reference</div>  </div>
+<div class="title">stride::TransmissionProfile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Seeds the population with survey participants.  
+<p>Transmission rates from disease data.  
  <a href="../../d4/d81/a00110.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dd/d4e/a00329_source.html">SurveySeeder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d4/dce/a00337_source.html">TransmissionProfile.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::SurveySeeder:</div>
+Collaboration diagram for stride::TransmissionProfile:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d49/a00979.gif" border="0" usemap="#stride_1_1SurveySeeder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1SurveySeeder_coll__map" id="stride_1_1SurveySeeder_coll__map">
-<area shape="rect" id="node2" href="../../d7/d12/a00126.html" title="{stride::util::RnMan\n||}" alt="" coords="203,573,339,651"/>
-<area shape="rect" id="node3" href="../../da/d72/a00124.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="209,329,333,524"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="377,175,464,252"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="352,5,489,97"/>
+<div class="center"><img src="../../db/d20/a00980.gif" border="0" usemap="#stride_1_1TransmissionProfile_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1TransmissionProfile_coll__map" id="stride_1_1TransmissionProfile_coll__map">
+<area shape="rect" id="node2" href="../../d7/d08/a00378.html" title="{double\n||}" alt="" coords="66,5,131,83"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a797a748983822c0227fe2326d2a47c16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a797a748983822c0227fe2326d2a47c16">SurveySeeder</a> (const boost::property_tree::ptree &amp;configPt, <a class="el" href="../../d7/d12/a00126.html">util::RnMan</a> &amp;rnManager)</td></tr>
-<tr class="memdesc:a797a748983822c0227fe2326d2a47c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Seeder.  <a href="#a797a748983822c0227fe2326d2a47c16">More...</a><br /></td></tr>
-<tr class="separator:a797a748983822c0227fe2326d2a47c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81b191380f9a2c93768ff0efcec47f6b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a81b191380f9a2c93768ff0efcec47f6b">Seed</a> (std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a81b191380f9a2c93768ff0efcec47f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with survey participants.  <a href="#a81b191380f9a2c93768ff0efcec47f6b">More...</a><br /></td></tr>
-<tr class="separator:a81b191380f9a2c93768ff0efcec47f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1645757a571f63d0583d54a6838ca1fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a1645757a571f63d0583d54a6838ca1fb">TransmissionProfile</a> ()</td></tr>
+<tr class="memdesc:a1645757a571f63d0583d54a6838ca1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a1645757a571f63d0583d54a6838ca1fb">More...</a><br /></td></tr>
+<tr class="separator:a1645757a571f63d0583d54a6838ca1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d08/a00378.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a51ffe104253ffd5bcf12ab299fa6f2e2">GetRate</a> () const </td></tr>
+<tr class="memdesc:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return transmission rate.  <a href="#a51ffe104253ffd5bcf12ab299fa6f2e2">More...</a><br /></td></tr>
+<tr class="separator:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e67e9eab813de18fff32722ee6f1437"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a5e67e9eab813de18fff32722ee6f1437">Initialize</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;diseasePt)</td></tr>
+<tr class="memdesc:a5e67e9eab813de18fff32722ee6f1437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a5e67e9eab813de18fff32722ee6f1437">More...</a><br /></td></tr>
+<tr class="separator:a5e67e9eab813de18fff32722ee6f1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8b56b25160ae00196ba33d418e2647a3"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a8b56b25160ae00196ba33d418e2647a3">m_config_pt</a></td></tr>
-<tr class="memdesc:a8b56b25160ae00196ba33d418e2647a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config.  <a href="#a8b56b25160ae00196ba33d418e2647a3">More...</a><br /></td></tr>
-<tr class="separator:a8b56b25160ae00196ba33d418e2647a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bc087f76a94ae634c80613f893233ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d12/a00126.html">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a9bc087f76a94ae634c80613f893233ed">m_rn_manager</a></td></tr>
-<tr class="memdesc:a9bc087f76a94ae634c80613f893233ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#a9bc087f76a94ae634c80613f893233ed">More...</a><br /></td></tr>
-<tr class="separator:a9bc087f76a94ae634c80613f893233ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d08/a00378.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a></td></tr>
+<tr class="separator:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Seeds the population with survey participants. </p>
+<div class="textblock"><p>Transmission rates from disease data. </p>
 
-<p>Definition at line <a class="el" href="../../dd/d4e/a00329_source.html#l00037">37</a> of file <a class="el" href="../../dd/d4e/a00329_source.html">SurveySeeder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/dce/a00337_source.html#l00030">30</a> of file <a class="el" href="../../d4/dce/a00337_source.html">TransmissionProfile.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a797a748983822c0227fe2326d2a47c16"></a>
+<a class="anchor" id="a1645757a571f63d0583d54a6838ca1fb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::TransmissionProfile::TransmissionProfile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize. </p>
+
+<p>Definition at line <a class="el" href="../../d4/dce/a00337_source.html#l00034">34</a> of file <a class="el" href="../../d4/dce/a00337_source.html">TransmissionProfile.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a51ffe104253ffd5bcf12ab299fa6f2e2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d08/a00378.html">double</a> stride::TransmissionProfile::GetRate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return transmission rate. </p>
+
+<p>Definition at line <a class="el" href="../../d4/dce/a00337_source.html#l00037">37</a> of file <a class="el" href="../../d4/dce/a00337_source.html">TransmissionProfile.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/d1d/a00336_source.html#l00030">Initialize()</a>, and <a class="el" href="../../d4/dce/a00337_source.html#l00043">m_transmission_rate</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d04/a00255_source.html#l00146">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, and <a class="el" href="../../d4/d04/a00255_source.html#l00209">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d81/a00110_a51ffe104253ffd5bcf12ab299fa6f2e2_cgraph.gif" border="0" usemap="#d4/d81/a00110_a51ffe104253ffd5bcf12ab299fa6f2e2_cgraph" alt=""/></div>
+<map name="d4/d81/a00110_a51ffe104253ffd5bcf12ab299fa6f2e2_cgraph" id="d4/d81/a00110_a51ffe104253ffd5bcf12ab299fa6f2e2_cgraph">
+<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a5e67e9eab813de18fff32722ee6f1437" title="Initialize. " alt="" coords="240,5,427,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d81/a00110_a51ffe104253ffd5bcf12ab299fa6f2e2_icgraph.gif" border="0" usemap="#d4/d81/a00110_a51ffe104253ffd5bcf12ab299fa6f2e2_icgraph" alt=""/></div>
+<map name="d4/d81/a00110_a51ffe104253ffd5bcf12ab299fa6f2e2_icgraph" id="d4/d81/a00110_a51ffe104253ffd5bcf12ab299fa6f2e2_icgraph">
+<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a7a04fe600bfbb5b09330163fd2d49409" title="stride::Infector::Exec" alt="" coords="240,5,392,32"/>
+<area shape="rect" id="node3" href="../../d9/df8/a00096.html#aa27dad30b434e742e80300d88854b36d" title="stride::Infector\&lt; LL,\l TIC, true \&gt;::Exec" alt="" coords="243,57,389,98"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e67e9eab813de18fff32722ee6f1437"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">stride::SurveySeeder::SurveySeeder </td>
+          <td class="memname">void stride::TransmissionProfile::Initialize </td>
           <td>(</td>
           <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
           <td class="paramname"><em>configPt</em>, </td>
@@ -168,8 +243,8 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/d12/a00126.html">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>&#160;</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>diseasePt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -179,84 +254,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize Seeder. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">configPt</td><td>Configuration parameters. </td></tr>
-    <tr><td class="paramname">rnManager</td><td>Random number manager. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Initialize. </p>
 
-<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00036">36</a> of file <a class="el" href="../../d4/db5/a00328_source.html">SurveySeeder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00030">30</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">TransmissionProfile.cpp</a>.</p>
 
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a81b191380f9a2c93768ff0efcec47f6b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt; stride::SurveySeeder::Seed </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Seeds the population with survey participants. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pop</td><td><a class="el" href="../../d5/d1e/a00103.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00038">38</a> of file <a class="el" href="../../d4/db5/a00328_source.html">SurveySeeder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00054">stride::Person::GetAge()</a>, <a class="el" href="../../d3/d58/a00285_source.html#l00073">stride::Population::GetContactLogger()</a>, <a class="el" href="../../d3/d58/a00285_source.html#l00076">stride::Population::GetContactPoolSys()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00046">stride::Health::GetEndInfectiousness()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00049">stride::Health::GetEndSymptomatic()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00057">stride::Person::GetGender()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00060">stride::Person::GetHealth()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00066">stride::Person::GetId()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00069">stride::Person::GetPoolId()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00052">stride::Health::GetStartInfectiousness()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00055">stride::Health::GetStartSymptomatic()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00058">stride::Health::IsImmune()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00061">stride::Health::IsInfected()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00068">stride::Health::IsInfectious()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00074">stride::Health::IsRecovered()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00075">stride::Person::IsSurveyParticipant()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00077">stride::Health::IsSusceptible()</a>, <a class="el" href="../../dd/d4e/a00329_source.html#l00050">m_config_pt</a>, <a class="el" href="../../dd/d4e/a00329_source.html#l00051">m_rn_manager</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00078">stride::Person::ParticipateInSurvey()</a>, and <a class="el" href="../../d1/de3/a00306_source.html#l00210">stride::util::SegmentedVector&lt; T, N, Safe &gt;::size()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d71/a00309_source.html#l00042">stride::SimBuilder::Build()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_cgraph.gif" border="0" usemap="#d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_cgraph" alt=""/></div>
-<map name="d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_cgraph" id="d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_cgraph">
-<area shape="rect" id="node2" href="../../d9/dcc/a00102.html#ad85ecf5500764ae2c025f7e2aab8003c" title="Get the age. " alt="" coords="253,5,420,32"/>
-<area shape="rect" id="node3" href="../../d5/d1e/a00103.html#a314f886a6abeb0e08aac8fee085e76bd" title="Return the contactlogger. " alt="" coords="263,57,410,98"/>
-<area shape="rect" id="node4" href="../../d5/d1e/a00103.html#a7ba18751ce5eb62217b105e716e61d63" title="The ContactPoolSys of the simulator. " alt="" coords="260,122,413,163"/>
-<area shape="rect" id="node5" href="../../d1/dc1/a00092.html#a8e8b3c6fe823b70820f868bb597ade73" title="stride::Health::GetEndInfectiousness" alt="" coords="209,188,464,215"/>
-<area shape="rect" id="node6" href="../../d1/dc1/a00092.html#aac2a22ae31603c4dbaea3f440974d0d5" title="stride::Health::GetEndSymptomatic" alt="" coords="212,239,461,265"/>
-<area shape="rect" id="node7" href="../../d9/dcc/a00102.html#ada6071b93ce9d5b5611a2151e14d0740" title="Return person&#39;s gender. " alt="" coords="243,289,431,316"/>
-<area shape="rect" id="node8" href="../../d9/dcc/a00102.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="245,340,428,367"/>
-<area shape="rect" id="node9" href="../../d9/dcc/a00102.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="261,391,413,417"/>
-<area shape="rect" id="node10" href="../../d9/dcc/a00102.html#adf4a9d757d54cbad332375cad6998ddc" title="Get ID of contactpool_type. " alt="" coords="247,441,426,468"/>
-<area shape="rect" id="node11" href="../../d1/dc1/a00092.html#a9eab117bce0fe7009188aad7e534ca82" title="stride::Health::GetStart\lInfectiousness" alt="" coords="251,493,422,534"/>
-<area shape="rect" id="node12" href="../../d1/dc1/a00092.html#adf2c4f06cd9ad0dac95c5a2ffdd39489" title="stride::Health::GetStart\lSymptomatic" alt="" coords="251,558,422,599"/>
-<area shape="rect" id="node13" href="../../d1/dc1/a00092.html#a7c9caae07db1dd15732f726cec514dc2" title="Is this person immune? " alt="" coords="247,624,426,651"/>
-<area shape="rect" id="node14" href="../../d1/dc1/a00092.html#aa54f0be8ce25462aaf62847ded75a29d" title="Is this person infected? " alt="" coords="248,675,425,701"/>
-<area shape="rect" id="node15" href="../../d1/dc1/a00092.html#a84c0cb686c22ec8504942b84105eaed2" title="Is this person infectious. " alt="" coords="243,725,430,752"/>
-<area shape="rect" id="node16" href="../../d1/dc1/a00092.html#a4dae2bfe69375adb5dd89819f6798090" title="Is this person recovered? " alt="" coords="241,776,433,803"/>
-<area shape="rect" id="node17" href="../../d9/dcc/a00102.html#a5942b9a4f5226e8810dc8b63fb250f3e" title="Does this person participates in the social contact study? " alt="" coords="251,827,423,869"/>
-<area shape="rect" id="node18" href="../../d1/dc1/a00092.html#ae2a3b14e79e08a261ca7122afba9b95c" title="Is this person susceptible? " alt="" coords="237,893,437,920"/>
-<area shape="rect" id="node19" href="../../d9/dcc/a00102.html#a6c27c93e351ca63aa6e3a055cd9110b2" title="Participate in social contact study and log person details. " alt="" coords="244,945,429,986"/>
-<area shape="rect" id="node22" href="../../d4/d31/a00069.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="232,1010,441,1051"/>
-<area shape="rect" id="node20" href="../../d9/dcc/a00102.html#abeed34b336b17866bb881b77237c76c4" title="Update the health status and presence in contact pools. " alt="" coords="512,952,677,979"/>
-<area shape="rect" id="node21" href="../../d2/d3e/a00366.html#a2b354a18a7f6986d363385ff46c9a473" title="Maximum age for Person&#39;s. " alt="" coords="725,952,872,979"/>
-</map>
-</div>
-</p>
+<p>Referenced by <a class="el" href="../../d4/dce/a00337_source.html#l00037">GetRate()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_icgraph.gif" border="0" usemap="#d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_icgraph" id="d4/d81/a00110_a81b191380f9a2c93768ff0efcec47f6b_icgraph">
-<area shape="rect" id="node2" href="../../d7/d70/a00106.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="209,5,344,47"/>
+<div class="center"><img src="../../d4/d81/a00110_a5e67e9eab813de18fff32722ee6f1437_icgraph.gif" border="0" usemap="#d4/d81/a00110_a5e67e9eab813de18fff32722ee6f1437_icgraph" alt=""/></div>
+<map name="d4/d81/a00110_a5e67e9eab813de18fff32722ee6f1437_icgraph" id="d4/d81/a00110_a5e67e9eab813de18fff32722ee6f1437_icgraph">
+<area shape="rect" id="node2" href="../../d4/d81/a00110.html#a51ffe104253ffd5bcf12ab299fa6f2e2" title="Return transmission rate. " alt="" coords="240,27,427,69"/>
+<area shape="rect" id="node3" href="../../d9/d77/a00095.html#a7a04fe600bfbb5b09330163fd2d49409" title="stride::Infector::Exec" alt="" coords="475,5,627,32"/>
+<area shape="rect" id="node4" href="../../d9/df8/a00096.html#aa27dad30b434e742e80300d88854b36d" title="stride::Infector\&lt; LL,\l TIC, true \&gt;::Exec" alt="" coords="477,57,624,98"/>
 </map>
 </div>
 </p>
@@ -264,7 +275,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a8b56b25160ae00196ba33d418e2647a3"></a>
+<a class="anchor" id="afbb8227d4d8b61b291fa521f33dce3ce"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -272,7 +283,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::property_tree::ptree&amp; stride::SurveySeeder::m_config_pt</td>
+          <td class="memname"><a class="el" href="../../d7/d08/a00378.html">double</a> stride::TransmissionProfile::m_transmission_rate</td>
         </tr>
       </table>
   </td>
@@ -282,51 +293,23 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Run config. </p>
+<p>Definition at line <a class="el" href="../../d4/dce/a00337_source.html#l00043">43</a> of file <a class="el" href="../../d4/dce/a00337_source.html">TransmissionProfile.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dd/d4e/a00329_source.html#l00050">50</a> of file <a class="el" href="../../dd/d4e/a00329_source.html">SurveySeeder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/db5/a00328_source.html#l00038">Seed()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9bc087f76a94ae634c80613f893233ed"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/d12/a00126.html">util::RnMan</a>&amp; stride::SurveySeeder::m_rn_manager</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Random number manager. </p>
-
-<p>Definition at line <a class="el" href="../../dd/d4e/a00329_source.html#l00051">51</a> of file <a class="el" href="../../dd/d4e/a00329_source.html">SurveySeeder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/db5/a00328_source.html#l00038">Seed()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/dce/a00337_source.html#l00037">GetRate()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dd/d4e/a00329_source.html">SurveySeeder.h</a></li>
-<li><a class="el" href="../../d4/db5/a00328_source.html">SurveySeeder.cpp</a></li>
+<li><a class="el" href="../../d4/dce/a00337_source.html">TransmissionProfile.h</a></li>
+<li><a class="el" href="../../dd/d1d/a00336_source.html">TransmissionProfile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d3e/a00366.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d81/a00110.html">SurveySeeder</a></li>
-    <li class="footer">Generated on Thu Mar 7 2019 12:22:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dd/db5/a00365.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d81/a00110.html">TransmissionProfile</a></li>
+    <li class="footer">Generated on Fri Mar 8 2019 09:08:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

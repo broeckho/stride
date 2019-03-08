@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::output::SummaryFile Class Reference</title>
+<title>Stride Reference Manual: stride::Person Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9e9a998</span>
+   &#160;<span id="projectnumber">- generated for commit f11e457</span>
    </div>
   </td>
  </tr>
@@ -108,61 +108,113 @@ $(document).ready(function(){initNavTree('d4/d3a/a00101.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d6/d8d/a01007.html">List of all members</a>  </div>
+<a href="../../d3/de5/a00956.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::output::SummaryFile Class Reference</div>  </div>
+<div class="title">stride::Person Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Produces a file with simulation summary output.  
+<p>Store and handle person data.  
  <a href="../../d4/d3a/a00101.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../de/dc8/a00325_source.html">SummaryFile.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::output::SummaryFile:</div>
+Collaboration diagram for stride::Person:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/dac/a01008.gif" border="0" usemap="#stride_1_1output_1_1SummaryFile_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1output_1_1SummaryFile_coll__map" id="stride_1_1output_1_1SummaryFile_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="51,541,159,619"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="31,400,179,492"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="33,259,177,351"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="21,132,189,209"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="51,5,158,83"/>
+<div class="center"><img src="../../d1/df7/a00957.gif" border="0" usemap="#stride_1_1Person_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Person_coll__map" id="stride_1_1Person_coll__map">
+<area shape="rect" id="node2" href="../../da/dec/a00080.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="31,723,183,903"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="5,421,208,499"/>
+<area shape="rect" id="node4" href="../../d7/d08/a00378.html" title="{double\n||}" alt="" coords="207,774,273,851"/>
+<area shape="rect" id="node5" href="../../d9/d73/a00060.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l std::size_t \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="297,708,449,917"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="250,247,401,339"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="362,145,577,223"/>
+<area shape="rect" id="node8" href="../../d9/d73/a00060.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="379,363,551,557"/>
+<area shape="rect" id="node13" href="../../da/d82/a00091.html" title="Holds a person&#39;s health data. " alt="" coords="811,679,1019,947"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1f848c3aa92042b2fa7d399ad31b0e33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a1f848c3aa92042b2fa7d399ad31b0e33">SummaryFile</a> (const std::string &amp;output_prefix=&quot;output&quot;)</td></tr>
-<tr class="memdesc:a1f848c3aa92042b2fa7d399ad31b0e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor: initialize.  <a href="#a1f848c3aa92042b2fa7d399ad31b0e33">More...</a><br /></td></tr>
-<tr class="separator:a1f848c3aa92042b2fa7d399ad31b0e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade602b6935ee6c38f21f15b5bcc77847"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#ade602b6935ee6c38f21f15b5bcc77847">~SummaryFile</a> ()</td></tr>
-<tr class="memdesc:ade602b6935ee6c38f21f15b5bcc77847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor: close the file stream.  <a href="#ade602b6935ee6c38f21f15b5bcc77847">More...</a><br /></td></tr>
-<tr class="separator:ade602b6935ee6c38f21f15b5bcc77847"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b4fb82839ddf6a7c8d10fc119bf22fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a9b4fb82839ddf6a7c8d10fc119bf22fb">Print</a> (const boost::property_tree::ptree &amp;config_pt, unsigned int population_size, unsigned int num_cases, <a class="el" href="../../d8/d95/a00379.html">double</a> transmission_rate, unsigned int run_time, unsigned int total_time)</td></tr>
-<tr class="memdesc:a9b4fb82839ddf6a7c8d10fc119bf22fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the given output with corresponding tag.  <a href="#a9b4fb82839ddf6a7c8d10fc119bf22fb">More...</a><br /></td></tr>
-<tr class="separator:a9b4fb82839ddf6a7c8d10fc119bf22fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a73334b641e8aeb7edff5cc8b6affc86c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a73334b641e8aeb7edff5cc8b6affc86c">Initialize</a> (const std::string &amp;output_dir)</td></tr>
-<tr class="memdesc:a73334b641e8aeb7edff5cc8b6affc86c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate file name and open the file stream.  <a href="#a73334b641e8aeb7edff5cc8b6affc86c">More...</a><br /></td></tr>
-<tr class="separator:a73334b641e8aeb7edff5cc8b6affc86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a991cf4f69af6c6c75bf8a628dcccf986"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a991cf4f69af6c6c75bf8a628dcccf986">Person</a> ()</td></tr>
+<tr class="memdesc:a991cf4f69af6c6c75bf8a628dcccf986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default construction (for population vector).  <a href="#a991cf4f69af6c6c75bf8a628dcccf986">More...</a><br /></td></tr>
+<tr class="separator:a991cf4f69af6c6c75bf8a628dcccf986"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ecbb52e6cc2825f0a1397123478b26d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a4ecbb52e6cc2825f0a1397123478b26d">Person</a> (unsigned int id, <a class="el" href="../../d7/d08/a00378.html">double</a> age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId, unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)</td></tr>
+<tr class="memdesc:a4ecbb52e6cc2825f0a1397123478b26d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor: set the person data.  <a href="#a4ecbb52e6cc2825f0a1397123478b26d">More...</a><br /></td></tr>
+<tr class="separator:a4ecbb52e6cc2825f0a1397123478b26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab96580cd0eb920e25c0b68aef7984d70"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#ab96580cd0eb920e25c0b68aef7984d70">operator!=</a> (const <a class="el" href="../../d4/d3a/a00101.html">Person</a> &amp;p) const </td></tr>
+<tr class="memdesc:ab96580cd0eb920e25c0b68aef7984d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this person not equal to the given person?  <a href="#ab96580cd0eb920e25c0b68aef7984d70">More...</a><br /></td></tr>
+<tr class="separator:ab96580cd0eb920e25c0b68aef7984d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad85ecf5500764ae2c025f7e2aab8003c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d08/a00378.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#ad85ecf5500764ae2c025f7e2aab8003c">GetAge</a> () const </td></tr>
+<tr class="memdesc:ad85ecf5500764ae2c025f7e2aab8003c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the age.  <a href="#ad85ecf5500764ae2c025f7e2aab8003c">More...</a><br /></td></tr>
+<tr class="separator:ad85ecf5500764ae2c025f7e2aab8003c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada6071b93ce9d5b5611a2151e14d0740"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#ada6071b93ce9d5b5611a2151e14d0740">GetGender</a> () const </td></tr>
+<tr class="memdesc:ada6071b93ce9d5b5611a2151e14d0740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return person's gender.  <a href="#ada6071b93ce9d5b5611a2151e14d0740">More...</a><br /></td></tr>
+<tr class="separator:ada6071b93ce9d5b5611a2151e14d0740"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53081dbb062c019153b8be62083d59a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d82/a00091.html">Health</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a53081dbb062c019153b8be62083d59a2">GetHealth</a> ()</td></tr>
+<tr class="memdesc:a53081dbb062c019153b8be62083d59a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return person's health status.  <a href="#a53081dbb062c019153b8be62083d59a2">More...</a><br /></td></tr>
+<tr class="separator:a53081dbb062c019153b8be62083d59a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22421b0318583235939e935361b77c90"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../da/d82/a00091.html">Health</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a22421b0318583235939e935361b77c90">GetHealth</a> () const </td></tr>
+<tr class="memdesc:a22421b0318583235939e935361b77c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return person's health status.  <a href="#a22421b0318583235939e935361b77c90">More...</a><br /></td></tr>
+<tr class="separator:a22421b0318583235939e935361b77c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afab3ab2a1a33004f9e25d4873c3c1921"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#afab3ab2a1a33004f9e25d4873c3c1921">GetId</a> () const </td></tr>
+<tr class="memdesc:afab3ab2a1a33004f9e25d4873c3c1921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the id.  <a href="#afab3ab2a1a33004f9e25d4873c3c1921">More...</a><br /></td></tr>
+<tr class="separator:afab3ab2a1a33004f9e25d4873c3c1921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf4a9d757d54cbad332375cad6998ddc"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#adf4a9d757d54cbad332375cad6998ddc">GetPoolId</a> (const <a class="el" href="../../d8/d21/a00368.html#a4e4309e1cddddec8f12b981ab3fbc4fb">ContactType::Id</a> &amp;poolType) const </td></tr>
+<tr class="memdesc:adf4a9d757d54cbad332375cad6998ddc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get ID of contactpool_type.  <a href="#adf4a9d757d54cbad332375cad6998ddc">More...</a><br /></td></tr>
+<tr class="separator:adf4a9d757d54cbad332375cad6998ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc181c9b642346133f4667c08c72d3f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#afc181c9b642346133f4667c08c72d3f8">IsInPool</a> (const <a class="el" href="../../d8/d21/a00368.html#a4e4309e1cddddec8f12b981ab3fbc4fb">ContactType::Id</a> &amp;poolType) const </td></tr>
+<tr class="memdesc:afc181c9b642346133f4667c08c72d3f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a person is present today in a given contact pool.  <a href="#afc181c9b642346133f4667c08c72d3f8">More...</a><br /></td></tr>
+<tr class="separator:afc181c9b642346133f4667c08c72d3f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5942b9a4f5226e8810dc8b63fb250f3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a5942b9a4f5226e8810dc8b63fb250f3e">IsSurveyParticipant</a> () const </td></tr>
+<tr class="memdesc:a5942b9a4f5226e8810dc8b63fb250f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does this person participates in the social contact study?  <a href="#a5942b9a4f5226e8810dc8b63fb250f3e">More...</a><br /></td></tr>
+<tr class="separator:a5942b9a4f5226e8810dc8b63fb250f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c27c93e351ca63aa6e3a055cd9110b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a6c27c93e351ca63aa6e3a055cd9110b2">ParticipateInSurvey</a> ()</td></tr>
+<tr class="memdesc:a6c27c93e351ca63aa6e3a055cd9110b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Participate in social contact study and log person details.  <a href="#a6c27c93e351ca63aa6e3a055cd9110b2">More...</a><br /></td></tr>
+<tr class="separator:a6c27c93e351ca63aa6e3a055cd9110b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeed34b336b17866bb881b77237c76c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#abeed34b336b17866bb881b77237c76c4">Update</a> (bool isWorkOff, bool isSchoolOff, bool adaptiveSymptomaticBehavior)</td></tr>
+<tr class="memdesc:abeed34b336b17866bb881b77237c76c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the health status and presence in contact pools.  <a href="#abeed34b336b17866bb881b77237c76c4">More...</a><br /></td></tr>
+<tr class="separator:abeed34b336b17866bb881b77237c76c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3629c9dae12f241933ae2649205767af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a3629c9dae12f241933ae2649205767af">SetAge</a> (unsigned int newAge)</td></tr>
+<tr class="memdesc:a3629c9dae12f241933ae2649205767af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the age of the person.  <a href="#a3629c9dae12f241933ae2649205767af">More...</a><br /></td></tr>
+<tr class="separator:a3629c9dae12f241933ae2649205767af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a9312fa75fbf91e949f3aecbbeb129"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#ac5a9312fa75fbf91e949f3aecbbeb129">SetId</a> (unsigned int id)</td></tr>
+<tr class="memdesc:ac5a9312fa75fbf91e949f3aecbbeb129"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the id.  <a href="#ac5a9312fa75fbf91e949f3aecbbeb129">More...</a><br /></td></tr>
+<tr class="separator:ac5a9312fa75fbf91e949f3aecbbeb129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb01ef490e692a8c55af235d63df0f77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#afb01ef490e692a8c55af235d63df0f77">SetPoolId</a> (<a class="el" href="../../d8/d21/a00368.html#a4e4309e1cddddec8f12b981ab3fbc4fb">ContactType::Id</a> type, std::size_t poolId)</td></tr>
+<tr class="memdesc:afb01ef490e692a8c55af235d63df0f77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets (for the type of <a class="el" href="../../d9/da4/a00078.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>) the Id of the <a class="el" href="../../d9/da4/a00078.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> the person belongs to.  <a href="#afb01ef490e692a8c55af235d63df0f77">More...</a><br /></td></tr>
+<tr class="separator:afb01ef490e692a8c55af235d63df0f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a473d1c4d75f2e873e1b0ee256dabf73a"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a473d1c4d75f2e873e1b0ee256dabf73a">m_fstream</a></td></tr>
-<tr class="memdesc:a473d1c4d75f2e873e1b0ee256dabf73a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file stream.  <a href="#a473d1c4d75f2e873e1b0ee256dabf73a">More...</a><br /></td></tr>
-<tr class="separator:a473d1c4d75f2e873e1b0ee256dabf73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8194d951f869239adb99d54196479498"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d08/a00378.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a8194d951f869239adb99d54196479498">m_age</a></td></tr>
+<tr class="memdesc:a8194d951f869239adb99d54196479498"><td class="mdescLeft">&#160;</td><td class="mdescRight">The age.  <a href="#a8194d951f869239adb99d54196479498">More...</a><br /></td></tr>
+<tr class="separator:a8194d951f869239adb99d54196479498"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ae24ea868bb1ee0c03e38c0f971c99"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a69ae24ea868bb1ee0c03e38c0f971c99">m_gender</a></td></tr>
+<tr class="memdesc:a69ae24ea868bb1ee0c03e38c0f971c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gender.  <a href="#a69ae24ea868bb1ee0c03e38c0f971c99">More...</a><br /></td></tr>
+<tr class="separator:a69ae24ea868bb1ee0c03e38c0f971c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff19daed7351416a80ae97721bbe017c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d82/a00091.html">Health</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#aff19daed7351416a80ae97721bbe017c">m_health</a></td></tr>
+<tr class="memdesc:aff19daed7351416a80ae97721bbe017c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/d82/a00091.html" title="Holds a person&#39;s health data. ">Health</a> info for this person.  <a href="#aff19daed7351416a80ae97721bbe017c">More...</a><br /></td></tr>
+<tr class="separator:aff19daed7351416a80ae97721bbe017c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6768d69e262dbdb71dfd9a5e7dcadb70"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a6768d69e262dbdb71dfd9a5e7dcadb70">m_id</a></td></tr>
+<tr class="memdesc:a6768d69e262dbdb71dfd9a5e7dcadb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id.  <a href="#a6768d69e262dbdb71dfd9a5e7dcadb70">More...</a><br /></td></tr>
+<tr class="separator:a6768d69e262dbdb71dfd9a5e7dcadb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6361ea8763683122ca6df55f71169bb9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a6361ea8763683122ca6df55f71169bb9">m_is_participant</a></td></tr>
+<tr class="memdesc:a6361ea8763683122ca6df55f71169bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is participating in the social contact study.  <a href="#a6361ea8763683122ca6df55f71169bb9">More...</a><br /></td></tr>
+<tr class="separator:a6361ea8763683122ca6df55f71169bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add0d5f3c4e9113fce104986396da7ab9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d73/a00060.html">ContactType::IdSubscriptArray</a>&lt; std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#add0d5f3c4e9113fce104986396da7ab9">m_pool_ids</a></td></tr>
+<tr class="memdesc:add0d5f3c4e9113fce104986396da7ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is person present/absent in pools of each of the types (school, work, etc)?  <a href="#add0d5f3c4e9113fce104986396da7ab9">More...</a><br /></td></tr>
+<tr class="separator:add0d5f3c4e9113fce104986396da7ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5da15fc100f6d9ca82b00b282b2adc8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d73/a00060.html">ContactType::IdSubscriptArray</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#ad5da15fc100f6d9ca82b00b282b2adc8">m_in_pools</a></td></tr>
+<tr class="separator:ad5da15fc100f6d9ca82b00b282b2adc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Produces a file with simulation summary output. </p>
+<div class="textblock"><p>Store and handle person data. </p>
 
-<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00033">33</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SummaryFile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00034">34</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1f848c3aa92042b2fa7d399ad31b0e33"></a>
+<a class="anchor" id="a991cf4f69af6c6c75bf8a628dcccf986"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -170,101 +222,557 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::output::SummaryFile::SummaryFile </td>
+          <td class="memname">stride::Person::Person </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_prefix</em> = <code>&quot;output&quot;</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor: initialize. </p>
+<p>Default construction (for population vector). </p>
 
-<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00033">33</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">SummaryFile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00038">38</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
 
-<p>References <a class="el" href="../../d4/d8f/a00324_source.html#l00037">Initialize()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a4ecbb52e6cc2825f0a1397123478b26d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::Person::Person </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d08/a00378.html">double</a>&#160;</td>
+          <td class="paramname"><em>age</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>householdId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>k12SchoolId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>collegeId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>workId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>primaryCommunityId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>secondaryCommunityId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor: set the person data. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00041">41</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00108">m_in_pools</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab96580cd0eb920e25c0b68aef7984d70"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Person::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d3a/a00101.html">Person</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is this person not equal to the given person? </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00051">51</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00100">m_id</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad85ecf5500764ae2c025f7e2aab8003c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d08/a00378.html">double</a> stride::Person::GetAge </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the age. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00054">54</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00097">m_age</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d22/a00245_source.html#l00068">stride::Immunizer::Random()</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00043">stride::DiseaseSeeder::Seed()</a>, <a class="el" href="../../d4/db5/a00328_source.html#l00038">stride::SurveySeeder::Seed()</a>, <a class="el" href="../../dd/dc1/a00212_source.html#l00163">geopop::GeoGridJSONWriter::WritePerson()</a>, and <a class="el" href="../../dc/d9a/a00218_source.html#l00112">geopop::GeoGridProtoWriter::WritePerson()</a>.</p>
 
 <p><div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d3a/a00101_a1f848c3aa92042b2fa7d399ad31b0e33_cgraph.gif" border="0" usemap="#d4/d3a/a00101_a1f848c3aa92042b2fa7d399ad31b0e33_cgraph" alt=""/></div>
-<map name="d4/d3a/a00101_a1f848c3aa92042b2fa7d399ad31b0e33_cgraph" id="d4/d3a/a00101_a1f848c3aa92042b2fa7d399ad31b0e33_cgraph">
-<area shape="rect" id="node2" href="../../d4/d3a/a00101.html#a73334b641e8aeb7edff5cc8b6affc86c" title="Generate file name and open the file stream. " alt="" coords="252,5,451,47"/>
-<area shape="rect" id="node3" href="../../d8/d87/a00118.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="499,5,635,47"/>
-<area shape="rect" id="node4" href="../../d8/d87/a00118.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="683,5,819,47"/>
+<div class="center"><img src="../../d4/d3a/a00101_ad85ecf5500764ae2c025f7e2aab8003c_icgraph.gif" border="0" usemap="#d4/d3a/a00101_ad85ecf5500764ae2c025f7e2aab8003c_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_ad85ecf5500764ae2c025f7e2aab8003c_icgraph" id="d4/d3a/a00101_ad85ecf5500764ae2c025f7e2aab8003c_icgraph">
+<area shape="rect" id="node2" href="../../d4/d7d/a00093.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="249,71,391,112"/>
+<area shape="rect" id="node5" href="../../db/ddf/a00088.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="716,115,879,156"/>
+<area shape="rect" id="node7" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="719,180,875,221"/>
+<area shape="rect" id="node8" href="../../d6/d5b/a00026.html#a20440cc9bc4dac95f7c55f5082200e85" title="Create a Boost Property Tree containing all info needed to reconstruct a Person. " alt="" coords="221,239,419,280"/>
+<area shape="rect" id="node10" href="../../dc/d3c/a00028.html#a86db40bd91910ffd9d795c4320f980a0" title="Create a ProtoBuf Person containing all the info needed to reconstruct a Person. " alt="" coords="220,304,420,345"/>
+<area shape="rect" id="node3" href="../../d4/d7d/a00093.html#a9cf69f9df2b2b2e357fab3d3ed48b64a" title="stride::Immunizer::\lImmunizer" alt="" coords="497,5,639,47"/>
+<area shape="rect" id="node4" href="../../db/ddf/a00088.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="487,71,649,112"/>
+<area shape="rect" id="node6" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="927,148,1061,189"/>
+<area shape="rect" id="node9" href="../../d6/d5b/a00026.html#af984bb77723e4b49a57a44eafb28e570" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="469,239,667,280"/>
+<area shape="rect" id="node11" href="../../dc/d3c/a00028.html#a6f709a9e0724d34905806b0ae13688f0" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="468,304,668,345"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ade602b6935ee6c38f21f15b5bcc77847"></a>
+<a class="anchor" id="ada6071b93ce9d5b5611a2151e14d0740"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::output::SummaryFile::~SummaryFile </td>
+          <td class="memname">char stride::Person::GetGender </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return person's gender. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00057">57</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00098">m_gender</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/db5/a00328_source.html#l00038">stride::SurveySeeder::Seed()</a>, <a class="el" href="../../dd/dc1/a00212_source.html#l00163">geopop::GeoGridJSONWriter::WritePerson()</a>, and <a class="el" href="../../dc/d9a/a00218_source.html#l00112">geopop::GeoGridProtoWriter::WritePerson()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d3a/a00101_ada6071b93ce9d5b5611a2151e14d0740_icgraph.gif" border="0" usemap="#d4/d3a/a00101_ada6071b93ce9d5b5611a2151e14d0740_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_ada6071b93ce9d5b5611a2151e14d0740_icgraph" id="d4/d3a/a00101_ada6071b93ce9d5b5611a2151e14d0740_icgraph">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="263,5,419,47"/>
+<area shape="rect" id="node4" href="../../d6/d5b/a00026.html#a20440cc9bc4dac95f7c55f5082200e85" title="Create a Boost Property Tree containing all info needed to reconstruct a Person. " alt="" coords="242,71,441,112"/>
+<area shape="rect" id="node6" href="../../dc/d3c/a00028.html#a86db40bd91910ffd9d795c4320f980a0" title="Create a ProtoBuf Person containing all the info needed to reconstruct a Person. " alt="" coords="241,136,441,177"/>
+<area shape="rect" id="node3" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="522,5,657,47"/>
+<area shape="rect" id="node5" href="../../d6/d5b/a00026.html#af984bb77723e4b49a57a44eafb28e570" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="490,71,689,112"/>
+<area shape="rect" id="node7" href="../../dc/d3c/a00028.html#a6f709a9e0724d34905806b0ae13688f0" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="489,136,689,177"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a53081dbb062c019153b8be62083d59a2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d82/a00091.html">Health</a>&amp; stride::Person::GetHealth </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Destructor: close the file stream. </p>
+<p>Return person's health status. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00035">35</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">SummaryFile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00060">60</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
 
-<p>References <a class="el" href="../../de/dc8/a00325_source.html#l00051">m_fstream</a>.</p>
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00099">m_health</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d04/a00255_source.html#l00146">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, <a class="el" href="../../d4/d04/a00255_source.html#l00209">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, <a class="el" href="../../d6/d22/a00245_source.html#l00068">stride::Immunizer::Random()</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00043">stride::DiseaseSeeder::Seed()</a>, and <a class="el" href="../../d4/db5/a00328_source.html#l00038">stride::SurveySeeder::Seed()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d3a/a00101_a53081dbb062c019153b8be62083d59a2_icgraph.gif" border="0" usemap="#d4/d3a/a00101_a53081dbb062c019153b8be62083d59a2_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_a53081dbb062c019153b8be62083d59a2_icgraph" id="d4/d3a/a00101_a53081dbb062c019153b8be62083d59a2_icgraph">
+<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a7a04fe600bfbb5b09330163fd2d49409" title="stride::Infector::Exec" alt="" coords="236,5,388,32"/>
+<area shape="rect" id="node3" href="../../d9/df8/a00096.html#aa27dad30b434e742e80300d88854b36d" title="stride::Infector\&lt; LL,\l TIC, true \&gt;::Exec" alt="" coords="239,57,385,98"/>
+<area shape="rect" id="node4" href="../../d4/d7d/a00093.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="241,122,383,163"/>
+<area shape="rect" id="node7" href="../../db/ddf/a00088.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="647,166,809,207"/>
+<area shape="rect" id="node9" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="650,231,806,273"/>
+<area shape="rect" id="node5" href="../../d4/d7d/a00093.html#a9cf69f9df2b2b2e357fab3d3ed48b64a" title="stride::Immunizer::\lImmunizer" alt="" coords="446,57,589,98"/>
+<area shape="rect" id="node6" href="../../db/ddf/a00088.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="436,122,599,163"/>
+<area shape="rect" id="node8" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="857,199,992,241"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9b4fb82839ddf6a7c8d10fc119bf22fb"></a>
+<a class="anchor" id="a22421b0318583235939e935361b77c90"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../da/d82/a00091.html">Health</a>&amp; stride::Person::GetHealth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return person's health status. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00063">63</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00099">m_health</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afab3ab2a1a33004f9e25d4873c3c1921"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int stride::Person::GetId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the id. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00066">66</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00100">m_id</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d43/a00216_source.html#l00042">geopop::GeoGridProtoReader::Read()</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00043">stride::DiseaseSeeder::Seed()</a>, <a class="el" href="../../d4/db5/a00328_source.html#l00038">stride::SurveySeeder::Seed()</a>, <a class="el" href="../../dd/dc1/a00212_source.html#l00163">geopop::GeoGridJSONWriter::WritePerson()</a>, and <a class="el" href="../../dc/d9a/a00218_source.html#l00112">geopop::GeoGridProtoWriter::WritePerson()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d3a/a00101_afab3ab2a1a33004f9e25d4873c3c1921_icgraph.gif" border="0" usemap="#d4/d3a/a00101_afab3ab2a1a33004f9e25d4873c3c1921_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_afab3ab2a1a33004f9e25d4873c3c1921_icgraph" id="d4/d3a/a00101_afab3ab2a1a33004f9e25d4873c3c1921_icgraph">
+<area shape="rect" id="node2" href="../../d0/d33/a00027.html#ac0d43bdab244e8c4584f9d7ffee026e9" title="Actually perform the read and return the GeoGrid. " alt="" coords="205,5,413,47"/>
+<area shape="rect" id="node3" href="../../db/ddf/a00088.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="228,71,391,112"/>
+<area shape="rect" id="node5" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="231,136,387,177"/>
+<area shape="rect" id="node6" href="../../d6/d5b/a00026.html#a20440cc9bc4dac95f7c55f5082200e85" title="Create a Boost Property Tree containing all info needed to reconstruct a Person. " alt="" coords="210,201,409,243"/>
+<area shape="rect" id="node8" href="../../dc/d3c/a00028.html#a86db40bd91910ffd9d795c4320f980a0" title="Create a ProtoBuf Person containing all the info needed to reconstruct a Person. " alt="" coords="209,267,409,308"/>
+<area shape="rect" id="node4" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="494,104,629,145"/>
+<area shape="rect" id="node7" href="../../d6/d5b/a00026.html#af984bb77723e4b49a57a44eafb28e570" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="462,201,661,243"/>
+<area shape="rect" id="node9" href="../../dc/d3c/a00028.html#a6f709a9e0724d34905806b0ae13688f0" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="461,267,661,308"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adf4a9d757d54cbad332375cad6998ddc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t stride::Person::GetPoolId </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/d21/a00368.html#a4e4309e1cddddec8f12b981ab3fbc4fb">ContactType::Id</a> &amp;&#160;</td>
+          <td class="paramname"><em>poolType</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get ID of contactpool_type. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00069">69</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00105">m_pool_ids</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/db5/a00328_source.html#l00038">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../dd/dc1/a00212_source.html#l00163">geopop::GeoGridJSONWriter::WritePerson()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d3a/a00101_adf4a9d757d54cbad332375cad6998ddc_icgraph.gif" border="0" usemap="#d4/d3a/a00101_adf4a9d757d54cbad332375cad6998ddc_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_adf4a9d757d54cbad332375cad6998ddc_icgraph" id="d4/d3a/a00101_adf4a9d757d54cbad332375cad6998ddc_icgraph">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="253,5,409,47"/>
+<area shape="rect" id="node4" href="../../d6/d5b/a00026.html#a20440cc9bc4dac95f7c55f5082200e85" title="Create a Boost Property Tree containing all info needed to reconstruct a Person. " alt="" coords="232,71,431,112"/>
+<area shape="rect" id="node3" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="511,5,645,47"/>
+<area shape="rect" id="node5" href="../../d6/d5b/a00026.html#af984bb77723e4b49a57a44eafb28e570" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="479,71,677,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afc181c9b642346133f4667c08c72d3f8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Person::IsInPool </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/d21/a00368.html#a4e4309e1cddddec8f12b981ab3fbc4fb">ContactType::Id</a> &amp;&#160;</td>
+          <td class="paramname"><em>poolType</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if a person is present today in a given contact pool. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00072">72</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00108">m_in_pools</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d04/a00255_source.html#l00146">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, and <a class="el" href="../../d4/d04/a00255_source.html#l00209">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d3a/a00101_afc181c9b642346133f4667c08c72d3f8_icgraph.gif" border="0" usemap="#d4/d3a/a00101_afc181c9b642346133f4667c08c72d3f8_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_afc181c9b642346133f4667c08c72d3f8_icgraph" id="d4/d3a/a00101_afc181c9b642346133f4667c08c72d3f8_icgraph">
+<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a7a04fe600bfbb5b09330163fd2d49409" title="stride::Infector::Exec" alt="" coords="220,5,372,32"/>
+<area shape="rect" id="node3" href="../../d9/df8/a00096.html#aa27dad30b434e742e80300d88854b36d" title="stride::Infector\&lt; LL,\l TIC, true \&gt;::Exec" alt="" coords="223,57,369,98"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5942b9a4f5226e8810dc8b63fb250f3e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Person::IsSurveyParticipant </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Does this person participates in the social contact study? </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00075">75</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00101">m_is_participant</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/db5/a00328_source.html#l00038">stride::SurveySeeder::Seed()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d3a/a00101_a5942b9a4f5226e8810dc8b63fb250f3e_icgraph.gif" border="0" usemap="#d4/d3a/a00101_a5942b9a4f5226e8810dc8b63fb250f3e_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_a5942b9a4f5226e8810dc8b63fb250f3e_icgraph" id="d4/d3a/a00101_a5942b9a4f5226e8810dc8b63fb250f3e_icgraph">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="225,5,381,47"/>
+<area shape="rect" id="node3" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="429,5,564,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c27c93e351ca63aa6e3a055cd9110b2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Person::ParticipateInSurvey </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Participate in social contact study and log person details. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00078">78</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00101">m_is_participant</a>, and <a class="el" href="../../dc/d5d/a00278_source.html#l00031">Update()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/db5/a00328_source.html#l00038">stride::SurveySeeder::Seed()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d3a/a00101_a6c27c93e351ca63aa6e3a055cd9110b2_cgraph.gif" border="0" usemap="#d4/d3a/a00101_a6c27c93e351ca63aa6e3a055cd9110b2_cgraph" alt=""/></div>
+<map name="d4/d3a/a00101_a6c27c93e351ca63aa6e3a055cd9110b2_cgraph" id="d4/d3a/a00101_a6c27c93e351ca63aa6e3a055cd9110b2_cgraph">
+<area shape="rect" id="node2" href="../../d4/d3a/a00101.html#abeed34b336b17866bb881b77237c76c4" title="Update the health status and presence in contact pools. " alt="" coords="239,13,404,39"/>
+<area shape="rect" id="node3" href="../../dd/db5/a00365.html#a2b354a18a7f6986d363385ff46c9a473" title="Maximum age for Person&#39;s. " alt="" coords="452,13,599,39"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d3a/a00101_a6c27c93e351ca63aa6e3a055cd9110b2_icgraph.gif" border="0" usemap="#d4/d3a/a00101_a6c27c93e351ca63aa6e3a055cd9110b2_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_a6c27c93e351ca63aa6e3a055cd9110b2_icgraph" id="d4/d3a/a00101_a6c27c93e351ca63aa6e3a055cd9110b2_icgraph">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="239,5,395,47"/>
+<area shape="rect" id="node3" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="443,5,577,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abeed34b336b17866bb881b77237c76c4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::output::SummaryFile::Print </td>
+          <td class="memname">void stride::Person::Update </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>config_pt</em>, </td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isWorkOff</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>population_size</em>, </td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isSchoolOff</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>num_cases</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d8/d95/a00379.html">double</a>&#160;</td>
-          <td class="paramname"><em>transmission_rate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>run_time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>total_time</em>&#160;</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>adaptiveSymptomaticBehavior</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -274,51 +782,20 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Print the given output with corresponding tag. </p>
+<p>Update the health status and presence in contact pools. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00051">51</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">SummaryFile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00031">31</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">Person.cpp</a>.</p>
 
-<p>References <a class="el" href="../../de/dc8/a00325_source.html#l00051">m_fstream</a>.</p>
+<p>References <a class="el" href="../../d5/d4e/a00141_source.html#l00029">stride::MinAdultAge()</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a73334b641e8aeb7edff5cc8b6affc86c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::output::SummaryFile::Initialize </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_dir</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate file name and open the file stream. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d8f/a00324_source.html#l00037">37</a> of file <a class="el" href="../../d4/d8f/a00324_source.html">SummaryFile.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d3/d2a/a00195_source.html#l00052">stride::util::FileSys::BuildPath()</a>, and <a class="el" href="../../de/dc8/a00325_source.html#l00051">m_fstream</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d8f/a00324_source.html#l00033">SummaryFile()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l00078">ParticipateInSurvey()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d3a/a00101_a73334b641e8aeb7edff5cc8b6affc86c_cgraph.gif" border="0" usemap="#d4/d3a/a00101_a73334b641e8aeb7edff5cc8b6affc86c_cgraph" alt=""/></div>
-<map name="d4/d3a/a00101_a73334b641e8aeb7edff5cc8b6affc86c_cgraph" id="d4/d3a/a00101_a73334b641e8aeb7edff5cc8b6affc86c_cgraph">
-<area shape="rect" id="node2" href="../../d8/d87/a00118.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="252,5,388,47"/>
-<area shape="rect" id="node3" href="../../d8/d87/a00118.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="436,5,572,47"/>
+<div class="center"><img src="../../d4/d3a/a00101_abeed34b336b17866bb881b77237c76c4_cgraph.gif" border="0" usemap="#d4/d3a/a00101_abeed34b336b17866bb881b77237c76c4_cgraph" alt=""/></div>
+<map name="d4/d3a/a00101_abeed34b336b17866bb881b77237c76c4_cgraph" id="d4/d3a/a00101_abeed34b336b17866bb881b77237c76c4_cgraph">
+<area shape="rect" id="node2" href="../../dd/db5/a00365.html#a2b354a18a7f6986d363385ff46c9a473" title="Maximum age for Person&#39;s. " alt="" coords="219,5,365,32"/>
 </map>
 </div>
 </p>
@@ -326,17 +803,18 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d3a/a00101_a73334b641e8aeb7edff5cc8b6affc86c_icgraph.gif" border="0" usemap="#d4/d3a/a00101_a73334b641e8aeb7edff5cc8b6affc86c_icgraph" alt=""/></div>
-<map name="d4/d3a/a00101_a73334b641e8aeb7edff5cc8b6affc86c_icgraph" id="d4/d3a/a00101_a73334b641e8aeb7edff5cc8b6affc86c_icgraph">
-<area shape="rect" id="node2" href="../../d4/d3a/a00101.html#a1f848c3aa92042b2fa7d399ad31b0e33" title="Constructor: initialize. " alt="" coords="252,5,451,47"/>
+<div class="center"><img src="../../d4/d3a/a00101_abeed34b336b17866bb881b77237c76c4_icgraph.gif" border="0" usemap="#d4/d3a/a00101_abeed34b336b17866bb881b77237c76c4_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_abeed34b336b17866bb881b77237c76c4_icgraph" id="d4/d3a/a00101_abeed34b336b17866bb881b77237c76c4_icgraph">
+<area shape="rect" id="node2" href="../../d4/d3a/a00101.html#a6c27c93e351ca63aa6e3a055cd9110b2" title="Participate in social contact study and log person details. " alt="" coords="219,5,404,47"/>
+<area shape="rect" id="node3" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="452,5,608,47"/>
+<area shape="rect" id="node4" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="656,5,791,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a473d1c4d75f2e873e1b0ee256dabf73a"></a>
+<a class="anchor" id="a3629c9dae12f241933ae2649205767af"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -344,7 +822,133 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::ofstream stride::output::SummaryFile::m_fstream</td>
+          <td class="memname">void stride::Person::SetAge </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>newAge</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the age of the person. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00084">84</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00097">m_age</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d42/a00235_source.html#l00033">geopop::HouseholdCSVReader::SetReferenceHouseholds()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d3a/a00101_a3629c9dae12f241933ae2649205767af_icgraph.gif" border="0" usemap="#d4/d3a/a00101_a3629c9dae12f241933ae2649205767af_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_a3629c9dae12f241933ae2649205767af_icgraph" id="d4/d3a/a00101_a3629c9dae12f241933ae2649205767af_icgraph">
+<area shape="rect" id="node2" href="../../db/df3/a00034.html#a30631f72bcd9b7728b60f178480420e0" title="Add the locations to the GeoGrid. " alt="" coords="219,5,436,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac5a9312fa75fbf91e949f3aecbbeb129"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Person::SetId </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the id. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00087">87</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00100">m_id</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb01ef490e692a8c55af235d63df0f77"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Person::SetPoolId </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d21/a00368.html#a4e4309e1cddddec8f12b981ab3fbc4fb">ContactType::Id</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>poolId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets (for the type of <a class="el" href="../../d9/da4/a00078.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>) the Id of the <a class="el" href="../../d9/da4/a00078.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> the person belongs to. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00090">90</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d82/a00279_source.html#l00108">m_in_pools</a>, and <a class="el" href="../../d2/d82/a00279_source.html#l00105">m_pool_ids</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d45/a00342_source.html#l00123">geopop::WorkplacePopulator::AssignActive()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d3a/a00101_afb01ef490e692a8c55af235d63df0f77_icgraph.gif" border="0" usemap="#d4/d3a/a00101_afb01ef490e692a8c55af235d63df0f77_icgraph" alt=""/></div>
+<map name="d4/d3a/a00101_afb01ef490e692a8c55af235d63df0f77_icgraph" id="d4/d3a/a00101_afb01ef490e692a8c55af235d63df0f77_icgraph">
+<area shape="rect" id="node2" href="../../d1/d22/a00057.html#a230e7343ac24afda7bb007f8e820da5a" title="Assign a workplace to an active person. " alt="" coords="232,5,435,47"/>
+<area shape="rect" id="node3" href="../../d1/d22/a00057.html#adfd418c8ba1a59137e4b4f5a07a0ef90" title="Populates the workplaces in geogrid with persons. " alt="" coords="483,5,685,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a8194d951f869239adb99d54196479498"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d08/a00378.html">double</a> stride::Person::m_age</td>
         </tr>
       </table>
   </td>
@@ -354,25 +958,180 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>The file stream. </p>
+<p>The age. </p>
 
-<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00051">51</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SummaryFile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00097">97</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d8f/a00324_source.html#l00037">Initialize()</a>, <a class="el" href="../../d4/d8f/a00324_source.html#l00051">Print()</a>, and <a class="el" href="../../d4/d8f/a00324_source.html#l00035">~SummaryFile()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l00054">GetAge()</a>, and <a class="el" href="../../d2/d82/a00279_source.html#l00084">SetAge()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a69ae24ea868bb1ee0c03e38c0f971c99"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char stride::Person::m_gender</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gender. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00098">98</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l00057">GetGender()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aff19daed7351416a80ae97721bbe017c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d82/a00091.html">Health</a> stride::Person::m_health</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../da/d82/a00091.html" title="Holds a person&#39;s health data. ">Health</a> info for this person. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00099">99</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l00060">GetHealth()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6768d69e262dbdb71dfd9a5e7dcadb70"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int stride::Person::m_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The id. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00100">100</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l00066">GetId()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00051">operator!=()</a>, and <a class="el" href="../../d2/d82/a00279_source.html#l00087">SetId()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6361ea8763683122ca6df55f71169bb9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Person::m_is_participant</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is participating in the social contact study. </p>
+<p>Ids (school, work, etc) of pools you belong to Id value 0 means you do not belong to any pool of that type (e.g. school and work are mutually exclusive). </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00101">101</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l00075">IsSurveyParticipant()</a>, and <a class="el" href="../../d2/d82/a00279_source.html#l00078">ParticipateInSurvey()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="add0d5f3c4e9113fce104986396da7ab9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d73/a00060.html">ContactType::IdSubscriptArray</a>&lt;std::size_t&gt; stride::Person::m_pool_ids</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is person present/absent in pools of each of the types (school, work, etc)? </p>
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00105">105</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l00069">GetPoolId()</a>, and <a class="el" href="../../d2/d82/a00279_source.html#l00090">SetPoolId()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad5da15fc100f6d9ca82b00b282b2adc8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d73/a00060.html">ContactType::IdSubscriptArray</a>&lt;bool&gt; stride::Person::m_in_pools</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00279_source.html#l00108">108</a> of file <a class="el" href="../../d2/d82/a00279_source.html">Person.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l00072">IsInPool()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00041">Person()</a>, and <a class="el" href="../../d2/d82/a00279_source.html#l00090">SetPoolId()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../de/dc8/a00325_source.html">SummaryFile.h</a></li>
-<li><a class="el" href="../../d4/d8f/a00324_source.html">SummaryFile.cpp</a></li>
+<li><a class="el" href="../../d2/d82/a00279_source.html">Person.h</a></li>
+<li><a class="el" href="../../dc/d5d/a00278_source.html">Person.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d3e/a00366.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d30/a00370.html">output</a></li><li class="navelem"><a class="el" href="../../d4/d3a/a00101.html">SummaryFile</a></li>
-    <li class="footer">Generated on Thu Mar 7 2019 12:22:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dd/db5/a00365.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d3a/a00101.html">Person</a></li>
+    <li class="footer">Generated on Fri Mar 8 2019 09:08:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

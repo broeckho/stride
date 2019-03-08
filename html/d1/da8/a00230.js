@@ -1,6 +1,6 @@
 var a00230 =
 [
-    [ "Health", "d1/dc1/a00092.html", "d1/dc1/a00092" ],
+    [ "Health", "da/d82/a00091.html", "da/d82/a00091" ],
     [ "HealthStatus", "d1/da8/a00230.html#a738f5251821f53315d2aebf214fbd070", [
       [ "Susceptible", "d1/da8/a00230.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311", null ],
       [ "Exposed", "d1/da8/a00230.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a", null ],

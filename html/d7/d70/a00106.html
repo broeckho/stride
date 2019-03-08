@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::SimBuilder Class Reference</title>
+<title>Stride Reference Manual: stride::SimController Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9e9a998</span>
+   &#160;<span id="projectnumber">- generated for commit f11e457</span>
    </div>
   </td>
  </tr>
@@ -108,66 +108,124 @@ $(document).ready(function(){initNavTree('d7/d70/a00106.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d2/d6e/a00966.html">List of all members</a>  </div>
+<a href="../../d4/d94/a00967.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::SimBuilder Class Reference</div>  </div>
+<div class="title">stride::SimController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Builds a simulator based a configuration property tree.  
+<p>Controls a simulation run initiated with the command line interface (cli).  
  <a href="../../d7/d70/a00106.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d67/a00310_source.html">SimBuilder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d7/df2/a00312_source.html">SimController.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::SimBuilder:</div>
+Inheritance diagram for stride::SimController:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d94/a00967.gif" border="0" usemap="#stride_1_1SimBuilder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1SimBuilder_coll__map" id="stride_1_1SimBuilder_coll__map">
+<div class="center"><img src="../../d7/dd4/a00968.gif" border="0" usemap="#stride_1_1SimController_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1SimController_inherit__map" id="stride_1_1SimController_inherit__map">
+<area shape="rect" id="node2" href="../../d8/d53/a00081.html" title="Controls a simulation run initiated with the command line interface (cli). " alt="" coords="5,5,171,273"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::SimController:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/dfd/a00969.gif" border="0" usemap="#stride_1_1SimController_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1SimController_coll__map" id="stride_1_1SimController_coll__map">
+<area shape="rect" id="node2" href="../../d8/d53/a00081.html" title="Controls a simulation run initiated with the command line interface (cli). " alt="" coords="354,844,519,1024"/>
+<area shape="rect" id="node4" href="../../dc/dfe/a00125.html" title="{stride::util::RnMan\n||}" alt="" coords="177,653,313,730"/>
+<area shape="rect" id="node5" href="../../de/d36/a00123.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="204,329,328,524"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="39,160,261,267"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="723,175,809,252"/>
+<area shape="rect" id="node12" href="../../d1/d88/a00128.html" title="Provides a stopwatch interface to time: it accumulates time between start/stop pairs. " alt="" coords="518,601,715,781"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="697,5,835,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ada7d6656e97857b9bacd2285f7784021"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d70/a00106.html#ada7d6656e97857b9bacd2285f7784021">SimBuilder</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:ada7d6656e97857b9bacd2285f7784021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing <a class="el" href="../../d7/d70/a00106.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>.  <a href="#ada7d6656e97857b9bacd2285f7784021">More...</a><br /></td></tr>
-<tr class="separator:ada7d6656e97857b9bacd2285f7784021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94ce5fb3cae915f0bdb261498f31c444"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d3/d32/a00105.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d70/a00106.html#a94ce5fb3cae915f0bdb261498f31c444">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d3/d32/a00105.html">Sim</a> &gt; sim, std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a94ce5fb3cae915f0bdb261498f31c444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the simulator and return it afterwards.  <a href="#a94ce5fb3cae915f0bdb261498f31c444">More...</a><br /></td></tr>
-<tr class="separator:a94ce5fb3cae915f0bdb261498f31c444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ed25223763305726ff956005ac6a523"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d70/a00106.html#a0ed25223763305726ff956005ac6a523">SimController</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
+<tr class="memdesc:a0ed25223763305726ff956005ac6a523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straight initialization.  <a href="#a0ed25223763305726ff956005ac6a523">More...</a><br /></td></tr>
+<tr class="separator:a0ed25223763305726ff956005ac6a523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acddfa3cafcea42db5c8b18af0410179f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d70/a00106.html#acddfa3cafcea42db5c8b18af0410179f">Control</a> ()</td></tr>
+<tr class="memdesc:acddfa3cafcea42db5c8b18af0410179f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual run of the simulator.  <a href="#acddfa3cafcea42db5c8b18af0410179f">More...</a><br /></td></tr>
+<tr class="separator:acddfa3cafcea42db5c8b18af0410179f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ad551b02c507948570f07af10d85d29ce"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d70/a00106.html#ad551b02c507948570f07af10d85d29ce">ReadAgeContactPtree</a> ()</td></tr>
-<tr class="memdesc:ad551b02c507948570f07af10d85d29ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the contact configuration data.  <a href="#ad551b02c507948570f07af10d85d29ce">More...</a><br /></td></tr>
-<tr class="separator:ad551b02c507948570f07af10d85d29ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adffa42c6b8b171616fcdfb4805260c92"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d70/a00106.html#adffa42c6b8b171616fcdfb4805260c92">ReadDiseasePtree</a> ()</td></tr>
-<tr class="memdesc:adffa42c6b8b171616fcdfb4805260c92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the disease configuration data.  <a href="#adffa42c6b8b171616fcdfb4805260c92">More...</a><br /></td></tr>
-<tr class="separator:adffa42c6b8b171616fcdfb4805260c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:acbb3153c81c97a062f8351ec8ab1db0b"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d70/a00106.html#acbb3153c81c97a062f8351ec8ab1db0b">m_config</a></td></tr>
-<tr class="memdesc:acbb3153c81c97a062f8351ec8ab1db0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config in ptree.  <a href="#acbb3153c81c97a062f8351ec8ab1db0b">More...</a><br /></td></tr>
-<tr class="separator:acbb3153c81c97a062f8351ec8ab1db0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_a00081"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00081')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d8/d53/a00081.html">stride::ControlHelper</a></td></tr>
+<tr class="memitem:adf5c02b1632443f385cc0359dc76506b inherit pro_methods_a00081"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#adf5c02b1632443f385cc0359dc76506b">ControlHelper</a> ()</td></tr>
+<tr class="memdesc:adf5c02b1632443f385cc0359dc76506b inherit pro_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty controller: used as target for delegation.  <a href="#adf5c02b1632443f385cc0359dc76506b">More...</a><br /></td></tr>
+<tr class="separator:adf5c02b1632443f385cc0359dc76506b inherit pro_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fd666ad523f15ba9f3b3249ba6b0a90 inherit pro_methods_a00081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a9fd666ad523f15ba9f3b3249ba6b0a90">CheckEnv</a> ()</td></tr>
+<tr class="memdesc:a9fd666ad523f15ba9f3b3249ba6b0a90 inherit pro_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check install environment.  <a href="#a9fd666ad523f15ba9f3b3249ba6b0a90">More...</a><br /></td></tr>
+<tr class="separator:a9fd666ad523f15ba9f3b3249ba6b0a90 inherit pro_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7015fce5931f444015baca6c73e67360 inherit pro_methods_a00081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a7015fce5931f444015baca6c73e67360">CheckOutputPrefix</a> ()</td></tr>
+<tr class="separator:a7015fce5931f444015baca6c73e67360 inherit pro_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49b3d3980626e92e16758d63bd6240a7 inherit pro_methods_a00081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a49b3d3980626e92e16758d63bd6240a7">InstallLogger</a> ()</td></tr>
+<tr class="memdesc:a49b3d3980626e92e16758d63bd6240a7 inherit pro_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the appropriate logger for cli environment and register as stride_logger.  <a href="#a49b3d3980626e92e16758d63bd6240a7">More...</a><br /></td></tr>
+<tr class="separator:a49b3d3980626e92e16758d63bd6240a7 inherit pro_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa40b02ef62cb1b4a2db78eb847ffe964 inherit pro_methods_a00081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#aa40b02ef62cb1b4a2db78eb847ffe964">LogShutdown</a> ()</td></tr>
+<tr class="memdesc:aa40b02ef62cb1b4a2db78eb847ffe964 inherit pro_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs info on setup for cli environment to stride_logger.  <a href="#aa40b02ef62cb1b4a2db78eb847ffe964">More...</a><br /></td></tr>
+<tr class="separator:aa40b02ef62cb1b4a2db78eb847ffe964 inherit pro_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc021af008df0bf673682b81aa8d0010 inherit pro_methods_a00081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#adc021af008df0bf673682b81aa8d0010">LogStartup</a> ()</td></tr>
+<tr class="memdesc:adc021af008df0bf673682b81aa8d0010 inherit pro_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs info on setup for cli environment to stride_logger.  <a href="#adc021af008df0bf673682b81aa8d0010">More...</a><br /></td></tr>
+<tr class="separator:adc021af008df0bf673682b81aa8d0010 inherit pro_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0131365a6c658898bf3dd49eead3ed7 inherit pro_methods_a00081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#af0131365a6c658898bf3dd49eead3ed7">RegisterViewers</a> (std::shared_ptr&lt; <a class="el" href="../../df/d98/a00107.html">SimRunner</a> &gt; runner)</td></tr>
+<tr class="memdesc:af0131365a6c658898bf3dd49eead3ed7 inherit pro_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the viewers of the <a class="el" href="../../df/d98/a00107.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>.  <a href="#af0131365a6c658898bf3dd49eead3ed7">More...</a><br /></td></tr>
+<tr class="separator:af0131365a6c658898bf3dd49eead3ed7 inherit pro_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56dc1ac0f26ed36e457b45a1a3d421da inherit pro_methods_a00081"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a56dc1ac0f26ed36e457b45a1a3d421da">ControlHelper</a> (std::string name, const boost::property_tree::ptree &amp;configPt)</td></tr>
+<tr class="memdesc:a56dc1ac0f26ed36e457b45a1a3d421da inherit pro_methods_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straight initialization.  <a href="#a56dc1ac0f26ed36e457b45a1a3d421da">More...</a><br /></td></tr>
+<tr class="separator:a56dc1ac0f26ed36e457b45a1a3d421da inherit pro_methods_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00081"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00081')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d8/d53/a00081.html">stride::ControlHelper</a></td></tr>
+<tr class="memitem:af57444517953ea82349a6783bcbab608 inherit pro_attribs_a00081"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#af57444517953ea82349a6783bcbab608">m_config</a></td></tr>
+<tr class="memdesc:af57444517953ea82349a6783bcbab608 inherit pro_attribs_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main configuration for run and sim.  <a href="#af57444517953ea82349a6783bcbab608">More...</a><br /></td></tr>
+<tr class="separator:af57444517953ea82349a6783bcbab608 inherit pro_attribs_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84806de1e330126ab6c895924d1296f4 inherit pro_attribs_a00081"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a84806de1e330126ab6c895924d1296f4">m_name</a></td></tr>
+<tr class="memdesc:a84806de1e330126ab6c895924d1296f4 inherit pro_attribs_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contoller's name.  <a href="#a84806de1e330126ab6c895924d1296f4">More...</a><br /></td></tr>
+<tr class="separator:a84806de1e330126ab6c895924d1296f4 inherit pro_attribs_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3be4db55fc19e28be55d6f3de9cc4c08 inherit pro_attribs_a00081"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a3be4db55fc19e28be55d6f3de9cc4c08">m_output_prefix</a></td></tr>
+<tr class="memdesc:a3be4db55fc19e28be55d6f3de9cc4c08 inherit pro_attribs_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix to output (name prefix or prefix dir)  <a href="#a3be4db55fc19e28be55d6f3de9cc4c08">More...</a><br /></td></tr>
+<tr class="separator:a3be4db55fc19e28be55d6f3de9cc4c08 inherit pro_attribs_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a77b224b46f5ea8b57d91c410e7da5b inherit pro_attribs_a00081"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dfe/a00125.html">util::RnMan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a4a77b224b46f5ea8b57d91c410e7da5b">m_rn_manager</a></td></tr>
+<tr class="memdesc:a4a77b224b46f5ea8b57d91c410e7da5b inherit pro_attribs_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">The manager for random numbers.  <a href="#a4a77b224b46f5ea8b57d91c410e7da5b">More...</a><br /></td></tr>
+<tr class="separator:a4a77b224b46f5ea8b57d91c410e7da5b inherit pro_attribs_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9586d0f5815c7d4c24c9fe2563b2e00e inherit pro_attribs_a00081"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d88/a00128.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a9586d0f5815c7d4c24c9fe2563b2e00e">m_run_clock</a></td></tr>
+<tr class="memdesc:a9586d0f5815c7d4c24c9fe2563b2e00e inherit pro_attribs_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stopwatch for timing the computation.  <a href="#a9586d0f5815c7d4c24c9fe2563b2e00e">More...</a><br /></td></tr>
+<tr class="separator:a9586d0f5815c7d4c24c9fe2563b2e00e inherit pro_attribs_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8633301b0187b5a1077a2d583910cd0 inherit pro_attribs_a00081"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#ab8633301b0187b5a1077a2d583910cd0">m_stride_logger</a></td></tr>
+<tr class="memdesc:ab8633301b0187b5a1077a2d583910cd0 inherit pro_attribs_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">General logger.  <a href="#ab8633301b0187b5a1077a2d583910cd0">More...</a><br /></td></tr>
+<tr class="separator:ab8633301b0187b5a1077a2d583910cd0 inherit pro_attribs_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a7386ab81543b81bbc888176c55d7e0 inherit pro_attribs_a00081"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/a00081.html#a9a7386ab81543b81bbc888176c55d7e0">m_use_install_dirs</a></td></tr>
+<tr class="memdesc:a9a7386ab81543b81bbc888176c55d7e0 inherit pro_attribs_a00081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Working dir or install dir mode.  <a href="#a9a7386ab81543b81bbc888176c55d7e0">More...</a><br /></td></tr>
+<tr class="separator:a9a7386ab81543b81bbc888176c55d7e0 inherit pro_attribs_a00081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Builds a simulator based a configuration property tree. </p>
-<p>It </p><ul>
-<li>reads any additional configuration files (disease, contact, ...) </li>
-<li>initializes calendar and random number manager for the simulator </li>
-<li>builds a population and contact pool system (<dl class="section see"><dt>See also</dt><dd>PopulationBuilder) </dd></dl>
-</li>
-<li>deals with health and immunity (<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/d7d/a00093.html" title="Seeds the population with Health data. ">HealthSeeder</a>, </dd>
-<dd>
-DiseaseBuilder) </dd></dl>
-</li>
+<div class="textblock"><p>Controls a simulation run initiated with the command line interface (cli). </p>
+<p><a class="el" href="../../d7/d70/a00106.html" title="Controls a simulation run initiated with the command line interface (cli). ">SimController</a> setup functions include (</p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d8/d53/a00081.html" title="Controls a simulation run initiated with the command line interface (cli). ">ControlHelper</a>): <ul>
+<li>checks the OpenMP environment </li>
+<li>checks the file system environment </li>
+<li>interprets and executes the ouput prefix </li>
+<li>intalls a <a class="el" href="../../dd/db5/a00365.html" title="Namespace for the simulator and related classes. ">stride</a> logger</li>
 </ul>
+The <a class="el" href="../../d7/d70/a00106.html" title="Controls a simulation run initiated with the command line interface (cli). ">SimController</a> execution: <ul>
+<li>creates a population (</li>
+</ul>
+</dd>
+<dd>
+<a class="el" href="../../d9/dcc/a00102.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>) <ul>
+<li>creates a simulation runner (</li>
+</ul>
+</dd>
+<dd>
+<a class="el" href="../../df/d98/a00107.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>) <ul>
+<li>registers the appropriate <a class="el" href="../../dd/dcb/a00375.html" title="Namespace for MVC-viewers that may be registered with SimRunner. ">viewers</a> </li>
+<li>runs the simulation </li>
+</ul>
+</dd></dl>
 
-<p>Definition at line <a class="el" href="../../d1/d67/a00310_source.html#l00039">39</a> of file <a class="el" href="../../d1/d67/a00310_source.html">SimBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/df2/a00312_source.html#l00044">44</a> of file <a class="el" href="../../d7/df2/a00312_source.html">SimController.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ada7d6656e97857b9bacd2285f7784021"></a>
+<a class="anchor" id="a0ed25223763305726ff956005ac6a523"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -175,7 +233,7 @@ DiseaseBuilder) </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::SimBuilder::SimBuilder </td>
+          <td class="memname">stride::SimController::SimController </td>
           <td>(</td>
           <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
           <td class="paramname"><em>configPt</em></td><td>)</td>
@@ -189,132 +247,71 @@ DiseaseBuilder) </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Initializing <a class="el" href="../../d7/d70/a00106.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>. </p>
+<p>Straight initialization. </p>
 
-<p>Definition at line <a class="el" href="../../d2/d71/a00309_source.html#l00040">40</a> of file <a class="el" href="../../d2/d71/a00309_source.html">SimBuilder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00034">34</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SimController.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a94ce5fb3cae915f0bdb261498f31c444"></a>
+<a class="anchor" id="acddfa3cafcea42db5c8b18af0410179f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d3/d32/a00105.html">Sim</a> &gt; stride::SimBuilder::Build </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d3/d32/a00105.html">Sim</a> &gt;&#160;</td>
-          <td class="paramname"><em>sim</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build the simulator and return it afterwards. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d71/a00309_source.html#l00042">42</a> of file <a class="el" href="../../d2/d71/a00309_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/d4c/a00177_source.html#l00076">stride::ContactType::IdList</a>, <a class="el" href="../../d1/d67/a00310_source.html#l00056">m_config</a>, <a class="el" href="../../d2/d71/a00309_source.html#l00109">ReadAgeContactPtree()</a>, <a class="el" href="../../d2/d71/a00309_source.html#l00116">ReadDiseasePtree()</a>, <a class="el" href="../../df/d17/a00231_source.html#l00070">stride::HealthSeeder::Seed()</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00043">stride::DiseaseSeeder::Seed()</a>, <a class="el" href="../../d4/db5/a00328_source.html#l00038">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../d1/d0d/a00171_source.html#l00039">stride::ContactLogMode::ToMode()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d70/a00106_a94ce5fb3cae915f0bdb261498f31c444_cgraph.gif" border="0" usemap="#d7/d70/a00106_a94ce5fb3cae915f0bdb261498f31c444_cgraph" alt=""/></div>
-<map name="d7/d70/a00106_a94ce5fb3cae915f0bdb261498f31c444_cgraph" id="d7/d70/a00106_a94ce5fb3cae915f0bdb261498f31c444_cgraph">
-<area shape="rect" id="node2" href="../../d7/d70/a00106.html#ad551b02c507948570f07af10d85d29ce" title="Get the contact configuration data. " alt="" coords="190,57,361,99"/>
-<area shape="rect" id="node6" href="../../d7/d70/a00106.html#adffa42c6b8b171616fcdfb4805260c92" title="Get the disease configuration data. " alt="" coords="202,123,349,164"/>
-<area shape="rect" id="node7" href="../../d4/d7d/a00093.html#ad6a9061857cee5335745fe5501bcb73d" title="Seeds the population with Health data. " alt="" coords="198,855,353,896"/>
-<area shape="rect" id="node9" href="../../db/dab/a00089.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="194,333,357,375"/>
-<area shape="rect" id="node25" href="../../d4/d81/a00110.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="197,789,353,831"/>
-<area shape="rect" id="node42" href="../../d8/d21/a00368.html#a12707c23b43baa1a0f5bed51db72756d" title="Converts a string with name to LogMode value. " alt="" coords="188,920,363,961"/>
-<area shape="rect" id="node3" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="470,5,606,47"/>
-<area shape="rect" id="node5" href="../../d8/d87/a00118.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="747,107,883,148"/>
-<area shape="rect" id="node4" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="731,13,898,39"/>
-<area shape="rect" id="node8" href="../../d4/d7d/a00093.html#a562b022d2c7f2836b4400e7d19e1b040" title="Sample for each of the health data item individually. " alt="" coords="461,1459,615,1500"/>
-<area shape="rect" id="node10" href="../../d9/dcc/a00102.html#ad85ecf5500764ae2c025f7e2aab8003c" title="Get the age. " alt="" coords="987,399,1153,426"/>
-<area shape="rect" id="node11" href="../../d9/dcc/a00102.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="979,633,1161,659"/>
-<area shape="rect" id="node12" href="../../d9/dcc/a00102.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="462,442,614,469"/>
-<area shape="rect" id="node13" href="../../d1/dc1/a00092.html#ae2a3b14e79e08a261ca7122afba9b95c" title="Is this person susceptible? " alt="" coords="438,391,638,418"/>
-<area shape="rect" id="node14" href="../../d1/dc1/a00092.html#a5d85541b8e22aeaa75b364a454f59088" title="Start the infection. " alt="" coords="437,223,639,250"/>
-<area shape="rect" id="node16" href="../../db/dab/a00089.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="457,275,619,316"/>
-<area shape="rect" id="node15" href="../../d1/dc1/a00092.html#a468c554771acc883799456c14373e9db" title="Reset the disease counter. " alt="" coords="713,224,916,265"/>
-<area shape="rect" id="node17" href="../../dc/d54/a00094.html#a9b4435f990b9a24bc0ededbd9af4877b" title="Cocoon immunization. " alt="" coords="743,289,886,331"/>
-<area shape="rect" id="node18" href="../../dc/d54/a00094.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="743,501,886,543"/>
-<area shape="rect" id="node24" href="../../dc/de3/a00373.html#aa45ab4a5a30f65dcd1bf25c3d095825b" title="Builds a string with lower case characters only. " alt="" coords="743,355,886,382"/>
-<area shape="rect" id="node19" href="../../d1/d51/a00079.html#ae7962d506db44920ed1fd99471cabc50" title="Get member at index. " alt="" coords="999,501,1141,543"/>
-<area shape="rect" id="node20" href="../../d1/d51/a00079.html#a206057a57bf75587c303c41f27f3bf23" title="Get size (number of members). " alt="" coords="999,567,1141,608"/>
-<area shape="rect" id="node22" href="../../d1/dc1/a00092.html#a7c9caae07db1dd15732f726cec514dc2" title="Is this person immune? " alt="" coords="981,882,1159,909"/>
-<area shape="rect" id="node23" href="../../d1/dc1/a00092.html#a8edeec79c050faabe2c09a1bc4860261" title="Set health state to susceptible. " alt="" coords="964,450,1176,477"/>
-<area shape="rect" id="node21" href="../../d1/d51/a00079.html#a673e600d5e166263f96f9081967cb277" title="Get Infected count. " alt="" coords="1224,567,1367,608"/>
-<area shape="rect" id="node26" href="../../d5/d1e/a00103.html#a7ba18751ce5eb62217b105e716e61d63" title="The ContactPoolSys of the simulator. " alt="" coords="461,1132,615,1173"/>
-<area shape="rect" id="node27" href="../../d5/d1e/a00103.html#a314f886a6abeb0e08aac8fee085e76bd" title="Return the contactlogger. " alt="" coords="465,1197,611,1239"/>
-<area shape="rect" id="node28" href="../../d4/d31/a00069.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="433,1263,643,1304"/>
-<area shape="rect" id="node29" href="../../d9/dcc/a00102.html#a5942b9a4f5226e8810dc8b63fb250f3e" title="Does this person participates in the social contact study? " alt="" coords="452,1328,624,1369"/>
-<area shape="rect" id="node30" href="../../d9/dcc/a00102.html#a6c27c93e351ca63aa6e3a055cd9110b2" title="Participate in social contact study and log person details. " alt="" coords="445,1393,631,1435"/>
-<area shape="rect" id="node33" href="../../d9/dcc/a00102.html#adf4a9d757d54cbad332375cad6998ddc" title="Get ID of contactpool_type. " alt="" coords="449,594,627,621"/>
-<area shape="rect" id="node34" href="../../d9/dcc/a00102.html#ada6071b93ce9d5b5611a2151e14d0740" title="Return person&#39;s gender. " alt="" coords="444,645,632,671"/>
-<area shape="rect" id="node35" href="../../d1/dc1/a00092.html#aa54f0be8ce25462aaf62847ded75a29d" title="Is this person infected? " alt="" coords="449,695,627,722"/>
-<area shape="rect" id="node36" href="../../d1/dc1/a00092.html#a84c0cb686c22ec8504942b84105eaed2" title="Is this person infectious. " alt="" coords="445,746,631,773"/>
-<area shape="rect" id="node37" href="../../d1/dc1/a00092.html#a4dae2bfe69375adb5dd89819f6798090" title="Is this person recovered? " alt="" coords="442,797,634,823"/>
-<area shape="rect" id="node38" href="../../d1/dc1/a00092.html#a9eab117bce0fe7009188aad7e534ca82" title="stride::Health::GetStart\lInfectiousness" alt="" coords="453,899,623,940"/>
-<area shape="rect" id="node39" href="../../d1/dc1/a00092.html#adf2c4f06cd9ad0dac95c5a2ffdd39489" title="stride::Health::GetStart\lSymptomatic" alt="" coords="453,964,623,1005"/>
-<area shape="rect" id="node40" href="../../d1/dc1/a00092.html#a8e8b3c6fe823b70820f868bb597ade73" title="stride::Health::GetEndInfectiousness" alt="" coords="411,1030,665,1057"/>
-<area shape="rect" id="node41" href="../../d1/dc1/a00092.html#aac2a22ae31603c4dbaea3f440974d0d5" title="stride::Health::GetEndSymptomatic" alt="" coords="413,543,663,570"/>
-<area shape="rect" id="node31" href="../../d9/dcc/a00102.html#abeed34b336b17866bb881b77237c76c4" title="Update the health status and presence in contact pools. " alt="" coords="732,1401,897,1427"/>
-<area shape="rect" id="node32" href="../../d2/d3e/a00366.html#a2b354a18a7f6986d363385ff46c9a473" title="Maximum age for Person&#39;s. " alt="" coords="997,1401,1143,1427"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ad551b02c507948570f07af10d85d29ce"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::SimBuilder::ReadAgeContactPtree </td>
+          <td class="memname">void stride::SimController::Control </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Get the contact configuration data. </p>
+<p>Actual run of the simulator. </p>
 
-<p>Definition at line <a class="el" href="../../d2/d71/a00309_source.html#l00109">109</a> of file <a class="el" href="../../d2/d71/a00309_source.html">SimBuilder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00036">36</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SimController.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d7/ded/a00196_source.html#l00088">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d1/d67/a00310_source.html#l00056">m_config</a>, and <a class="el" href="../../d3/d2a/a00195_source.html#l00208">stride::util::FileSys::ReadPtreeFile()</a>.</p>
+<p>References <a class="el" href="../../d9/d90/a00178_source.html#l00062">stride::ControlHelper::CheckEnv()</a>, <a class="el" href="../../d9/d90/a00178_source.html#l00072">stride::ControlHelper::CheckOutputPrefix()</a>, <a class="el" href="../../db/dc3/a00284_source.html#l00091">stride::Population::Create()</a>, <a class="el" href="../../d9/d90/a00178_source.html#l00079">stride::ControlHelper::InstallLogger()</a>, <a class="el" href="../../d9/d90/a00178_source.html#l00090">stride::ControlHelper::LogShutdown()</a>, <a class="el" href="../../d9/d90/a00178_source.html#l00096">stride::ControlHelper::LogStartup()</a>, <a class="el" href="../../db/dd9/a00179_source.html#l00075">stride::ControlHelper::m_config</a>, <a class="el" href="../../db/dd9/a00179_source.html#l00078">stride::ControlHelper::m_rn_manager</a>, <a class="el" href="../../db/dd9/a00179_source.html#l00080">stride::ControlHelper::m_stride_logger</a>, and <a class="el" href="../../d9/d90/a00178_source.html#l00119">stride::ControlHelper::RegisterViewers()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d71/a00309_source.html#l00042">Build()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/dab/a00319_source.html#l00044">main()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d70/a00106_ad551b02c507948570f07af10d85d29ce_cgraph.gif" border="0" usemap="#d7/d70/a00106_ad551b02c507948570f07af10d85d29ce_cgraph" alt=""/></div>
-<map name="d7/d70/a00106_ad551b02c507948570f07af10d85d29ce_cgraph" id="d7/d70/a00106_ad551b02c507948570f07af10d85d29ce_cgraph">
-<area shape="rect" id="node2" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="224,5,360,47"/>
-<area shape="rect" id="node4" href="../../d8/d87/a00118.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="224,71,360,112"/>
-<area shape="rect" id="node3" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="408,13,575,39"/>
+<div class="center"><img src="../../d7/d70/a00106_acddfa3cafcea42db5c8b18af0410179f_cgraph.gif" border="0" usemap="#d7/d70/a00106_acddfa3cafcea42db5c8b18af0410179f_cgraph" alt=""/></div>
+<map name="d7/d70/a00106_acddfa3cafcea42db5c8b18af0410179f_cgraph" id="d7/d70/a00106_acddfa3cafcea42db5c8b18af0410179f_cgraph">
+<area shape="rect" id="node2" href="../../d8/d53/a00081.html#a9fd666ad523f15ba9f3b3249ba6b0a90" title="Check install environment. " alt="" coords="207,145,361,186"/>
+<area shape="rect" id="node4" href="../../d8/d53/a00081.html#a7015fce5931f444015baca6c73e67360" title="stride::ControlHelper\l::CheckOutputPrefix" alt="" coords="207,706,361,747"/>
+<area shape="rect" id="node7" href="../../d9/dcc/a00102.html#a7cfcedae698db0dc471770044de4834d" title="Create an empty Population, used in gengeopop. " alt="" coords="217,837,351,878"/>
+<area shape="rect" id="node8" href="../../d8/d53/a00081.html#a49b3d3980626e92e16758d63bd6240a7" title="Make the appropriate logger for cli environment and register as stride_logger. " alt="" coords="207,771,361,813"/>
+<area shape="rect" id="node11" href="../../d8/d53/a00081.html#aa40b02ef62cb1b4a2db78eb847ffe964" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="207,902,361,943"/>
+<area shape="rect" id="node16" href="../../d8/d53/a00081.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="207,370,361,411"/>
+<area shape="rect" id="node29" href="../../d8/d53/a00081.html#af0131365a6c658898bf3dd49eead3ed7" title="Register the viewers of the SimRunner. " alt="" coords="207,1098,361,1139"/>
+<area shape="rect" id="node3" href="../../d9/d4b/a00117.html#a9dde9db2fbf4a2f6fa9e3116b5fe2949" title="Verify that current dir is root dir and all install dirs are present. " alt="" coords="669,14,805,55"/>
+<area shape="rect" id="node5" href="../../d9/d4b/a00117.html#a1710fc9d900dba634d24c76f4bea072c" title="Create a directory relative to the current directory with the given path, returns if it was succesful..." alt="" coords="433,706,569,747"/>
+<area shape="rect" id="node6" href="../../d9/d4b/a00117.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="669,741,805,782"/>
+<area shape="rect" id="node9" href="../../d9/d4b/a00117.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="433,837,569,878"/>
+<area shape="rect" id="node10" href="../../df/dc8/a00122.html#a106af93dd3f814adf8b87ffaaf3ef3bb" title="Return a (not&#45;yet&#45;registered) commandline and file logger, without registering it. " alt="" coords="429,771,573,813"/>
+<area shape="rect" id="node12" href="../../d1/d88/a00128.html#a4b6145f590e94467a0048817f348ac75" title="Stops the stopwatch if it was running. " alt="" coords="421,967,581,1009"/>
+<area shape="rect" id="node13" href="../../d1/d88/a00128.html#a1a068a66f6b5db8cf68dabe5a8935f22" title="Returns string representation of readout. " alt="" coords="421,902,581,943"/>
+<area shape="rect" id="node14" href="../../d1/d88/a00128.html#afe36cf7e76eb1de8cda4490fc5b41829" title="Returns the accumulated value without altering the stopwatch state. " alt="" coords="641,939,832,965"/>
+<area shape="rect" id="node15" href="../../d5/deb/a00132.html#ad6dcc9ca1dfee4746a739175240585ce" title="Produce string in hh:mm:ss format. " alt="" coords="649,873,824,914"/>
+<area shape="rect" id="node17" href="../../d9/d4b/a00117.html#a74338206b2b8392ff8e727b0be31d123" title="Return config dir (only relevant when use_install_dirs mode is active) " alt="" coords="433,370,569,411"/>
+<area shape="rect" id="node19" href="../../d9/d4b/a00117.html#a2ed578f28e57ef8a7e0c2653c30c10e6" title="Get path to the current directory. " alt="" coords="433,109,569,150"/>
+<area shape="rect" id="node20" href="../../d9/d4b/a00117.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="433,239,569,281"/>
+<area shape="rect" id="node21" href="../../d9/d4b/a00117.html#a86435813fb1eb87fcf9023ddbf27fe4a" title="Get path of the executable. " alt="" coords="433,43,569,85"/>
+<area shape="rect" id="node22" href="../../d9/d4b/a00117.html#a08ac8bd3a86a0db3901aa2d422bd6d13" title="Return install root dir (only relevant when use_install_dirs mode is active) " alt="" coords="433,305,569,346"/>
+<area shape="rect" id="node23" href="../../db/d57/a00112.html#aea2c9d397f10f54b7ae47f4b0f181799" title="Return git revision string. " alt="" coords="659,610,815,651"/>
+<area shape="rect" id="node24" href="../../db/d57/a00112.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="True if OpenMP in executable, false otherwise. " alt="" coords="423,538,579,579"/>
+<area shape="rect" id="node26" href="../../db/d57/a00112.html#a6b4240ce29160e778c69f9e246e1747d" title="Return number of threads (in case of OpenMP). " alt="" coords="642,414,831,455"/>
+<area shape="rect" id="node27" href="../../db/d57/a00112.html#a9b191149cb109105f73c84df61bebbb6" title="Return processor count for system. " alt="" coords="659,479,815,521"/>
+<area shape="rect" id="node28" href="../../df/dc2/a00367.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="414,174,589,215"/>
+<area shape="rect" id="node18" href="../../d9/d4b/a00117.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="653,247,820,273"/>
+<area shape="rect" id="node25" href="../../db/d57/a00112.html#a502bd4410a3e77792ea575f77f470d41" title="Return current hostname. " alt="" coords="659,545,815,586"/>
+<area shape="rect" id="node30" href="../../d2/df5/a00137.html#a1e54b49cad6f7b645668551b08762e28" title="Let viewer perform update. " alt="" coords="409,1229,593,1270"/>
+<area shape="rect" id="node31" href="../../d0/de8/a00133.html#a9f3a2f9efda499fa6a80f3871c7298d7" title="Let viewer perform update. " alt="" coords="412,1033,591,1074"/>
+<area shape="rect" id="node32" href="../../d0/d5e/a00136.html#ae2840bec7fc5f76db6e79130b61fff19" title="Let viewer perform update. " alt="" coords="415,1098,587,1139"/>
+<area shape="rect" id="node33" href="../../de/d76/a00134.html#a8128b6620992860cad456275e2173b16" title="Let viewer perform update. " alt="" coords="415,1163,587,1205"/>
 </map>
 </div>
 </p>
@@ -322,106 +319,26 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d70/a00106_ad551b02c507948570f07af10d85d29ce_icgraph.gif" border="0" usemap="#d7/d70/a00106_ad551b02c507948570f07af10d85d29ce_icgraph" alt=""/></div>
-<map name="d7/d70/a00106_ad551b02c507948570f07af10d85d29ce_icgraph" id="d7/d70/a00106_ad551b02c507948570f07af10d85d29ce_icgraph">
-<area shape="rect" id="node2" href="../../d7/d70/a00106.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="224,5,359,47"/>
+<div class="center"><img src="../../d7/d70/a00106_acddfa3cafcea42db5c8b18af0410179f_icgraph.gif" border="0" usemap="#d7/d70/a00106_acddfa3cafcea42db5c8b18af0410179f_icgraph" alt=""/></div>
+<map name="d7/d70/a00106_acddfa3cafcea42db5c8b18af0410179f_icgraph" id="d7/d70/a00106_acddfa3cafcea42db5c8b18af0410179f_icgraph">
+<area shape="rect" id="node2" href="../../de/dab/a00319.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="207,13,261,39"/>
 </map>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="adffa42c6b8b171616fcdfb4805260c92"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::SimBuilder::ReadDiseasePtree </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the disease configuration data. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d71/a00309_source.html#l00116">116</a> of file <a class="el" href="../../d2/d71/a00309_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/ded/a00196_source.html#l00088">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d1/d67/a00310_source.html#l00056">m_config</a>, and <a class="el" href="../../d3/d2a/a00195_source.html#l00208">stride::util::FileSys::ReadPtreeFile()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d71/a00309_source.html#l00042">Build()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d70/a00106_adffa42c6b8b171616fcdfb4805260c92_cgraph.gif" border="0" usemap="#d7/d70/a00106_adffa42c6b8b171616fcdfb4805260c92_cgraph" alt=""/></div>
-<map name="d7/d70/a00106_adffa42c6b8b171616fcdfb4805260c92_cgraph" id="d7/d70/a00106_adffa42c6b8b171616fcdfb4805260c92_cgraph">
-<area shape="rect" id="node2" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="200,5,336,47"/>
-<area shape="rect" id="node4" href="../../d8/d87/a00118.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="200,71,336,112"/>
-<area shape="rect" id="node3" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="384,13,551,39"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d70/a00106_adffa42c6b8b171616fcdfb4805260c92_icgraph.gif" border="0" usemap="#d7/d70/a00106_adffa42c6b8b171616fcdfb4805260c92_icgraph" alt=""/></div>
-<map name="d7/d70/a00106_adffa42c6b8b171616fcdfb4805260c92_icgraph" id="d7/d70/a00106_adffa42c6b8b171616fcdfb4805260c92_icgraph">
-<area shape="rect" id="node2" href="../../d7/d70/a00106.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="200,5,335,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="acbb3153c81c97a062f8351ec8ab1db0b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">boost::property_tree::ptree stride::SimBuilder::m_config</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Run config in ptree. </p>
-
-<p>Definition at line <a class="el" href="../../d1/d67/a00310_source.html#l00056">56</a> of file <a class="el" href="../../d1/d67/a00310_source.html">SimBuilder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d71/a00309_source.html#l00042">Build()</a>, <a class="el" href="../../d2/d71/a00309_source.html#l00109">ReadAgeContactPtree()</a>, and <a class="el" href="../../d2/d71/a00309_source.html#l00116">ReadDiseasePtree()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d1/d67/a00310_source.html">SimBuilder.h</a></li>
-<li><a class="el" href="../../d2/d71/a00309_source.html">SimBuilder.cpp</a></li>
+<li><a class="el" href="../../d7/df2/a00312_source.html">SimController.h</a></li>
+<li><a class="el" href="../../d1/d5d/a00311_source.html">SimController.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d3e/a00366.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/d70/a00106.html">SimBuilder</a></li>
-    <li class="footer">Generated on Thu Mar 7 2019 12:22:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dd/db5/a00365.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/d70/a00106.html">SimController</a></li>
+    <li class="footer">Generated on Fri Mar 8 2019 09:08:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

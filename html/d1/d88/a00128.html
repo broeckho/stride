@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::SliceIndexer&lt; T, Key &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::util::Stopwatch&lt; T &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9e9a998</span>
+   &#160;<span id="projectnumber">- generated for commit f11e457</span>
    </div>
   </td>
  </tr>
@@ -109,119 +109,120 @@ $(document).ready(function(){initNavTree('d1/d88/a00128.html','../../');});
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d7/d46/a01045.html">List of all members</a>  </div>
+<a href="../../da/d17/a01046.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::SliceIndexer&lt; T, Key &gt; Class Template Reference</div>  </div>
+<div class="title">stride::util::Stopwatch&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Datastructure to index a container (supporting RandomAccessIterators) with slices.  
+<p>Provides a stopwatch interface to time: it accumulates time between start/stop pairs.  
  <a href="../../d1/d88/a00128.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::SliceIndexer&lt; T, Key &gt;:</div>
+Collaboration diagram for stride::util::Stopwatch&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d17/a01046.gif" border="0" usemap="#stride_1_1util_1_1SliceIndexer_3_01T_00_01Key_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1SliceIndexer_3_01T_00_01Key_01_4_coll__map" id="stride_1_1util_1_1SliceIndexer_3_01T_00_01Key_01_4_coll__map">
-<area shape="rect" id="node4" title="STL class. " alt="" coords="124,145,251,223"/>
-<area shape="rect" id="node10" title="STL class. " alt="" coords="275,145,407,223"/>
+<div class="center"><img src="../../db/dbb/a01047.gif" border="0" usemap="#stride_1_1util_1_1Stopwatch_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1Stopwatch_3_01T_01_4_coll__map" id="stride_1_1util_1_1Stopwatch_3_01T_01_4_coll__map">
+<area shape="rect" id="node5" title="STL class. " alt="" coords="379,147,466,224"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="354,5,491,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aa697693cf36c60a25c469e21b26cb84f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> = boost::sliced_range&lt; T &gt;</td></tr>
-<tr class="separator:aa697693cf36c60a25c469e21b26cb84f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedbb343fde64ffebcdb371dd862aae7f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#aedbb343fde64ffebcdb371dd862aae7f">TClock</a> = T</td></tr>
+<tr class="separator:aedbb343fde64ffebcdb371dd862aae7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af2bedaa13b9427b736bfc88bcb974741"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#af2bedaa13b9427b736bfc88bcb974741">SliceIndexer</a> (T &amp;t)</td></tr>
-<tr class="memdesc:af2bedaa13b9427b736bfc88bcb974741"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d1/d88/a00128.html" title="Datastructure to index a container (supporting RandomAccessIterators) with slices. ">SliceIndexer</a> holds a reference to the conatiner that it indexes.  <a href="#af2bedaa13b9427b736bfc88bcb974741">More...</a><br /></td></tr>
-<tr class="separator:af2bedaa13b9427b736bfc88bcb974741"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac63541daeed03c7731fb820005e64f06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#ac63541daeed03c7731fb820005e64f06">Get</a> (const Key &amp;s)</td></tr>
-<tr class="memdesc:ac63541daeed03c7731fb820005e64f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve reference to a range by its key.  <a href="#ac63541daeed03c7731fb820005e64f06">More...</a><br /></td></tr>
-<tr class="separator:ac63541daeed03c7731fb820005e64f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa3ea63497e88e0f8673cecd56de8b57"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#aaa3ea63497e88e0f8673cecd56de8b57">Get</a> (const Key &amp;s) const </td></tr>
-<tr class="memdesc:aaa3ea63497e88e0f8673cecd56de8b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve const reference to a range by its Id.  <a href="#aaa3ea63497e88e0f8673cecd56de8b57">More...</a><br /></td></tr>
-<tr class="separator:aaa3ea63497e88e0f8673cecd56de8b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c0b86821b30ab6830b3846231b52b9f"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a7c0b86821b30ab6830b3846231b52b9f">Get</a> ()</td></tr>
-<tr class="memdesc:a7c0b86821b30ab6830b3846231b52b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve all the ranges,.  <a href="#a7c0b86821b30ab6830b3846231b52b9f">More...</a><br /></td></tr>
-<tr class="separator:a7c0b86821b30ab6830b3846231b52b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a773c442bcca2708aa1c1f8a8b5ca347c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a773c442bcca2708aa1c1f8a8b5ca347c">Set</a> (std::size_t ibegin, std::size_t iend, const Key &amp;name)</td></tr>
-<tr class="memdesc:a773c442bcca2708aa1c1f8a8b5ca347c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!  <a href="#a773c442bcca2708aa1c1f8a8b5ca347c">More...</a><br /></td></tr>
-<tr class="separator:a773c442bcca2708aa1c1f8a8b5ca347c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a670eb7b0d4bec5445d5a30ea71384be5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a670eb7b0d4bec5445d5a30ea71384be5">Set</a> (std::size_t ibegin, const Key &amp;name)</td></tr>
-<tr class="memdesc:a670eb7b0d4bec5445d5a30ea71384be5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range, where the end is the end of the container.  <a href="#a670eb7b0d4bec5445d5a30ea71384be5">More...</a><br /></td></tr>
-<tr class="separator:a670eb7b0d4bec5445d5a30ea71384be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a194f218151d935420737a20c40c27a00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a194f218151d935420737a20c40c27a00">check</a> (const Key &amp;name)</td></tr>
-<tr class="memdesc:a194f218151d935420737a20c40c27a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check key map for duplicate; throw iff duplicate.  <a href="#a194f218151d935420737a20c40c27a00">More...</a><br /></td></tr>
-<tr class="separator:a194f218151d935420737a20c40c27a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a925b07b32b747a519b37c549ba7f1531"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a925b07b32b747a519b37c549ba7f1531">Stopwatch</a> (std::string name=&quot;stopwatch&quot;, bool running=false)</td></tr>
+<tr class="memdesc:a925b07b32b747a519b37c549ba7f1531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializes stopwatch.  <a href="#a925b07b32b747a519b37c549ba7f1531">More...</a><br /></td></tr>
+<tr class="separator:a925b07b32b747a519b37c549ba7f1531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf0b5f9f645a7dd6420420443de5a96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d88/a00128.html">Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#acaf0b5f9f645a7dd6420420443de5a96">Start</a> ()</td></tr>
+<tr class="memdesc:acaf0b5f9f645a7dd6420420443de5a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts stopwatch if it was stopped.  <a href="#acaf0b5f9f645a7dd6420420443de5a96">More...</a><br /></td></tr>
+<tr class="separator:acaf0b5f9f645a7dd6420420443de5a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b6145f590e94467a0048817f348ac75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d88/a00128.html">Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a4b6145f590e94467a0048817f348ac75">Stop</a> ()</td></tr>
+<tr class="memdesc:a4b6145f590e94467a0048817f348ac75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the stopwatch if it was running.  <a href="#a4b6145f590e94467a0048817f348ac75">More...</a><br /></td></tr>
+<tr class="separator:a4b6145f590e94467a0048817f348ac75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45e66e4b53acb9c8f1edb7d5fda4f451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d88/a00128.html">Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a45e66e4b53acb9c8f1edb7d5fda4f451">Reset</a> ()</td></tr>
+<tr class="memdesc:a45e66e4b53acb9c8f1edb7d5fda4f451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets stopwatch i.e. stopwatch is stopped and time accumulator is cleared.  <a href="#a45e66e4b53acb9c8f1edb7d5fda4f451">More...</a><br /></td></tr>
+<tr class="separator:a45e66e4b53acb9c8f1edb7d5fda4f451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6afa0761326b35e675517b6a81ffef1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a6afa0761326b35e675517b6a81ffef1f">IsRunning</a> () const </td></tr>
+<tr class="memdesc:a6afa0761326b35e675517b6a81ffef1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether stopwatch has been started.  <a href="#a6afa0761326b35e675517b6a81ffef1f">More...</a><br /></td></tr>
+<tr class="separator:a6afa0761326b35e675517b6a81ffef1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcec896fa075fcb4b54b13e4bf1fd088"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#abcec896fa075fcb4b54b13e4bf1fd088">GetName</a> () const </td></tr>
+<tr class="memdesc:abcec896fa075fcb4b54b13e4bf1fd088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return name of this stopwatch.  <a href="#abcec896fa075fcb4b54b13e4bf1fd088">More...</a><br /></td></tr>
+<tr class="separator:abcec896fa075fcb4b54b13e4bf1fd088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe36cf7e76eb1de8cda4490fc5b41829"><td class="memItemLeft" align="right" valign="top">T::duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#afe36cf7e76eb1de8cda4490fc5b41829">Get</a> () const </td></tr>
+<tr class="memdesc:afe36cf7e76eb1de8cda4490fc5b41829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the accumulated value without altering the stopwatch state.  <a href="#afe36cf7e76eb1de8cda4490fc5b41829">More...</a><br /></td></tr>
+<tr class="separator:afe36cf7e76eb1de8cda4490fc5b41829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a068a66f6b5db8cf68dabe5a8935f22"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a1a068a66f6b5db8cf68dabe5a8935f22">ToString</a> () const </td></tr>
+<tr class="memdesc:a1a068a66f6b5db8cf68dabe5a8935f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string representation of readout.  <a href="#a1a068a66f6b5db8cf68dabe5a8935f22">More...</a><br /></td></tr>
+<tr class="separator:a1a068a66f6b5db8cf68dabe5a8935f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ad7137d9d5caad8581de354a750b70403"><td class="memItemLeft" align="right" valign="top">std::map&lt; Key, std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#ad7137d9d5caad8581de354a750b70403">m_map</a></td></tr>
-<tr class="memdesc:ad7137d9d5caad8581de354a750b70403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps key values to subscripts.  <a href="#ad7137d9d5caad8581de354a750b70403">More...</a><br /></td></tr>
-<tr class="separator:ad7137d9d5caad8581de354a750b70403"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5d8b55d94fc42b0c4644621957e5c87"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#ab5d8b55d94fc42b0c4644621957e5c87">m_slices</a></td></tr>
-<tr class="memdesc:ab5d8b55d94fc42b0c4644621957e5c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the slices.  <a href="#ab5d8b55d94fc42b0c4644621957e5c87">More...</a><br /></td></tr>
-<tr class="separator:ab5d8b55d94fc42b0c4644621957e5c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00a95be5edf914ec430a0890a3c82005"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a00a95be5edf914ec430a0890a3c82005">m_t</a></td></tr>
-<tr class="memdesc:a00a95be5edf914ec430a0890a3c82005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refernec to container that gets sliced into ranges.  <a href="#a00a95be5edf914ec430a0890a3c82005">More...</a><br /></td></tr>
-<tr class="separator:a00a95be5edf914ec430a0890a3c82005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a765784978119de616443c956d98166c4"><td class="memItemLeft" align="right" valign="top">T::duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a765784978119de616443c956d98166c4">m_accumulated</a></td></tr>
+<tr class="separator:a765784978119de616443c956d98166c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c7ba8e093b3c7d933ed5511d16cde4"><td class="memItemLeft" align="right" valign="top">T::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#ab9c7ba8e093b3c7d933ed5511d16cde4">m_last_start</a></td></tr>
+<tr class="separator:ab9c7ba8e093b3c7d933ed5511d16cde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa22d2b26b456a8895b2e5c8ce62fe071"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#aa22d2b26b456a8895b2e5c8ce62fe071">m_name</a></td></tr>
+<tr class="separator:aa22d2b26b456a8895b2e5c8ce62fe071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bfb79938c423d71cde68c8d2d42fbb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a></td></tr>
+<tr class="separator:a20bfb79938c423d71cde68c8d2d42fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, typename Key = std::string&gt;<br />
-class stride::util::SliceIndexer&lt; T, Key &gt;</h3>
+<div class="textblock"><h3>template&lt;typename T = std::chrono::steady_clock&gt;<br />
+class stride::util::Stopwatch&lt; T &gt;</h3>
 
-<p>Datastructure to index a container (supporting RandomAccessIterators) with slices. </p>
-<p>We store those slices in order in a vector and expose the vector because processing effiency may dictate that we retrieve the in that order. They can also be retrieved by ket (key type defaults to std::string). </p><dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Type of the container in whom the ranges are indexed. </td></tr>
-    <tr><td class="paramname">Key</td><td>Type of Id that can be useld to retrieve the ranges. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Provides a stopwatch interface to time: it accumulates time between start/stop pairs. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00039">39</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00035">35</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="aa697693cf36c60a25c469e21b26cb84f"></a>
+<a class="anchor" id="aedbb343fde64ffebcdb371dd862aae7f"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::<a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> =  boost::sliced_range&lt;T&gt;</td>
+          <td class="memname">using <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::<a class="el" href="../../d1/d88/a00128.html#aedbb343fde64ffebcdb371dd862aae7f">TClock</a> =  T</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00042">42</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00038">38</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af2bedaa13b9427b736bfc88bcb974741"></a>
+<a class="anchor" id="a925b07b32b747a519b37c549ba7f1531"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::<a class="el" href="../../d1/d88/a00128.html">SliceIndexer</a> </td>
+          <td class="memname"><a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::<a class="el" href="../../d1/d88/a00128.html">Stopwatch</a> </td>
           <td>(</td>
-          <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;stopwatch&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>running</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -231,88 +232,26 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d1/d88/a00128.html" title="Datastructure to index a container (supporting RandomAccessIterators) with slices. ">SliceIndexer</a> holds a reference to the conatiner that it indexes. </p>
+<p>Constructor initializes stopwatch. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00046">46</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00041">41</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d41/a00318_source.html#l00116">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d2/d41/a00318_source.html#l00118">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac63541daeed03c7731fb820005e64f06"></a>
+<a class="anchor" id="acaf0b5f9f645a7dd6420420443de5a96"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Get </td>
-          <td>(</td>
-          <td class="paramtype">const Key &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieve reference to a range by its key. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00049">49</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d6f/a00315_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, and <a class="el" href="../../d4/d6f/a00315_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aaa3ea63497e88e0f8673cecd56de8b57"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Get </td>
-          <td>(</td>
-          <td class="paramtype">const Key &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieve const reference to a range by its Id. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00052">52</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d6f/a00315_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, and <a class="el" href="../../d4/d6f/a00315_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7c0b86821b30ab6830b3846231b52b9f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&gt;&amp; <a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Get </td>
+          <td class="memname"><a class="el" href="../../d1/d88/a00128.html">Stopwatch</a>&amp; <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::Start </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -325,162 +264,270 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieve all the ranges,. </p>
+<p>Starts stopwatch if it was stopped. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00055">55</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00050">50</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
 
-<p>References <a class="el" href="../../d4/d6f/a00315_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
+<p>References <a class="el" href="../../d2/d41/a00318_source.html#l00116">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d2/d41/a00318_source.html#l00118">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a773c442bcca2708aa1c1f8a8b5ca347c"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Set </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>ibegin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>iend</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Key &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included! </p>
-
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00058">58</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d6f/a00315_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../d4/d6f/a00315_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, <a class="el" href="../../d4/d6f/a00315_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>, and <a class="el" href="../../d4/d6f/a00315_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_t</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d88/a00128_a773c442bcca2708aa1c1f8a8b5ca347c_cgraph.gif" border="0" usemap="#d1/d88/a00128_a773c442bcca2708aa1c1f8a8b5ca347c_cgraph" alt=""/></div>
-<map name="d1/d88/a00128_a773c442bcca2708aa1c1f8a8b5ca347c_cgraph" id="d1/d88/a00128_a773c442bcca2708aa1c1f8a8b5ca347c_cgraph">
-<area shape="rect" id="node2" href="../../d1/d88/a00128.html#a194f218151d935420737a20c40c27a00" title="Check key map for duplicate; throw iff duplicate. " alt="" coords="253,5,424,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a670eb7b0d4bec5445d5a30ea71384be5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Set </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>ibegin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Key &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set a range, where the end is the end of the container. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00068">68</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d6f/a00315_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../d4/d6f/a00315_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, <a class="el" href="../../d4/d6f/a00315_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>, and <a class="el" href="../../d4/d6f/a00315_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_t</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d88/a00128_a670eb7b0d4bec5445d5a30ea71384be5_cgraph.gif" border="0" usemap="#d1/d88/a00128_a670eb7b0d4bec5445d5a30ea71384be5_cgraph" alt=""/></div>
-<map name="d1/d88/a00128_a670eb7b0d4bec5445d5a30ea71384be5_cgraph" id="d1/d88/a00128_a670eb7b0d4bec5445d5a30ea71384be5_cgraph">
-<area shape="rect" id="node2" href="../../d1/d88/a00128.html#a194f218151d935420737a20c40c27a00" title="Check key map for duplicate; throw iff duplicate. " alt="" coords="253,5,424,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a194f218151d935420737a20c40c27a00"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::check </td>
-          <td>(</td>
-          <td class="paramtype">const Key &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check key map for duplicate; throw iff duplicate. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00079">79</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/d6f/a00315_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d6f/a00315_source.html#l00058">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d90/a00178_source.html#l00043">stride::ControlHelper::ControlHelper()</a>, <a class="el" href="../../dd/db3/a00313_source.html#l00046">stride::SimRunner::Run()</a>, and <a class="el" href="../../dd/db3/a00313_source.html#l00033">stride::SimRunner::SimRunner()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d88/a00128_a194f218151d935420737a20c40c27a00_icgraph.gif" border="0" usemap="#d1/d88/a00128_a194f218151d935420737a20c40c27a00_icgraph" alt=""/></div>
-<map name="d1/d88/a00128_a194f218151d935420737a20c40c27a00_icgraph" id="d1/d88/a00128_a194f218151d935420737a20c40c27a00_icgraph">
-<area shape="rect" id="node2" href="../../d1/d88/a00128.html#a773c442bcca2708aa1c1f8a8b5ca347c" title="Set a range. Warning: range is [ibegin, iend) i.e. half&#45;open, iend not included! " alt="" coords="224,13,424,39"/>
+<div class="center"><img src="../../d1/d88/a00128_acaf0b5f9f645a7dd6420420443de5a96_icgraph.gif" border="0" usemap="#d1/d88/a00128_acaf0b5f9f645a7dd6420420443de5a96_icgraph" alt=""/></div>
+<map name="d1/d88/a00128_acaf0b5f9f645a7dd6420420443de5a96_icgraph" id="d1/d88/a00128_acaf0b5f9f645a7dd6420420443de5a96_icgraph">
+<area shape="rect" id="node2" href="../../d8/d53/a00081.html#adf5c02b1632443f385cc0359dc76506b" title="Empty controller: used as target for delegation. " alt="" coords="219,5,374,47"/>
+<area shape="rect" id="node3" href="../../df/d98/a00107.html#a233f76f6af0cef8c5971112b6d2235d0" title="Run simulator for numSteps steps/days. " alt="" coords="213,71,380,98"/>
+<area shape="rect" id="node4" href="../../df/d98/a00107.html#a0f1cdbcca511bc11fd898dc3a872718d" title="Initialization with property tree. " alt="" coords="225,123,368,164"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4b6145f590e94467a0048817f348ac75"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d88/a00128.html">Stopwatch</a>&amp; <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::Stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the stopwatch if it was running. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00060">60</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d41/a00318_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_accumulated</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00116">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d2/d41/a00318_source.html#l00118">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d90/a00178_source.html#l00090">stride::ControlHelper::LogShutdown()</a>, <a class="el" href="../../dd/db3/a00313_source.html#l00046">stride::SimRunner::Run()</a>, and <a class="el" href="../../dd/db3/a00313_source.html#l00033">stride::SimRunner::SimRunner()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d88/a00128_a4b6145f590e94467a0048817f348ac75_icgraph.gif" border="0" usemap="#d1/d88/a00128_a4b6145f590e94467a0048817f348ac75_icgraph" alt=""/></div>
+<map name="d1/d88/a00128_a4b6145f590e94467a0048817f348ac75_icgraph" id="d1/d88/a00128_a4b6145f590e94467a0048817f348ac75_icgraph">
+<area shape="rect" id="node2" href="../../d8/d53/a00081.html#aa40b02ef62cb1b4a2db78eb847ffe964" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="219,71,374,112"/>
+<area shape="rect" id="node7" href="../../df/d98/a00107.html#a233f76f6af0cef8c5971112b6d2235d0" title="Run simulator for numSteps steps/days. " alt="" coords="213,137,380,163"/>
+<area shape="rect" id="node8" href="../../df/d98/a00107.html#a0f1cdbcca511bc11fd898dc3a872718d" title="Initialization with property tree. " alt="" coords="225,188,368,229"/>
+<area shape="rect" id="node3" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="428,5,607,47"/>
+<area shape="rect" id="node5" href="../../d7/d70/a00106.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="441,71,594,112"/>
+<area shape="rect" id="node6" href="../../d1/dd6/a00108.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="438,136,597,177"/>
+<area shape="rect" id="node4" href="../../de/dab/a00319.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="655,78,709,105"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a45e66e4b53acb9c8f1edb7d5fda4f451"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d88/a00128.html">Stopwatch</a>&amp; <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets stopwatch i.e. stopwatch is stopped and time accumulator is cleared. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00070">70</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d41/a00318_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_accumulated</a>, and <a class="el" href="../../d2/d41/a00318_source.html#l00118">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6afa0761326b35e675517b6a81ffef1f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::IsRunning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports whether stopwatch has been started. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00078">78</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d41/a00318_source.html#l00118">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abcec896fa075fcb4b54b13e4bf1fd088"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::GetName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return name of this stopwatch. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00081">81</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d41/a00318_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_name</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afe36cf7e76eb1de8cda4490fc5b41829"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T::duration <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the accumulated value without altering the stopwatch state. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00084">84</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d41/a00318_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_accumulated</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00116">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d2/d41/a00318_source.html#l00118">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00094">stride::util::Stopwatch&lt; T &gt;::ToString()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d88/a00128_afe36cf7e76eb1de8cda4490fc5b41829_icgraph.gif" border="0" usemap="#d1/d88/a00128_afe36cf7e76eb1de8cda4490fc5b41829_icgraph" alt=""/></div>
+<map name="d1/d88/a00128_afe36cf7e76eb1de8cda4490fc5b41829_icgraph" id="d1/d88/a00128_afe36cf7e76eb1de8cda4490fc5b41829_icgraph">
+<area shape="rect" id="node2" href="../../d1/d88/a00128.html#a1a068a66f6b5db8cf68dabe5a8935f22" title="Returns string representation of readout. " alt="" coords="244,71,404,112"/>
+<area shape="rect" id="node3" href="../../d8/d53/a00081.html#aa40b02ef62cb1b4a2db78eb847ffe964" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="452,71,607,112"/>
+<area shape="rect" id="node4" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="655,5,833,47"/>
+<area shape="rect" id="node6" href="../../d7/d70/a00106.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="667,71,821,112"/>
+<area shape="rect" id="node7" href="../../d1/dd6/a00108.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="665,136,823,177"/>
+<area shape="rect" id="node5" href="../../de/dab/a00319.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="881,78,936,105"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a068a66f6b5db8cf68dabe5a8935f22"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns string representation of readout. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00094">94</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d41/a00318_source.html#l00084">stride::util::Stopwatch&lt; T &gt;::Get()</a>, and <a class="el" href="../../d5/deb/a00132.html#ad6dcc9ca1dfee4746a739175240585ce">stride::util::TimeToString::ToColonString()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d90/a00178_source.html#l00090">stride::ControlHelper::LogShutdown()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d88/a00128_a1a068a66f6b5db8cf68dabe5a8935f22_cgraph.gif" border="0" usemap="#d1/d88/a00128_a1a068a66f6b5db8cf68dabe5a8935f22_cgraph" alt=""/></div>
+<map name="d1/d88/a00128_a1a068a66f6b5db8cf68dabe5a8935f22_cgraph" id="d1/d88/a00128_a1a068a66f6b5db8cf68dabe5a8935f22_cgraph">
+<area shape="rect" id="node2" href="../../d1/d88/a00128.html#afe36cf7e76eb1de8cda4490fc5b41829" title="Returns the accumulated value without altering the stopwatch state. " alt="" coords="213,5,404,32"/>
+<area shape="rect" id="node3" href="../../d5/deb/a00132.html#ad6dcc9ca1dfee4746a739175240585ce" title="Produce string in hh:mm:ss format. " alt="" coords="221,57,396,98"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d88/a00128_a1a068a66f6b5db8cf68dabe5a8935f22_icgraph.gif" border="0" usemap="#d1/d88/a00128_a1a068a66f6b5db8cf68dabe5a8935f22_icgraph" alt=""/></div>
+<map name="d1/d88/a00128_a1a068a66f6b5db8cf68dabe5a8935f22_icgraph" id="d1/d88/a00128_a1a068a66f6b5db8cf68dabe5a8935f22_icgraph">
+<area shape="rect" id="node2" href="../../d8/d53/a00081.html#aa40b02ef62cb1b4a2db78eb847ffe964" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="213,71,368,112"/>
+<area shape="rect" id="node3" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="416,5,595,47"/>
+<area shape="rect" id="node5" href="../../d7/d70/a00106.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="429,71,582,112"/>
+<area shape="rect" id="node6" href="../../d1/dd6/a00108.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="426,136,585,177"/>
+<area shape="rect" id="node4" href="../../de/dab/a00319.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="643,78,697,105"/>
 </map>
 </div>
 </p>
@@ -488,17 +535,17 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad7137d9d5caad8581de354a750b70403"></a>
+<a class="anchor" id="a765784978119de616443c956d98166c4"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;Key, std::size_t&gt; <a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::m_map</td>
+          <td class="memname">T::duration <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::m_accumulated</td>
         </tr>
       </table>
   </td>
@@ -508,25 +555,23 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Maps key values to subscripts. </p>
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00115">115</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00087">87</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d6f/a00315_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../d4/d6f/a00315_source.html#l00049">stride::util::SliceIndexer&lt; T, Key &gt;::Get()</a>, and <a class="el" href="../../d4/d6f/a00315_source.html#l00058">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00084">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00070">stride::util::Stopwatch&lt; T &gt;::Reset()</a>, and <a class="el" href="../../d2/d41/a00318_source.html#l00060">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab5d8b55d94fc42b0c4644621957e5c87"></a>
+<a class="anchor" id="ab9c7ba8e093b3c7d933ed5511d16cde4"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d1/d88/a00128.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&gt; <a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::m_slices</td>
+          <td class="memname">T::time_point <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::m_last_start</td>
         </tr>
       </table>
   </td>
@@ -536,25 +581,23 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Contains the slices. </p>
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00116">116</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00088">88</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d6f/a00315_source.html#l00049">stride::util::SliceIndexer&lt; T, Key &gt;::Get()</a>, and <a class="el" href="../../d4/d6f/a00315_source.html#l00058">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00084">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00050">stride::util::Stopwatch&lt; T &gt;::Start()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00060">stride::util::Stopwatch&lt; T &gt;::Stop()</a>, and <a class="el" href="../../d2/d41/a00318_source.html#l00041">stride::util::Stopwatch&lt; T &gt;::Stopwatch()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a00a95be5edf914ec430a0890a3c82005"></a>
+<a class="anchor" id="aa22d2b26b456a8895b2e5c8ce62fe071"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename Key  = std::string&gt; </div>
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T&amp; <a class="el" href="../../d1/d88/a00128.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::m_t</td>
+          <td class="memname">std::string <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::m_name</td>
         </tr>
       </table>
   </td>
@@ -564,24 +607,48 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Refernec to container that gets sliced into ranges. </p>
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00117">117</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d4/d6f/a00315_source.html#l00089">89</a> of file <a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00081">stride::util::Stopwatch&lt; T &gt;::GetName()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d6f/a00315_source.html#l00058">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a20bfb79938c423d71cde68c8d2d42fbb"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/d88/a00128.html">stride::util::Stopwatch</a>&lt; T &gt;::m_running</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d41/a00318_source.html#l00118">118</a> of file <a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00084">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00078">stride::util::Stopwatch&lt; T &gt;::IsRunning()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00070">stride::util::Stopwatch&lt; T &gt;::Reset()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00050">stride::util::Stopwatch&lt; T &gt;::Start()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00060">stride::util::Stopwatch&lt; T &gt;::Stop()</a>, and <a class="el" href="../../d2/d41/a00318_source.html#l00041">stride::util::Stopwatch&lt; T &gt;::Stopwatch()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d4/d6f/a00315_source.html">SliceIndexer.h</a></li>
+<li><a class="el" href="../../d2/d41/a00318_source.html">Stopwatch.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d3e/a00366.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/de3/a00373.html">util</a></li><li class="navelem"><a class="el" href="../../d1/d88/a00128.html">SliceIndexer</a></li>
-    <li class="footer">Generated on Thu Mar 7 2019 12:22:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dd/db5/a00365.html">stride</a></li><li class="navelem"><a class="el" href="../../db/d7e/a00372.html">util</a></li><li class="navelem"><a class="el" href="../../d1/d88/a00128.html">Stopwatch</a></li>
+    <li class="footer">Generated on Fri Mar 8 2019 09:08:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

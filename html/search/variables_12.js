@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['upper',['upper',['../d1/d7c/a00003.html#a9536df35bbe6719b45619dc7031ee17e',1,'geopop::AABBox']]]
+  ['workplace',['Workplace',['../df/d5f/a00064.html#adba138a3a614713524869a3d761cfdaa',1,'proto::GeoGrid_Location_ContactCenter']]],
+  ['workplace_5fsize',['workplace_size',['../d3/d52/a00023.html#a81fc4304e2a58751bf024695042becb6',1,'geopop::GeoGridConfig']]]
 ];
