@@ -97,8 +97,7 @@ def runSimulations(trackIndexCase, numRuns, R0, scenarioName, numDays,
 
 def main(trackIndexCase, numRuns, R0s, numDays, immunityFileChildren, immunityFileAdults, poolSize):
     start = time.perf_counter()
-    scenarioNames = ["UNIFORM_NOCLUSTERING","AGEDEPENDENT_NOCLUSTERING",
-                        "UNIFORM_CLUSTERING","AGEDEPENDENT_CLUSTERING"]
+    scenarioNames = ["UNIFORM_NOCLUSTERING","AGEDEPENDENT_NOCLUSTERING","AGEDEPENDENT_CLUSTERING"]
 
     # Calculate uniform immunity rate
     uniformImmunityLevel = calculateUniformImmunityLevel(os.path.join("data", getCommonParameters()["population_file"]),

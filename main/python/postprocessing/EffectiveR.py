@@ -17,6 +17,20 @@ def getEffectiveR(outputDir, scenarioName, seed):
                 totalInfected += 1
     return totalInfected
 
+def getExpectedR(outputDir, R0, scenarioName, seed):
+    totalSusceptibles = 0
+    totalPersons = 0
+    susceptiblesfile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
+    with open(susceptiblesFile) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            totalPersons += 1
+            isSusceptible = int(row["susceptible"])
+            if isSusceptible:
+                totalSusceptibles += 1
+    fracSusceptibles = totalSusceptibles / totalPersons
+    return R0 * fracSusceptibles
+
 def createEffectiveRPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, xLabel, figName):
     allEffectiveRs = []
     for scenario in scenarioNames:
