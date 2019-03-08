@@ -42,22 +42,16 @@ public:
         /// Construct the GeoGridJSONReader with the istream which contains the Protobuf info.
         GeoGridProtoReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop);
 
-        /// Actually perform the read and return the GeoGrid.
-        std::shared_ptr<GeoGrid> Read() override;
-
         /// No copy constructor.
         GeoGridProtoReader(const GeoGridProtoReader&) = delete;
 
         /// No copy assignement.
         GeoGridProtoReader operator=(const GeoGridProtoReader&) = delete;
 
+        /// Actually perform the read and return the GeoGrid.
+        std::shared_ptr<GeoGrid> Read() override;
+
 private:
-        /// Create a Location based on  protobuf Location info.
-        std::shared_ptr<Location> ParseLocation(const proto::GeoGrid_Location& protoLocation);
-
-        /// Create a Coordinate based on the provided protobuf Coordinate.
-        Coordinate ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate);
-
         /// Create a ContactCenter based on protobuf ContactCenter info.
         std::shared_ptr<ContactCenter> ParseContactCenter(
             const proto::GeoGrid_Location_ContactCenter& protoContactCenter);
@@ -65,6 +59,12 @@ private:
         /// Create a ContactPool based on the provided protobuf ContactPool.
         stride::ContactPool* ParseContactPool(const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool,
                                               stride::ContactType::Id                                  typeId);
+
+        /// Create a Coordinate based on the provided protobuf Coordinate.
+        Coordinate ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate);
+
+        /// Create a Location based on  protobuf Location info.
+        std::shared_ptr<Location> ParseLocation(const proto::GeoGrid_Location& protoLocation);
 
         /// Create a Person based on protobuf Person info.
         stride::Person* ParsePerson(const proto::GeoGrid_Person& person);

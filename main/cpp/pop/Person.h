@@ -35,12 +35,12 @@ class Person
 {
 public:
         /// Default construction (for population vector).
-        Person() : m_age(0.0), m_gender('M'), m_health(), m_id(0), m_is_participant(), m_pool_ids(), m_in_pools() {}
+        Person() : m_age(0.0), m_health(), m_id(0), m_is_participant(), m_pool_ids(), m_in_pools() {}
 
         /// Constructor: set the person data.
         Person(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId,
                unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
-            : m_age(age), m_gender('M'), m_health(), m_id(id),
+            : m_age(age), m_health(), m_id(id),
               m_is_participant(false), m_pool_ids{householdId, k12SchoolId,        collegeId,
                                                   workId,      primaryCommunityId, secondaryCommunityId},
               m_in_pools(true)
@@ -52,9 +52,6 @@ public:
 
         /// Get the age.
         double GetAge() const { return m_age; }
-
-        /// Return person's gender.
-        char GetGender() const { return m_gender; }
 
         /// Return person's health status.
         Health& GetHealth() { return m_health; }
@@ -94,8 +91,7 @@ public:
         }
 
 private:
-        double       m_age;            ///< The age.
-        char         m_gender;         ///< Gender.
+        double       m_age;            ///< The age..
         Health       m_health;         ///< Health info for this person.
         unsigned int m_id;             ///< The id.
         bool         m_is_participant; ///< Is participating in the social contact study

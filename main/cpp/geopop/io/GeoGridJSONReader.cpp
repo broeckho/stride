@@ -216,7 +216,6 @@ Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree& person)
 {
         const auto id                   = boost::lexical_cast<unsigned int>(person.get<string>("id"));
         const auto age                  = boost::lexical_cast<unsigned int>(person.get<string>("age"));
-        const auto gender               = person.get<string>("gender");
         const auto schoolId             = boost::lexical_cast<unsigned int>(person.get<string>("K12School"));
         const auto collegeId            = boost::lexical_cast<unsigned int>(person.get<string>("College"));
         const auto householdId          = boost::lexical_cast<unsigned int>(person.get<string>("Household"));

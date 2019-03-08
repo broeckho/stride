@@ -219,7 +219,6 @@ const ::google::protobuf::uint32 TableStruct_geogrid_2eproto::offsets[] PROTOBUF
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::proto::GeoGrid_Person, id_),
   PROTOBUF_FIELD_OFFSET(::proto::GeoGrid_Person, age_),
-  PROTOBUF_FIELD_OFFSET(::proto::GeoGrid_Person, gender_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::proto::GeoGrid, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -235,7 +234,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 22, -1, sizeof(::proto::GeoGrid_Location_Commute)},
   { 29, -1, sizeof(::proto::GeoGrid_Location)},
   { 41, -1, sizeof(::proto::GeoGrid_Person)},
-  { 49, -1, sizeof(::proto::GeoGrid)},
+  { 48, -1, sizeof(::proto::GeoGrid)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -255,9 +254,9 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_geogrid_2eproto[] =
-  "\n\rgeogrid.proto\022\005proto\"\251\006\n\007GeoGrid\022*\n\tlo"
+  "\n\rgeogrid.proto\022\005proto\"\212\006\n\007GeoGrid\022*\n\tlo"
   "cations\030\001 \003(\0132\027.proto.GeoGrid.Location\022&"
-  "\n\007persons\030\002 \003(\0132\025.proto.GeoGrid.Person\032\226"
+  "\n\007persons\030\002 \003(\0132\025.proto.GeoGrid.Person\032\207"
   "\005\n\010Location\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\020\n"
   "\010province\030\003 \001(\003\022\022\n\npopulation\030\004 \001(\003\0226\n\nc"
   "oordinate\030\005 \001(\0132\".proto.GeoGrid.Location"
@@ -265,23 +264,22 @@ const char descriptor_table_protodef_geogrid_2eproto[] =
   "oto.GeoGrid.Location.ContactCenter\0221\n\010co"
   "mmutes\030\007 \003(\0132\037.proto.GeoGrid.Location.Co"
   "mmute\0321\n\nCoordinate\022\021\n\tlongitude\030\001 \001(\001\022\020"
-  "\n\010latitude\030\002 \001(\001\032\301\002\n\rContactCenter\022\n\n\002id"
+  "\n\010latitude\030\002 \001(\001\032\262\002\n\rContactCenter\022\n\n\002id"
   "\030\001 \001(\003\0228\n\004type\030\002 \001(\0162*.proto.GeoGrid.Loc"
   "ation.ContactCenter.Type\022@\n\005pools\030\003 \003(\0132"
   "1.proto.GeoGrid.Location.ContactCenter.C"
   "ontactPool\032)\n\013ContactPool\022\n\n\002id\030\001 \001(\003\022\016\n"
-  "\006people\030\002 \003(\003\"}\n\004Type\022\r\n\tK12School\020\000\022\r\n\t"
-  "Community\020\001\022\024\n\020PrimaryCommunity\020\002\022\026\n\022Sec"
-  "ondaryCommunity\020\003\022\013\n\007College\020\004\022\r\n\tHouseh"
-  "old\020\005\022\r\n\tWorkplace\020\006\032)\n\007Commute\022\n\n\002to\030\001 "
-  "\001(\003\022\022\n\nproportion\030\002 \001(\001\0321\n\006Person\022\n\n\002id\030"
-  "\001 \001(\003\022\013\n\003age\030\002 \001(\003\022\016\n\006gender\030\003 \001(\tb\006prot"
-  "o3"
+  "\006people\030\002 \003(\003\"n\n\004Type\022\r\n\tK12School\020\000\022\024\n\020"
+  "PrimaryCommunity\020\001\022\026\n\022SecondaryCommunity"
+  "\020\002\022\013\n\007College\020\003\022\r\n\tHousehold\020\004\022\r\n\tWorkpl"
+  "ace\020\005\032)\n\007Commute\022\n\n\002to\030\001 \001(\003\022\022\n\nproporti"
+  "on\030\002 \001(\001\032!\n\006Person\022\n\n\002id\030\001 \001(\003\022\013\n\003age\030\002 "
+  "\001(\003b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_geogrid_2eproto = {
   false, InitDefaults_geogrid_2eproto, 
   descriptor_table_protodef_geogrid_2eproto,
-  "geogrid.proto", &assign_descriptors_table_geogrid_2eproto, 842,
+  "geogrid.proto", &assign_descriptors_table_geogrid_2eproto, 811,
 };
 
 void AddDescriptors_geogrid_2eproto() {
@@ -306,7 +304,6 @@ bool GeoGrid_Location_ContactCenter_Type_IsValid(int value) {
     case 3:
     case 4:
     case 5:
-    case 6:
       return true;
     default:
       return false;
@@ -315,7 +312,6 @@ bool GeoGrid_Location_ContactCenter_Type_IsValid(int value) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::K12School;
-const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::Community;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::PrimaryCommunity;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::SecondaryCommunity;
 const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::College;
@@ -2284,7 +2280,6 @@ class GeoGrid_Person::HasBitSetters {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int GeoGrid_Person::kIdFieldNumber;
 const int GeoGrid_Person::kAgeFieldNumber;
-const int GeoGrid_Person::kGenderFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GeoGrid_Person::GeoGrid_Person()
@@ -2296,10 +2291,6 @@ GeoGrid_Person::GeoGrid_Person(const GeoGrid_Person& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  gender_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.gender().size() > 0) {
-    gender_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gender_);
-  }
   ::memcpy(&id_, &from.id_,
     static_cast<size_t>(reinterpret_cast<char*>(&age_) -
     reinterpret_cast<char*>(&id_)) + sizeof(age_));
@@ -2307,9 +2298,6 @@ GeoGrid_Person::GeoGrid_Person(const GeoGrid_Person& from)
 }
 
 void GeoGrid_Person::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_GeoGrid_Person_geogrid_2eproto.base);
-  gender_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&age_) -
       reinterpret_cast<char*>(&id_)) + sizeof(age_));
@@ -2321,7 +2309,6 @@ GeoGrid_Person::~GeoGrid_Person() {
 }
 
 void GeoGrid_Person::SharedDtor() {
-  gender_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void GeoGrid_Person::SetCachedSize(int size) const {
@@ -2339,7 +2326,6 @@ void GeoGrid_Person::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  gender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&age_) -
       reinterpret_cast<char*>(&id_)) + sizeof(age_));
@@ -2373,22 +2359,6 @@ const char* GeoGrid_Person::_InternalParse(const char* begin, const char* end, v
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // string gender = 3;
-      case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("proto.GeoGrid.Person.gender");
-        object = msg->mutable_gender();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -2404,13 +2374,6 @@ const char* GeoGrid_Person::_InternalParse(const char* begin, const char* end, v
     }  // switch
   }  // while
   return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 bool GeoGrid_Person::MergePartialFromCodedStream(
@@ -2443,21 +2406,6 @@ bool GeoGrid_Person::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &age_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string gender = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_gender()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->gender().data(), static_cast<int>(this->gender().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "proto.GeoGrid.Person.gender"));
         } else {
           goto handle_unusual;
         }
@@ -2501,16 +2449,6 @@ void GeoGrid_Person::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->age(), output);
   }
 
-  // string gender = 3;
-  if (this->gender().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->gender().data(), static_cast<int>(this->gender().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "proto.GeoGrid.Person.gender");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->gender(), output);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -2534,17 +2472,6 @@ void GeoGrid_Person::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->age(), target);
   }
 
-  // string gender = 3;
-  if (this->gender().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->gender().data(), static_cast<int>(this->gender().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "proto.GeoGrid.Person.gender");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->gender(), target);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -2565,13 +2492,6 @@ size_t GeoGrid_Person::ByteSizeLong() const {
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
-
-  // string gender = 3;
-  if (this->gender().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->gender());
-  }
 
   // int64 id = 1;
   if (this->id() != 0) {
@@ -2614,10 +2534,6 @@ void GeoGrid_Person::MergeFrom(const GeoGrid_Person& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.gender().size() > 0) {
-
-    gender_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gender_);
-  }
   if (from.id() != 0) {
     set_id(from.id());
   }
@@ -2651,8 +2567,6 @@ void GeoGrid_Person::Swap(GeoGrid_Person* other) {
 void GeoGrid_Person::InternalSwap(GeoGrid_Person* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  gender_.Swap(&other->gender_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
   swap(id_, other->id_);
   swap(age_, other->age_);
 }

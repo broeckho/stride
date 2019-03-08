@@ -61,8 +61,8 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                                 // poolType-vector
                                 if (p.GetPoolId(Id::SecondaryCommunity) < poolSys[Id::SecondaryCommunity].size()) {
                                         logger->info(
-                                            "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
-                                            p.GetId(), p.GetAge(), p.GetGender(), p.GetPoolId(Id::Household),
+                                            "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
+                                            p.GetId(), p.GetAge(), p.GetPoolId(Id::Household),
                                             p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
                                             p.GetPoolId(Id::Workplace), p.GetHealth().IsSusceptible(),
                                             p.GetHealth().IsInfected(), p.GetHealth().IsInfectious(),
@@ -78,8 +78,8 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                                                 .GetSize());
                                 } else {
                                         logger->info(
-                                            "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
-                                            p.GetId(), p.GetAge(), p.GetGender(), p.GetPoolId(Id::Household),
+                                            "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
+                                            p.GetId(), p.GetAge(), p.GetPoolId(Id::Household),
                                             p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
                                             p.GetPoolId(Id::Workplace), p.GetHealth().IsSusceptible(),
                                             p.GetHealth().IsInfected(), p.GetHealth().IsInfectious(),

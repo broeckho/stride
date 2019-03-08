@@ -87,12 +87,11 @@ namespace proto {
 
 enum GeoGrid_Location_ContactCenter_Type {
   GeoGrid_Location_ContactCenter_Type_K12School = 0,
-  GeoGrid_Location_ContactCenter_Type_Community = 1,
-  GeoGrid_Location_ContactCenter_Type_PrimaryCommunity = 2,
-  GeoGrid_Location_ContactCenter_Type_SecondaryCommunity = 3,
-  GeoGrid_Location_ContactCenter_Type_College = 4,
-  GeoGrid_Location_ContactCenter_Type_Household = 5,
-  GeoGrid_Location_ContactCenter_Type_Workplace = 6,
+  GeoGrid_Location_ContactCenter_Type_PrimaryCommunity = 1,
+  GeoGrid_Location_ContactCenter_Type_SecondaryCommunity = 2,
+  GeoGrid_Location_ContactCenter_Type_College = 3,
+  GeoGrid_Location_ContactCenter_Type_Household = 4,
+  GeoGrid_Location_ContactCenter_Type_Workplace = 5,
   GeoGrid_Location_ContactCenter_Type_GeoGrid_Location_ContactCenter_Type_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
   GeoGrid_Location_ContactCenter_Type_GeoGrid_Location_ContactCenter_Type_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
 };
@@ -456,8 +455,6 @@ class GeoGrid_Location_ContactCenter final :
   typedef GeoGrid_Location_ContactCenter_Type Type;
   static const Type K12School =
     GeoGrid_Location_ContactCenter_Type_K12School;
-  static const Type Community =
-    GeoGrid_Location_ContactCenter_Type_Community;
   static const Type PrimaryCommunity =
     GeoGrid_Location_ContactCenter_Type_PrimaryCommunity;
   static const Type SecondaryCommunity =
@@ -923,20 +920,6 @@ class GeoGrid_Person final :
 
   // accessors -------------------------------------------------------
 
-  // string gender = 3;
-  void clear_gender();
-  static const int kGenderFieldNumber = 3;
-  const ::std::string& gender() const;
-  void set_gender(const ::std::string& value);
-  #if LANG_CXX11
-  void set_gender(::std::string&& value);
-  #endif
-  void set_gender(const char* value);
-  void set_gender(const char* value, size_t size);
-  ::std::string* mutable_gender();
-  ::std::string* release_gender();
-  void set_allocated_gender(::std::string* gender);
-
   // int64 id = 1;
   void clear_id();
   static const int kIdFieldNumber = 1;
@@ -954,7 +937,6 @@ class GeoGrid_Person final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr gender_;
   ::google::protobuf::int64 id_;
   ::google::protobuf::int64 age_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -1515,59 +1497,6 @@ inline void GeoGrid_Person::set_age(::google::protobuf::int64 value) {
   
   age_ = value;
   // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.age)
-}
-
-// string gender = 3;
-inline void GeoGrid_Person::clear_gender() {
-  gender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GeoGrid_Person::gender() const {
-  // @@protoc_insertion_point(field_get:proto.GeoGrid.Person.gender)
-  return gender_.GetNoArena();
-}
-inline void GeoGrid_Person::set_gender(const ::std::string& value) {
-  
-  gender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:proto.GeoGrid.Person.gender)
-}
-#if LANG_CXX11
-inline void GeoGrid_Person::set_gender(::std::string&& value) {
-  
-  gender_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:proto.GeoGrid.Person.gender)
-}
-#endif
-inline void GeoGrid_Person::set_gender(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  gender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:proto.GeoGrid.Person.gender)
-}
-inline void GeoGrid_Person::set_gender(const char* value, size_t size) {
-  
-  gender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:proto.GeoGrid.Person.gender)
-}
-inline ::std::string* GeoGrid_Person::mutable_gender() {
-  
-  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Person.gender)
-  return gender_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GeoGrid_Person::release_gender() {
-  // @@protoc_insertion_point(field_release:proto.GeoGrid.Person.gender)
-  
-  return gender_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GeoGrid_Person::set_allocated_gender(::std::string* gender) {
-  if (gender != nullptr) {
-    
-  } else {
-    
-  }
-  gender_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), gender);
-  // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Person.gender)
 }
 
 // -------------------------------------------------------------------
