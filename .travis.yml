@@ -142,7 +142,7 @@ install:
     fi
 
 script:
-  - make all && if [[ "$MAKE_TEST" = "true" ]]; then make test && cat tests/gtester_logger.txt; fi
+  - make all && if [[ "$MAKE_TEST" = "true" ]]; then make test; fi
 
 after_success:
     # Generate the docs only if master, the travis_build_docs is true and we can use secure variables
