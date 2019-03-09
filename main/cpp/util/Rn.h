@@ -90,7 +90,7 @@ public:
         void Initialize(const Info& info);
 
         /// Is this een empty (i.e. non-initialized Rn)?
-        bool IsInitialized() const { return ContainerType::empty() || (m_stream_count == 0U); }
+        bool IsEmpty() const { return ContainerType::empty() || (m_stream_count == 0U); }
 
 private:
         /// Actual first-time seeding. Procedure varies according to engine type, see specialisations.
