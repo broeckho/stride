@@ -13,7 +13,7 @@ Lars Van Roy\inst{2} \and \\
 Evelien Daems\inst{3} \and
 Frank Jan Fekkes\inst{4}}
 %
-\authorrunning{F. Author et al.}
+\authorrunning{B. Vandersmissen, L. Van Roy, E. Daems, F.J. Fekkes}
 % First names are abbreviated in the running head.
 % If there are more than two authors, 'et al.' is used.
 %
@@ -28,7 +28,7 @@ Frank Jan Fekkes\inst{4}}
 \begin{abstract}
 In this paper we will examine the Stride tool and discover its functionalities.
 We will discuss some findings about the use of different parameters, populations and more.
-In the end there is a briefly discussion of the performance of the program, a very important topic within computer related problems.
+In the end there is a brief discussion of the performance of the program, a very important topic within computer related problems.
 
 %\keywords{First keyword  \and Second keyword \and Another keyword.}
 \end{abstract}
@@ -37,9 +37,9 @@ In the end there is a briefly discussion of the performance of the program, a ve
 
 \subsection{Stochastic variation}
 We use the Stan (STochatsic ANalysis) controller to examine the influence of stochasticity on the results obtained from the simulation. \newline
-In Figure \ref{fig1} the number of cummulatice cases per time-step is plotted. Here we can observe an exponantial grow of the number of cases througout time. This is not surprisingly because it can be deducted from common reason. If per time more people are affected, a larger contactpool is possibly infected. These people who are now new carriers of the disease will enter their personal contactpool and again more people will be reached.\\
-Towards the end a flattening of the curve occurs. This can be explained because the population is obviously not infinite. At one point anyone who can be infected will effectively become a carrier of the disease. \newline
-The same explanation can explain the curve in Figure \ref{fig2}. Now the cases are not the cummulative ones but the number of new cases in each time-step. A similar course of the curve can be observed.
+In Figure \ref{fig1} the number of cummulative cases per time-step is plotted. Here we can observe an exponential grow of the number of cases througout time. This is not surprisingly because it can be deducted from common reasoning. If per time more people are affected, a larger contactpool is possibly infected. These people who are now new carriers of the disease will enter their personal contactpool and again more people will be reached.\\
+Towards the end a flattening of the curve occurs. This is not something totally unexpected because the population is obviously not infinite. At one point anyone who can be infected will effectively become a carrier of the disease. \newline
+The same reasoning can explain the curve in Figure \ref{fig2}. Now the cases are not the cummulative ones but the number of new cases in each time-step. A similar course of the curve can be observed.
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{fig1.png}
@@ -78,13 +78,13 @@ It should be noted that this threshold will change for al lot of variables. Vari
 \subsection{Vaccinating on campus}
 \newpage
 \subsection{Is commuting to work important for disease spread?}
-One could easily assume that working at a different location affects the rate at which a disease spreads, as it enhances it's reach. In a first simulation I generated simulations for 5 different commuting percentages. As you can clearly see, it does affect the rate at which the disease spreads, but it has no, or little, effect on whether the disease does or does not spread. In all cases, the entire population got the disease, be it that it took a few days longer to get to that point. Another thing we can remark is that the highest "peak" of newly diseased people is lower the lower the commuting factor gets. A possible cause of the lac of serious effect can come from the fact there are a lot of college commuters who will have the same effect as the workplace commuters. 
+One could easily assume that working at a different location affects the rate at which a disease spreads, as it enhances it's reach. In a first simulation we generated simulations for 5 different commuting percentages. As you can clearly see, it does affect the rate at which the disease spreads, but it has no, or little, effect on whether the disease does or does not spread. In all cases, the entire population got the disease, be it that it took a few days longer to get to that point. Another thing we can remark is that the highest "peak" of newly diseased people is lower the lower the commuting factor gets. A possible cause of the lack of serious effect can come from the fact there are a lot of college commuters who will have the same effect as the workplace commuters. 
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_0-100.png}
 	\caption{Results of 6 different percentages of commuters in a range from 0 to 100.}
 \end{figure}
 \newpage
-If you watch the top of the graph, you can see that from a certain fraction and onwards, there is little to no difference in their behavior. To get a better view I graphed a closeup of percentages between 30 and 70. In the next graph you can see that the peeks are almost equally as high. You can even notice that some of the higher percentages have their peeks later then the ones with a lower percentage. 
+If you watch the top of the graph, you can see that from a certain fraction and onwards, there is little to no difference in their behavior. To get a better view we graphed a closeup of percentages between 30 and 70. In the next graph you can see that the peeks are almost equally in height. You can even notice that some of the higher percentages have their peeks later then the ones with a lower percentage. 
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_30-70.png}
 	\caption{Results of 5 different percentages of commuters in a range from 30 to 70.}
@@ -93,7 +93,7 @@ If you watch the top of the graph, you can see that from a certain fraction and 
 Considering the recorded data we can see that solely changing the percentage of people who commute to work will not affect the spreading of disease in a significant manner. The disease will still spread all the same, but at a slower pace. 
 \newpage
 \section{Performance profiling of sequential code}
-To study the performance of the code we will discuss a few parameters.
+To study the performance of the code we will discuss a few parameters. We used the GPROF tool to profile the code. Based on these result we could see the influence of different parameters on the runtime.
 \\
 First we will choose a random number of days to run a simulation and look at the time needed to complete the algorithm.
 
@@ -110,10 +110,26 @@ First we will choose a random number of days to run a simulation and look at the
 	\end{tabular}
 \end{center}
 
-As could be expected, there is an increase in execution time when we take a larger amount of days. But surprisingly enough is the simulation even with 1000 days rapidly. This is because after a period of time everyone will be infected and thus no further computation is necessary for the remaining amount of days. Only increasing the number of days will not make a difference in the performance of the simulation.
+As could be expected, there is an increase in execution time when we take a larger amount of days. But surprisingly enough is the simulation even with 1000 days rapidly. This is because after a period of time everyone will be infected and thus no further computation is necessary for the remaining amount of days. Only increasing the number of days will not make a difference in the performance of the simulation.\\
 
-IMMUNITY\\
-(days = 50)
+Next, we vary the parameter of population size. From the following table it is clear that the larger the population the longer the simulation needs to finish. From the GPROF analysis we notice that the most work is done in getting the count of the infected.
+
+\begin{center}
+	\begin{tabular}{ | c | c |}
+		\hline
+		Population size & Time needed \\ \hline
+		500 & 00:00:00:332:810 \\ \hline
+		1000 & 00:00:00:348:895 \\ \hline
+		10000 & 00:00:00:315:920 \\ \hline
+		50000 & 00:00:00:472:412 \\ \hline
+		100000 & 00:00:00:677:304 \\
+		\hline	
+	\end{tabular}
+\end{center} 
+ 
+
+Varying the immunity rate, there is not a significant difference in runtime for different configurations. In order for this variable to have an influence on the final result, it is necessary to give other parameters different values.
+
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
@@ -127,8 +143,32 @@ IMMUNITY\\
 	\end{tabular}
 \end{center} 
 
-Varying the immunity rate, there is not a significant difference in runtime for different configurations.
 
-When
+SEEDING\\...
+\begin{center}
+	\begin{tabular}{ | c | c |}
+		\hline
+		Seeding rate & Time needed \\ \hline
+		0.000001 & 00:00:04:684:663 \\ \hline
+		0.00001 & 00:00:04:568:581 \\ \hline
+		0.0001 & 00:00:04:525:856 \\ \hline
+		0.001 & 00:00:04:810:693 \\ \hline
+		0.01 & 00:00:05:369:309 \\
+		\hline	
+	\end{tabular}
+\end{center} 
+
+The contact log mode has a significant impact on the running time of a simulation. When the standard algorithm is used (all or susceptibles) it requires a lot more time to complete the simulation. It forms a large contrast with the running time needed when using the optimized algorithm with all the members of the contact pool sorted. By reducing the number of loops in the algorithms the necessary time to complete the algorithmcan be reduced with it.
+\begin{center}
+	\begin{tabular}{ | c | c |}
+		\hline
+		Contact log mode & Time needed \\ \hline
+		All & 00:16:09:012:346 \\ \hline
+		Susceptibles & 00:16:48:490:700 \\ \hline
+		None & 00:00:06:609:545 \\ \hline
+		Transmissions & 00:00:06:747:454 \\
+		\hline	
+	\end{tabular}
+\end{center} 
 
 \end{document}
