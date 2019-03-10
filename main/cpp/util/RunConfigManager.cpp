@@ -42,7 +42,7 @@ void RunConfigManager::CleanConfigFile(ptree pt)
         pt.sort();
         const string sha1  = RunConfigManager::ToShortSha1(pt);
         const string fName = sha1 + ".xml";
-        cerr << "Rewriting config to file " << fName << " in current directory." << endl;
+        cout << "Rewriting config to file " << fName << " in current directory." << endl;
         FileSys::WritePtreeFile(fName, pt);
 }
 

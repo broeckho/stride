@@ -53,19 +53,8 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         sim->m_calendar                      = make_shared<Calendar>(m_config);
         sim->m_contact_log_mode = ContactLogMode::ToMode(m_config.get<string>("run.contact_log_level", "None"));
 
-        // TODO given to flow of execution afaik this ought to be redundant and on mac it is,
-        // but on linux the python scrypts are crashing so I'm trying this hack ...
-        //if (sim->m_rn_manager.IsEmpty()) {
-                //sim->m_rn_manager.Initialize(
-                //        RnMan::Info{m_config.get<string>("run.rng_seed", "1,2,3,4"), "", sim->m_num_threads});
-                //cerr << "REALLY!!! I DO NOT GET IT!!!!" << endl;
-        //} else {
-                //cerr << "WELL< WELL< WELL!" << endl;
-        //}
-        //cerr << sim->m_rn_manager.GetInfo() << endl;
-        //sim->m_rn_manager.GetInfo();
-        //sim->m_rn_manager.Initialize(
-        //        RnMan::Info{m_config.get<string>("run.rng_seed", "1,2,3,4"), "", sim->m_num_threads});
+        // TODO this ought to be redundant and on mac it is, but on linux python scripts crash if it ins't there
+        sim->m_rn_manager.GetInfo();
 
         // --------------------------------------------------------------
         // Contact handlers, each with generator bound to different

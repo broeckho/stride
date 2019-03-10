@@ -40,27 +40,18 @@ GeoGridConfig::GeoGridConfig(const ptree& configPt) : GeoGridConfig()
 
 ostream& operator<<(ostream& out, const GeoGridConfig& config)
 {
-        const int width = 53;
-        out << left << "Input:" << endl;
-        out << left << setw(width) << "Fraction college commuters:" << config.input.fraction_college_commuters << endl;
-        out << left << setw(width) << "Fraction workplace commuters:" << config.input.fraction_workplace_commuters
-            << endl;
-
-        out << left << setw(width) << "Participation fraction of college:" << config.input.participation_college
-            << endl;
-        out << left << setw(width) << "Participation fraaction of workplace:" << config.input.particpation_workplace
-            << endl;
-
-        out << left << setw(width) << "Target population size" << intToDottedString(config.input.pop_size) << endl;
-        out << endl;
-
-        out << left << "Calculated:" << endl;
-        out << left << setw(width)
-            << "Number of K12School students:" << intToDottedString(config.popInfo.popcount_k12school) << endl;
-        out << left << setw(width)
-            << "Number of college students:" << intToDottedString(config.popInfo.popcount_college) << endl;
-        out << left << setw(width)
-            << "Number of people with workplace:" << intToDottedString(config.popInfo.popcount_workplace) << endl;
+        const int w = 53;
+        out.setf(std::ios_base::left, std::ios_base::adjustfield);
+        out << "Input:" << endl;
+        out << setw(w) << "Fraction college commuters:" << config.input.fraction_college_commuters << "\n";
+        out << setw(w) << "Fraction workplace commuters:" << config.input.fraction_workplace_commuters << "\n";
+        out << setw(w) << "Participation fraction of college:" << config.input.participation_college << "\n";
+        out << setw(w) << "Participation fraaction of workplace:" << config.input.particpation_workplace << "\n";
+        out << setw(w) << "Target population size" << intToDottedString(config.input.pop_size) << "\n" << "\n";
+        out << "Calculated:" << "\n";
+        out << setw(w) << "K12School student count:" << intToDottedString(config.popInfo.popcount_k12school) << "\n";
+        out << setw(w) << "College student count:" << intToDottedString(config.popInfo.popcount_college) << "\n";
+        out << setw(w) << "Workplace person count:" << intToDottedString(config.popInfo.popcount_workplace) << "\n";
         out << endl;
         return out;
 }
