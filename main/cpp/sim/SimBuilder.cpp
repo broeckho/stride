@@ -64,8 +64,8 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         }
         cerr << sim->m_rn_manager.GetInfo() << endl;
 
-        sim->m_rn_manager.Initialize(
-                RnMan::Info{m_config.get<string>("run.rng_seed", "1,2,3,4"), "", sim->m_num_threads});
+        //sim->m_rn_manager.Initialize(
+        //        RnMan::Info{m_config.get<string>("run.rng_seed", "1,2,3,4"), "", sim->m_num_threads});
 
         // --------------------------------------------------------------
         // Contact handlers, each with generator bound to different
