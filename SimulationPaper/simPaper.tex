@@ -138,6 +138,9 @@ First we will choose a random number of days to run a simulation and look at the
 \\
 As could be expected, there is an increase in execution time when we take a larger amount of days. The number of days determines the number of loops in a simulation, hence this logically affects the needed time for a simulation by quite a big margin. This parameter will cause the largest change in perfomace in comparison with the other ones.
 
+\begin{table}
+	\caption{Relation between the number of days and the runtime}
+
 \begin{center}
 	\begin{tabular}{ | c | c |}
 	\hline
@@ -150,10 +153,13 @@ As could be expected, there is an increase in execution time when we take a larg
 	\hline	
 	\end{tabular}
 \end{center}
+\end{table}
 
 \noindent
 Next, we vary the parameter of population size. From the following table it is clear that the larger the population the longer the simulation needs to finish. From the GPROF analysis we notice that the most work is done in getting the count of the infected. It can be said that the size of the population delivers the most influence on the total time. One can argue that the number of days had the most impact but it is not completely realistc to study outbreaks over a number of years what takes up the most computation time. A larger population is more common than a large number of days.
 
+\begin{table}
+	\caption{Relation between population size and runtime}
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
@@ -166,9 +172,13 @@ Next, we vary the parameter of population size. From the following table it is c
 		\hline	
 	\end{tabular}
 \end{center} 
+\end{table}
 \newpage
 \noindent
 When varying the immunity rate, there is no significant difference in runtime for different configurations. In order for this variable to have an influence on the final result, it is necessary to give other parameters different values.  As mentioned earlier, most of the time is used to sort and analyze the population, a factor like immunity rate has no effect on this process.
+
+\begin{table}
+	\caption{Relation between immunity rate and runtime}
 
 \begin{center}
 	\begin{tabular}{ | c | c |}
@@ -182,9 +192,12 @@ When varying the immunity rate, there is no significant difference in runtime fo
 		\hline	
 	\end{tabular}
 \end{center}
+\end{table}
  
 \noindent
 Seeding rate has a slight impact, but this impact is minimal. Seeding rate has no effect on the computation needed to sort and analyze the population, which is the major faction in a simulation.
+\begin{table}
+\caption{Rrelation between the seeding rate ans the runtime}
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
@@ -197,9 +210,11 @@ Seeding rate has a slight impact, but this impact is minimal. Seeding rate has n
 		\hline	
 	\end{tabular}
 \end{center} 
+\end{table}
 \noindent
 
 The contact log mode has a significant impact on the running time of a simulation. When the standard algorithm is used (all or susceptibles) it requires a lot more time to complete the simulation. It forms a large contrast with the running time needed when using the optimized algorithm with all the members of the contact pool sorted. By reducing the number of loops in the algorithms the necessary time to complete the algorithm can be reduced along with it.
+
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
@@ -211,9 +226,5 @@ The contact log mode has a significant impact on the running time of a simulatio
 		\hline	
 	\end{tabular}
 \end{center}
-
-
-
-
 
 \end{document}
