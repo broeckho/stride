@@ -36,54 +36,60 @@ In the end there is a brief discussion of the performance of the program, a very
 \section{Simulation}
 
 \subsection{Stochastic variation}
-We use the Stan (STochatsic ANalysis) controller to examine the influence of stochasticity on the results obtained from the simulation. \newline
-In Figure \ref{fig1} the number of cummulative cases per time-step is plotted. Here we can observe an exponential grow of the number of cases througout time. This is not surprisingly because it can be deducted from common reasoning. If per time more people are affected, a larger contactpool is possibly infected. These people who are now new carriers of the disease will enter their personal contactpool and again more people will be reached.\\
-Towards the end a flattening of the curve occurs. This is not something totally unexpected because the population is obviously not infinite. At one point anyone who can be infected will effectively become a carrier of the disease. \newline
+We use the Stan (STochatsic ANalysis) controller to examine the influence of stochasticity on the results obtained from the simulation. \\ \\
+In Figure \ref{fig1} the number of cummulative cases per time-step is plotted. Here we can observe an exponential grow of the number of cases througout time. This is not surprisingly because it can be deducted from common reasoning. If per time more people are affected, a larger contactpool is possibly infected. These people who are now new carriers of the disease will enter their personal contactpool and again more people will be reached.\\ \\
+Towards the end a flattening of the curve occurs. This is not something totally unexpected because the population is obviously not infinite. At one point anyone who can be infected will effectively become a carrier of the disease.\\ \\
 The same reasoning can explain the curve in Figure \ref{fig2}. Now the cases are not the cummulative ones but the number of new cases in each time-step. A similar course of the curve can be observed.
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{fig1.png}
 	\caption{Result of a number of stochastic runs. The figure displays the distribution of the number of cummulative cases per time-step.} 	
 	\label{fig1}
-\end{figure}
 
-\begin{figure}
 	\includegraphics[width=\textwidth]{fig2.png}
 	\caption{Result of a number of stochastic runs. The figure displays the distribution of the number of new cases per time-step.} 
 	\label{fig2}
-\end{figure}
+\end{figure} 
+\newpage
+
 
 \subsection{Determining an extinction threshold}
-In the previous section 1.1 (Stochastic variation) we found that extinction will influence the outcome. It is neccessary to be able to exclusively look at outbreaks. If we can find some threshold where there is a clear difference between large outbreaks and extinctions we can seperate the two scenarios. After creating a number (50 - KAN NOG WORDEN AANGEPAST) of simulations we can plot the total number of infected cases and their occurences.  We used the file "stochastic\_analysis.xml" for the simulations. After running the simulator the outcome is plotted in the histogram "extinction\_all.jpg" where the frequency of the amount of infected cases is plotted.\\
-There is a clear distinction between large outbreaks and smaller ones. The smaller ones are again plotted in the second histogram "extinction\_small.jpg". There it can be noticed that small outbreaks are really small (25 maximum). Which can be called an extinction after 500 days. The threshold can be set between than 50 and 25 000. Either of those thresholds should eliminate all extinctions in this case.\\
-A very low threshold might allow some extinctions to be passed while a high threshold might eliminate an outbreak. What can be noticed is the total lack of simulations between 100 and 25000 infected cases. But there can still be exceptions in the infected cases. A threshold of 1000 would be more than adequate. It will eliminate all extinctions while keeping the outbreaks.\\
+In the previous section 1.1 (Stochastic variation) we found that extinction will influence the outcome. It is neccessary to be able to exclusively look at outbreaks. If we can find some threshold where there is a clear difference between large outbreaks and extinctions we can seperate the two scenarios.\\ \\
+After creating a number of simulations we can plot the total number of infected cases and their occurences.  We used the file "stochastic\_analysis.xml" for the simulations. After running the simulator the outcome is plotted in the histogram in Figure \ref{fig3} where the frequency of the amount of infected cases is plotted.\\ \\
+There is a clear distinction between large outbreaks and smaller ones. The smaller ones are again plotted in the second histogram "extinction\_small.jpg". There it can be noticed that small outbreaks are really small (25 maximum). Which can be called an extinction after 500 days. The threshold can be set between than 50 and 25 000. Either of those thresholds should eliminate all extinctions in this case.\\ \\
+A very low threshold might allow some extinctions to be passed while a high threshold might eliminate an outbreak. What can be noticed is the total lack of simulations between 100 and 25000 infected cases. But there can still be exceptions in the infected cases. A threshold of 1000 would be more than adequate. It will eliminate all extinctions while keeping the outbreaks.\\ \\
 It should be noted that this threshold will change for al lot of variables. Variables like time and population will affect the threshold. A new threshold should be determined for each simulation.
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{extinction_all.jpg}	
+	\caption{}
 	\label{fig3}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=\textwidth]{extinction_small.jpg}	
+	
+	\includegraphics[width=\textwidth]{extinction_small.jpg}
+	\caption{}	
 	\label{fig4}
 \end{figure}
-
+\newpage
 
 \subsection{Estimating the immunity level}
 \subsection{Estimating R\textsubscript{0}}
 
 \section{Population generation}
+
 \subsection{Investigating the influence of demography on epidemics}
+
 \subsection{Vaccinating on campus}
 \newpage
+
 \subsection{Is commuting to work important for disease spread?}
 One could easily assume that working at a different location affects the rate at which a disease spreads, as it enhances it's reach. In a first simulation we generated simulations for 5 different commuting percentages. As you can clearly see, it does affect the rate at which the disease spreads, but it has no, or little, effect on whether the disease does or does not spread. In all cases, the entire population got the disease, be it that it took a few days longer to get to that point. Another thing we can remark is that the highest "peak" of newly diseased people is lower the lower the commuting factor gets. A possible cause of the lack of serious effect can come from the fact there are a lot of college commuters who will have the same effect as the workplace commuters. 
+
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_0-100.png}
 	\caption{Results of 6 different percentages of commuters in a range from 0 to 100.}
 \end{figure}
 \newpage
+
 If you watch the top of the graph, you can see that from a certain fraction and onwards, there is little to no difference in their behavior. To get a better view we graphed a closeup of percentages between 30 and 70. In the next graph you can see that the peeks are almost equally in height. You can even notice that some of the higher percentages have their peeks later then the ones with a lower percentage. 
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_30-70.png}
@@ -91,6 +97,7 @@ If you watch the top of the graph, you can see that from a certain fraction and 
 \end{figure}
 \\
 Considering the recorded data we can see that solely changing the percentage of people who commute to work will not affect the spreading of disease in a significant manner. The disease will still spread all the same, but at a slower pace. 
+
 \newpage
 \section{Performance profiling of sequential code}
 To study the performance of the code we will discuss a few parameters. We used the GPROF tool to profile the code. Based on these result we could see the influence of different parameters on the runtime.
@@ -126,7 +133,7 @@ Next, we vary the parameter of population size. From the following table it is c
 		\hline	
 	\end{tabular}
 \end{center} 
- 
+
 
 Varying the immunity rate, there is not a significant difference in runtime for different configurations. In order for this variable to have an influence on the final result, it is necessary to give other parameters different values.
 
@@ -169,6 +176,10 @@ The contact log mode has a significant impact on the running time of a simulatio
 		Transmissions & 00:00:06:747:454 \\
 		\hline	
 	\end{tabular}
-\end{center} 
+\end{center}
+
+
+
+
 
 \end{document}
