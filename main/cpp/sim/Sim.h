@@ -105,7 +105,7 @@ private:
         PublicHealthAgency  m_public_health_agency; ///< Agency to implement reactive strategies.
 
 private:
-        ///< Used when created from the Python environment to prevent it from being destructed.
+        ///< Used when created from the Python environment to prevent rn_manager from being destructed.
         std::shared_ptr<util::RnMan> m_rn_manager_ptr = nullptr;
 };
 
