@@ -92,24 +92,113 @@ As a first approximation we performed 10 simulations with immunity levels rangin
 By dropping all percentages lower then 60 and higher then 90\% we get the following graph, this graph is a lot closer to the desired graph (since the highest number of new cases is now only 350 compared to over 6000), but is still far from accurate. We can now see that the desired immunity rate should lie somewhere between 70 and 80\% as 70 is too high and 80 is too low.
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_immunity_70-80.png}
-	\caption{first estimate of outbreaks}
+	\caption{narrowed down estimate of outbreaks}
 \end{figure}
 
 \newpage
 \noindent
-Finally, we zoom in between 70 and 75\% and we can see that the immunity percentage is somewhere around the 72 an 73\% mark. the 73\% evolution approaches the desired graph but then halts at the end of it's domain, the 72\% immunity graph has the same evolution as the desired graph, but is a little bit too high at the end.
+Finally, we zoom in between 70 and 75\% and we can see that the immunity percentage is somewhere around the 70\% mark. Curiously enough, with an immunity rate of 71\% and an average of 5 simulations, there are more infected than with an immunity rate of 70\%. The only problem with this 70 \% graph is that there is a sudden drop in infections around day 45 while the original graph doesn't feature that drop.
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_immunity_70-75.png}
-	\caption{first estimate of outbreaks}
+	\caption{final estimate of outbreaks based on an average of 5 simulations}
 \end{figure}
 \newpage
 
 \subsection{Estimating R\textsubscript{0}}
+Here, we need to approximate the same graph but now he have to use an extra parameter, R\textsubscript{0}, the basic reproduction number of a disease, indicating how many people a single infected person will infect on average.
 
+A first estimate is done with the same immunity rate found in the previous experiment and R0 in all possible values. We should expect that a lower R0 will result in a lower amount of infections. We will then try to replicate the correct immunity rate for each R0 and try to determine which graph fits the best.
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{test_R0_immunity_70.png}
+	\caption{simulations with an immunity rate of 70\%}
+\end{figure}
+
+\newpage
+\noindent
+For R0 = 12, the optimal immunity rate is somewhere around 65\%, this will mean that 65\% immunity rate the lower bound is for all values of R0 if we want to find the same graph.
+\begin{figure}
+	\includegraphics[width=\textwidth]{test_R0_12.png}
+	\caption{simulations with R0=12}
+\end{figure}
+
+\newpage
+\noindent
+For R0 = 13, the estimated immunity rate is around 68\%.
+\begin{figure}
+	\includegraphics[width=\textwidth]{test_R0_13.png}
+	\caption{simulations with R0=13}
+\end{figure}
+
+\newpage
+\noindent
+For R0 = 14, the estimated immunity rate is around 69\%.
+\begin{figure}
+	\includegraphics[width=\textwidth]{test_R0_14.png}
+	\caption{simulations with R0=14}
+\end{figure}
+
+\newpage
+\noindent
+
+For R0 = 15, we already know from the previous section that the estimated immunity rate is 70\%, so we don't need to recompute that one.
+
+For R0 = 16, the best fit seeems to be with an immunity rate of 73\%.
+\begin{figure}
+	\includegraphics[width=\textwidth]{test_R0_16.png}
+	\caption{simulations with R0=16}
+\end{figure}
+
+\newpage
+\noindent
+
+For R0 = 17, it seems to be that an immunity rate of 74\%  gives the best results.
+\begin{figure}
+	\includegraphics[width=\textwidth]{test_R0_17.png}
+	\caption{simulations with R0=17}
+\end{figure}
+
+\newpage
+\noindent
+
+For R0 = 18, it seems to be that an immunity rate of 76\%  gives the best results.
+\begin{figure}
+	\includegraphics[width=\textwidth]{test_R0_18.png}
+	\caption{simulations with R0=18}
+\end{figure}
+
+\newpage
+\noindent
+
+Generally speaking, the immunity rate is dependent of the parameter R0, which is to be expected. However, the parameter R0 doesn't seem to matter that much because the immunity rates are still pretty close to eachother.
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{test_R0_final.png}
+	\caption{5 simulations for found immunity values} 
+\end{figure}
+
+\newpage
+\noindent
 \section{Population generation}
 
 \subsection{Investigating the influence of demography on epidemics}
+We generate populations for two regions with different age distributions. We need to find which region is more likely to have an outbreak, region A, which has more younger people or region B, which has more elderly people. One might assume that the older region will have more chance because of the lower immunity the elderly might have.
 
+In case of population A there is around a 78\% chance for an outbreak to occur, in the simulations with population B there is 80\% chance for an outbreak. Population B is the younger population in respect to population A, this means that an older population does mean an increase in the likelihood of an outbreak, though it isn't an enormous difference. This difference might even be an statistical error.
+
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{outbreaks_populationA.png}
+	\includegraphics[width=\textwidth]{barchart_populationA.png}
+	\caption{Results of 50 simulations with population A}
+\end{figure}
+\begin{figure}
+	\includegraphics[width=\textwidth]{outbreaks_populationB.png}
+	\includegraphics[width=\textwidth]{barchart_populationB.png}
+	\caption{Results of 50 simulations with population B}
+\end{figure}
+\newpage
+\noindent
 \subsection{Vaccinating on campus}
 \newpage
 
