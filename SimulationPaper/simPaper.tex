@@ -89,7 +89,7 @@ As a first approximation we performed 10 simulations with immunity levels rangin
 
 \newpage
 \noindent
-By dropping all percentages lower then 60 and higher then 90\% we get the following graph, this graph is a lot closer to the desired graph (since the highest number of new cases is now only 350 compared to over 6000), but is still far from accurate. We can now see that the desired immunity rate should lie somewhere between 70 and 80\% as 70 is too high and 80 is too low.
+By dropping all percentages lower than 60 and higher than 90\% we get the following graph, this graph is a lot closer to the desired graph (since the highest number of new cases is now only 350 compared to over 6000), but is still far from accurate. We can now see that the desired immunity rate should lie somewhere between 70 and 80\% as 70 is too high and 80 is too low.
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_immunity_70-80.png}
 	\caption{narrowed down estimate of outbreaks}
@@ -106,8 +106,10 @@ Finally, we zoom in between 70 and 75\% and we can see that the immunity percent
 
 \subsection{Estimating R\textsubscript{0}}
 Here, we need to approximate the same graph but now he have to use an extra parameter, R\textsubscript{0}, the basic reproduction number of a disease, indicating how many people a single infected person will infect on average.
-
-A first estimate is done with the same immunity rate found in the previous experiment and R0 in all possible values. We should expect that a lower R0 will result in a lower amount of infections. We will then try to replicate the correct immunity rate for each R0 and try to determine which graph fits the best.
+\\
+\\
+\noindent
+A first estimate is done with the same immunity rate found in the previous experiment and R0 varying between 12 and 18. We should expect that a lower R0 will result in a lower amount of infections. We will then try to replicate the correct immunity rate for each R0 and try to determine which graph fits the best.
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_R0_immunity_70.png}
@@ -116,7 +118,7 @@ A first estimate is done with the same immunity rate found in the previous exper
 
 \newpage
 \noindent
-For R0 = 12, the optimal immunity rate is somewhere around 65\%, this will mean that 65\% immunity rate the lower bound is for all values of R0 if we want to find the same graph.
+For R0 = 12, the optimal immunity rate is somewhere around 65\%, this will mean that 65\% immunity rate is the lower bound for all values of R0 if we want to find the same graph.
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_R0_12.png}
 	\caption{simulations with R0=12}
@@ -140,9 +142,10 @@ For R0 = 14, the estimated immunity rate is around 69\%.
 
 \newpage
 \noindent
-
 For R0 = 15, we already know from the previous section that the estimated immunity rate is 70\%, so we don't need to recompute that one.
-
+\\
+\\
+\noindent
 For R0 = 16, the best fit seeems to be with an immunity rate of 73\%.
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_R0_16.png}
@@ -151,7 +154,6 @@ For R0 = 16, the best fit seeems to be with an immunity rate of 73\%.
 
 \newpage
 \noindent
-
 For R0 = 17, it seems to be that an immunity rate of 74\%  gives the best results.
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_R0_17.png}
@@ -160,7 +162,6 @@ For R0 = 17, it seems to be that an immunity rate of 74\%  gives the best result
 
 \newpage
 \noindent
-
 For R0 = 18, it seems to be that an immunity rate of 76\%  gives the best results.
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_R0_18.png}
@@ -169,7 +170,6 @@ For R0 = 18, it seems to be that an immunity rate of 76\%  gives the best result
 
 \newpage
 \noindent
-
 Generally speaking, the immunity rate is dependent of the parameter R0, which is to be expected. However, the parameter R0 doesn't seem to matter that much because the immunity rates are still pretty close to eachother.
 
 \begin{figure}
@@ -183,8 +183,10 @@ Generally speaking, the immunity rate is dependent of the parameter R0, which is
 
 \subsection{Investigating the influence of demography on epidemics}
 We generate populations for two regions with different age distributions. We need to find which region is more likely to have an outbreak, region A, which has more younger people or region B, which has more elderly people. One might assume that the older region will have more chance because of the lower immunity the elderly might have.
-
-In case of population A there is around a 78\% chance for an outbreak to occur, in the simulations with population B there is 80\% chance for an outbreak. Population B is the younger population in respect to population A, this means that an older population does mean an increase in the likelihood of an outbreak, though it isn't an enormous difference. This difference might even be an statistical error.
+\\
+\\
+\noindent
+In case of population A there is around a 78\% chance for an outbreak to occur, in the simulations with population B there is 80\% chance for an outbreak. Population B is the younger population in respect to population A, this means that an older population does mean an increase in the likelihood of an outbreak, though it isn't an enormous difference. This difference might even be a statistical error.
 
 
 \begin{figure}
@@ -241,6 +243,8 @@ First we will choose a random number of days to run a simulation and look at the
 \\
 As could be expected, there is an increase in execution time when we take a larger amount of days. The number of days determines the number of loops in a simulation, hence this logically affects the needed time for a simulation by quite a big margin. This parameter will cause the largest change in perfomace in comparison with the other ones.
 
+\begin{table}
+\caption{Relation between the number of days and the runtime}
 \begin{center}
 	\begin{tabular}{ | c | c |}
 	\hline
@@ -253,10 +257,13 @@ As could be expected, there is an increase in execution time when we take a larg
 	\hline	
 	\end{tabular}
 \end{center}
+\end{table}
 
 \noindent
 Next, we vary the parameter of population size. From the following table it is clear that the larger the population the longer the simulation needs to finish. From the GPROF analysis we notice that the most work is done in getting the count of the infected. It can be said that the size of the population delivers the most influence on the total time. One can argue that the number of days had the most impact but it is not completely realistc to study outbreaks over a number of years what takes up the most computation time. A larger population is more common than a large number of days.
 
+\begin{table}
+	\caption{Relation between population size and runtime}
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
@@ -269,10 +276,13 @@ Next, we vary the parameter of population size. From the following table it is c
 		\hline	
 	\end{tabular}
 \end{center} 
+\end{table}
 \newpage
 \noindent
 When varying the immunity rate, there is no significant difference in runtime for different configurations. In order for this variable to have an influence on the final result, it is necessary to give other parameters different values.  As mentioned earlier, most of the time is used to sort and analyze the population, a factor like immunity rate has no effect on this process.
 
+\begin{table}
+	\caption{Relation between immunity rate and runtime}
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
@@ -285,9 +295,12 @@ When varying the immunity rate, there is no significant difference in runtime fo
 		\hline	
 	\end{tabular}
 \end{center}
+\end{table}
  
 \noindent
 Seeding rate has a slight impact, but this impact is minimal. Seeding rate has no effect on the computation needed to sort and analyze the population, which is the major faction in a simulation.
+\begin{table}
+\caption{Relation between the seeding rate ans the runtime}
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
@@ -300,6 +313,7 @@ Seeding rate has a slight impact, but this impact is minimal. Seeding rate has n
 		\hline	
 	\end{tabular}
 \end{center} 
+\end{table} 
 \noindent
 
 The contact log mode has a significant impact on the running time of a simulation. When the standard algorithm is used (all or susceptibles) it requires a lot more time to complete the simulation. It forms a large contrast with the running time needed when using the optimized algorithm with all the members of the contact pool sorted. By reducing the number of loops in the algorithms the necessary time to complete the algorithm can be reduced along with it.
@@ -320,3 +334,4 @@ The contact log mode has a significant impact on the running time of a simulatio
 
 
 \end{document}
+>>>>>>> 3e41104e62e3e8dae4d64b71cd874b4b10e55a08
