@@ -40,7 +40,7 @@ std::shared_ptr<stride::Sim> CreateSim(const std::string& configString)
 
         auto sim = stride::Sim::Create(config_pt, population, rnMan);
 
-        cerr << "SIM CREATED!! --------------" << endl;
+        //cerr << "SIM CREATED!! --------------" << endl;
 
         return sim;
 }
