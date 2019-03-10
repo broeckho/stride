@@ -104,7 +104,7 @@ To study the performance of the code we will discuss a few parameters. We used t
 \\
 First we will choose a random number of days to run a simulation and look at the time needed to complete the algorithm. \\ 
 \\
-As could be expected, there is an increase in execution time when we take a larger amount of days. The number of days determines the number of loops in a simulation, hence this logically affects the needed time for a simulation by quit a big margin.
+As could be expected, there is an increase in execution time when we take a larger amount of days. The number of days determines the number of loops in a simulation, hence this logically affects the needed time for a simulation by quite a big margin. This parameter will cause the largest change in perfomace in comparison with the other ones.
 
 \begin{center}
 	\begin{tabular}{ | c | c |}
@@ -120,7 +120,7 @@ As could be expected, there is an increase in execution time when we take a larg
 \end{center}
 
 \noindent
-Next, we vary the parameter of population size. From the following table it is clear that the larger the population the longer the simulation needs to finish. From the GPROF analysis we notice that the most work is done in getting the count of the infected. 
+Next, we vary the parameter of population size. From the following table it is clear that the larger the population the longer the simulation needs to finish. From the GPROF analysis we notice that the most work is done in getting the count of the infected. It can be said that the size of the population delivers the most influence on the total time. One can argue that the number of days had the most impact but it is not completely realistc to study outbreaks over a number of years what takes up the most computation time. A larger population is more common than a large number of days.
 
 \begin{center}
 	\begin{tabular}{ | c | c |}
@@ -130,7 +130,7 @@ Next, we vary the parameter of population size. From the following table it is c
 		50000 & 00:00:00:384:852 \\ \hline
 		100000 & 00:00:00:692:577 \\ \hline
 		600000 & 00:00:04:006:424 \\ \hline
-		100000 & 00:00:06:608:558 \\
+		1000000 & 00:00:06:608:558 \\
 		\hline	
 	\end{tabular}
 \end{center} 
@@ -149,7 +149,8 @@ When varying the immunity rate, there is no significant difference in runtime fo
 		0.99 & 00:00:04:921:399 \\
 		\hline	
 	\end{tabular}
-\end{center} 
+\end{center}
+ 
 \noindent
 Seeding rate has a slight impact, but this impact is minimal. Seeding rate has no effect on the computation needed to sort and analyze the population, which is the major faction in a simulation.
 \begin{center}
@@ -165,7 +166,8 @@ Seeding rate has a slight impact, but this impact is minimal. Seeding rate has n
 	\end{tabular}
 \end{center} 
 \noindent
-The contact log mode has a significant impact on the running time of a simulation. When the standard algorithm is used (all or susceptibles) it requires a lot more time to complete the simulation. It forms a large contrast with the running time needed when using the optimized algorithm with all the members of the contact pool sorted. By reducing the number of loops in the algorithms the necessary time to complete the algorithmcan be reduced with it.
+
+The contact log mode has a significant impact on the running time of a simulation. When the standard algorithm is used (all or susceptibles) it requires a lot more time to complete the simulation. It forms a large contrast with the running time needed when using the optimized algorithm with all the members of the contact pool sorted. By reducing the number of loops in the algorithms the necessary time to complete the algorithm can be reduced along with it.
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
