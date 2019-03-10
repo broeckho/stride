@@ -56,37 +56,20 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                         }
                         p.ParticipateInSurvey();
 
-                        // TODO: create a more elegant solution
-                        // - gengeopop population ==>> unique pool id over all pool types, so ID != index in
-                        // poolType-vector
-                        // - default population   ==>> unique pool id per pool type, so ID == index in
-                        // poolType-vector
-                        if (p.GetPoolId(Id::SecondaryCommunity) < poolSys[Id::SecondaryCommunity].size()) {
-                                const auto h = p.GetHealth();
-                                logger->info(
-                                    "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
-                                    p.GetId(), p.GetAge(), p.GetPoolId(Id::Household),
-                                    p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
-                                    p.GetPoolId(Id::Workplace), h.IsSusceptible(), h.IsInfected(), h.IsInfectious(),
-                                    h.IsRecovered(), h.IsImmune(), h.GetStartInfectiousness(), h.GetStartSymptomatic(),
-                                    h.GetEndInfectiousness(), h.GetEndSymptomatic(),
-                                    poolSys[Id::Household][p.GetPoolId(Id::Household)].GetSize(),
-                                    poolSys[Id::K12School][p.GetPoolId(Id::K12School)].GetSize(),
-                                    poolSys[Id::College][p.GetPoolId(Id::College)].GetSize(),
-                                    poolSys[Id::Workplace][p.GetPoolId(Id::Workplace)].GetSize(),
-                                    poolSys[Id::PrimaryCommunity][p.GetPoolId(Id::PrimaryCommunity)].GetSize(),
-                                    poolSys[Id::SecondaryCommunity][p.GetPoolId(Id::SecondaryCommunity)]
-                                        .GetSize());
-                        } else {
-                                const auto h = p.GetHealth();
-                                logger->info(
-                                    "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
-                                    p.GetId(), p.GetAge(), p.GetPoolId(Id::Household),
-                                    p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
-                                    p.GetPoolId(Id::Workplace), h.IsSusceptible(), h.IsInfected(), h.IsInfectious(),
-                                    h.IsRecovered(), h.IsImmune(), h.GetStartInfectiousness(), h.GetStartSymptomatic(),
-                                    h.GetEndInfectiousness(), h.GetEndSymptomatic(), -1, -1, -1, -1, -1, -1, -1);
-                        }
+                        const auto h = p.GetHealth();
+                        logger->info(
+                            "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
+                            p.GetId(), p.GetAge(), p.GetPoolId(Id::Household),
+                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
+                            p.GetPoolId(Id::Workplace), h.IsSusceptible(), h.IsInfected(), h.IsInfectious(),
+                            h.IsRecovered(), h.IsImmune(), h.GetStartInfectiousness(), h.GetStartSymptomatic(),
+                            h.GetEndInfectiousness(), h.GetEndSymptomatic(),
+                            poolSys[Id::Household][p.GetPoolId(Id::Household)].GetSize(),
+                            poolSys[Id::K12School][p.GetPoolId(Id::K12School)].GetSize(),
+                            poolSys[Id::College][p.GetPoolId(Id::College)].GetSize(),
+                            poolSys[Id::Workplace][p.GetPoolId(Id::Workplace)].GetSize(),
+                            poolSys[Id::PrimaryCommunity][p.GetPoolId(Id::PrimaryCommunity)].GetSize(),
+                            poolSys[Id::SecondaryCommunity][p.GetPoolId(Id::SecondaryCommunity)].GetSize());
 
                         num_samples++;
                 }
