@@ -102,7 +102,9 @@ Considering the recorded data we can see that solely changing the percentage of 
 \section{Performance profiling of sequential code}
 To study the performance of the code we will discuss a few parameters. We used the GPROF tool to profile the code. Based on these result we could see the influence of different parameters on the runtime.
 \\
-First we will choose a random number of days to run a simulation and look at the time needed to complete the algorithm.
+First we will choose a random number of days to run a simulation and look at the time needed to complete the algorithm. \\ 
+\\
+As could be expected, there is an increase in execution time when we take a larger amount of days. The number of days determines the number of loops in a simulation, hence this logically affects the needed time for a simulation by quit a big margin.
 
 \begin{center}
 	\begin{tabular}{ | c | c |}
@@ -117,25 +119,24 @@ First we will choose a random number of days to run a simulation and look at the
 	\end{tabular}
 \end{center}
 
-As could be expected, there is an increase in execution time when we take a larger amount of days. But surprisingly enough is the simulation even with 1000 days rapidly. This is because after a period of time everyone will be infected and thus no further computation is necessary for the remaining amount of days. Only increasing the number of days will not make a difference in the performance of the simulation.\\
-
-Next, we vary the parameter of population size. From the following table it is clear that the larger the population the longer the simulation needs to finish. From the GPROF analysis we notice that the most work is done in getting the count of the infected.
+\noindent
+Next, we vary the parameter of population size. From the following table it is clear that the larger the population the longer the simulation needs to finish. From the GPROF analysis we notice that the most work is done in getting the count of the infected. 
 
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
 		Population size & Time needed \\ \hline
-		500 & 00:00:00:332:810 \\ \hline
-		1000 & 00:00:00:348:895 \\ \hline
-		10000 & 00:00:00:315:920 \\ \hline
-		50000 & 00:00:00:472:412 \\ \hline
-		100000 & 00:00:00:677:304 \\
+		10000 & 00:00:00:183:206 \\ \hline
+		50000 & 00:00:00:384:852 \\ \hline
+		100000 & 00:00:00:692:577 \\ \hline
+		600000 & 00:00:04:006:424 \\ \hline
+		100000 & 00:00:06:608:558 \\
 		\hline	
 	\end{tabular}
 \end{center} 
-
-
-Varying the immunity rate, there is not a significant difference in runtime for different configurations. In order for this variable to have an influence on the final result, it is necessary to give other parameters different values.
+\newpage
+\noindent
+When varying the immunity rate, there is no significant difference in runtime for different configurations. In order for this variable to have an influence on the final result, it is necessary to give other parameters different values.  As mentioned earlier, most of the time is used to sort and analyze the population, a factor like immunity rate has no effect on this process.
 
 \begin{center}
 	\begin{tabular}{ | c | c |}
@@ -149,9 +150,8 @@ Varying the immunity rate, there is not a significant difference in runtime for 
 		\hline	
 	\end{tabular}
 \end{center} 
-
-
-SEEDING\\...
+\noindent
+Seeding rate has a slight impact, but this impact is minimal. Seeding rate has no effect on the computation needed to sort and analyze the population, which is the major faction in a simulation.
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
@@ -164,7 +164,7 @@ SEEDING\\...
 		\hline	
 	\end{tabular}
 \end{center} 
-
+\noindent
 The contact log mode has a significant impact on the running time of a simulation. When the standard algorithm is used (all or susceptibles) it requires a lot more time to complete the simulation. It forms a large contrast with the running time needed when using the optimized algorithm with all the members of the contact pool sorted. By reducing the number of loops in the algorithms the necessary time to complete the algorithmcan be reduced with it.
 \begin{center}
 	\begin{tabular}{ | c | c |}
