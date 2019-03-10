@@ -16,23 +16,22 @@
 
 /**
  * @file
- * Definition of ContactPoolType.
+ * Definition of ContactPool Id Type.
  */
 
 #pragma once
 
-#include <cstddef>
-#include <string>
-
+#include <cstdint>
 #include <iostream>
 #include <iterator>
+#include <string>
 #include <vector>
 
 namespace stride {
 namespace ContactType {
 
 /// Enumerates the ContactPool types.
-enum class Id : std::size_t
+enum class Id : size_t
 {
         Household = static_cast<size_t>(0), // Needs to be zero.
         K12School,

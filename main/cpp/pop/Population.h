@@ -20,6 +20,7 @@
 
 #pragma once
 
+#include "contact/ContactType.h"
 #include "contact/ContactPoolSys.h"
 #include "pop/Person.h"
 #include "util/SegmentedVector.h"
@@ -82,8 +83,8 @@ public:
         std::shared_ptr<geopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
 
 private:
-        ///
-        Population() : m_pool_sys(), m_contact_logger(), m_geoGrid() {}
+        /// Non-trivial default constructor.
+        Population();
 
         friend class DefaultPopBuilder;
         friend class GeoPopBuilder;
@@ -95,7 +96,15 @@ private:
         std::shared_ptr<geopop::GeoGrid> m_geoGrid;        ///< Associated geoGrid may be nullptr.
 
 private:
-        std::size_t m_currentContactPoolId = 1; ///< The contact pool counter for assigning pool IDs.
+        /// The contact pool counters (one per type of pool) for assigning pool IDs. Counters
+        /// generate a non zero UID that's unique per type of pool, so <type, UID> uniquely
+        /// detemines the pool. UID zero means 'NA" e.g. wor[lace UID for a K12school student
+        /// wiil be zero. As a defensive measure, the ContactPoolSys gets initialized with
+        /// (for each type) an empty pool in the vecotor storing the contact pools. As a
+        /// consequence, one has:
+        /// if UID != 0 then ContactPoolsSys[type][UID].GetId() == UID for all type
+        /// the index in the vector with pools is identical to the pool's UID.
+        ContactType::IdSubscriptArray<std::size_t> m_currentContactPoolId;
 };
 
 } // namespace stride
