@@ -29,9 +29,9 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
 {
         m_logger->info("Starting to populate Households");
 
-        auto person_id      = 0U;
-        auto household_dist = m_rn_man.GetUniformIntGenerator(0,
-                static_cast<int>(geoGridConfig.refHH.households.size()), 0U);
+        auto person_id = 0U;
+        auto household_dist =
+            m_rn_man.GetUniformIntGenerator(0, static_cast<int>(geoGridConfig.refHH.households.size()), 0U);
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
                 const vector<shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Household>();

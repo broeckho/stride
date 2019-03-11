@@ -66,17 +66,16 @@ RnInfo Rn<E>::GetInfo() const
 }
 
 template <typename E>
-std::function<double ()> Rn<E>::GetUniform01Generator(unsigned int i)
+std::function<double()> Rn<E>::GetUniform01Generator(unsigned int i)
 {
         return ContainerType::at(i).variate_generator(trng::uniform01_dist<double>());
 }
 
 template <typename E>
-std::function<int ()> Rn<E>::GetUniformIntGenerator(int a, int b, unsigned int i)
+std::function<int()> Rn<E>::GetUniformIntGenerator(int a, int b, unsigned int i)
 {
         return ContainerType::at(i).variate_generator(trng::uniform_int_dist(a, b));
 }
-
 
 template <typename E>
 void Rn<E>::Initialize(const RnInfo& info)

@@ -51,8 +51,8 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
 
                 AssertThrow(!nearByColleges.empty(), "No HighSchool found!", m_logger);
 
-                const auto distNonCommuting = m_rn_man.GetUniformIntGenerator(0,
-                                                                 static_cast<int>(nearByColleges.size()), 0U);
+                const auto distNonCommuting =
+                    m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearByColleges.size()), 0U);
 
                 // 2. find all colleges where students from this location commute to
                 vector<Location*> commutingCollege;
@@ -97,8 +97,8 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                                                         contactPools.insert(contactPools.end(), hs->begin(), hs->end());
                                                 }
 
-                                                auto disPools = m_rn_man.GetUniformIntGenerator(0,
-                                                                         static_cast<int>(contactPools.size()), 0U);
+                                                auto disPools = m_rn_man.GetUniformIntGenerator(
+                                                    0, static_cast<int>(contactPools.size()), 0U);
 
                                                 auto id = disPools();
                                                 contactPools[id]->AddMember(p);

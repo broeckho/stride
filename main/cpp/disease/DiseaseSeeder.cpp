@@ -35,9 +35,7 @@ using namespace stride::ContactType;
 using namespace stride::util;
 using namespace std;
 
-DiseaseSeeder::DiseaseSeeder(const ptree& config, RnMan& rnMan) : m_config(config), m_rn_man(rnMan)
-{
-}
+DiseaseSeeder::DiseaseSeeder(const ptree& config, RnMan& rnMan) : m_config(config), m_rn_man(rnMan) {}
 
 void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
 {
@@ -89,9 +87,8 @@ void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string
                 }
                 immunizer.Random(immunityPools, immunityDistribution, linkProbability);
         } else if (immunizationProfile == "AgeDependent") {
-                const auto immunityFile =
-                    m_config.get<string>("run." + ToLower(immunityType) + "_distribution_file");
-                const ptree& immunity_pt = FileSys::ReadPtreeFile(immunityFile);
+                const auto   immunityFile = m_config.get<string>("run." + ToLower(immunityType) + "_distribution_file");
+                const ptree& immunity_pt  = FileSys::ReadPtreeFile(immunityFile);
 
                 linkProbability = m_config.get<double>("run." + ToLower(immunityType) + "_link_probability");
 

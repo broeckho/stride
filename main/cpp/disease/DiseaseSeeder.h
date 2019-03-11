@@ -50,7 +50,7 @@ private:
                        const util::SegmentedVector<ContactPool>& immunityPools);
 
 private:
-        const boost::property_tree::ptree& m_config;  ///< Run config.
+        const boost::property_tree::ptree& m_config; ///< Run config.
         util::RnMan&                       m_rn_man; ///< Random number manager.
 };
 
