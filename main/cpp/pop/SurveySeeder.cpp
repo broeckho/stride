@@ -21,10 +21,12 @@
 #include "SurveySeeder.h"
 
 #include "pop/Population.h"
+#include "util/Exception.h"
 #include "util/RnMan.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <trng/uniform_int_dist.hpp>
+#include <cassert>
 
 using namespace boost::property_tree;
 using namespace stride::util;
@@ -33,23 +35,27 @@ using namespace std;
 
 namespace stride {
 
-SurveySeeder::SurveySeeder(const ptree& configPt, RnMan& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager) {}
+SurveySeeder::SurveySeeder(const ptree& config, RnMan& rnMan) : m_config(config), m_rn_man(rnMan) {}
 
 shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
 {
-        const string log_level = m_config_pt.get<string>("run.contact_log_level", "None");
-        if (log_level != "None") {
-                Population& population   = *pop;
-                auto&       poolSys      = population.GetContactPoolSys();
-                auto&       logger       = population.GetContactLogger();
-                const auto  max_index    = static_cast<unsigned int>(population.size() - 1);
-                auto        generator    = m_rn_manager[0].variate_generator(trng::uniform_int_dist(0, max_index));
-                const auto  participants = m_config_pt.get<unsigned int>("run.num_participants_survey");
+        const string logLevel = m_config.get<string>("run.contact_log_level", "None");
+        if (logLevel != "None") {
+                Population& population  = *pop;
+                auto&       poolSys     = population.GetContactPoolSys();
+                auto&       logger      = population.GetContactLogger();
+                const auto  popCount    = static_cast<unsigned int>(population.size() - 1);
+                const auto  numSurveyed = m_config.get<unsigned int>("run.num_participants_survey");
+
+                assert( (popCount >= 1U) && "SurveySeeder> Population count zero unacceptable.");
+                assert( (popCount >= numSurveyed) && "SurveySeeder> Pop count has to exceeed number of surveyed.");
 
                 // Use while-loop to get 'participants' unique participants (default sampling is with replacement).
                 // A for loop will not do because we might draw the same person twice.
-                auto num_samples = 0U;
-                while (num_samples < participants) {
+                auto numSamples = 0U;
+                auto generator  = m_rn_man[0].variate_generator(trng::uniform_int_dist(0, static_cast<int>(popCount)));
+
+                while (numSamples < numSurveyed) {
                         Person& p = population[generator()];
                         if (p.IsSurveyParticipant()) {
                                 continue;
@@ -71,7 +77,7 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                             poolSys[Id::PrimaryCommunity][p.GetPoolId(Id::PrimaryCommunity)].GetSize(),
                             poolSys[Id::SecondaryCommunity][p.GetPoolId(Id::SecondaryCommunity)].GetSize());
 
-                        num_samples++;
+                        numSamples++;
                 }
         }
         return pop;
