@@ -54,20 +54,27 @@ def createEffectiveRPlot(outputDir, R0, scenarioNames, scenarioDisplayNames, poo
 def createEffectiveROverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, R0s, poolSize, xLabel, figName, stat="mean"):
     ax = plt.axes(projection="3d")
     colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown']
+    expectedRMeans = []
     z = 0
     for R0 in R0s:
         results = []
+        allExpectedRs = []
         for scenario in scenarioNames:
             scenarioName = str(scenario) + "_R0_" + str(R0)
             seeds = getRngSeeds(outputDir, scenarioName)
             with multiprocessing.Pool(processes=poolSize) as pool:
                 effectiveRs = pool.starmap(getEffectiveR, [(outputDir, scenarioName, s) for s in seeds])
+                expectedRS = pool.starmap(getExpectedR, [(outputDir, R0, scenarioName, s) for s in seeds])
+                allExpectedRs += expectedRS
                 if stat == "mean":
                     results.append(sum(effectiveRs) / len(effectiveRs))
                 elif stat == "median":
                     results.append(statistics.median(effectiveRs))
                 else:
                     print("No valid statistic supplied!")
+        expectedR = sum(allExpectedRs) / len(allExpectedRs)
+        expectedRMeans.append(expectedR)
+        ax.plot(range(len(results)), [expectedR] * len(results), zs=z, zdir="y")
         ax.bar(range(len(results)), results, zs=z, zdir="y", color=colors[z], alpha=0.4)
         z += 1
     ax.set_xlabel(xLabel)
@@ -77,4 +84,5 @@ def createEffectiveROverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
     ax.set_yticks(range(len(R0s)))
     ax.set_yticklabels(R0s)
     ax.set_zlabel("Effective R ({})".format(stat))
+    plt.legend(["Expected R = {0:.3f}".format(r) for r in expectedRMeans])
     saveFig(outputDir, figName, "png")

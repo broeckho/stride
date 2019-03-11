@@ -24,6 +24,7 @@ def createFinalSizesHistogram(outputDir, scenarioNames, scenarioDisplayNames, nu
             finalSizes = pool.starmap(getFinalOutbreakSize,
                                     [(outputDir, scenario, s, numDays) for s in seeds])
             allFinalSizes.append(finalSizes)
+
     colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown']
     n, bins, patches = plt.hist(allFinalSizes,bins=25,histtype="barstacked", color=colors[:len(allFinalSizes)])
     hatches = ['-', '+', 'x', '\\', 'o', '.']
