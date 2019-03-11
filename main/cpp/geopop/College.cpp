@@ -24,7 +24,7 @@ namespace geopop {
 
 void College::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
 {
-        for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_college; ++i) {
+        for (auto i = 0U; i < geoGridConfig.pools.pools_per_college; ++i) {
                 const auto p = geoGrid->CreateContactPool(stride::ContactType::Id::College);
                 RegisterPool(p);
         }

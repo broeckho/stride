@@ -60,7 +60,7 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // Contact handlers, each with generator bound to different
         // random engine stream) and infector.
         // --------------------------------------------------------------
-        for (size_t i = 0; i < sim->m_num_threads; i++) {
+        for (auto i = 0U; i < sim->m_num_threads; i++) {
                 auto gen = sim->m_rn_manager[i].variate_generator(trng::uniform01_dist<double>());
                 sim->m_handlers.emplace_back(ContactHandler(gen));
         }

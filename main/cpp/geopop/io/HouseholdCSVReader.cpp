@@ -44,7 +44,7 @@ void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Hous
                 ref_pools.emplace_back(id++, stride::ContactType::Id::Household);
                 stride::ContactPool* newCP = &ref_pools.back();
 
-                for (std::size_t i = 0; i < 12; i++) {
+                for (unsigned int i = 0; i < 12; i++) {
                         unsigned int age;
                         try {
                                 age = row.GetValue<unsigned int>(i);

@@ -57,7 +57,7 @@ void StanController::Control()
         // -----------------------------------------------------------------------------------------
         // Seeds for the stochastic analysis.
         // -----------------------------------------------------------------------------------------
-        const auto                              stanCount = m_config.get<size_t>("run.stan_count");
+        const auto                              stanCount = m_config.get<unsigned int>("run.stan_count");
         random_device                           rd;
         vector<std::random_device::result_type> seeds;
         for (unsigned int i = 0; i < stanCount; i++) {
