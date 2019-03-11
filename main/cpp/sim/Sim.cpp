@@ -53,7 +53,7 @@ std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& config, shar
                 explicit make_shared_enabler(util::RnMan& rnManager) : Sim(rnManager) {}
         };
         shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnMan);
-        SimBuilder(configPt).Build(sim, std::move(pop));
+        SimBuilder(config).Build(sim, std::move(pop));
         return sim;
 }
 
@@ -65,7 +65,7 @@ std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& config, shar
                 explicit make_shared_enabler(std::shared_ptr<util::RnMan> rnManager) : Sim(std::move(rnManager)) {}
         };
         shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnMan);
-        SimBuilder(configPt).Build(sim, std::move(pop));
+        SimBuilder(config).Build(sim, std::move(pop));
         return sim;
 }
 

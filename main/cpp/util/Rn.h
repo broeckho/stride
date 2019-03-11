@@ -71,8 +71,11 @@ public:
         /// Return the state of the random engines.
         RnInfo GetInfo() const;
 
-        /// Return a generator for uniform  doubles in [0, 1[ using i-th random engine.
-        std::function<double()> GetUniform01Generator(unsigned int i = 0U);
+        /// Return a generator for uniform doubles in [0, 1[ using i-th random engine.
+        std::function<double ()> GetUniform01Generator(unsigned int i = 0U);
+
+        /// Return a generator for uniform ints in [a, b[ (a < b) using i-th random engine.
+        std::function<int ()> GetUniformIntGenerator(int a, int b, unsigned int i = 0U);
 
         /// Initalize with data in Info.
         void Initialize(const RnInfo& info);

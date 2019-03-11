@@ -35,7 +35,7 @@ using namespace std;
 using namespace stride;
 
 Populator::Populator(util::RnMan& rnManager, shared_ptr<spdlog::logger> logger)
-    : m_rnManager(rnManager), m_logger(move(logger))
+    : m_rn_man(rnManager), m_logger(move(logger))
 {
 }
 
@@ -45,7 +45,7 @@ bool Populator::MakeChoice(double fraction)
         weights.push_back(1.0 - fraction); // -> 0, return is false -> not part of the fraction
         weights.push_back(fraction);       // -> 1, return is true -> part of the fraction
 
-        auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        auto dist = m_rn_man[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
         return static_cast<bool>(dist());
 }
 

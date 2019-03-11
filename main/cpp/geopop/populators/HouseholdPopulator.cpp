@@ -21,8 +21,6 @@
 #include "geopop/K12School.h"
 #include "geopop/Location.h"
 
-#include <trng/uniform_int_dist.hpp>
-
 namespace geopop {
 
 using namespace std;
@@ -32,8 +30,8 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         m_logger->info("Starting to populate Households");
 
         auto person_id      = 0U;
-        auto household_dist = m_rnManager[0].variate_generator(trng::uniform_int_dist(
-            0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.refHH.households.size())));
+        auto household_dist = m_rn_man.GetUniformIntGenerator(0,
+                static_cast<int>(geoGridConfig.refHH.households.size()), 0U);
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
                 const vector<shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Household>();

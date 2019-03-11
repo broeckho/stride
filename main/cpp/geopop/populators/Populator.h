@@ -66,7 +66,7 @@ protected:
         bool MakeChoice(double fraction);
 
 protected:
-        stride::util::RnMan&            m_rnManager; ///< RnManager used by populators.
+        stride::util::RnMan&            m_rn_man; ///< RnManager used by populators.
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by populators.
 };
 

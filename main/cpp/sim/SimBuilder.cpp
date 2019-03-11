@@ -36,7 +36,7 @@ using namespace std;
 using namespace util;
 using namespace ContactType;
 
-SimBuilder::SimBuilder(const ptree& configPt) : m_config(configPt) {}
+SimBuilder::SimBuilder(const ptree& config) : m_config(config) {}
 
 shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> pop)
 {

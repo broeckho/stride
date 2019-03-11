@@ -20,8 +20,6 @@
 #include "geopop/Location.h"
 #include "geopop/PrimaryCommunity.h"
 
-#include <trng/uniform_int_dist.hpp>
-
 namespace geopop {
 
 void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
@@ -39,8 +37,7 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const Ge
                 const auto& nearbyPools = GetNearbyPools<PrimaryCommunity>(geoGrid, loc);
 
                 // 2. for every household assign a community
-                const auto dist = m_rnManager[0].variate_generator(
-                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(nearbyPools.size())));
+                const auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearbyPools.size()), 0U);
 
                 for (const auto& household : loc->GetContactCentersOfType<Household>()) {
                         auto contactPool = household->GetPools()[0];

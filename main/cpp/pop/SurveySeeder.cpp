@@ -25,7 +25,6 @@
 #include "util/RnMan.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <trng/uniform_int_dist.hpp>
 #include <cassert>
 
 using namespace boost::property_tree;
@@ -53,7 +52,7 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                 // Use while-loop to get 'participants' unique participants (default sampling is with replacement).
                 // A for loop will not do because we might draw the same person twice.
                 auto numSamples = 0U;
-                auto generator  = m_rn_man[0].variate_generator(trng::uniform_int_dist(0, static_cast<int>(popCount)));
+                auto generator  = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(popCount), 0U);
 
                 while (numSamples < numSurveyed) {
                         Person& p = population[generator()];

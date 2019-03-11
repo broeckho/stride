@@ -23,7 +23,7 @@
 #include "geopop/Location.h"
 #include "geopop/Workplace.h"
 #include "util/Assert.h"
-#include <trng/uniform_int_dist.hpp>
+
 #include <utility>
 
 namespace geopop {
@@ -113,8 +113,7 @@ void WorkplacePopulator::CalculateWorkplacesInCity()
                         contactPools.insert(contactPools.end(), wp->begin(), wp->end());
                 }
 
-                auto disPools = m_rnManager[0].variate_generator(
-                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(contactPools.size())));
+                auto disPools = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(contactPools.size()), 0U);
 
                 m_workplacesInCity[loc.get()] = {contactPools, disPools};
         }
@@ -158,7 +157,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
         }
 
         if (!commutingWeights.empty()) {
-                m_disCommuting = m_rnManager[0].variate_generator(
+                m_disCommuting = m_rn_man[0].variate_generator(
                     trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));
         }
 }
@@ -166,8 +165,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
 void WorkplacePopulator::CalculateNearbyWorkspaces()
 {
         m_nearByWorkplaces = GetNearbyPools<Workplace>(m_geoGrid, m_currentLoc);
-        m_distNonCommuting = m_rnManager[0].variate_generator(
-            trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(m_nearByWorkplaces.size())));
+        m_distNonCommuting = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(m_nearByWorkplaces.size()), 0U);
 }
 
 } // namespace geopop
