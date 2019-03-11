@@ -50,9 +50,9 @@ bool Rn<E>::operator==(const Rn& other)
 }
 
 template <typename E>
-typename Rn<E>::Info Rn<E>::GetInfo() const
+RnInfo Rn<E>::GetInfo() const
 {
-        Info              info;
+        RnInfo            info;
         std::stringstream ss;
         for (auto& e : *this) {
                 ss << e.engine();
@@ -64,7 +64,7 @@ typename Rn<E>::Info Rn<E>::GetInfo() const
 }
 
 template <typename E>
-void Rn<E>::Initialize(const Info& info)
+void Rn<E>::Initialize(const RnInfo& info)
 {
         if (m_stream_count != info.m_stream_count) {
                 m_stream_count = info.m_stream_count;

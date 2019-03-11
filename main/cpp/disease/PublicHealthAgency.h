@@ -21,6 +21,8 @@
 
 #include "util/RnMan.h"
 
+#include <memory>
+
 namespace stride {
 
 class Population;

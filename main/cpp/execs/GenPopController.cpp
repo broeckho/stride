@@ -49,7 +49,7 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-GenPopController::GenPopController(const ptree& configPt) : ControlHelper("GeoPopController", configPt) {}
+GenPopController::GenPopController(const ptree& config) : ControlHelper("GeoPopController", config) {}
 
 void GenPopController::Control()
 {
@@ -65,7 +65,7 @@ void GenPopController::Control()
         // Set up the GenPopBuilder and build population with GeoGrid.
         // --------------------------------------------------------------
         m_stride_logger->info("GenPopBuilder invoked.");
-        GeoPopBuilder geoPopBuilder(m_config, m_rn_manager, m_stride_logger);
+        GeoPopBuilder geoPopBuilder(m_config, m_rn_man, m_stride_logger);
         const auto    pop = Population::Create();
 
         geoPopBuilder.Build(pop);

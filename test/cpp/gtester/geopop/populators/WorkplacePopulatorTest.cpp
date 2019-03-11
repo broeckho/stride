@@ -39,7 +39,7 @@ namespace {
 
 TEST(WorkplacePopulatorTest, NoPopulation)
 {
-        auto rnManager = RnMan{RnMan::Info{}}; // Default random number manager.
+        auto rnManager = RnMan{RnInfo{}}; // Default random number manager.
         auto pop       = Population::Create();
         auto geoGrid   = make_shared<GeoGrid>(pop.get());
 
@@ -53,7 +53,7 @@ TEST(WorkplacePopulatorTest, NoPopulation)
 
 TEST(WorkplacePopulatorTest, NoActive)
 {
-        auto rnManager = RnMan(RnMan::Info{}); // Default random number manager.
+        auto rnManager = RnMan(RnInfo{}); // Default random number manager.
         auto pop       = Population::Create();
         auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
@@ -83,7 +83,7 @@ TEST(WorkplacePopulatorTest, NoActive)
 
 TEST(WorkplacePopulatorTest, NoCommuting)
 {
-        auto rnManager = RnMan(RnMan::Info{}); // Default random number manager.
+        auto rnManager = RnMan(RnInfo{}); // Default random number manager.
         auto pop       = Population::Create();
         auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
@@ -172,7 +172,7 @@ TEST(WorkplacePopulatorTest, NoCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommuting)
 {
-        auto rnManager = RnMan(RnMan::Info{}); // Default random number manager.
+        auto rnManager = RnMan(RnInfo{}); // Default random number manager.
         auto pop       = Population::Create();
         auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
@@ -246,7 +246,7 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        auto rnManager = RnMan{RnMan::Info{}}; // Default random number manager.
+        auto rnManager = RnMan{RnInfo{}}; // Default random number manager.
         auto pop       = Population::Create();
         auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 

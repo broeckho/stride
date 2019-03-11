@@ -42,7 +42,7 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-StanController::StanController(const ptree& configPt) : ControlHelper("Stancontoller", configPt) {}
+StanController::StanController(const ptree& config) : ControlHelper("Stancontoller", config) {}
 
 void StanController::Control()
 {
@@ -77,8 +77,8 @@ void StanController::Control()
                 configPt.put("run.rng_seed", seeds[i]);
                 m_stride_logger->info("Starting run using seed {}", seeds[i]);
 
-                auto pop = Population::Create(configPt, m_rn_manager);
-                auto runner = make_shared<SimRunner>(configPt, pop, m_rn_manager);
+                auto pop = Population::Create(configPt, m_rn_man);
+                auto runner = make_shared<SimRunner>(configPt, pop, m_rn_man);
 
                 auto iViewer = make_shared<viewers::InfectedViewer>(runner);
                 runner->Register(iViewer, bind(&viewers::InfectedViewer::Update, iViewer, std::placeholders::_1));

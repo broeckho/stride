@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "StringUtils.h"
+#include "RnInfo.h"
 
 //#include <trng/lcg64.hpp>
 #include <pcg/pcg_random.hpp>
@@ -43,32 +43,16 @@ public:
         using RnType        = randutils::random_generator<E, randutils::seed_seq_fe128>;
         using ContainerType = std::vector<randutils::random_generator<E, randutils::seed_seq_fe128>>;
 
-public:
-        /// POD representation of the RNManager's state. If no state is available, i.e. state
-        /// is an empty string, the initial state corresponding to the seed sequence is implied.
-        /// If a state is available, the seed sequence is disregarded.
-        struct Info
-        {
-                explicit Info(std::string seed_seq_init = "1,2,3,4", std::string state = "",
-                              unsigned int stream_count = 1U)
-                    : m_seed_seq_init(std::move(seed_seq_init)), m_state(std::move(state)),
-                      m_stream_count(stream_count){};
-
-                std::string  m_seed_seq_init; ///< Seed for the engine.
-                std::string  m_state;         ///< Long string representing current state.
-                unsigned int m_stream_count;  ///< Number of streams set up with the engine.
-        };
-
-public:
         using ContainerType::operator[];
         using ContainerType::at;
         using ContainerType::size;
 
+public:
         /// Default constructor build empty manager.
         Rn() : ContainerType (), m_seed_seq_init(""), m_stream_count(0U) {}
 
         /// Initializes.
-        explicit Rn(const Info& info)
+        explicit Rn(const RnInfo& info)
             : ContainerType(info.m_stream_count), m_seed_seq_init(info.m_seed_seq_init),
               m_stream_count(info.m_stream_count)
         {
@@ -85,10 +69,10 @@ public:
         bool operator==(const Rn& other);
 
         /// Return the state of the random engines.
-        Info GetInfo() const;
+        RnInfo GetInfo() const;
 
         /// Initalize with data in Info.
-        void Initialize(const Info& info);
+        void Initialize(const RnInfo& info);
 
         /// Is this een empty (i.e. non-initialized Rn)?
         bool IsEmpty() const { return ContainerType::empty() || (m_stream_count == 0U); }
@@ -107,16 +91,6 @@ void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq);
 
 extern template class Rn<pcg64>;
 // extern template class Rn<trng::lcg64>;
-
-//template<typename E>
-inline std::ostream& operator<<(std::ostream& os, const typename Rn<pcg64>::Info& info)
-{
-        os << "Seed sequence: " << info.m_seed_seq_init << "\n"
-           << "Number of streams: " << info.m_stream_count << "\n"
-           << "State: " << info.m_state;
-        return os;
-
-}
 
 } // namespace util
 } // namespace stride

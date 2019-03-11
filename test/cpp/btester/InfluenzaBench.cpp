@@ -39,7 +39,7 @@ void InfluenzaBench()
                 return [s, configPt]() {
                         return Test([s, configPt]() {
                                 RnMan rn_manager;
-                                rn_manager.Initialize(RnMan::Info(configPt->get<std::string>("run.rng_seed", "1,2,3,4"),
+                                rn_manager.Initialize(RnInfo(configPt->get<std::string>("run.rng_seed", "1,2,3,4"),
                                                                   configPt->get<string>("run.rng_state", ""),
                                                                   configPt->get<unsigned int>("run.num_threads")));
                                 SimRunner(*configPt, Population::Create(*configPt, rn_manager), rn_manager).Run();

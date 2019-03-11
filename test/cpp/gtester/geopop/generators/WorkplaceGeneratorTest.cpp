@@ -34,7 +34,7 @@ namespace {
 
 TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
@@ -50,7 +50,7 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 
 TEST(WorkplaceGeneratorTest, NoCommuting)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter   = 1U;
@@ -85,7 +85,7 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
 
 TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter   = 1U;
@@ -134,7 +134,7 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 
 TEST(WorkplaceGeneratorTest, TenCommuting)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter   = 1U;

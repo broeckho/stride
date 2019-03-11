@@ -34,7 +34,7 @@ namespace {
 
 TEST(CommunityGeneratorTest, OneLocationTest)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
@@ -53,7 +53,7 @@ TEST(CommunityGeneratorTest, OneLocationTest)
 
 TEST(CommunityGeneratorTest, EqualLocationTest)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
@@ -76,7 +76,7 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
 TEST(CommunityGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
@@ -91,7 +91,7 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
 
 TEST(CommunityGeneratorTest, FiveLocationsTest)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;

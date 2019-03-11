@@ -82,7 +82,7 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsign
         // Actual simulator run.
         // -----------------------------------------------------------------------------------------
         stride::util::RnMan rn_manager;
-        rn_manager.Initialize(RnMan::Info{configPt.get<string>("run.rng_seed", "1,2,3,4"),
+        rn_manager.Initialize(RnInfo{configPt.get<string>("run.rng_seed", "1,2,3,4"),
                                           configPt.get<string>("run.rng_state", ""),
                                           configPt.get<unsigned int>("run.num_threads")});
         auto pop = Population::Create(configPt, rn_manager);
