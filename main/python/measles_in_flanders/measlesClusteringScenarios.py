@@ -121,7 +121,7 @@ def main(trackIndexCase, numRuns, R0s, numDays, immunityFileChildren, immunityFi
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("trackIndexCase", type=bool,
+    parser.add_argument("--trackIndexCase", action="store_true",
                         help="Only simulate secondary cases? Useful for effective R calcuation")
     parser.add_argument("--numRuns", type=int, default=10, help="Number of runs per scenario")
     parser.add_argument("--R0s", type=int, nargs="+", default=[12, 18], help="Values of R0 to test")

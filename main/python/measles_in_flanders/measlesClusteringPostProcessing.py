@@ -82,7 +82,6 @@ def main(outputDir, plotER, R0s, numDays, extinctionThreshold, poolSize):
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("outputDir", type=str, help="Directory containing simulation output")
-    #parser.add_argument("plotER", type=bool, help="Plot Effective R?")
     parser.add_argument('--plotER', action="store_true", help="Plot effective R?")
     parser.add_argument("--R0s", type=int, nargs="+", default=[12, 18], help="Values of R0 to analyze")
     parser.add_argument("--numDays", type=int, default=365, help="Number of simulated days")
