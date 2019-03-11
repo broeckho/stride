@@ -25,8 +25,6 @@
 #include "pop/Person.h"
 #include "util/Assert.h"
 
-#include <trng/discrete_dist.hpp>
-
 namespace geopop {
 
 using namespace std;
@@ -65,11 +63,10 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                         }
                 }
 
-                function<trng::discrete_dist::result_type()> disCommuting;
+                function<int()> disCommuting;
 
                 if (!commutingWeights.empty()) {
-                        disCommuting = m_rn_man[0].variate_generator(
-                            trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));
+                        disCommuting = m_rn_man.GetDiscreteGenerator(commutingWeights, 0U);
                 }
 
                 // 2. for every student assign a class

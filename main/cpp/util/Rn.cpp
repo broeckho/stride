@@ -24,6 +24,7 @@
 #include <trng/lcg64.hpp>
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
+#include <trng/discrete_dist.hpp>
 #include <cctype>
 #include <functional>
 #include <pcg/pcg_random.hpp>
@@ -75,6 +76,12 @@ template <typename E>
 std::function<int()> Rn<E>::GetUniformIntGenerator(int a, int b, unsigned int i)
 {
         return ContainerType::at(i).variate_generator(trng::uniform_int_dist(a, b));
+}
+
+template <typename E>
+std::function<int()> Rn<E>::GetDiscreteGenerator(const vector<double>& weights, unsigned int i)
+{
+        return ContainerType::at(i).variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 }
 
 template <typename E>

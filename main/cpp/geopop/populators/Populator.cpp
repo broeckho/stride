@@ -27,8 +27,6 @@
 
 #include "contact/ContactPool.h"
 
-#include <trng/discrete_dist.hpp>
-
 namespace geopop {
 
 using namespace std;
@@ -45,7 +43,7 @@ bool Populator::MakeChoice(double fraction)
         weights.push_back(1.0 - fraction); // -> 0, return is false -> not part of the fraction
         weights.push_back(fraction);       // -> 1, return is true -> part of the fraction
 
-        auto dist = m_rn_man[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
         return static_cast<bool>(dist());
 }
 

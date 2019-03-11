@@ -25,10 +25,6 @@
 
 namespace geopop {
 
-namespace {
-using DiscreteDistType = std::function<trng::discrete_dist::result_type()>;
-}
-
 /**
  * Populate the workplaces.
  */
@@ -68,16 +64,16 @@ private:
         std::shared_ptr<GeoGrid>  m_geoGrid;       ///< The GeoGrid which will be populated.
         GeoGridConfig             m_geoGridConfig; ///< The GeoGridConfig used during populating.
 
-        std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, DiscreteDistType>>
+        std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, std::function<int()>>>
             m_workplacesInCity; ///< For each location store workplaces and a distribution fot random selection.
 
         double m_fractionCommutingStudents; ///< Fraction of the commuting people who are a student.
 
         std::vector<stride::ContactPool*> m_nearByWorkplaces; ///< Workplaces which are nearby to the m_currentLoc.
-        DiscreteDistType                  m_distNonCommuting; ///< Distribution to choose from m_nearByWorkPlaces.
+        std::function<int()>              m_distNonCommuting; ///< Distribution to choose from m_nearByWorkPlaces.
 
         std::vector<Location*> m_commutingLocations; ///< Workplaces which persons from m_currentLoc may commute to.
-        DiscreteDistType       m_disCommuting;       ///< Distribution to choose from m_commutingLocations.
+        std::function<int()>    m_disCommuting;       ///< Distribution to choose from m_commutingLocations.
 };
 
 } // namespace geopop

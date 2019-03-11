@@ -52,9 +52,9 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         m_assignedTo0          = 0;
         m_assignedCommuting    = 0;
         m_assignedNotCommuting = 0;
-        m_distNonCommuting     = DiscreteDistType();
+        m_distNonCommuting     = function<int()>();
         m_nearByWorkplaces.clear();
-        m_disCommuting = DiscreteDistType();
+        m_disCommuting = function<int()>();
         m_commutingLocations.clear();
 
         CalculateFractionCommutingStudents();
@@ -142,7 +142,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
 {
         // find all Workplaces were employees from this location commute to
         m_commutingLocations.clear();
-        m_disCommuting = DiscreteDistType();
+        m_disCommuting = function<int()>();
 
         vector<double> commutingWeights;
         for (const pair<Location*, double>& commute : m_currentLoc->GetOutgoingCommutingCities()) {
@@ -157,8 +157,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
         }
 
         if (!commutingWeights.empty()) {
-                m_disCommuting = m_rn_man[0].variate_generator(
-                    trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));
+                m_disCommuting = m_rn_man.GetDiscreteGenerator(commutingWeights, 0U);
         }
 }
 

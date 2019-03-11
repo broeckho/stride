@@ -77,6 +77,9 @@ public:
         /// Return a generator for uniform ints in [a, b[ (a < b) using i-th random engine.
         std::function<int()> GetUniformIntGenerator(int a, int b, unsigned int i = 0U);
 
+        /// Return generator for integers [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random engine.
+        std::function<int()> GetDiscreteGenerator(const std::vector<double>& weights, unsigned int i = 0U);
+
         /// Initalize with data in Info.
         void Initialize(const RnInfo& info);
 

@@ -51,7 +51,7 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         sim->m_calendar                      = make_shared<Calendar>(m_config);
         sim->m_contact_log_mode = ContactLogMode::ToMode(m_config.get<string>("run.contact_log_level", "None"));
 
-        // TODO this ought to be redundant and on mac it is, but on linux python scripts crash if it ins't there
+        // TODO ought to be redundant and on mac it is, but on travis linux python scripts crash if it isn't there
         sim->m_rn_man.GetInfo();
 
         // --------------------------------------------------------------
@@ -59,7 +59,6 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // random engine stream) and infector.
         // --------------------------------------------------------------
         for (unsigned int i = 0; i < sim->m_num_threads; i++) {
-                // auto gen = sim->m_rn_manager[i].variate_generator(trng::uniform01_dist<double>());
                 auto gen = sim->m_rn_man.GetUniform01Generator(i);
                 sim->m_handlers.emplace_back(ContactHandler(gen));
         }
