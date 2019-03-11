@@ -192,7 +192,6 @@ void runPeopleTest(const string& filename)
                 EXPECT_EQ(ids[center->GetId()], ToString(center->GetContactPoolType()));
                 EXPECT_EQ(person->GetId(), 1);
                 EXPECT_EQ(person->GetAge(), 18);
-                EXPECT_EQ(person->GetGender(), 'M');
                 EXPECT_EQ(person->GetPoolId(Id::K12School), 2);
                 EXPECT_EQ(person->GetPoolId(Id::Household), 5);
                 EXPECT_EQ(person->GetPoolId(Id::College), 4);

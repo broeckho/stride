@@ -34,8 +34,8 @@ namespace {
 
 TEST(CommunityGeneratorTest, OneLocationTest)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.input.pop_size                   = 10000;
@@ -53,8 +53,8 @@ TEST(CommunityGeneratorTest, OneLocationTest)
 
 TEST(CommunityGeneratorTest, EqualLocationTest)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.input.pop_size                   = 100 * 100 * 1000;
@@ -76,8 +76,8 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
 TEST(CommunityGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.input.pop_size                   = 10000;
@@ -91,8 +91,8 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
 
 TEST(CommunityGeneratorTest, FiveLocationsTest)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.input.pop_size                   = 37542 * 100;

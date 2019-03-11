@@ -39,7 +39,7 @@ namespace {
 
 TEST(WorkplacePopulatorTest, NoPopulation)
 {
-        auto rnManager = RnMan{}; // Default random number manager.
+        auto rnManager = RnMan{RnMan::Info{}}; // Default random number manager.
         auto pop       = Population::Create();
         auto geoGrid   = make_shared<GeoGrid>(pop.get());
 
@@ -125,28 +125,30 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         geoGrid->Finalize();
         workplacePopulator.Apply(geoGrid, config);
 
+        const auto pwc = GeoGridConfig().pools.pools_per_workplace;
+
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 325 && workId <= 328);
+                                EXPECT_TRUE(workId >= 1 && workId <= 4*pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 325 && workId <= 328) || workId == 0);
+                                EXPECT_TRUE((workId >= 1 && workId <= 4*pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
                 }
         }
 
-        // Assert that persons of Schoten only go to Schoten or Brasschaat
+        // Assert that persons of Brasschaat only go to Schoten or Brasschaat
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 325 && workId <= 328);
+                                EXPECT_TRUE(workId >= 1 && workId <= 4*pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 325 && workId <= 328) || workId == 0);
+                                EXPECT_TRUE((workId >= 1 && workId <= 4*pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -158,9 +160,9 @@ TEST(WorkplacePopulatorTest, NoCommuting)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 329 && workId <= 330);
+                                EXPECT_TRUE(workId > 4*pwc && workId <= 6*pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 329 && workId <= 330) || workId == 0);
+                                EXPECT_TRUE((workId > 4*pwc && workId <= 6*pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -211,14 +213,16 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         geoGrid->Finalize();
         workplacePopulator.Apply(geoGrid, config);
 
+        const auto pwc = GeoGridConfig().pools.pools_per_workplace;
+
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 327 && workId <= 328);
+                                EXPECT_TRUE(workId > 2*pwc && workId <= 4*pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 327 && workId <= 328) || workId == 0);
+                                EXPECT_TRUE((workId > 2*pwc && workId <= 4*pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -230,9 +234,9 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 325 && workId <= 326);
+                                EXPECT_TRUE(workId >= 1 && workId <= 2*pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 325 && workId <= 326) || workId == 0);
+                                EXPECT_TRUE((workId >= 1 && workId <= 2*pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -242,7 +246,7 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        auto rnManager = RnMan{}; // Default random number manager.
+        auto rnManager = RnMan{RnMan::Info{}}; // Default random number manager.
         auto pop       = Population::Create();
         auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
@@ -290,14 +294,16 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         geoGrid->Finalize();
         workplacePopulator.Apply(geoGrid, config);
 
+        const auto pwc = GeoGridConfig().pools.pools_per_workplace;
+
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 329 && workId <= 330);
+                                EXPECT_TRUE(workId > 4*pwc && workId <= 6*pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 329 && workId <= 330) || workId == 0);
+                                EXPECT_TRUE((workId > 4*pwc && workId <= 6*pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -309,9 +315,9 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 325 && workId <= 328);
+                                EXPECT_TRUE(workId >= 1 && workId <= 4*pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 325 && workId <= 328) || workId == 0);
+                                EXPECT_TRUE((workId >= 1 && workId <= 4*pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -323,9 +329,9 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 327 && workId <= 328);
+                                EXPECT_TRUE(workId > 2*pwc && workId <= 4*pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 327 && workId <= 328) || workId == 0);
+                                EXPECT_TRUE((workId > 2*pwc && workId <= 4*pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }

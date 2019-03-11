@@ -25,6 +25,7 @@
 //#include <trng/lcg64.hpp>
 #include <pcg/pcg_random.hpp>
 #include <randutils/randutils.hpp>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -63,8 +64,11 @@ public:
         using ContainerType::at;
         using ContainerType::size;
 
+        /// Default constructor build empty manager.
+        Rn() : ContainerType (), m_seed_seq_init(""), m_stream_count(0U) {}
+
         /// Initializes.
-        explicit Rn(const Info& info = Info())
+        explicit Rn(const Info& info)
             : ContainerType(info.m_stream_count), m_seed_seq_init(info.m_seed_seq_init),
               m_stream_count(info.m_stream_count)
         {
@@ -84,7 +88,10 @@ public:
         Info GetInfo() const;
 
         /// Initalize with data in Info.
-        void Initialize(const Info& info = Info());
+        void Initialize(const Info& info);
+
+        /// Is this een empty (i.e. non-initialized Rn)?
+        bool IsEmpty() const { return ContainerType::empty() || (m_stream_count == 0U); }
 
 private:
         /// Actual first-time seeding. Procedure varies according to engine type, see specialisations.
@@ -100,6 +107,16 @@ void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq);
 
 extern template class Rn<pcg64>;
 // extern template class Rn<trng::lcg64>;
+
+//template<typename E>
+inline std::ostream& operator<<(std::ostream& os, const typename Rn<pcg64>::Info& info)
+{
+        os << "Seed sequence: " << info.m_seed_seq_init << "\n"
+           << "Number of streams: " << info.m_stream_count << "\n"
+           << "State: " << info.m_state;
+        return os;
+
+}
 
 } // namespace util
 } // namespace stride

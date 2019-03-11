@@ -35,15 +35,14 @@ class Person
 {
 public:
         /// Default construction (for population vector).
-        Person() : m_age(0.0), m_gender('M'), m_health(), m_id(0), m_is_participant(), m_pool_ids(), m_in_pools() {}
+        Person() : m_age(0.0), m_id(0), m_pool_ids(), m_health(), m_in_pools(), m_is_participant() {}
 
         /// Constructor: set the person data.
         Person(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId,
                unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
-            : m_age(age), m_gender('M'), m_health(), m_id(id),
-              m_is_participant(false), m_pool_ids{householdId, k12SchoolId,        collegeId,
-                                                  workId,      primaryCommunityId, secondaryCommunityId},
-              m_in_pools(true)
+            : m_age(age), m_id(id),
+              m_pool_ids{householdId, k12SchoolId, collegeId, workId, primaryCommunityId, secondaryCommunityId},
+              m_health(), m_in_pools(true), m_is_participant(false)
         {
         }
 
@@ -52,9 +51,6 @@ public:
 
         /// Get the age.
         double GetAge() const { return m_age; }
-
-        /// Return person's gender.
-        char GetGender() const { return m_gender; }
 
         /// Return person's health status.
         Health& GetHealth() { return m_health; }
@@ -94,18 +90,21 @@ public:
         }
 
 private:
-        double       m_age;            ///< The age.
-        char         m_gender;         ///< Gender.
-        Health       m_health;         ///< Health info for this person.
+        double       m_age;            ///< The age..
         unsigned int m_id;             ///< The id.
-        bool         m_is_participant; ///< Is participating in the social contact study
 
         ///< Ids (school, work, etc) of pools you belong to Id value 0 means you do not belong to any
         ///< pool of that type (e.g. school and work are mutually exclusive).
         ContactType::IdSubscriptArray<std::size_t> m_pool_ids;
 
+        ///< Health info (immune, infected, etc) for this person.
+        Health       m_health;
+
         ///< Is person present/absent in pools of each of the types (school, work, etc)?
         ContactType::IdSubscriptArray<bool> m_in_pools;
+
+        ///< Is this a participant in the social contact study?
+        bool         m_is_participant;
 };
 
 } // namespace stride

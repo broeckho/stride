@@ -142,7 +142,6 @@ void ComparePerson(const proto::GeoGrid_Person& protoPerson)
 
         const auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());
-        EXPECT_EQ(string(1, person->GetGender()), protoPerson.gender());
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::College)], person->GetPoolId(Id::College));
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::K12School)], person->GetPoolId(Id::K12School));
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::Household)], person->GetPoolId(Id::Household));

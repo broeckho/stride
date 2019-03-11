@@ -42,16 +42,15 @@ message GeoGrid {
 
             enum Type {
                 K12School = 0;
-                Community = 1;
-                PrimaryCommunity = 2;
-                SecondaryCommunity = 3;
-                College = 4;
-                Household = 5;
-                Workplace = 6;
+                PrimaryCommunity = 1;
+                SecondaryCommunity = 2;
+                College = 3;
+                Household = 4;
+                Workplace = 5;
             }
             Type type = 2;
 
-            // ContactPool with UUID and people count.
+            // ContactPool with pool UUID and people's ID's.
             message ContactPool {
                 int64 id = 1;
                 repeated int64 people = 2;
@@ -67,11 +66,10 @@ message GeoGrid {
         repeated Commute commutes = 7;
     }
 
-    // Person with UUID, age and gender.
+    // Person with UUID and age.
     message Person {
         int64 id = 1;
         int64 age = 2;
-        string gender = 3;
     }
 
     // The actual message content: multiple Locations and multiple Persons.

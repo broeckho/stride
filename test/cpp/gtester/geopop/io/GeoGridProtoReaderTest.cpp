@@ -133,7 +133,6 @@ TEST(GeoGridProtoReaderTest, peopleTest)
         auto person = geoGrid.add_persons();
         person->set_id(1);
         person->set_age(18);
-        person->set_gender("M");
 
         CompareGeoGrid(geoGrid);
 }

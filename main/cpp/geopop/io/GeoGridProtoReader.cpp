@@ -86,49 +86,6 @@ shared_ptr<GeoGrid> GeoGridProtoReader::Read()
         return m_geoGrid;
 }
 
-shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
-{
-        const auto  id         = protoLocation.id();
-        const auto& name       = protoLocation.name();
-        const auto  province   = protoLocation.province();
-        const auto  population = protoLocation.population();
-        const auto& coordinate = ParseCoordinate(protoLocation.coordinate());
-
-        auto result = make_shared<Location>(id, province, population, coordinate, name);
-
-        auto e = make_shared<ThreadException>();
-#pragma omp parallel
-#pragma omp single
-        {
-                for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
-                        shared_ptr<ContactCenter>                    center;
-                        const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
-#pragma omp task firstprivate(protoCenter, center)
-                        {
-                                e->Run([&protoCenter, this, &center] { center = ParseContactCenter(protoCenter); });
-                                if (!e->HasError())
-#pragma omp critical
-                                        result->AddContactCenter(center);
-                        }
-                }
-#pragma omp taskwait
-        }
-        e->Rethrow();
-
-        for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
-                const proto::GeoGrid_Location_Commute& commute = protoLocation.commutes(idx);
-#pragma omp critical
-                m_commutes.emplace_back(make_tuple(id, commute.to(), commute.proportion()));
-        }
-
-        return result;
-}
-
-Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate)
-{
-        return {protoCoordinate.longitude(), protoCoordinate.latitude()};
-}
-
 shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
     const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
@@ -192,6 +149,11 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         return result;
 }
 
+Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate)
+{
+        return {protoCoordinate.longitude(), protoCoordinate.latitude()};
+}
+
 stride::ContactPool* GeoGridProtoReader::ParseContactPool(
     const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, stride::ContactType::Id type)
 {
@@ -211,6 +173,44 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
                         // Update original pool id with new pool id used in the population
                         person->SetPoolId(type, static_cast<unsigned int>(result->GetId()));
                 }
+        }
+
+        return result;
+}
+
+shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
+{
+        const auto  id         = protoLocation.id();
+        const auto& name       = protoLocation.name();
+        const auto  province   = protoLocation.province();
+        const auto  population = protoLocation.population();
+        const auto& coordinate = ParseCoordinate(protoLocation.coordinate());
+
+        auto result = make_shared<Location>(id, province, population, coordinate, name);
+
+        auto e = make_shared<ThreadException>();
+#pragma omp parallel
+#pragma omp single
+        {
+                for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
+                        shared_ptr<ContactCenter>                    center;
+                        const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
+#pragma omp task firstprivate(protoCenter, center)
+                        {
+                                e->Run([&protoCenter, this, &center] { center = ParseContactCenter(protoCenter); });
+                                if (!e->HasError())
+#pragma omp critical
+                                        result->AddContactCenter(center);
+                        }
+                }
+#pragma omp taskwait
+        }
+        e->Rethrow();
+
+        for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
+                const proto::GeoGrid_Location_Commute& commute = protoLocation.commutes(idx);
+#pragma omp critical
+                m_commutes.emplace_back(make_tuple(id, commute.to(), commute.proportion()));
         }
 
         return result;

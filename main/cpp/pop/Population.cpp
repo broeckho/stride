@@ -36,8 +36,19 @@
 using namespace boost::property_tree;
 using namespace std;
 using namespace stride::util;
+using namespace stride::ContactType;
 
 namespace stride {
+
+Population::Population()
+        : m_pool_sys(), m_contact_logger(), m_geoGrid(), m_currentContactPoolId()
+{
+        for (Id typ : IdList) {
+                m_pool_sys[typ].emplace_back(ContactPool(0U, typ));
+                m_currentContactPoolId[typ] = 1;
+        }
+}
+
 
 std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
                                                std::shared_ptr<spdlog::logger> stride_logger)
@@ -69,7 +80,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
                 stride_logger->info("ImportPopBuilder invoked.");
                 ImportPopBuilder(configPt, rnManager).Build(pop);
         } else if (pop_type == "generate") {
-                stride_logger->info("GenPopBuilder invoked.");
+                stride_logger->info("GeoPopBuilder invoked.");
                 GeoPopBuilder(configPt, rnManager).Build(pop);
         } else {
                 stride_logger->info("DefaultPopBuilder invoked.");
@@ -120,7 +131,7 @@ Person* Population::CreatePerson(unsigned int id, double age, unsigned int house
 
 ContactPool* Population::CreateContactPool(ContactType::Id typeId)
 {
-        return m_pool_sys[typeId].emplace_back(m_currentContactPoolId++, typeId);
+        return m_pool_sys[typeId].emplace_back(m_currentContactPoolId[typeId]++, typeId);
 }
 
 } // namespace stride

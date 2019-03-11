@@ -35,8 +35,8 @@ namespace {
 
 TEST(CollegeGeneratorTest, OneLocationTest)
 {
-        RnMan            rnManager{}; // Default random number manager.
-        CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
+        RnMan            rnMan{RnMan::Info()}; // Default random number manager.
+        CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
         GeoGridConfig    config{};
         auto             contactCenterCounter = 1U;
         config.input.pop_size                 = 45000;
@@ -56,8 +56,8 @@ TEST(CollegeGeneratorTest, OneLocationTest)
 
 TEST(CollegeGeneratorTest, ZeroLocationTest)
 {
-        RnMan            rnManager{}; // Default random number manager.
-        CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
+        RnMan            rnMan{RnMan::Info()}; // Default random number manager.
+        CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
         GeoGridConfig    config{};
         auto             contactCenterCounter = 1U;
         config.input.pop_size                 = 10000;
@@ -72,8 +72,8 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
 
 TEST(CollegeGeneratorTest, FiveLocationsTest)
 {
-        RnMan            rnManager{}; // Default random number manager.
-        CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
+        RnMan            rnMan{RnMan::Info()}; // Default random number manager.
+        CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
         GeoGridConfig    config{};
         auto             contactCenterCounter = 1U;
         config.input.pop_size                 = 399992;

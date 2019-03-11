@@ -50,35 +50,6 @@ void GeoGridProtoWriter::Write(shared_ptr<geopop::GeoGrid> geoGrid, ostream& str
         stream.flush();
 }
 
-void GeoGridProtoWriter::WriteLocation(shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation)
-{
-        protoLocation->set_id(location->GetID());
-        protoLocation->set_name(location->GetName());
-        protoLocation->set_province(location->GetProvince());
-        protoLocation->set_population(location->GetPopCount());
-        auto coordinate = new proto::GeoGrid_Location_Coordinate();
-        WriteCoordinate(location->GetCoordinate(), coordinate);
-        protoLocation->set_allocated_coordinate(coordinate);
-
-        auto commutes = location->GetOutgoingCommutingCities();
-        for (auto commute_pair : commutes) {
-                auto commute = protoLocation->add_commutes();
-                commute->set_to(commute_pair.first->GetID());
-                commute->set_proportion(commute_pair.second);
-        }
-
-        for (const auto& contactCenter : *location) {
-                WriteContactCenter(contactCenter, protoLocation->add_contactcenters());
-        }
-}
-
-void GeoGridProtoWriter::WriteCoordinate(const Coordinate&                   coordinate,
-                                         proto::GeoGrid_Location_Coordinate* protoCoordinate)
-{
-        protoCoordinate->set_longitude(boost::geometry::get<0>(coordinate));
-        protoCoordinate->set_latitude(boost::geometry::get<1>(coordinate));
-}
-
 void GeoGridProtoWriter::WriteContactCenter(shared_ptr<ContactCenter>              contactCenter,
                                             proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
@@ -109,11 +80,39 @@ void GeoGridProtoWriter::WriteContactPool(stride::ContactPool*                  
         }
 }
 
+void GeoGridProtoWriter::WriteCoordinate(const Coordinate&                   coordinate,
+                                         proto::GeoGrid_Location_Coordinate* protoCoordinate)
+{
+        protoCoordinate->set_longitude(boost::geometry::get<0>(coordinate));
+        protoCoordinate->set_latitude(boost::geometry::get<1>(coordinate));
+}
+
+void GeoGridProtoWriter::WriteLocation(shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation)
+{
+        protoLocation->set_id(location->GetID());
+        protoLocation->set_name(location->GetName());
+        protoLocation->set_province(location->GetProvince());
+        protoLocation->set_population(location->GetPopCount());
+        auto coordinate = new proto::GeoGrid_Location_Coordinate();
+        WriteCoordinate(location->GetCoordinate(), coordinate);
+        protoLocation->set_allocated_coordinate(coordinate);
+
+        auto commutes = location->GetOutgoingCommutingCities();
+        for (auto commute_pair : commutes) {
+                auto commute = protoLocation->add_commutes();
+                commute->set_to(commute_pair.first->GetID());
+                commute->set_proportion(commute_pair.second);
+        }
+
+        for (const auto& contactCenter : *location) {
+                WriteContactCenter(contactCenter, protoLocation->add_contactcenters());
+        }
+}
+
 void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Person* protoPerson)
 {
         protoPerson->set_id(person->GetId());
         protoPerson->set_age(static_cast<google::protobuf::int64>(person->GetAge()));
-        protoPerson->set_gender(string(1, person->GetGender()));
 }
 
 } // namespace geopop

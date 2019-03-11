@@ -34,8 +34,8 @@ namespace {
 
 TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        WorkplaceGenerator workplaceGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
         config.input.pop_size                   = 10000;
@@ -50,8 +50,8 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 
 TEST(WorkplaceGeneratorTest, NoCommuting)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        WorkplaceGenerator workplaceGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter   = 1U;
         config.input.pop_size                     = 5 * 1000 * 1000;
@@ -85,8 +85,8 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
 
 TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        WorkplaceGenerator workplaceGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter   = 1U;
         config.input.pop_size                     = 5 * 1000 * 1000;
@@ -134,8 +134,8 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 
 TEST(WorkplaceGeneratorTest, TenCommuting)
 {
-        RnMan              rnManager{}; // Default random number manager.
-        WorkplaceGenerator workplaceGenerator(rnManager, CreateTestLogger());
+        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter   = 1U;
         config.input.pop_size                     = 5 * 1000 * 1000;

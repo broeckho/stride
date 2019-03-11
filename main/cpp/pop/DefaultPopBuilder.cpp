@@ -109,7 +109,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         // Initialize poolSys with empty ContactPools (even for Id=0).
         // --------------------------------------------------------------
         for (Id typ : IdList) {
-                for (size_t i = 0; i < max_ids[typ] + 1; i++) {
+                for (size_t i = 1; i < max_ids[typ] + 1; i++) {
                         pop->m_pool_sys[typ].emplace_back(ContactPool(i, typ));
                 }
         }

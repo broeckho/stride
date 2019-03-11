@@ -40,7 +40,7 @@ public:
 protected:
         void SetUp() override
         {
-                rnManager   = make_shared<RnMan>();
+                rnManager   = make_shared<RnMan>(RnMan::Info{});
                 auto logger = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
                 logger->set_level(spdlog::level::off);
                 householdPopulator = make_shared<HouseholdPopulator>(*rnManager.get(), logger);
