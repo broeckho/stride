@@ -37,7 +37,7 @@ class ContactPool
 {
 public:
         /// Initializing constructor.
-        ContactPool(std::size_t pool_id, ContactType::Id type);
+        ContactPool(unsigned int poolId, ContactType::Id type);
 
         ~ContactPool() = default;
 
@@ -51,10 +51,10 @@ public:
         const std::vector<Person*>& GetPool() const { return m_members; }
 
         /// Get size (number of members).
-        std::size_t GetSize() const { return m_members.size(); }
+        unsigned int GetSize() const { return static_cast<unsigned int>(m_members.size()); }
 
         /// Get Infected count
-        std::size_t GetInfectedCount();
+        unsigned int GetInfectedCount();
 
         using iterator = std::vector<stride::Person*>::iterator;
 
@@ -65,23 +65,23 @@ public:
         iterator end() { return m_members.end(); }
 
         /// Get the pool id
-        std::size_t GetId() const { return m_pool_id; }
+        unsigned int GetId() const { return m_pool_id; }
 
         /// Get the type of ContactPool, used for logging and tests
         ContactType::Id GetType() const { return m_pool_type; }
 
 private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
-        std::tuple<bool, size_t> SortMembers();
+        std::tuple<bool, unsigned int> SortMembers();
 
         /// Infector calculates contacts and transmissions.
         template <ContactLogMode::Id LL, bool TIC, bool TO>
         friend class Infector;
 
 private:
-        std::size_t          m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
+        unsigned int         m_index_immune; ///< Index of the first immune member in the ContactPool.
+        unsigned int         m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
         ContactType::Id      m_pool_type;    ///< The type of the ContactPool (for logging and testing purposes).
-        std::size_t          m_index_immune; ///< Index of the first immune member in the ContactPool.
         std::vector<Person*> m_members;      ///< Pointers to contactpool members (raw pointers intentional).
 };
 

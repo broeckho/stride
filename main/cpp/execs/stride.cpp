@@ -21,7 +21,7 @@
 #include "GenPopController.h"
 #include "SimController.h"
 #include "StanController.h"
-
+#include "pop/Person.h"
 #include "util/FileSys.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
@@ -87,6 +87,15 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 auto  config = configArg.getValue();
                 ptree configPt;
+
+                cout << "Person: " << sizeof(Person) << "\n"
+                     << "double: " << sizeof(double) << "\n"
+                     << "size_t: " << sizeof(size_t) << "\n"
+                     << "Health: " << sizeof(Health) << "\n"
+                     << "usigned short int: " << sizeof(unsigned short int) << "\n"
+                     << "usigned int: " << sizeof(unsigned int) << "\n"
+                     << "bitset: " << sizeof(std::bitset<6>) << "\n"
+                     << "array: " << sizeof(std::array<size_t, 6>) << endl;
 
                 if (regex_search(config, regex("^name="))) {
                         config   = regex_replace(config, regex(string("^name=")), string(""));

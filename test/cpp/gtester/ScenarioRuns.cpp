@@ -25,8 +25,8 @@
 #include "util/ConfigInfo.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <gtest/gtest.h>
 #include <cmath>
+#include <gtest/gtest.h>
 #include <iomanip>
 #include <sstream>
 #include <tuple>
@@ -85,7 +85,7 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsign
         rn_manager.Initialize(RnMan::Info{configPt.get<string>("run.rng_seed", "1,2,3,4"),
                                           configPt.get<string>("run.rng_state", ""),
                                           configPt.get<unsigned int>("run.num_threads")});
-        auto pop = Population::Create(configPt, rn_manager);
+        auto pop    = Population::Create(configPt, rn_manager);
         auto runner = make_shared<SimRunner>(configPt, pop, rn_manager);
         runner->Run();
 
@@ -93,27 +93,23 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsign
         // Check results against target number (|res - target| < target * margin).
         // -----------------------------------------------------------------------------------------
         const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
-        stringstream ss;
+        stringstream       ss;
         ss.setf(ios_base::scientific, ios_base::floatfield);
         ss.precision(2);
-        ss << "Scenario: " << testTag
-                << ",  number of threads: " << numThreads
-                << ",  result: " << res << ",  target: " << target
-                << ",  % delta: " << fabs(static_cast<double>(res)-static_cast<double>(target))/(1.0e-8+fabs(target))
-                << ",  margin: " << margin;
+        ss << "Scenario: " << testTag << ",  number of threads: " << numThreads << ",  result: " << res
+           << ",  target: " << target
+           << ",  % delta: " << fabs(static_cast<double>(res) - static_cast<double>(target)) / (1.0e-8 + fabs(target))
+           << ",  margin: " << margin;
         logger->info("{}", ss.str());
         logger->flush();
         EXPECT_NEAR(res, target, target * margin)
-                << "Failure at scenario: " << testTag
-                << " with number of threads: " << numThreads << endl;
-
+            << "Failure at scenario: " << testTag << " with number of threads: " << numThreads << endl;
 }
 
 TEST_P(RunsDefault, SingleThread)
 {
         const string testTag = GetParam();
         RunTest(testTag, ScenarioData::Get(testTag), 1U);
-
 }
 
 #ifdef _OPENMP
@@ -121,7 +117,6 @@ TEST_P(RunsDefault, MultiThread)
 {
         const string testTag = GetParam();
         RunTest(testTag, ScenarioData::Get(testTag), ConfigInfo::NumberAvailableThreads());
-
 }
 #endif
 
@@ -136,7 +131,6 @@ TEST_P(RunsGeoPop, MultiThread)
 {
         const string testTag = GetParam();
         RunTest(testTag, ScenarioData::Get(testTag), ConfigInfo::NumberAvailableThreads());
-
 }
 #endif
 

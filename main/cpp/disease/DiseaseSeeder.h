@@ -50,8 +50,8 @@ private:
                        const util::SegmentedVector<ContactPool>& immunityPools);
 
 private:
-        const boost::property_tree::ptree& m_config_pt;  ///< Run config.
-        util::RnMan&                       m_rn_manager; ///< Random number manager.
+        const boost::property_tree::ptree& m_config; ///< Run config.
+        util::RnMan&                       m_rn_man; ///< Random number manager.
 };
 
 } // namespace stride

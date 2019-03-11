@@ -46,7 +46,7 @@ class ControlHelper
 {
 public:
         /// Straight initialization.
-        explicit ControlHelper(std::string name, const boost::property_tree::ptree& configPt);
+        explicit ControlHelper(std::string name, const boost::property_tree::ptree& config);
 
 protected:
         /// Empty controller: used as target for delegation.
@@ -75,7 +75,7 @@ protected:
         boost::property_tree::ptree     m_config;           ///< Main configuration for run and sim.
         std::string                     m_name;             ///< Contoller's name.
         std::string                     m_output_prefix;    ///< Prefix to output (name prefix or prefix dir)
-        util::RnMan                     m_rn_manager;       ///< The manager for random numbers
+        util::RnMan                     m_rn_man;           ///< Manager for random numbers
         util::Stopwatch<>               m_run_clock;        ///< Stopwatch for timing the computation.
         std::shared_ptr<spdlog::logger> m_stride_logger;    ///< General logger.
         bool                            m_use_install_dirs; ///< Working dir or install dir mode.

@@ -31,9 +31,9 @@ namespace stride {
 namespace ContactType {
 
 /// Enumerates the ContactPool types.
-enum class Id : size_t
+enum class Id : unsigned int
 {
-        Household = static_cast<size_t>(0), // Needs to be zero.
+        Household = static_cast<unsigned int>(0), // Needs to be zero.
         K12School,
         College,
         Workplace,

@@ -99,7 +99,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Determine maximum pool ids in population.
         // --------------------------------------------------------------
-        IdSubscriptArray<size_t> max_ids{0U};
+        IdSubscriptArray<unsigned int> max_ids{0U};
         for (const auto& p : *pop) {
                 for (Id typ : IdList) {
                         max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));
@@ -109,7 +109,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         // Initialize poolSys with empty ContactPools (even for Id=0).
         // --------------------------------------------------------------
         for (Id typ : IdList) {
-                for (size_t i = 1; i < max_ids[typ] + 1; i++) {
+                for (unsigned int i = 1; i < max_ids[typ] + 1; i++) {
                         pop->m_pool_sys[typ].emplace_back(ContactPool(i, typ));
                 }
         }

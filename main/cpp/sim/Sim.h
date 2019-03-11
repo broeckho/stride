@@ -61,7 +61,7 @@ public:
 
         /// Get the Sim configuration for the given attribute.
         std::string GetConfigValue(const std::string& attribute) const { return m_config.get<std::string>(attribute); }
-        
+
         /// Get the population.
         std::shared_ptr<Population> GetPopulation() { return m_population; }
 
@@ -70,13 +70,13 @@ public:
 
         /// Get the stored transmission rate.
         double GetTransmissionRate() const { return m_transmission_profile.GetRate(); }
-        
+
         /// Get the random number manager.
         util::RnMan& GetRnManager() { return m_rn_manager; }
 
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
-        
+
 private:
         /// Constructor for empty Simulator.
         explicit Sim(util::RnMan&);

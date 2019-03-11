@@ -47,8 +47,10 @@ ostream& operator<<(ostream& out, const GeoGridConfig& config)
         out << setw(w) << "Fraction workplace commuters:" << config.input.fraction_workplace_commuters << "\n";
         out << setw(w) << "Participation fraction of college:" << config.input.participation_college << "\n";
         out << setw(w) << "Participation fraaction of workplace:" << config.input.particpation_workplace << "\n";
-        out << setw(w) << "Target population size" << intToDottedString(config.input.pop_size) << "\n" << "\n";
-        out << "Calculated:" << "\n";
+        out << setw(w) << "Target population size" << intToDottedString(config.input.pop_size) << "\n"
+            << "\n";
+        out << "Calculated:"
+            << "\n";
         out << setw(w) << "K12School student count:" << intToDottedString(config.popInfo.popcount_k12school) << "\n";
         out << setw(w) << "College student count:" << intToDottedString(config.popInfo.popcount_college) << "\n";
         out << setw(w) << "Workplace person count:" << intToDottedString(config.popInfo.popcount_workplace) << "\n";

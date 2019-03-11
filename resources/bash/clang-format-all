@@ -62,13 +62,12 @@ for dir in "$@"; do
     fi
     for f in $(find main/cpp test/cpp \
                   -name '*.c' \
-                  -o -name '*.cc' \
+                  -o -name '*.cc' ! -name '*.pb.cc' \
                   -o -name '*.cpp' \
-                  -o -name '*.h' \
+                  -o -name '*.h' ! -name '*.pb.h' \
                   -o -name '*.hh' \
                   -o -name '*.hpp' \
-                  -not -name '*.pb.cc' \
-                  -not -name '*.pb.h' ); do
+                   ); do
         "${FMT}" -i "${f}"
         echo "${f}"
     done

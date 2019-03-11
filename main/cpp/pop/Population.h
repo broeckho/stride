@@ -20,8 +20,8 @@
 
 #pragma once
 
-#include "contact/ContactType.h"
 #include "contact/ContactPoolSys.h"
+#include "contact/ContactType.h"
 #include "pop/Person.h"
 #include "util/SegmentedVector.h"
 
@@ -104,7 +104,7 @@ private:
         /// consequence, one has:
         /// if UID != 0 then ContactPoolsSys[type][UID].GetId() == UID for all type
         /// the index in the vector with pools is identical to the pool's UID.
-        ContactType::IdSubscriptArray<std::size_t> m_currentContactPoolId;
+        ContactType::IdSubscriptArray<unsigned int> m_currentContactPoolId;
 };
 
 } // namespace stride

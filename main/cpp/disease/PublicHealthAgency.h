@@ -39,7 +39,7 @@ public:
 
 private:
         /// Public Health Strategy: look for symptomatic cases and vaccinate their household
-        void PerformCaseFinding(std::shared_ptr<Population> pop, util::RnMan& rnManager, unsigned short int sim_day);
+        void PerformCaseFinding(std::shared_ptr<Population> pop, util::RnMan& rnMan, unsigned short int simDay);
 
         double m_case_detection_probability; ///< Detection probability of symptomatic cases
 };

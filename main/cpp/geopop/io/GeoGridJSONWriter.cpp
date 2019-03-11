@@ -122,7 +122,6 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteCoordinate(const Coordinate&
         return coordinate_root;
 }
 
-
 boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(shared_ptr<Location> location)
 {
         boost::property_tree::ptree location_root;

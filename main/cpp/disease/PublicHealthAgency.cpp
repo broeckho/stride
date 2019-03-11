@@ -45,7 +45,7 @@ void PublicHealthAgency::Initialize(const double case_detection_probability)
 }
 
 /// Public Health Strategy: vaccinate the household of a symptomatic case if symptoms started today
-void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, util::RnMan& rnManager,
+void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, util::RnMan& rnMan,
                                             unsigned short int simDay)
 {
 
@@ -55,7 +55,7 @@ void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, uti
                 using namespace ContactType;
                 auto& population         = *pop;
                 auto& poolSys            = population.GetContactPoolSys();
-                auto  uniform01Generator = rnManager[0].variate_generator(trng::uniform01_dist<double>());
+                auto  uniform01Generator = rnMan[0].variate_generator(trng::uniform01_dist<double>());
                 auto& logger             = pop->GetContactLogger();
 
                 /// To allow iteration over pool types for the PublicHealthAgency.

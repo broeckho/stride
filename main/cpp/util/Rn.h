@@ -23,9 +23,9 @@
 #include "StringUtils.h"
 
 //#include <trng/lcg64.hpp>
+#include <iostream>
 #include <pcg/pcg_random.hpp>
 #include <randutils/randutils.hpp>
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -65,7 +65,7 @@ public:
         using ContainerType::size;
 
         /// Default constructor build empty manager.
-        Rn() : ContainerType (), m_seed_seq_init(""), m_stream_count(0U) {}
+        Rn() : ContainerType(), m_seed_seq_init(""), m_stream_count(0U) {}
 
         /// Initializes.
         explicit Rn(const Info& info)
@@ -108,14 +108,13 @@ void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq);
 extern template class Rn<pcg64>;
 // extern template class Rn<trng::lcg64>;
 
-//template<typename E>
+// template<typename E>
 inline std::ostream& operator<<(std::ostream& os, const typename Rn<pcg64>::Info& info)
 {
         os << "Seed sequence: " << info.m_seed_seq_init << "\n"
            << "Number of streams: " << info.m_stream_count << "\n"
            << "State: " << info.m_state;
         return os;
-
 }
 
 } // namespace util

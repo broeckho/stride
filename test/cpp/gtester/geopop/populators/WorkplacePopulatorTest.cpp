@@ -132,9 +132,9 @@ TEST(WorkplacePopulatorTest, NoCommuting)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 1 && workId <= 4*pwc);
+                                EXPECT_TRUE(workId >= 1 && workId <= 4 * pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 1 && workId <= 4*pwc) || workId == 0);
+                                EXPECT_TRUE((workId >= 1 && workId <= 4 * pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -146,9 +146,9 @@ TEST(WorkplacePopulatorTest, NoCommuting)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 1 && workId <= 4*pwc);
+                                EXPECT_TRUE(workId >= 1 && workId <= 4 * pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 1 && workId <= 4*pwc) || workId == 0);
+                                EXPECT_TRUE((workId >= 1 && workId <= 4 * pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -160,9 +160,9 @@ TEST(WorkplacePopulatorTest, NoCommuting)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId > 4*pwc && workId <= 6*pwc);
+                                EXPECT_TRUE(workId > 4 * pwc && workId <= 6 * pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId > 4*pwc && workId <= 6*pwc) || workId == 0);
+                                EXPECT_TRUE((workId > 4 * pwc && workId <= 6 * pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -220,9 +220,9 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId > 2*pwc && workId <= 4*pwc);
+                                EXPECT_TRUE(workId > 2 * pwc && workId <= 4 * pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId > 2*pwc && workId <= 4*pwc) || workId == 0);
+                                EXPECT_TRUE((workId > 2 * pwc && workId <= 4 * pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -234,9 +234,9 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 1 && workId <= 2*pwc);
+                                EXPECT_TRUE(workId >= 1 && workId <= 2 * pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 1 && workId <= 2*pwc) || workId == 0);
+                                EXPECT_TRUE((workId >= 1 && workId <= 2 * pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -301,9 +301,9 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId > 4*pwc && workId <= 6*pwc);
+                                EXPECT_TRUE(workId > 4 * pwc && workId <= 6 * pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId > 4*pwc && workId <= 6*pwc) || workId == 0);
+                                EXPECT_TRUE((workId > 4 * pwc && workId <= 6 * pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -315,9 +315,9 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId >= 1 && workId <= 4*pwc);
+                                EXPECT_TRUE(workId >= 1 && workId <= 4 * pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId >= 1 && workId <= 4*pwc) || workId == 0);
+                                EXPECT_TRUE((workId >= 1 && workId <= 4 * pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }
@@ -329,9 +329,9 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(workId > 2*pwc && workId <= 4*pwc);
+                                EXPECT_TRUE(workId > 2 * pwc && workId <= 4 * pwc);
                         } else if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE((workId > 2*pwc && workId <= 4*pwc) || workId == 0);
+                                EXPECT_TRUE((workId > 2 * pwc && workId <= 4 * pwc) || workId == 0);
                         } else {
                                 EXPECT_EQ(0, workId);
                         }

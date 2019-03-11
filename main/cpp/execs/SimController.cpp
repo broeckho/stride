@@ -31,7 +31,7 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-SimController::SimController(const ptree& configPt) : ControlHelper("SimController", configPt) {}
+SimController::SimController(const ptree& config) : ControlHelper("SimController", config) {}
 
 void SimController::Control()
 {
@@ -46,8 +46,8 @@ void SimController::Control()
         // -----------------------------------------------------------------------------------------
         // The action.
         // -----------------------------------------------------------------------------------------
-        auto pop    = Population::Create(m_config, m_rn_manager, m_stride_logger);
-        auto runner = make_shared<SimRunner>(m_config, pop, m_rn_manager);
+        auto pop    = Population::Create(m_config, m_rn_man, m_stride_logger);
+        auto runner = make_shared<SimRunner>(m_config, pop, m_rn_man);
         RegisterViewers(runner);
         runner->Run();
 

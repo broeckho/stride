@@ -47,8 +47,8 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                 const auto  popCount    = static_cast<unsigned int>(population.size() - 1);
                 const auto  numSurveyed = m_config.get<unsigned int>("run.num_participants_survey");
 
-                assert( (popCount >= 1U) && "SurveySeeder> Population count zero unacceptable.");
-                assert( (popCount >= numSurveyed) && "SurveySeeder> Pop count has to exceeed number of surveyed.");
+                assert((popCount >= 1U) && "SurveySeeder> Population count zero unacceptable.");
+                assert((popCount >= numSurveyed) && "SurveySeeder> Pop count has to exceeed number of surveyed.");
 
                 // Use while-loop to get 'participants' unique participants (default sampling is with replacement).
                 // A for loop will not do because we might draw the same person twice.
@@ -63,19 +63,18 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                         p.ParticipateInSurvey();
 
                         const auto h = p.GetHealth();
-                        logger->info(
-                            "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
-                            p.GetId(), p.GetAge(), p.GetPoolId(Id::Household),
-                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
-                            p.GetPoolId(Id::Workplace), h.IsSusceptible(), h.IsInfected(), h.IsInfectious(),
-                            h.IsRecovered(), h.IsImmune(), h.GetStartInfectiousness(), h.GetStartSymptomatic(),
-                            h.GetEndInfectiousness(), h.GetEndSymptomatic(),
-                            poolSys[Id::Household][p.GetPoolId(Id::Household)].GetSize(),
-                            poolSys[Id::K12School][p.GetPoolId(Id::K12School)].GetSize(),
-                            poolSys[Id::College][p.GetPoolId(Id::College)].GetSize(),
-                            poolSys[Id::Workplace][p.GetPoolId(Id::Workplace)].GetSize(),
-                            poolSys[Id::PrimaryCommunity][p.GetPoolId(Id::PrimaryCommunity)].GetSize(),
-                            poolSys[Id::SecondaryCommunity][p.GetPoolId(Id::SecondaryCommunity)].GetSize());
+                        logger->info("[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}", p.GetId(),
+                                     p.GetAge(), p.GetPoolId(Id::Household), p.GetPoolId(Id::K12School),
+                                     p.GetPoolId(Id::College), p.GetPoolId(Id::Workplace), h.IsSusceptible(),
+                                     h.IsInfected(), h.IsInfectious(), h.IsRecovered(), h.IsImmune(),
+                                     h.GetStartInfectiousness(), h.GetStartSymptomatic(), h.GetEndInfectiousness(),
+                                     h.GetEndSymptomatic(),
+                                     poolSys[Id::Household][p.GetPoolId(Id::Household)].GetSize(),
+                                     poolSys[Id::K12School][p.GetPoolId(Id::K12School)].GetSize(),
+                                     poolSys[Id::College][p.GetPoolId(Id::College)].GetSize(),
+                                     poolSys[Id::Workplace][p.GetPoolId(Id::Workplace)].GetSize(),
+                                     poolSys[Id::PrimaryCommunity][p.GetPoolId(Id::PrimaryCommunity)].GetSize(),
+                                     poolSys[Id::SecondaryCommunity][p.GetPoolId(Id::SecondaryCommunity)].GetSize());
 
                         numSamples++;
                 }
