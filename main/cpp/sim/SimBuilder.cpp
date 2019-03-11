@@ -27,9 +27,7 @@
 #include "pop/SurveySeeder.h"
 #include "sim/Sim.h"
 #include "util/FileSys.h"
-#include "util/Rn.h"
-
-#include <trng/uniform01_dist.hpp>
+#include "util/RnMan.h"
 
 namespace stride {
 
@@ -54,14 +52,15 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         sim->m_contact_log_mode = ContactLogMode::ToMode(m_config.get<string>("run.contact_log_level", "None"));
 
         // TODO this ought to be redundant and on mac it is, but on linux python scripts crash if it ins't there
-        sim->m_rn_manager.GetInfo();
+        sim->m_rn_man.GetInfo();
 
         // --------------------------------------------------------------
         // Contact handlers, each with generator bound to different
         // random engine stream) and infector.
         // --------------------------------------------------------------
-        for (size_t i = 0; i < sim->m_num_threads; i++) {
-                auto gen = sim->m_rn_manager[i].variate_generator(trng::uniform01_dist<double>());
+        for (unsigned int i = 0; i < sim->m_num_threads; i++) {
+                // auto gen = sim->m_rn_manager[i].variate_generator(trng::uniform01_dist<double>());
+                auto gen = sim->m_rn_man.GetUniform01Generator(i);
                 sim->m_handlers.emplace_back(ContactHandler(gen));
         }
         const auto& select = make_tuple(sim->m_contact_log_mode, sim->m_track_index_case);
@@ -95,12 +94,12 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // --------------------------------------------------------------
         // Seed population with immunity/vaccination/infection.
         // --------------------------------------------------------------
-        DiseaseSeeder(m_config, sim->m_rn_manager).Seed(sim->m_population);
+        DiseaseSeeder(m_config, sim->m_rn_man).Seed(sim->m_population);
 
         // --------------------------------------------------------------
         // Seed population with survey participants.
         // --------------------------------------------------------------
-        SurveySeeder(m_config, sim->m_rn_manager).Seed(sim->m_population);
+        SurveySeeder(m_config, sim->m_rn_man).Seed(sim->m_population);
 
         // --------------------------------------------------------------
         // Done.

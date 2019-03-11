@@ -20,8 +20,8 @@
 
 #pragma once
 
-#include "contact/ContactType.h"
 #include "contact/ContactPoolSys.h"
+#include "contact/ContactType.h"
 #include "pop/Person.h"
 #include "util/SegmentedVector.h"
 

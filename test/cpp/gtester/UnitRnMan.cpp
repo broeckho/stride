@@ -59,20 +59,20 @@ TYPED_TEST_P(UnitRnMan, DefaultInfo)
 TYPED_TEST_P(UnitRnMan, Reset1)
 {
         const RnInfo info("1,2,3,4", "", 1);
-        TypeParam                      rn(info);
-        const auto                     info2 = rn.GetInfo();
-        TypeParam                      rn2(info2);
-        const auto                     info3 = rn2.GetInfo();
+        TypeParam    rn(info);
+        const auto   info2 = rn.GetInfo();
+        TypeParam    rn2(info2);
+        const auto   info3 = rn2.GetInfo();
         EXPECT_EQ(info2.m_state, info3.m_state);
 }
 
 TYPED_TEST_P(UnitRnMan, Reset2)
 {
         const RnInfo info("1,2,3,4", "", 1);
-        TypeParam                      rn(info);
-        const auto                     info2 = rn.GetInfo();
-        TypeParam                      rn2(info2);
-        const auto                     info3 = rn2.GetInfo();
+        TypeParam    rn(info);
+        const auto   info2 = rn.GetInfo();
+        TypeParam    rn2(info2);
+        const auto   info3 = rn2.GetInfo();
         EXPECT_EQ(info2.m_state, info3.m_state);
 }
 

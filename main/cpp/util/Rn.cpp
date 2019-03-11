@@ -22,6 +22,7 @@
 #include "StringUtils.h"
 
 #include <trng/lcg64.hpp>
+#include <trng/uniform01_dist.hpp>
 #include <cctype>
 #include <functional>
 #include <pcg/pcg_random.hpp>
@@ -61,6 +62,12 @@ RnInfo Rn<E>::GetInfo() const
         info.m_state         = ss.str();
         info.m_stream_count  = m_stream_count;
         return info;
+}
+
+template <typename E>
+std::function<double()> Rn<E>::GetUniform01Generator(unsigned int i)
+{
+        return ContainerType::at(i).variate_generator(trng::uniform01_dist<double>());
 }
 
 template <typename E>

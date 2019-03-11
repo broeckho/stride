@@ -40,15 +40,13 @@ using namespace stride::ContactType;
 
 namespace stride {
 
-Population::Population()
-        : m_pool_sys(), m_contact_logger(), m_geoGrid(), m_currentContactPoolId()
+Population::Population() : m_pool_sys(), m_contact_logger(), m_geoGrid(), m_currentContactPoolId()
 {
         for (Id typ : IdList) {
                 m_pool_sys[typ].emplace_back(ContactPool(0U, typ));
                 m_currentContactPoolId[typ] = 1;
         }
 }
-
 
 std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
                                                std::shared_ptr<spdlog::logger> stride_logger)

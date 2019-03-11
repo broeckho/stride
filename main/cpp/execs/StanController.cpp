@@ -77,7 +77,7 @@ void StanController::Control()
                 configPt.put("run.rng_seed", seeds[i]);
                 m_stride_logger->info("Starting run using seed {}", seeds[i]);
 
-                auto pop = Population::Create(configPt, m_rn_man);
+                auto pop    = Population::Create(configPt, m_rn_man);
                 auto runner = make_shared<SimRunner>(configPt, pop, m_rn_man);
 
                 auto iViewer = make_shared<viewers::InfectedViewer>(runner);

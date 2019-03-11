@@ -33,7 +33,7 @@ class Immunizer
 {
 public:
         ///
-        explicit Immunizer(util::RnMan& rnManager) : m_rn_manager(rnManager) {}
+        explicit Immunizer(util::RnMan& rnManager) : m_rn_man(rnManager) {}
 
         /// Random immunization.
         void Random(const util::SegmentedVector<ContactPool>& pools, std::vector<double>& immunityDistribution,
@@ -44,7 +44,7 @@ public:
                     double /*immunityLinkProbability*/);
 
 private:
-        util::RnMan& m_rn_manager; ///< Random number manager.
+        util::RnMan& m_rn_man; ///< Random number manager.
 };
 
 } // namespace stride

@@ -31,10 +31,8 @@ namespace util {
  */
 struct RnInfo
 {
-        explicit RnInfo(std::string seed_seq_init = "1,2,3,4", std::string state = "",
-                      unsigned int stream_count = 1U)
-            : m_seed_seq_init(std::move(seed_seq_init)), m_state(std::move(state)),
-              m_stream_count(stream_count){};
+        explicit RnInfo(std::string seed_seq_init = "1,2,3,4", std::string state = "", unsigned int stream_count = 1U)
+            : m_seed_seq_init(std::move(seed_seq_init)), m_state(std::move(state)), m_stream_count(stream_count){};
 
         std::string  m_seed_seq_init; ///< Seed for the engine.
         std::string  m_state;         ///< Long string representing current state.
@@ -47,7 +45,6 @@ inline std::ostream& operator<<(std::ostream& os, const RnInfo& info)
            << "Number of streams: " << info.m_stream_count << "\n"
            << "State: " << info.m_state;
         return os;
-
 }
 
 } // namespace util

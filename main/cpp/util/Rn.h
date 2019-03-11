@@ -23,9 +23,9 @@
 #include "RnInfo.h"
 
 //#include <trng/lcg64.hpp>
+#include <iostream>
 #include <pcg/pcg_random.hpp>
 #include <randutils/randutils.hpp>
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -49,7 +49,7 @@ public:
 
 public:
         /// Default constructor build empty manager.
-        Rn() : ContainerType (), m_seed_seq_init(""), m_stream_count(0U) {}
+        Rn() : ContainerType(), m_seed_seq_init(""), m_stream_count(0U) {}
 
         /// Initializes.
         explicit Rn(const RnInfo& info)
@@ -70,6 +70,9 @@ public:
 
         /// Return the state of the random engines.
         RnInfo GetInfo() const;
+
+        /// Return a generator for uniform  doubles in [0, 1[ using i-th random engine.
+        std::function<double()> GetUniform01Generator(unsigned int i = 0U);
 
         /// Initalize with data in Info.
         void Initialize(const RnInfo& info);
