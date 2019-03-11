@@ -1,7 +1,6 @@
 var searchData=
 [
   ['gencities',['GenCities',['../d7/de0/a00022.html#a728ed3c87cb4894771d8e5776a7333c7',1,'geopop::GeoGridBuilder']]],
-  ['gender',['gender',['../dc/ddf/a00067.html#a5e6cb2c57bc156fc4947243d1151999b',1,'proto::GeoGrid_Person']]],
   ['generator',['Generator',['../dd/d1b/a00015.html#a361ab2a8ec93781900f49efec10c173a',1,'geopop::Generator']]],
   ['gengeo',['GenGeo',['../d7/de0/a00022.html#a5d08bb263b6c337e9302538100f33ad0',1,'geopop::GeoGridBuilder']]],
   ['genpop',['GenPop',['../d7/de0/a00022.html#aeacc4ccfc13fa83d6ef5c679f0360270',1,'geopop::GeoGridBuilder']]],
@@ -58,7 +57,6 @@ var searchData=
   ['getendsymptomatic',['GetEndSymptomatic',['../da/d82/a00091.html#aac2a22ae31603c4dbaea3f440974d0d5',1,'stride::Health']]],
   ['getenumdescriptor_3c_20_3a_3aproto_3a_3ageogrid_5flocation_5fcontactcenter_5ftype_20_3e',['GetEnumDescriptor&lt; ::proto::GeoGrid_Location_ContactCenter_Type &gt;',['../df/d73/a00358.html#ac5458135917397aeacd9ca41cbdcb960',1,'google::protobuf']]],
   ['getexecpath',['GetExecPath',['../d9/d4b/a00117.html#a86435813fb1eb87fcf9023ddbf27fe4a',1,'stride::util::FileSys']]],
-  ['getgender',['GetGender',['../d4/d3a/a00101.html#ada6071b93ce9d5b5611a2151e14d0740',1,'stride::Person']]],
   ['getgeogrid',['GetGeoGrid',['../d7/de0/a00022.html#ad921b7ba64ebaceb6866a47dde65136f',1,'geopop::GeoGridBuilder::GetGeoGrid()'],['../d9/dcc/a00102.html#a47faaf5a7fc1abb4fc7eeaec9eb5504b',1,'stride::Population::GetGeoGrid()']]],
   ['gethealth',['GetHealth',['../d4/d3a/a00101.html#a53081dbb062c019153b8be62083d59a2',1,'stride::Person::GetHealth()'],['../d4/d3a/a00101.html#a22421b0318583235939e935361b77c90',1,'stride::Person::GetHealth() const ']]],
   ['getheight',['GetHeight',['../d5/db6/a00042.html#a4ffde8d1f13b4b61152fb9cf58e7b4c9',1,'geopop::KdTree']]],

@@ -18,7 +18,7 @@ var searchData=
   ['pools',['pools',['../df/d5f/a00064.html#ad72f8f06adf64bedd21c233827dc8d65',1,'proto::GeoGrid_Location_ContactCenter::pools(int index) const '],['../df/d5f/a00064.html#a04750f01fca724a997216fade5abfd9b',1,'proto::GeoGrid_Location_ContactCenter::pools() const ']]],
   ['pools_5fsize',['pools_size',['../df/d5f/a00064.html#a2fba27d68b28b8f526346d0fe1d3cdd6',1,'proto::GeoGrid_Location_ContactCenter']]],
   ['pop_5fback',['pop_back',['../da/d24/a00068.html#a4e0b15a5f6a72420feedc9a006d17fa7',1,'stride::util::SegmentedVector']]],
-  ['population',['Population',['../d9/dcc/a00102.html#a23ca2c3c5ef45fe26a11e0bc47cbe8ca',1,'stride::Population::Population()'],['../df/d03/a00062.html#a8f722f8a9c6609c033a0654fd3bef9d8',1,'proto::GeoGrid_Location::population()']]],
+  ['population',['population',['../df/d03/a00062.html#a8f722f8a9c6609c033a0654fd3bef9d8',1,'proto::GeoGrid_Location::population()'],['../d9/dcc/a00102.html#a23ca2c3c5ef45fe26a11e0bc47cbe8ca',1,'stride::Population::Population()']]],
   ['populator',['Populator',['../d6/d97/a00045.html#a90939da0643eae65780f4a4dd125c411',1,'geopop::Populator']]],
   ['primarycommunity',['PrimaryCommunity',['../d3/dea/a00046.html#a19430d62991b9e86630c389353c99799',1,'geopop::PrimaryCommunity']]],
   ['print',['Print',['../d1/d44/a00098.html#ae42038f7696374e29aef434de61d386d',1,'stride::output::InfectedFile::Print()'],['../da/d74/a00099.html#ac72a90d142c34ca2137bdf09760ba2c4',1,'stride::output::PersonsFile::Print()'],['../d0/d61/a00100.html#a9b4fb82839ddf6a7c8d10fc119bf22fb',1,'stride::output::SummaryFile::Print()']]],

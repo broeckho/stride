@@ -1,7 +1,7 @@
 var searchData=
 [
   ['k12school',['K12School',['../d8/d41/a00038.html',1,'geopop']]],
-  ['k12school',['K12School',['../df/d5f/a00064.html#a7a887481e558ac4e0e049ffdab9cf0b2',1,'proto::GeoGrid_Location_ContactCenter::K12School()'],['../d8/d41/a00038.html#a23ffd0e743abeabe33b38a025d0a42b2',1,'geopop::K12School::K12School()'],['../d8/d21/a00368.html#a4e4309e1cddddec8f12b981ab3fbc4fbab055a361403830ea4fa7bd1c8519b38e',1,'stride::ContactType::K12School()']]],
+  ['k12school',['K12School',['../df/d5f/a00064.html#a7a887481e558ac4e0e049ffdab9cf0b2',1,'proto::GeoGrid_Location_ContactCenter::K12School()'],['../d8/d41/a00038.html#a23ffd0e743abeabe33b38a025d0a42b2',1,'geopop::K12School::K12School()'],['../d8/d21/a00368.html#aadcdc6e5728b8c3f62b78af09de603f1ab055a361403830ea4fa7bd1c8519b38e',1,'stride::ContactType::K12School()']]],
   ['k12school',['K12School',['../d6/d2c/a00072.html',1,'stride::AgeBrackets']]],
   ['k12school_2ecpp',['K12School.cpp',['../dd/dd7/a00260.html',1,'']]],
   ['k12school_2eh',['K12School.h',['../dc/d6a/a00261.html',1,'']]],
@@ -27,7 +27,6 @@ var searchData=
   ['kdtree_3c_20geogrid_5fdetail_3a_3akdtree2dpoint_20_3e',['KdTree&lt; geogrid_detail::KdTree2DPoint &gt;',['../d5/db6/a00042.html',1,'geopop']]],
   ['kdtree_3c_20p_20_3e',['KdTree&lt; P &gt;',['../dd/d32/a00041.html#a0d8dc73ff7f8bb9d7b6db0adc4509640',1,'geopop::kd::Node']]],
   ['kdtree_5fdef_2eh',['KdTree_def.h',['../d9/d2a/a00270.html',1,'']]],
-  ['kgenderfieldnumber',['kGenderFieldNumber',['../dc/ddf/a00067.html#a93d3399aa912429e7d1874fba48d384c',1,'proto::GeoGrid_Person']]],
   ['kidfieldnumber',['kIdFieldNumber',['../de/de1/a00065.html#acf61ea4572a2177de095b0f10c994a7d',1,'proto::GeoGrid_Location_ContactCenter_ContactPool::kIdFieldNumber()'],['../df/d5f/a00064.html#ac30905b9e13de0fbf59536d953e33290',1,'proto::GeoGrid_Location_ContactCenter::kIdFieldNumber()'],['../df/d03/a00062.html#a79e48ac4d0cfefa4b5f044bbc65fcea3',1,'proto::GeoGrid_Location::kIdFieldNumber()'],['../dc/ddf/a00067.html#ac8580412f138ad4d35cf48fb3dbeb626',1,'proto::GeoGrid_Person::kIdFieldNumber()']]],
   ['kindexinfilemessages',['kIndexInFileMessages',['../d9/db3/a00066.html#a4600cebd655dfde5818668f897a7e697',1,'proto::GeoGrid_Location_Coordinate::kIndexInFileMessages()'],['../de/de1/a00065.html#a7f9178ba505f0fb136a91b525d42594e',1,'proto::GeoGrid_Location_ContactCenter_ContactPool::kIndexInFileMessages()'],['../df/d5f/a00064.html#a4961fbb94503544bb52e3d0af4c67cda',1,'proto::GeoGrid_Location_ContactCenter::kIndexInFileMessages()'],['../d1/d6f/a00063.html#a708bad2023fbc11ef94e9b442bfa00e7',1,'proto::GeoGrid_Location_Commute::kIndexInFileMessages()'],['../df/d03/a00062.html#a83606679991ffbc8524a786636a2e57e',1,'proto::GeoGrid_Location::kIndexInFileMessages()'],['../dc/ddf/a00067.html#a761563721f1738cc38625743eaf01932',1,'proto::GeoGrid_Person::kIndexInFileMessages()'],['../d4/de8/a00061.html#aee538c6f93096e504930400de4694b3e',1,'proto::GeoGrid::kIndexInFileMessages()']]],
   ['klatitudefieldnumber',['kLatitudeFieldNumber',['../d9/db3/a00066.html#aeac8100a544f62b24cdd027fac0065ed',1,'proto::GeoGrid_Location_Coordinate']]],

@@ -320,10 +320,7 @@ var files =
       [ "ReaderFactory", "d2/dee/a00049.html", "d2/dee/a00049" ]
     ] ],
     [ "Rn.cpp", "d3/d4a/a00297.html", null ],
-    [ "Rn.h", "d9/d0d/a00298.html", [
-      [ "Rn", "de/d36/a00123.html", "de/d36/a00123" ],
-      [ "Info", "da/d72/a00124.html", "da/d72/a00124" ]
-    ] ],
+    [ "Rn.h", "d9/d0d/a00298.html", "d9/d0d/a00298" ],
     [ "RnMan.h", "df/d95/a00299.html", "df/d95/a00299" ],
     [ "RunConfigManager.cpp", "db/da2/a00300.html", null ],
     [ "RunConfigManager.h", "da/d50/a00301.html", [

@@ -24,7 +24,6 @@ var searchData=
   ['clear_5fcommutes',['clear_commutes',['../df/d03/a00062.html#ac9d58db09b52758c26e72b0d4750e902',1,'proto::GeoGrid_Location']]],
   ['clear_5fcontactcenters',['clear_contactcenters',['../df/d03/a00062.html#ad0e3935edfee6b1dde6b9084097ae1a4',1,'proto::GeoGrid_Location']]],
   ['clear_5fcoordinate',['clear_coordinate',['../df/d03/a00062.html#ad17487e6e5d0da981dc9775621c8cc3f',1,'proto::GeoGrid_Location']]],
-  ['clear_5fgender',['clear_gender',['../dc/ddf/a00067.html#aa8f478d054b1ee1570481764fee8ffa3',1,'proto::GeoGrid_Person']]],
   ['clear_5fid',['clear_id',['../de/de1/a00065.html#afbd48a3490765f482f481a1ecf8d650a',1,'proto::GeoGrid_Location_ContactCenter_ContactPool::clear_id()'],['../df/d5f/a00064.html#a060f9040bc63eef34d6763b01e48a56d',1,'proto::GeoGrid_Location_ContactCenter::clear_id()'],['../df/d03/a00062.html#ab2f62809f8085afdbb4564ec8c5c590c',1,'proto::GeoGrid_Location::clear_id()'],['../dc/ddf/a00067.html#a0a064354e6bb35f7cc49f442c1fe7cb5',1,'proto::GeoGrid_Person::clear_id()']]],
   ['clear_5flatitude',['clear_latitude',['../d9/db3/a00066.html#aaa5831b293c93527e2393ab9991a3212',1,'proto::GeoGrid_Location_Coordinate']]],
   ['clear_5flocations',['clear_locations',['../d4/de8/a00061.html#a29f6f7a131d55f0be231362c117a4829',1,'proto::GeoGrid']]],

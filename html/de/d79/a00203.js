@@ -12,7 +12,6 @@ var a00203 =
     [ "PROTOBUF_INTERNAL_EXPORT_geogrid_2eproto", "de/d79/a00203.html#a3b18659d2597bfb3fc99625f5b82ae54", null ],
     [ "GeoGrid_Location_ContactCenter_Type", "de/d79/a00203.html#a87e31302cbdcd5134821ad9ae876ed8b", [
       [ "GeoGrid_Location_ContactCenter_Type_K12School", "de/d79/a00203.html#a87e31302cbdcd5134821ad9ae876ed8baad3ada6021a90153f0fe7d23c4961b8c", null ],
-      [ "GeoGrid_Location_ContactCenter_Type_Community", "de/d79/a00203.html#a87e31302cbdcd5134821ad9ae876ed8baad239fb07a61835e8b6f34eaf04913de", null ],
       [ "GeoGrid_Location_ContactCenter_Type_PrimaryCommunity", "de/d79/a00203.html#a87e31302cbdcd5134821ad9ae876ed8baca568431921aa96c039bfcb4f6787b4c", null ],
       [ "GeoGrid_Location_ContactCenter_Type_SecondaryCommunity", "de/d79/a00203.html#a87e31302cbdcd5134821ad9ae876ed8bad068b29dc49070b52a4123c4afed3f73", null ],
       [ "GeoGrid_Location_ContactCenter_Type_College", "de/d79/a00203.html#a87e31302cbdcd5134821ad9ae876ed8ba515eed7ba2015e006e9543976a0f1bfa", null ],

@@ -52,7 +52,6 @@ var a00064 =
     [ "swap", "df/d5f/a00064.html#a2f29098e692af6d62d3906d978d91360", null ],
     [ "kIndexInFileMessages", "df/d5f/a00064.html#a4961fbb94503544bb52e3d0af4c67cda", null ],
     [ "K12School", "df/d5f/a00064.html#a7a887481e558ac4e0e049ffdab9cf0b2", null ],
-    [ "Community", "df/d5f/a00064.html#aaa150e1e77bd7b4add7dde6e5aacc5d0", null ],
     [ "PrimaryCommunity", "df/d5f/a00064.html#a6eb5f5b492dcee2e72db4cf85a1fddcf", null ],
     [ "SecondaryCommunity", "df/d5f/a00064.html#a8d72391a93910504a92b7866ff7df81c", null ],
     [ "College", "df/d5f/a00064.html#a5a97534718d0231be73b42854038f937", null ],

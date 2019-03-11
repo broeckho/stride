@@ -188,6 +188,6 @@ var hierarchy =
     [ "const void", "d8/d86/a00703.html", null ],
     [ "double", "d7/d08/a00378.html", null ],
     [ "random_generator< E, randutils::seed_seq_fe128 >", "d8/dcb/a00706.html", null ],
-    [ "size_t", "de/df4/a00450.html", null ],
+    [ "size_t", "d8/d95/a00379.html", null ],
     [ "tuple< stride::ContactLogMode::Id, bool >", "d7/d7e/a00709.html", null ]
 ];
