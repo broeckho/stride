@@ -63,6 +63,7 @@ message( STATUS "------> CCACHE_PROGRAM              : ${CCACHE_PROGRAM}"       
 #
 message( STATUS "" )
 if ( Boost_FOUND )
+	message( STATUS "------> Boost_FOUND                 : ${Boost_FOUND} "               )
 	message( STATUS "------> Boost_VERSION               : ${Boost_VERSION} "             )
 	message( STATUS "------> Boost_INCLUDE_DIRS          : ${Boost_INCLUDE_DIRS} "        )
 	message( STATUS "------> Boost_Libraries             : ${Boost_LIBRARIES} "           )
@@ -78,8 +79,9 @@ if( NOT STRIDE_FORCE_NO_OPENMP )
 endif()
 #
 message( STATUS "" )
-if( Protobuf_FOUND )
+if( Protobuf_FOUND VERSION_GREATER_EQUAL 3.0.0)
 	message( STATUS "------> Protobuf_FOUND              : ${Protobuf_FOUND}"          )
+	message( STATUS "------> Protobuf_VERSION            : ${Protobuf_VERSION}"        )
 	message( STATUS "------> Protobuf_INCLUDE_DIRS       : ${Protobuf_INCLUDE_DIRS} "  )
 	message( STATUS "------> Protobuf_LIBRARIES          : ${Protobuf_LIBRARIES} "     )
 else()
