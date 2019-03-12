@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: TimeStamp.h File Reference</title>
+<title>Stride Reference Manual: ThreadException.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 749574b</span>
+   &#160;<span id="projectnumber">- generated for commit ba802a2</span>
    </div>
   </td>
  </tr>
@@ -106,33 +106,27 @@ $(document).ready(function(){initNavTree('d2/d0a/a00333.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">TimeStamp.h File Reference</div>  </div>
+<div class="title">ThreadException.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>TimeStamp class.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;ostream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &lt;boost/optional.hpp&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for TimeStamp.h:</div>
+Include dependency graph for ThreadException.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d31/a00678.gif" border="0" usemap="#TimeStamp_8h" alt=""/></div>
-<map name="TimeStamp_8h" id="TimeStamp_8h">
+<div class="center"><img src="../../d2/d85/a00679.gif" border="0" usemap="#ThreadException_8h" alt=""/></div>
+<map name="ThreadException_8h" id="ThreadException_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d85/a00679.gif" border="0" usemap="#TimeStamp_8hdep" alt=""/></div>
-<map name="TimeStamp_8hdep" id="TimeStamp_8hdep">
-<area shape="rect" id="node2" href="../../d9/d90/a00178.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
-<area shape="rect" id="node3" href="../../de/dab/a00319.html" title="Main program: command line handling. " alt="" coords="165,80,251,107"/>
-<area shape="rect" id="node4" href="../../dc/d50/a00332.html" title="TimeStamp class. " alt="" coords="275,80,397,107"/>
+<div class="center"><img src="../../d4/d9b/a00680.gif" border="0" usemap="#ThreadException_8hdep" alt=""/></div>
+<map name="ThreadException_8hdep" id="ThreadException_8hdep">
+<area shape="rect" id="node2" href="../../da/de7/a00210.html" title="GeoGridJSONReader.cpp" alt="" coords="5,80,181,107"/>
+<area shape="rect" id="node3" href="../../d6/d43/a00216.html" title="GeoGridProtoReader.cpp" alt="" coords="205,80,384,107"/>
 </map>
 </div>
 </div>
@@ -140,36 +134,28 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d06/a00131.html">stride::util::TimeStamp</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides wall-clock time stamp using the time call.  <a href="../../d7/d06/a00131.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html">geopop::ThreadException</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a wrapper for capturing exceptions thrown in a multi-threaded environment.  <a href="../../d1/d84/a00052.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html">geopop::ThreadException::RunType&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The used for executing a function with a return type.  <a href="../../dc/dee/a00053.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html">geopop::ThreadException::RunType&lt; void &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/db5/a00365"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db5/a00365.html">stride</a></td></tr>
-<tr class="memdesc:dd/db5/a00365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d3/dc9/a00355"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc9/a00355.html">geopop</a></td></tr>
+<tr class="memdesc:d3/dc9/a00355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:db/d7e/a00372"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d7e/a00372.html">stride::util</a></td></tr>
-<tr class="memdesc:db/d7e/a00372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d7e/a00372.html#a93f9f2ea967f7688a4ed4ef10852b566">stride::util::operator&lt;&lt;</a> (std::ostream &amp;os, TimeStamp t)</td></tr>
-<tr class="memdesc:a93f9f2ea967f7688a4ed4ef10852b566"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/d06/a00131.html" title="Provides wall-clock time stamp using the time call. ">TimeStamp</a> helper inserts string representation in output stream.  <a href="../../db/d7e/a00372.html#a93f9f2ea967f7688a4ed4ef10852b566">More...</a><br /></td></tr>
-<tr class="separator:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>TimeStamp class. </p>
-
-<p>Definition in file <a class="el" href="../../d2/d0a/a00333_source.html">TimeStamp.h</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d2/d0a/a00333.html">TimeStamp.h</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 08:49:43 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d2/d0a/a00333.html">ThreadException.h</a></li>
+    <li class="footer">Generated on Tue Mar 12 2019 13:48:08 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

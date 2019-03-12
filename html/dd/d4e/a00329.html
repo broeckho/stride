@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SurveySeeder.h File Reference</title>
+<title>Stride Reference Manual: SummaryFileViewer.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 749574b</span>
+   &#160;<span id="projectnumber">- generated for commit ba802a2</span>
    </div>
   </td>
  </tr>
@@ -108,30 +108,38 @@ $(document).ready(function(){initNavTree('dd/d4e/a00329.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SurveySeeder.h File Reference</div>  </div>
+<div class="title">SummaryFileViewer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for the SurveySeeder class.  
+<p>Observer for Persons output.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/dfc/a00327_source.html">SummaryFile.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/db8/a00316_source.html">sim/SimRunner.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d82/a00243_source.html">sim/event/Id.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SurveySeeder.h:</div>
+Include dependency graph for SummaryFileViewer.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d13/a00671.gif" border="0" usemap="#SurveySeeder_8h" alt=""/></div>
-<map name="SurveySeeder_8h" id="SurveySeeder_8h">
+<div class="center"><img src="../../d5/d40/a00672.gif" border="0" usemap="#SummaryFileViewer_8h" alt=""/></div>
+<map name="SummaryFileViewer_8h" id="SummaryFileViewer_8h">
+<area shape="rect" id="node2" href="../../d8/dfc/a00327.html" title="Header for the SummaryFile class. " alt="" coords="245,80,363,107"/>
+<area shape="rect" id="node6" href="../../d3/db8/a00316.html" title="Header for the SimRunner class. " alt="" coords="642,80,771,107"/>
+<area shape="rect" id="node7" href="../../d6/d82/a00243.html" title="Definition of EventId. " alt="" coords="641,244,753,271"/>
+<area shape="rect" id="node9" href="../../d4/d8f/a00324.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="800,162,949,189"/>
+<area shape="rect" id="node14" href="../../da/d50/a00301.html" title="Interface of RnMan. " alt="" coords="1025,162,1125,189"/>
+<area shape="rect" id="node18" href="../../dd/de2/a00320.html" title="Definition of Stopwatch. " alt="" coords="275,162,399,189"/>
+<area shape="rect" id="node10" href="../../de/dc8/a00325.html" title="Interface/Implementation of Subject. " alt="" coords="1075,244,1181,271"/>
+<area shape="rect" id="node15" href="../../df/d95/a00299.html" title="Interface of RnPcg. " alt="" coords="827,244,901,271"/>
+<area shape="rect" id="node19" href="../../d4/dce/a00337.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="257,244,373,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d40/a00672.gif" border="0" usemap="#SurveySeeder_8hdep" alt=""/></div>
-<map name="SurveySeeder_8hdep" id="SurveySeeder_8hdep">
-<area shape="rect" id="node2" href="../../d7/d6e/a00190.html" title="Initialize populations: implementation. " alt="" coords="5,80,168,107"/>
-<area shape="rect" id="node3" href="../../d9/d01/a00227.html" title="Initialize populations: implementation. " alt="" coords="193,80,335,107"/>
-<area shape="rect" id="node4" href="../../d4/db5/a00328.html" title="Implementation for the SurveySeeder class. " alt="" coords="360,80,499,107"/>
-<area shape="rect" id="node5" href="../../d2/d71/a00309.html" title="Implementation for the SimBuilder class. " alt="" coords="523,80,640,107"/>
+<div class="center"><img src="../../d4/d4f/a00673.gif" border="0" usemap="#SummaryFileViewer_8hdep" alt=""/></div>
+<map name="SummaryFileViewer_8hdep" id="SummaryFileViewer_8hdep">
+<area shape="rect" id="node2" href="../../d9/d90/a00178.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../d4/db5/a00328.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="165,80,339,107"/>
 </map>
 </div>
 </div>
@@ -139,30 +147,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d42/a00109.html">stride::SurveySeeder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with survey participants.  <a href="../../dd/d42/a00109.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html">stride::viewers::SummaryFileViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../d2/df5/a00137.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/db5/a00365"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db5/a00365.html">stride</a></td></tr>
-<tr class="memdesc:dd/db5/a00365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d2/d3e/a00366"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html">stride</a></td></tr>
+<tr class="memdesc:d2/d3e/a00366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:db/d7e/a00372"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d7e/a00372.html">stride::util</a></td></tr>
-<tr class="memdesc:db/d7e/a00372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:d6/db8/a00376"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db8/a00376.html">stride::viewers</a></td></tr>
+<tr class="memdesc:d6/db8/a00376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d1/dd6/a00108.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for the SurveySeeder class. </p>
+<div class="textblock"><p>Observer for Persons output. </p>
 
-<p>Definition in file <a class="el" href="../../dd/d4e/a00329_source.html">SurveySeeder.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dd/d4e/a00329_source.html">SummaryFileViewer.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../dd/d4e/a00329.html">SurveySeeder.h</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 08:49:43 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../dd/d4e/a00329.html">SummaryFileViewer.h</a></li>
+    <li class="footer">Generated on Tue Mar 12 2019 13:48:08 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

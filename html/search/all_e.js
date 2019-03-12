@@ -8,8 +8,8 @@ var searchData=
   ['node',['Node',['../dd/d32/a00041.html',1,'geopop::kd']]],
   ['node_3c_20geogrid_5fdetail_3a_3akdtree2dpoint_2c_200_20_3e',['Node&lt; geogrid_detail::KdTree2DPoint, 0 &gt;',['../dd/d32/a00041.html',1,'geopop::kd']]],
   ['node_3c_20p_2c_200_20_3e',['Node&lt; P, 0 &gt;',['../dd/d32/a00041.html',1,'geopop::kd']]],
-  ['none',['None',['../df/dc2/a00367.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754',1,'stride::ContactLogMode']]],
+  ['none',['None',['../d8/d21/a00368.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754',1,'stride::ContactLogMode']]],
   ['notify',['Notify',['../d9/d47/a00129.html#a9496d626bbde63eb55836f0af402522c',1,'stride::util::Subject']]],
-  ['numberavailablethreads',['NumberAvailableThreads',['../db/d57/a00112.html#a6b4240ce29160e778c69f9e246e1747d',1,'stride::util::ConfigInfo']]],
-  ['numoftypes',['NumOfTypes',['../d8/d21/a00368.html#ae07181484047f7f834d393628788f2f4',1,'stride::ContactType::NumOfTypes()'],['../d6/d80/a00371.html#afd464f4ca1769b7880cb27383a3cafd2',1,'stride::sim_event::NumOfTypes()']]]
+  ['numberavailablethreads',['NumberAvailableThreads',['../d3/d00/a00113.html#a6b4240ce29160e778c69f9e246e1747d',1,'stride::util::ConfigInfo']]],
+  ['numoftypes',['NumOfTypes',['../df/dee/a00369.html#ae07181484047f7f834d393628788f2f4',1,'stride::ContactType::NumOfTypes()'],['../db/d7e/a00372.html#afd464f4ca1769b7880cb27383a3cafd2',1,'stride::sim_event::NumOfTypes()']]]
 ];

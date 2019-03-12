@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SimController.h File Reference</title>
+<title>Stride Reference Manual: SimBuilder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 749574b</span>
+   &#160;<span id="projectnumber">- generated for commit ba802a2</span>
    </div>
   </td>
  </tr>
@@ -108,34 +108,28 @@ $(document).ready(function(){initNavTree('d7/df2/a00312.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SimController.h File Reference</div>  </div>
+<div class="title">SimBuilder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the command line controller.  
+<p>Header for the SimBuilder class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/dd9/a00179_source.html">ControlHelper.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
+<div class="textblock"><code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SimController.h:</div>
+Include dependency graph for SimBuilder.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/dcf/a00645.gif" border="0" usemap="#SimController_8h" alt=""/></div>
-<map name="SimController_8h" id="SimController_8h">
-<area shape="rect" id="node2" href="../../db/dd9/a00179.html" title="Header for the command line controller. " alt="" coords="945,87,1067,114"/>
-<area shape="rect" id="node3" href="../../df/d95/a00299.html" title="Interface of RnMan. " alt="" coords="628,177,728,203"/>
-<area shape="rect" id="node16" href="../../d2/d41/a00318.html" title="Definition of Stopwatch. " alt="" coords="960,259,1084,285"/>
-<area shape="rect" id="node4" href="../../d9/d0d/a00298.html" title="Interface of RnPcg. " alt="" coords="518,259,569,285"/>
-<area shape="rect" id="node5" href="../../dd/de2/a00320.html" title="Miscellaneous string utilities. " alt="" coords="237,333,337,360"/>
-<area shape="rect" id="node17" href="../../df/d91/a00335.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="988,333,1104,360"/>
+<div class="center"><img src="../../d6/d08/a00646.gif" border="0" usemap="#SimBuilder_8h" alt=""/></div>
+<map name="SimBuilder_8h" id="SimBuilder_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d08/a00646.gif" border="0" usemap="#SimController_8hdep" alt=""/></div>
-<map name="SimController_8hdep" id="SimController_8hdep">
-<area shape="rect" id="node2" href="../../d1/d5d/a00311.html" title="Header for the command line controller. " alt="" coords="5,80,140,107"/>
-<area shape="rect" id="node3" href="../../de/dab/a00319.html" title="Main program: command line handling. " alt="" coords="165,80,250,107"/>
+<div class="center"><img src="../../d3/d8e/a00647.gif" border="0" usemap="#SimBuilder_8hdep" alt=""/></div>
+<map name="SimBuilder_8hdep" id="SimBuilder_8hdep">
+<area shape="rect" id="node2" href="../../d2/d71/a00309.html" title="Implementation for the Simulator class. " alt="" coords="5,80,80,107"/>
+<area shape="rect" id="node3" href="../../d1/d5d/a00311.html" title="Implementation for the SimBuilder class. " alt="" coords="104,80,221,107"/>
 </map>
 </div>
 </div>
@@ -143,27 +137,27 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d70/a00106.html">stride::SimController</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls a simulation run initiated with the command line interface (cli).  <a href="../../d7/d70/a00106.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d70/a00106.html">stride::SimBuilder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a simulator based a configuration property tree.  <a href="../../d7/d70/a00106.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/db5/a00365"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db5/a00365.html">stride</a></td></tr>
-<tr class="memdesc:dd/db5/a00365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d2/d3e/a00366"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html">stride</a></td></tr>
+<tr class="memdesc:d2/d3e/a00366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the command line controller. </p>
+<div class="textblock"><p>Header for the SimBuilder class. </p>
 
-<p>Definition in file <a class="el" href="../../d7/df2/a00312_source.html">SimController.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d7/df2/a00312_source.html">SimBuilder.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../d7/df2/a00312.html">SimController.h</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 08:49:43 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d7/df2/a00312.html">SimBuilder.h</a></li>
+    <li class="footer">Generated on Tue Mar 12 2019 13:48:08 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: TransmissionProfile.h File Reference</title>
+<title>Stride Reference Manual: TimeToString.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 749574b</span>
+   &#160;<span id="projectnumber">- generated for commit ba802a2</span>
    </div>
   </td>
  </tr>
@@ -108,38 +108,45 @@ $(document).ready(function(){initNavTree('d4/dce/a00337.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">TransmissionProfile.h File Reference</div>  </div>
+<div class="title">TimeToString.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the TransmissionProfile class.  
+<p>Utilities to tag clocks and reformat clock readout to string.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<div class="textblock"><code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for TransmissionProfile.h:</div>
+Include dependency graph for TimeToString.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/db4/a00684.gif" border="0" usemap="#TransmissionProfile_8h" alt=""/></div>
-<map name="TransmissionProfile_8h" id="TransmissionProfile_8h">
+<div class="center"><img src="../../d0/df1/a00685.gif" border="0" usemap="#TimeToString_8h" alt=""/></div>
+<map name="TimeToString_8h" id="TimeToString_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/df1/a00685.gif" border="0" usemap="#TransmissionProfile_8hdep" alt=""/></div>
-<map name="TransmissionProfile_8hdep" id="TransmissionProfile_8hdep">
-<area shape="rect" id="node2" href="../../d0/def/a00256.html" title="Header for the Infector class. " alt="" coords="139,80,221,107"/>
-<area shape="rect" id="node6" href="../../dd/d1d/a00336.html" title="Omplemenatation for the TransmissionProfile class. " alt="" coords="311,80,481,107"/>
-<area shape="rect" id="node7" href="../../d5/d0f/a00308.html" title="Header for the Simulator class. " alt="" coords="572,80,631,107"/>
-<area shape="rect" id="node3" href="../../d4/d04/a00255.html" title="Implementation of Infector algorithms. " alt="" coords="5,155,101,181"/>
-<area shape="rect" id="node4" href="../../d7/d2f/a00258.html" title="Header for the InfectorMap. " alt="" coords="125,155,235,181"/>
-<area shape="rect" id="node5" href="../../d2/d71/a00309.html" title="Implementation for the SimBuilder class. " alt="" coords="167,229,284,256"/>
-<area shape="rect" id="node8" href="../../d0/da2/a00307.html" title="Implementation for the Simulator class. " alt="" coords="309,155,384,181"/>
-<area shape="rect" id="node9" href="../../dd/db3/a00313.html" title="Implementation for SimRunner. " alt="" coords="408,155,525,181"/>
-<area shape="rect" id="node10" href="../../da/d01/a00153.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="549,155,654,181"/>
-<area shape="rect" id="node11" href="../../d3/d1a/a00251.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="678,155,839,181"/>
-<area shape="rect" id="node12" href="../../d0/d3e/a00253.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="864,155,1005,181"/>
-<area shape="rect" id="node13" href="../../dc/dc9/a00282.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1030,155,1191,181"/>
-<area shape="rect" id="node14" href="../../d8/d23/a00326.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1216,155,1389,181"/>
+<div class="center"><img src="../../df/d9e/a00686.gif" border="0" usemap="#TimeToString_8hdep" alt=""/></div>
+<map name="TimeToString_8hdep" id="TimeToString_8hdep">
+<area shape="rect" id="node2" href="../../dd/de2/a00320.html" title="Definition of Stopwatch. " alt="" coords="607,80,708,107"/>
+<area shape="rect" id="node20" href="../../dd/d1d/a00336.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="732,80,863,107"/>
+<area shape="rect" id="node3" href="../../db/dd9/a00179.html" title="Header for the command line controller. " alt="" coords="331,155,453,181"/>
+<area shape="rect" id="node12" href="../../d3/db8/a00316.html" title="Header for the SimRunner class. " alt="" coords="873,155,975,181"/>
+<area shape="rect" id="node4" href="../../d9/d90/a00178.html" title="Header for the command line controller. " alt="" coords="760,304,896,331"/>
+<area shape="rect" id="node5" href="../../d8/d72/a00199.html" title="Header for the command line controller. " alt="" coords="13,229,158,256"/>
+<area shape="rect" id="node8" href="../../d0/d39/a00314.html" title="Header for the command line controller. " alt="" coords="332,229,452,256"/>
+<area shape="rect" id="node10" href="../../de/dab/a00319.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="183,229,308,256"/>
+<area shape="rect" id="node6" href="../../d7/da0/a00198.html" title="Header for the command line controller. " alt="" coords="5,304,165,331"/>
+<area shape="rect" id="node7" href="../../db/d53/a00321.html" title="Main program: command line handling. " alt="" coords="203,304,288,331"/>
+<area shape="rect" id="node9" href="../../dd/db3/a00313.html" title="Header for the command line controller. " alt="" coords="511,304,646,331"/>
+<area shape="rect" id="node11" href="../../d2/d41/a00318.html" title="Header for the command line controller. " alt="" coords="325,304,465,331"/>
+<area shape="rect" id="node13" href="../../d4/d6f/a00315.html" title="Implementation for SimRunner. " alt="" coords="865,229,983,256"/>
+<area shape="rect" id="node14" href="../../da/d01/a00153.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1006,229,1111,256"/>
+<area shape="rect" id="node15" href="../../d3/d1a/a00251.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1370,229,1531,256"/>
+<area shape="rect" id="node16" href="../../d0/d3e/a00253.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1556,229,1697,256"/>
+<area shape="rect" id="node17" href="../../dc/dc9/a00282.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="629,229,790,256"/>
+<area shape="rect" id="node18" href="../../dd/d4e/a00329.html" title="Observer for Persons output. " alt="" coords="1135,229,1294,256"/>
+<area shape="rect" id="node19" href="../../d4/db5/a00328.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1187,304,1360,331"/>
 </map>
 </div>
 </div>
@@ -147,27 +154,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html">stride::TransmissionProfile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmission rates from disease data.  <a href="../../d4/d81/a00110.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/deb/a00132.html">stride::util::TimeToString</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities to tag clocks and to reformat number of ticks to a string.  <a href="../../d5/deb/a00132.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/db5/a00365"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db5/a00365.html">stride</a></td></tr>
-<tr class="memdesc:dd/db5/a00365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d2/d3e/a00366"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html">stride</a></td></tr>
+<tr class="memdesc:d2/d3e/a00366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dc/de3/a00373"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de3/a00373.html">stride::util</a></td></tr>
+<tr class="memdesc:dc/de3/a00373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the TransmissionProfile class. </p>
+<div class="textblock"><p>Utilities to tag clocks and reformat clock readout to string. </p>
 
-<p>Definition in file <a class="el" href="../../d4/dce/a00337_source.html">TransmissionProfile.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d4/dce/a00337_source.html">TimeToString.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d4/dce/a00337.html">TransmissionProfile.h</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 08:49:43 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d4/dce/a00337.html">TimeToString.h</a></li>
+    <li class="footer">Generated on Tue Mar 12 2019 13:48:08 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

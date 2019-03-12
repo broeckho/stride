@@ -1,6 +1,6 @@
 var a00369 =
 [
-    [ "InfectedFile", "d1/d44/a00098.html", "d1/d44/a00098" ],
-    [ "PersonsFile", "da/d74/a00099.html", "da/d74/a00099" ],
-    [ "SummaryFile", "d0/d61/a00100.html", "d0/d61/a00100" ]
+    [ "IDPack", "da/dec/a00080.html", "da/dec/a00080" ],
+    [ "IdSubscriptArray", "d9/d73/a00060.html", "d9/d73/a00060" ],
+    [ "IdSubscriptArray< bool >", "d8/d53/a00081.html", "d8/d53/a00081" ]
 ];

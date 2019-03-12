@@ -1,7 +1,11 @@
 var a00093 =
 [
-    [ "Immunizer", "d4/d7d/a00093.html#a9cf69f9df2b2b2e357fab3d3ed48b64a", null ],
-    [ "Random", "d4/d7d/a00093.html#ac187b34c18ec3cd1efccaf8f197766fc", null ],
-    [ "Cocoon", "d4/d7d/a00093.html#a9b4435f990b9a24bc0ededbd9af4877b", null ],
-    [ "m_rn_man", "d4/d7d/a00093.html#aea5b1b7d720384302b740a11d0ec484b", null ]
+    [ "HealthSeeder", "d4/d7d/a00093.html#a7b4785c0728c9f154aa1426034d6e1b5", null ],
+    [ "Seed", "d4/d7d/a00093.html#ad6a9061857cee5335745fe5501bcb73d", null ],
+    [ "GetDistribution", "d4/d7d/a00093.html#a7b240a326b204767217481b3fcc46237", null ],
+    [ "Sample", "d4/d7d/a00093.html#a562b022d2c7f2836b4400e7d19e1b040", null ],
+    [ "m_start_symptomatic", "d4/d7d/a00093.html#a4521a7113e70e8e8243da7180d5b1d5e", null ],
+    [ "m_time_asymptomatic", "d4/d7d/a00093.html#ab33626e940aee2fe1e6e4c22875f6af1", null ],
+    [ "m_time_infectious", "d4/d7d/a00093.html#a40f8e0eb1bc5b7eabb6ec85ec5f210e1", null ],
+    [ "m_time_symptomatic", "d4/d7d/a00093.html#aa2dea61097996a03e8c5d113dd81696c", null ]
 ];
