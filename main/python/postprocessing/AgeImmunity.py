@@ -42,6 +42,7 @@ def groupBySizeAndConstitution(households, bins):
 
 def createHouseholdConstitutionPlot(outputDir, scenarioName, poolSize, figName, stat="mean"):
     ax = plt.axes(projection="3d")
+    bins = collections.OrderedDict()
     bins = {
         (0, 0): 0,
         (1, 10): 0,
