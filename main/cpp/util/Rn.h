@@ -22,10 +22,13 @@
 
 #include "RnInfo.h"
 
-//#include <trng/lcg64.hpp>
-#include <iostream>
+#include <trng/lcg64.hpp>
+#include <trng/uniform01_dist.hpp>
+#include <trng/uniform_int_dist.hpp>
+#include <trng/discrete_dist.hpp>
 #include <pcg/pcg_random.hpp>
 #include <randutils/randutils.hpp>
+#include <functional>
 #include <string>
 #include <vector>
 
@@ -72,13 +75,22 @@ public:
         RnInfo GetInfo() const;
 
         /// Return a generator for uniform doubles in [0, 1[ using i-th random engine.
-        std::function<double()> GetUniform01Generator(unsigned int i = 0U);
+        std::function<double()> GetUniform01Generator(unsigned int i = 0U)
+        {
+                return ContainerType::at(i).variate_generator(trng::uniform01_dist<double>());
+        }
 
         /// Return a generator for uniform ints in [a, b[ (a < b) using i-th random engine.
-        std::function<int()> GetUniformIntGenerator(int a, int b, unsigned int i = 0U);
+        std::function<int()> GetUniformIntGenerator(int a, int b, unsigned int i = 0U)
+        {
+                return ContainerType::at(i).variate_generator(trng::uniform_int_dist(a, b));
+        }
 
         /// Return generator for integers [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random engine.
-        std::function<int()> GetDiscreteGenerator(const std::vector<double>& weights, unsigned int i = 0U);
+        std::function<int()> GetDiscreteGenerator(const std::vector<double>& weights, unsigned int i = 0U)
+        {
+                return ContainerType::at(i).variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        }
 
         /// Initalize with data in Info.
         void Initialize(const RnInfo& info);
@@ -87,7 +99,10 @@ public:
         bool IsEmpty() const { return ContainerType::empty() || (m_stream_count == 0U); }
 
         /// Random shuffle of vector of unsigned int indices using i-th engine.
-        void Shuffle(std::vector<unsigned int>& indices, unsigned int i);
+        void Shuffle(std::vector<unsigned int>& indices, unsigned int i)
+        {
+                ContainerType::at(i).shuffle(indices.begin(), indices.end());
+        }
 
 private:
         /// Actual first-time seeding. Procedure varies according to engine type, see specialisations.
@@ -102,7 +117,7 @@ template <>
 void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq);
 
 extern template class Rn<pcg64>;
-// extern template class Rn<trng::lcg64>;
+extern template class Rn<trng::lcg64>;
 
 } // namespace util
 } // namespace stride

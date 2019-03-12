@@ -21,8 +21,6 @@
 #include "pop/Person.h"
 #include "util/LogUtils.h"
 
-#include <trng/discrete_dist.hpp>
-
 namespace geopop {
 
 /**

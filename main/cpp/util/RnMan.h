@@ -24,16 +24,16 @@
 
 #include <functional>
 #include <memory>
-
+#include <vector>
 
 namespace stride {
 namespace util {
 
-class RnPcg64;
+class RnEngine;
 
 /*
  * RnMan manages random engines and distribution to produce random generators.
- * Can be used with (up to 64) parallel streams out of the engine.
+ * Can be used with (up to 32) parallel streams out of the engine.
  */
 class RnMan
 {
@@ -69,7 +69,7 @@ public:
         void Shuffle(std::vector<unsigned int>& indices, unsigned int i);
 
 private:
-        std::shared_ptr<RnPcg64> m_rn;
+        std::shared_ptr<RnEngine> m_rn;
 };
 
 } // namespace util

@@ -21,18 +21,10 @@
 #include "Rn.h"
 #include "StringUtils.h"
 
-#include <trng/lcg64.hpp>
-#include <trng/uniform01_dist.hpp>
-#include <trng/uniform_int_dist.hpp>
-#include <trng/discrete_dist.hpp>
-#include <cctype>
-#include <functional>
-#include <pcg/pcg_random.hpp>
 #include <randutils/randutils.hpp>
+#include <cctype>
 #include <sstream>
 #include <stdexcept>
-#include <string>
-#include <vector>
 
 using namespace std;
 using namespace randutils;
@@ -64,24 +56,6 @@ RnInfo Rn<E>::GetInfo() const
         info.m_state         = ss.str();
         info.m_stream_count  = m_stream_count;
         return info;
-}
-
-template <typename E>
-std::function<double()> Rn<E>::GetUniform01Generator(unsigned int i)
-{
-        return ContainerType::at(i).variate_generator(trng::uniform01_dist<double>());
-}
-
-template <typename E>
-std::function<int()> Rn<E>::GetUniformIntGenerator(int a, int b, unsigned int i)
-{
-        return ContainerType::at(i).variate_generator(trng::uniform_int_dist(a, b));
-}
-
-template <typename E>
-std::function<int()> Rn<E>::GetDiscreteGenerator(const vector<double>& weights, unsigned int i)
-{
-        return ContainerType::at(i).variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 }
 
 template <typename E>
@@ -133,12 +107,6 @@ void Rn<E>::Seed(randutils::seed_seq_fe128& seseq)
                 (*this)[i].engine().seed(seeds);
                 (*this)[i].engine().split(m_stream_count, i);
         }
-}
-
-template<typename E>
-void Rn<E>::Shuffle(std::vector<unsigned int>& indices, unsigned int i)
-{
-        ContainerType::at(i).shuffle(indices.begin(), indices.end());
 }
 
 template class Rn<pcg64>;

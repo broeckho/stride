@@ -37,16 +37,33 @@ using namespace randutils;
 namespace stride {
 namespace util {
 
-class RnPcg64 : public Rn<pcg64>
+// The construction below lets you choose (at compile time)
+// between the pcg64 and trng::lcg64 random engines. It's a hacky
+// construct but required because the forward class definition
+// of RnEgine in RnMan.h cannot be combined with a using
+// statement here. A macro to generate the class definition
+// would make it more scaleable, but since we have only two ...
+
+// If you want to use the pcg64 random engine, uncomment the
+// class definition here and keep the one below commented out.
+class RnEngine : public Rn<pcg64>
 {
         using Rn<pcg64>::Rn;
 };
 
-/// Default constructor build empty manager.
-RnMan::RnMan() : m_rn(make_shared<RnPcg64>()) {}
+// If you want to use the trng::lcg64 random engine, uncomment the
+// class definition here and keep the one above commented out.
+/*
+class RnLcg64 : public Rn<trng::lcg64>
+{
+        using Rn<trng::lcg64>::Rn;
+};
+*/
 
-/// Initializes.
-RnMan::RnMan(const RnInfo& info) : m_rn(make_shared<RnPcg64>(info)) {}
+
+RnMan::RnMan() : m_rn(make_shared<RnEngine>()) {}
+
+RnMan::RnMan(const RnInfo& info) : m_rn(make_shared<RnEngine>(info)) {}
 
 bool RnMan::operator==(const RnMan& other) { return *m_rn == *(other.m_rn); }
 
