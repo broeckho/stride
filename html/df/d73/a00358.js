@@ -1,4 +1,5 @@
 var a00358 =
 [
-    [ "protobuf", "d4/def/a00359.html", "d4/def/a00359" ]
+    [ "BaseNode", "d7/d46/a00002.html", "d7/d46/a00002" ],
+    [ "Node", "dd/d32/a00041.html", "dd/d32/a00041" ]
 ];

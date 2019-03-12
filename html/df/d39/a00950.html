@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 21d17ef</span>
+   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('dc/d54/a00094.html','../../');});
+$(document).ready(function(){initNavTree('d4/d7d/a00093.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,22 +107,26 @@ $(document).ready(function(){initNavTree('dc/d54/a00094.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">stride::Immunizer Member List</div>  </div>
+<div class="title">stride::HealthSeeder Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../dc/d54/a00094.html">stride::Immunizer</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d4/d7d/a00093.html">stride::HealthSeeder</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../dc/d54/a00094.html#a9b4435f990b9a24bc0ededbd9af4877b">Cocoon</a>(const util::SegmentedVector&lt; ContactPool &gt; &amp;, std::vector&lt; double &gt; &amp;, double)</td><td class="entry"><a class="el" href="../../dc/d54/a00094.html">stride::Immunizer</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../dc/d54/a00094.html#a9cf69f9df2b2b2e357fab3d3ed48b64a">Immunizer</a>(util::RnMan &amp;rnManager)</td><td class="entry"><a class="el" href="../../dc/d54/a00094.html">stride::Immunizer</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dc/d54/a00094.html#aea5b1b7d720384302b740a11d0ec484b">m_rn_man</a></td><td class="entry"><a class="el" href="../../dc/d54/a00094.html">stride::Immunizer</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../dc/d54/a00094.html#ac187b34c18ec3cd1efccaf8f197766fc">Random</a>(const util::SegmentedVector&lt; ContactPool &gt; &amp;pools, std::vector&lt; double &gt; &amp;immunityDistribution, double immunityLinkProbability)</td><td class="entry"><a class="el" href="../../dc/d54/a00094.html">stride::Immunizer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#a7b240a326b204767217481b3fcc46237">GetDistribution</a>(std::vector&lt; double &gt; &amp;distribution, const boost::property_tree::ptree &amp;rootPt, const std::string &amp;xmlTag)</td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#a7b4785c0728c9f154aa1426034d6e1b5">HealthSeeder</a>(const boost::property_tree::ptree &amp;diseasePt)</td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#a4521a7113e70e8e8243da7180d5b1d5e">m_start_symptomatic</a></td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#ab33626e940aee2fe1e6e4c22875f6af1">m_time_asymptomatic</a></td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#a40f8e0eb1bc5b7eabb6ec85ec5f210e1">m_time_infectious</a></td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#aa2dea61097996a03e8c5d113dd81696c">m_time_symptomatic</a></td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#a562b022d2c7f2836b4400e7d19e1b040">Sample</a>(const std::vector&lt; double &gt; &amp;distribution, double random01)</td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#ad6a9061857cee5335745fe5501bcb73d">Seed</a>(const std::shared_ptr&lt; Population &gt; &amp;pop, std::vector&lt; ContactHandler &gt; &amp;handlers)</td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::HealthSeeder</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Mar 12 2019 20:22:28 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Mar 12 2019 21:05:45 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

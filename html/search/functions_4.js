@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['effectiveage',['EffectiveAge',['../d2/d3e/a00366.html#abe2f1ef509d97ae6c13bdcd187e495f2',1,'stride']]],
+  ['effectiveage',['EffectiveAge',['../df/dc2/a00367.html#abe2f1ef509d97ae6c13bdcd187e495f2',1,'stride']]],
   ['emplace',['emplace',['../d4/d31/a00069.html#aadda0fa9cba3c25598d83fc335dab5e4',1,'stride::util::SegmentedVector']]],
   ['emplace_5fback',['emplace_back',['../d4/d31/a00069.html#a2cd11f9b95b20b69378fc9268c380096',1,'stride::util::SegmentedVector']]],
   ['empty',['empty',['../d4/d31/a00069.html#a66676df2d3b52bf0eb5896f2d48837af',1,'stride::util::SegmentedVector::empty()'],['../d5/db6/a00042.html#a1e6360a99e84a3f18020a763fcc671d3',1,'geopop::KdTree::Empty()']]],

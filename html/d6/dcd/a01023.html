@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 21d17ef</span>
+   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d9/d4b/a00117.html','../../');});
+$(document).ready(function(){initNavTree('d2/da3/a00115.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,22 +107,29 @@ $(document).ready(function(){initNavTree('d9/d4b/a00117.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">stride::util::Exception Member List</div>  </div>
+<div class="title">stride::util::CSVRow Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d9/d4b/a00117.html">stride::util::Exception</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d9/d4b/a00117.html#ada9a96369897608bd84b0fdb33c23a7f">Exception</a>(std::string msg)</td><td class="entry"><a class="el" href="../../d9/d4b/a00117.html">stride::util::Exception</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d9/d4b/a00117.html#a5f5e43370eb477d14fe94f0e1b452629">m_msg</a></td><td class="entry"><a class="el" href="../../d9/d4b/a00117.html">stride::util::Exception</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d9/d4b/a00117.html#ad933b798ce411d1acfe2ff86f178f219">what</a>() const noexceptoverride</td><td class="entry"><a class="el" href="../../d9/d4b/a00117.html">stride::util::Exception</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d9/d4b/a00117.html#a1c14e1f62d8cf7c69a4c6c08ec296a83">~Exception</a>() noexceptoverride=default</td><td class="entry"><a class="el" href="../../d9/d4b/a00117.html">stride::util::Exception</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/da3/a00115.html#ab60a313ff2e75d0ae07bc7624c27a861">CSVRow</a>(const CSV *parent, const std::vector&lt; std::string &gt; &amp;values)</td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d2/da3/a00115.html#a63cf8ebc530e40cda52b9f15fb751a6f">CSVRow</a>(const CSVRow &amp;)=default</td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/da3/a00115.html#a6462fb781526ce386453ea4ee8e353e5">GetValue</a>(size_t index) const </td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d2/da3/a00115.html#a70dfc26893fa920410a7e4a049a1578a">GetValue</a>(const std::string &amp;label) const </td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/da3/a00115.html#a65777e0c58ce4632c96009ce1180250a">GetValue</a>(size_t index) const </td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d2/da3/a00115.html#a03e8149406514c601f7095c55460977d">GetValue</a>(const std::string &amp;label) const </td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/da3/a00115.html#aa89bb5ef10f89f4eae23cc0536bf01c1">m_parent</a></td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d2/da3/a00115.html#a6e59d67d64bb1bf8681d7718be92d74f">m_values</a></td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/da3/a00115.html#a0ec2f92503adc2a968a848d3fddf087d">operator&lt;&lt;</a>(std::ostream &amp;os, const CSVRow &amp;row)</td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d2/da3/a00115.html#ae4c1879e5f84f6b0e07dbda48be67589">operator=</a>(const CSVRow &amp;)=default</td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/da3/a00115.html#a8bec120b3295f500c637c4219ec5f873">operator==</a>(const CSVRow &amp;other) const </td><td class="entry"><a class="el" href="../../d2/da3/a00115.html">stride::util::CSVRow</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Mar 12 2019 20:22:28 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Mar 12 2019 21:05:45 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

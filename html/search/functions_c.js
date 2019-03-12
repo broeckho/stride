@@ -5,5 +5,5 @@ var searchData=
   ['node',['Node',['../dd/d32/a00041.html#a3f4b98d53147785c559a5589ae2bdc98',1,'geopop::kd::Node']]],
   ['notify',['Notify',['../d9/d47/a00129.html#a9496d626bbde63eb55836f0af402522c',1,'stride::util::Subject']]],
   ['numberavailablethreads',['NumberAvailableThreads',['../d3/d00/a00113.html#a6b4240ce29160e778c69f9e246e1747d',1,'stride::util::ConfigInfo']]],
-  ['numoftypes',['NumOfTypes',['../df/dee/a00369.html#ae07181484047f7f834d393628788f2f4',1,'stride::ContactType::NumOfTypes()'],['../db/d7e/a00372.html#afd464f4ca1769b7880cb27383a3cafd2',1,'stride::sim_event::NumOfTypes()']]]
+  ['numoftypes',['NumOfTypes',['../d3/d30/a00370.html#ae07181484047f7f834d393628788f2f4',1,'stride::ContactType::NumOfTypes()'],['../dc/de3/a00373.html#afd464f4ca1769b7880cb27383a3cafd2',1,'stride::sim_event::NumOfTypes()']]]
 ];

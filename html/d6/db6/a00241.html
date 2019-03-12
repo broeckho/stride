@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: HouseholdReader.h File Reference</title>
+<title>Stride Reference Manual: HouseholdPopulator.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 21d17ef</span>
+   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
    </div>
   </td>
  </tr>
@@ -108,33 +108,28 @@ $(document).ready(function(){initNavTree('d6/db6/a00241.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">HouseholdReader.h File Reference</div>  </div>
+<div class="title">HouseholdPopulator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d0f/a00308_source.html">util/SegmentedVector.h</a>&quot;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/ddc/a00288_source.html">Populator.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for HouseholdReader.h:</div>
+Include dependency graph for HouseholdPopulator.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d5a/a00538.gif" border="0" usemap="#HouseholdReader_8h" alt=""/></div>
-<map name="HouseholdReader_8h" id="HouseholdReader_8h">
-<area shape="rect" id="node2" href="../../d5/d0f/a00308.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="341,80,513,107"/>
-<area shape="rect" id="node3" href="../../dc/d50/a00332.html" title="Interface/Implementation for SVIterator. " alt="" coords="479,155,577,181"/>
+<div class="center"><img src="../../dd/d5a/a00538.gif" border="0" usemap="#HouseholdPopulator_8h" alt=""/></div>
+<map name="HouseholdPopulator_8h" id="HouseholdPopulator_8h">
+<area shape="rect" id="node2" href="../../da/ddc/a00288.html" title="Populator.h" alt="" coords="293,80,387,107"/>
+<area shape="rect" id="node3" href="../../d3/d5e/a00275.html" title="Logging (spdlog) utilities. " alt="" coords="134,155,242,181"/>
+<area shape="rect" id="node7" href="../../d0/d61/a00302.html" title="Interface of RnMan. " alt="" coords="290,155,390,181"/>
+<area shape="rect" id="node8" href="../../db/da2/a00300.html" title="Interface of RnPcg. " alt="" coords="303,229,377,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d87/a00539.gif" border="0" usemap="#HouseholdReader_8hdep" alt=""/></div>
-<map name="HouseholdReader_8hdep" id="HouseholdReader_8hdep">
-<area shape="rect" id="node2" href="../../d5/df1/a00206.html" title="GeoGridConfig.cpp" alt="" coords="27,80,168,107"/>
-<area shape="rect" id="node3" href="../../d7/d40/a00236.html" title="HouseholdCSVReader.h" alt="" coords="193,80,365,107"/>
-<area shape="rect" id="node6" href="../../db/d7b/a00296.html" title="ReaderFactory.h" alt="" coords="389,80,512,107"/>
-<area shape="rect" id="node4" href="../../d3/d42/a00235.html" title="HouseholdCSVReader.cpp" alt="" coords="5,155,192,181"/>
-<area shape="rect" id="node5" href="../../d9/d5e/a00295.html" title="ReaderFactory.cpp" alt="" coords="217,155,354,181"/>
-<area shape="rect" id="node7" href="../../d1/d72/a00204.html" title="GeoGridBuilder.cpp" alt="" coords="379,155,523,181"/>
-<area shape="rect" id="node8" href="../../dc/d31/a00208.html" title="GeoGridConfigBuilder.cpp" alt="" coords="547,155,731,181"/>
+<div class="center"><img src="../../d3/d87/a00539.gif" border="0" usemap="#HouseholdPopulator_8hdep" alt=""/></div>
+<map name="HouseholdPopulator_8hdep" id="HouseholdPopulator_8hdep">
+<area shape="rect" id="node2" href="../../d5/d13/a00205.html" title="GeoGridBuilder.cpp" alt="" coords="5,80,149,107"/>
+<area shape="rect" id="node3" href="../../d9/d21/a00240.html" title="HouseholdPopulator.cpp" alt="" coords="174,80,351,107"/>
 </map>
 </div>
 </div>
@@ -142,17 +137,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html">geopop::HouseholdReader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the reference <a class="el" href="../../d0/dc0/a00033.html" title="Models a Household as ContactCenter. ">Household</a> profiles from file.  <a href="../../d1/dc6/a00037.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/a00036.html">geopop::HouseholdPopulator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the households.  <a href="../../de/d8c/a00036.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d2/d3e/a00366"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d3e/a00366.html">stride</a></td></tr>
-<tr class="memdesc:d2/d3e/a00366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/dc9/a00355"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc9/a00355.html">geopop</a></td></tr>
-<tr class="memdesc:d3/dc9/a00355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d6/de1/a00356"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/a00356.html">geopop</a></td></tr>
+<tr class="memdesc:d6/de1/a00356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -160,8 +152,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d6/db6/a00241.html">HouseholdReader.h</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 20:22:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_e7e2007abe30c6c76c8a673fdd5d8158.html">populators</a></li><li class="navelem"><a class="el" href="../../d6/db6/a00241.html">HouseholdPopulator.h</a></li>
+    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['effectiveage',['EffectiveAge',['../d2/d3e/a00366.html#abe2f1ef509d97ae6c13bdcd187e495f2',1,'stride']]],
+  ['effectiveage',['EffectiveAge',['../df/dc2/a00367.html#abe2f1ef509d97ae6c13bdcd187e495f2',1,'stride']]],
   ['emplace',['emplace',['../d4/d31/a00069.html#aadda0fa9cba3c25598d83fc335dab5e4',1,'stride::util::SegmentedVector']]],
   ['emplace_5fback',['emplace_back',['../d4/d31/a00069.html#a2cd11f9b95b20b69378fc9268c380096',1,'stride::util::SegmentedVector']]],
   ['empty',['empty',['../d4/d31/a00069.html#a66676df2d3b52bf0eb5896f2d48837af',1,'stride::util::SegmentedVector::empty()'],['../d5/db6/a00042.html#a1e6360a99e84a3f18020a763fcc671d3',1,'geopop::KdTree::Empty()']]],
@@ -9,7 +9,7 @@ var searchData=
   ['eventtype',['EventType',['../d9/d47/a00129.html#ac4fa78f455203ba23ab4442d14822895',1,'stride::util::Subject']]],
   ['exception',['Exception',['../d9/d4b/a00117.html#ada9a96369897608bd84b0fdb33c23a7f',1,'stride::util::Exception']]],
   ['exception',['Exception',['../d9/d4b/a00117.html',1,'stride::util']]],
-  ['exception_2eh',['Exception.h',['../dc/d57/a00194.html',1,'']]],
+  ['exception_2eh',['Exception.h',['../d3/d2a/a00195.html',1,'']]],
   ['exec',['Exec',['../d9/df8/a00096.html#a7a04fe600bfbb5b09330163fd2d49409',1,'stride::Infector::Exec()'],['../d1/d84/a00097.html#aa27dad30b434e742e80300d88854b36d',1,'stride::Infector&lt; LL, TIC, true &gt;::Exec()'],['../d0/dc2/a00104.html#a5096270693bc78b306cc236d6dcfb747',1,'stride::PublicHealthAgency::Exec()']]],
-  ['exposed',['Exposed',['../d2/d3e/a00366.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a',1,'stride']]]
+  ['exposed',['Exposed',['../df/dc2/a00367.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a',1,'stride']]]
 ];

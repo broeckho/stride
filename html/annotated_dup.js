@@ -1,9 +1,9 @@
 var annotated_dup =
 [
-    [ "geopop", "d3/dc9/a00355.html", "d3/dc9/a00355" ],
-    [ "google", "df/d73/a00358.html", "df/d73/a00358" ],
-    [ "proto", "d0/d65/a00360.html", "d0/d65/a00360" ],
-    [ "stride", "d2/d3e/a00366.html", "d2/d3e/a00366" ],
+    [ "geopop", "d6/de1/a00356.html", "d6/de1/a00356" ],
+    [ "google", "d4/def/a00359.html", "d4/def/a00359" ],
+    [ "proto", "d7/ddb/a00361.html", "d7/ddb/a00361" ],
+    [ "stride", "df/dc2/a00367.html", "df/dc2/a00367" ],
     [ "Message", "d3/d8b/a00059.html", null ],
     [ "TableStruct_geogrid_2eproto", "d4/ddd/a00138.html", "d4/ddd/a00138" ]
 ];
