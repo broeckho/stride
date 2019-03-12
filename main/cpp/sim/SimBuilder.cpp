@@ -51,9 +51,6 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         sim->m_calendar                      = make_shared<Calendar>(m_config);
         sim->m_contact_log_mode = ContactLogMode::ToMode(m_config.get<string>("run.contact_log_level", "None"));
 
-        // TODO ought to be redundant and on mac it is, but on travis linux python scripts crash if it isn't there
-        //sim->m_rn_man.GetInfo();
-
         // --------------------------------------------------------------
         // Contact handlers, each with generator bound to different
         // random engine stream) and infector.
