@@ -101,7 +101,7 @@ void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>
                 const auto           size   = static_cast<unsigned int>(p_pool.GetSize());
                 vector<unsigned int> indices(size);
                 iota(indices.begin(), indices.end(), 0U);
-                m_rn_man[0].shuffle(indices.begin(), indices.end());
+                m_rn_man.Shuffle(indices, 0U);
 
                 // loop over members, in random order
                 for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {

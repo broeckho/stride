@@ -128,19 +128,20 @@ set(STRIDE_SRC
     sim/event/Id.cpp
     sim/event/Subject.cpp
     #---
+    util/ConfigInfo.cpp
+    util/CSV.cpp
     util/CSVRow.cpp
+    util/FileSys.cpp
     util/LogUtils.cpp
     util/Rn.cpp
-    util/CSV.cpp
-    util/ConfigInfo.cpp
-    util/FileSys.cpp
+    util/RnMan.cpp
     util/RunConfigManager.cpp
     util/TimeStamp.cpp
     util/TimeToString.cpp
     #---
+    viewers/CliViewer.cpp
     viewers/InfectedFileViewer.cpp
     viewers/InfectedViewer.cpp
-    viewers/CliViewer.cpp
     viewers/PersonsFileViewer.cpp
     viewers/SummaryFileViewer.cpp
 )

@@ -19,14 +19,11 @@
  */
 
 #include "util/RnMan.h"
+#include "util/Rn.h"
 #include "util/StringUtils.h"
 
-//#include <boost/property_tree/ptree.hpp>
-//#include <boost/property_tree/xml_parser.hpp>
 #include <gtest/gtest.h>
-
 #include <chrono>
-//#include <exception>
 #include <iostream>
 #include <random>
 #include <sstream>
@@ -36,6 +33,17 @@ using namespace std;
 using namespace ::testing;
 using namespace randutils;
 using namespace stride::util;
+
+
+namespace stride {
+namespace util {
+
+class RnPcg64 : public Rn<pcg64> {
+        using Rn<pcg64>::Rn;
+};
+
+}
+}
 
 namespace Tests {
 using pcg_extras::operator<<;

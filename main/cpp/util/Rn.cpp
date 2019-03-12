@@ -135,6 +135,12 @@ void Rn<E>::Seed(randutils::seed_seq_fe128& seseq)
         }
 }
 
+template<typename E>
+void Rn<E>::Shuffle(std::vector<unsigned int>& indices, unsigned int i)
+{
+        ContainerType::at(i).shuffle(indices.begin(), indices.end());
+}
+
 template class Rn<pcg64>;
 template class Rn<trng::lcg64>;
 

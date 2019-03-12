@@ -86,6 +86,9 @@ public:
         /// Is this een empty (i.e. non-initialized Rn)?
         bool IsEmpty() const { return ContainerType::empty() || (m_stream_count == 0U); }
 
+        /// Random shuffle of vector of unsigned int indices using i-th engine.
+        void Shuffle(std::vector<unsigned int>& indices, unsigned int i);
+
 private:
         /// Actual first-time seeding. Procedure varies according to engine type, see specialisations.
         void Seed(randutils::seed_seq_fe128& seseq);
