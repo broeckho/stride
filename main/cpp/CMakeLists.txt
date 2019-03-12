@@ -115,6 +115,7 @@ set(STRIDE_SRC
     viewers/PersonsFile.cpp
     viewers/SummaryFile.cpp
     #---
+    pop/AbstractPopBuilder.cpp
     pop/Person.cpp
     pop/Population.cpp
     pop/DefaultPopBuilder.cpp

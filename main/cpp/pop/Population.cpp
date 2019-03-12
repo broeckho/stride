@@ -76,13 +76,13 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         std::string pop_type = configPt.get<std::string>("run.population_type", "default");
         if (pop_type == "import") {
                 stride_logger->info("ImportPopBuilder invoked.");
-                ImportPopBuilder(configPt, rnManager).Build(pop);
+                ImportPopBuilder(configPt, rnManager, stride_logger).Build(pop);
         } else if (pop_type == "generate") {
                 stride_logger->info("GeoPopBuilder invoked.");
-                GeoPopBuilder(configPt, rnManager).Build(pop);
+                GeoPopBuilder(configPt, rnManager, stride_logger).Build(pop);
         } else {
                 stride_logger->info("DefaultPopBuilder invoked.");
-                DefaultPopBuilder(configPt, rnManager).Build(pop);
+                DefaultPopBuilder(configPt, rnManager, stride_logger).Build(pop);
         }
 
         // -----------------------------------------------------------------------------------------
