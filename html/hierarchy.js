@@ -87,7 +87,7 @@ var hierarchy =
     [ "stride::util::SegmentedVector< stride::stride::Person >", "da/d24/a00068.html", null ],
     [ "std::array< T >", null, [
       [ "stride::ContactType::IdSubscriptArray< AgeContactProfile >", "d9/d73/a00060.html", null ],
-      [ "stride::ContactType::IdSubscriptArray< std::size_t >", "d9/d73/a00060.html", null ],
+      [ "stride::ContactType::IdSubscriptArray< unsigned int >", "d9/d73/a00060.html", null ],
       [ "stride::AgeContactProfile", "d9/da5/a00075.html", null ],
       [ "stride::ContactType::IdSubscriptArray< T >", "d9/d73/a00060.html", null ]
     ] ],
@@ -188,6 +188,6 @@ var hierarchy =
     [ "const void", "d8/d86/a00703.html", null ],
     [ "double", "d7/d08/a00378.html", null ],
     [ "random_generator< E, randutils::seed_seq_fe128 >", "d8/dcb/a00706.html", null ],
-    [ "size_t", "d8/d95/a00379.html", null ],
+    [ "size_t", "de/df4/a00450.html", null ],
     [ "tuple< stride::ContactLogMode::Id, bool >", "d7/d7e/a00709.html", null ]
 ];

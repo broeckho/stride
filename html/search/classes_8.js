@@ -4,7 +4,7 @@ var searchData=
   ['idsubscriptarray',['IdSubscriptArray',['../d9/d73/a00060.html',1,'stride::ContactType']]],
   ['idsubscriptarray_3c_20agecontactprofile_20_3e',['IdSubscriptArray&lt; AgeContactProfile &gt;',['../d9/d73/a00060.html',1,'stride::ContactType']]],
   ['idsubscriptarray_3c_20bool_20_3e',['IdSubscriptArray&lt; bool &gt;',['../da/dec/a00080.html',1,'stride::ContactType']]],
-  ['idsubscriptarray_3c_20std_3a_3asize_5ft_20_3e',['IdSubscriptArray&lt; std::size_t &gt;',['../d9/d73/a00060.html',1,'stride::ContactType']]],
+  ['idsubscriptarray_3c_20unsigned_20int_20_3e',['IdSubscriptArray&lt; unsigned int &gt;',['../d9/d73/a00060.html',1,'stride::ContactType']]],
   ['immunizer',['Immunizer',['../d4/d7d/a00093.html',1,'stride']]],
   ['importpopbuilder',['ImportPopBuilder',['../dc/d54/a00094.html',1,'stride']]],
   ['infectedfile',['InfectedFile',['../d1/d44/a00098.html',1,'stride::output']]],

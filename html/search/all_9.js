@@ -17,7 +17,7 @@ var searchData=
   ['healthseeder_2eh',['HealthSeeder.h',['../d0/d53/a00232.html',1,'']]],
   ['healthstatus',['HealthStatus',['../dd/db5/a00365.html#a738f5251821f53315d2aebf214fbd070',1,'stride']]],
   ['household',['Household',['../d0/dc0/a00033.html',1,'geopop']]],
-  ['household',['Household',['../df/d5f/a00064.html#abfd1efa85ba256725f505933f164bc4d',1,'proto::GeoGrid_Location_ContactCenter::Household()'],['../d0/dc0/a00033.html#aa97e88192f5aa80892a53a48dec796c7',1,'geopop::Household::Household()'],['../d8/d21/a00368.html#aadcdc6e5728b8c3f62b78af09de603f1aea4be67641b70cfa3fec0f86ea7f239b',1,'stride::ContactType::Household()']]],
+  ['household',['Household',['../df/d5f/a00064.html#abfd1efa85ba256725f505933f164bc4d',1,'proto::GeoGrid_Location_ContactCenter::Household()'],['../d0/dc0/a00033.html#aa97e88192f5aa80892a53a48dec796c7',1,'geopop::Household::Household()'],['../d8/d21/a00368.html#a61a32e88a50c57e6f5c49f0996b6b462aea4be67641b70cfa3fec0f86ea7f239b',1,'stride::ContactType::Household()']]],
   ['household_2ecpp',['Household.cpp',['../d6/de1/a00233.html',1,'']]],
   ['household_2eh',['Household.h',['../da/d31/a00234.html',1,'']]],
   ['householdcsvreader',['HouseholdCSVReader',['../db/df3/a00034.html#aa83f488af915c290a9d6ffb03712d244',1,'geopop::HouseholdCSVReader']]],
