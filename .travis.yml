@@ -91,6 +91,10 @@ before_install:
       brew install gcc
       export PATH="/usr/local/bin:$PATH"
     fi
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CC" == "clang" ]]; then
+      export LD_LIBRARY_PATH="/usr/local/clang/lib:$LD_LIBRARY_PATH"
+    fi
 
 install:
     #--------- Linux
