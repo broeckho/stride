@@ -38,7 +38,7 @@ namespace {
 
 TEST(K12SchoolPopulatorTest, NoPopulation)
 {
-        auto rnManager = RnMan(RnMan::Info{});
+        auto rnManager = RnMan(RnInfo{});
         auto pop       = Population::Create();
         auto geoGrid   = make_shared<GeoGrid>(pop.get());
 
@@ -53,7 +53,7 @@ TEST(K12SchoolPopulatorTest, NoPopulation)
 
 TEST(K12SchoolPopulatorTest, OneLocationTest)
 {
-        auto rnManager = RnMan(RnMan::Info{});
+        auto rnManager = RnMan(RnInfo{});
         auto pop       = Population::Create();
         auto geoGrid   = CreateGeoGrid(1, 300, 5, 100, 3, pop.get());
 
@@ -137,7 +137,7 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
 
 TEST(K12SchoolPopulatorTest, TwoLocationTest)
 {
-        auto rnManager = RnMan{RnMan::Info{}};
+        auto rnManager = RnMan{RnInfo{}};
         auto pop       = Population::Create();
         auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 

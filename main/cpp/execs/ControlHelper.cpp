@@ -55,8 +55,8 @@ ControlHelper::ControlHelper(string name, const ptree& config) : ControlHelper()
         m_output_prefix    = m_config.get<string>("run.output_prefix");
         m_use_install_dirs = m_config.get<bool>("run.use_install_dirs");
 
-        m_rn_man.Initialize(RnMan::Info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
-                                        m_config.get<unsigned int>("run.num_threads")});
+        m_rn_man.Initialize(
+            RnInfo{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "", m_config.get<unsigned int>("run.num_threads")});
 }
 
 void ControlHelper::CheckEnv()

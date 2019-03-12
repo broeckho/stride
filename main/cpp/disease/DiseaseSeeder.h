@@ -39,7 +39,7 @@ class DiseaseSeeder
 {
 public:
         /// Initializing DiseaseSeeder.
-        DiseaseSeeder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
+        DiseaseSeeder(const boost::property_tree::ptree& config, util::RnMan& rnMan);
 
         /// Build the simulator.
         void Seed(std::shared_ptr<Population> pop);

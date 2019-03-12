@@ -47,13 +47,13 @@ class Sim
 {
 public:
         /// Create Sim initialized by the configuration in property tree and population.
-        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
-                                           util::RnMan& rnManager);
+        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& config, std::shared_ptr<Population> pop,
+                                           util::RnMan& rnMan);
 
         /// For use in SWIG: use shared_ptr to an rnManager and make the Sim have ownership so it won't be destroyed.
         /// It cannot be owned by the python environment since SWIG cannot handle the RnMan.
-        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
-                                           std::shared_ptr<util::RnMan> rnManager);
+        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& config, std::shared_ptr<Population> pop,
+                                           std::shared_ptr<util::RnMan> rnMan);
 
         /// Calendar for the simulated world. Initialized with the start date in the simulation
         /// world. Use GetCalendar()->GetSimulationDay() for the number of days simulated.
@@ -72,7 +72,7 @@ public:
         double GetTransmissionRate() const { return m_transmission_profile.GetRate(); }
 
         /// Get the random number manager.
-        util::RnMan& GetRnManager() { return m_rn_manager; }
+        util::RnMan& GetRnManager() { return m_rn_man; }
 
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
@@ -99,7 +99,7 @@ private:
         std::vector<ContactHandler> m_handlers;         ///< Contact handlers (rng & rates).
         InfectorExec*               m_infector;         ///< Executes contacts/transmission loops in contact pool.
         std::shared_ptr<Population> m_population;       ///< Pointer to the Population.
-        util::RnMan&                m_rn_manager;       ///< Random number generation management.
+        util::RnMan&                m_rn_man;           ///< Random number generation management.
 
         TransmissionProfile m_transmission_profile; ///< Profile of disease.
         PublicHealthAgency  m_public_health_agency; ///< Agency to implement reactive strategies.

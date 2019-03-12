@@ -34,7 +34,7 @@ namespace {
 
 TEST(SchoolGeneratorTest, OneLocationTest)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
@@ -54,7 +54,7 @@ TEST(SchoolGeneratorTest, OneLocationTest)
 
 TEST(SchoolGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;
@@ -70,7 +70,7 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
 
 TEST(SchoolGeneratorTest, FiveLocationsTest)
 {
-        RnMan              rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan              rnMan{RnInfo()}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
         auto               contactCenterCounter = 1U;

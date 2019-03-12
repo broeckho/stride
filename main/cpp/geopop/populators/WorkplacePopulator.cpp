@@ -23,7 +23,7 @@
 #include "geopop/Location.h"
 #include "geopop/Workplace.h"
 #include "util/Assert.h"
-#include <trng/uniform_int_dist.hpp>
+
 #include <utility>
 
 namespace geopop {
@@ -52,9 +52,9 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         m_assignedTo0          = 0;
         m_assignedCommuting    = 0;
         m_assignedNotCommuting = 0;
-        m_distNonCommuting     = DiscreteDistType();
+        m_distNonCommuting     = function<int()>();
         m_nearByWorkplaces.clear();
-        m_disCommuting = DiscreteDistType();
+        m_disCommuting = function<int()>();
         m_commutingLocations.clear();
 
         CalculateFractionCommutingStudents();
@@ -113,8 +113,7 @@ void WorkplacePopulator::CalculateWorkplacesInCity()
                         contactPools.insert(contactPools.end(), wp->begin(), wp->end());
                 }
 
-                auto disPools = m_rnManager[0].variate_generator(
-                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(contactPools.size())));
+                auto disPools = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(contactPools.size()), 0U);
 
                 m_workplacesInCity[loc.get()] = {contactPools, disPools};
         }
@@ -143,7 +142,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
 {
         // find all Workplaces were employees from this location commute to
         m_commutingLocations.clear();
-        m_disCommuting = DiscreteDistType();
+        m_disCommuting = function<int()>();
 
         vector<double> commutingWeights;
         for (const pair<Location*, double>& commute : m_currentLoc->GetOutgoingCommutingCities()) {
@@ -158,16 +157,14 @@ void WorkplacePopulator::CalculateCommutingLocations()
         }
 
         if (!commutingWeights.empty()) {
-                m_disCommuting = m_rnManager[0].variate_generator(
-                    trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));
+                m_disCommuting = m_rn_man.GetDiscreteGenerator(commutingWeights, 0U);
         }
 }
 
 void WorkplacePopulator::CalculateNearbyWorkspaces()
 {
         m_nearByWorkplaces = GetNearbyPools<Workplace>(m_geoGrid, m_currentLoc);
-        m_distNonCommuting = m_rnManager[0].variate_generator(
-            trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(m_nearByWorkplaces.size())));
+        m_distNonCommuting = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(m_nearByWorkplaces.size()), 0U);
 }
 
 } // namespace geopop

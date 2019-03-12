@@ -23,7 +23,6 @@
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
-#include <trng/uniform01_dist.hpp>
 #include <numeric>
 #include <vector>
 
@@ -55,7 +54,7 @@ void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, uti
                 using namespace ContactType;
                 auto& population         = *pop;
                 auto& poolSys            = population.GetContactPoolSys();
-                auto  uniform01Generator = rnMan[0].variate_generator(trng::uniform01_dist<double>());
+                auto  uniform01Generator = rnMan.GetUniform01Generator(0U);
                 auto& logger             = pop->GetContactLogger();
 
                 /// To allow iteration over pool types for the PublicHealthAgency.

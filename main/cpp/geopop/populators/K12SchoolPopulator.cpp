@@ -22,8 +22,6 @@
 #include "geopop/Location.h"
 #include "pop/Person.h"
 
-#include <trng/uniform_int_dist.hpp>
-
 namespace geopop {
 
 using namespace std;
@@ -46,8 +44,7 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 // 1. find all schools in an area of 10-k*10 km
                 const vector<ContactPool*>& classes = GetNearbyPools<K12School>(geoGrid, loc);
 
-                auto dist = m_rnManager[0].variate_generator(
-                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(classes.size())));
+                auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(classes.size()), 0U);
 
                 // 2. for every student assign a class
                 for (const shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {

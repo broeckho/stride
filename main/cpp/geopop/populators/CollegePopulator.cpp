@@ -25,9 +25,6 @@
 #include "pop/Person.h"
 #include "util/Assert.h"
 
-#include <trng/discrete_dist.hpp>
-#include <trng/uniform_int_dist.hpp>
-
 namespace geopop {
 
 using namespace std;
@@ -52,8 +49,8 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
 
                 AssertThrow(!nearByColleges.empty(), "No HighSchool found!", m_logger);
 
-                const auto distNonCommuting = m_rnManager[0].variate_generator(
-                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(nearByColleges.size())));
+                const auto distNonCommuting =
+                    m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearByColleges.size()), 0U);
 
                 // 2. find all colleges where students from this location commute to
                 vector<Location*> commutingCollege;
@@ -66,11 +63,10 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                         }
                 }
 
-                function<trng::discrete_dist::result_type()> disCommuting;
+                function<int()> disCommuting;
 
                 if (!commutingWeights.empty()) {
-                        disCommuting = m_rnManager[0].variate_generator(
-                            trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));
+                        disCommuting = m_rn_man.GetDiscreteGenerator(commutingWeights, 0U);
                 }
 
                 // 2. for every student assign a class
@@ -98,9 +94,8 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                                                         contactPools.insert(contactPools.end(), hs->begin(), hs->end());
                                                 }
 
-                                                auto disPools = m_rnManager[0].variate_generator(trng::uniform_int_dist(
-                                                    0, static_cast<trng::uniform_int_dist::result_type>(
-                                                           contactPools.size())));
+                                                auto disPools = m_rn_man.GetUniformIntGenerator(
+                                                    0, static_cast<int>(contactPools.size()), 0U);
 
                                                 auto id = disPools();
                                                 contactPools[id]->AddMember(p);

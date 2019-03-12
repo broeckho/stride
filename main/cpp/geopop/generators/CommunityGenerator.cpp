@@ -23,7 +23,6 @@
 #include "util/Assert.h"
 #include "util/RnMan.h"
 
-#include <trng/discrete_dist.hpp>
 #include <cmath>
 #include <iostream>
 #include <stdexcept>
@@ -56,7 +55,7 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 return;
         }
 
-        const auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = (*geoGrid)[dist()];

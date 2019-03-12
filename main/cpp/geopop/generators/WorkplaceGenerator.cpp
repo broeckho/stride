@@ -22,8 +22,6 @@
 #include "util/Assert.h"
 #include "util/RnMan.h"
 
-#include <trng/discrete_dist.hpp>
-
 namespace geopop {
 
 using namespace std;
@@ -61,7 +59,7 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 return;
         }
 
-        const auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = (*geoGrid)[dist()];

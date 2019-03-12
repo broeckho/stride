@@ -23,8 +23,6 @@
 #include "pop/Person.h"
 #include "util/RnMan.h"
 
-#include <trng/uniform01_dist.hpp>
-#include <trng/uniform_int_dist.hpp>
 #include <numeric>
 #include <vector>
 
@@ -86,8 +84,8 @@ void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>
 
         // Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).
         const auto poolsSize          = static_cast<int>(pools.size());
-        auto       intGenerator       = m_rn_man[0].variate_generator(trng::uniform_int_dist(0, poolsSize));
-        auto       uniform01Generator = m_rn_man[0].variate_generator(trng::uniform01_dist<double>());
+        auto       intGenerator       = m_rn_man.GetUniformIntGenerator(0, poolsSize, 0U);
+        auto       uniform01Generator = m_rn_man.GetUniform01Generator(0U);
 
         // Calculate the number of susceptible individuals per age class.
         unsigned int numSusceptible = 0;
@@ -103,7 +101,7 @@ void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>
                 const auto           size   = static_cast<unsigned int>(p_pool.GetSize());
                 vector<unsigned int> indices(size);
                 iota(indices.begin(), indices.end(), 0U);
-                m_rn_man[0].shuffle(indices.begin(), indices.end());
+                m_rn_man.Shuffle(indices, 0U);
 
                 // loop over members, in random order
                 for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {

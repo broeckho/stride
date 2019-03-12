@@ -38,7 +38,7 @@ namespace {
 
 TEST(CollegePopulatorTest, NoPopulation)
 {
-        RnMan rnMan{RnMan::Info()}; // Default random number manager.
+        RnMan rnMan{RnInfo()}; // Default random number manager.
         auto  pop     = Population::Create();
         auto  geoGrid = make_shared<GeoGrid>(pop.get());
         geoGrid->AddLocation(make_shared<Location>(0, 0, 0));
@@ -51,7 +51,7 @@ TEST(CollegePopulatorTest, NoPopulation)
 
 TEST(CollegePopulatorTest, NoStudents)
 {
-        RnMan            rnMan(RnMan::Info{}); // Default random number manager.
+        RnMan            rnMan(RnInfo{}); // Default random number manager.
         auto             pop     = Population::Create();
         auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
         CollegePopulator populator(rnMan);
@@ -91,7 +91,7 @@ TEST(CollegePopulatorTest, NoStudents)
 
 TEST(CollegePopulatorTest, NotCommuting)
 {
-        RnMan            rnMan(RnMan::Info{}); // Default random number manager.
+        RnMan            rnMan(RnInfo{}); // Default random number manager.
         auto             pop     = Population::Create();
         auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
         CollegePopulator populator(rnMan);
@@ -204,7 +204,7 @@ TEST(CollegePopulatorTest, NotCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommuting)
 {
-        RnMan rnMan(RnMan::Info{}); // Default random number manager.
+        RnMan rnMan(RnInfo{}); // Default random number manager.
 
         CollegePopulator populator(rnMan);
         GeoGridConfig    config{};
@@ -265,7 +265,7 @@ TEST(CollegePopulatorTest, OnlyCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        RnMan            rnMan(RnMan::Info{}); // Default random number manager.
+        RnMan            rnMan(RnInfo{}); // Default random number manager.
         auto             pop     = Population::Create();
         auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
         CollegePopulator populator(rnMan);
