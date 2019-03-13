@@ -42,7 +42,6 @@ def groupBySizeAndConstitution(households, bins):
 
 def createHouseholdConstitutionPlot(outputDir, scenarioName, poolSize, figName, stat="mean"):
     ax = plt.axes(projection="3d")
-    bins = collections.OrderedDict()
     bins = {
         (0, 0): 0,
         (1, 10): 0,
@@ -68,23 +67,25 @@ def createHouseholdConstitutionPlot(outputDir, scenarioName, poolSize, figName, 
             allGrouped.append(grouped)
         allSizes.sort()
         for hhSize in allSizes:
-            xs = []
+            sortedBins = list(bins.keys())
+            sortedBins.sort(key=lambda x: x[0])
             ys = []
-            for b in bins:
-                xs.append(b)
+            for b in sortedBins:
                 allFrequencies = [run[hhSize][b] for run in allGrouped]
                 if stat == "mean":
                     ys.append(sum(allFrequencies) / len(allFrequencies))
                 elif stat == "median":
                     ys.append(statistics.median(allFrequencies))
-            ax.bar(range(len(xs)), ys, zs=hhSize, zdir="y", color=colors[hhSize - 1], alpha=0.5)
-        ax.set_xlabel("Pct susceptibles")
-        ax.set_xticks(range(len(bins)))
-        ax.set_xticklabels([b[1] for b in bins])
-        ax.set_ylabel("Number of children in hh")
-        ax.set_zlabel("Fraction of hhs this size")
-        ax.set_zlim(0, 1)
-        saveFig(outputDir, figName, "png")
+                else:
+                    print("No valid statistic supplied!")
+            ax.bar(range(len(sortedBins)), ys, zs=hhSize, zdir="y", color=colors[hhSize - 1], alpha=0.4)
+    ax.set_xlabel("Pct susceptibles")
+    ax.set_xticks(range(len(sortedBins)))
+    ax.set_xticklabels([b[1] for b in sortedBins])
+    ax.set_ylabel("Number of children in hh")
+    ax.set_zlabel("Frequency")
+    ax.set_zlim(0, 1)
+    saveFig(outputDir, figName, "png")
 
 def getTargetRates(outputDir, targetRatesFile):
     targetRatesTree = ET.parse(os.path.join(outputDir, 'data', targetRatesFile))
