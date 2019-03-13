@@ -59,7 +59,7 @@ def plotNewCases(outputPrefix, levels):
                 newCasesPerDay[day_index] += cumulativeCases - prevCumulativeCases
                 prevCumulativeCases = cumulativeCases
                 day_index += 1
-        newCasesPerDay = [case/sim_days for case in newCasesPerDay]
+        newCasesPerDay = [case/runs for case in newCasesPerDay]
         plt.plot(days, newCasesPerDay)
     plt.xlabel("Simulation day")
     plt.ylabel("New cases per day")
@@ -117,10 +117,10 @@ param = "fraction_workplace_commuters"
 config = "run_generate_default_temp.xml"
 
 # the number of simulations
-runs = 50
+runs = 5
 
 # the number of days per simulation
-sim_days = 500
+sim_days = 50
 
 # is the parameter a percentage (for loops can only step with whole numbers)
 percentage = True
