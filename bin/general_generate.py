@@ -76,13 +76,14 @@ def runSimulation(level, outputPrefix):
     comuters.text = str(level)
     tree.write(os.path.join("config", config))
 
-    for _ in range(0, runs):
+    for run in range(0, runs):
+        print("run number {0} of {1}".format(run, runs))
         controller = PyController(data_dir="data")
         controller.loadRunConfig(os.path.join("config", config))
         controller.runConfig.setParameter("num_days", sim_days)
         controller.runConfig.setParameter("output_prefix", outputPrefix + "_" + str(level))
         controller.runConfig.setParameter("seeding_rate", 0.00000334)
-        controller.runConfig.setParameter("rng_seed", random()) 
+        controller.runConfig.setParameter("rng_seed", random.randint(1, 99999999999999999)) 
         controller.registerCallback(trackCases, EventType.Stepped)
         controller.control()
 
@@ -119,10 +120,10 @@ param = "fraction_workplace_commuters"
 config = "run_generate_default_temp.xml"
 
 # the number of simulations
-runs = 1
+runs = 10
 
 # the number of days per simulation
-sim_days = 50
+sim_days = 200
 
 # is the parameter a percentage (for loops can only step with whole numbers)
 percentage = True
