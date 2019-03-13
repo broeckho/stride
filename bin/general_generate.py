@@ -40,7 +40,7 @@ def trackCases(simulator, event):
 
 def plotNewCases(outputPrefix, levels):
     """
-        Plot new cases per day for a list of vaccination levels.
+        Plot new cases per day for a list of levels.
     """
     legend = []
     for v in levels:
@@ -65,9 +65,36 @@ def plotNewCases(outputPrefix, levels):
     plt.xlabel("Simulation day")
     plt.ylabel("New cases per day")
     plt.legend(legend)
-    plt.savefig(os.path.join(outputPrefix + "_plots", param + "_{0}_{1}_{2}".format(sys.argv[1], sys.argv[2], sys.argv[3])))
+    plt.savefig(os.path.join(outputPrefix + "_plots", param + "new_{0}_{1}_{2}".format(sys.argv[1], sys.argv[2], sys.argv[3])))
     plt.show()
 
+
+def plotCummulativeCases(outputPrefix, levels):
+    """
+        Plot cummulative cases per day for a list of levels
+    """
+    legend = []
+    for v in levels:
+        legend.append(str(round(v*100, 1)) + "% {}".format(param))
+        days = [i for i in range(0, sim_days)]
+        cumulativeCasesPerDay = [0] * sim_days
+        with open(os.path.join(outputPrefix + "_" + str(v), "cases.csv")) as csvfile:
+            reader = csv.DictReader(csvfile)
+            day_index = 0
+            for row in reader:
+                if row["timestep"] == "timestep":
+                    day_index = 0
+                    continue
+                cumulativeCases = int(row["cases"])
+                cumulativeCasesPerDay[day_index] += cumulativeCases
+                day_index += 1 
+        cumulativeCasesPerDay = [cumul/runs for cumul in cumulativeCasesPerDay]
+        plt.plot(days, cumulativeCasesPerDay)
+    plt.xlabel("Simulation day")
+    plt.ylabel("Cummulative cases per day")
+    plt.legend(legend)
+    plt.savefig(os.path.join(outputPrefix + "_plots", param + "cumul_{0}_{1}_{2}".format(sys.argv[1], sys.argv[2], sys.argv[3])))
+    plt.show()
 
 def runSimulation(level, outputPrefix):
     tree = ET.parse(os.path.join("config", config))
@@ -109,6 +136,7 @@ def main():
         runSimulation(level, outputPrefix)
         levels.append(level)
     plotNewCases(outputPrefix, levels)
+    plotCummulativeCases(outputPrefix, levels)
     t_elapsed = time.mktime(time.localtime()) - t_start
     print("Total time elapsed: " + str(round(t_elapsed)) + " seconds")
 
@@ -123,7 +151,7 @@ config = "run_generate_default_temp.xml"
 runs = 10
 
 # the number of days per simulation
-sim_days = 200
+sim_days = 100
 
 # is the parameter a percentage (for loops can only step with whole numbers)
 percentage = True
