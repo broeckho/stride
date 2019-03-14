@@ -27,10 +27,31 @@
 
 namespace stride {
 
-/// ContactPoolSys contains for each of the type of pools (household, school, ...)
-/// a vector of with all of the contcatpools of the type.
-/// The ContactPoolSys container is an std::array extended to be subscriptable
-/// with the enum class of the pool types.
-using ContactPoolSys = ContactType::IdSubscriptArray<util::SegmentedVector<ContactPool>>;
+/**
+ * ContactPoolSys contains for each of the type of pools (household, school, ...)
+ * a vector of with all of the contcact pools of the type.
+ * The ContactPoolSys container is an std::array extended to be subscriptable
+ * with the enum class of the pool types.
+ */
+class ContactPoolSys : public ContactType::IdSubscriptArray<util::SegmentedVector<ContactPool>>
+{
+public:
+        /// Empty system.
+        ContactPoolSys();
+
+        /// Add a new contact pool of a given type
+        ContactPool* CreateContactPool(ContactType::Id typeId);
+
+private:
+        /// The contact pool counters (one per type of pool) for assigning pool IDs. Counters
+        /// generate a non zero UID that's unique per type of pool, so <type, UID> uniquely
+        /// detemines the pool. UID zero means 'NA" e.g. wor[lace UID for a K12school student
+        /// will be zero. As a defensive measure, the ContactPoolSys gets initialized with
+        /// (for each type) an empty pool in the vecotor storing the contact pools. As a
+        /// consequence, one has:
+        /// if UID != 0 then ContactPoolSys[type][UID].GetId() == UID for all type
+        /// the index in the vector with pools is identical to the pool's UID.
+        ContactType::IdSubscriptArray<unsigned int> m_currentContactPoolId;
+};
 
 } // namespace stride

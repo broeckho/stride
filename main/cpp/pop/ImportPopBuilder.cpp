@@ -38,15 +38,12 @@ using namespace geopop;
 shared_ptr<Population> ImportPopBuilder::Build(shared_ptr<Population> pop)
 {
         const auto importFile = m_config.get<string>("run.population_file");
-
-        m_stride_logger->trace("Importing population from file {}.", importFile);
+        m_stride_logger->info("Importing population from file {}.", importFile);
 
         GeoGridReaderFactory             geoGridReaderFactory;
         const shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile, pop.get());
-        pop->m_geo_grid = reader->Read();
-        pop->m_geo_grid->Finalize();
-
-        m_stride_logger->trace("Done importing population.");
+        pop->GetGeoGrid() = reader->Read();
+        pop->GetGeoGrid()->Finalize();
 
         return pop;
 }

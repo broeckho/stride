@@ -47,7 +47,7 @@ shared_ptr<Population> DefaultPopBuilder::MakePersons(shared_ptr<Population> pop
         // Read persons from file.
         //------------------------------------------------
         const auto fileName        = m_config.get<string>("run.population_file");
-        m_stride_logger->trace("Building default population from file {}.", fileName);
+        m_stride_logger->info("Building default population from file {}.", fileName);
 
         const auto use_install_dirs = m_config.get<bool>("run.use_install_dirs");
         const auto filePath = (use_install_dirs) ? FileSys::GetDataDir() /= fileName : filesys::path(fileName);
@@ -115,7 +115,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         for (Id typ : IdList) {
                 for (unsigned int i = 1; i < maxIds[typ] + 1; i++) {
-                        pop->m_pool_sys[typ].emplace_back(ContactPool(i, typ));
+                        pop->GetContactPoolSys()[typ].emplace_back(ContactPool(i, typ));
                 }
         }
 
@@ -132,7 +132,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
                 for (Id typ : IdList) {
                         const auto poolId = p.GetPoolId(typ);
                         if (poolId > 0) {
-                                pop->m_pool_sys[typ][poolId].AddMember(&p);
+                                pop->GetContactPoolSys()[typ][poolId].AddMember(&p);
                         }
                 }
         }

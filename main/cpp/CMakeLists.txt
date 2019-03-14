@@ -47,6 +47,7 @@ set(STRIDE_SRC
     contact/AgeContactProfile.cpp
     contact/ContactLogMode.cpp
     contact/ContactPool.cpp
+    contact/ContactPoolSys.cpp
     contact/ContactType.cpp
     contact/Infector.cpp
     contact/TransmissionProfile.cpp

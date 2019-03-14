@@ -40,13 +40,8 @@ using namespace stride::ContactType;
 
 namespace stride {
 
-Population::Population() : m_pool_sys(), m_contact_logger(), m_geo_grid(), m_currentContactPoolId()
-{
-        for (Id typ : IdList) {
-                m_pool_sys[typ].emplace_back(ContactPool(0U, typ));
-                m_currentContactPoolId[typ] = 1;
-        }
-}
+Population::Population() : m_pool_sys(), m_contact_logger(), m_geo_grid() {}
+
 
 std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& config, util::RnMan& rnMan,
                                                std::shared_ptr<spdlog::logger> strideLogger)
@@ -125,11 +120,6 @@ Person* Population::CreatePerson(unsigned int id, double age, unsigned int house
 {
         return emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId,
                             secondaryCommunityId);
-}
-
-ContactPool* Population::CreateContactPool(ContactType::Id typeId)
-{
-        return m_pool_sys[typeId].emplace_back(m_currentContactPoolId[typeId]++, typeId);
 }
 
 } // namespace stride

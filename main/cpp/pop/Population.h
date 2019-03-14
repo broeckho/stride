@@ -61,9 +61,6 @@ public:
         static std::shared_ptr<Population> Create();
 
 public:
-        /// Add a new contact pool of a given type
-        ContactPool* CreateContactPool(ContactType::Id typeId);
-
         /// Create Person in the population.
         Person* CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,
                              unsigned int college, unsigned int workId, unsigned int primaryCommunityId,
@@ -82,31 +79,19 @@ public:
         const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
         /// Get the GeoGrid associated with this population (may be a nullptr).
-        std::shared_ptr<geopop::GeoGrid> GetGeoGrid() const { return m_geo_grid; }
+        std::shared_ptr<geopop::GeoGrid>& GetGeoGrid() { return m_geo_grid; }
+
+        /// Get the GeoGrid associated with this population (may be a nullptr).
+        const std::shared_ptr<geopop::GeoGrid>& GetGeoGrid() const { return m_geo_grid; }
 
 private:
         /// Non-trivial default constructor.
         Population();
 
-        friend class DefaultPopBuilder;
-        friend class GeoPopBuilder;
-        friend class ImportPopBuilder;
-
 private:
         ContactPoolSys                   m_pool_sys;       ///< Holds vector of ContactPools of different types.
         std::shared_ptr<spdlog::logger>  m_contact_logger; ///< Logger for contact/transmission.
         std::shared_ptr<geopop::GeoGrid> m_geo_grid;       ///< Associated geoGrid may be nullptr.
-
-private:
-        /// The contact pool counters (one per type of pool) for assigning pool IDs. Counters
-        /// generate a non zero UID that's unique per type of pool, so <type, UID> uniquely
-        /// detemines the pool. UID zero means 'NA" e.g. wor[lace UID for a K12school student
-        /// wiil be zero. As a defensive measure, the ContactPoolSys gets initialized with
-        /// (for each type) an empty pool in the vecotor storing the contact pools. As a
-        /// consequence, one has:
-        /// if UID != 0 then ContactPoolsSys[type][UID].GetId() == UID for all type
-        /// the index in the vector with pools is identical to the pool's UID.
-        ContactType::IdSubscriptArray<unsigned int> m_currentContactPoolId;
 };
 
 } // namespace stride
