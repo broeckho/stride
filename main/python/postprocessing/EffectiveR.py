@@ -66,6 +66,7 @@ def createEffectiveROverviewPlot(outputDir, R0s, scenarioNames, scenarioDisplayN
     ax.set_xticklabels(scenarioDisplayNames)
     ax.set_ylabel(r'$R_0$')
     ax.set_yticks(R0s)
+    ax.set_xlim(R0s[0] - 1, R0s[-1] + 1)
     ax.set_zlabel("Effective R ({})".format(stat))
     ax.set_zlim(0, max(results))
     plt.legend(["Expected R = {0:.3f}".format(r) for r in expectedRs])
