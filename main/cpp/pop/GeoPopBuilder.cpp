@@ -77,7 +77,6 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         if (geopop_gen.count("commuting_file")) {
                 commutesFile = m_config.get<string>("run.geopop_gen.commuting_file");
         }
-        GeoGridBuilder ggBuilder(m_stride_logger, m_rn_man);
 
         m_stride_logger->trace("Starting GenCities");
         GenCities(geoGrid, ggConfig, m_config.get<string>("run.geopop_gen.cities_file"), commutesFile);
@@ -94,7 +93,7 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         // Generate Pop.
         // --------------------------------------------------------------
         m_stride_logger->trace("Starting GenPop");
-        ggBuilder.GenPop(geoGrid, ggConfig);
+        GenPop(geoGrid, ggConfig);
         m_stride_logger->trace("Finished GenPop");
 
 
@@ -138,6 +137,20 @@ void GeoPopBuilder::GenGeo(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGri
 
         for (const auto& g : generators) {
                 g->Apply(geoGrid, geoGridConfig, m_ccCounter);
+        }
+}
+
+void GeoPopBuilder::GenPop(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig)
+{
+        vector<shared_ptr<Populator>> populators{make_shared<HouseholdPopulator>(m_rn_man, m_stride_logger),
+                                                 make_shared<K12SchoolPopulator>(m_rn_man, m_stride_logger),
+                                                 make_shared<CollegePopulator>(m_rn_man, m_stride_logger),
+                                                 make_shared<PrimaryCommunityPopulator>(m_rn_man, m_stride_logger),
+                                                 make_shared<SecondaryCommunityPopulator>(m_rn_man, m_stride_logger),
+                                                 make_shared<WorkplacePopulator>(m_rn_man, m_stride_logger)};
+
+        for (shared_ptr<Populator>& p : populators) {
+                p->Apply(geoGrid, geoGridConfig);
         }
 }
 

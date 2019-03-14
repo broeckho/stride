@@ -66,7 +66,6 @@ set(STRIDE_SRC
     geopop/ContactCenter.cpp
     geopop/Coordinate.h
     geopop/GeoGrid.cpp
-    geopop/GeoGridBuilder.cpp
     geopop/GeoGridConfig.cpp
     geopop/GeoGridConfigBuilder.cpp
     geopop/Household.cpp

@@ -55,6 +55,9 @@ private:
         /// Build and store the Geo part of the GeoGrid.
         void GenGeo(const std::shared_ptr<geopop::GeoGrid>& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
 
+        /// Build and store the Pop part of the GeoGrid.
+        void GenPop(const std::shared_ptr<geopop::GeoGrid>& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
+
 private:
         /// The current number of ContactCenters, used to obtain an Id for a new contactCenter.
         /// ! 0 has special meaning (not assigned)!

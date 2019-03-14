@@ -68,6 +68,7 @@ public:
         Person* CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,
                              unsigned int college, unsigned int workId, unsigned int primaryCommunityId,
                              unsigned int secondaryCommunityId);
+
         /// Get the cumulative number of cases.
         unsigned int GetInfectedCount() const;
 
