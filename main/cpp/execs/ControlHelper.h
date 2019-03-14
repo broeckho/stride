@@ -35,11 +35,11 @@ class SimRunner;
 /**
  * Controls a simulation run initiated with the command line interface (cli).
  *
- * ControlHelper functions effected on behalf of the controller include:
+ * ControlHelper functions effected on behalf of the controllers include:
  * \li checks the OpenMP environment
  * \li checks the file system environment
  * \li interprets and executes the ouput prefix
- * \li install a stride logger)
+ * \li install a stride logger
  * \li a utility method to register the appropriate viewers
  */
 class ControlHelper
@@ -75,7 +75,6 @@ protected:
         boost::property_tree::ptree     m_config;           ///< Main configuration for run and sim.
         std::string                     m_name;             ///< Contoller's name.
         std::string                     m_output_prefix;    ///< Prefix to output (name prefix or prefix dir)
-        util::RnMan                     m_rn_man;           ///< Manager for random numbers
         util::Stopwatch<>               m_run_clock;        ///< Stopwatch for timing the computation.
         std::shared_ptr<spdlog::logger> m_stride_logger;    ///< General logger.
         bool                            m_use_install_dirs; ///< Working dir or install dir mode.

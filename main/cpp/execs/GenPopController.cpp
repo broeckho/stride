@@ -61,34 +61,43 @@ void GenPopController::Control()
         InstallLogger();
         LogStartup();
 
-        // --------------------------------------------------------------
-        // Set up the GenPopBuilder and build population with GeoGrid.
-        // --------------------------------------------------------------
-        m_stride_logger->info("GenPopBuilder invoked.");
-        GeoPopBuilder geoPopBuilder(m_config, m_rn_man, m_stride_logger);
+        // -----------------------------------------------------------------------------------------
+        // GenPop scenario: step 1, build a random number manager.
+        // -----------------------------------------------------------------------------------------
+        const RnInfo info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
+                          m_config.get<unsigned int>("run.num_threads")};
+        RnMan rnMan{info};
+
+        // -----------------------------------------------------------------------------------------
+        // GenPop scenario: step 2, set up the GenPopBuilder and build population with GeoGrid.
+        // -----------------------------------------------------------------------------------------
+        m_stride_logger->trace("GenPopBuilder invoked.");
+
+        GeoPopBuilder geoPopBuilder(m_config, rnMan, m_stride_logger);
         const auto    pop = Population::Create();
-
         geoPopBuilder.Build(pop);
-        m_stride_logger->info("GenPopBuilder done.");
 
-        // --------------------------------------------------------------
-        // Write to file.
-        // --------------------------------------------------------------
+        m_stride_logger->trace("GenPopBuilder done.");
+
+        // ----------------------------------------------------------------------------------------
+        // GenPop scenario: step 3, write to population to file.
+        // ----------------------------------------------------------------------------------------
+        m_stride_logger->trace("Start writing population to file.");
+
         const auto prefix      = m_config.get<string>("run.output_prefix");
         const auto popFileName = m_config.get<string>("run.population_file", "gengeopop.proto");
         const auto popFilePath = FileSys::BuildPath(prefix, popFileName);
-        m_stride_logger->info("Writing to population file {}.", popFilePath.string());
-
+        m_stride_logger->info("Population written to file {}.", popFilePath.string());
         GeoGridWriterFactory      geoGridWriterFactory;
         shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(popFileName);
         ofstream                  outputFileStream(popFilePath.string());
-
         geoGridWriter->Write(pop->GetGeoGrid(), outputFileStream);
         outputFileStream.close();
-        m_stride_logger->info("Done writing to population to file {}.", popFileName);
+
+        m_stride_logger->trace("Done writing population to file.");
 
         // -----------------------------------------------------------------------------------------
-        // Shutdown.
+        // Done, shutdown.
         // -----------------------------------------------------------------------------------------
         LogShutdown();
         spdlog::drop_all();

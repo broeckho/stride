@@ -30,17 +30,12 @@ using namespace std;
 
 namespace stride {
 
-SimRunner::SimRunner(const ptree& configPt, shared_ptr<Population> pop, util::RnMan& rnManager)
-    : m_clock("total_clock"), m_config(configPt), m_output_prefix(""), m_sim(nullptr)
+SimRunner::SimRunner(const ptree& configPt, shared_ptr<Sim> sim)
+    : m_clock("total_clock"), m_config(configPt), m_sim(std::move(sim))
 {
-        m_clock.Start();
         Notify(Id::SetupBegin);
-
-        m_output_prefix = m_config.get<string>("run.output_prefix");
-        m_sim           = Sim::Create(m_config, std::move(pop), rnManager);
-
+        m_clock.Start();
         Notify(Id::SetupEnd);
-        m_clock.Stop();
 }
 
 void SimRunner::Run(unsigned int numSteps)
@@ -56,7 +51,7 @@ void SimRunner::Run(unsigned int numSteps)
                         Notify(Id::AtStart);
                 }
 
-                // Tahe numSteps but do not go beyond numDays.
+                // Take numSteps but do not go beyond numDays.
                 for (unsigned int i = 0; i < numSteps; i++) {
                         // This is not the last step: execute and signal Stepped.
                         if (m_sim->GetCalendar()->GetSimulationDay() < numDays - 1) {

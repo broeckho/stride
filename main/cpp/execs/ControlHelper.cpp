@@ -41,7 +41,7 @@ using namespace boost::property_tree::xml_parser;
 namespace stride {
 
 ControlHelper::ControlHelper()
-    : m_config(), m_name(), m_output_prefix(), m_rn_man(), m_run_clock("run"), m_stride_logger(nullptr),
+    : m_config(), m_name(), m_output_prefix(), m_run_clock("run"), m_stride_logger(nullptr),
       m_use_install_dirs()
 
 {
@@ -54,9 +54,6 @@ ControlHelper::ControlHelper(string name, const ptree& config) : ControlHelper()
         m_name             = std::move(name);
         m_output_prefix    = m_config.get<string>("run.output_prefix");
         m_use_install_dirs = m_config.get<bool>("run.use_install_dirs");
-
-        m_rn_man.Initialize(
-            RnInfo{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "", m_config.get<unsigned int>("run.num_threads")});
 }
 
 void ControlHelper::CheckEnv()

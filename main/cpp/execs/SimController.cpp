@@ -21,6 +21,7 @@
 #include "SimController.h"
 
 #include "pop/Population.h"
+#include "sim/Sim.h"
 #include "sim/SimRunner.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -44,19 +45,31 @@ void SimController::Control()
         LogStartup();
 
         // -----------------------------------------------------------------------------------------
-        // The action.
+        // Sim scenario: step 1, build a random number manager.
         // -----------------------------------------------------------------------------------------
-        //const RnInfo info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
-        //                  m_config.get<unsigned int>("run.num_threads")};
-        //RnMan rnMan{info};
+        const RnInfo info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
+                          m_config.get<unsigned int>("run.num_threads")};
+        RnMan rnMan{info};
 
-        auto pop    = Population::Create(m_config, m_rn_man, m_stride_logger);
-        auto runner = make_shared<SimRunner>(m_config, pop, m_rn_man);
+        // -----------------------------------------------------------------------------------------
+        // Sim scenario: step 2, create a population, as described by the parameter in the config.
+        // -----------------------------------------------------------------------------------------
+        auto pop    = Population::Create(m_config, rnMan, m_stride_logger);
+
+        // -----------------------------------------------------------------------------------------
+        // Sim scenario: step 3, create a simulator, as described by the parameter in the config.
+        // -----------------------------------------------------------------------------------------
+        auto sim    = Sim::Create(m_config, pop, rnMan);
+
+        // -----------------------------------------------------------------------------------------
+        // Sim scenario: step , build a runner, register viewers and run.
+        // -----------------------------------------------------------------------------------------
+        auto runner = make_shared<SimRunner>(m_config, sim);
         RegisterViewers(runner);
         runner->Run();
 
         // -----------------------------------------------------------------------------------------
-        // Shutdown.
+        // Done, shutdown.
         // -----------------------------------------------------------------------------------------
         LogShutdown();
         spdlog::drop_all();
