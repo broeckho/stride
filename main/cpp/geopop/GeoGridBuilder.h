@@ -36,27 +36,21 @@ class GeoGridBuilder
 {
 public:
         /// Create a Builder.
-        GeoGridBuilder(std::shared_ptr<spdlog::logger> logger, stride::util::RnMan& rnManager,
-                       std::shared_ptr<stride::Population> pop);
-
-        /// Get the generated GeoGrid.
-        std::shared_ptr<GeoGrid> GetGeoGrid();
+        GeoGridBuilder(std::shared_ptr<spdlog::logger> logger, stride::util::RnMan& rnManager);
 
         /// Reads the data files.
-        void GenCities(const GeoGridConfig& geoGridConfig, const std::string& citiesFileName,
-                       const std::string& commutingFileName);
+        void GenCities(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig,
+                       const std::string& citiesFileName, const std::string& commutingFileName);
 
         /// Build and store the Geo part of the GeoGrid.
-        void GenGeo(const GeoGridConfig& geoGridConfig);
+        void GenGeo(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig);
 
         /// Build and store the Pop part of the GeoGrid.
-        void GenPop(const GeoGridConfig& geoGridConfig);
-
+        void GenPop(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig);
 
 private:
         stride::util::RnMan&                m_rnManager;  ///< The random number generation manager.
-        std::shared_ptr<GeoGrid>            m_geoGrid;    ///< The generated GeoGrid.
-        std::shared_ptr<stride::Population> m_population; ///< The generated GeoGrid.
+        //std::shared_ptr<stride::Population> m_population; ///< The generated GeoGrid.
         std::shared_ptr<spdlog::logger>     m_logger;     ///< The logger.
 
 private:

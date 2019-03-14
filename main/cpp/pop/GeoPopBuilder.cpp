@@ -20,6 +20,7 @@
 
 #include "GeoPopBuilder.h"
 
+#include "geopop/GeoGrid.h"
 #include "geopop/GeoGridBuilder.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/GeoGridConfigBuilder.h"
@@ -31,8 +32,7 @@
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <spdlog/common.h>
-#include <spdlog/fmt/ostr.h>
+#include <spdlog/logger.h>
 
 namespace stride {
 
@@ -51,6 +51,11 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         GeoGridConfig        ggConfig(m_config);
         GeoGridConfigBuilder ggConfigBuilder{};
         ggConfigBuilder.SetData(ggConfig, m_config.get<string>("run.geopop_gen.household_file"));
+
+        // --------------------------------------------------------------
+        // Create empty GeoGrid associated with 'pop'.
+        // --------------------------------------------------------------
+        const auto geoGrid = make_shared<GeoGrid>(pop.get());
         
         // --------------------------------------------------------------
         // Read cities input files (commute info file only if present).
@@ -60,31 +65,31 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         if (geopop_gen.count("commuting_file")) {
                 commutesFile = m_config.get<string>("run.geopop_gen.commuting_file");
         }
-        GeoGridBuilder ggBuilder(m_stride_logger, m_rn_man, pop);
+        GeoGridBuilder ggBuilder(m_stride_logger, m_rn_man);
 
         m_stride_logger->trace("Starting GenCities");
-        ggBuilder.GenCities(ggConfig, m_config.get<string>("run.geopop_gen.cities_file"), commutesFile);
+        ggBuilder.GenCities(geoGrid, ggConfig, m_config.get<string>("run.geopop_gen.cities_file"), commutesFile);
         m_stride_logger->trace("Finished GenCities");
 
         // --------------------------------------------------------------
         // Generate Geo.
         // --------------------------------------------------------------
         m_stride_logger->trace("Starting GenGeo");
-        ggBuilder.GenGeo(ggConfig);
+        ggBuilder.GenGeo(geoGrid, ggConfig);
         m_stride_logger->trace("Finished GenGeo");
 
         // --------------------------------------------------------------
         // Generate Pop.
         // --------------------------------------------------------------
         m_stride_logger->trace("Starting GenPop");
-        ggBuilder.GenPop(ggConfig);
+        ggBuilder.GenPop(geoGrid, ggConfig);
         m_stride_logger->trace("Finished GenPop");
 
 
         // --------------------------------------------------------------
         // Done.
         // --------------------------------------------------------------
-        pop->m_geo_grid = ggBuilder.GetGeoGrid();
+        pop->m_geo_grid = geoGrid;
         m_stride_logger->trace("Done building geopop.");
         
         return pop;
