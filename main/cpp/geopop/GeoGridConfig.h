@@ -30,19 +30,16 @@ class Household;
 
 /**
  * Configuration data mostly for generating a population, but also for computing
- * the required number od schools, workplaces, communities etc for that population.
+ * the required number of schools, workplaces, communities etc. for that population.
  */
 class GeoGridConfig
 {
 public:
-        /// Default constructor needed.
+        /// Default constructor needed in test code.
         GeoGridConfig();
 
         /// Constructor that configures input data.
         explicit GeoGridConfig(const boost::property_tree::ptree& configPt);
-
-        /// Prints the GeoGridconfig
-        friend std::ostream& operator<<(std::ostream& stream, const GeoGridConfig& config);
 
         // -----------------------------------------------------------------------------------------
         // Input parameters set by constructor with configuration property tree.
@@ -126,6 +123,10 @@ public:
                 unsigned int workplace_size      = 20U;
                 unsigned int pools_per_workplace = 1U;
         } pools;
+
+
+        /// Read the househould data file, parse it and set data.
+        void SetData(const std::string& householdsFileName);
 };
 
 } // namespace geopop

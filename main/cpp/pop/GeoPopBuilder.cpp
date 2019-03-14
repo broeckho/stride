@@ -22,7 +22,6 @@
 
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/GeoGridConfigBuilder.h"
 #include "geopop/generators/CollegeGenerator.h"
 #include "geopop/generators/CommunityGenerator.h"
 #include "geopop/generators/HouseholdGenerator.h"
@@ -60,8 +59,7 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         // Set the GeoGridConfig.
         // --------------------------------------------------------------
         GeoGridConfig        ggConfig(m_config);
-        GeoGridConfigBuilder ggConfigBuilder{};
-        ggConfigBuilder.SetData(ggConfig, m_config.get<string>("run.geopop_gen.household_file"));
+        ggConfig.SetData(m_config.get<string>("run.geopop_gen.household_file"));
 
         // --------------------------------------------------------------
         // Create empty GeoGrid associated with 'pop'.

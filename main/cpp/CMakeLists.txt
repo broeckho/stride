@@ -68,7 +68,6 @@ set(STRIDE_SRC
     geopop/Coordinate.h
     geopop/GeoGrid.cpp
     geopop/GeoGridConfig.cpp
-    geopop/GeoGridConfigBuilder.cpp
     geopop/Household.cpp
     geopop/K12School.cpp
     geopop/Location.cpp
