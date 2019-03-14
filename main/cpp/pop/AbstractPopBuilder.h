@@ -21,9 +21,9 @@
 
 #pragma once
 
-#include <spdlog/logger.h>
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
+#include <spdlog/logger.h>
 
 namespace stride {
 

@@ -67,9 +67,9 @@ public:
         void Run(unsigned int numSteps);
 
 private:
-        util::Stopwatch<>           m_clock;         ///< Stopwatch for timing the computation.
-        boost::property_tree::ptree m_config;        ///< Ptree with configuration.
-        std::shared_ptr<Sim>        m_sim;           ///< Simulator object.
+        util::Stopwatch<>           m_clock;  ///< Stopwatch for timing the computation.
+        boost::property_tree::ptree m_config; ///< Ptree with configuration.
+        std::shared_ptr<Sim>        m_sim;    ///< Simulator object.
 };
 
 } // namespace stride

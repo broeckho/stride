@@ -48,8 +48,8 @@ public:
         virtual ~Generator() = default;
 
 protected:
-        stride::util::RnMan&            m_rn_man;    ///< RnManager used by generators.
-        std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by generators.
+        stride::util::RnMan&            m_rn_man; ///< RnManager used by generators.
+        std::shared_ptr<spdlog::logger> m_logger; ///< Logger used by generators.
 };
 
 } // namespace geopop

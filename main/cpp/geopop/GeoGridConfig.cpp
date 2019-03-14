@@ -42,14 +42,12 @@ GeoGridConfig::GeoGridConfig(const ptree& configPt) : GeoGridConfig()
         input.particpation_workplace       = configPt.get<double>("run.geopop_gen.particpation_workplace");
 }
 
-
 void GeoGridConfig::SetData(const string& householdsFileName)
 {
         ReaderFactory readerFactory;
 
         auto householdsReader = readerFactory.CreateHouseholdReader(householdsFileName);
-        householdsReader->SetReferenceHouseholds(refHH.households, refHH.persons,
-                                                 refHH.pools);
+        householdsReader->SetReferenceHouseholds(refHH.households, refHH.persons, refHH.pools);
         const auto popSize = input.pop_size;
 
         //----------------------------------------------------------------
@@ -88,17 +86,13 @@ void GeoGridConfig::SetData(const string& householdsFileName)
 
         popInfo.popcount_k12school = age_count_k12school;
 
-        popInfo.popcount_college =
-                static_cast<unsigned int>(floor(input.participation_college * age_count_college));
+        popInfo.popcount_college = static_cast<unsigned int>(floor(input.participation_college * age_count_college));
 
-        popInfo.popcount_workplace =
-                static_cast<unsigned int>(floor(input.particpation_workplace *
-                                                (age_count_workplace - popInfo.popcount_college)));
+        popInfo.popcount_workplace = static_cast<unsigned int>(
+            floor(input.particpation_workplace * (age_count_workplace - popInfo.popcount_college)));
 
-        popInfo.count_households =
-                static_cast<unsigned int>(floor(static_cast<double>(popSize) / averageHhSize));
+        popInfo.count_households = static_cast<unsigned int>(floor(static_cast<double>(popSize) / averageHhSize));
 }
-
 
 ostream& operator<<(ostream& out, const GeoGridConfig& config)
 {

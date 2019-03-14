@@ -71,7 +71,7 @@ private:
         std::function<int()>              m_distNonCommuting; ///< Distribution to choose from m_nearByWorkPlaces.
 
         std::vector<Location*> m_commutingLocations; ///< Workplaces which persons from m_currentLoc may commute to.
-        std::function<int()>    m_disCommuting;       ///< Distribution to choose from m_commutingLocations.
+        std::function<int()>   m_disCommuting;       ///< Distribution to choose from m_commutingLocations.
 };
 
 } // namespace geopop

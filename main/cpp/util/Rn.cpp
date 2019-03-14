@@ -21,8 +21,8 @@
 #include "Rn.h"
 #include "StringUtils.h"
 
-#include <randutils/randutils.hpp>
 #include <cctype>
+#include <randutils/randutils.hpp>
 #include <sstream>
 #include <stdexcept>
 

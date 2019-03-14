@@ -58,8 +58,8 @@ void StanController::Control()
         // -----------------------------------------------------------------------------------------
         // Stan scenario: step 2, make seeds for the stochastic analysis.
         // -----------------------------------------------------------------------------------------
-        const auto                         stanCount = m_config.get<unsigned int>("run.stan_count");
-        random_device                      rd;
+        const auto           stanCount = m_config.get<unsigned int>("run.stan_count");
+        random_device        rd;
         vector<unsigned int> seeds;
         for (unsigned int i = 0; i < stanCount; i++) {
                 seeds.emplace_back(rd());
@@ -87,17 +87,17 @@ void StanController::Control()
                 // ---------------------------------------------------------------------------------
                 // Stan scenario: step 3, build a population as specified in config.
                 // ---------------------------------------------------------------------------------
-                auto pop    = Population::Create(configPt, rnMan);
+                auto pop = Population::Create(configPt, rnMan);
 
                 // -----------------------------------------------------------------------------------------
                 // Sim scenario: step 4, create a simulator, as described by the parameter in the config.
                 // -----------------------------------------------------------------------------------------
-                auto sim    = Sim::Create(configPt, pop, rnMan);
+                auto sim = Sim::Create(configPt, pop, rnMan);
 
                 // ---------------------------------------------------------------------------------
                 // Stan scenario: step 5, build a simulator, register viewer, run, collect results.
                 // ---------------------------------------------------------------------------------
-                auto runner = make_shared<SimRunner>(configPt, sim);
+                auto runner  = make_shared<SimRunner>(configPt, sim);
                 auto iViewer = make_shared<viewers::InfectedViewer>(runner);
                 runner->Register(iViewer, bind(&viewers::InfectedViewer::Update, iViewer, std::placeholders::_1));
                 runner->Run();

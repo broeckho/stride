@@ -54,18 +54,18 @@ using namespace geopop;
 shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
 {
         m_stride_logger->trace("Building geopop.");
-        
+
         // --------------------------------------------------------------
         // Set the GeoGridConfig.
         // --------------------------------------------------------------
-        GeoGridConfig        ggConfig(m_config);
+        GeoGridConfig ggConfig(m_config);
         ggConfig.SetData(m_config.get<string>("run.geopop_gen.household_file"));
 
         // --------------------------------------------------------------
         // Create empty GeoGrid associated with 'pop'.
         // --------------------------------------------------------------
         const auto geoGrid = make_shared<GeoGrid>(pop.get());
-        
+
         // --------------------------------------------------------------
         // Read cities input files (commute info file only if present).
         // --------------------------------------------------------------
@@ -93,18 +93,17 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         GenPop(geoGrid, ggConfig);
         m_stride_logger->trace("Finished GenPop");
 
-
         // --------------------------------------------------------------
         // Done.
         // --------------------------------------------------------------
         pop->GetGeoGrid() = geoGrid;
         m_stride_logger->trace("Done building geopop.");
-        
+
         return pop;
 }
 
 void GeoPopBuilder::GenCities(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig,
-                               const string& citiesFileName, const string& commutingFileName)
+                              const string& citiesFileName, const string& commutingFileName)
 {
         ReaderFactory              readerFactory;
         shared_ptr<CitiesReader>   citiesReader;
@@ -122,7 +121,6 @@ void GeoPopBuilder::GenCities(const std::shared_ptr<GeoGrid>& geoGrid, const Geo
         }
         geoGrid->Finalize();
 }
-
 
 void GeoPopBuilder::GenGeo(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig)
 {

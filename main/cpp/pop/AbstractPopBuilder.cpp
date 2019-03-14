@@ -32,12 +32,11 @@ using namespace boost::property_tree;
 
 AbstractPopBuilder::AbstractPopBuilder(const boost::property_tree::ptree& config, util::RnMan& rnMan,
                                        std::shared_ptr<spdlog::logger> strideLogger)
-        : m_config(config), m_rn_man(rnMan), m_stride_logger(std::move(strideLogger))
+    : m_config(config), m_rn_man(rnMan), m_stride_logger(std::move(strideLogger))
 {
         if (!m_stride_logger) {
                 m_stride_logger = util::LogUtils::CreateNullLogger("PopBuilder_logger");
         }
 }
-
 
 } // namespace stride

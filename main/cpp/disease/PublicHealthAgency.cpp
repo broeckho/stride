@@ -36,10 +36,7 @@ void PublicHealthAgency::Exec(std::shared_ptr<Population> pop, util::RnMan& rnMa
         PerformCaseFinding(std::move(pop), rnManager, simDay);
 }
 
-void PublicHealthAgency::Initialize(double detection_probability)
-{
-        m_detection_probability = detection_probability;
-}
+void PublicHealthAgency::Initialize(double detection_probability) { m_detection_probability = detection_probability; }
 
 void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, util::RnMan& rnMan,
                                             unsigned short int simDay)
@@ -66,8 +63,8 @@ void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, uti
                                         continue;
                                 }
                                 for (const auto& p_member : poolSys[typ][poolId].GetPool()) {
-                                        if (p_case != *p_member && p_member->GetHealth().IsSusceptible()
-                                            && uniform01Gen() < m_detection_probability) {
+                                        if (p_case != *p_member && p_member->GetHealth().IsSusceptible() &&
+                                            uniform01Gen() < m_detection_probability) {
 
                                                 // set immune
                                                 p_member->GetHealth().SetImmune();

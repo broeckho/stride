@@ -124,7 +124,6 @@ public:
                 unsigned int pools_per_workplace = 1U;
         } pools;
 
-
         /// Read the househould data file, parse it and set data.
         void SetData(const std::string& householdsFileName);
 };

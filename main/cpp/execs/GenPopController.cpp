@@ -66,7 +66,7 @@ void GenPopController::Control()
         // -----------------------------------------------------------------------------------------
         const RnInfo info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
                           m_config.get<unsigned int>("run.num_threads")};
-        RnMan rnMan{info};
+        RnMan        rnMan{info};
 
         // -----------------------------------------------------------------------------------------
         // GenPop scenario: step 2, set up the GenPopBuilder and build population with GeoGrid.

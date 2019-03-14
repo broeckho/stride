@@ -18,12 +18,12 @@
  * Implementation of scenario tests running in batch mode.
  */
 
-#include "util/RnMan.h"
 #include "util/Rn.h"
+#include "util/RnMan.h"
 #include "util/StringUtils.h"
 
-#include <gtest/gtest.h>
 #include <chrono>
+#include <gtest/gtest.h>
 #include <iostream>
 #include <random>
 #include <sstream>
@@ -34,16 +34,16 @@ using namespace ::testing;
 using namespace randutils;
 using namespace stride::util;
 
-
 namespace stride {
 namespace util {
 
-class RnPcg64 : public Rn<pcg64> {
+class RnPcg64 : public Rn<pcg64>
+{
         using Rn<pcg64>::Rn;
 };
 
-}
-}
+} // namespace util
+} // namespace stride
 
 namespace Tests {
 using pcg_extras::operator<<;

@@ -41,8 +41,7 @@ using namespace boost::property_tree::xml_parser;
 namespace stride {
 
 ControlHelper::ControlHelper()
-    : m_config(), m_name(), m_output_prefix(), m_run_clock("run"), m_stride_logger(nullptr),
-      m_use_install_dirs()
+    : m_config(), m_name(), m_output_prefix(), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs()
 
 {
 }

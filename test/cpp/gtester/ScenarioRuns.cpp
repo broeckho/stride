@@ -82,8 +82,8 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsign
         // Actual simulator run.
         // -----------------------------------------------------------------------------------------
         stride::util::RnMan rnMan;
-        rnMan.Initialize(RnInfo{config.get<string>("run.rng_seed", "1,2,3,4"),
-                                config.get<string>("run.rng_state", ""), config.get<unsigned int>("run.num_threads")});
+        rnMan.Initialize(RnInfo{config.get<string>("run.rng_seed", "1,2,3,4"), config.get<string>("run.rng_state", ""),
+                                config.get<unsigned int>("run.num_threads")});
         auto pop    = Population::Create(config, rnMan);
         auto sim    = Sim::Create(config, pop, rnMan);
         auto runner = make_shared<SimRunner>(config, sim);

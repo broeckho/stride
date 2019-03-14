@@ -22,10 +22,10 @@
 #include "Rn.h"
 #include "StringUtils.h"
 
+#include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
-#include <trng/discrete_dist.hpp>
 #include <cctype>
 #include <functional>
 #include <pcg/pcg_random.hpp>
@@ -60,7 +60,6 @@ class RnLcg64 : public Rn<trng::lcg64>
 };
 */
 
-
 RnMan::RnMan() : m_rn(make_shared<RnEngine>()) {}
 
 RnMan::RnMan(const RnInfo& info) : m_rn(make_shared<RnEngine>(info)) {}
@@ -69,10 +68,7 @@ bool RnMan::operator==(const RnMan& other) { return *m_rn == *(other.m_rn); }
 
 RnInfo RnMan::GetInfo() const { return m_rn->GetInfo(); }
 
-std::function<double()> RnMan::GetUniform01Generator(unsigned int i)
-{
-        return m_rn->GetUniform01Generator(i);
-}
+std::function<double()> RnMan::GetUniform01Generator(unsigned int i) { return m_rn->GetUniform01Generator(i); }
 
 std::function<int()> RnMan::GetUniformIntGenerator(int a, int b, unsigned int i)
 {
@@ -84,14 +80,11 @@ std::function<int()> RnMan::GetDiscreteGenerator(const vector<double>& weights, 
         return m_rn->GetDiscreteGenerator(weights, i);
 }
 
-void RnMan::Initialize(const RnInfo& info)
-{
-        m_rn->Initialize(info);
-}
+void RnMan::Initialize(const RnInfo& info) { m_rn->Initialize(info); }
 
-bool RnMan::IsEmpty() const { return m_rn->IsEmpty();}
+bool RnMan::IsEmpty() const { return m_rn->IsEmpty(); }
 
-void RnMan::Shuffle(vector<unsigned int>& indices, unsigned int i) { return m_rn->Shuffle(indices , i);}
+void RnMan::Shuffle(vector<unsigned int>& indices, unsigned int i) { return m_rn->Shuffle(indices, i); }
 
 } // namespace util
 } // namespace stride

@@ -29,7 +29,7 @@
 namespace geopop {
 class GeoGrid;
 class GeoGridConfig;
-}
+} // namespace geopop
 
 namespace stride {
 

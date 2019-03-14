@@ -22,13 +22,13 @@
 
 #include "RnInfo.h"
 
+#include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
-#include <trng/discrete_dist.hpp>
+#include <functional>
 #include <pcg/pcg_random.hpp>
 #include <randutils/randutils.hpp>
-#include <functional>
 #include <string>
 #include <vector>
 
