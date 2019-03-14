@@ -67,21 +67,24 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         m_stride_logger->trace("Finished GenCities");
 
         // --------------------------------------------------------------
-        // Generate Geo
+        // Generate Geo.
         // --------------------------------------------------------------
         m_stride_logger->trace("Starting GenGeo");
         ggBuilder.GenGeo(ggConfig);
         m_stride_logger->trace("Finished GenGeo");
 
         // --------------------------------------------------------------
-        // Generate Pop
+        // Generate Pop.
         // --------------------------------------------------------------
         m_stride_logger->trace("Starting GenPop");
         ggBuilder.GenPop(ggConfig);
         m_stride_logger->trace("Finished GenPop");
 
-        pop->m_geoGrid = ggBuilder.GetGeoGrid();
 
+        // --------------------------------------------------------------
+        // Done.
+        // --------------------------------------------------------------
+        pop->m_geo_grid = ggBuilder.GetGeoGrid();
         m_stride_logger->trace("Done building geopop.");
         
         return pop;

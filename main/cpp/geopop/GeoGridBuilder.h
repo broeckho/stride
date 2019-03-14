@@ -14,11 +14,10 @@
  *  Copyright 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "pop/Population.h"
-
 #include <spdlog/logger.h>
 
 namespace stride {
+class Population;
 namespace util {
 class RnMan;
 }
@@ -29,15 +28,19 @@ namespace geopop {
 class GeoGrid;
 class GeoGridConfig;
 
+
 /**
  * Controls the complete generation and population of a GeoGrid.
  */
 class GeoGridBuilder
 {
 public:
-        /// Create a GenGeoPopController.
+        /// Create a Builder.
         GeoGridBuilder(std::shared_ptr<spdlog::logger> logger, stride::util::RnMan& rnManager,
-                       std::shared_ptr<stride::Population> pop = stride::Population::Create());
+                       std::shared_ptr<stride::Population> pop);
+
+        /// Get the generated GeoGrid.
+        std::shared_ptr<GeoGrid> GetGeoGrid();
 
         /// Reads the data files.
         void GenCities(const GeoGridConfig& geoGridConfig, const std::string& citiesFileName,
@@ -49,8 +52,6 @@ public:
         /// Build and store the Pop part of the GeoGrid.
         void GenPop(const GeoGridConfig& geoGridConfig);
 
-        /// Get the generated GeoGrid.
-        std::shared_ptr<GeoGrid> GetGeoGrid();
 
 private:
         stride::util::RnMan&                m_rnManager;  ///< The random number generation manager.

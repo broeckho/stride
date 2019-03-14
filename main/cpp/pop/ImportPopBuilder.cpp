@@ -43,8 +43,8 @@ shared_ptr<Population> ImportPopBuilder::Build(shared_ptr<Population> pop)
 
         GeoGridReaderFactory             geoGridReaderFactory;
         const shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile, pop.get());
-        pop->m_geoGrid = reader->Read();
-        pop->m_geoGrid->Finalize();
+        pop->m_geo_grid = reader->Read();
+        pop->m_geo_grid->Finalize();
 
         m_stride_logger->trace("Done importing population.");
 

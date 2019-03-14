@@ -23,6 +23,7 @@
 #include "contact/ContactPoolSys.h"
 #include "contact/ContactType.h"
 #include "pop/Person.h"
+#include "util/RnMan.h"
 #include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
@@ -49,8 +50,8 @@ class Population : public util::SegmentedVector<Person>
 {
 public:
         /// Create a population initialized by the configuration in property tree.
-        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
-                                                  std::shared_ptr<spdlog::logger> stride_logger = nullptr);
+        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& config, util::RnMan& rnMan,
+                                                  std::shared_ptr<spdlog::logger> strideLogger = nullptr);
 
         /// For use in python environment: create using configuration string i.o ptree.
         static std::shared_ptr<Population> Create(const std::string& configString, util::RnMan& rnManager,
@@ -80,7 +81,7 @@ public:
         const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
         /// Get the GeoGrid associated with this population (may be a nullptr).
-        std::shared_ptr<geopop::GeoGrid> GetGeoGrid() const { return m_geoGrid; }
+        std::shared_ptr<geopop::GeoGrid> GetGeoGrid() const { return m_geo_grid; }
 
 private:
         /// Non-trivial default constructor.
@@ -93,7 +94,7 @@ private:
 private:
         ContactPoolSys                   m_pool_sys;       ///< Holds vector of ContactPools of different types.
         std::shared_ptr<spdlog::logger>  m_contact_logger; ///< Logger for contact/transmission.
-        std::shared_ptr<geopop::GeoGrid> m_geoGrid;        ///< Associated geoGrid may be nullptr.
+        std::shared_ptr<geopop::GeoGrid> m_geo_grid;       ///< Associated geoGrid may be nullptr.
 
 private:
         /// The contact pool counters (one per type of pool) for assigning pool IDs. Counters

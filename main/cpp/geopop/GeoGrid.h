@@ -36,7 +36,7 @@ class GeoAggregator;
 class GeoGrid
 {
 public:
-        /// Construct with information about population.
+        /// GeoGrid and associated Population.
         explicit GeoGrid(stride::Population* population);
 
         /// No copy constructor.
@@ -51,7 +51,7 @@ public:
         /// Create ContactPool of type in the Population associated withis GeoGrid.
         stride::ContactPool* CreateContactPool(stride::ContactType::Id type);
 
-        /// Create Person in the Population associated withis Grid.
+        /// Create Person in the Population associated with this Grid.
         template <typename... Args>
         stride::Person* CreatePerson(Args&&... args)
         {

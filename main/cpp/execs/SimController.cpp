@@ -46,6 +46,10 @@ void SimController::Control()
         // -----------------------------------------------------------------------------------------
         // The action.
         // -----------------------------------------------------------------------------------------
+        //const RnInfo info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
+        //                  m_config.get<unsigned int>("run.num_threads")};
+        //RnMan rnMan{info};
+
         auto pop    = Population::Create(m_config, m_rn_man, m_stride_logger);
         auto runner = make_shared<SimRunner>(m_config, pop, m_rn_man);
         RegisterViewers(runner);
