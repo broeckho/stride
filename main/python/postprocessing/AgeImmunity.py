@@ -28,7 +28,7 @@ def groupBySizeAndConstitution(households, bins):
     allSizes = {}
     for hh in households:
         if len(hh) not in allSizes:
-            allSizes[len(hh)] = bins
+            allSizes[len(hh)] = dict(bins)
         pctSusceptible = (sum(hh) / len(hh)) * 100
         for b in bins:
             if pctSusceptible >= b[0] and pctSusceptible <= b[1]:
