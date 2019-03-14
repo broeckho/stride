@@ -50,7 +50,6 @@ public:
 
 private:
         stride::util::RnMan&                m_rnManager;  ///< The random number generation manager.
-        //std::shared_ptr<stride::Population> m_population; ///< The generated GeoGrid.
         std::shared_ptr<spdlog::logger>     m_logger;     ///< The logger.
 
 private:

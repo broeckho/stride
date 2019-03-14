@@ -24,6 +24,18 @@
 #include "geopop/GeoGridBuilder.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/GeoGridConfigBuilder.h"
+#include "geopop/generators/CollegeGenerator.h"
+#include "geopop/generators/CommunityGenerator.h"
+#include "geopop/generators/HouseholdGenerator.h"
+#include "geopop/generators/K12SchoolGenerator.h"
+#include "geopop/generators/WorkplaceGenerator.h"
+#include "geopop/io/ReaderFactory.h"
+#include "geopop/populators/CollegePopulator.h"
+#include "geopop/populators/HouseholdPopulator.h"
+#include "geopop/populators/K12SchoolPopulator.h"
+#include "geopop/populators/PrimaryCommunityPopulator.h"
+#include "geopop/populators/SecondaryCommunityPopulator.h"
+#include "geopop/populators/WorkplacePopulator.h"
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
@@ -68,14 +80,14 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         GeoGridBuilder ggBuilder(m_stride_logger, m_rn_man);
 
         m_stride_logger->trace("Starting GenCities");
-        ggBuilder.GenCities(geoGrid, ggConfig, m_config.get<string>("run.geopop_gen.cities_file"), commutesFile);
+        GenCities(geoGrid, ggConfig, m_config.get<string>("run.geopop_gen.cities_file"), commutesFile);
         m_stride_logger->trace("Finished GenCities");
 
         // --------------------------------------------------------------
         // Generate Geo.
         // --------------------------------------------------------------
         m_stride_logger->trace("Starting GenGeo");
-        ggBuilder.GenGeo(geoGrid, ggConfig);
+        GenGeo(geoGrid, ggConfig);
         m_stride_logger->trace("Finished GenGeo");
 
         // --------------------------------------------------------------
@@ -93,6 +105,40 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         m_stride_logger->trace("Done building geopop.");
         
         return pop;
+}
+
+void GeoPopBuilder::GenCities(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig,
+                               const string& citiesFileName, const string& commutingFileName)
+{
+        ReaderFactory              readerFactory;
+        shared_ptr<CitiesReader>   citiesReader;
+        shared_ptr<CommutesReader> commutesReader;
+
+        citiesReader = readerFactory.CreateCitiesReader(citiesFileName);
+        citiesReader->FillGeoGrid(geoGrid);
+        if (!commutingFileName.empty()) {
+                commutesReader = readerFactory.CreateCommutesReader(commutingFileName);
+                commutesReader->FillGeoGrid(geoGrid);
+        }
+
+        for (const shared_ptr<Location>& loc : *geoGrid) {
+                loc->SetPopCount(geoGridConfig.input.pop_size);
+        }
+        geoGrid->Finalize();
+}
+
+
+void GeoPopBuilder::GenGeo(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig)
+{
+        vector<shared_ptr<Generator>> generators{make_shared<K12SchoolGenerator>(m_rn_man, m_stride_logger),
+                                                 make_shared<CollegeGenerator>(m_rn_man, m_stride_logger),
+                                                 make_shared<WorkplaceGenerator>(m_rn_man, m_stride_logger),
+                                                 make_shared<CommunityGenerator>(m_rn_man, m_stride_logger),
+                                                 make_shared<HouseholdGenerator>(m_rn_man, m_stride_logger)};
+
+        for (const auto& g : generators) {
+                g->Apply(geoGrid, geoGridConfig, m_ccCounter);
+        }
 }
 
 } // namespace stride
