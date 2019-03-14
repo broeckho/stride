@@ -1,4 +1,5 @@
 import csv
+import multiprocessing
 import os
 
 import matplotlib.pyplot as plt
@@ -28,10 +29,31 @@ def saveFig(outputDir, figName, extension="eps"):
     plt.savefig(os.path.join(outputDir, figName + "." + extension), format=extension, dpi=1000)
     plt.clf()
 
-'''
-bbox_inches : str or Bbox, optional
-Bbox in inches. Only the given portion of the figure is saved. If 'tight', try to figure out the tight bbox of the figure. If None, use savefig.bbox
+def getFractionSusceptibles(outputDir, scenarioName, seed):
+    totalPopulation = 0
+    totalSusceptibles = 0
+    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
+    with open(susceptiblesFile) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            totalPopulation += 1
+            if int(row["susceptible"]):
+                totalSusceptibles += 1
+    if totalPopulation > 0:
+        return totalSusceptibles / totalPopulation
+    else:
+        print("Empty population!")
 
-pad_inches : scalar, optional
-Amount of padding around the figure when bbox_inches is 'tight'. If None, use savefig.pad_inches
-'''
+def getOverallFractionSusceptibles(outputDir, R0s, scenarioNames, poolSize):
+    allFractions = []
+    for R0 in R0s:
+        scenarioNamesFull = [s + "_R0_" + str(R0) for s in scenarioNames]
+        for scenario in scenarioNamesFull:
+            seeds = getRngSeeds(outputDir, scenario)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                fractions = pool.starmap(getFractionSusceptibles, [(outputDir, scenario, s) for s in seeds])
+                allFractions += fractions
+    if all(x == allFractions[0] for x in allFractions):
+        return allFractions[0]
+    else:
+        print("Differing immunity levels!")

@@ -18,71 +18,55 @@ def getEffectiveR(outputDir, scenarioName, seed):
                 totalInfected += 1
     return totalInfected
 
-def getExpectedR(outputDir, R0, scenarioName, seed):
-    totalSusceptibles = 0
-    totalPersons = 0
-    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
-    with open(susceptiblesFile) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            totalPersons += 1
-            isSusceptible = int(row["susceptible"])
-            if isSusceptible:
-                totalSusceptibles += 1
-    fracSusceptibles = totalSusceptibles / totalPersons
-    return R0 * fracSusceptibles
+def getExpectedR(R0, fractionSusceptibles):
+    return R0 * fractionSusceptibles
 
-def createEffectiveRPlot(outputDir, R0, scenarioNames, scenarioDisplayNames, poolSize, xLabel, figName):
+def createEffectiveRPlot(outputDir, R0, scenarioNames, scenarioDisplayNames,
+    fractionSusceptibles, poolSize, xLabel, figName):
+    expectedR = getExpectedR(R0, fractionSusceptibles)
     allEffectiveRs = []
-    allExpectedRs = []
     for scenario in scenarioNames:
         seeds = getRngSeeds(outputDir, scenario)
         with multiprocessing.Pool(processes=poolSize) as pool:
             effectiveRs = pool.starmap(getEffectiveR, [(outputDir, scenario, s) for s in seeds])
-            expectedRS = pool.starmap(getExpectedR, [(outputDir, R0, scenario, s) for s in seeds])
-            allExpectedRs += expectedRS
             allEffectiveRs.append(effectiveRs)
-
-    meanExpectedR = sum(allExpectedRs) / len(allExpectedRs)
-    plt.axhline(meanExpectedR)
+    plt.axhline(expectedR)
     plt.boxplot(allEffectiveRs, labels=scenarioDisplayNames)
-    plt.legend(["Expected R = {0:.3f}".format(meanExpectedR)])
+    plt.legend(["Expected R = {0:.3f}".format(expectedR)])
     plt.xlabel(xLabel)
     plt.ylabel("Effective R")
     saveFig(outputDir, figName)
 
-def createEffectiveROverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, R0s, poolSize, xLabel, figName, stat="mean"):
+def createEffectiveROverviewPlot(outputDir, R0s, scenarioNames, scenarioDisplayNames,
+    fractionSusceptibles, poolSize, xLabel, figName, stat="mean"):
     ax = plt.axes(projection="3d")
-    colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown']
-    expectedRMeans = []
+    colors = ["blue", "orange", "green", "red", "purple", "brown"]
+    expectedRs = []
     z = 0
     for R0 in R0s:
+        expectedR = getExpectedR(R0, fractionSusceptibles)
+        expectedRs.append(expectedR)
         results = []
-        allExpectedRs = []
         for scenario in scenarioNames:
             scenarioName = str(scenario) + "_R0_" + str(R0)
             seeds = getRngSeeds(outputDir, scenarioName)
             with multiprocessing.Pool(processes=poolSize) as pool:
                 effectiveRs = pool.starmap(getEffectiveR, [(outputDir, scenarioName, s) for s in seeds])
-                expectedRS = pool.starmap(getExpectedR, [(outputDir, R0, scenarioName, s) for s in seeds])
-                allExpectedRs += expectedRS
                 if stat == "mean":
                     results.append(sum(effectiveRs) / len(effectiveRs))
                 elif stat == "median":
                     results.append(statistics.median(effectiveRs))
                 else:
                     print("No valid statistic supplied!")
-        expectedR = sum(allExpectedRs) / len(allExpectedRs)
-        expectedRMeans.append(expectedR)
-        ax.plot(range(len(results)), [expectedR] * len(results), zs=z, zdir="y")
-        ax.bar(range(len(results)), results, zs=z, zdir="y", color=colors[z], alpha=0.4)
-        z += 1
+        ax.plot(range(len(results)), [expectedR] * len(results), zs=R0, zdir="y", color=colors[z])
+        ax.bar(range(len(results)), results, zs=R0, zdir="y", color=colors[z], alpha=0.4)
+        z+= 1
     ax.set_xlabel(xLabel)
     ax.set_xticks(range(len(scenarioNames)))
     ax.set_xticklabels(scenarioDisplayNames)
     ax.set_ylabel(r'$R_0$')
-    ax.set_yticks(range(len(R0s)))
-    ax.set_yticklabels(R0s)
+    ax.set_yticks(R0s)
     ax.set_zlabel("Effective R ({})".format(stat))
-    plt.legend(["Expected R = {0:.3f}".format(r) for r in expectedRMeans])
+    ax.set_zlim(0, max(results))
+    plt.legend(["Expected R = {0:.3f}".format(r) for r in expectedRs])
     saveFig(outputDir, figName, "png")

@@ -6,26 +6,33 @@ from postprocessing import EffectiveR
 from postprocessing import ExtinctionThreshold
 from postprocessing import OutbreakOccurrenceAndSize
 
+from postprocessing import Util
+
 def main(outputDir, plotER, R0s, numDays, extinctionThreshold, poolSize):
     start = time.perf_counter()
     scenarioNames = ["UNIFORM_NOCLUSTERING", "AGEDEPENDENT_NOCLUSTERING", "AGEDEPENDENT_CLUSTERING"]
     scenarioDisplayNames = ["A", "B", "C"]
 
     if plotER:
+        fractionSusceptibles = Util.getOverallFractionSusceptibles(outputDir, R0s, scenarioNames, poolSize)
         # Overview of different R0 values vs effective Rs
-        EffectiveR.createEffectiveROverviewPlot(outputDir, scenarioNames,
-                                                    scenarioDisplayNames, R0s,
+        EffectiveR.createEffectiveROverviewPlot(outputDir, R0s, scenarioNames,
+                                                    scenarioDisplayNames,
+                                                    fractionSusceptibles,
                                                     poolSize, "Scenario",
                                                     "All_EffectiveR_Mean")
-        EffectiveR.createEffectiveROverviewPlot(outputDir, scenarioNames,
-                                                    scenarioDisplayNames, R0s,
+        EffectiveR.createEffectiveROverviewPlot(outputDir, R0s, scenarioNames,
+                                                    scenarioDisplayNames,
+                                                    fractionSusceptibles,
                                                     poolSize, "Scenario",
                                                     "All_EffectiveR_Median",
                                                     stat="median")
         for R0 in R0s:
             scenarioNamesFull = [s + "_R0_" + str(R0) for s in scenarioNames]
-            EffectiveR.createEffectiveRPlot(outputDir, R0, scenarioNamesFull,
+            EffectiveR.createEffectiveRPlot(outputDir, R0,
+                                            scenarioNamesFull,
                                             scenarioDisplayNames,
+                                            fractionSusceptibles,
                                             poolSize,
                                             "Scenario", "R0_" + str(R0) + "_EffectiveR")
     else:
