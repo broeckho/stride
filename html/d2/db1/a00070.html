@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::AbstractPopBuilder Class Reference</title>
+<title>Stride Reference Manual: stride::AgeBrackets::Daycare Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -107,121 +107,45 @@ $(document).ready(function(){initNavTree('d2/db1/a00070.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../da/dd8/a00906.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="../../dd/d24/a00981.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::AbstractPopBuilder Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">stride::AgeBrackets::Daycare Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Base Class for PopBuilders.  
+<p>DayCare with lower (inclusive) and upper (exclusive) age bracket..  
  <a href="../../d2/db1/a00070.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/d4e/a00141_source.html">AbstractPopBuilder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/d82/a00142_source.html">AgeBrackets.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::AbstractPopBuilder:</div>
+Collaboration diagram for stride::AgeBrackets::Daycare:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d89/a00907.gif" border="0" usemap="#stride_1_1AbstractPopBuilder_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1AbstractPopBuilder_inherit__map" id="stride_1_1AbstractPopBuilder_inherit__map">
-<area shape="rect" id="node2" href="../../db/ddf/a00088.html" title="Initializes Population objects. " alt="" coords="5,189,185,281"/>
-<area shape="rect" id="node3" href="../../da/d82/a00091.html" title="Builds poulation of a geographic grid. " alt="" coords="210,197,370,274"/>
-<area shape="rect" id="node4" href="../../d9/d77/a00095.html" title="Initializes Population objects. " alt="" coords="394,197,570,274"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::AbstractPopBuilder:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d0/d85/a00908.gif" border="0" usemap="#stride_1_1AbstractPopBuilder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1AbstractPopBuilder_coll__map" id="stride_1_1AbstractPopBuilder_coll__map">
-<area shape="rect" id="node3" href="../../dc/dfe/a00125.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,145,381,355"/>
+<div class="center"><img src="../../d1/d7a/a00982.gif" border="0" usemap="#stride_1_1AgeBrackets_1_1Daycare_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1AgeBrackets_1_1Daycare_coll__map" id="stride_1_1AgeBrackets_1_1Daycare_coll__map">
+<area shape="rect" id="node2" href="../../d6/db8/a00376.html" title="{double\n||}" alt="" coords="46,5,111,83"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a0dc3493a948b42c70cd879d83c879526"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a0dc3493a948b42c70cd879d83c879526">AbstractPopBuilder</a> (const boost::property_tree::ptree &amp;config, <a class="el" href="../../dc/dfe/a00125.html">util::RnMan</a> &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; strideLogger=nullptr)</td></tr>
-<tr class="memdesc:a0dc3493a948b42c70cd879d83c879526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a0dc3493a948b42c70cd879d83c879526">More...</a><br /></td></tr>
-<tr class="separator:a0dc3493a948b42c70cd879d83c879526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a864865f7e88c7b737ad91a245f49f466"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a864865f7e88c7b737ad91a245f49f466">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt; pop)=0</td></tr>
-<tr class="memdesc:a864865f7e88c7b737ad91a245f49f466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build <a class="el" href="../../d5/d1e/a00103.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> and return it afterwards.  <a href="#a864865f7e88c7b737ad91a245f49f466">More...</a><br /></td></tr>
-<tr class="separator:a864865f7e88c7b737ad91a245f49f466"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a938da421d2a2d203e7cb90ead7b91807"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a938da421d2a2d203e7cb90ead7b91807">~AbstractPopBuilder</a> ()=default</td></tr>
-<tr class="separator:a938da421d2a2d203e7cb90ead7b91807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aae7b39ea5c158966fca3a8e19dd79826"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#aae7b39ea5c158966fca3a8e19dd79826">HasAge</a> (<a class="el" href="../../d6/db8/a00376.html">double</a> age)</td></tr>
+<tr class="separator:aae7b39ea5c158966fca3a8e19dd79826"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a34a81e371e1bf73c2a75fd9d2df21353"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a34a81e371e1bf73c2a75fd9d2df21353">m_config</a></td></tr>
-<tr class="memdesc:a34a81e371e1bf73c2a75fd9d2df21353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree.  <a href="#a34a81e371e1bf73c2a75fd9d2df21353">More...</a><br /></td></tr>
-<tr class="separator:a34a81e371e1bf73c2a75fd9d2df21353"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a438798c37f82817665369d725a3a34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dfe/a00125.html">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a2a438798c37f82817665369d725a3a34">m_rn_man</a></td></tr>
-<tr class="memdesc:a2a438798c37f82817665369d725a3a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generation management.  <a href="#a2a438798c37f82817665369d725a3a34">More...</a><br /></td></tr>
-<tr class="separator:a2a438798c37f82817665369d725a3a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aa42972b4d340a04b0366af0a889b5e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a6aa42972b4d340a04b0366af0a889b5e">m_stride_logger</a></td></tr>
-<tr class="separator:a6aa42972b4d340a04b0366af0a889b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a982138542099fc588659dd7d9ed11d37"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../d6/db8/a00376.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#a982138542099fc588659dd7d9ed11d37">m_lower</a> = 0.0</td></tr>
+<tr class="separator:a982138542099fc588659dd7d9ed11d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecbb22709a02f81d71c807ba5af572c7"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../d6/db8/a00376.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html#aecbb22709a02f81d71c807ba5af572c7">m_upper</a> = 3.0</td></tr>
+<tr class="separator:aecbb22709a02f81d71c807ba5af572c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base Class for PopBuilders. </p>
+<div class="textblock"><p>DayCare with lower (inclusive) and upper (exclusive) age bracket.. </p>
 
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00038">38</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">AbstractPopBuilder.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0dc3493a948b42c70cd879d83c879526"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::AbstractPopBuilder::AbstractPopBuilder </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>config</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/dfe/a00125.html">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnMan</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>strideLogger</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializing constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">config</td><td>Property_tree with general configuration settings. </td></tr>
-    <tr><td class="paramname">rnMan</td><td>Random number manager for pop build process. </td></tr>
-    <tr><td class="paramname">strideLogger</td><td>Logging. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00033">33</a> of file <a class="el" href="../../d5/db1/a00140_source.html">AbstractPopBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/d56/a00274_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, and <a class="el" href="../../d5/d4e/a00141_source.html#l00056">m_stride_logger</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d2/db1/a00070_a0dc3493a948b42c70cd879d83c879526_cgraph.gif" border="0" usemap="#d2/db1/a00070_a0dc3493a948b42c70cd879d83c879526_cgraph" alt=""/></div>
-<map name="d2/db1/a00070_a0dc3493a948b42c70cd879d83c879526_cgraph" id="d2/db1/a00070_a0dc3493a948b42c70cd879d83c879526_cgraph">
-<area shape="rect" id="node2" href="../../de/d36/a00123.html#af8edb0cd2ef9049e0347f06e73ae57c2" title="Return a (not&#45;yet&#45;registered) null logger, without registering it. " alt="" coords="241,5,385,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a938da421d2a2d203e7cb90ead7b91807"></a>
+<p>Definition at line <a class="el" href="../../d2/d82/a00142_source.html#l00025">25</a> of file <a class="el" href="../../d2/d82/a00142_source.html">AgeBrackets.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aae7b39ea5c158966fca3a8e19dd79826"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -229,52 +153,28 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual stride::AbstractPopBuilder::~AbstractPopBuilder </td>
+          <td class="memname">static bool stride::AgeBrackets::Daycare::HasAge </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d6/db8/a00376.html">double</a>&#160;</td>
+          <td class="paramname"><em>age</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a864865f7e88c7b737ad91a245f49f466"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="../../d5/d1e/a00103.html">Population</a>&gt; stride::AbstractPopBuilder::Build </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d5/d1e/a00103.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="../../d2/d82/a00142_source.html#l00030">30</a> of file <a class="el" href="../../d2/d82/a00142_source.html">AgeBrackets.h</a>.</p>
 
-<p>Build <a class="el" href="../../d5/d1e/a00103.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> and return it afterwards. </p>
-
-<p>Implemented in <a class="el" href="../../db/ddf/a00088.html#a8c1071f808ade6b38dd14a74024e64d4">stride::DefaultPopBuilder</a>, <a class="el" href="../../da/d82/a00091.html#a23493e205a9a22922b1511b80e64bc1e">stride::GeoPopBuilder</a>, and <a class="el" href="../../d9/d77/a00095.html#a78076cb42a88b90e4183bfb805d8361f">stride::ImportPopBuilder</a>.</p>
+<p>References <a class="el" href="../../d2/d82/a00142_source.html#l00028">m_upper</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a34a81e371e1bf73c2a75fd9d2df21353"></a>
+<a class="anchor" id="a982138542099fc588659dd7d9ed11d37"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -282,23 +182,21 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::property_tree::ptree&amp; stride::AbstractPopBuilder::m_config</td>
+          <td class="memname">constexpr <a class="el" href="../../d6/db8/a00376.html">double</a> stride::AgeBrackets::Daycare::m_lower = 0.0</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Configuration property tree. </p>
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00054">54</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">AbstractPopBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d82/a00142_source.html#l00027">27</a> of file <a class="el" href="../../d2/d82/a00142_source.html">AgeBrackets.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2a438798c37f82817665369d725a3a34"></a>
+<a class="anchor" id="aecbb22709a02f81d71c807ba5af572c7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -306,57 +204,32 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dfe/a00125.html">util::RnMan</a>&amp; stride::AbstractPopBuilder::m_rn_man</td>
+          <td class="memname">constexpr <a class="el" href="../../d6/db8/a00376.html">double</a> stride::AgeBrackets::Daycare::m_upper = 3.0</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Random number generation management. </p>
+<p>Definition at line <a class="el" href="../../d2/d82/a00142_source.html#l00028">28</a> of file <a class="el" href="../../d2/d82/a00142_source.html">AgeBrackets.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00055">55</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">AbstractPopBuilder.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6aa42972b4d340a04b0366af0a889b5e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::AbstractPopBuilder::m_stride_logger</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00056">56</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">AbstractPopBuilder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/db1/a00140_source.html#l00033">AbstractPopBuilder()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d82/a00142_source.html#l00030">HasAge()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00039">stride::AgeBrackets::PreSchool::HasAge()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00048">stride::AgeBrackets::K12School::HasAge()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00057">stride::AgeBrackets::College::HasAge()</a>, and <a class="el" href="../../d2/d82/a00142_source.html#l00066">stride::AgeBrackets::Workplace::HasAge()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/d4e/a00141_source.html">AbstractPopBuilder.h</a></li>
-<li><a class="el" href="../../d5/db1/a00140_source.html">AbstractPopBuilder.cpp</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../d2/d82/a00142_source.html">AgeBrackets.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../df/dc2/a00367.html">stride</a></li><li class="navelem"><a class="el" href="../../d2/db1/a00070.html">AbstractPopBuilder</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/d59/a00364.html">AgeBrackets</a></li><li class="navelem"><a class="el" href="../../d2/db1/a00070.html">Daycare</a></li>
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

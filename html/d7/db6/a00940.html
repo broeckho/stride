@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('db/dab/a00089.html','../../');});
+$(document).ready(function(){initNavTree('d1/dc1/a00092.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,23 +107,26 @@ $(document).ready(function(){initNavTree('db/dab/a00089.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">stride::DiseaseSeeder Member List</div>  </div>
+<div class="title">stride::HealthSeeder Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../db/dab/a00089.html">stride::DiseaseSeeder</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d1/dc1/a00092.html">stride::HealthSeeder</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../db/dab/a00089.html#a66cbeee60e72d2a8f5ec2836abeae9c9">DiseaseSeeder</a>(const boost::property_tree::ptree &amp;config, util::RnMan &amp;rnMan)</td><td class="entry"><a class="el" href="../../db/dab/a00089.html">stride::DiseaseSeeder</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../db/dab/a00089.html#a7f897725d29dc459e6fda6c0fef91f37">m_config</a></td><td class="entry"><a class="el" href="../../db/dab/a00089.html">stride::DiseaseSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../db/dab/a00089.html#aeee28660d3988b645ebc1c26f6d82b2a">m_rn_man</a></td><td class="entry"><a class="el" href="../../db/dab/a00089.html">stride::DiseaseSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../db/dab/a00089.html#adc5b1f152367382afe3dade9421357da">Seed</a>(std::shared_ptr&lt; Population &gt; pop)</td><td class="entry"><a class="el" href="../../db/dab/a00089.html">stride::DiseaseSeeder</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../db/dab/a00089.html#adddf4de9a6ae831d6e46d2f047309504">Vaccinate</a>(const std::string &amp;immunityType, const std::string &amp;immunizationProfile, const util::SegmentedVector&lt; ContactPool &gt; &amp;immunityPools)</td><td class="entry"><a class="el" href="../../db/dab/a00089.html">stride::DiseaseSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d1/dc1/a00092.html#a7b240a326b204767217481b3fcc46237">GetDistribution</a>(std::vector&lt; double &gt; &amp;distribution, const boost::property_tree::ptree &amp;rootPt, const std::string &amp;xmlTag)</td><td class="entry"><a class="el" href="../../d1/dc1/a00092.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d1/dc1/a00092.html#a7b4785c0728c9f154aa1426034d6e1b5">HealthSeeder</a>(const boost::property_tree::ptree &amp;diseasePt)</td><td class="entry"><a class="el" href="../../d1/dc1/a00092.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d1/dc1/a00092.html#a4521a7113e70e8e8243da7180d5b1d5e">m_start_symptomatic</a></td><td class="entry"><a class="el" href="../../d1/dc1/a00092.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d1/dc1/a00092.html#ab33626e940aee2fe1e6e4c22875f6af1">m_time_asymptomatic</a></td><td class="entry"><a class="el" href="../../d1/dc1/a00092.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d1/dc1/a00092.html#a40f8e0eb1bc5b7eabb6ec85ec5f210e1">m_time_infectious</a></td><td class="entry"><a class="el" href="../../d1/dc1/a00092.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d1/dc1/a00092.html#aa2dea61097996a03e8c5d113dd81696c">m_time_symptomatic</a></td><td class="entry"><a class="el" href="../../d1/dc1/a00092.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d1/dc1/a00092.html#a562b022d2c7f2836b4400e7d19e1b040">Sample</a>(const std::vector&lt; double &gt; &amp;distribution, double random01)</td><td class="entry"><a class="el" href="../../d1/dc1/a00092.html">stride::HealthSeeder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d1/dc1/a00092.html#ad6a9061857cee5335745fe5501bcb73d">Seed</a>(const std::shared_ptr&lt; Population &gt; &amp;pop, std::vector&lt; ContactHandler &gt; &amp;handlers)</td><td class="entry"><a class="el" href="../../d1/dc1/a00092.html">stride::HealthSeeder</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:45 for Stride Reference Manual by
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

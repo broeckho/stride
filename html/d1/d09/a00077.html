@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::Calendar Class Reference</title>
+<title>Stride Reference Manual: stride::ContactPool Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -107,88 +107,157 @@ $(document).ready(function(){initNavTree('d1/d09/a00077.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../df/da5/a00912.html">List of all members</a>  </div>
+<a href="#friends">Friends</a> &#124;
+<a href="../../d4/d1c/a00903.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Calendar Class Reference</div>  </div>
+<div class="title">stride::ContactPool Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class that keeps track of the 'state' of simulated world.  
+<p>Represents a group of Persons that potentially have contacts.  
  <a href="../../d1/d09/a00077.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d7d/a00150_source.html">Calendar.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Calendar:</div>
+Collaboration diagram for stride::ContactPool:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dfb/a00913.gif" border="0" usemap="#stride_1_1Calendar_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Calendar_coll__map" id="stride_1_1Calendar_coll__map">
-<area shape="rect" id="node5" title="STL class. " alt="" coords="160,145,287,223"/>
+<div class="center"><img src="../../da/d5b/a00905.gif" border="0" usemap="#stride_1_1ContactPool_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1ContactPool_coll__map" id="stride_1_1ContactPool_coll__map">
+<area shape="rect" id="node3" href="../../d4/d3a/a00101.html" title="Store and handle person data. " alt="" coords="417,1013,587,1296"/>
+<area shape="rect" id="node4" href="../../da/dec/a00080.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="529,727,681,907"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="495,421,698,499"/>
+<area shape="rect" id="node6" href="../../d7/df7/a00058.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="705,712,857,921"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="647,247,803,339"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="752,145,967,223"/>
+<area shape="rect" id="node17" title="STL class. " alt="" coords="5,581,132,659"/>
+<area shape="rect" id="node9" href="../../d7/df7/a00058.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="773,363,945,557"/>
+<area shape="rect" id="node14" href="../../da/d82/a00091.html" title="Holds a person&#39;s health data. " alt="" coords="297,683,505,951"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a12e167b902612c7efe48d2e396ad0e03"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a> = std::vector&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::Person</a> * &gt;::<a class="el" href="../../d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a></td></tr>
+<tr class="separator:a12e167b902612c7efe48d2e396ad0e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2f1b3543ea350957ea793e6b2d3ae851"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a2f1b3543ea350957ea793e6b2d3ae851">Calendar</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:a2f1b3543ea350957ea793e6b2d3ae851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a2f1b3543ea350957ea793e6b2d3ae851">More...</a><br /></td></tr>
-<tr class="separator:a2f1b3543ea350957ea793e6b2d3ae851"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73664cd7c25b08adff14429ca3291394"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a73664cd7c25b08adff14429ca3291394">AdvanceDay</a> ()</td></tr>
-<tr class="memdesc:a73664cd7c25b08adff14429ca3291394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the simulated calendar by one day.  <a href="#a73664cd7c25b08adff14429ca3291394">More...</a><br /></td></tr>
-<tr class="separator:a73664cd7c25b08adff14429ca3291394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cec4dbcb30dd964d067cf4728bd6464"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a0cec4dbcb30dd964d067cf4728bd6464">GetDay</a> () const </td></tr>
-<tr class="memdesc:a0cec4dbcb30dd964d067cf4728bd6464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current day of the month in the simulated calendar.  <a href="#a0cec4dbcb30dd964d067cf4728bd6464">More...</a><br /></td></tr>
-<tr class="separator:a0cec4dbcb30dd964d067cf4728bd6464"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6274742cfe78bc370d9fd48939bbdf9f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a6274742cfe78bc370d9fd48939bbdf9f">GetDayOfTheWeek</a> () const </td></tr>
-<tr class="memdesc:a6274742cfe78bc370d9fd48939bbdf9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current day of the week (0 (Sunday), ..., 6 (Saturday)) in the simulated calendar.  <a href="#a6274742cfe78bc370d9fd48939bbdf9f">More...</a><br /></td></tr>
-<tr class="separator:a6274742cfe78bc370d9fd48939bbdf9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3306650f008dd79f3502aecb3a7678d"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#ad3306650f008dd79f3502aecb3a7678d">GetMonth</a> () const </td></tr>
-<tr class="memdesc:ad3306650f008dd79f3502aecb3a7678d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current month in the simulated calendar.  <a href="#ad3306650f008dd79f3502aecb3a7678d">More...</a><br /></td></tr>
-<tr class="separator:ad3306650f008dd79f3502aecb3a7678d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a440b877497550ef988931917fc243809"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a440b877497550ef988931917fc243809">GetSimulationDay</a> () const </td></tr>
-<tr class="memdesc:a440b877497550ef988931917fc243809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current simulated day since the start of the simulation.  <a href="#a440b877497550ef988931917fc243809">More...</a><br /></td></tr>
-<tr class="separator:a440b877497550ef988931917fc243809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ae6518833e89f3bac7d372c3a5ce1ad"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a2ae6518833e89f3bac7d372c3a5ce1ad">GetYear</a> () const </td></tr>
-<tr class="memdesc:a2ae6518833e89f3bac7d372c3a5ce1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current year in the simulated calendar.  <a href="#a2ae6518833e89f3bac7d372c3a5ce1ad">More...</a><br /></td></tr>
-<tr class="separator:a2ae6518833e89f3bac7d372c3a5ce1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d4a023834f98c6ab8af55bbae7bc6df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a9d4a023834f98c6ab8af55bbae7bc6df">IsHoliday</a> () const </td></tr>
-<tr class="memdesc:a9d4a023834f98c6ab8af55bbae7bc6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if it's a holiday.  <a href="#a9d4a023834f98c6ab8af55bbae7bc6df">More...</a><br /></td></tr>
-<tr class="separator:a9d4a023834f98c6ab8af55bbae7bc6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a497cee60c64a52c36dbf44536b3c2d3d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a497cee60c64a52c36dbf44536b3c2d3d">IsSchoolHoliday</a> () const </td></tr>
-<tr class="memdesc:a497cee60c64a52c36dbf44536b3c2d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if it's a school holiday.  <a href="#a497cee60c64a52c36dbf44536b3c2d3d">More...</a><br /></td></tr>
-<tr class="separator:a497cee60c64a52c36dbf44536b3c2d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3569df106b24b3df5bf6836849b150a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a3569df106b24b3df5bf6836849b150a4">IsWeekend</a> () const </td></tr>
-<tr class="memdesc:a3569df106b24b3df5bf6836849b150a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if it's the weekend.  <a href="#a3569df106b24b3df5bf6836849b150a4">More...</a><br /></td></tr>
-<tr class="separator:a3569df106b24b3df5bf6836849b150a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac592918e280c29411c64df9bc41688c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#ac592918e280c29411c64df9bc41688c6">ContactPool</a> (unsigned int poolId, <a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a> type)</td></tr>
+<tr class="memdesc:ac592918e280c29411c64df9bc41688c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#ac592918e280c29411c64df9bc41688c6">More...</a><br /></td></tr>
+<tr class="separator:ac592918e280c29411c64df9bc41688c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee0ae5ebfa3ec1ccd684b2a4e16542c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#adee0ae5ebfa3ec1ccd684b2a4e16542c">~ContactPool</a> ()=default</td></tr>
+<tr class="separator:adee0ae5ebfa3ec1ccd684b2a4e16542c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9aeb5154fea3446d9a4ac4d1844b510"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#aa9aeb5154fea3446d9a4ac4d1844b510">AddMember</a> (<a class="el" href="../../d4/d3a/a00101.html">Person</a> *p)</td></tr>
+<tr class="memdesc:aa9aeb5154fea3446d9a4ac4d1844b510"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the given <a class="el" href="../../d4/d3a/a00101.html" title="Store and handle person data. ">Person</a>.  <a href="#aa9aeb5154fea3446d9a4ac4d1844b510">More...</a><br /></td></tr>
+<tr class="separator:aa9aeb5154fea3446d9a4ac4d1844b510"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7962d506db44920ed1fd99471cabc50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d3a/a00101.html">Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#ae7962d506db44920ed1fd99471cabc50">GetMember</a> (unsigned int index) const </td></tr>
+<tr class="memdesc:ae7962d506db44920ed1fd99471cabc50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get member at index.  <a href="#ae7962d506db44920ed1fd99471cabc50">More...</a><br /></td></tr>
+<tr class="separator:ae7962d506db44920ed1fd99471cabc50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb9a65718e51a5afa72e9f34724f1fe0"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d4/d3a/a00101.html">Person</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#afb9a65718e51a5afa72e9f34724f1fe0">GetPool</a> () const </td></tr>
+<tr class="memdesc:afb9a65718e51a5afa72e9f34724f1fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the entire pool of members.  <a href="#afb9a65718e51a5afa72e9f34724f1fe0">More...</a><br /></td></tr>
+<tr class="separator:afb9a65718e51a5afa72e9f34724f1fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47668fec817b79bcf9e3be930cee19b4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a47668fec817b79bcf9e3be930cee19b4">GetSize</a> () const </td></tr>
+<tr class="memdesc:a47668fec817b79bcf9e3be930cee19b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get size (number of members).  <a href="#a47668fec817b79bcf9e3be930cee19b4">More...</a><br /></td></tr>
+<tr class="separator:a47668fec817b79bcf9e3be930cee19b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac591096e438440339439a5bff477a105"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#ac591096e438440339439a5bff477a105">GetInfectedCount</a> ()</td></tr>
+<tr class="memdesc:ac591096e438440339439a5bff477a105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Infected count.  <a href="#ac591096e438440339439a5bff477a105">More...</a><br /></td></tr>
+<tr class="separator:ac591096e438440339439a5bff477a105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85249b3315c664761fbd1448708473ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a85249b3315c664761fbd1448708473ab">begin</a> ()</td></tr>
+<tr class="memdesc:a85249b3315c664761fbd1448708473ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator to first person.  <a href="#a85249b3315c664761fbd1448708473ab">More...</a><br /></td></tr>
+<tr class="separator:a85249b3315c664761fbd1448708473ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59eb79bf2d47f73de6ece95400106f2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a59eb79bf2d47f73de6ece95400106f2f">end</a> ()</td></tr>
+<tr class="memdesc:a59eb79bf2d47f73de6ece95400106f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator to end of persons.  <a href="#a59eb79bf2d47f73de6ece95400106f2f">More...</a><br /></td></tr>
+<tr class="separator:a59eb79bf2d47f73de6ece95400106f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b2da2fe2ebe5e75bcf8a13893f8d10a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a">GetId</a> () const </td></tr>
+<tr class="memdesc:a3b2da2fe2ebe5e75bcf8a13893f8d10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pool id.  <a href="#a3b2da2fe2ebe5e75bcf8a13893f8d10a">More...</a><br /></td></tr>
+<tr class="separator:a3b2da2fe2ebe5e75bcf8a13893f8d10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cfd2356daa4191fe6951d7c704bf16c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a9cfd2356daa4191fe6951d7c704bf16c">GetType</a> () const </td></tr>
+<tr class="memdesc:a9cfd2356daa4191fe6951d7c704bf16c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the type of <a class="el" href="../../d1/d09/a00077.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>, used for logging and tests.  <a href="#a9cfd2356daa4191fe6951d7c704bf16c">More...</a><br /></td></tr>
+<tr class="separator:a9cfd2356daa4191fe6951d7c704bf16c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:acfc5f6f917fe7d81ead2fecdeb85eb70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#acfc5f6f917fe7d81ead2fecdeb85eb70">InitializeHolidays</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="separator:acfc5f6f917fe7d81ead2fecdeb85eb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38adafed84fa1801c5f1f6420158a7f3"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a38adafed84fa1801c5f1f6420158a7f3">SortMembers</a> ()</td></tr>
+<tr class="memdesc:a38adafed84fa1801c5f1f6420158a7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.  <a href="#a38adafed84fa1801c5f1f6420158a7f3">More...</a><br /></td></tr>
+<tr class="separator:a38adafed84fa1801c5f1f6420158a7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a52c72045d2805141b5c8f7cf23f2b586"><td class="memItemLeft" align="right" valign="top">date::year_month_day&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a52c72045d2805141b5c8f7cf23f2b586">m_date</a></td></tr>
-<tr class="memdesc:a52c72045d2805141b5c8f7cf23f2b586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current simulated date.  <a href="#a52c72045d2805141b5c8f7cf23f2b586">More...</a><br /></td></tr>
-<tr class="separator:a52c72045d2805141b5c8f7cf23f2b586"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f20fb48a594f5bc5134ef9cc7418eae"><td class="memItemLeft" align="right" valign="top">std::vector&lt; date::year_month_day &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a5f20fb48a594f5bc5134ef9cc7418eae">m_holidays</a></td></tr>
-<tr class="memdesc:a5f20fb48a594f5bc5134ef9cc7418eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of general holidays.  <a href="#a5f20fb48a594f5bc5134ef9cc7418eae">More...</a><br /></td></tr>
-<tr class="separator:a5f20fb48a594f5bc5134ef9cc7418eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bb29e7831bae17514c7a07710da5141"><td class="memItemLeft" align="right" valign="top">std::vector&lt; date::year_month_day &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a1bb29e7831bae17514c7a07710da5141">m_school_holidays</a></td></tr>
-<tr class="memdesc:a1bb29e7831bae17514c7a07710da5141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of school holidays.  <a href="#a1bb29e7831bae17514c7a07710da5141">More...</a><br /></td></tr>
-<tr class="separator:a1bb29e7831bae17514c7a07710da5141"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d8a87a703604c326355557e1b72d119"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a9d8a87a703604c326355557e1b72d119">m_day</a></td></tr>
-<tr class="memdesc:a9d8a87a703604c326355557e1b72d119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current day since start of simulation.  <a href="#a9d8a87a703604c326355557e1b72d119">More...</a><br /></td></tr>
-<tr class="separator:a9d8a87a703604c326355557e1b72d119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2efe968db2b7ac3adb440bb515cdf9c4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a2efe968db2b7ac3adb440bb515cdf9c4">m_index_immune</a></td></tr>
+<tr class="memdesc:a2efe968db2b7ac3adb440bb515cdf9c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the first immune member in the <a class="el" href="../../d1/d09/a00077.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>.  <a href="#a2efe968db2b7ac3adb440bb515cdf9c4">More...</a><br /></td></tr>
+<tr class="separator:a2efe968db2b7ac3adb440bb515cdf9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491a3a04acc39cf5ffccd30714a8e76a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a491a3a04acc39cf5ffccd30714a8e76a">m_pool_id</a></td></tr>
+<tr class="memdesc:a491a3a04acc39cf5ffccd30714a8e76a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the <a class="el" href="../../d1/d09/a00077.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging purposes).  <a href="#a491a3a04acc39cf5ffccd30714a8e76a">More...</a><br /></td></tr>
+<tr class="separator:a491a3a04acc39cf5ffccd30714a8e76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe687068792fae04b6b3edb61f6ad93f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#afe687068792fae04b6b3edb61f6ad93f">m_pool_type</a></td></tr>
+<tr class="memdesc:afe687068792fae04b6b3edb61f6ad93f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the <a class="el" href="../../d1/d09/a00077.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging and testing purposes).  <a href="#afe687068792fae04b6b3edb61f6ad93f">More...</a><br /></td></tr>
+<tr class="separator:afe687068792fae04b6b3edb61f6ad93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a672b69837fbd57d9a61f8acb18fec82e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d4/d3a/a00101.html">Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a></td></tr>
+<tr class="memdesc:a672b69837fbd57d9a61f8acb18fec82e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointers to contactpool members (raw pointers intentional).  <a href="#a672b69837fbd57d9a61f8acb18fec82e">More...</a><br /></td></tr>
+<tr class="separator:a672b69837fbd57d9a61f8acb18fec82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a9ffe141bfd5da5336894dc1cebf49fa7"><td class="memTemplParams" colspan="2">template&lt;ContactLogMode::Id LL, bool TIC, bool TO&gt; </td></tr>
+<tr class="memitem:a9ffe141bfd5da5336894dc1cebf49fa7"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a9ffe141bfd5da5336894dc1cebf49fa7">Infector</a></td></tr>
+<tr class="memdesc:a9ffe141bfd5da5336894dc1cebf49fa7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/d77/a00095.html" title="Actual contacts and transmission in contactpool (primary template). ">Infector</a> calculates contacts and transmissions.  <a href="#a9ffe141bfd5da5336894dc1cebf49fa7">More...</a><br /></td></tr>
+<tr class="separator:a9ffe141bfd5da5336894dc1cebf49fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class that keeps track of the 'state' of simulated world. </p>
-<p>E.g. what day it is, holidays, quarantines, ... </p>
+<div class="textblock"><p>Represents a group of Persons that potentially have contacts. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00042">42</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Calendar.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a2f1b3543ea350957ea793e6b2d3ae851"></a>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00036">36</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a12e167b902612c7efe48d2e396ad0e03"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03">stride::ContactPool::iterator</a> =  std::vector&lt;<a class="el" href="../../d4/d3a/a00101.html">stride::Person</a>*&gt;::<a class="el" href="../../d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00059">59</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ac592918e280c29411c64df9bc41688c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::ContactPool::ContactPool </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>poolId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializing constructor. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00032">32</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">ContactPool.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adee0ae5ebfa3ec1ccd684b2a4e16542c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -196,48 +265,196 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::Calendar::Calendar </td>
+          <td class="memname">stride::ContactPool::~ContactPool </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Constructor. </p>
-
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00107">107</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../da/d1e/a00149_source.html#l00097">stride::ConvertFromString()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00123">InitializeHolidays()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00089">m_date</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d09/a00077_a2f1b3543ea350957ea793e6b2d3ae851_cgraph.gif" border="0" usemap="#d1/d09/a00077_a2f1b3543ea350957ea793e6b2d3ae851_cgraph" alt=""/></div>
-<map name="d1/d09/a00077_a2f1b3543ea350957ea793e6b2d3ae851_cgraph" id="d1/d09/a00077_a2f1b3543ea350957ea793e6b2d3ae851_cgraph">
-<area shape="rect" id="node2" href="../../df/dc2/a00367.html#ad8bead5f8361eccc7b7b699529da6351" title="stride::ConvertFromString" alt="" coords="472,5,659,32"/>
-<area shape="rect" id="node3" href="../../d1/d09/a00077.html#acfc5f6f917fe7d81ead2fecdeb85eb70" title="stride::Calendar::Initialize\lHolidays" alt="" coords="241,57,424,98"/>
-<area shape="rect" id="node4" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="497,57,633,98"/>
-<area shape="rect" id="node5" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="707,64,873,91"/>
-</map>
-</div>
-</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a73664cd7c25b08adff14429ca3291394"></a>
+<a class="anchor" id="aa9aeb5154fea3446d9a4ac4d1844b510"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::Calendar::AdvanceDay </td>
+          <td class="memname">void stride::ContactPool::AddMember </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/a00101.html">Person</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add the given <a class="el" href="../../d4/d3a/a00101.html" title="Store and handle person data. ">Person</a>. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00037">37</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">ContactPool.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00082">m_index_immune</a>, and <a class="el" href="../../d8/df1/a00174_source.html#l00085">m_members</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/de1/a00213_source.html#l00157">geopop::GeoGridProtoReader::ParseContactPool()</a>, and <a class="el" href="../../d0/d53/a00232_source.html#l00033">geopop::HouseholdCSVReader::SetReferenceHouseholds()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d09/a00077_aa9aeb5154fea3446d9a4ac4d1844b510_icgraph.gif" border="0" usemap="#d1/d09/a00077_aa9aeb5154fea3446d9a4ac4d1844b510_icgraph" alt=""/></div>
+<map name="d1/d09/a00077_aa9aeb5154fea3446d9a4ac4d1844b510_icgraph" id="d1/d09/a00077_aa9aeb5154fea3446d9a4ac4d1844b510_icgraph">
+<area shape="rect" id="node2" href="../../d3/dfe/a00025.html#aa6dbedaf2a8098e075607c358066a849" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="201,5,409,47"/>
+<area shape="rect" id="node6" href="../../dc/d87/a00032.html#a30631f72bcd9b7728b60f178480420e0" title="Add the locations to the GeoGrid. " alt="" coords="196,71,413,112"/>
+<area shape="rect" id="node3" href="../../d3/dfe/a00025.html#a913aee104b2c1982d1cb4164f7ad0e65" title="Create a ContactCenter based on protobuf ContactCenter info. " alt="" coords="461,5,669,47"/>
+<area shape="rect" id="node4" href="../../d3/dfe/a00025.html#a2d7e93b8c38a12f8c662d18973e14a79" title="Create a Location based on protobuf Location info. " alt="" coords="717,5,925,47"/>
+<area shape="rect" id="node5" href="../../d3/dfe/a00025.html#ac0d43bdab244e8c4584f9d7ffee026e9" title="Actually perform the read and return the GeoGrid. " alt="" coords="973,5,1181,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae7962d506db44920ed1fd99471cabc50"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d3a/a00101.html">Person</a>* stride::ContactPool::GetMember </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get member at index. </p>
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00048">48</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
+
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00085">m_members</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/dc8/a00242_source.html#l00066">stride::Immunizer::Random()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d09/a00077_ae7962d506db44920ed1fd99471cabc50_icgraph.gif" border="0" usemap="#d1/d09/a00077_ae7962d506db44920ed1fd99471cabc50_icgraph" alt=""/></div>
+<map name="d1/d09/a00077_ae7962d506db44920ed1fd99471cabc50_icgraph" id="d1/d09/a00077_ae7962d506db44920ed1fd99471cabc50_icgraph">
+<area shape="rect" id="node2" href="../../d4/d7d/a00093.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="196,39,339,80"/>
+<area shape="rect" id="node3" href="../../db/ddf/a00088.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="387,5,549,47"/>
+<area shape="rect" id="node6" href="../../d4/d7d/a00093.html#a9cf69f9df2b2b2e357fab3d3ed48b64a" title="stride::Immunizer::\lImmunizer" alt="" coords="397,71,539,112"/>
+<area shape="rect" id="node4" href="../../db/ddf/a00088.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="597,5,760,47"/>
+<area shape="rect" id="node5" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="808,5,943,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afb9a65718e51a5afa72e9f34724f1fe0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../d4/d3a/a00101.html">Person</a>*&gt;&amp; stride::ContactPool::GetPool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the entire pool of members. </p>
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00051">51</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
+
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00085">m_members</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a47668fec817b79bcf9e3be930cee19b4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int stride::ContactPool::GetSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get size (number of members). </p>
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00054">54</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
+
+<p>References <a class="el" href="../../d7/d3f/a00173_source.html#l00078">GetInfectedCount()</a>, and <a class="el" href="../../d8/df1/a00174_source.html#l00085">m_members</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/dc8/a00242_source.html#l00066">stride::Immunizer::Random()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d09/a00077_a47668fec817b79bcf9e3be930cee19b4_cgraph.gif" border="0" usemap="#d1/d09/a00077_a47668fec817b79bcf9e3be930cee19b4_cgraph" alt=""/></div>
+<map name="d1/d09/a00077_a47668fec817b79bcf9e3be930cee19b4_cgraph" id="d1/d09/a00077_a47668fec817b79bcf9e3be930cee19b4_cgraph">
+<area shape="rect" id="node2" href="../../d1/d09/a00077.html#ac591096e438440339439a5bff477a105" title="Get Infected count. " alt="" coords="196,5,339,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d09/a00077_a47668fec817b79bcf9e3be930cee19b4_icgraph.gif" border="0" usemap="#d1/d09/a00077_a47668fec817b79bcf9e3be930cee19b4_icgraph" alt=""/></div>
+<map name="d1/d09/a00077_a47668fec817b79bcf9e3be930cee19b4_icgraph" id="d1/d09/a00077_a47668fec817b79bcf9e3be930cee19b4_icgraph">
+<area shape="rect" id="node2" href="../../d4/d7d/a00093.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="196,39,339,80"/>
+<area shape="rect" id="node3" href="../../db/ddf/a00088.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="387,5,549,47"/>
+<area shape="rect" id="node6" href="../../d4/d7d/a00093.html#a9cf69f9df2b2b2e357fab3d3ed48b64a" title="stride::Immunizer::\lImmunizer" alt="" coords="397,71,539,112"/>
+<area shape="rect" id="node4" href="../../db/ddf/a00088.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="597,5,760,47"/>
+<area shape="rect" id="node5" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="808,5,943,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac591096e438440339439a5bff477a105"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int stride::ContactPool::GetInfectedCount </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -245,132 +462,32 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Advance the simulated calendar by one day. </p>
+<p>Get Infected count. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00117">117</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Calendar.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00078">78</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">ContactPool.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d9/d7d/a00150_source.html#l00089">m_date</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00093">m_day</a>.</p>
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00085">m_members</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a0cec4dbcb30dd964d067cf4728bd6464"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t stride::Calendar::GetDay </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Current day of the month in the simulated calendar. </p>
-
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00161">161</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d7d/a00150_source.html#l00089">m_date</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6274742cfe78bc370d9fd48939bbdf9f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t stride::Calendar::GetDayOfTheWeek </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Current day of the week (0 (Sunday), ..., 6 (Saturday)) in the simulated calendar. </p>
-
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00163">163</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d7d/a00150_source.html#l00089">m_date</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00077">IsWeekend()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/df1/a00174_source.html#l00054">GetSize()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d09/a00077_a6274742cfe78bc370d9fd48939bbdf9f_icgraph.gif" border="0" usemap="#d1/d09/a00077_a6274742cfe78bc370d9fd48939bbdf9f_icgraph" alt=""/></div>
-<map name="d1/d09/a00077_a6274742cfe78bc370d9fd48939bbdf9f_icgraph" id="d1/d09/a00077_a6274742cfe78bc370d9fd48939bbdf9f_icgraph">
-<area shape="rect" id="node2" href="../../d1/d09/a00077.html#a3569df106b24b3df5bf6836849b150a4" title="Check if it&#39;s the weekend. " alt="" coords="232,13,431,39"/>
+<div class="center"><img src="../../d1/d09/a00077_ac591096e438440339439a5bff477a105_icgraph.gif" border="0" usemap="#d1/d09/a00077_ac591096e438440339439a5bff477a105_icgraph" alt=""/></div>
+<map name="d1/d09/a00077_ac591096e438440339439a5bff477a105_icgraph" id="d1/d09/a00077_ac591096e438440339439a5bff477a105_icgraph">
+<area shape="rect" id="node2" href="../../d1/d09/a00077.html#a47668fec817b79bcf9e3be930cee19b4" title="Get size (number of members). " alt="" coords="196,39,339,80"/>
+<area shape="rect" id="node3" href="../../d4/d7d/a00093.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="387,39,529,80"/>
+<area shape="rect" id="node4" href="../../db/ddf/a00088.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="577,5,740,47"/>
+<area shape="rect" id="node7" href="../../d4/d7d/a00093.html#a9cf69f9df2b2b2e357fab3d3ed48b64a" title="stride::Immunizer::\lImmunizer" alt="" coords="587,71,730,112"/>
+<area shape="rect" id="node5" href="../../db/ddf/a00088.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="788,5,951,47"/>
+<area shape="rect" id="node6" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="999,5,1133,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ad3306650f008dd79f3502aecb3a7678d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t stride::Calendar::GetMonth </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Current month in the simulated calendar. </p>
-
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00168">168</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d7d/a00150_source.html#l00089">m_date</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a440b877497550ef988931917fc243809"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned short int stride::Calendar::GetSimulationDay </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Current simulated day since the start of the simulation. </p>
-
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00170">170</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d7d/a00150_source.html#l00093">m_day</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2ae6518833e89f3bac7d372c3a5ce1ad"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t stride::Calendar::GetYear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Current year in the simulated calendar. </p>
-
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00172">172</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d7d/a00150_source.html#l00089">m_date</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9d4a023834f98c6ab8af55bbae7bc6df"></a>
+<a class="anchor" id="a85249b3315c664761fbd1448708473ab"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -378,7 +495,65 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::Calendar::IsHoliday </td>
+          <td class="memname"><a class="el" href="../../d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a> stride::ContactPool::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Iterator to first person. </p>
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00062">62</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
+
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00085">m_members</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a59eb79bf2d47f73de6ece95400106f2f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a> stride::ContactPool::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Iterator to end of persons. </p>
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00065">65</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
+
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00085">m_members</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b2da2fe2ebe5e75bcf8a13893f8d10a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int stride::ContactPool::GetId </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -391,15 +566,38 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Check if it's a holiday. </p>
+<p>Get the pool id. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00067">67</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Calendar.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00068">68</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/d7d/a00150_source.html#l00089">m_date</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00090">m_holidays</a>.</p>
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00083">m_pool_id</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/de1/a00213_source.html#l00157">geopop::GeoGridProtoReader::ParseContactPool()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00101">geopop::GeoGridJSONWriter::WriteContactPool()</a>, and <a class="el" href="../../d3/dd5/a00215_source.html#l00073">geopop::GeoGridProtoWriter::WriteContactPool()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d09/a00077_a3b2da2fe2ebe5e75bcf8a13893f8d10a_icgraph.gif" border="0" usemap="#d1/d09/a00077_a3b2da2fe2ebe5e75bcf8a13893f8d10a_icgraph" alt=""/></div>
+<map name="d1/d09/a00077_a3b2da2fe2ebe5e75bcf8a13893f8d10a_icgraph" id="d1/d09/a00077_a3b2da2fe2ebe5e75bcf8a13893f8d10a_icgraph">
+<area shape="rect" id="node2" href="../../d3/dfe/a00025.html#aa6dbedaf2a8098e075607c358066a849" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="196,5,404,47"/>
+<area shape="rect" id="node6" href="../../dc/de2/a00024.html#ad424d3108c66dae681d4d655c8bf8494" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactPool. " alt="" coords="201,71,399,112"/>
+<area shape="rect" id="node10" href="../../d6/d5b/a00026.html#ac914db129c8a1822bd4c06e669ef1cd4" title="Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool. " alt="" coords="200,136,400,177"/>
+<area shape="rect" id="node3" href="../../d3/dfe/a00025.html#a913aee104b2c1982d1cb4164f7ad0e65" title="Create a ContactCenter based on protobuf ContactCenter info. " alt="" coords="452,5,660,47"/>
+<area shape="rect" id="node4" href="../../d3/dfe/a00025.html#a2d7e93b8c38a12f8c662d18973e14a79" title="Create a Location based on protobuf Location info. " alt="" coords="708,5,916,47"/>
+<area shape="rect" id="node5" href="../../d3/dfe/a00025.html#ac0d43bdab244e8c4584f9d7ffee026e9" title="Actually perform the read and return the GeoGrid. " alt="" coords="964,5,1172,47"/>
+<area shape="rect" id="node7" href="../../dc/de2/a00024.html#a3d0fdde919d12ad2274d4dd8744d6fdc" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter. " alt="" coords="457,71,655,112"/>
+<area shape="rect" id="node8" href="../../dc/de2/a00024.html#aab5d67c98e5836e1d751e425dc0ce015" title="Create a Boost Property Tree containing all info needed to reconstruct a Location. " alt="" coords="713,71,911,112"/>
+<area shape="rect" id="node9" href="../../dc/de2/a00024.html#af984bb77723e4b49a57a44eafb28e570" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="969,71,1167,112"/>
+<area shape="rect" id="node11" href="../../d6/d5b/a00026.html#a29b971ed219c5b0b2fc3664374a358d6" title="Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter..." alt="" coords="456,136,656,177"/>
+<area shape="rect" id="node12" href="../../d6/d5b/a00026.html#aeb54f07ae394edfbb2250f7057181ed0" title="Create a ProtoBuf Location containing all the info needed to reconstruct a Location. " alt="" coords="712,136,912,177"/>
+<area shape="rect" id="node13" href="../../d6/d5b/a00026.html#a6f709a9e0724d34905806b0ae13688f0" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="968,136,1168,177"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a497cee60c64a52c36dbf44536b3c2d3d"></a>
+<a class="anchor" id="a9cfd2356daa4191fe6951d7c704bf16c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -407,7 +605,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::Calendar::IsSchoolHoliday </td>
+          <td class="memname"><a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a> stride::ContactPool::GetType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -420,58 +618,25 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Check if it's a school holiday. </p>
+<p>Get the type of <a class="el" href="../../d1/d09/a00077.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>, used for logging and tests. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00070">70</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Calendar.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00071">71</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/d7d/a00150_source.html#l00089">m_date</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00091">m_school_holidays</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3569df106b24b3df5bf6836849b150a4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::Calendar::IsWeekend </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if it's the weekend. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00077">77</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Calendar.h</a>.</p>
-
-<p>References <a class="el" href="../../da/d1e/a00149_source.html#l00163">GetDayOfTheWeek()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00123">InitializeHolidays()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00089">m_date</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00090">m_holidays</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00091">m_school_holidays</a>.</p>
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00084">m_pool_type</a>, and <a class="el" href="../../d7/d3f/a00173_source.html#l00043">SortMembers()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d09/a00077_a3569df106b24b3df5bf6836849b150a4_cgraph.gif" border="0" usemap="#d1/d09/a00077_a3569df106b24b3df5bf6836849b150a4_cgraph" alt=""/></div>
-<map name="d1/d09/a00077_a3569df106b24b3df5bf6836849b150a4_cgraph" id="d1/d09/a00077_a3569df106b24b3df5bf6836849b150a4_cgraph">
-<area shape="rect" id="node2" href="../../d1/d09/a00077.html#a6274742cfe78bc370d9fd48939bbdf9f" title="Current day of the week (0 (Sunday), ..., 6 (Saturday)) in the simulated calendar. " alt="" coords="254,5,433,47"/>
-<area shape="rect" id="node3" href="../../d1/d09/a00077.html#acfc5f6f917fe7d81ead2fecdeb85eb70" title="stride::Calendar::Initialize\lHolidays" alt="" coords="252,71,435,112"/>
-<area shape="rect" id="node4" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="508,41,644,83"/>
-<area shape="rect" id="node6" href="../../df/dc2/a00367.html#ad8bead5f8361eccc7b7b699529da6351" title="stride::ConvertFromString" alt="" coords="483,107,669,134"/>
-<area shape="rect" id="node5" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="717,49,884,75"/>
+<div class="center"><img src="../../d1/d09/a00077_a9cfd2356daa4191fe6951d7c704bf16c_cgraph.gif" border="0" usemap="#d1/d09/a00077_a9cfd2356daa4191fe6951d7c704bf16c_cgraph" alt=""/></div>
+<map name="d1/d09/a00077_a9cfd2356daa4191fe6951d7c704bf16c_cgraph" id="d1/d09/a00077_a9cfd2356daa4191fe6951d7c704bf16c_cgraph">
+<area shape="rect" id="node2" href="../../d1/d09/a00077.html#a38adafed84fa1801c5f1f6420158a7f3" title="Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. " alt="" coords="196,5,339,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="acfc5f6f917fe7d81ead2fecdeb85eb70"></a>
+<a class="anchor" id="a38adafed84fa1801c5f1f6420158a7f3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -479,10 +644,9 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::Calendar::InitializeHolidays </td>
+          <td class="memname">std::tuple&lt; bool, unsigned int &gt; stride::ContactPool::SortMembers </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -492,42 +656,57 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Append zero's due to a bug in stdc++ <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896">https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896</a></p>
-<p>Append zero's due to a bug in stdc++ <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896">https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896</a> </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00123">123</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Calendar.cpp</a>.</p>
+<p>Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. </p>
 
-<p>References <a class="el" href="../../da/d1e/a00149_source.html#l00097">stride::ConvertFromString()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00088">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00090">m_holidays</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00091">m_school_holidays</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00043">43</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">ContactPool.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00107">Calendar()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00077">IsWeekend()</a>.</p>
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00082">m_index_immune</a>, and <a class="el" href="../../d8/df1/a00174_source.html#l00085">m_members</a>.</p>
 
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d09/a00077_acfc5f6f917fe7d81ead2fecdeb85eb70_cgraph.gif" border="0" usemap="#d1/d09/a00077_acfc5f6f917fe7d81ead2fecdeb85eb70_cgraph" alt=""/></div>
-<map name="d1/d09/a00077_acfc5f6f917fe7d81ead2fecdeb85eb70_cgraph" id="d1/d09/a00077_acfc5f6f917fe7d81ead2fecdeb85eb70_cgraph">
-<area shape="rect" id="node2" href="../../df/dc2/a00367.html#ad8bead5f8361eccc7b7b699529da6351" title="stride::ConvertFromString" alt="" coords="236,5,423,32"/>
-<area shape="rect" id="node3" href="../../d8/d87/a00118.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="261,57,397,98"/>
-<area shape="rect" id="node4" href="../../d8/d87/a00118.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="471,64,637,91"/>
-</map>
-</div>
-</p>
+<p>Referenced by <a class="el" href="../../dc/ded/a00252_source.html#l00211">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, and <a class="el" href="../../d8/df1/a00174_source.html#l00071">GetType()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d09/a00077_acfc5f6f917fe7d81ead2fecdeb85eb70_icgraph.gif" border="0" usemap="#d1/d09/a00077_acfc5f6f917fe7d81ead2fecdeb85eb70_icgraph" alt=""/></div>
-<map name="d1/d09/a00077_acfc5f6f917fe7d81ead2fecdeb85eb70_icgraph" id="d1/d09/a00077_acfc5f6f917fe7d81ead2fecdeb85eb70_icgraph">
-<area shape="rect" id="node2" href="../../d1/d09/a00077.html#a2f1b3543ea350957ea793e6b2d3ae851" title="Constructor. " alt="" coords="241,5,429,32"/>
-<area shape="rect" id="node3" href="../../d1/d09/a00077.html#a3569df106b24b3df5bf6836849b150a4" title="Check if it&#39;s the weekend. " alt="" coords="236,56,435,83"/>
+<div class="center"><img src="../../d1/d09/a00077_a38adafed84fa1801c5f1f6420158a7f3_icgraph.gif" border="0" usemap="#d1/d09/a00077_a38adafed84fa1801c5f1f6420158a7f3_icgraph" alt=""/></div>
+<map name="d1/d09/a00077_a38adafed84fa1801c5f1f6420158a7f3_icgraph" id="d1/d09/a00077_a38adafed84fa1801c5f1f6420158a7f3_icgraph">
+<area shape="rect" id="node2" href="../../d9/df8/a00096.html#aa27dad30b434e742e80300d88854b36d" title="stride::Infector\&lt; LL,\l TIC, true \&gt;::Exec" alt="" coords="196,5,343,47"/>
+<area shape="rect" id="node3" href="../../d1/d09/a00077.html#a9cfd2356daa4191fe6951d7c704bf16c" title="Get the type of ContactPool, used for logging and tests. " alt="" coords="198,71,341,112"/>
 </map>
 </div>
 </p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a9ffe141bfd5da5336894dc1cebf49fa7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ContactLogMode::Id LL, bool TIC, bool TO&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d9/d77/a00095.html">Infector</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../d9/d77/a00095.html" title="Actual contacts and transmission in contactpool (primary template). ">Infector</a> calculates contacts and transmissions. </p>
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00079">79</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a52c72045d2805141b5c8f7cf23f2b586"></a>
+<a class="anchor" id="a2efe968db2b7ac3adb440bb515cdf9c4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -535,7 +714,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">date::year_month_day stride::Calendar::m_date</td>
+          <td class="memname">unsigned int stride::ContactPool::m_index_immune</td>
         </tr>
       </table>
   </td>
@@ -545,15 +724,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Current simulated date. </p>
+<p>Index of the first immune member in the <a class="el" href="../../d1/d09/a00077.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00089">89</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Calendar.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00082">82</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00117">AdvanceDay()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00107">Calendar()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00161">GetDay()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00163">GetDayOfTheWeek()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00168">GetMonth()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00172">GetYear()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00067">IsHoliday()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00070">IsSchoolHoliday()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00077">IsWeekend()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d3f/a00173_source.html#l00037">AddMember()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00211">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, and <a class="el" href="../../d7/d3f/a00173_source.html#l00043">SortMembers()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5f20fb48a594f5bc5134ef9cc7418eae"></a>
+<a class="anchor" id="a491a3a04acc39cf5ffccd30714a8e76a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -561,7 +740,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;date::year_month_day&gt; stride::Calendar::m_holidays</td>
+          <td class="memname">unsigned int stride::ContactPool::m_pool_id</td>
         </tr>
       </table>
   </td>
@@ -571,15 +750,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Vector of general holidays. </p>
+<p>The ID of the <a class="el" href="../../d1/d09/a00077.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging purposes). </p>
 
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00090">90</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Calendar.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00083">83</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00123">InitializeHolidays()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00067">IsHoliday()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00077">IsWeekend()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/df1/a00174_source.html#l00068">GetId()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1bb29e7831bae17514c7a07710da5141"></a>
+<a class="anchor" id="afe687068792fae04b6b3edb61f6ad93f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -587,7 +766,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;date::year_month_day&gt; stride::Calendar::m_school_holidays</td>
+          <td class="memname"><a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a> stride::ContactPool::m_pool_type</td>
         </tr>
       </table>
   </td>
@@ -597,15 +776,15 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Vector of school holidays. </p>
+<p>The type of the <a class="el" href="../../d1/d09/a00077.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging and testing purposes). </p>
 
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00091">91</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Calendar.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00084">84</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00123">InitializeHolidays()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00070">IsSchoolHoliday()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00077">IsWeekend()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/ded/a00252_source.html#l00146">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00211">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, and <a class="el" href="../../d8/df1/a00174_source.html#l00071">GetType()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9d8a87a703604c326355557e1b72d119"></a>
+<a class="anchor" id="a672b69837fbd57d9a61f8acb18fec82e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -613,7 +792,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned short int stride::Calendar::m_day</td>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d4/d3a/a00101.html">Person</a>*&gt; stride::ContactPool::m_members</td>
         </tr>
       </table>
   </td>
@@ -623,25 +802,25 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Current day since start of simulation. </p>
+<p>Pointers to contactpool members (raw pointers intentional). </p>
 
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00093">93</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Calendar.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00085">85</a> of file <a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00117">AdvanceDay()</a>, and <a class="el" href="../../da/d1e/a00149_source.html#l00170">GetSimulationDay()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d3f/a00173_source.html#l00037">AddMember()</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00062">begin()</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00065">end()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00146">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00211">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, <a class="el" href="../../d7/d3f/a00173_source.html#l00078">GetInfectedCount()</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00048">GetMember()</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00051">GetPool()</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00054">GetSize()</a>, and <a class="el" href="../../d7/d3f/a00173_source.html#l00043">SortMembers()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d7d/a00150_source.html">Calendar.h</a></li>
-<li><a class="el" href="../../da/d1e/a00149_source.html">Calendar.cpp</a></li>
+<li><a class="el" href="../../d8/df1/a00174_source.html">ContactPool.h</a></li>
+<li><a class="el" href="../../d7/d3f/a00173_source.html">ContactPool.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../df/dc2/a00367.html">stride</a></li><li class="navelem"><a class="el" href="../../d1/d09/a00077.html">Calendar</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../d1/d09/a00077.html">ContactPool</a></li>
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,6 +1,4 @@
 var a00371 =
 [
-    [ "InfectedFile", "da/d74/a00099.html", "da/d74/a00099" ],
-    [ "PersonsFile", "d0/d61/a00100.html", "d0/d61/a00100" ],
-    [ "SummaryFile", "d4/d3a/a00101.html", "d4/d3a/a00101" ]
+    [ "pair2data", "d2/da3/a00115.html", "d2/da3/a00115" ]
 ];

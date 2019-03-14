@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: RunConfigManager.cpp File Reference</title>
+<title>Stride Reference Manual: SecondaryCommunityPopulator.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -107,30 +107,46 @@ $(document).ready(function(){initNavTree('dc/d0f/a00303.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">RunConfigManager.cpp File Reference</div>  </div>
+<div class="title">SecondaryCommunityPopulator.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Implementation of ptree utils.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d17/a00304_source.html">RunConfigManager.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/da7/a00168_source.html">util/ConfigInfo.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/db1/a00197_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br />
-<code>#include &lt;initializer_list&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &lt;sha1.h&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d17/a00304_source.html">SecondaryCommunityPopulator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d79/a00203_source.html">geopop/GeoGrid.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d17/a00231_source.html">geopop/Household.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d42/a00269_source.html">geopop/Location.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d61/a00302_source.html">geopop/SecondaryCommunity.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d28/a00276_source.html">pop/Person.h</a>&quot;</code><br />
+<code>#include &lt;set&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for RunConfigManager.cpp:</div>
+Include dependency graph for SecondaryCommunityPopulator.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d1d/a00633.gif" border="0" usemap="#RunConfigManager_8cpp" alt=""/></div>
-<map name="RunConfigManager_8cpp" id="RunConfigManager_8cpp">
-<area shape="rect" id="node2" href="../../d8/d17/a00304.html" title="Produce run config ptree. " alt="" coords="169,87,321,114"/>
-<area shape="rect" id="node3" href="../../dd/da7/a00168.html" title="Info on configuration. " alt="" coords="29,177,149,203"/>
-<area shape="rect" id="node7" href="../../de/db1/a00197.html" title="Interface for install directory queries. " alt="" coords="345,87,445,114"/>
+<div class="center"><img src="../../dc/d66/a00630.gif" border="0" usemap="#SecondaryCommunityPopulator_8cpp" alt=""/></div>
+<map name="SecondaryCommunityPopulator_8cpp" id="SecondaryCommunityPopulator_8cpp">
+<area shape="rect" id="node2" href="../../d8/d17/a00304.html" title="SecondaryCommunityPopulator.h" alt="" coords="453,80,689,107"/>
+<area shape="rect" id="node14" href="../../de/d79/a00203.html" title="geopop/GeoGrid.h" alt="" coords="1438,80,1577,107"/>
+<area shape="rect" id="node40" href="../../dc/d28/a00276.html" title="Header file for the Person class. " alt="" coords="2271,237,2378,263"/>
+<area shape="rect" id="node45" href="../../df/d17/a00231.html" title="geopop/Household.h" alt="" coords="1231,80,1386,107"/>
+<area shape="rect" id="node47" href="../../d5/d42/a00269.html" title="geopop/Location.h" alt="" coords="633,237,773,263"/>
+<area shape="rect" id="node50" href="../../d0/d61/a00302.html" title="geopop/SecondaryCommunity.h" alt="" coords="1053,155,1279,181"/>
+<area shape="rect" id="node3" href="../../db/dc3/a00284.html" title="Populator.h" alt="" coords="211,237,305,263"/>
+<area shape="rect" id="node4" href="../../dd/d86/a00271.html" title="Logging (spdlog) utilities. " alt="" coords="200,326,308,353"/>
+<area shape="rect" id="node8" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="840,326,940,353"/>
+<area shape="rect" id="node9" href="../../db/d7b/a00296.html" title="Interface of RnPcg. " alt="" coords="492,415,565,442"/>
+<area shape="rect" id="node15" href="../../d8/df1/a00174.html" title="Header for the core ContactPool class. " alt="" coords="1907,326,2070,353"/>
+<area shape="rect" id="node21" href="../../dd/dc1/a00212.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="1626,155,1834,181"/>
+<area shape="rect" id="node32" href="../../dc/dc9/a00282.html" title="Header file for the core Population class. " alt="" coords="1443,155,1572,181"/>
+<area shape="rect" id="node16" href="../../d9/d90/a00178.html" title="Definition of ContactPool Id Type. " alt="" coords="1847,415,1959,442"/>
+<area shape="rect" id="node19" href="../../d6/dfb/a00172.html" title="Header for the ContactLogMode class. " alt="" coords="1498,415,1693,442"/>
+<area shape="rect" id="node22" href="../../d3/dcc/a00264.html" title="KdTree.h" alt="" coords="2171,237,2247,263"/>
+<area shape="rect" id="node27" href="../../d5/d35/a00266.html" title="KdTree2DPoint.h" alt="" coords="1676,237,1803,263"/>
+<area shape="rect" id="node23" href="../../d4/ddd/a00138.html" title="AABBox.h" alt="" coords="1697,326,1782,353"/>
+<area shape="rect" id="node24" href="../../df/da9/a00263.html" title="KdNode.h" alt="" coords="2656,326,2740,353"/>
+<area shape="rect" id="node28" href="../../d8/d64/a00181.html" title="geopop/Coordinate.h" alt="" coords="1133,326,1289,353"/>
+<area shape="rect" id="node33" href="../../d5/de9/a00176.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1909,237,2095,263"/>
+<area shape="rect" id="node39" href="../../d3/d07/a00305.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2408,326,2580,353"/>
+<area shape="rect" id="node34" href="../../d6/db6/a00241.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2247,326,2384,353"/>
+<area shape="rect" id="node41" href="../../d9/d01/a00227.html" title="Header for the Health class. " alt="" coords="2867,326,2996,353"/>
+<area shape="rect" id="node46" href="../../de/d53/a00169.html" title="ContactCenter.h" alt="" coords="1313,326,1440,353"/>
 </map>
 </div>
 </div>
@@ -138,24 +154,17 @@ Include dependency graph for RunConfigManager.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:df/dc2/a00367"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc2/a00367.html">stride</a></td></tr>
-<tr class="memdesc:df/dc2/a00367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d5/db5/a00374"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db5/a00374.html">stride::util</a></td></tr>
-<tr class="memdesc:d5/db5/a00374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></td></tr>
+<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of ptree utils. </p>
-
-<p>Definition in file <a class="el" href="../../dc/d0f/a00303_source.html">RunConfigManager.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dc/d0f/a00303.html">RunConfigManager.cpp</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_e7e2007abe30c6c76c8a673fdd5d8158.html">populators</a></li><li class="navelem"><a class="el" href="../../dc/d0f/a00303.html">SecondaryCommunityPopulator.cpp</a></li>
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

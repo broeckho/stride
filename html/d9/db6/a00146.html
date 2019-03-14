@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: AgeContactProfiles.h File Reference</title>
+<title>Stride Reference Manual: Assert.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -106,42 +106,40 @@ $(document).ready(function(){initNavTree('d9/db6/a00146.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">AgeContactProfiles.h File Reference</div>  </div>
+<div class="title">Assert.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contact profiles stored in simulator.  
+<p>Definition of .  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d90/a00178_source.html">ContactType.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/d22/a00245_source.html">IdSubscriptArray.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">contact/AgeContactProfile.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d2a/a00195_source.html">util/Exception.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;spdlog/logger.h&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for AgeContactProfiles.h:</div>
+Include dependency graph for Assert.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d95/a00391.gif" border="0" usemap="#AgeContactProfiles_8h" alt=""/></div>
-<map name="AgeContactProfiles_8h" id="AgeContactProfiles_8h">
-<area shape="rect" id="node2" href="../../d9/d90/a00178.html" title="Definition of ContactPool Id Type. " alt="" coords="375,162,487,189"/>
-<area shape="rect" id="node8" href="../../d6/d22/a00245.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="253,80,391,107"/>
-<area shape="rect" id="node13" href="../../da/ddb/a00145.html" title="Contact profile. " alt="" coords="467,80,667,107"/>
-<area shape="rect" id="node14" href="../../d2/d82/a00142.html" title="Helpers for age. " alt="" coords="591,162,677,189"/>
+<div class="center"><img src="../../dc/dc9/a00389.gif" border="0" usemap="#Assert_8h" alt=""/></div>
+<map name="Assert_8h" id="Assert_8h">
+<area shape="rect" id="node2" href="../../d3/d2a/a00195.html" title="util/Exception.h" alt="" coords="5,80,124,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d27/a00392.gif" border="0" usemap="#AgeContactProfiles_8hdep" alt=""/></div>
-<map name="AgeContactProfiles_8hdep" id="AgeContactProfiles_8hdep">
-<area shape="rect" id="node2" href="../../d1/d5d/a00311.html" title="Header for the Simulator class. " alt="" coords="488,80,547,107"/>
-<area shape="rect" id="node3" href="../../d1/d67/a00310.html" title="Implementation for the Simulator class. " alt="" coords="5,155,80,181"/>
-<area shape="rect" id="node4" href="../../d7/df2/a00312.html" title="Implementation for the SimBuilder class. " alt="" coords="104,155,221,181"/>
-<area shape="rect" id="node5" href="../../d3/db8/a00316.html" title="Implementation for SimRunner. " alt="" coords="245,155,363,181"/>
-<area shape="rect" id="node6" href="../../d3/d65/a00154.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="386,155,491,181"/>
-<area shape="rect" id="node7" href="../../dc/ded/a00252.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="515,155,677,181"/>
-<area shape="rect" id="node8" href="../../d7/d03/a00254.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="701,155,843,181"/>
-<area shape="rect" id="node9" href="../../dd/dfe/a00283.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="867,155,1029,181"/>
-<area shape="rect" id="node10" href="../../dd/d4e/a00329.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1053,155,1227,181"/>
+<div class="center"><img src="../../d9/d0a/a00390.gif" border="0" usemap="#Assert_8hdep" alt=""/></div>
+<map name="Assert_8hdep" id="Assert_8hdep">
+<area shape="rect" id="node2" href="../../dc/d55/a00226.html" title="Implementation for the Health class. " alt="" coords="5,80,96,107"/>
+<area shape="rect" id="node3" href="../../de/dc2/a00228.html" title="Implementation for HelthSeeder class. " alt="" coords="120,80,256,107"/>
+<area shape="rect" id="node4" href="../../d1/db7/a00157.html" title="CollegeGenerator.cpp" alt="" coords="280,80,440,107"/>
+<area shape="rect" id="node5" href="../../d6/d7d/a00161.html" title="CommunityGenerator.cpp" alt="" coords="464,80,651,107"/>
+<area shape="rect" id="node6" href="../../d0/d01/a00339.html" title="WorkplaceGenerator.cpp" alt="" coords="675,80,853,107"/>
+<area shape="rect" id="node7" href="../../de/db9/a00159.html" title="CollegePopulator.cpp" alt="" coords="877,80,1033,107"/>
+<area shape="rect" id="node8" href="../../d3/d93/a00341.html" title="WorkplacePopulator.cpp" alt="" coords="1057,80,1231,107"/>
 </map>
 </div>
 </div>
@@ -149,26 +147,107 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:df/dc2/a00367"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc2/a00367.html">stride</a></td></tr>
-<tr class="memdesc:df/dc2/a00367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
+<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d3/d30/a00370"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html">stride::util</a></td></tr>
+<tr class="memdesc:d3/d30/a00370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a6433f51e4d5010d2397178ba05258879"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc2/a00367.html#a6433f51e4d5010d2397178ba05258879">stride::AgeContactProfiles</a> = ContactType::IdSubscriptArray&lt; AgeContactProfile &gt;</td></tr>
-<tr class="separator:a6433f51e4d5010d2397178ba05258879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:abb9b6f8dbf5a3b5559684d8a9095ed9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#abb9b6f8dbf5a3b5559684d8a9095ed9a">AssertLog</a>(CONDITION,  MESSAGE,  LOGGER)&#160;&#160;&#160;((void)0)</td></tr>
+<tr class="separator:abb9b6f8dbf5a3b5559684d8a9095ed9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904cea5d50cd8499f36a9befdf774a0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a904cea5d50cd8499f36a9befdf774a0b">AssertThrow</a>(CONDITION,  MESSAGE,  LOGGER)&#160;&#160;&#160;((void)0)</td></tr>
+<tr class="separator:a904cea5d50cd8499f36a9befdf774a0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ad34dca6a7a235cc5935cf931efe19fec"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html#ad34dca6a7a235cc5935cf931efe19fec">stride::util::AssertMessage</a> (const char *condition, const std::string &amp;message, const std::shared_ptr&lt; spdlog::logger &gt; &amp;logger, const char *file, int line)</td></tr>
+<tr class="separator:ad34dca6a7a235cc5935cf931efe19fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contact profiles stored in simulator. </p>
+<div class="textblock"><p>Definition of . </p>
 
-<p>Definition in file <a class="el" href="../../d9/db6/a00146_source.html">AgeContactProfiles.h</a>.</p>
-</div></div><!-- contents -->
+<p>Definition in file <a class="el" href="../../d9/db6/a00146_source.html">Assert.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="abb9b6f8dbf5a3b5559684d8a9095ed9a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AssertLog</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">CONDITION, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">MESSAGE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">LOGGER&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((void)0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/db6/a00146_source.html#l00067">67</a> of file <a class="el" href="../../d9/db6/a00146_source.html">Assert.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a904cea5d50cd8499f36a9befdf774a0b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AssertThrow</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">CONDITION, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">MESSAGE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">LOGGER&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((void)0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/db6/a00146_source.html#l00068">68</a> of file <a class="el" href="../../d9/db6/a00146_source.html">Assert.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00029">geopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00034">geopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../d0/d01/a00339_source.html#l00029">geopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00034">geopop::CollegePopulator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00141">geopop::WorkplacePopulator::CalculateCommutingLocations()</a>, <a class="el" href="../../de/dc2/a00228_source.html#l00036">stride::HealthSeeder::HealthSeeder()</a>, <a class="el" href="../../dc/d55/a00226_source.html#l00035">stride::Health::StartInfection()</a>, and <a class="el" href="../../dc/d55/a00226_source.html#l00042">stride::Health::StopInfection()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">AgeContactProfiles.h</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">Assert.h</a></li>
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

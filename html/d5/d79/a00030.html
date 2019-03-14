@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::GeoGridReaderFactory Class Reference</title>
+<title>Stride Reference Manual: geopop::GeoGridWriterFactory Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -108,71 +108,62 @@ $(document).ready(function(){initNavTree('d5/d79/a00030.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d0/d7d/a00799.html">List of all members</a>  </div>
+<a href="../../d4/d45/a00791.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::GeoGridReaderFactory Class Reference</div>  </div>
+<div class="title">geopop::GeoGridWriterFactory Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A Factory for creating the correct implementation of a <a class="el" href="../../d5/d16/a00029.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the filename extension.  
+<p>Factory creates the correct implementation of a <a class="el" href="../../d5/d16/a00029.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> based on the filename extension.  
  <a href="../../d5/d79/a00030.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/ddf/a00224_source.html">GeoGridReaderFactory.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/d28/a00223_source.html">GeoGridWriterFactory.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for geopop::GeoGridReaderFactory:</div>
+Collaboration diagram for geopop::GeoGridWriterFactory:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d0e/a00800.gif" border="0" usemap="#geopop_1_1GeoGridReaderFactory_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1GeoGridReaderFactory_coll__map" id="geopop_1_1GeoGridReaderFactory_coll__map">
+<div class="center"><img src="../../d2/d5a/a00792.gif" border="0" usemap="#geopop_1_1GeoGridWriterFactory_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1GeoGridWriterFactory_coll__map" id="geopop_1_1GeoGridWriterFactory_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afd9d54966d5a7c5d19308cc53d48f6e7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/d16/a00029.html">GeoGridReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#afd9d54966d5a7c5d19308cc53d48f6e7">CreateReader</a> (const std::string &amp;filename, <a class="el" href="../../d5/d1e/a00103.html">stride::Population</a> *pop) const </td></tr>
-<tr class="memdesc:afd9d54966d5a7c5d19308cc53d48f6e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d5/d16/a00029.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the provided extension in the filename.  <a href="#afd9d54966d5a7c5d19308cc53d48f6e7">More...</a><br /></td></tr>
-<tr class="separator:afd9d54966d5a7c5d19308cc53d48f6e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a391ca0fbcbad7a43e4ebf1ce871d274e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/d16/a00029.html">GeoGridWriter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a391ca0fbcbad7a43e4ebf1ce871d274e">CreateWriter</a> (const std::string &amp;filename) const </td></tr>
+<tr class="memdesc:a391ca0fbcbad7a43e4ebf1ce871d274e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d5/d16/a00029.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> based on the provided extension in the filename.  <a href="#a391ca0fbcbad7a43e4ebf1ce871d274e">More...</a><br /></td></tr>
+<tr class="separator:a391ca0fbcbad7a43e4ebf1ce871d274e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A Factory for creating the correct implementation of a <a class="el" href="../../d5/d16/a00029.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the filename extension. </p>
+<div class="textblock"><p>Factory creates the correct implementation of a <a class="el" href="../../d5/d16/a00029.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> based on the filename extension. </p>
 
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00032">32</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">GeoGridReaderFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00223_source.html#l00028">28</a> of file <a class="el" href="../../dc/d28/a00223_source.html">GeoGridWriterFactory.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="afd9d54966d5a7c5d19308cc53d48f6e7"></a>
+<a class="anchor" id="a391ca0fbcbad7a43e4ebf1ce871d274e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d5/d16/a00029.html">GeoGridReader</a> &gt; geopop::GeoGridReaderFactory::CreateReader </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d5/d16/a00029.html">GeoGridWriter</a> &gt; geopop::GeoGridWriterFactory::CreateWriter </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d1e/a00103.html">stride::Population</a> *&#160;</td>
-          <td class="paramname"><em>pop</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Create a <a class="el" href="../../d5/d16/a00029.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the provided extension in the filename. </p>
+<p>Create a <a class="el" href="../../d5/d16/a00029.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> based on the provided extension in the filename. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d28/a00223_source.html#l00036">36</a> of file <a class="el" href="../../dc/d28/a00223_source.html">GeoGridReaderFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00036">36</a> of file <a class="el" href="../../d0/d24/a00222_source.html">GeoGridWriterFactory.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/dd7/a00248_source.html#l00038">stride::ImportPopBuilder::Build()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d72/a00199_source.html#l00054">stride::GenPopController::Control()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d79/a00030_afd9d54966d5a7c5d19308cc53d48f6e7_icgraph.gif" border="0" usemap="#d5/d79/a00030_afd9d54966d5a7c5d19308cc53d48f6e7_icgraph" alt=""/></div>
-<map name="d5/d79/a00030_afd9d54966d5a7c5d19308cc53d48f6e7_icgraph" id="d5/d79/a00030_afd9d54966d5a7c5d19308cc53d48f6e7_icgraph">
-<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a78076cb42a88b90e4183bfb805d8361f" title="Creates a population by importing it. " alt="" coords="273,5,449,47"/>
+<div class="center"><img src="../../d5/d79/a00030_a391ca0fbcbad7a43e4ebf1ce871d274e_icgraph.gif" border="0" usemap="#d5/d79/a00030_a391ca0fbcbad7a43e4ebf1ce871d274e_icgraph" alt=""/></div>
+<map name="d5/d79/a00030_a391ca0fbcbad7a43e4ebf1ce871d274e_icgraph" id="d5/d79/a00030_a391ca0fbcbad7a43e4ebf1ce871d274e_icgraph">
+<area shape="rect" id="node2" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="265,5,444,47"/>
+<area shape="rect" id="node3" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="492,13,547,39"/>
 </map>
 </div>
 </p>
@@ -180,16 +171,16 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/ddf/a00224_source.html">GeoGridReaderFactory.h</a></li>
-<li><a class="el" href="../../dc/d28/a00223_source.html">GeoGridReaderFactory.cpp</a></li>
+<li><a class="el" href="../../dc/d28/a00223_source.html">GeoGridWriterFactory.h</a></li>
+<li><a class="el" href="../../d0/d24/a00222_source.html">GeoGridWriterFactory.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/de1/a00356.html">geopop</a></li><li class="navelem"><a class="el" href="../../d5/d79/a00030.html">GeoGridReaderFactory</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></li><li class="navelem"><a class="el" href="../../d5/d79/a00030.html">GeoGridWriterFactory</a></li>
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

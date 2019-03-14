@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: proto::GeoGrid_Location_Coordinate Class Reference</title>
+<title>Stride Reference Manual: stride::util::Rn&lt; E &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -107,171 +107,177 @@ $(document).ready(function(){initNavTree('d9/db3/a00066.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
-<a href="../../d9/db0/a00900.html">List of all members</a>  </div>
+<a href="../../d0/daa/a01029.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">proto::GeoGrid_Location_Coordinate Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+<div class="title">stride::util::Rn&lt; E &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>&gt;</code></p>
+<p>Manages random number generation in parallel (OpenMP) calculations.  
+ <a href="../../d9/db3/a00066.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for proto::GeoGrid_Location_Coordinate:</div>
+Inheritance diagram for stride::util::Rn&lt; E &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/dac/a00901.gif" border="0" usemap="#proto_1_1GeoGrid__Location__Coordinate_inherit__map" alt="Inheritance graph"/></div>
-<map name="proto_1_1GeoGrid__Location__Coordinate_inherit__map" id="proto_1_1GeoGrid__Location__Coordinate_inherit__map">
-<area shape="rect" id="node2" href="../../d3/d8b/a00059.html" title="{Message\n||}" alt="" coords="90,5,169,83"/>
+<div class="center"><img src="../../de/d41/a01030.gif" border="0" usemap="#stride_1_1util_1_1Rn_3_01E_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1util_1_1Rn_3_01E_01_4_inherit__map" id="stride_1_1util_1_1Rn_3_01E_01_4_inherit__map">
+<area shape="rect" id="node3" href="../../d9/db3/a00066.html" title="{stride::util::Rn\&lt; pcg64 \&gt;\n|&#45; m_seed_seq_init\l&#45; m_stream_count\l|+ Rn()\l+ Rn()\l+ Rn()\l+ operator=()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l&#45; Seed()\l}" alt="" coords="15,521,218,789"/>
+<area shape="rect" id="node2" title="STL class. " alt="" coords="5,5,228,112"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for proto::GeoGrid_Location_Coordinate:</div>
+Collaboration diagram for stride::util::Rn&lt; E &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/dd3/a00902.gif" border="0" usemap="#proto_1_1GeoGrid__Location__Coordinate_coll__map" alt="Collaboration graph"/></div>
-<map name="proto_1_1GeoGrid__Location__Coordinate_coll__map" id="proto_1_1GeoGrid__Location__Coordinate_coll__map">
-<area shape="rect" id="node2" href="../../d3/d8b/a00059.html" title="{Message\n||}" alt="" coords="5,5,84,83"/>
-<area shape="rect" id="node4" href="../../d8/ddd/a00380.html" title="{double\n||}" alt="" coords="328,5,393,83"/>
+<div class="center"><img src="../../d6/dcf/a01031.gif" border="0" usemap="#stride_1_1util_1_1Rn_3_01E_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1Rn_3_01E_01_4_coll__map" id="stride_1_1util_1_1Rn_3_01E_01_4_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:acbc94b85302213d680d7b7c68b8edbc7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#acbc94b85302213d680d7b7c68b8edbc7">EngineType</a> = E</td></tr>
+<tr class="separator:acbc94b85302213d680d7b7c68b8edbc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33bdc913e6a82dbdc349484dc76cd6f2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a33bdc913e6a82dbdc349484dc76cd6f2">RnType</a> = randutils::random_generator&lt; E, randutils::seed_seq_fe128 &gt;</td></tr>
+<tr class="separator:a33bdc913e6a82dbdc349484dc76cd6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d32dc068e7be8c0a6bf003655f0f440"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a7d32dc068e7be8c0a6bf003655f0f440">ContainerType</a> = std::vector&lt; randutils::random_generator&lt; E, randutils::seed_seq_fe128 &gt;&gt;</td></tr>
+<tr class="separator:a7d32dc068e7be8c0a6bf003655f0f440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad71f0e96029389f44cc9fcd429f9de53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ad71f0e96029389f44cc9fcd429f9de53">GeoGrid_Location_Coordinate</a> ()</td></tr>
-<tr class="separator:ad71f0e96029389f44cc9fcd429f9de53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01b35df3507cc297197e1acd2bcd4d09"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a01b35df3507cc297197e1acd2bcd4d09">~GeoGrid_Location_Coordinate</a> ()</td></tr>
-<tr class="separator:a01b35df3507cc297197e1acd2bcd4d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3374742b1d229feded42eb3f3c31df0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#aa3374742b1d229feded42eb3f3c31df0">GeoGrid_Location_Coordinate</a> (const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;from)</td></tr>
-<tr class="separator:aa3374742b1d229feded42eb3f3c31df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65e1b052d5bf62b34761be097e59ae78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a65e1b052d5bf62b34761be097e59ae78">operator=</a> (const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;from)</td></tr>
-<tr class="separator:a65e1b052d5bf62b34761be097e59ae78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d79b45fbcc88683ccc5e78f527c95ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a1d79b45fbcc88683ccc5e78f527c95ed">Swap</a> (<a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> *other)</td></tr>
-<tr class="separator:a1d79b45fbcc88683ccc5e78f527c95ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fa10f5c6ea85cd3254998f3e6f72def"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a4fa10f5c6ea85cd3254998f3e6f72def">New</a> () const final</td></tr>
-<tr class="separator:a4fa10f5c6ea85cd3254998f3e6f72def"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00ebf0233378a2f0eb1c010541d0f52d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a00ebf0233378a2f0eb1c010541d0f52d">New</a> (::google::protobuf::Arena *arena) const final</td></tr>
-<tr class="separator:a00ebf0233378a2f0eb1c010541d0f52d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1cc9608a1505a2ee3b28296c64efd70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ac1cc9608a1505a2ee3b28296c64efd70">CopyFrom</a> (const ::<a class="el" href="../../d3/d8b/a00059.html">google::protobuf::Message</a> &amp;from) final</td></tr>
-<tr class="separator:ac1cc9608a1505a2ee3b28296c64efd70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10e1f14f5ee1135d8899f3fb5c0330e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a10e1f14f5ee1135d8899f3fb5c0330e6">MergeFrom</a> (const ::<a class="el" href="../../d3/d8b/a00059.html">google::protobuf::Message</a> &amp;from) final</td></tr>
-<tr class="separator:a10e1f14f5ee1135d8899f3fb5c0330e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c8cf9585ce2352c9811ef0e4d1cc47c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a2c8cf9585ce2352c9811ef0e4d1cc47c">CopyFrom</a> (const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;from)</td></tr>
-<tr class="separator:a2c8cf9585ce2352c9811ef0e4d1cc47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53917a3b9ed924a26415dd445896a152"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a53917a3b9ed924a26415dd445896a152">MergeFrom</a> (const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;from)</td></tr>
-<tr class="separator:a53917a3b9ed924a26415dd445896a152"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04b21019f3ddeef80c5436dcdffbcfff"><td class="memItemLeft" align="right" valign="top">PROTOBUF_ATTRIBUTE_REINITIALIZES void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a04b21019f3ddeef80c5436dcdffbcfff">Clear</a> () final</td></tr>
-<tr class="separator:a04b21019f3ddeef80c5436dcdffbcfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7017bc586478e3bfc40e3402c678e38d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a7017bc586478e3bfc40e3402c678e38d">IsInitialized</a> () const final</td></tr>
-<tr class="separator:a7017bc586478e3bfc40e3402c678e38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1536719b3d959309541995f9165b2916"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dc3/a00453.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a1536719b3d959309541995f9165b2916">ByteSizeLong</a> () const final</td></tr>
-<tr class="separator:a1536719b3d959309541995f9165b2916"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a775fd2519cb529a4b5959a76ba054b66"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a775fd2519cb529a4b5959a76ba054b66">MergePartialFromCodedStream</a> (::google::protobuf::io::CodedInputStream *input) final</td></tr>
-<tr class="separator:a775fd2519cb529a4b5959a76ba054b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae03d68b90381e1d4617239bc0b4ce9cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ae03d68b90381e1d4617239bc0b4ce9cd">SerializeWithCachedSizes</a> (::google::protobuf::io::CodedOutputStream *output) const final</td></tr>
-<tr class="separator:ae03d68b90381e1d4617239bc0b4ce9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ddf877c934de1852dfb7d555f3d51ee"><td class="memItemLeft" align="right" valign="top">::google::protobuf::uint8 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a3ddf877c934de1852dfb7d555f3d51ee">InternalSerializeWithCachedSizesToArray</a> (::google::protobuf::uint8 *target) const final</td></tr>
-<tr class="separator:a3ddf877c934de1852dfb7d555f3d51ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6899c9b160d10b4fc7f2d41003d9f3c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ac6899c9b160d10b4fc7f2d41003d9f3c">GetCachedSize</a> () const final</td></tr>
-<tr class="separator:ac6899c9b160d10b4fc7f2d41003d9f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad23e20928c7f67a6f7a5709bb8f9ebfe"><td class="memItemLeft" align="right" valign="top">::google::protobuf::Metadata&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ad23e20928c7f67a6f7a5709bb8f9ebfe">GetMetadata</a> () const final</td></tr>
-<tr class="separator:ad23e20928c7f67a6f7a5709bb8f9ebfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9149a4f8f29e8e453a904a7518988a18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a9149a4f8f29e8e453a904a7518988a18">clear_longitude</a> ()</td></tr>
-<tr class="separator:a9149a4f8f29e8e453a904a7518988a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03d2590a2f44bf79ad4872b5bcfb3b6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/ddd/a00380.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a03d2590a2f44bf79ad4872b5bcfb3b6d">longitude</a> () const </td></tr>
-<tr class="separator:a03d2590a2f44bf79ad4872b5bcfb3b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41462bd58d029d61dcb0fb40238b0285"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a41462bd58d029d61dcb0fb40238b0285">set_longitude</a> (<a class="el" href="../../d8/ddd/a00380.html">double</a> value)</td></tr>
-<tr class="separator:a41462bd58d029d61dcb0fb40238b0285"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa5831b293c93527e2393ab9991a3212"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#aaa5831b293c93527e2393ab9991a3212">clear_latitude</a> ()</td></tr>
-<tr class="separator:aaa5831b293c93527e2393ab9991a3212"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bc5976b2e0d0f05f1a134544844b6bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/ddd/a00380.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a6bc5976b2e0d0f05f1a134544844b6bc">latitude</a> () const </td></tr>
-<tr class="separator:a6bc5976b2e0d0f05f1a134544844b6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a676dbe40aedbf5a4e3ea42a86a6878e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a676dbe40aedbf5a4e3ea42a86a6878e3">set_latitude</a> (<a class="el" href="../../d8/ddd/a00380.html">double</a> value)</td></tr>
-<tr class="separator:a676dbe40aedbf5a4e3ea42a86a6878e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ade88045367aa436965f2067b19e6fc00"><td class="memItemLeft" align="right" valign="top">static const ::google::protobuf::Descriptor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ade88045367aa436965f2067b19e6fc00">descriptor</a> ()</td></tr>
-<tr class="separator:ade88045367aa436965f2067b19e6fc00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b2447809c01067a34bf061ddd8563a9"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a1b2447809c01067a34bf061ddd8563a9">default_instance</a> ()</td></tr>
-<tr class="separator:a1b2447809c01067a34bf061ddd8563a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59d84787f17d03db8ffe18a9a7c5cf7a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a59d84787f17d03db8ffe18a9a7c5cf7a">InitAsDefaultInstance</a> ()</td></tr>
-<tr class="separator:a59d84787f17d03db8ffe18a9a7c5cf7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7db1546fcf8f8da553c3fef27ec6b93"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ac7db1546fcf8f8da553c3fef27ec6b93">internal_default_instance</a> ()</td></tr>
-<tr class="separator:ac7db1546fcf8f8da553c3fef27ec6b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a4600cebd655dfde5818668f897a7e697"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a4600cebd655dfde5818668f897a7e697">kIndexInFileMessages</a></td></tr>
-<tr class="separator:a4600cebd655dfde5818668f897a7e697"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acef751b2b439ea6107245d47cb9e83bf"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#acef751b2b439ea6107245d47cb9e83bf">kLongitudeFieldNumber</a> = 1</td></tr>
-<tr class="separator:acef751b2b439ea6107245d47cb9e83bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeac8100a544f62b24cdd027fac0065ed"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#aeac8100a544f62b24cdd027fac0065ed">kLatitudeFieldNumber</a> = 2</td></tr>
-<tr class="separator:aeac8100a544f62b24cdd027fac0065ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d9b13e2040c557965d6267554a123be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a7d9b13e2040c557965d6267554a123be">Rn</a> ()</td></tr>
+<tr class="memdesc:a7d9b13e2040c557965d6267554a123be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor build empty manager.  <a href="#a7d9b13e2040c557965d6267554a123be">More...</a><br /></td></tr>
+<tr class="separator:a7d9b13e2040c557965d6267554a123be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48b33ab89da0ea8a01e98a7bbf0b6865"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a48b33ab89da0ea8a01e98a7bbf0b6865">Rn</a> (const <a class="el" href="../../de/d36/a00123.html">RnInfo</a> &amp;info)</td></tr>
+<tr class="memdesc:a48b33ab89da0ea8a01e98a7bbf0b6865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes.  <a href="#a48b33ab89da0ea8a01e98a7bbf0b6865">More...</a><br /></td></tr>
+<tr class="separator:a48b33ab89da0ea8a01e98a7bbf0b6865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ba4bf2aaed3303c1b4bd219e7c354ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a5ba4bf2aaed3303c1b4bd219e7c354ac">Rn</a> (const <a class="el" href="../../d9/db3/a00066.html">Rn</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a5ba4bf2aaed3303c1b4bd219e7c354ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copying.  <a href="#a5ba4bf2aaed3303c1b4bd219e7c354ac">More...</a><br /></td></tr>
+<tr class="separator:a5ba4bf2aaed3303c1b4bd219e7c354ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab63808f8d34717a3054955e43572a111"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/db3/a00066.html">Rn</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ab63808f8d34717a3054955e43572a111">operator=</a> (const <a class="el" href="../../d9/db3/a00066.html">Rn</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ab63808f8d34717a3054955e43572a111"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy assignment.  <a href="#ab63808f8d34717a3054955e43572a111">More...</a><br /></td></tr>
+<tr class="separator:ab63808f8d34717a3054955e43572a111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e78d5d29f6f755a3f98aabef1711cd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a2e78d5d29f6f755a3f98aabef1711cd6">operator==</a> (const <a class="el" href="../../d9/db3/a00066.html">Rn</a> &amp;other)</td></tr>
+<tr class="memdesc:a2e78d5d29f6f755a3f98aabef1711cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality of states.  <a href="#a2e78d5d29f6f755a3f98aabef1711cd6">More...</a><br /></td></tr>
+<tr class="separator:a2e78d5d29f6f755a3f98aabef1711cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2778b5e20db743b9a055fe83ecd66da8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d36/a00123.html">RnInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a2778b5e20db743b9a055fe83ecd66da8">GetInfo</a> () const </td></tr>
+<tr class="memdesc:a2778b5e20db743b9a055fe83ecd66da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the state of the random engines.  <a href="#a2778b5e20db743b9a055fe83ecd66da8">More...</a><br /></td></tr>
+<tr class="separator:a2778b5e20db743b9a055fe83ecd66da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ea4f31543886e7d66f647a8193b27b5"><td class="memItemLeft" align="right" valign="top">std::function&lt; <a class="el" href="../../d6/db8/a00376.html">double</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a7ea4f31543886e7d66f647a8193b27b5">GetUniform01Generator</a> (unsigned int i=0U)</td></tr>
+<tr class="memdesc:a7ea4f31543886e7d66f647a8193b27b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a generator for uniform doubles in [0, 1[ using i-th random engine.  <a href="#a7ea4f31543886e7d66f647a8193b27b5">More...</a><br /></td></tr>
+<tr class="separator:a7ea4f31543886e7d66f647a8193b27b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab30f88933c5b14ad8b5d712ddf80412b"><td class="memItemLeft" align="right" valign="top">std::function&lt; int()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ab30f88933c5b14ad8b5d712ddf80412b">GetUniformIntGenerator</a> (int a, int b, unsigned int i=0U)</td></tr>
+<tr class="memdesc:ab30f88933c5b14ad8b5d712ddf80412b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a generator for uniform ints in [a, b[ (a &lt; b) using i-th random engine.  <a href="#ab30f88933c5b14ad8b5d712ddf80412b">More...</a><br /></td></tr>
+<tr class="separator:ab30f88933c5b14ad8b5d712ddf80412b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ad44b71a7761094e2fb214adb503c1"><td class="memItemLeft" align="right" valign="top">std::function&lt; int()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ad5ad44b71a7761094e2fb214adb503c1">GetDiscreteGenerator</a> (const std::vector&lt; <a class="el" href="../../d6/db8/a00376.html">double</a> &gt; &amp;weights, unsigned int i=0U)</td></tr>
+<tr class="memdesc:ad5ad44b71a7761094e2fb214adb503c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return generator for integers [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random engine.  <a href="#ad5ad44b71a7761094e2fb214adb503c1">More...</a><br /></td></tr>
+<tr class="separator:ad5ad44b71a7761094e2fb214adb503c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d5445d500ce2a38287a127af3762892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a4d5445d500ce2a38287a127af3762892">Initialize</a> (const <a class="el" href="../../de/d36/a00123.html">RnInfo</a> &amp;info)</td></tr>
+<tr class="memdesc:a4d5445d500ce2a38287a127af3762892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize with data in Info.  <a href="#a4d5445d500ce2a38287a127af3762892">More...</a><br /></td></tr>
+<tr class="separator:a4d5445d500ce2a38287a127af3762892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada37aa7d2f47530a514c24b8c5dfc122"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ada37aa7d2f47530a514c24b8c5dfc122">IsEmpty</a> () const </td></tr>
+<tr class="memdesc:ada37aa7d2f47530a514c24b8c5dfc122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this een empty (i.e. non-initialized <a class="el" href="../../d9/db3/a00066.html" title="Manages random number generation in parallel (OpenMP) calculations. ">Rn</a>)?  <a href="#ada37aa7d2f47530a514c24b8c5dfc122">More...</a><br /></td></tr>
+<tr class="separator:ada37aa7d2f47530a514c24b8c5dfc122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6efce18c245b7e460e4ad09667dab2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a6c6efce18c245b7e460e4ad09667dab2">Shuffle</a> (std::vector&lt; unsigned int &gt; &amp;indices, unsigned int i)</td></tr>
+<tr class="memdesc:a6c6efce18c245b7e460e4ad09667dab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random shuffle of vector of unsigned int indices using i-th engine.  <a href="#a6c6efce18c245b7e460e4ad09667dab2">More...</a><br /></td></tr>
+<tr class="separator:a6c6efce18c245b7e460e4ad09667dab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a38f891de383939096ba8ddceaefc9b7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a38f891de383939096ba8ddceaefc9b7f">SharedCtor</a> ()</td></tr>
-<tr class="separator:a38f891de383939096ba8ddceaefc9b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac86b89659c920a7278442b2a75821f29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ac86b89659c920a7278442b2a75821f29">SharedDtor</a> ()</td></tr>
-<tr class="separator:ac86b89659c920a7278442b2a75821f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a669d4ac6d0b961df77a3227a3c025eaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a669d4ac6d0b961df77a3227a3c025eaf">SetCachedSize</a> (int size) const final</td></tr>
-<tr class="separator:a669d4ac6d0b961df77a3227a3c025eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49b23497eea951c7c5dca53a65922572"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a49b23497eea951c7c5dca53a65922572">InternalSwap</a> (<a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> *other)</td></tr>
-<tr class="separator:a49b23497eea951c7c5dca53a65922572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acff5ecad9d9dc70b38e1eba34d7aa1e6"><td class="memItemLeft" align="right" valign="top">inline::google::protobuf::Arena *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#acff5ecad9d9dc70b38e1eba34d7aa1e6">GetArenaNoVirtual</a> () const </td></tr>
-<tr class="separator:acff5ecad9d9dc70b38e1eba34d7aa1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8954940606e349706935834031daf58e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a8954940606e349706935834031daf58e">MaybeArenaPtr</a> () const </td></tr>
-<tr class="separator:a8954940606e349706935834031daf58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7422a9b6a29d401930324bea4d5a0de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#aa7422a9b6a29d401930324bea4d5a0de">Seed</a> (randutils::seed_seq_fe128 &amp;seseq)</td></tr>
+<tr class="memdesc:aa7422a9b6a29d401930324bea4d5a0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual first-time seeding. Procedure varies according to engine type, see specialisations.  <a href="#aa7422a9b6a29d401930324bea4d5a0de">More...</a><br /></td></tr>
+<tr class="separator:aa7422a9b6a29d401930324bea4d5a0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a2a6bba1c68c0b6ab97c760897b539b51">Seed</a> (randutils::seed_seq_fe128 &amp;seseq)</td></tr>
+<tr class="separator:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a2a6bba1c68c0b6ab97c760897b539b51">Seed</a> (randutils::seed_seq_fe128 &amp;seseq)</td></tr>
+<tr class="separator:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3c3c86c476cdaf89016c6e76fa97c5de"><td class="memItemLeft" align="right" valign="top">::google::protobuf::internal::InternalMetadataWithArena&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a3c3c86c476cdaf89016c6e76fa97c5de">_internal_metadata_</a></td></tr>
-<tr class="separator:a3c3c86c476cdaf89016c6e76fa97c5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad39704f94993d86e9711b073e587a5b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/ddd/a00380.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ad39704f94993d86e9711b073e587a5b2">longitude_</a></td></tr>
-<tr class="separator:ad39704f94993d86e9711b073e587a5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6fb61398d83024973e7b1db2763a81a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/ddd/a00380.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#ac6fb61398d83024973e7b1db2763a81a">latitude_</a></td></tr>
-<tr class="separator:ac6fb61398d83024973e7b1db2763a81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15d119bc6362fed2720f67e60f17182e"><td class="memItemLeft" align="right" valign="top">mutable::google::protobuf::internal::CachedSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a15d119bc6362fed2720f67e60f17182e">_cached_size_</a></td></tr>
-<tr class="separator:a15d119bc6362fed2720f67e60f17182e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:af4824f57644584c1facf10e60e4a7b02"><td class="memItemLeft" align="right" valign="top">struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#af4824f57644584c1facf10e60e4a7b02">::TableStruct_geogrid_2eproto</a></td></tr>
-<tr class="separator:af4824f57644584c1facf10e60e4a7b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83ac2424aa05b989d1307a38fde5656d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a83ac2424aa05b989d1307a38fde5656d">swap</a> (<a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;a, <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;b)</td></tr>
-<tr class="separator:a83ac2424aa05b989d1307a38fde5656d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f5ed0ad410e42106d340d017f0f61ba"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a7f5ed0ad410e42106d340d017f0f61ba">m_seed_seq_init</a></td></tr>
+<tr class="memdesc:a7f5ed0ad410e42106d340d017f0f61ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed sequence initializer used with engines.  <a href="#a7f5ed0ad410e42106d340d017f0f61ba">More...</a><br /></td></tr>
+<tr class="separator:a7f5ed0ad410e42106d340d017f0f61ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a958177dee9a3c09f8d5f9073a8d89284"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html#a958177dee9a3c09f8d5f9073a8d89284">m_stream_count</a></td></tr>
+<tr class="memdesc:a958177dee9a3c09f8d5f9073a8d89284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of threads/streams set up with the engine.  <a href="#a958177dee9a3c09f8d5f9073a8d89284">More...</a><br /></td></tr>
+<tr class="separator:a958177dee9a3c09f8d5f9073a8d89284"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00115">115</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ad71f0e96029389f44cc9fcd429f9de53"></a>
+<div class="textblock"><h3>template&lt;typename E&gt;<br />
+class stride::util::Rn&lt; E &gt;</h3>
+
+<p>Manages random number generation in parallel (OpenMP) calculations. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00042">42</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="acbc94b85302213d680d7b7c68b8edbc7"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">proto::GeoGrid_Location_Coordinate::GeoGrid_Location_Coordinate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">using <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../d9/db3/a00066.html#acbc94b85302213d680d7b7c68b8edbc7">EngineType</a> =  E</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00045">45</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a01b35df3507cc297197e1acd2bcd4d09"></a>
+<a class="anchor" id="a33bdc913e6a82dbdc349484dc76cd6f2"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../d9/db3/a00066.html#a33bdc913e6a82dbdc349484dc76cd6f2">RnType</a> =  randutils::random_generator&lt;E, randutils::seed_seq_fe128&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00046">46</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d32dc068e7be8c0a6bf003655f0f440"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../d9/db3/a00066.html#a7d32dc068e7be8c0a6bf003655f0f440">ContainerType</a> =  std::vector&lt;randutils::random_generator&lt;E, randutils::seed_seq_fe128&gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00047">47</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a7d9b13e2040c557965d6267554a123be"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual proto::GeoGrid_Location_Coordinate::~GeoGrid_Location_Coordinate </td>
+          <td class="memname"><a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../d9/db3/a00066.html">Rn</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -279,42 +285,213 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default constructor build empty manager. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00055">55</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00058">stride::util::Rn&lt; pcg64 &gt;::Rn()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/db3/a00066_a7d9b13e2040c557965d6267554a123be_icgraph.gif" border="0" usemap="#d9/db3/a00066_a7d9b13e2040c557965d6267554a123be_icgraph" alt=""/></div>
+<map name="d9/db3/a00066_a7d9b13e2040c557965d6267554a123be_icgraph" id="d9/db3/a00066_a7d9b13e2040c557965d6267554a123be_icgraph">
+<area shape="rect" id="node2" href="../../d9/db3/a00066.html#a48b33ab89da0ea8a01e98a7bbf0b6865" title="Initializes. " alt="" coords="187,5,349,47"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="aa3374742b1d229feded42eb3f3c31df0"></a>
+<a class="anchor" id="a48b33ab89da0ea8a01e98a7bbf0b6865"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">proto::GeoGrid_Location_Coordinate::GeoGrid_Location_Coordinate </td>
+          <td class="memname"><a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../d9/db3/a00066.html">Rn</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../de/d36/a00123.html">RnInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>info</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Initializes. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00058">58</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ba4bf2aaed3303c1b4bd219e7c354ac"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../d9/db3/a00066.html">Rn</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/db3/a00066.html">Rn</a>&lt; E &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>No copying. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a65e1b052d5bf62b34761be097e59ae78"></a>
+<a class="anchor" id="ab63808f8d34717a3054955e43572a111"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a>&amp; proto::GeoGrid_Location_Coordinate::operator= </td>
+          <td class="memname"><a class="el" href="../../d9/db3/a00066.html">Rn</a>&amp; <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d9/db3/a00066.html">Rn</a>&lt; E &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>No copy assignment. </p>
+
+<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00058">stride::util::Rn&lt; pcg64 &gt;::Rn()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/db3/a00066_ab63808f8d34717a3054955e43572a111_icgraph.gif" border="0" usemap="#d9/db3/a00066_ab63808f8d34717a3054955e43572a111_icgraph" alt=""/></div>
+<map name="d9/db3/a00066_ab63808f8d34717a3054955e43572a111_icgraph" id="d9/db3/a00066_ab63808f8d34717a3054955e43572a111_icgraph">
+<area shape="rect" id="node2" href="../../d9/db3/a00066.html#a48b33ab89da0ea8a01e98a7bbf0b6865" title="Initializes. " alt="" coords="236,5,399,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e78d5d29f6f755a3f98aabef1711cd6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/db3/a00066.html">Rn</a>&lt; E &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Equality of states. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00036">36</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Rn.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00113">stride::util::Rn&lt; E &gt;::m_stream_count</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00058">stride::util::Rn&lt; pcg64 &gt;::Rn()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/db3/a00066_a2e78d5d29f6f755a3f98aabef1711cd6_icgraph.gif" border="0" usemap="#d9/db3/a00066_a2e78d5d29f6f755a3f98aabef1711cd6_icgraph" alt=""/></div>
+<map name="d9/db3/a00066_a2e78d5d29f6f755a3f98aabef1711cd6_icgraph" id="d9/db3/a00066_a2e78d5d29f6f755a3f98aabef1711cd6_icgraph">
+<area shape="rect" id="node2" href="../../d9/db3/a00066.html#a48b33ab89da0ea8a01e98a7bbf0b6865" title="Initializes. " alt="" coords="248,5,411,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2778b5e20db743b9a055fe83ecd66da8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d36/a00123.html">RnInfo</a> <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::GetInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the state of the random engines. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00048">48</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Rn.cpp</a>.</p>
+
+<p>References <a class="el" href="../../db/d7b/a00296_source.html#l00035">stride::util::RnInfo::m_seed_seq_init</a>, <a class="el" href="../../db/d7b/a00296_source.html#l00038">stride::util::RnInfo::m_state</a>, and <a class="el" href="../../db/d7b/a00296_source.html#l00039">stride::util::RnInfo::m_stream_count</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00058">stride::util::Rn&lt; pcg64 &gt;::Rn()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/db3/a00066_a2778b5e20db743b9a055fe83ecd66da8_icgraph.gif" border="0" usemap="#d9/db3/a00066_a2778b5e20db743b9a055fe83ecd66da8_icgraph" alt=""/></div>
+<map name="d9/db3/a00066_a2778b5e20db743b9a055fe83ecd66da8_icgraph" id="d9/db3/a00066_a2778b5e20db743b9a055fe83ecd66da8_icgraph">
+<area shape="rect" id="node2" href="../../d9/db3/a00066.html#a48b33ab89da0ea8a01e98a7bbf0b6865" title="Initializes. " alt="" coords="216,5,379,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ea4f31543886e7d66f647a8193b27b5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;<a class="el" href="../../d6/db8/a00376.html">double</a>()&gt; <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::GetUniform01Generator </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0U</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -325,873 +502,38 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00123">123</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Return a generator for uniform doubles in [0, 1[ using i-th random engine. </p>
 
-<p>References <a class="el" href="../../d1/d72/a00204_source.html#l00196">GetArenaNoVirtual()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/db3/a00066_a65e1b052d5bf62b34761be097e59ae78_cgraph.gif" border="0" usemap="#d9/db3/a00066_a65e1b052d5bf62b34761be097e59ae78_cgraph" alt=""/></div>
-<map name="d9/db3/a00066_a65e1b052d5bf62b34761be097e59ae78_cgraph" id="d9/db3/a00066_a65e1b052d5bf62b34761be097e59ae78_cgraph">
-<area shape="rect" id="node2" href="../../d9/db3/a00066.html#acff5ecad9d9dc70b38e1eba34d7aa1e6" title="proto::GeoGrid_Location\l_Coordinate::GetArenaNoVirtual" alt="" coords="231,5,457,47"/>
-</map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00078">78</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ade88045367aa436965f2067b19e6fc00"></a>
+<a class="anchor" id="ab30f88933c5b14ad8b5d712ddf80412b"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static const ::google::protobuf::Descriptor* proto::GeoGrid_Location_Coordinate::descriptor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00142">142</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1b2447809c01067a34bf061ddd8563a9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a>&amp; proto::GeoGrid_Location_Coordinate::default_instance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a59d84787f17d03db8ffe18a9a7c5cf7a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void proto::GeoGrid_Location_Coordinate::InitAsDefaultInstance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac7db1546fcf8f8da553c3fef27ec6b93"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a>* proto::GeoGrid_Location_Coordinate::internal_default_instance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00148">148</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-<p>References <a class="el" href="../../d7/ddb/a00361.html#a2a8cb433bd6d94158cab73a051bbfd72">proto::_GeoGrid_Location_Coordinate_default_instance_</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1d79b45fbcc88683ccc5e78f527c95ed"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::Swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> *&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4fa10f5c6ea85cd3254998f3e6f72def"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a>* proto::GeoGrid_Location_Coordinate::New </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00162">162</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a00ebf0233378a2f0eb1c010541d0f52d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a>* proto::GeoGrid_Location_Coordinate::New </td>
-          <td>(</td>
-          <td class="paramtype">::google::protobuf::Arena *&#160;</td>
-          <td class="paramname"><em>arena</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00166">166</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac1cc9608a1505a2ee3b28296c64efd70"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::CopyFrom </td>
-          <td>(</td>
-          <td class="paramtype">const ::<a class="el" href="../../d3/d8b/a00059.html">google::protobuf::Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a10e1f14f5ee1135d8899f3fb5c0330e6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::MergeFrom </td>
-          <td>(</td>
-          <td class="paramtype">const ::<a class="el" href="../../d3/d8b/a00059.html">google::protobuf::Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2c8cf9585ce2352c9811ef0e4d1cc47c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::CopyFrom </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a53917a3b9ed924a26415dd445896a152"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::MergeFrom </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a04b21019f3ddeef80c5436dcdffbcfff"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">PROTOBUF_ATTRIBUTE_REINITIALIZES void proto::GeoGrid_Location_Coordinate::Clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="../../d1/d72/a00204_source.html#l01414">proto::GeoGrid_Location::clear_contactcenters()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/db3/a00066_a04b21019f3ddeef80c5436dcdffbcfff_icgraph.gif" border="0" usemap="#d9/db3/a00066_a04b21019f3ddeef80c5436dcdffbcfff_icgraph" alt=""/></div>
-<map name="d9/db3/a00066_a04b21019f3ddeef80c5436dcdffbcfff_icgraph" id="d9/db3/a00066_a04b21019f3ddeef80c5436dcdffbcfff_icgraph">
-<area shape="rect" id="node2" href="../../df/d03/a00062.html#ad0e3935edfee6b1dde6b9084097ae1a4" title="proto::GeoGrid_Location\l::clear_contactcenters" alt="" coords="231,5,408,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a7017bc586478e3bfc40e3402c678e38d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool proto::GeoGrid_Location_Coordinate::IsInitialized </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1536719b3d959309541995f9165b2916"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/dc3/a00453.html">size_t</a> proto::GeoGrid_Location_Coordinate::ByteSizeLong </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a775fd2519cb529a4b5959a76ba054b66"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool proto::GeoGrid_Location_Coordinate::MergePartialFromCodedStream </td>
-          <td>(</td>
-          <td class="paramtype">::google::protobuf::io::CodedInputStream *&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae03d68b90381e1d4617239bc0b4ce9cd"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::SerializeWithCachedSizes </td>
-          <td>(</td>
-          <td class="paramtype">::google::protobuf::io::CodedOutputStream *&#160;</td>
-          <td class="paramname"><em>output</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3ddf877c934de1852dfb7d555f3d51ee"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">::google::protobuf::uint8* proto::GeoGrid_Location_Coordinate::InternalSerializeWithCachedSizesToArray </td>
-          <td>(</td>
-          <td class="paramtype">::google::protobuf::uint8 *&#160;</td>
-          <td class="paramname"><em>target</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac6899c9b160d10b4fc7f2d41003d9f3c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int proto::GeoGrid_Location_Coordinate::GetCachedSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00188">188</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a38f891de383939096ba8ddceaefc9b7f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::SharedCtor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac86b89659c920a7278442b2a75821f29"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::SharedDtor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a669d4ac6d0b961df77a3227a3c025eaf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::SetCachedSize </td>
+          <td class="memname">std::function&lt;int()&gt; <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::GetUniformIntGenerator </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a49b23497eea951c7c5dca53a65922572"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::InternalSwap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> *&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="acff5ecad9d9dc70b38e1eba34d7aa1e6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">inline ::google::protobuf::Arena* proto::GeoGrid_Location_Coordinate::GetArenaNoVirtual </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00196">196</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/d72/a00204_source.html#l00123">operator=()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/db3/a00066_acff5ecad9d9dc70b38e1eba34d7aa1e6_icgraph.gif" border="0" usemap="#d9/db3/a00066_acff5ecad9d9dc70b38e1eba34d7aa1e6_icgraph" alt=""/></div>
-<map name="d9/db3/a00066_acff5ecad9d9dc70b38e1eba34d7aa1e6_icgraph" id="d9/db3/a00066_acff5ecad9d9dc70b38e1eba34d7aa1e6_icgraph">
-<area shape="rect" id="node2" href="../../d9/db3/a00066.html#a65e1b052d5bf62b34761be097e59ae78" title="proto::GeoGrid_Location\l_Coordinate::operator=" alt="" coords="280,5,457,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a8954940606e349706935834031daf58e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* proto::GeoGrid_Location_Coordinate::MaybeArenaPtr </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00199">199</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad23e20928c7f67a6f7a5709bb8f9ebfe"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">::google::protobuf::Metadata proto::GeoGrid_Location_Coordinate::GetMetadata </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9149a4f8f29e8e453a904a7518988a18"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::clear_longitude </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01091">1091</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a03d2590a2f44bf79ad4872b5bcfb3b6d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/ddd/a00380.html">double</a> proto::GeoGrid_Location_Coordinate::longitude </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01094">1094</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d24/a00217_source.html#l00152">geopop::GeoGridProtoReader::ParseCoordinate()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/db3/a00066_a03d2590a2f44bf79ad4872b5bcfb3b6d_icgraph.gif" border="0" usemap="#d9/db3/a00066_a03d2590a2f44bf79ad4872b5bcfb3b6d_icgraph" alt=""/></div>
-<map name="d9/db3/a00066_a03d2590a2f44bf79ad4872b5bcfb3b6d_icgraph" id="d9/db3/a00066_a03d2590a2f44bf79ad4872b5bcfb3b6d_icgraph">
-<area shape="rect" id="node2" href="../../d0/d33/a00027.html#a25bb12687d13e26a40d0d15d44220744" title="Create a Coordinate based on the provided protobuf Coordinate. " alt="" coords="231,5,439,47"/>
-<area shape="rect" id="node3" href="../../d0/d33/a00027.html#a2d7e93b8c38a12f8c662d18973e14a79" title="Create a Location based on protobuf Location info. " alt="" coords="487,5,695,47"/>
-<area shape="rect" id="node4" href="../../d0/d33/a00027.html#ac0d43bdab244e8c4584f9d7ffee026e9" title="Actually perform the read and return the GeoGrid. " alt="" coords="743,5,951,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a41462bd58d029d61dcb0fb40238b0285"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::set_longitude </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/ddd/a00380.html">double</a>&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01098">1098</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/df3/a00219_source.html#l00083">geopop::GeoGridProtoWriter::WriteCoordinate()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/db3/a00066_a41462bd58d029d61dcb0fb40238b0285_icgraph.gif" border="0" usemap="#d9/db3/a00066_a41462bd58d029d61dcb0fb40238b0285_icgraph" alt=""/></div>
-<map name="d9/db3/a00066_a41462bd58d029d61dcb0fb40238b0285_icgraph" id="d9/db3/a00066_a41462bd58d029d61dcb0fb40238b0285_icgraph">
-<area shape="rect" id="node2" href="../../dc/d3c/a00028.html#a5b7c60a6fb168dd8dfcaa338c055019c" title="Create a ProtoBuf Coordinate containing all the info needed to reconstruct a Coordinate.. " alt="" coords="247,5,447,47"/>
-<area shape="rect" id="node3" href="../../dc/d3c/a00028.html#aeb54f07ae394edfbb2250f7057181ed0" title="Create a ProtoBuf Location containing all the info needed to reconstruct a Location. " alt="" coords="495,5,695,47"/>
-<area shape="rect" id="node4" href="../../dc/d3c/a00028.html#a6f709a9e0724d34905806b0ae13688f0" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="743,5,943,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="aaa5831b293c93527e2393ab9991a3212"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::clear_latitude </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01105">1105</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6bc5976b2e0d0f05f1a134544844b6bc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/ddd/a00380.html">double</a> proto::GeoGrid_Location_Coordinate::latitude </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01108">1108</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d24/a00217_source.html#l00152">geopop::GeoGridProtoReader::ParseCoordinate()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/db3/a00066_a6bc5976b2e0d0f05f1a134544844b6bc_icgraph.gif" border="0" usemap="#d9/db3/a00066_a6bc5976b2e0d0f05f1a134544844b6bc_icgraph" alt=""/></div>
-<map name="d9/db3/a00066_a6bc5976b2e0d0f05f1a134544844b6bc_icgraph" id="d9/db3/a00066_a6bc5976b2e0d0f05f1a134544844b6bc_icgraph">
-<area shape="rect" id="node2" href="../../d0/d33/a00027.html#a25bb12687d13e26a40d0d15d44220744" title="Create a Coordinate based on the provided protobuf Coordinate. " alt="" coords="231,5,439,47"/>
-<area shape="rect" id="node3" href="../../d0/d33/a00027.html#a2d7e93b8c38a12f8c662d18973e14a79" title="Create a Location based on protobuf Location info. " alt="" coords="487,5,695,47"/>
-<area shape="rect" id="node4" href="../../d0/d33/a00027.html#ac0d43bdab244e8c4584f9d7ffee026e9" title="Actually perform the read and return the GeoGrid. " alt="" coords="743,5,951,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a676dbe40aedbf5a4e3ea42a86a6878e3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void proto::GeoGrid_Location_Coordinate::set_latitude </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/ddd/a00380.html">double</a>&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l01112">1112</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/df3/a00219_source.html#l00083">geopop::GeoGridProtoWriter::WriteCoordinate()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/db3/a00066_a676dbe40aedbf5a4e3ea42a86a6878e3_icgraph.gif" border="0" usemap="#d9/db3/a00066_a676dbe40aedbf5a4e3ea42a86a6878e3_icgraph" alt=""/></div>
-<map name="d9/db3/a00066_a676dbe40aedbf5a4e3ea42a86a6878e3_icgraph" id="d9/db3/a00066_a676dbe40aedbf5a4e3ea42a86a6878e3_icgraph">
-<area shape="rect" id="node2" href="../../dc/d3c/a00028.html#a5b7c60a6fb168dd8dfcaa338c055019c" title="Create a ProtoBuf Coordinate containing all the info needed to reconstruct a Coordinate.. " alt="" coords="236,5,436,47"/>
-<area shape="rect" id="node3" href="../../dc/d3c/a00028.html#aeb54f07ae394edfbb2250f7057181ed0" title="Create a ProtoBuf Location containing all the info needed to reconstruct a Location. " alt="" coords="484,5,684,47"/>
-<area shape="rect" id="node4" href="../../dc/d3c/a00028.html#a6f709a9e0724d34905806b0ae13688f0" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="732,5,932,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a class="anchor" id="af4824f57644584c1facf10e60e4a7b02"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend struct ::<a class="el" href="../../d4/ddd/a00138.html">TableStruct_geogrid_2eproto</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00230">230</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a83ac2424aa05b989d1307a38fde5656d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0U</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1201,91 +543,282 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00156">156</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Return a generator for uniform ints in [a, b[ (a &lt; b) using i-th random engine. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00084">84</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad5ad44b71a7761094e2fb214adb503c1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;int()&gt; <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::GetDiscreteGenerator </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="../../d6/db8/a00376.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>weights</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0U</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return generator for integers [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random engine. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00090">90</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4d5445d500ce2a38287a127af3762892"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::Initialize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d36/a00123.html">RnInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>info</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initalize with data in Info. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00062">62</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Rn.cpp</a>.</p>
+
+<p>References <a class="el" href="../../de/dab/a00319_source.html#l00036">stride::util::CheckAllDigits()</a>, <a class="el" href="../../db/d7b/a00296_source.html#l00035">stride::util::RnInfo::m_seed_seq_init</a>, <a class="el" href="../../db/d7b/a00296_source.html#l00038">stride::util::RnInfo::m_state</a>, <a class="el" href="../../db/d7b/a00296_source.html#l00039">stride::util::RnInfo::m_stream_count</a>, and <a class="el" href="../../de/dab/a00319_source.html#l00058">stride::util::Split()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00090">stride::util::Rn&lt; pcg64 &gt;::GetDiscreteGenerator()</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00058">stride::util::Rn&lt; pcg64 &gt;::Rn()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/db3/a00066_a4d5445d500ce2a38287a127af3762892_cgraph.gif" border="0" usemap="#d9/db3/a00066_a4d5445d500ce2a38287a127af3762892_cgraph" alt=""/></div>
+<map name="d9/db3/a00066_a4d5445d500ce2a38287a127af3762892_cgraph" id="d9/db3/a00066_a4d5445d500ce2a38287a127af3762892_cgraph">
+<area shape="rect" id="node2" href="../../d3/d30/a00370.html#aed0a8c66f95a390d87398e0f2c7c7ceb" title="All characters in string are digits (or string is empty) " alt="" coords="221,5,404,32"/>
+<area shape="rect" id="node3" href="../../d3/d30/a00370.html#aadef750132d5d399e7ed8a96eab53c4c" title="Split a string (in order of occurence) by splitting it on the given delimiters. " alt="" coords="252,56,373,83"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/db3/a00066_a4d5445d500ce2a38287a127af3762892_icgraph.gif" border="0" usemap="#d9/db3/a00066_a4d5445d500ce2a38287a127af3762892_icgraph" alt=""/></div>
+<map name="d9/db3/a00066_a4d5445d500ce2a38287a127af3762892_icgraph" id="d9/db3/a00066_a4d5445d500ce2a38287a127af3762892_icgraph">
+<area shape="rect" id="node2" href="../../d9/db3/a00066.html#ad5ad44b71a7761094e2fb214adb503c1" title="Return generator for integers [0, n&#45;1[ with non&#45;negative weights p_j (i=0,..,n&#45;1) using i&#45;th random e..." alt="" coords="221,5,408,47"/>
+<area shape="rect" id="node3" href="../../d9/db3/a00066.html#a48b33ab89da0ea8a01e98a7bbf0b6865" title="Initializes. " alt="" coords="233,71,396,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ada37aa7d2f47530a514c24b8c5dfc122"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::IsEmpty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is this een empty (i.e. non-initialized <a class="el" href="../../d9/db3/a00066.html" title="Manages random number generation in parallel (OpenMP) calculations. ">Rn</a>)? </p>
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00099">99</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c6efce18c245b7e460e4ad09667dab2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::Shuffle </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>indices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Random shuffle of vector of unsigned int indices using i-th engine. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00102">102</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa7422a9b6a29d401930324bea4d5a0de"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::Seed </td>
+          <td>(</td>
+          <td class="paramtype">randutils::seed_seq_fe128 &amp;&#160;</td>
+          <td class="paramname"><em>seseq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Actual first-time seeding. Procedure varies according to engine type, see specialisations. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00103">103</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Rn.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00102">stride::util::Rn&lt; pcg64 &gt;::Shuffle()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/db3/a00066_aa7422a9b6a29d401930324bea4d5a0de_icgraph.gif" border="0" usemap="#d9/db3/a00066_aa7422a9b6a29d401930324bea4d5a0de_icgraph" alt=""/></div>
+<map name="d9/db3/a00066_aa7422a9b6a29d401930324bea4d5a0de_icgraph" id="d9/db3/a00066_aa7422a9b6a29d401930324bea4d5a0de_icgraph">
+<area shape="rect" id="node2" href="../../d9/db3/a00066.html#a6c6efce18c245b7e460e4ad09667dab2" title="Random shuffle of vector of unsigned int indices using i&#45;th engine. " alt="" coords="204,5,367,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2a6bba1c68c0b6ab97c760897b539b51"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; pcg64 &gt;::Seed </td>
+          <td>(</td>
+          <td class="paramtype">randutils::seed_seq_fe128 &amp;&#160;</td>
+          <td class="paramname"><em>seseq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00091">91</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Rn.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2a6bba1c68c0b6ab97c760897b539b51"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; pcg64 &gt;::Seed </td>
+          <td>(</td>
+          <td class="paramtype">randutils::seed_seq_fe128 &amp;&#160;</td>
+          <td class="paramname"><em>seseq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a4600cebd655dfde5818668f897a7e697"></a>
+<a class="anchor" id="a7f5ed0ad410e42106d340d017f0f61ba"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr int proto::GeoGrid_Location_Coordinate::kIndexInFileMessages</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">    0</div></div><!-- fragment -->
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00152">152</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acef751b2b439ea6107245d47cb9e83bf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int proto::GeoGrid_Location_Coordinate::kLongitudeFieldNumber = 1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00212">212</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aeac8100a544f62b24cdd027fac0065ed"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int proto::GeoGrid_Location_Coordinate::kLatitudeFieldNumber = 2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00218">218</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3c3c86c476cdaf89016c6e76fa97c5de"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">::google::protobuf::internal::InternalMetadataWithArena proto::GeoGrid_Location_Coordinate::_internal_metadata_</td>
+          <td class="memname">std::string <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::m_seed_seq_init</td>
         </tr>
       </table>
   </td>
@@ -1295,19 +828,23 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00224">224</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Seed sequence initializer used with engines. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00112">112</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad39704f94993d86e9711b073e587a5b2"></a>
+<a class="anchor" id="a958177dee9a3c09f8d5f9073a8d89284"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/ddd/a00380.html">double</a> proto::GeoGrid_Location_Coordinate::longitude_</td>
+          <td class="memname">unsigned int <a class="el" href="../../d9/db3/a00066.html">stride::util::Rn</a>&lt; E &gt;::m_stream_count</td>
         </tr>
       </table>
   </td>
@@ -1317,64 +854,25 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00227">227</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
+<p>Number of threads/streams set up with the engine. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00113">113</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00099">stride::util::Rn&lt; pcg64 &gt;::IsEmpty()</a>, and <a class="el" href="../../d4/d5b/a00294_source.html#l00036">stride::util::Rn&lt; E &gt;::operator==()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac6fb61398d83024973e7b1db2763a81a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/ddd/a00380.html">double</a> proto::GeoGrid_Location_Coordinate::latitude_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00228">228</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a15d119bc6362fed2720f67e60f17182e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">mutable ::google::protobuf::internal::CachedSize proto::GeoGrid_Location_Coordinate::_cached_size_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00229">229</a> of file <a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d9/d5e/a00295_source.html">Rn.h</a></li>
+<li><a class="el" href="../../d4/d5b/a00294_source.html">Rn.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/ddb/a00361.html">proto</a></li><li class="navelem"><a class="el" href="../../d9/db3/a00066.html">GeoGrid_Location_Coordinate</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d30/a00370.html">util</a></li><li class="navelem"><a class="el" href="../../d9/db3/a00066.html">Rn</a></li>
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

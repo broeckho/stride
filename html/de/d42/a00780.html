@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('dc/de2/a00024.html','../../');});
+$(document).ready(function(){initNavTree('d6/d5b/a00026.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,20 +107,27 @@ $(document).ready(function(){initNavTree('dc/de2/a00024.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">geopop::GeoGridConfigBuilder Member List</div>  </div>
+<div class="title">geopop::GeoGridProtoWriter Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../dc/de2/a00024.html">geopop::GeoGridConfigBuilder</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d6/d5b/a00026.html">geopop::GeoGridProtoWriter</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../dc/de2/a00024.html#ad7adc7fa987723c5960e2a4465ee80fd">GeoGridConfigBuilder</a>()=default</td><td class="entry"><a class="el" href="../../dc/de2/a00024.html">geopop::GeoGridConfigBuilder</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../dc/de2/a00024.html#a0164c2d99669fdad0a93748598a8c517">SetData</a>(GeoGridConfig &amp;geoGridConfig, const std::string &amp;householdsFileName)</td><td class="entry"><a class="el" href="../../dc/de2/a00024.html">geopop::GeoGridConfigBuilder</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d5b/a00026.html#a926d6c4ac5d5d4ce1814a8a782bc408e">GeoGridProtoWriter</a>()</td><td class="entry"><a class="el" href="../../d6/d5b/a00026.html">geopop::GeoGridProtoWriter</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d5b/a00026.html#a0c73512e036c7f443d73a9c2552f63bb">m_persons_found</a></td><td class="entry"><a class="el" href="../../d6/d5b/a00026.html">geopop::GeoGridProtoWriter</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d5b/a00026.html#a6f709a9e0724d34905806b0ae13688f0">Write</a>(std::shared_ptr&lt; GeoGrid &gt; geoGrid, std::ostream &amp;stream) override</td><td class="entry"><a class="el" href="../../d6/d5b/a00026.html">geopop::GeoGridProtoWriter</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d5b/a00026.html#a29b971ed219c5b0b2fc3664374a358d6">WriteContactCenter</a>(std::shared_ptr&lt; ContactCenter &gt; contactCenter, proto::GeoGrid_Location_ContactCenter *protoContactCenter)</td><td class="entry"><a class="el" href="../../d6/d5b/a00026.html">geopop::GeoGridProtoWriter</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d5b/a00026.html#ac914db129c8a1822bd4c06e669ef1cd4">WriteContactPool</a>(stride::ContactPool *contactPool, proto::GeoGrid_Location_ContactCenter_ContactPool *protoContactPool)</td><td class="entry"><a class="el" href="../../d6/d5b/a00026.html">geopop::GeoGridProtoWriter</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d5b/a00026.html#a5b7c60a6fb168dd8dfcaa338c055019c">WriteCoordinate</a>(const Coordinate &amp;coordinate, proto::GeoGrid_Location_Coordinate *protoCoordinate)</td><td class="entry"><a class="el" href="../../d6/d5b/a00026.html">geopop::GeoGridProtoWriter</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d5b/a00026.html#aeb54f07ae394edfbb2250f7057181ed0">WriteLocation</a>(std::shared_ptr&lt; Location &gt; location, proto::GeoGrid_Location *protoLocation)</td><td class="entry"><a class="el" href="../../d6/d5b/a00026.html">geopop::GeoGridProtoWriter</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d5b/a00026.html#a86db40bd91910ffd9d795c4320f980a0">WritePerson</a>(stride::Person *person, proto::GeoGrid_Person *protoPerson)</td><td class="entry"><a class="el" href="../../d6/d5b/a00026.html">geopop::GeoGridProtoWriter</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d16/a00029.html#ac39b3553fa52b22d47cd5972d5e1c4b8">~GeoGridWriter</a>()=default</td><td class="entry"><a class="el" href="../../d5/d16/a00029.html">geopop::GeoGridWriter</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

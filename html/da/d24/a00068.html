@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::Rn&lt; E &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::AbstractPopBuilder Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -107,433 +107,85 @@ $(document).ready(function(){initNavTree('da/d24/a00068.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../df/d21/a01039.html">List of all members</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="../../dc/d2c/a00893.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::Rn&lt; E &gt; Class Template Reference</div>  </div>
+<div class="title">stride::AbstractPopBuilder Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Manages random number generation in parallel (OpenMP) calculations.  
+<p>Base Class for PopBuilders.  
  <a href="../../da/d24/a00068.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/db1/a00140_source.html">AbstractPopBuilder.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::util::Rn&lt; E &gt;:</div>
+Inheritance diagram for stride::AbstractPopBuilder:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d14/a01040.gif" border="0" usemap="#stride_1_1util_1_1Rn_3_01E_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1Rn_3_01E_01_4_inherit__map" id="stride_1_1util_1_1Rn_3_01E_01_4_inherit__map">
-<area shape="rect" id="node3" href="../../da/d24/a00068.html" title="{stride::util::Rn\&lt; pcg64 \&gt;\n|&#45; m_seed_seq_init\l&#45; m_stream_count\l|+ Rn()\l+ Rn()\l+ Rn()\l+ operator=()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l&#45; Seed()\l}" alt="" coords="15,521,218,789"/>
-<area shape="rect" id="node2" title="STL class. " alt="" coords="5,5,228,112"/>
+<div class="center"><img src="../../dc/dfa/a00894.gif" border="0" usemap="#stride_1_1AbstractPopBuilder_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1AbstractPopBuilder_inherit__map" id="stride_1_1AbstractPopBuilder_inherit__map">
+<area shape="rect" id="node2" href="../../d1/d1e/a00087.html" title="Initializes Population objects. " alt="" coords="5,204,185,296"/>
+<area shape="rect" id="node3" href="../../d9/dec/a00090.html" title="Builds poulation of a geographic grid. " alt="" coords="210,189,370,311"/>
+<area shape="rect" id="node4" href="../../dc/d54/a00094.html" title="Initializes Population objects. " alt="" coords="394,211,570,289"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for stride::util::Rn&lt; E &gt;:</div>
+Collaboration diagram for stride::AbstractPopBuilder:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d83/a01041.gif" border="0" usemap="#stride_1_1util_1_1Rn_3_01E_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1Rn_3_01E_01_4_coll__map" id="stride_1_1util_1_1Rn_3_01E_01_4_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="5,160,228,267"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="377,175,464,252"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="352,5,489,97"/>
+<div class="center"><img src="../../d2/d21/a00895.gif" border="0" usemap="#stride_1_1AbstractPopBuilder_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1AbstractPopBuilder_coll__map" id="stride_1_1AbstractPopBuilder_coll__map">
+<area shape="rect" id="node3" href="../../da/d72/a00124.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,145,381,355"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:acbc94b85302213d680d7b7c68b8edbc7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#acbc94b85302213d680d7b7c68b8edbc7">EngineType</a> = E</td></tr>
-<tr class="separator:acbc94b85302213d680d7b7c68b8edbc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33bdc913e6a82dbdc349484dc76cd6f2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a33bdc913e6a82dbdc349484dc76cd6f2">RnType</a> = randutils::random_generator&lt; E, randutils::seed_seq_fe128 &gt;</td></tr>
-<tr class="separator:a33bdc913e6a82dbdc349484dc76cd6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d32dc068e7be8c0a6bf003655f0f440"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a7d32dc068e7be8c0a6bf003655f0f440">ContainerType</a> = std::vector&lt; randutils::random_generator&lt; E, randutils::seed_seq_fe128 &gt;&gt;</td></tr>
-<tr class="separator:a7d32dc068e7be8c0a6bf003655f0f440"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7d9b13e2040c557965d6267554a123be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a7d9b13e2040c557965d6267554a123be">Rn</a> ()</td></tr>
-<tr class="memdesc:a7d9b13e2040c557965d6267554a123be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor build empty manager.  <a href="#a7d9b13e2040c557965d6267554a123be">More...</a><br /></td></tr>
-<tr class="separator:a7d9b13e2040c557965d6267554a123be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48b33ab89da0ea8a01e98a7bbf0b6865"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a48b33ab89da0ea8a01e98a7bbf0b6865">Rn</a> (const <a class="el" href="../../da/d72/a00124.html">RnInfo</a> &amp;info)</td></tr>
-<tr class="memdesc:a48b33ab89da0ea8a01e98a7bbf0b6865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes.  <a href="#a48b33ab89da0ea8a01e98a7bbf0b6865">More...</a><br /></td></tr>
-<tr class="separator:a48b33ab89da0ea8a01e98a7bbf0b6865"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ba4bf2aaed3303c1b4bd219e7c354ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a5ba4bf2aaed3303c1b4bd219e7c354ac">Rn</a> (const <a class="el" href="../../da/d24/a00068.html">Rn</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a5ba4bf2aaed3303c1b4bd219e7c354ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copying.  <a href="#a5ba4bf2aaed3303c1b4bd219e7c354ac">More...</a><br /></td></tr>
-<tr class="separator:a5ba4bf2aaed3303c1b4bd219e7c354ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab63808f8d34717a3054955e43572a111"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d24/a00068.html">Rn</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#ab63808f8d34717a3054955e43572a111">operator=</a> (const <a class="el" href="../../da/d24/a00068.html">Rn</a> &amp;)=delete</td></tr>
-<tr class="memdesc:ab63808f8d34717a3054955e43572a111"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy assignment.  <a href="#ab63808f8d34717a3054955e43572a111">More...</a><br /></td></tr>
-<tr class="separator:ab63808f8d34717a3054955e43572a111"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e78d5d29f6f755a3f98aabef1711cd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a2e78d5d29f6f755a3f98aabef1711cd6">operator==</a> (const <a class="el" href="../../da/d24/a00068.html">Rn</a> &amp;other)</td></tr>
-<tr class="memdesc:a2e78d5d29f6f755a3f98aabef1711cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality of states.  <a href="#a2e78d5d29f6f755a3f98aabef1711cd6">More...</a><br /></td></tr>
-<tr class="separator:a2e78d5d29f6f755a3f98aabef1711cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2778b5e20db743b9a055fe83ecd66da8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d72/a00124.html">RnInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a2778b5e20db743b9a055fe83ecd66da8">GetInfo</a> () const </td></tr>
-<tr class="memdesc:a2778b5e20db743b9a055fe83ecd66da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the state of the random engines.  <a href="#a2778b5e20db743b9a055fe83ecd66da8">More...</a><br /></td></tr>
-<tr class="separator:a2778b5e20db743b9a055fe83ecd66da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ea4f31543886e7d66f647a8193b27b5"><td class="memItemLeft" align="right" valign="top">std::function&lt; <a class="el" href="../../d8/ddd/a00380.html">double</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a7ea4f31543886e7d66f647a8193b27b5">GetUniform01Generator</a> (unsigned int i=0U)</td></tr>
-<tr class="memdesc:a7ea4f31543886e7d66f647a8193b27b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a generator for uniform doubles in [0, 1[ using i-th random engine.  <a href="#a7ea4f31543886e7d66f647a8193b27b5">More...</a><br /></td></tr>
-<tr class="separator:a7ea4f31543886e7d66f647a8193b27b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab30f88933c5b14ad8b5d712ddf80412b"><td class="memItemLeft" align="right" valign="top">std::function&lt; int()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#ab30f88933c5b14ad8b5d712ddf80412b">GetUniformIntGenerator</a> (int a, int b, unsigned int i=0U)</td></tr>
-<tr class="memdesc:ab30f88933c5b14ad8b5d712ddf80412b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a generator for uniform ints in [a, b[ (a &lt; b) using i-th random engine.  <a href="#ab30f88933c5b14ad8b5d712ddf80412b">More...</a><br /></td></tr>
-<tr class="separator:ab30f88933c5b14ad8b5d712ddf80412b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5ad44b71a7761094e2fb214adb503c1"><td class="memItemLeft" align="right" valign="top">std::function&lt; int()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#ad5ad44b71a7761094e2fb214adb503c1">GetDiscreteGenerator</a> (const std::vector&lt; <a class="el" href="../../d8/ddd/a00380.html">double</a> &gt; &amp;weights, unsigned int i=0U)</td></tr>
-<tr class="memdesc:ad5ad44b71a7761094e2fb214adb503c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return generator for integers [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random engine.  <a href="#ad5ad44b71a7761094e2fb214adb503c1">More...</a><br /></td></tr>
-<tr class="separator:ad5ad44b71a7761094e2fb214adb503c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d5445d500ce2a38287a127af3762892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a4d5445d500ce2a38287a127af3762892">Initialize</a> (const <a class="el" href="../../da/d72/a00124.html">RnInfo</a> &amp;info)</td></tr>
-<tr class="memdesc:a4d5445d500ce2a38287a127af3762892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize with data in Info.  <a href="#a4d5445d500ce2a38287a127af3762892">More...</a><br /></td></tr>
-<tr class="separator:a4d5445d500ce2a38287a127af3762892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada37aa7d2f47530a514c24b8c5dfc122"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#ada37aa7d2f47530a514c24b8c5dfc122">IsEmpty</a> () const </td></tr>
-<tr class="memdesc:ada37aa7d2f47530a514c24b8c5dfc122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this een empty (i.e. non-initialized <a class="el" href="../../da/d24/a00068.html" title="Manages random number generation in parallel (OpenMP) calculations. ">Rn</a>)?  <a href="#ada37aa7d2f47530a514c24b8c5dfc122">More...</a><br /></td></tr>
-<tr class="separator:ada37aa7d2f47530a514c24b8c5dfc122"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c6efce18c245b7e460e4ad09667dab2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a6c6efce18c245b7e460e4ad09667dab2">Shuffle</a> (std::vector&lt; unsigned int &gt; &amp;indices, unsigned int i)</td></tr>
-<tr class="memdesc:a6c6efce18c245b7e460e4ad09667dab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random shuffle of vector of unsigned int indices using i-th engine.  <a href="#a6c6efce18c245b7e460e4ad09667dab2">More...</a><br /></td></tr>
-<tr class="separator:a6c6efce18c245b7e460e4ad09667dab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc3493a948b42c70cd879d83c879526"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a0dc3493a948b42c70cd879d83c879526">AbstractPopBuilder</a> (const boost::property_tree::ptree &amp;config, <a class="el" href="../../da/d72/a00124.html">util::RnMan</a> &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; strideLogger=nullptr)</td></tr>
+<tr class="memdesc:a0dc3493a948b42c70cd879d83c879526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a0dc3493a948b42c70cd879d83c879526">More...</a><br /></td></tr>
+<tr class="separator:a0dc3493a948b42c70cd879d83c879526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a864865f7e88c7b737ad91a245f49f466"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a864865f7e88c7b737ad91a245f49f466">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">Population</a> &gt; pop)=0</td></tr>
+<tr class="memdesc:a864865f7e88c7b737ad91a245f49f466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build <a class="el" href="../../d9/dcc/a00102.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> and return it afterwards.  <a href="#a864865f7e88c7b737ad91a245f49f466">More...</a><br /></td></tr>
+<tr class="separator:a864865f7e88c7b737ad91a245f49f466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a938da421d2a2d203e7cb90ead7b91807"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a938da421d2a2d203e7cb90ead7b91807">~AbstractPopBuilder</a> ()=default</td></tr>
+<tr class="separator:a938da421d2a2d203e7cb90ead7b91807"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:aa7422a9b6a29d401930324bea4d5a0de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#aa7422a9b6a29d401930324bea4d5a0de">Seed</a> (randutils::seed_seq_fe128 &amp;seseq)</td></tr>
-<tr class="memdesc:aa7422a9b6a29d401930324bea4d5a0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual first-time seeding. Procedure varies according to engine type, see specialisations.  <a href="#aa7422a9b6a29d401930324bea4d5a0de">More...</a><br /></td></tr>
-<tr class="separator:aa7422a9b6a29d401930324bea4d5a0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a2a6bba1c68c0b6ab97c760897b539b51">Seed</a> (randutils::seed_seq_fe128 &amp;seseq)</td></tr>
-<tr class="separator:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a2a6bba1c68c0b6ab97c760897b539b51">Seed</a> (randutils::seed_seq_fe128 &amp;seseq)</td></tr>
-<tr class="separator:a2a6bba1c68c0b6ab97c760897b539b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a7f5ed0ad410e42106d340d017f0f61ba"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a7f5ed0ad410e42106d340d017f0f61ba">m_seed_seq_init</a></td></tr>
-<tr class="memdesc:a7f5ed0ad410e42106d340d017f0f61ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed sequence initializer used with engines.  <a href="#a7f5ed0ad410e42106d340d017f0f61ba">More...</a><br /></td></tr>
-<tr class="separator:a7f5ed0ad410e42106d340d017f0f61ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a958177dee9a3c09f8d5f9073a8d89284"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a958177dee9a3c09f8d5f9073a8d89284">m_stream_count</a></td></tr>
-<tr class="memdesc:a958177dee9a3c09f8d5f9073a8d89284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of threads/streams set up with the engine.  <a href="#a958177dee9a3c09f8d5f9073a8d89284">More...</a><br /></td></tr>
-<tr class="separator:a958177dee9a3c09f8d5f9073a8d89284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a34a81e371e1bf73c2a75fd9d2df21353"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a34a81e371e1bf73c2a75fd9d2df21353">m_config</a></td></tr>
+<tr class="memdesc:a34a81e371e1bf73c2a75fd9d2df21353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree.  <a href="#a34a81e371e1bf73c2a75fd9d2df21353">More...</a><br /></td></tr>
+<tr class="separator:a34a81e371e1bf73c2a75fd9d2df21353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a438798c37f82817665369d725a3a34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d72/a00124.html">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a2a438798c37f82817665369d725a3a34">m_rn_man</a></td></tr>
+<tr class="memdesc:a2a438798c37f82817665369d725a3a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generation management.  <a href="#a2a438798c37f82817665369d725a3a34">More...</a><br /></td></tr>
+<tr class="separator:a2a438798c37f82817665369d725a3a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aa42972b4d340a04b0366af0a889b5e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d24/a00068.html#a6aa42972b4d340a04b0366af0a889b5e">m_stride_logger</a></td></tr>
+<tr class="separator:a6aa42972b4d340a04b0366af0a889b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename E&gt;<br />
-class stride::util::Rn&lt; E &gt;</h3>
+<div class="textblock"><p>Base Class for PopBuilders. </p>
 
-<p>Manages random number generation in parallel (OpenMP) calculations. </p>
-
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00042">42</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="acbc94b85302213d680d7b7c68b8edbc7"></a>
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00038">38</a> of file <a class="el" href="../../d5/db1/a00140_source.html">AbstractPopBuilder.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a0dc3493a948b42c70cd879d83c879526"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../da/d24/a00068.html#acbc94b85302213d680d7b7c68b8edbc7">EngineType</a> =  E</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00045">45</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a33bdc913e6a82dbdc349484dc76cd6f2"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../da/d24/a00068.html#a33bdc913e6a82dbdc349484dc76cd6f2">RnType</a> =  randutils::random_generator&lt;E, randutils::seed_seq_fe128&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00046">46</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7d32dc068e7be8c0a6bf003655f0f440"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../da/d24/a00068.html#a7d32dc068e7be8c0a6bf003655f0f440">ContainerType</a> =  std::vector&lt;randutils::random_generator&lt;E, randutils::seed_seq_fe128&gt;&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00047">47</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a7d9b13e2040c557965d6267554a123be"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../da/d24/a00068.html">Rn</a> </td>
+          <td class="memname">stride::AbstractPopBuilder::AbstractPopBuilder </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default constructor build empty manager. </p>
-
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00055">55</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d95/a00299_source.html#l00058">stride::util::Rn&lt; pcg64 &gt;::Rn()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d24/a00068_a7d9b13e2040c557965d6267554a123be_icgraph.gif" border="0" usemap="#da/d24/a00068_a7d9b13e2040c557965d6267554a123be_icgraph" alt=""/></div>
-<map name="da/d24/a00068_a7d9b13e2040c557965d6267554a123be_icgraph" id="da/d24/a00068_a7d9b13e2040c557965d6267554a123be_icgraph">
-<area shape="rect" id="node2" href="../../da/d24/a00068.html#a48b33ab89da0ea8a01e98a7bbf0b6865" title="Initializes. " alt="" coords="187,5,349,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a48b33ab89da0ea8a01e98a7bbf0b6865"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../da/d24/a00068.html">Rn</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/d72/a00124.html">RnInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initializes. </p>
-
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00058">58</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5ba4bf2aaed3303c1b4bd219e7c354ac"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::<a class="el" href="../../da/d24/a00068.html">Rn</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/d24/a00068.html">Rn</a>&lt; E &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>No copying. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ab63808f8d34717a3054955e43572a111"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d24/a00068.html">Rn</a>&amp; <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/d24/a00068.html">Rn</a>&lt; E &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>No copy assignment. </p>
-
-<p>Referenced by <a class="el" href="../../df/d95/a00299_source.html#l00058">stride::util::Rn&lt; pcg64 &gt;::Rn()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d24/a00068_ab63808f8d34717a3054955e43572a111_icgraph.gif" border="0" usemap="#da/d24/a00068_ab63808f8d34717a3054955e43572a111_icgraph" alt=""/></div>
-<map name="da/d24/a00068_ab63808f8d34717a3054955e43572a111_icgraph" id="da/d24/a00068_ab63808f8d34717a3054955e43572a111_icgraph">
-<area shape="rect" id="node2" href="../../da/d24/a00068.html#a48b33ab89da0ea8a01e98a7bbf0b6865" title="Initializes. " alt="" coords="236,5,399,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a2e78d5d29f6f755a3f98aabef1711cd6"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/d24/a00068.html">Rn</a>&lt; E &gt; &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Equality of states. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d0d/a00298_source.html#l00036">36</a> of file <a class="el" href="../../d9/d0d/a00298_source.html">Rn.cpp</a>.</p>
-
-<p>References <a class="el" href="../../df/d95/a00299_source.html#l00113">stride::util::Rn&lt; E &gt;::m_stream_count</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d95/a00299_source.html#l00058">stride::util::Rn&lt; pcg64 &gt;::Rn()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d24/a00068_a2e78d5d29f6f755a3f98aabef1711cd6_icgraph.gif" border="0" usemap="#da/d24/a00068_a2e78d5d29f6f755a3f98aabef1711cd6_icgraph" alt=""/></div>
-<map name="da/d24/a00068_a2e78d5d29f6f755a3f98aabef1711cd6_icgraph" id="da/d24/a00068_a2e78d5d29f6f755a3f98aabef1711cd6_icgraph">
-<area shape="rect" id="node2" href="../../da/d24/a00068.html#a48b33ab89da0ea8a01e98a7bbf0b6865" title="Initializes. " alt="" coords="248,5,411,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a2778b5e20db743b9a055fe83ecd66da8"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d72/a00124.html">RnInfo</a> <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::GetInfo </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the state of the random engines. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d0d/a00298_source.html#l00048">48</a> of file <a class="el" href="../../d9/d0d/a00298_source.html">Rn.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/da2/a00300_source.html#l00035">stride::util::RnInfo::m_seed_seq_init</a>, <a class="el" href="../../db/da2/a00300_source.html#l00038">stride::util::RnInfo::m_state</a>, and <a class="el" href="../../db/da2/a00300_source.html#l00039">stride::util::RnInfo::m_stream_count</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d95/a00299_source.html#l00058">stride::util::Rn&lt; pcg64 &gt;::Rn()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d24/a00068_a2778b5e20db743b9a055fe83ecd66da8_icgraph.gif" border="0" usemap="#da/d24/a00068_a2778b5e20db743b9a055fe83ecd66da8_icgraph" alt=""/></div>
-<map name="da/d24/a00068_a2778b5e20db743b9a055fe83ecd66da8_icgraph" id="da/d24/a00068_a2778b5e20db743b9a055fe83ecd66da8_icgraph">
-<area shape="rect" id="node2" href="../../da/d24/a00068.html#a48b33ab89da0ea8a01e98a7bbf0b6865" title="Initializes. " alt="" coords="216,5,379,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a7ea4f31543886e7d66f647a8193b27b5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt;<a class="el" href="../../d8/ddd/a00380.html">double</a>()&gt; <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::GetUniform01Generator </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>i</em> = <code>0U</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return a generator for uniform doubles in [0, 1[ using i-th random engine. </p>
-
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00078">78</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab30f88933c5b14ad8b5d712ddf80412b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt;int()&gt; <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::GetUniformIntGenerator </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>config</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
+          <td class="paramtype"><a class="el" href="../../da/d72/a00124.html">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnMan</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>i</em> = <code>0U</code>&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>strideLogger</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -541,338 +193,170 @@ template&lt;typename E&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Return a generator for uniform ints in [a, b[ (a &lt; b) using i-th random engine. </p>
+<p>Initializing constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Property_tree with general configuration settings. </td></tr>
+    <tr><td class="paramname">rnMan</td><td>Random number manager for pop build process. </td></tr>
+    <tr><td class="paramname">strideLogger</td><td>Logging. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00084">84</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d14/a00139_source.html#l00033">33</a> of file <a class="el" href="../../de/d14/a00139_source.html">AbstractPopBuilder.cpp</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="ad5ad44b71a7761094e2fb214adb503c1"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt;int()&gt; <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::GetDiscreteGenerator </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="../../d8/ddd/a00380.html">double</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>weights</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>i</em> = <code>0U</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return generator for integers [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random engine. </p>
-
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00090">90</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4d5445d500ce2a38287a127af3762892"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::Initialize </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/d72/a00124.html">RnInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initalize with data in Info. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d0d/a00298_source.html#l00062">62</a> of file <a class="el" href="../../d9/d0d/a00298_source.html">Rn.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/d55/a00323_source.html#l00036">stride::util::CheckAllDigits()</a>, <a class="el" href="../../db/da2/a00300_source.html#l00035">stride::util::RnInfo::m_seed_seq_init</a>, <a class="el" href="../../db/da2/a00300_source.html#l00038">stride::util::RnInfo::m_state</a>, <a class="el" href="../../db/da2/a00300_source.html#l00039">stride::util::RnInfo::m_stream_count</a>, and <a class="el" href="../../de/d55/a00323_source.html#l00058">stride::util::Split()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d95/a00299_source.html#l00090">stride::util::Rn&lt; pcg64 &gt;::GetDiscreteGenerator()</a>, and <a class="el" href="../../df/d95/a00299_source.html#l00058">stride::util::Rn&lt; pcg64 &gt;::Rn()</a>.</p>
+<p>References <a class="el" href="../../d9/d2a/a00270_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, and <a class="el" href="../../d5/db1/a00140_source.html#l00056">m_stride_logger</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d24/a00068_a4d5445d500ce2a38287a127af3762892_cgraph.gif" border="0" usemap="#da/d24/a00068_a4d5445d500ce2a38287a127af3762892_cgraph" alt=""/></div>
-<map name="da/d24/a00068_a4d5445d500ce2a38287a127af3762892_cgraph" id="da/d24/a00068_a4d5445d500ce2a38287a127af3762892_cgraph">
-<area shape="rect" id="node2" href="../../d5/db5/a00374.html#aed0a8c66f95a390d87398e0f2c7c7ceb" title="All characters in string are digits (or string is empty) " alt="" coords="221,5,404,32"/>
-<area shape="rect" id="node3" href="../../d5/db5/a00374.html#aadef750132d5d399e7ed8a96eab53c4c" title="Split a string (in order of occurence) by splitting it on the given delimiters. " alt="" coords="252,56,373,83"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d24/a00068_a4d5445d500ce2a38287a127af3762892_icgraph.gif" border="0" usemap="#da/d24/a00068_a4d5445d500ce2a38287a127af3762892_icgraph" alt=""/></div>
-<map name="da/d24/a00068_a4d5445d500ce2a38287a127af3762892_icgraph" id="da/d24/a00068_a4d5445d500ce2a38287a127af3762892_icgraph">
-<area shape="rect" id="node2" href="../../da/d24/a00068.html#ad5ad44b71a7761094e2fb214adb503c1" title="Return generator for integers [0, n&#45;1[ with non&#45;negative weights p_j (i=0,..,n&#45;1) using i&#45;th random e..." alt="" coords="221,5,408,47"/>
-<area shape="rect" id="node3" href="../../da/d24/a00068.html#a48b33ab89da0ea8a01e98a7bbf0b6865" title="Initializes. " alt="" coords="233,71,396,112"/>
+<div class="center"><img src="../../da/d24/a00068_a0dc3493a948b42c70cd879d83c879526_cgraph.gif" border="0" usemap="#da/d24/a00068_a0dc3493a948b42c70cd879d83c879526_cgraph" alt=""/></div>
+<map name="da/d24/a00068_a0dc3493a948b42c70cd879d83c879526_cgraph" id="da/d24/a00068_a0dc3493a948b42c70cd879d83c879526_cgraph">
+<area shape="rect" id="node2" href="../../df/dc8/a00122.html#af8edb0cd2ef9049e0347f06e73ae57c2" title="Return a (not&#45;yet&#45;registered) null logger, without registering it. " alt="" coords="241,5,385,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ada37aa7d2f47530a514c24b8c5dfc122"></a>
+<a class="anchor" id="a938da421d2a2d203e7cb90ead7b91807"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::IsEmpty </td>
+          <td class="memname">virtual stride::AbstractPopBuilder::~AbstractPopBuilder </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Is this een empty (i.e. non-initialized <a class="el" href="../../da/d24/a00068.html" title="Manages random number generation in parallel (OpenMP) calculations. ">Rn</a>)? </p>
-
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00099">99</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a6c6efce18c245b7e460e4ad09667dab2"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a864865f7e88c7b737ad91a245f49f466"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::Shuffle </td>
+          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="../../d9/dcc/a00102.html">Population</a>&gt; stride::AbstractPopBuilder::Build </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>indices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Random shuffle of vector of unsigned int indices using i-th engine. </p>
-
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00102">102</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa7422a9b6a29d401930324bea4d5a0de"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::Seed </td>
-          <td>(</td>
-          <td class="paramtype">randutils::seed_seq_fe128 &amp;&#160;</td>
-          <td class="paramname"><em>seseq</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Actual first-time seeding. Procedure varies according to engine type, see specialisations. </p>
+<p>Build <a class="el" href="../../d9/dcc/a00102.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> and return it afterwards. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d0d/a00298_source.html#l00103">103</a> of file <a class="el" href="../../d9/d0d/a00298_source.html">Rn.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/d95/a00299_source.html#l00102">stride::util::Rn&lt; pcg64 &gt;::Shuffle()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d24/a00068_aa7422a9b6a29d401930324bea4d5a0de_icgraph.gif" border="0" usemap="#da/d24/a00068_aa7422a9b6a29d401930324bea4d5a0de_icgraph" alt=""/></div>
-<map name="da/d24/a00068_aa7422a9b6a29d401930324bea4d5a0de_icgraph" id="da/d24/a00068_aa7422a9b6a29d401930324bea4d5a0de_icgraph">
-<area shape="rect" id="node2" href="../../da/d24/a00068.html#a6c6efce18c245b7e460e4ad09667dab2" title="Random shuffle of vector of unsigned int indices using i&#45;th engine. " alt="" coords="204,5,367,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a2a6bba1c68c0b6ab97c760897b539b51"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; pcg64 &gt;::Seed </td>
-          <td>(</td>
-          <td class="paramtype">randutils::seed_seq_fe128 &amp;&#160;</td>
-          <td class="paramname"><em>seseq</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/d0d/a00298_source.html#l00091">91</a> of file <a class="el" href="../../d9/d0d/a00298_source.html">Rn.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2a6bba1c68c0b6ab97c760897b539b51"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; pcg64 &gt;::Seed </td>
-          <td>(</td>
-          <td class="paramtype">randutils::seed_seq_fe128 &amp;&#160;</td>
-          <td class="paramname"><em>seseq</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Implemented in <a class="el" href="../../d9/dec/a00090.html#a23493e205a9a22922b1511b80e64bc1e">stride::GeoPopBuilder</a>, <a class="el" href="../../d1/d1e/a00087.html#a8c1071f808ade6b38dd14a74024e64d4">stride::DefaultPopBuilder</a>, and <a class="el" href="../../dc/d54/a00094.html#a78076cb42a88b90e4183bfb805d8361f">stride::ImportPopBuilder</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a7f5ed0ad410e42106d340d017f0f61ba"></a>
+<a class="anchor" id="a34a81e371e1bf73c2a75fd9d2df21353"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::m_seed_seq_init</td>
+          <td class="memname">const boost::property_tree::ptree&amp; stride::AbstractPopBuilder::m_config</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Seed sequence initializer used with engines. </p>
+<p>Configuration property tree. </p>
 
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00112">112</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00054">54</a> of file <a class="el" href="../../d5/db1/a00140_source.html">AbstractPopBuilder.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a958177dee9a3c09f8d5f9073a8d89284"></a>
+<a class="anchor" id="a2a438798c37f82817665369d725a3a34"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int <a class="el" href="../../da/d24/a00068.html">stride::util::Rn</a>&lt; E &gt;::m_stream_count</td>
+          <td class="memname"><a class="el" href="../../da/d72/a00124.html">util::RnMan</a>&amp; stride::AbstractPopBuilder::m_rn_man</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Number of threads/streams set up with the engine. </p>
+<p>Random number generation management. </p>
 
-<p>Definition at line <a class="el" href="../../df/d95/a00299_source.html#l00113">113</a> of file <a class="el" href="../../df/d95/a00299_source.html">Rn.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00055">55</a> of file <a class="el" href="../../d5/db1/a00140_source.html">AbstractPopBuilder.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../df/d95/a00299_source.html#l00099">stride::util::Rn&lt; pcg64 &gt;::IsEmpty()</a>, and <a class="el" href="../../d9/d0d/a00298_source.html#l00036">stride::util::Rn&lt; E &gt;::operator==()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a6aa42972b4d340a04b0366af0a889b5e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::AbstractPopBuilder::m_stride_logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00056">56</a> of file <a class="el" href="../../d5/db1/a00140_source.html">AbstractPopBuilder.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d14/a00139_source.html#l00033">AbstractPopBuilder()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../df/d95/a00299_source.html">Rn.h</a></li>
-<li><a class="el" href="../../d9/d0d/a00298_source.html">Rn.cpp</a></li>
+<li><a class="el" href="../../d5/db1/a00140_source.html">AbstractPopBuilder.h</a></li>
+<li><a class="el" href="../../de/d14/a00139_source.html">AbstractPopBuilder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../df/dc2/a00367.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/db5/a00374.html">util</a></li><li class="navelem"><a class="el" href="../../da/d24/a00068.html">Rn</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:45 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../da/d24/a00068.html">AbstractPopBuilder</a></li>
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

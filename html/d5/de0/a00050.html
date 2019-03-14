@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::SecondaryCommunity Class Reference</title>
+<title>Stride Reference Manual: geopop::ThreadException Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -107,92 +107,97 @@ $(document).ready(function(){initNavTree('d5/de0/a00050.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d9/dbb/a00852.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d7/dcf/a00845.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::SecondaryCommunity Class Reference</div>  </div>
+<div class="title">geopop::ThreadException Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A model of a Secondary Community (as a <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>)  
+<p>Create a wrapper for capturing exceptions thrown in a multi-threaded environment.  
  <a href="../../d5/de0/a00050.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/de3/a00306_source.html">SecondaryCommunity.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for geopop::SecondaryCommunity:</div>
+Collaboration diagram for geopop::ThreadException:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/deb/a00853.gif" border="0" usemap="#geopop_1_1SecondaryCommunity_inherit__map" alt="Inheritance graph"/></div>
-<map name="geopop_1_1SecondaryCommunity_inherit__map" id="geopop_1_1SecondaryCommunity_inherit__map">
-<area shape="rect" id="node2" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="14,5,217,244"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for geopop::SecondaryCommunity:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d6/d2f/a00854.gif" border="0" usemap="#geopop_1_1SecondaryCommunity_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1SecondaryCommunity_coll__map" id="geopop_1_1SecondaryCommunity_coll__map">
-<area shape="rect" id="node2" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="125,455,327,679"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="140,145,267,223"/>
+<div class="center"><img src="../../d9/d87/a00846.gif" border="0" usemap="#geopop_1_1ThreadException_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1ThreadException_coll__map" id="geopop_1_1ThreadException_coll__map">
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html">RunType</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The used for executing a function with a return type.  <a href="../../d2/d79/a00051.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html">RunType&lt; void &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ab53a521bc6b3102bc0842a645483d614"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab53a521bc6b3102bc0842a645483d614"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#ab53a521bc6b3102bc0842a645483d614">RunType_t</a> = typename <a class="el" href="../../d2/d79/a00051.html">RunType</a>&lt; T &gt;::type</td></tr>
+<tr class="separator:ab53a521bc6b3102bc0842a645483d614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5ec3c744ad137c32e8a873da4c055051"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a5ec3c744ad137c32e8a873da4c055051">SecondaryCommunity</a> (unsigned int id)</td></tr>
-<tr class="memdesc:a5ec3c744ad137c32e8a873da4c055051"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct community with assigned ID.  <a href="#a5ec3c744ad137c32e8a873da4c055051">More...</a><br /></td></tr>
-<tr class="separator:a5ec3c744ad137c32e8a873da4c055051"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fa98e76cfe61911ca183691a2c5638e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a9fa98e76cfe61911ca183691a2c5638e">Fill</a> (const <a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;geoGridConfig, const std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; &amp;geoGrid) override</td></tr>
-<tr class="memdesc:a9fa98e76cfe61911ca183691a2c5638e"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="../../d2/de7/a00014.html#ac28296323455141703d4261da10ccf11" title="Create ContactPools in the GeoGrid and register them with the ContactCenter. ">ContactCenter::Fill</a>.  <a href="#a9fa98e76cfe61911ca183691a2c5638e">More...</a><br /></td></tr>
-<tr class="separator:a9fa98e76cfe61911ca183691a2c5638e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a239fdf88ba7a5b1473daa58275379ac6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d30/a00370.html#a61a32e88a50c57e6f5c49f0996b6b462">stride::ContactType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a239fdf88ba7a5b1473daa58275379ac6">GetContactPoolType</a> () const override</td></tr>
-<tr class="memdesc:a239fdf88ba7a5b1473daa58275379ac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="../../d2/de7/a00014.html#a71a4781db5b6787756ecd78bc19a7b39" title="Get the the type of ContactPools this ContactCenter contains. ">ContactCenter::GetContactPoolType</a>.  <a href="#a239fdf88ba7a5b1473daa58275379ac6">More...</a><br /></td></tr>
-<tr class="separator:a239fdf88ba7a5b1473daa58275379ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00014"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00014')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d2/de7/a00014.html">geopop::ContactCenter</a></td></tr>
-<tr class="memitem:a4f4fba610aa00403338168b7bc167c58 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a4f4fba610aa00403338168b7bc167c58">ContactCenter</a> (unsigned int id)</td></tr>
-<tr class="memdesc:a4f4fba610aa00403338168b7bc167c58 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a> with assigned ID.  <a href="#a4f4fba610aa00403338168b7bc167c58">More...</a><br /></td></tr>
-<tr class="separator:a4f4fba610aa00403338168b7bc167c58 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f35f0196fbeb2c94d2da92022512e92 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a4f35f0196fbeb2c94d2da92022512e92">GetId</a> () const </td></tr>
-<tr class="memdesc:a4f35f0196fbeb2c94d2da92022512e92 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ID of this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a4f35f0196fbeb2c94d2da92022512e92">More...</a><br /></td></tr>
-<tr class="separator:a4f35f0196fbeb2c94d2da92022512e92 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac46dd66042a4c2b5cc1420aacc6eb67 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d1/d51/a00079.html">stride::ContactPool</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#aac46dd66042a4c2b5cc1420aacc6eb67">GetPools</a> () const </td></tr>
-<tr class="memdesc:aac46dd66042a4c2b5cc1420aacc6eb67 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ContactPools container.  <a href="#aac46dd66042a4c2b5cc1420aacc6eb67">More...</a><br /></td></tr>
-<tr class="separator:aac46dd66042a4c2b5cc1420aacc6eb67 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2329f98c5c4b167304e37ed54b599b1a inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">std::pair&lt; unsigned int, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a2329f98c5c4b167304e37ed54b599b1a">GetPopulationAndInfectedCount</a> () const </td></tr>
-<tr class="memdesc:a2329f98c5c4b167304e37ed54b599b1a inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a count of total population (first) and total number of infections (second).  <a href="#a2329f98c5c4b167304e37ed54b599b1a">More...</a><br /></td></tr>
-<tr class="separator:a2329f98c5c4b167304e37ed54b599b1a inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9de5bdce36efb88e40be7ebe21fcad11 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a9de5bdce36efb88e40be7ebe21fcad11">RegisterPool</a> (<a class="el" href="../../d1/d51/a00079.html">stride::ContactPool</a> *pool)</td></tr>
-<tr class="memdesc:a9de5bdce36efb88e40be7ebe21fcad11 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a ContactPool with this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a9de5bdce36efb88e40be7ebe21fcad11">More...</a><br /></td></tr>
-<tr class="separator:a9de5bdce36efb88e40be7ebe21fcad11 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cf008ffb539c3f3e2883031a29e5c6d inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a7cf008ffb539c3f3e2883031a29e5c6d">~ContactCenter</a> ()=default</td></tr>
-<tr class="memdesc:a7cf008ffb539c3f3e2883031a29e5c6d inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor, but virtual.  <a href="#a7cf008ffb539c3f3e2883031a29e5c6d">More...</a><br /></td></tr>
-<tr class="separator:a7cf008ffb539c3f3e2883031a29e5c6d inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf0f3695ec3ffb2649285bda07d09e6c inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#acf0f3695ec3ffb2649285bda07d09e6c">begin</a> ()</td></tr>
-<tr class="memdesc:acf0f3695ec3ffb2649285bda07d09e6c inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#acf0f3695ec3ffb2649285bda07d09e6c">More...</a><br /></td></tr>
-<tr class="separator:acf0f3695ec3ffb2649285bda07d09e6c inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a109ef4d2af0700c23f56e4a790523aa5 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a109ef4d2af0700c23f56e4a790523aa5">end</a> ()</td></tr>
-<tr class="memdesc:a109ef4d2af0700c23f56e4a790523aa5 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#a109ef4d2af0700c23f56e4a790523aa5">More...</a><br /></td></tr>
-<tr class="separator:a109ef4d2af0700c23f56e4a790523aa5 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36e2bb75a85f81eb26b08f5184b2cde5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a36e2bb75a85f81eb26b08f5184b2cde5">ThreadException</a> ()</td></tr>
+<tr class="memdesc:a36e2bb75a85f81eb26b08f5184b2cde5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the <a class="el" href="../../d5/de0/a00050.html" title="Create a wrapper for capturing exceptions thrown in a multi-threaded environment. ...">ThreadException</a>.  <a href="#a36e2bb75a85f81eb26b08f5184b2cde5">More...</a><br /></td></tr>
+<tr class="separator:a36e2bb75a85f81eb26b08f5184b2cde5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a725efd368a13d2990a73cb10cc1ebaf5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a725efd368a13d2990a73cb10cc1ebaf5">~ThreadException</a> ()=default</td></tr>
+<tr class="memdesc:a725efd368a13d2990a73cb10cc1ebaf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a725efd368a13d2990a73cb10cc1ebaf5">More...</a><br /></td></tr>
+<tr class="separator:a725efd368a13d2990a73cb10cc1ebaf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9386c09eacb17c9408b0990afa4bb4e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a9386c09eacb17c9408b0990afa4bb4e0">Rethrow</a> ()</td></tr>
+<tr class="memdesc:a9386c09eacb17c9408b0990afa4bb4e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-throw the exception if one was caught.  <a href="#a9386c09eacb17c9408b0990afa4bb4e0">More...</a><br /></td></tr>
+<tr class="separator:a9386c09eacb17c9408b0990afa4bb4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a8271dad92a65bb392f9f214e9092e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a71a8271dad92a65bb392f9f214e9092e">CaptureException</a> ()</td></tr>
+<tr class="memdesc:a71a8271dad92a65bb392f9f214e9092e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Capture the current exception and save it.  <a href="#a71a8271dad92a65bb392f9f214e9092e">More...</a><br /></td></tr>
+<tr class="separator:a71a8271dad92a65bb392f9f214e9092e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31c9155741791ef543efdbbe5f43f10e"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename... Parameters&gt; </td></tr>
+<tr class="memitem:a31c9155741791ef543efdbbe5f43f10e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a31c9155741791ef543efdbbe5f43f10e">Run</a> (Function f, Parameters...params)</td></tr>
+<tr class="memdesc:a31c9155741791ef543efdbbe5f43f10e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the given function and capture any exception that may be thrown.  <a href="#a31c9155741791ef543efdbbe5f43f10e">More...</a><br /></td></tr>
+<tr class="separator:a31c9155741791ef543efdbbe5f43f10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a818a0a38afb4565502a5e160c439f9e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a818a0a38afb4565502a5e160c439f9e5">HasError</a> () const </td></tr>
+<tr class="memdesc:a818a0a38afb4565502a5e160c439f9e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if an exception was caught.  <a href="#a818a0a38afb4565502a5e160c439f9e5">More...</a><br /></td></tr>
+<tr class="separator:a818a0a38afb4565502a5e160c439f9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_a00014"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00014')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../d2/de7/a00014.html">geopop::ContactCenter</a></td></tr>
-<tr class="memitem:ae22234bfc0e33988ca8c55a51b7a426e inherit pub_types_a00014"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a> = std::vector&lt; <a class="el" href="../../d1/d51/a00079.html">stride::ContactPool</a> * &gt;::<a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a></td></tr>
-<tr class="memdesc:ae22234bfc0e33988ca8c55a51b7a426e inherit pub_types_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#ae22234bfc0e33988ca8c55a51b7a426e">More...</a><br /></td></tr>
-<tr class="separator:ae22234bfc0e33988ca8c55a51b7a426e inherit pub_types_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00014"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00014')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d2/de7/a00014.html">geopop::ContactCenter</a></td></tr>
-<tr class="memitem:ac3162fe2d7042ff5635cdc098e5f238f inherit pro_attribs_a00014"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d1/d51/a00079.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#ac3162fe2d7042ff5635cdc098e5f238f">m_pools</a></td></tr>
-<tr class="memdesc:ac3162fe2d7042ff5635cdc098e5f238f inherit pro_attribs_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">ConatctPools for this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#ac3162fe2d7042ff5635cdc098e5f238f">More...</a><br /></td></tr>
-<tr class="separator:ac3162fe2d7042ff5635cdc098e5f238f inherit pro_attribs_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a178a4ea945deecc31ad9d1d032f5adb8 inherit pro_attribs_a00014"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a178a4ea945deecc31ad9d1d032f5adb8">m_id</a></td></tr>
-<tr class="memdesc:a178a4ea945deecc31ad9d1d032f5adb8 inherit pro_attribs_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Id of this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a178a4ea945deecc31ad9d1d032f5adb8">More...</a><br /></td></tr>
-<tr class="separator:a178a4ea945deecc31ad9d1d032f5adb8 inherit pro_attribs_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a0e5a4b5e420a3c03d1f6b75a427473e4"><td class="memItemLeft" align="right" valign="top">std::exception_ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a0e5a4b5e420a3c03d1f6b75a427473e4">m_ptr</a></td></tr>
+<tr class="memdesc:a0e5a4b5e420a3c03d1f6b75a427473e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The caught exception (if none was caught, contains a nullptr)  <a href="#a0e5a4b5e420a3c03d1f6b75a427473e4">More...</a><br /></td></tr>
+<tr class="separator:a0e5a4b5e420a3c03d1f6b75a427473e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8439b0eadb9a90e5326ffa10df0b5d44"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a8439b0eadb9a90e5326ffa10df0b5d44">m_lock</a></td></tr>
+<tr class="memdesc:a8439b0eadb9a90e5326ffa10df0b5d44"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lock used to prevent two exceptions being caught at the same time.  <a href="#a8439b0eadb9a90e5326ffa10df0b5d44">More...</a><br /></td></tr>
+<tr class="separator:a8439b0eadb9a90e5326ffa10df0b5d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A model of a Secondary Community (as a <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>) </p>
+<div class="textblock"><p>Create a wrapper for capturing exceptions thrown in a multi-threaded environment. </p>
+<p>This exception can then later be re-thrown in the main thread. Based on <a href="https://stackoverflow.com/a/13978507/1393103">https://stackoverflow.com/a/13978507/1393103</a> </p>
 
-<p>Definition at line <a class="el" href="../../d1/de3/a00306_source.html#l00027">27</a> of file <a class="el" href="../../d1/de3/a00306_source.html">SecondaryCommunity.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5ec3c744ad137c32e8a873da4c055051"></a>
+<p>Definition at line <a class="el" href="../../dd/dbb/a00330_source.html#l00028">28</a> of file <a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="ab53a521bc6b3102bc0842a645483d614"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d5/de0/a00050.html#ab53a521bc6b3102bc0842a645483d614">geopop::ThreadException::RunType_t</a> =  typename <a class="el" href="../../d2/d79/a00051.html">RunType</a>&lt;T&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/dbb/a00330_source.html#l00060">60</a> of file <a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a36e2bb75a85f81eb26b08f5184b2cde5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -200,32 +205,68 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">geopop::SecondaryCommunity::SecondaryCommunity </td>
+          <td class="memname">geopop::ThreadException::ThreadException </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct community with assigned ID. </p>
+<p>Create the <a class="el" href="../../d5/de0/a00050.html" title="Create a wrapper for capturing exceptions thrown in a multi-threaded environment. ...">ThreadException</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d1/de3/a00306_source.html#l00031">31</a> of file <a class="el" href="../../d1/de3/a00306_source.html">SecondaryCommunity.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dbb/a00330_source.html#l00032">32</a> of file <a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a>.</p>
 
-<p>References <a class="el" href="../../d3/d07/a00305_source.html#l00025">Fill()</a>.</p>
+<p>References <a class="el" href="../../d5/de0/a00050.html#a725efd368a13d2990a73cb10cc1ebaf5">~ThreadException()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/de0/a00050_a5ec3c744ad137c32e8a873da4c055051_cgraph.gif" border="0" usemap="#d5/de0/a00050_a5ec3c744ad137c32e8a873da4c055051_cgraph" alt=""/></div>
-<map name="d5/de0/a00050_a5ec3c744ad137c32e8a873da4c055051_cgraph" id="d5/de0/a00050_a5ec3c744ad137c32e8a873da4c055051_cgraph">
-<area shape="rect" id="node2" href="../../d5/de0/a00050.html#a9fa98e76cfe61911ca183691a2c5638e" title="See ContactCenter::Fill. " alt="" coords="273,5,493,47"/>
+<div class="center"><img src="../../d5/de0/a00050_a36e2bb75a85f81eb26b08f5184b2cde5_cgraph.gif" border="0" usemap="#d5/de0/a00050_a36e2bb75a85f81eb26b08f5184b2cde5_cgraph" alt=""/></div>
+<map name="d5/de0/a00050_a36e2bb75a85f81eb26b08f5184b2cde5_cgraph" id="d5/de0/a00050_a36e2bb75a85f81eb26b08f5184b2cde5_cgraph">
+<area shape="rect" id="node2" href="../../d5/de0/a00050.html#a725efd368a13d2990a73cb10cc1ebaf5" title="Destructor. " alt="" coords="237,5,421,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a725efd368a13d2990a73cb10cc1ebaf5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">geopop::ThreadException::~ThreadException </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+<p>Referenced by <a class="el" href="../../dd/dbb/a00330_source.html#l00032">ThreadException()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/de0/a00050_a725efd368a13d2990a73cb10cc1ebaf5_icgraph.gif" border="0" usemap="#d5/de0/a00050_a725efd368a13d2990a73cb10cc1ebaf5_icgraph" alt=""/></div>
+<map name="d5/de0/a00050_a725efd368a13d2990a73cb10cc1ebaf5_icgraph" id="d5/de0/a00050_a725efd368a13d2990a73cb10cc1ebaf5_icgraph">
+<area shape="rect" id="node2" href="../../d5/de0/a00050.html#a36e2bb75a85f81eb26b08f5184b2cde5" title="Create the ThreadException. " alt="" coords="237,5,421,47"/>
 </map>
 </div>
 </p>
@@ -233,7 +274,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9fa98e76cfe61911ca183691a2c5638e"></a>
+<a class="anchor" id="a9386c09eacb17c9408b0990afa4bb4e0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -241,16 +282,88 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void geopop::SecondaryCommunity::Fill </td>
+          <td class="memname">void geopop::ThreadException::Rethrow </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Re-throw the exception if one was caught. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dbb/a00330_source.html#l00038">38</a> of file <a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/dbb/a00330_source.html#l00078">m_ptr</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a71a8271dad92a65bb392f9f214e9092e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::ThreadException::CaptureException </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Capture the current exception and save it. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dbb/a00330_source.html#l00046">46</a> of file <a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/dbb/a00330_source.html#l00079">m_lock</a>, and <a class="el" href="../../dd/dbb/a00330_source.html#l00078">m_ptr</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dbb/a00330_source.html#l00064">Run()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/de0/a00050_a71a8271dad92a65bb392f9f214e9092e_icgraph.gif" border="0" usemap="#d5/de0/a00050_a71a8271dad92a65bb392f9f214e9092e_icgraph" alt=""/></div>
+<map name="d5/de0/a00050_a71a8271dad92a65bb392f9f214e9092e_icgraph" id="d5/de0/a00050_a71a8271dad92a65bb392f9f214e9092e_icgraph">
+<area shape="rect" id="node2" href="../../d5/de0/a00050.html#a31c9155741791ef543efdbbe5f43f10e" title="Run the given function and capture any exception that may be thrown. " alt="" coords="237,13,452,39"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a31c9155741791ef543efdbbe5f43f10e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Function , typename... Parameters&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto geopop::ThreadException::Run </td>
+          <td>(</td>
+          <td class="paramtype">Function&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>geoGrid</em>&#160;</td>
+          <td class="paramtype">Parameters...&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -260,34 +373,30 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>See <a class="el" href="../../d2/de7/a00014.html#ac28296323455141703d4261da10ccf11" title="Create ContactPools in the GeoGrid and register them with the ContactCenter. ">ContactCenter::Fill</a>. </p>
+<p>Run the given function and capture any exception that may be thrown. </p>
 
-<p>Implements <a class="el" href="../../d2/de7/a00014.html#ac28296323455141703d4261da10ccf11">geopop::ContactCenter</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dbb/a00330_source.html#l00064">64</a> of file <a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d3/d07/a00305_source.html#l00025">25</a> of file <a class="el" href="../../d3/d07/a00305_source.html">SecondaryCommunity.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d3/d30/a00370.html#a61a32e88a50c57e6f5c49f0996b6b462ad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactType::SecondaryCommunity</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/de3/a00306_source.html#l00031">SecondaryCommunity()</a>.</p>
+<p>References <a class="el" href="../../dd/dbb/a00330_source.html#l00046">CaptureException()</a>.</p>
 
 <p><div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/de0/a00050_a9fa98e76cfe61911ca183691a2c5638e_icgraph.gif" border="0" usemap="#d5/de0/a00050_a9fa98e76cfe61911ca183691a2c5638e_icgraph" alt=""/></div>
-<map name="d5/de0/a00050_a9fa98e76cfe61911ca183691a2c5638e_icgraph" id="d5/de0/a00050_a9fa98e76cfe61911ca183691a2c5638e_icgraph">
-<area shape="rect" id="node2" href="../../d5/de0/a00050.html#a5ec3c744ad137c32e8a873da4c055051" title="Construct community with assigned ID. " alt="" coords="273,5,493,47"/>
+<div class="center"><img src="../../d5/de0/a00050_a31c9155741791ef543efdbbe5f43f10e_cgraph.gif" border="0" usemap="#d5/de0/a00050_a31c9155741791ef543efdbbe5f43f10e_cgraph" alt=""/></div>
+<map name="d5/de0/a00050_a31c9155741791ef543efdbbe5f43f10e_cgraph" id="d5/de0/a00050_a31c9155741791ef543efdbbe5f43f10e_cgraph">
+<area shape="rect" id="node2" href="../../d5/de0/a00050.html#a71a8271dad92a65bb392f9f214e9092e" title="Capture the current exception and save it. " alt="" coords="268,5,452,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a239fdf88ba7a5b1473daa58275379ac6"></a>
+<a class="anchor" id="a818a0a38afb4565502a5e160c439f9e5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -295,7 +404,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d30/a00370.html#a61a32e88a50c57e6f5c49f0996b6b462">stride::ContactType::Id</a> geopop::SecondaryCommunity::GetContactPoolType </td>
+          <td class="memname">bool geopop::ThreadException::HasError </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -303,32 +412,82 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>See <a class="el" href="../../d2/de7/a00014.html#a71a4781db5b6787756ecd78bc19a7b39" title="Get the the type of ContactPools this ContactCenter contains. ">ContactCenter::GetContactPoolType</a>. </p>
+<p>Returns if an exception was caught. </p>
 
-<p>Implements <a class="el" href="../../d2/de7/a00014.html#a71a4781db5b6787756ecd78bc19a7b39">geopop::ContactCenter</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dbb/a00330_source.html#l00075">75</a> of file <a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d1/de3/a00306_source.html#l00037">37</a> of file <a class="el" href="../../d1/de3/a00306_source.html">SecondaryCommunity.h</a>.</p>
-
-<p>References <a class="el" href="../../d3/d30/a00370.html#a61a32e88a50c57e6f5c49f0996b6b462ad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactType::SecondaryCommunity</a>.</p>
+<p>References <a class="el" href="../../dd/dbb/a00330_source.html#l00078">m_ptr</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d1/de3/a00306_source.html">SecondaryCommunity.h</a></li>
-<li><a class="el" href="../../d3/d07/a00305_source.html">SecondaryCommunity.cpp</a></li>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a0e5a4b5e420a3c03d1f6b75a427473e4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::exception_ptr geopop::ThreadException::m_ptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The caught exception (if none was caught, contains a nullptr) </p>
+
+<p>Definition at line <a class="el" href="../../dd/dbb/a00330_source.html#l00078">78</a> of file <a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dbb/a00330_source.html#l00046">CaptureException()</a>, <a class="el" href="../../dd/dbb/a00330_source.html#l00075">HasError()</a>, and <a class="el" href="../../dd/dbb/a00330_source.html#l00038">Rethrow()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8439b0eadb9a90e5326ffa10df0b5d44"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex geopop::ThreadException::m_lock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A lock used to prevent two exceptions being caught at the same time. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dbb/a00330_source.html#l00079">79</a> of file <a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dbb/a00330_source.html#l00046">CaptureException()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dd/dbb/a00330_source.html">ThreadException.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/de1/a00356.html">geopop</a></li><li class="navelem"><a class="el" href="../../d5/de0/a00050.html">SecondaryCommunity</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></li><li class="navelem"><a class="el" href="../../d5/de0/a00050.html">ThreadException</a></li>
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

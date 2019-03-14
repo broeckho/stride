@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::Workplace Class Reference</title>
+<title>Stride Reference Manual: geopop::WorkplacePopulator Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -108,91 +108,148 @@ $(document).ready(function(){initNavTree('d4/d6d/a00055.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d7/d1b/a00864.html">List of all members</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d0/d82/a00857.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::Workplace Class Reference</div>  </div>
+<div class="title">geopop::WorkplacePopulator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Models a <a class="el" href="../../d4/d6d/a00055.html" title="Models a Workplace as ContactCenter. ">Workplace</a> as <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  
+<p>Populate the workplaces.  
  <a href="../../d4/d6d/a00055.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d2/d45/a00342_source.html">Workplace.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for geopop::Workplace:</div>
+Inheritance diagram for geopop::WorkplacePopulator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d7b/a00865.gif" border="0" usemap="#geopop_1_1Workplace_inherit__map" alt="Inheritance graph"/></div>
-<map name="geopop_1_1Workplace_inherit__map" id="geopop_1_1Workplace_inherit__map">
-<area shape="rect" id="node2" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="5,5,208,244"/>
+<div class="center"><img src="../../d0/d66/a00858.gif" border="0" usemap="#geopop_1_1WorkplacePopulator_inherit__map" alt="Inheritance graph"/></div>
+<map name="geopop_1_1WorkplacePopulator_inherit__map" id="geopop_1_1WorkplacePopulator_inherit__map">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html" title="Interface for populators. " alt="" coords="48,5,199,171"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for geopop::Workplace:</div>
+Collaboration diagram for geopop::WorkplacePopulator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/db2/a00866.gif" border="0" usemap="#geopop_1_1Workplace_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1Workplace_coll__map" id="geopop_1_1Workplace_coll__map">
-<area shape="rect" id="node2" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="125,455,327,679"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="140,145,267,223"/>
+<div class="center"><img src="../../dc/d8c/a00859.gif" border="0" usemap="#geopop_1_1WorkplacePopulator_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1WorkplacePopulator_coll__map" id="geopop_1_1WorkplacePopulator_coll__map">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html" title="Interface for populators. " alt="" coords="204,1204,355,1355"/>
+<area shape="rect" id="node4" href="../../da/d72/a00124.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,910,381,1119"/>
+<area shape="rect" id="node7" href="../../dd/d32/a00041.html" title="A location for use within the GeoGrid. " alt="" coords="2403,903,2662,1127"/>
+<area shape="rect" id="node8" href="../../d6/db8/a00376.html" title="{double\n||}" alt="" coords="2097,601,2163,679"/>
+<area shape="rect" id="node27" href="../../d7/de0/a00022.html" title="Configuration data mostly for generating a population, but also for computing the required number of ..." alt="" coords="1367,1204,1538,1355"/>
+<area shape="rect" id="node11" title="STL class. " alt="" coords="1771,153,1897,230"/>
+<area shape="rect" id="node19" title="STL class. " alt="" coords="2906,322,3058,414"/>
+<area shape="rect" id="node15" title="STL class. " alt="" coords="2551,601,2637,679"/>
+<area shape="rect" id="node16" title="STL class. " alt="" coords="2364,322,2501,414"/>
+<area shape="rect" id="node30" href="../../dc/ddf/a00067.html" title="{stride::util::SegmentedVector\l\&lt; stride::stride::Person \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="891,888,1100,1141"/>
+<area shape="rect" id="node31" href="../../de/df4/a00450.html" title="{size_t\n||}" alt="" coords="854,329,913,407"/>
+<area shape="rect" id="node34" href="../../dc/ddf/a00067.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="800,513,1009,767"/>
+<area shape="rect" id="node35" href="../../dc/ddf/a00067.html" title="{stride::util::SegmentedVector\l\&lt; stride::stride::ContactPool \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="649,888,867,1141"/>
+<area shape="rect" id="node33" href="../../df/dbb/a00698.html" title="{Chunk *\n||}" alt="" coords="1183,153,1256,230"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5426be9264b6cb5f80db11d208fc07e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a5426be9264b6cb5f80db11d208fc07e7">Workplace</a> (unsigned int id)</td></tr>
-<tr class="memdesc:a5426be9264b6cb5f80db11d208fc07e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct workplace with assigned ID.  <a href="#a5426be9264b6cb5f80db11d208fc07e7">More...</a><br /></td></tr>
-<tr class="separator:a5426be9264b6cb5f80db11d208fc07e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a323d376bc47df617d61b82f125554477"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a323d376bc47df617d61b82f125554477">Fill</a> (const <a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;geoGridConfig, const std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; &amp;geoGrid) override</td></tr>
-<tr class="memdesc:a323d376bc47df617d61b82f125554477"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="../../d2/de7/a00014.html#ac28296323455141703d4261da10ccf11" title="Create ContactPools in the GeoGrid and register them with the ContactCenter. ">ContactCenter::Fill</a>.  <a href="#a323d376bc47df617d61b82f125554477">More...</a><br /></td></tr>
-<tr class="separator:a323d376bc47df617d61b82f125554477"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a228b020bcb805b8954529e2b09d783"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d30/a00370.html#a61a32e88a50c57e6f5c49f0996b6b462">stride::ContactType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a0a228b020bcb805b8954529e2b09d783">GetContactPoolType</a> () const override</td></tr>
-<tr class="memdesc:a0a228b020bcb805b8954529e2b09d783"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="../../d2/de7/a00014.html#a71a4781db5b6787756ecd78bc19a7b39" title="Get the the type of ContactPools this ContactCenter contains. ">ContactCenter::GetContactPoolType</a>.  <a href="#a0a228b020bcb805b8954529e2b09d783">More...</a><br /></td></tr>
-<tr class="separator:a0a228b020bcb805b8954529e2b09d783"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00014"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00014')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d2/de7/a00014.html">geopop::ContactCenter</a></td></tr>
-<tr class="memitem:a4f4fba610aa00403338168b7bc167c58 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a4f4fba610aa00403338168b7bc167c58">ContactCenter</a> (unsigned int id)</td></tr>
-<tr class="memdesc:a4f4fba610aa00403338168b7bc167c58 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a> with assigned ID.  <a href="#a4f4fba610aa00403338168b7bc167c58">More...</a><br /></td></tr>
-<tr class="separator:a4f4fba610aa00403338168b7bc167c58 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f35f0196fbeb2c94d2da92022512e92 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a4f35f0196fbeb2c94d2da92022512e92">GetId</a> () const </td></tr>
-<tr class="memdesc:a4f35f0196fbeb2c94d2da92022512e92 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ID of this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a4f35f0196fbeb2c94d2da92022512e92">More...</a><br /></td></tr>
-<tr class="separator:a4f35f0196fbeb2c94d2da92022512e92 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac46dd66042a4c2b5cc1420aacc6eb67 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d1/d51/a00079.html">stride::ContactPool</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#aac46dd66042a4c2b5cc1420aacc6eb67">GetPools</a> () const </td></tr>
-<tr class="memdesc:aac46dd66042a4c2b5cc1420aacc6eb67 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ContactPools container.  <a href="#aac46dd66042a4c2b5cc1420aacc6eb67">More...</a><br /></td></tr>
-<tr class="separator:aac46dd66042a4c2b5cc1420aacc6eb67 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2329f98c5c4b167304e37ed54b599b1a inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">std::pair&lt; unsigned int, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a2329f98c5c4b167304e37ed54b599b1a">GetPopulationAndInfectedCount</a> () const </td></tr>
-<tr class="memdesc:a2329f98c5c4b167304e37ed54b599b1a inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a count of total population (first) and total number of infections (second).  <a href="#a2329f98c5c4b167304e37ed54b599b1a">More...</a><br /></td></tr>
-<tr class="separator:a2329f98c5c4b167304e37ed54b599b1a inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9de5bdce36efb88e40be7ebe21fcad11 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a9de5bdce36efb88e40be7ebe21fcad11">RegisterPool</a> (<a class="el" href="../../d1/d51/a00079.html">stride::ContactPool</a> *pool)</td></tr>
-<tr class="memdesc:a9de5bdce36efb88e40be7ebe21fcad11 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a ContactPool with this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a9de5bdce36efb88e40be7ebe21fcad11">More...</a><br /></td></tr>
-<tr class="separator:a9de5bdce36efb88e40be7ebe21fcad11 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cf008ffb539c3f3e2883031a29e5c6d inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a7cf008ffb539c3f3e2883031a29e5c6d">~ContactCenter</a> ()=default</td></tr>
-<tr class="memdesc:a7cf008ffb539c3f3e2883031a29e5c6d inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor, but virtual.  <a href="#a7cf008ffb539c3f3e2883031a29e5c6d">More...</a><br /></td></tr>
-<tr class="separator:a7cf008ffb539c3f3e2883031a29e5c6d inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf0f3695ec3ffb2649285bda07d09e6c inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#acf0f3695ec3ffb2649285bda07d09e6c">begin</a> ()</td></tr>
-<tr class="memdesc:acf0f3695ec3ffb2649285bda07d09e6c inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#acf0f3695ec3ffb2649285bda07d09e6c">More...</a><br /></td></tr>
-<tr class="separator:acf0f3695ec3ffb2649285bda07d09e6c inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a109ef4d2af0700c23f56e4a790523aa5 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a109ef4d2af0700c23f56e4a790523aa5">end</a> ()</td></tr>
-<tr class="memdesc:a109ef4d2af0700c23f56e4a790523aa5 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#a109ef4d2af0700c23f56e4a790523aa5">More...</a><br /></td></tr>
-<tr class="separator:a109ef4d2af0700c23f56e4a790523aa5 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf227b7b6aaafb46db6074c0eedba58a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#aaf227b7b6aaafb46db6074c0eedba58a">WorkplacePopulator</a> (<a class="el" href="../../da/d72/a00124.html">stride::util::RnMan</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger=<a class="el" href="../../df/dc8/a00122.html#af8edb0cd2ef9049e0347f06e73ae57c2">stride::util::LogUtils::CreateNullLogger</a>())</td></tr>
+<tr class="memdesc:aaf227b7b6aaafb46db6074c0eedba58a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aaf227b7b6aaafb46db6074c0eedba58a">More...</a><br /></td></tr>
+<tr class="separator:aaf227b7b6aaafb46db6074c0eedba58a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd418c8ba1a59137e4b4f5a07a0ef90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#adfd418c8ba1a59137e4b4f5a07a0ef90">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; geogrid, const <a class="el" href="../../d7/de0/a00022.html">GeoGridConfig</a> &amp;geoGridConfig) override</td></tr>
+<tr class="memdesc:adfd418c8ba1a59137e4b4f5a07a0ef90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates the workplaces in geogrid with persons.  <a href="#adfd418c8ba1a59137e4b4f5a07a0ef90">More...</a><br /></td></tr>
+<tr class="separator:adfd418c8ba1a59137e4b4f5a07a0ef90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00043"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00043')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d6/d42/a00043.html">geopop::Populator</a></td></tr>
+<tr class="memitem:a90939da0643eae65780f4a4dd125c411 inherit pub_methods_a00043"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a90939da0643eae65780f4a4dd125c411">Populator</a> (<a class="el" href="../../da/d72/a00124.html">stride::util::RnMan</a> &amp;rnManager, std::shared_ptr&lt; spdlog::logger &gt; logger=<a class="el" href="../../df/dc8/a00122.html#af8edb0cd2ef9049e0347f06e73ae57c2">stride::util::LogUtils::CreateNullLogger</a>())</td></tr>
+<tr class="memdesc:a90939da0643eae65780f4a4dd125c411 inherit pub_methods_a00043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with a RnMan and a logger.  <a href="#a90939da0643eae65780f4a4dd125c411">More...</a><br /></td></tr>
+<tr class="separator:a90939da0643eae65780f4a4dd125c411 inherit pub_methods_a00043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac218f00867d01c6507088582162710c9 inherit pub_methods_a00043"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#ac218f00867d01c6507088582162710c9">~Populator</a> ()=default</td></tr>
+<tr class="memdesc:ac218f00867d01c6507088582162710c9 inherit pub_methods_a00043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#ac218f00867d01c6507088582162710c9">More...</a><br /></td></tr>
+<tr class="separator:ac218f00867d01c6507088582162710c9 inherit pub_methods_a00043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11d0fe4c499f11ce98105c87f630542 inherit pub_methods_a00043"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af11d0fe4c499f11ce98105c87f630542 inherit pub_methods_a00043"><td class="memTemplItemLeft" align="right" valign="top">vector&lt; <a class="el" href="../../d1/d09/a00077.html">ContactPool</a> * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#af11d0fe4c499f11ce98105c87f630542">GetNearbyPools</a> (const shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; &amp;geoGrid, const shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Location</a> &gt; &amp;start, <a class="el" href="../../d6/db8/a00376.html">double</a> startRadius) const </td></tr>
+<tr class="separator:af11d0fe4c499f11ce98105c87f630542 inherit pub_methods_a00043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a55672b4f1e64a297acb1f8f10926d94f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a55672b4f1e64a297acb1f8f10926d94f">CalculateWorkplacesInCity</a> ()</td></tr>
+<tr class="memdesc:a55672b4f1e64a297acb1f8f10926d94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the m_workplacesInCity map.  <a href="#a55672b4f1e64a297acb1f8f10926d94f">More...</a><br /></td></tr>
+<tr class="separator:a55672b4f1e64a297acb1f8f10926d94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa8eea258395f7a4fc3b891dbebbda37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#afa8eea258395f7a4fc3b891dbebbda37">CalculateFractionCommutingStudents</a> ()</td></tr>
+<tr class="memdesc:afa8eea258395f7a4fc3b891dbebbda37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates m_fractionCommutingStudents.  <a href="#afa8eea258395f7a4fc3b891dbebbda37">More...</a><br /></td></tr>
+<tr class="separator:afa8eea258395f7a4fc3b891dbebbda37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a580d75e04f49280a54cdf8bfdff44499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a580d75e04f49280a54cdf8bfdff44499">CalculateNearbyWorkspaces</a> ()</td></tr>
+<tr class="memdesc:a580d75e04f49280a54cdf8bfdff44499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the workplaces which are nearby to m_currentLoc.  <a href="#a580d75e04f49280a54cdf8bfdff44499">More...</a><br /></td></tr>
+<tr class="separator:a580d75e04f49280a54cdf8bfdff44499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b58a77a194316f6e9d192daa3cede9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a61b58a77a194316f6e9d192daa3cede9">CalculateCommutingLocations</a> ()</td></tr>
+<tr class="memdesc:a61b58a77a194316f6e9d192daa3cede9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the workplaces to which persons from m_currentLoc may commute to.  <a href="#a61b58a77a194316f6e9d192daa3cede9">More...</a><br /></td></tr>
+<tr class="separator:a61b58a77a194316f6e9d192daa3cede9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a230e7343ac24afda7bb007f8e820da5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a230e7343ac24afda7bb007f8e820da5a">AssignActive</a> (<a class="el" href="../../d4/d3a/a00101.html">stride::Person</a> *person)</td></tr>
+<tr class="memdesc:a230e7343ac24afda7bb007f8e820da5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign a workplace to an active person.  <a href="#a230e7343ac24afda7bb007f8e820da5a">More...</a><br /></td></tr>
+<tr class="separator:a230e7343ac24afda7bb007f8e820da5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a794e0736828ae962010ea14df7d99d61"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a794e0736828ae962010ea14df7d99d61">m_assignedTo0</a> = 0</td></tr>
+<tr class="memdesc:a794e0736828ae962010ea14df7d99d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of persons assigned to no workplace.  <a href="#a794e0736828ae962010ea14df7d99d61">More...</a><br /></td></tr>
+<tr class="separator:a794e0736828ae962010ea14df7d99d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68128f4bac05fff8448ceeb2ea5fe2cd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a68128f4bac05fff8448ceeb2ea5fe2cd">m_assignedCommuting</a> = 0</td></tr>
+<tr class="memdesc:a68128f4bac05fff8448ceeb2ea5fe2cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of persons assigned to workplace outside home location.  <a href="#a68128f4bac05fff8448ceeb2ea5fe2cd">More...</a><br /></td></tr>
+<tr class="separator:a68128f4bac05fff8448ceeb2ea5fe2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a220d8c6fb44e994df1683b62cf339340"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a220d8c6fb44e994df1683b62cf339340">m_assignedNotCommuting</a> = 0</td></tr>
+<tr class="memdesc:a220d8c6fb44e994df1683b62cf339340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Amount of persons assigned to workplace at the home location.  <a href="#a220d8c6fb44e994df1683b62cf339340">More...</a><br /></td></tr>
+<tr class="separator:a220d8c6fb44e994df1683b62cf339340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740ffd1cd149e685ec21052a685ce591"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Location</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a740ffd1cd149e685ec21052a685ce591">m_currentLoc</a></td></tr>
+<tr class="memdesc:a740ffd1cd149e685ec21052a685ce591"><td class="mdescLeft">&#160;</td><td class="mdescRight">The location for which the workers currently are being assigned.  <a href="#a740ffd1cd149e685ec21052a685ce591">More...</a><br /></td></tr>
+<tr class="separator:a740ffd1cd149e685ec21052a685ce591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a306607e4da3fbba6bb8702851e99fd1d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a306607e4da3fbba6bb8702851e99fd1d">m_geoGrid</a></td></tr>
+<tr class="memdesc:a306607e4da3fbba6bb8702851e99fd1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> which will be populated.  <a href="#a306607e4da3fbba6bb8702851e99fd1d">More...</a><br /></td></tr>
+<tr class="separator:a306607e4da3fbba6bb8702851e99fd1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ca46ceba7c225289f134890d51137d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/de0/a00022.html">GeoGridConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a07ca46ceba7c225289f134890d51137d">m_geoGridConfig</a></td></tr>
+<tr class="memdesc:a07ca46ceba7c225289f134890d51137d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d7/de0/a00022.html" title="Configuration data mostly for generating a population, but also for computing the required number of ...">GeoGridConfig</a> used during populating.  <a href="#a07ca46ceba7c225289f134890d51137d">More...</a><br /></td></tr>
+<tr class="separator:a07ca46ceba7c225289f134890d51137d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a973bd97201bc107de8795916b3eacbad"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="../../dd/d32/a00041.html">Location</a> *, std::pair&lt; std::vector&lt; <a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> * &gt;, std::function&lt; int()&gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a973bd97201bc107de8795916b3eacbad">m_workplacesInCity</a></td></tr>
+<tr class="memdesc:a973bd97201bc107de8795916b3eacbad"><td class="mdescLeft">&#160;</td><td class="mdescRight">For each location store workplaces and a distribution fot random selection.  <a href="#a973bd97201bc107de8795916b3eacbad">More...</a><br /></td></tr>
+<tr class="separator:a973bd97201bc107de8795916b3eacbad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa72ef990cba381ee5247fc14bf603b49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db8/a00376.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#aa72ef990cba381ee5247fc14bf603b49">m_fractionCommutingStudents</a></td></tr>
+<tr class="memdesc:aa72ef990cba381ee5247fc14bf603b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of the commuting people who are a student.  <a href="#aa72ef990cba381ee5247fc14bf603b49">More...</a><br /></td></tr>
+<tr class="separator:aa72ef990cba381ee5247fc14bf603b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bd622c717ebd42cc4275cf9a8e61826"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a4bd622c717ebd42cc4275cf9a8e61826">m_nearByWorkplaces</a></td></tr>
+<tr class="memdesc:a4bd622c717ebd42cc4275cf9a8e61826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Workplaces which are nearby to the m_currentLoc.  <a href="#a4bd622c717ebd42cc4275cf9a8e61826">More...</a><br /></td></tr>
+<tr class="separator:a4bd622c717ebd42cc4275cf9a8e61826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56a50e31df10a5214b4bf3c0c4c0ad58"><td class="memItemLeft" align="right" valign="top">std::function&lt; int()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a56a50e31df10a5214b4bf3c0c4c0ad58">m_distNonCommuting</a></td></tr>
+<tr class="memdesc:a56a50e31df10a5214b4bf3c0c4c0ad58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribution to choose from m_nearByWorkPlaces.  <a href="#a56a50e31df10a5214b4bf3c0c4c0ad58">More...</a><br /></td></tr>
+<tr class="separator:a56a50e31df10a5214b4bf3c0c4c0ad58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07153983faa4bd34677ef57bd4f31095"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../dd/d32/a00041.html">Location</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a07153983faa4bd34677ef57bd4f31095">m_commutingLocations</a></td></tr>
+<tr class="memdesc:a07153983faa4bd34677ef57bd4f31095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Workplaces which persons from m_currentLoc may commute to.  <a href="#a07153983faa4bd34677ef57bd4f31095">More...</a><br /></td></tr>
+<tr class="separator:a07153983faa4bd34677ef57bd4f31095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cadc82ba9f5b8d9f730e90721cce566"><td class="memItemLeft" align="right" valign="top">std::function&lt; int()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d6d/a00055.html#a2cadc82ba9f5b8d9f730e90721cce566">m_disCommuting</a></td></tr>
+<tr class="memdesc:a2cadc82ba9f5b8d9f730e90721cce566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribution to choose from m_commutingLocations.  <a href="#a2cadc82ba9f5b8d9f730e90721cce566">More...</a><br /></td></tr>
+<tr class="separator:a2cadc82ba9f5b8d9f730e90721cce566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_a00014"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00014')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../d2/de7/a00014.html">geopop::ContactCenter</a></td></tr>
-<tr class="memitem:ae22234bfc0e33988ca8c55a51b7a426e inherit pub_types_a00014"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a> = std::vector&lt; <a class="el" href="../../d1/d51/a00079.html">stride::ContactPool</a> * &gt;::<a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a></td></tr>
-<tr class="memdesc:ae22234bfc0e33988ca8c55a51b7a426e inherit pub_types_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#ae22234bfc0e33988ca8c55a51b7a426e">More...</a><br /></td></tr>
-<tr class="separator:ae22234bfc0e33988ca8c55a51b7a426e inherit pub_types_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00014"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00014')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d2/de7/a00014.html">geopop::ContactCenter</a></td></tr>
-<tr class="memitem:ac3162fe2d7042ff5635cdc098e5f238f inherit pro_attribs_a00014"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d1/d51/a00079.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#ac3162fe2d7042ff5635cdc098e5f238f">m_pools</a></td></tr>
-<tr class="memdesc:ac3162fe2d7042ff5635cdc098e5f238f inherit pro_attribs_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">ConatctPools for this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#ac3162fe2d7042ff5635cdc098e5f238f">More...</a><br /></td></tr>
-<tr class="separator:ac3162fe2d7042ff5635cdc098e5f238f inherit pro_attribs_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a178a4ea945deecc31ad9d1d032f5adb8 inherit pro_attribs_a00014"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a178a4ea945deecc31ad9d1d032f5adb8">m_id</a></td></tr>
-<tr class="memdesc:a178a4ea945deecc31ad9d1d032f5adb8 inherit pro_attribs_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Id of this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a178a4ea945deecc31ad9d1d032f5adb8">More...</a><br /></td></tr>
-<tr class="separator:a178a4ea945deecc31ad9d1d032f5adb8 inherit pro_attribs_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_a00043"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00043')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d6/d42/a00043.html">geopop::Populator</a></td></tr>
+<tr class="memitem:aa158f7f4db11b789113df3c9452b4642 inherit pro_methods_a00043"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa158f7f4db11b789113df3c9452b4642 inherit pro_methods_a00043"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aa158f7f4db11b789113df3c9452b4642">GetNearbyPools</a> (const std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; &amp;geoGrid, const std::shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Location</a> &gt; &amp;start, <a class="el" href="../../d6/db8/a00376.html">double</a> startRadius=10.0) const </td></tr>
+<tr class="memdesc:aa158f7f4db11b789113df3c9452b4642 inherit pro_methods_a00043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find contactpools in startRadius (in km) around start and, if none are found, double the radius and search again until the radius gets infinite.  <a href="#aa158f7f4db11b789113df3c9452b4642">More...</a><br /></td></tr>
+<tr class="separator:aa158f7f4db11b789113df3c9452b4642 inherit pro_methods_a00043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7b9250da3bb9be0c877028a56bf5b2a inherit pro_methods_a00043"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#af7b9250da3bb9be0c877028a56bf5b2a">MakeChoice</a> (<a class="el" href="../../d6/db8/a00376.html">double</a> fraction)</td></tr>
+<tr class="memdesc:af7b9250da3bb9be0c877028a56bf5b2a inherit pro_methods_a00043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience wrapper around m_rnManager.  <a href="#af7b9250da3bb9be0c877028a56bf5b2a">More...</a><br /></td></tr>
+<tr class="separator:af7b9250da3bb9be0c877028a56bf5b2a inherit pro_methods_a00043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00043"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00043')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d6/d42/a00043.html">geopop::Populator</a></td></tr>
+<tr class="memitem:aea1433eb78a263d44fe81683ff65987e inherit pro_attribs_a00043"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d72/a00124.html">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aea1433eb78a263d44fe81683ff65987e">m_rn_man</a></td></tr>
+<tr class="memdesc:aea1433eb78a263d44fe81683ff65987e inherit pro_attribs_a00043"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by populators.  <a href="#aea1433eb78a263d44fe81683ff65987e">More...</a><br /></td></tr>
+<tr class="separator:aea1433eb78a263d44fe81683ff65987e inherit pro_attribs_a00043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeecc8afde4f92991f8140a1f3145aeda inherit pro_attribs_a00043"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#aeecc8afde4f92991f8140a1f3145aeda">m_logger</a></td></tr>
+<tr class="memdesc:aeecc8afde4f92991f8140a1f3145aeda inherit pro_attribs_a00043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by populators.  <a href="#aeecc8afde4f92991f8140a1f3145aeda">More...</a><br /></td></tr>
+<tr class="separator:aeecc8afde4f92991f8140a1f3145aeda inherit pro_attribs_a00043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Models a <a class="el" href="../../d4/d6d/a00055.html" title="Models a Workplace as ContactCenter. ">Workplace</a> as <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>. </p>
+<div class="textblock"><p>Populate the workplaces. </p>
 
-<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00027">27</a> of file <a class="el" href="../../d2/d45/a00342_source.html">Workplace.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00030">30</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5426be9264b6cb5f80db11d208fc07e7"></a>
+<a class="anchor" id="aaf227b7b6aaafb46db6074c0eedba58a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -200,57 +257,55 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">geopop::Workplace::Workplace </td>
+          <td class="memname">geopop::WorkplacePopulator::WorkplacePopulator </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Construct workplace with assigned ID. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00031">31</a> of file <a class="el" href="../../d2/d45/a00342_source.html">Workplace.h</a>.</p>
-
-<p>References <a class="el" href="../../d3/d93/a00341_source.html#l00023">Fill()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d6d/a00055_a5426be9264b6cb5f80db11d208fc07e7_cgraph.gif" border="0" usemap="#d4/d6d/a00055_a5426be9264b6cb5f80db11d208fc07e7_cgraph" alt=""/></div>
-<map name="d4/d6d/a00055_a5426be9264b6cb5f80db11d208fc07e7_cgraph" id="d4/d6d/a00055_a5426be9264b6cb5f80db11d208fc07e7_cgraph">
-<area shape="rect" id="node2" href="../../d4/d6d/a00055.html#a323d376bc47df617d61b82f125554477" title="See ContactCenter::Fill. " alt="" coords="204,13,369,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a323d376bc47df617d61b82f125554477"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void geopop::Workplace::Fill </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>, </td>
+          <td class="paramtype"><a class="el" href="../../da/d72/a00124.html">stride::util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rn_manager</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>geoGrid</em>&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em> = <code><a class="el" href="../../df/dc8/a00122.html#af8edb0cd2ef9049e0347f06e73ae57c2">stride::util::LogUtils::CreateNullLogger</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+
+<p>Definition at line <a class="el" href="../../d3/d93/a00341_source.html#l00036">36</a> of file <a class="el" href="../../d3/d93/a00341_source.html">WorkplacePopulator.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="adfd418c8ba1a59137e4b4f5a07a0ef90"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::WorkplacePopulator::Apply </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geogrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d7/de0/a00022.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -265,29 +320,35 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>See <a class="el" href="../../d2/de7/a00014.html#ac28296323455141703d4261da10ccf11" title="Create ContactPools in the GeoGrid and register them with the ContactCenter. ">ContactCenter::Fill</a>. </p>
+<p>Populates the workplaces in geogrid with persons. </p>
 
-<p>Implements <a class="el" href="../../d2/de7/a00014.html#ac28296323455141703d4261da10ccf11">geopop::ContactCenter</a>.</p>
+<p>Implements <a class="el" href="../../d6/d42/a00043.html#a610f98a965082b004627550d082237c2">geopop::Populator</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d3/d93/a00341_source.html#l00023">23</a> of file <a class="el" href="../../d3/d93/a00341_source.html">Workplace.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d93/a00341_source.html#l00043">43</a> of file <a class="el" href="../../d3/d93/a00341_source.html">WorkplacePopulator.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d3/d30/a00370.html#a61a32e88a50c57e6f5c49f0996b6b462a45c6a290fcb4fad167ee4b610eeea878">stride::ContactType::Workplace</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d45/a00342_source.html#l00031">Workplace()</a>.</p>
+<p>References <a class="el" href="../../d3/d93/a00341_source.html#l00122">AssignActive()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00141">CalculateCommutingLocations()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00097">CalculateFractionCommutingStudents()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00164">CalculateNearbyWorkspaces()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00108">CalculateWorkplacesInCity()</a>, <a class="el" href="../../d7/de0/a00022.html#ae6b25524fbb9a5d3406e0cb37b2cc18f">geopop::GeoGridConfig::input</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00058">m_assignedCommuting</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00059">m_assignedNotCommuting</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00057">m_assignedTo0</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00073">m_commutingLocations</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00061">m_currentLoc</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00074">m_disCommuting</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00071">m_distNonCommuting</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00068">m_fractionCommutingStudents</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00062">m_geoGrid</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00063">m_geoGridConfig</a>, <a class="el" href="../../db/dc3/a00284_source.html#l00070">geopop::Populator::m_logger</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00070">m_nearByWorkplaces</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00066">m_workplacesInCity</a>, <a class="el" href="../../dd/dfe/a00283_source.html#l00040">geopop::Populator::MakeChoice()</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00050">geopop::GeoGridConfig::participation_college</a>, and <a class="el" href="../../d5/df1/a00206_source.html#l00054">geopop::GeoGridConfig::particpation_workplace</a>.</p>
 
 <p><div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d6d/a00055_a323d376bc47df617d61b82f125554477_icgraph.gif" border="0" usemap="#d4/d6d/a00055_a323d376bc47df617d61b82f125554477_icgraph" alt=""/></div>
-<map name="d4/d6d/a00055_a323d376bc47df617d61b82f125554477_icgraph" id="d4/d6d/a00055_a323d376bc47df617d61b82f125554477_icgraph">
-<area shape="rect" id="node2" href="../../d4/d6d/a00055.html#a5426be9264b6cb5f80db11d208fc07e7" title="Construct workplace with assigned ID. " alt="" coords="219,5,369,47"/>
+<div class="center"><img src="../../d4/d6d/a00055_adfd418c8ba1a59137e4b4f5a07a0ef90_cgraph.gif" border="0" usemap="#d4/d6d/a00055_adfd418c8ba1a59137e4b4f5a07a0ef90_cgraph" alt=""/></div>
+<map name="d4/d6d/a00055_adfd418c8ba1a59137e4b4f5a07a0ef90_cgraph" id="d4/d6d/a00055_adfd418c8ba1a59137e4b4f5a07a0ef90_cgraph">
+<area shape="rect" id="node2" href="../../d4/d6d/a00055.html#a230e7343ac24afda7bb007f8e820da5a" title="Assign a workplace to an active person. " alt="" coords="291,64,493,105"/>
+<area shape="rect" id="node3" href="../../d6/d42/a00043.html#af7b9250da3bb9be0c877028a56bf5b2a" title="Convenience wrapper around m_rnManager. " alt="" coords="615,5,762,47"/>
+<area shape="rect" id="node6" href="../../d4/d6d/a00055.html#a61b58a77a194316f6e9d192daa3cede9" title="Calculates the workplaces to which persons from m_currentLoc may commute to. " alt="" coords="576,123,801,164"/>
+<area shape="rect" id="node7" href="../../d4/d6d/a00055.html#afa8eea258395f7a4fc3b891dbebbda37" title="Calculates m_fractionCommutingStudents. " alt="" coords="256,181,528,223"/>
+<area shape="rect" id="node8" href="../../d4/d6d/a00055.html#a580d75e04f49280a54cdf8bfdff44499" title="Calculates the workplaces which are nearby to m_currentLoc. " alt="" coords="287,247,497,288"/>
+<area shape="rect" id="node10" href="../../d4/d6d/a00055.html#a55672b4f1e64a297acb1f8f10926d94f" title="Fills the m_workplacesInCity map. " alt="" coords="291,312,493,353"/>
+<area shape="rect" id="node5" href="../../d4/d3a/a00101.html#ab090a5df335e9592c4dec3738ba9f43a" title="Sets (for the type of ContactPool) the Id of the ContactPool the person belongs to. " alt="" coords="599,71,778,98"/>
+<area shape="rect" id="node4" href="../../da/d72/a00124.html#a8d63b51ba6bc37656dae43c5de244ae8" title="Return generator for ints [0, n&#45;1[ with non&#45;negative weights p_j (i=0,..,n&#45;1) using i&#45;th random strea..." alt="" coords="849,64,1020,105"/>
+<area shape="rect" id="node9" href="../../da/d72/a00124.html#a1afc757c92ddad702ce35677297ed15f" title="Return a generator for uniform ints in [a, b[ (a &lt; b) using i&#45;th random stream. " alt="" coords="596,279,781,320"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a0a228b020bcb805b8954529e2b09d783"></a>
+<a class="anchor" id="a55672b4f1e64a297acb1f8f10926d94f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -295,40 +356,570 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d30/a00370.html#a61a32e88a50c57e6f5c49f0996b6b462">stride::ContactType::Id</a> geopop::Workplace::GetContactPoolType </td>
+          <td class="memname">void geopop::WorkplacePopulator::CalculateWorkplacesInCity </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>See <a class="el" href="../../d2/de7/a00014.html#a71a4781db5b6787756ecd78bc19a7b39" title="Get the the type of ContactPools this ContactCenter contains. ">ContactCenter::GetContactPoolType</a>. </p>
+<p>Fills the m_workplacesInCity map. </p>
 
-<p>Implements <a class="el" href="../../d2/de7/a00014.html#a71a4781db5b6787756ecd78bc19a7b39">geopop::ContactCenter</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d93/a00341_source.html#l00108">108</a> of file <a class="el" href="../../d3/d93/a00341_source.html">WorkplacePopulator.cpp</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00037">37</a> of file <a class="el" href="../../d2/d45/a00342_source.html">Workplace.h</a>.</p>
+<p>References <a class="el" href="../../d3/d4a/a00297_source.html#l00073">stride::util::RnMan::GetUniformIntGenerator()</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00062">m_geoGrid</a>, <a class="el" href="../../db/dc3/a00284_source.html#l00069">geopop::Populator::m_rn_man</a>, and <a class="el" href="../../d2/d45/a00342_source.html#l00066">m_workplacesInCity</a>.</p>
 
-<p>References <a class="el" href="../../d3/d30/a00370.html#a61a32e88a50c57e6f5c49f0996b6b462a45c6a290fcb4fad167ee4b610eeea878">stride::ContactType::Workplace</a>.</p>
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d6d/a00055_a55672b4f1e64a297acb1f8f10926d94f_cgraph.gif" border="0" usemap="#d4/d6d/a00055_a55672b4f1e64a297acb1f8f10926d94f_cgraph" alt=""/></div>
+<map name="d4/d6d/a00055_a55672b4f1e64a297acb1f8f10926d94f_cgraph" id="d4/d6d/a00055_a55672b4f1e64a297acb1f8f10926d94f_cgraph">
+<area shape="rect" id="node2" href="../../da/d72/a00124.html#a1afc757c92ddad702ce35677297ed15f" title="Return a generator for uniform ints in [a, b[ (a &lt; b) using i&#45;th random stream. " alt="" coords="256,5,441,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d6d/a00055_a55672b4f1e64a297acb1f8f10926d94f_icgraph.gif" border="0" usemap="#d4/d6d/a00055_a55672b4f1e64a297acb1f8f10926d94f_icgraph" alt=""/></div>
+<map name="d4/d6d/a00055_a55672b4f1e64a297acb1f8f10926d94f_icgraph" id="d4/d6d/a00055_a55672b4f1e64a297acb1f8f10926d94f_icgraph">
+<area shape="rect" id="node2" href="../../d4/d6d/a00055.html#adfd418c8ba1a59137e4b4f5a07a0ef90" title="Populates the workplaces in geogrid with persons. " alt="" coords="256,5,459,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afa8eea258395f7a4fc3b891dbebbda37"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::WorkplacePopulator::CalculateFractionCommutingStudents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates m_fractionCommutingStudents. </p>
+
+<p>Definition at line <a class="el" href="../../d3/d93/a00341_source.html#l00097">97</a> of file <a class="el" href="../../d3/d93/a00341_source.html">WorkplacePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d5/df1/a00206_source.html#l00057">geopop::GeoGridConfig::fraction_college_commuters</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00060">geopop::GeoGridConfig::fraction_workplace_commuters</a>, <a class="el" href="../../d7/de0/a00022.html#ae6b25524fbb9a5d3406e0cb37b2cc18f">geopop::GeoGridConfig::input</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00068">m_fractionCommutingStudents</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00063">m_geoGridConfig</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00093">geopop::GeoGridConfig::popcount_college</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00096">geopop::GeoGridConfig::popcount_workplace</a>, and <a class="el" href="../../d7/de0/a00022.html#aa7ab12667956a7a9f263bb8be8f07155">geopop::GeoGridConfig::popInfo</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d6d/a00055_afa8eea258395f7a4fc3b891dbebbda37_icgraph.gif" border="0" usemap="#d4/d6d/a00055_afa8eea258395f7a4fc3b891dbebbda37_icgraph" alt=""/></div>
+<map name="d4/d6d/a00055_afa8eea258395f7a4fc3b891dbebbda37_icgraph" id="d4/d6d/a00055_afa8eea258395f7a4fc3b891dbebbda37_icgraph">
+<area shape="rect" id="node2" href="../../d4/d6d/a00055.html#adfd418c8ba1a59137e4b4f5a07a0ef90" title="Populates the workplaces in geogrid with persons. " alt="" coords="325,5,528,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a580d75e04f49280a54cdf8bfdff44499"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::WorkplacePopulator::CalculateNearbyWorkspaces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the workplaces which are nearby to m_currentLoc. </p>
+
+<p>Definition at line <a class="el" href="../../d3/d93/a00341_source.html#l00164">164</a> of file <a class="el" href="../../d3/d93/a00341_source.html">WorkplacePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/d4a/a00297_source.html#l00073">stride::util::RnMan::GetUniformIntGenerator()</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00061">m_currentLoc</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00071">m_distNonCommuting</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00062">m_geoGrid</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00070">m_nearByWorkplaces</a>, and <a class="el" href="../../db/dc3/a00284_source.html#l00069">geopop::Populator::m_rn_man</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d6d/a00055_a580d75e04f49280a54cdf8bfdff44499_cgraph.gif" border="0" usemap="#d4/d6d/a00055_a580d75e04f49280a54cdf8bfdff44499_cgraph" alt=""/></div>
+<map name="d4/d6d/a00055_a580d75e04f49280a54cdf8bfdff44499_cgraph" id="d4/d6d/a00055_a580d75e04f49280a54cdf8bfdff44499_cgraph">
+<area shape="rect" id="node2" href="../../da/d72/a00124.html#a1afc757c92ddad702ce35677297ed15f" title="Return a generator for uniform ints in [a, b[ (a &lt; b) using i&#45;th random stream. " alt="" coords="264,5,449,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d6d/a00055_a580d75e04f49280a54cdf8bfdff44499_icgraph.gif" border="0" usemap="#d4/d6d/a00055_a580d75e04f49280a54cdf8bfdff44499_icgraph" alt=""/></div>
+<map name="d4/d6d/a00055_a580d75e04f49280a54cdf8bfdff44499_icgraph" id="d4/d6d/a00055_a580d75e04f49280a54cdf8bfdff44499_icgraph">
+<area shape="rect" id="node2" href="../../d4/d6d/a00055.html#adfd418c8ba1a59137e4b4f5a07a0ef90" title="Populates the workplaces in geogrid with persons. " alt="" coords="264,5,467,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a61b58a77a194316f6e9d192daa3cede9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::WorkplacePopulator::CalculateCommutingLocations </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the workplaces to which persons from m_currentLoc may commute to. </p>
+
+<p>Definition at line <a class="el" href="../../d3/d93/a00341_source.html#l00141">141</a> of file <a class="el" href="../../d3/d93/a00341_source.html">WorkplacePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/db6/a00146_source.html#l00068">AssertThrow</a>, <a class="el" href="../../d3/d4a/a00297_source.html#l00078">stride::util::RnMan::GetDiscreteGenerator()</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00073">m_commutingLocations</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00061">m_currentLoc</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00074">m_disCommuting</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00068">m_fractionCommutingStudents</a>, <a class="el" href="../../db/dc3/a00284_source.html#l00070">geopop::Populator::m_logger</a>, and <a class="el" href="../../db/dc3/a00284_source.html#l00069">geopop::Populator::m_rn_man</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d6d/a00055_a61b58a77a194316f6e9d192daa3cede9_cgraph.gif" border="0" usemap="#d4/d6d/a00055_a61b58a77a194316f6e9d192daa3cede9_cgraph" alt=""/></div>
+<map name="d4/d6d/a00055_a61b58a77a194316f6e9d192daa3cede9_cgraph" id="d4/d6d/a00055_a61b58a77a194316f6e9d192daa3cede9_cgraph">
+<area shape="rect" id="node2" href="../../da/d72/a00124.html#a8d63b51ba6bc37656dae43c5de244ae8" title="Return generator for ints [0, n&#45;1[ with non&#45;negative weights p_j (i=0,..,n&#45;1) using i&#45;th random strea..." alt="" coords="279,5,449,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d6d/a00055_a61b58a77a194316f6e9d192daa3cede9_icgraph.gif" border="0" usemap="#d4/d6d/a00055_a61b58a77a194316f6e9d192daa3cede9_icgraph" alt=""/></div>
+<map name="d4/d6d/a00055_a61b58a77a194316f6e9d192daa3cede9_icgraph" id="d4/d6d/a00055_a61b58a77a194316f6e9d192daa3cede9_icgraph">
+<area shape="rect" id="node2" href="../../d4/d6d/a00055.html#adfd418c8ba1a59137e4b4f5a07a0ef90" title="Populates the workplaces in geogrid with persons. " alt="" coords="279,5,481,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a230e7343ac24afda7bb007f8e820da5a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::WorkplacePopulator::AssignActive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/a00101.html">stride::Person</a> *&#160;</td>
+          <td class="paramname"><em>person</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assign a workplace to an active person. </p>
+
+<p>Definition at line <a class="el" href="../../d3/d93/a00341_source.html#l00122">122</a> of file <a class="el" href="../../d3/d93/a00341_source.html">WorkplacePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d5/df1/a00206_source.html#l00060">geopop::GeoGridConfig::fraction_workplace_commuters</a>, <a class="el" href="../../d7/de0/a00022.html#ae6b25524fbb9a5d3406e0cb37b2cc18f">geopop::GeoGridConfig::input</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00058">m_assignedCommuting</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00059">m_assignedNotCommuting</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00073">m_commutingLocations</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00074">m_disCommuting</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00071">m_distNonCommuting</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00063">m_geoGridConfig</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00070">m_nearByWorkplaces</a>, <a class="el" href="../../d2/d45/a00342_source.html#l00066">m_workplacesInCity</a>, <a class="el" href="../../dd/dfe/a00283_source.html#l00040">geopop::Populator::MakeChoice()</a>, and <a class="el" href="../../dc/d28/a00276_source.html#l00086">stride::Person::SetPoolId()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d6d/a00055_a230e7343ac24afda7bb007f8e820da5a_cgraph.gif" border="0" usemap="#d4/d6d/a00055_a230e7343ac24afda7bb007f8e820da5a_cgraph" alt=""/></div>
+<map name="d4/d6d/a00055_a230e7343ac24afda7bb007f8e820da5a_cgraph" id="d4/d6d/a00055_a230e7343ac24afda7bb007f8e820da5a_cgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#af7b9250da3bb9be0c877028a56bf5b2a" title="Convenience wrapper around m_rnManager. " alt="" coords="272,5,419,47"/>
+<area shape="rect" id="node4" href="../../d4/d3a/a00101.html#ab090a5df335e9592c4dec3738ba9f43a" title="Sets (for the type of ContactPool) the Id of the ContactPool the person belongs to. " alt="" coords="256,71,435,98"/>
+<area shape="rect" id="node3" href="../../da/d72/a00124.html#a8d63b51ba6bc37656dae43c5de244ae8" title="Return generator for ints [0, n&#45;1[ with non&#45;negative weights p_j (i=0,..,n&#45;1) using i&#45;th random strea..." alt="" coords="483,5,653,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d6d/a00055_a230e7343ac24afda7bb007f8e820da5a_icgraph.gif" border="0" usemap="#d4/d6d/a00055_a230e7343ac24afda7bb007f8e820da5a_icgraph" alt=""/></div>
+<map name="d4/d6d/a00055_a230e7343ac24afda7bb007f8e820da5a_icgraph" id="d4/d6d/a00055_a230e7343ac24afda7bb007f8e820da5a_icgraph">
+<area shape="rect" id="node2" href="../../d4/d6d/a00055.html#adfd418c8ba1a59137e4b4f5a07a0ef90" title="Populates the workplaces in geogrid with persons. " alt="" coords="256,5,459,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a794e0736828ae962010ea14df7d99d61"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int geopop::WorkplacePopulator::m_assignedTo0 = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of persons assigned to no workplace. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00057">57</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a68128f4bac05fff8448ceeb2ea5fe2cd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int geopop::WorkplacePopulator::m_assignedCommuting = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of persons assigned to workplace outside home location. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00058">58</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00122">AssignActive()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a220d8c6fb44e994df1683b62cf339340"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int geopop::WorkplacePopulator::m_assignedNotCommuting = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Amount of persons assigned to workplace at the home location. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00059">59</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00122">AssignActive()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a740ffd1cd149e685ec21052a685ce591"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../dd/d32/a00041.html">Location</a>&gt; geopop::WorkplacePopulator::m_currentLoc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The location for which the workers currently are being assigned. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00061">61</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00141">CalculateCommutingLocations()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00164">CalculateNearbyWorkspaces()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a306607e4da3fbba6bb8702851e99fd1d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../dd/da2/a00019.html">GeoGrid</a>&gt; geopop::WorkplacePopulator::m_geoGrid</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> which will be populated. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00062">62</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00164">CalculateNearbyWorkspaces()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00108">CalculateWorkplacesInCity()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a07ca46ceba7c225289f134890d51137d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/de0/a00022.html">GeoGridConfig</a> geopop::WorkplacePopulator::m_geoGridConfig</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="../../d7/de0/a00022.html" title="Configuration data mostly for generating a population, but also for computing the required number of ...">GeoGridConfig</a> used during populating. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00063">63</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00122">AssignActive()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00097">CalculateFractionCommutingStudents()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a973bd97201bc107de8795916b3eacbad"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="../../dd/d32/a00041.html">Location</a>*, std::pair&lt;std::vector&lt;<a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a>*&gt;, std::function&lt;int()&gt; &gt; &gt; geopop::WorkplacePopulator::m_workplacesInCity</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>For each location store workplaces and a distribution fot random selection. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00066">66</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00122">AssignActive()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00108">CalculateWorkplacesInCity()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa72ef990cba381ee5247fc14bf603b49"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/db8/a00376.html">double</a> geopop::WorkplacePopulator::m_fractionCommutingStudents</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fraction of the commuting people who are a student. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00068">68</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00141">CalculateCommutingLocations()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00097">CalculateFractionCommutingStudents()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bd622c717ebd42cc4275cf9a8e61826"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a>*&gt; geopop::WorkplacePopulator::m_nearByWorkplaces</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Workplaces which are nearby to the m_currentLoc. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00070">70</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00122">AssignActive()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00164">CalculateNearbyWorkspaces()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a56a50e31df10a5214b4bf3c0c4c0ad58"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;int()&gt; geopop::WorkplacePopulator::m_distNonCommuting</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Distribution to choose from m_nearByWorkPlaces. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00071">71</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00122">AssignActive()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00164">CalculateNearbyWorkspaces()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a07153983faa4bd34677ef57bd4f31095"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../dd/d32/a00041.html">Location</a>*&gt; geopop::WorkplacePopulator::m_commutingLocations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Workplaces which persons from m_currentLoc may commute to. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00073">73</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00122">AssignActive()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00141">CalculateCommutingLocations()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2cadc82ba9f5b8d9f730e90721cce566"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;int()&gt; geopop::WorkplacePopulator::m_disCommuting</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Distribution to choose from m_commutingLocations. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00074">74</a> of file <a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d93/a00341_source.html#l00043">Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00122">AssignActive()</a>, and <a class="el" href="../../d3/d93/a00341_source.html#l00141">CalculateCommutingLocations()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d2/d45/a00342_source.html">Workplace.h</a></li>
-<li><a class="el" href="../../d3/d93/a00341_source.html">Workplace.cpp</a></li>
+<li><a class="el" href="../../d2/d45/a00342_source.html">WorkplacePopulator.h</a></li>
+<li><a class="el" href="../../d3/d93/a00341_source.html">WorkplacePopulator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/de1/a00356.html">geopop</a></li><li class="navelem"><a class="el" href="../../d4/d6d/a00055.html">Workplace</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></li><li class="navelem"><a class="el" href="../../d4/d6d/a00055.html">WorkplacePopulator</a></li>
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

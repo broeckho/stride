@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::GeoGridWriter Class Reference</title>
+<title>Stride Reference Manual: geopop::Household Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3e6ef12</span>
+   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
    </div>
   </td>
  </tr>
@@ -108,49 +108,91 @@ $(document).ready(function(){initNavTree('df/d61/a00031.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d7/d0a/a00801.html">List of all members</a>  </div>
+<a href="../../d4/dd7/a00793.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::GeoGridWriter Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">geopop::Household Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>An interface for writing the <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to a file, can be implemented with multiple file types.  
+<p>Models a <a class="el" href="../../df/d61/a00031.html" title="Models a Household as ContactCenter. ">Household</a> as <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  
  <a href="../../df/d61/a00031.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d98/a00225_source.html">GeoGridWriter.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../df/d17/a00231_source.html">Household.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for geopop::GeoGridWriter:</div>
+Inheritance diagram for geopop::Household:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/dcd/a00802.gif" border="0" usemap="#geopop_1_1GeoGridWriter_inherit__map" alt="Inheritance graph"/></div>
-<map name="geopop_1_1GeoGridWriter_inherit__map" id="geopop_1_1GeoGridWriter_inherit__map">
-<area shape="rect" id="node2" href="../../d6/d5b/a00026.html" title="Writes a GeoGrid to a JSON file. " alt="" coords="5,145,204,311"/>
-<area shape="rect" id="node3" href="../../dc/d3c/a00028.html" title="An implementation of the GeoGridWriter using Protocol Buffers This class is used to write a GeoGrid t..." alt="" coords="227,145,427,311"/>
+<div class="center"><img src="../../d5/d12/a00794.gif" border="0" usemap="#geopop_1_1Household_inherit__map" alt="Inheritance graph"/></div>
+<map name="geopop_1_1Household_inherit__map" id="geopop_1_1Household_inherit__map">
+<area shape="rect" id="node2" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="5,5,208,244"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for geopop::GeoGridWriter:</div>
+Collaboration diagram for geopop::Household:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d72/a00803.gif" border="0" usemap="#geopop_1_1GeoGridWriter_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1GeoGridWriter_coll__map" id="geopop_1_1GeoGridWriter_coll__map">
+<div class="center"><img src="../../dd/d7a/a00795.gif" border="0" usemap="#geopop_1_1Household_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1Household_coll__map" id="geopop_1_1Household_coll__map">
+<area shape="rect" id="node2" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="125,455,327,679"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="140,145,267,223"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac39b3553fa52b22d47cd5972d5e1c4b8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#ac39b3553fa52b22d47cd5972d5e1c4b8">~GeoGridWriter</a> ()=default</td></tr>
-<tr class="memdesc:ac39b3553fa52b22d47cd5972d5e1c4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the Writer.  <a href="#ac39b3553fa52b22d47cd5972d5e1c4b8">More...</a><br /></td></tr>
-<tr class="separator:ac39b3553fa52b22d47cd5972d5e1c4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7342f0a2876a0bfeb2668c69c52897c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#af7342f0a2876a0bfeb2668c69c52897c">Write</a> (std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; geoGrid, std::ostream &amp;stream)=0</td></tr>
-<tr class="memdesc:af7342f0a2876a0bfeb2668c69c52897c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to ostream.  <a href="#af7342f0a2876a0bfeb2668c69c52897c">More...</a><br /></td></tr>
-<tr class="separator:af7342f0a2876a0bfeb2668c69c52897c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa97e88192f5aa80892a53a48dec796c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#aa97e88192f5aa80892a53a48dec796c7">Household</a> (unsigned int id=0U)</td></tr>
+<tr class="memdesc:aa97e88192f5aa80892a53a48dec796c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct household with assigned ID.  <a href="#aa97e88192f5aa80892a53a48dec796c7">More...</a><br /></td></tr>
+<tr class="separator:aa97e88192f5aa80892a53a48dec796c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d67fc4309bd95246f5cef932a838107"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#a8d67fc4309bd95246f5cef932a838107">Fill</a> (const <a class="el" href="../../d7/de0/a00022.html">GeoGridConfig</a> &amp;geoGridConfig, const std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; &amp;geoGrid) override</td></tr>
+<tr class="memdesc:a8d67fc4309bd95246f5cef932a838107"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="../../d2/de7/a00014.html#ac28296323455141703d4261da10ccf11" title="Create ContactPools in the GeoGrid and register them with the ContactCenter. ">ContactCenter::Fill</a>.  <a href="#a8d67fc4309bd95246f5cef932a838107">More...</a><br /></td></tr>
+<tr class="separator:a8d67fc4309bd95246f5cef932a838107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26f96367bb3b6cc59b277fb2b206e2fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462">stride::ContactType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#a26f96367bb3b6cc59b277fb2b206e2fa">GetContactPoolType</a> () const override</td></tr>
+<tr class="memdesc:a26f96367bb3b6cc59b277fb2b206e2fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="../../d2/de7/a00014.html#a71a4781db5b6787756ecd78bc19a7b39" title="Get the the type of ContactPools this ContactCenter contains. ">ContactCenter::GetContactPoolType</a>.  <a href="#a26f96367bb3b6cc59b277fb2b206e2fa">More...</a><br /></td></tr>
+<tr class="separator:a26f96367bb3b6cc59b277fb2b206e2fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00014"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00014')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d2/de7/a00014.html">geopop::ContactCenter</a></td></tr>
+<tr class="memitem:a4f4fba610aa00403338168b7bc167c58 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a4f4fba610aa00403338168b7bc167c58">ContactCenter</a> (unsigned int id)</td></tr>
+<tr class="memdesc:a4f4fba610aa00403338168b7bc167c58 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a> with assigned ID.  <a href="#a4f4fba610aa00403338168b7bc167c58">More...</a><br /></td></tr>
+<tr class="separator:a4f4fba610aa00403338168b7bc167c58 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f35f0196fbeb2c94d2da92022512e92 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a4f35f0196fbeb2c94d2da92022512e92">GetId</a> () const </td></tr>
+<tr class="memdesc:a4f35f0196fbeb2c94d2da92022512e92 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ID of this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a4f35f0196fbeb2c94d2da92022512e92">More...</a><br /></td></tr>
+<tr class="separator:a4f35f0196fbeb2c94d2da92022512e92 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac46dd66042a4c2b5cc1420aacc6eb67 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#aac46dd66042a4c2b5cc1420aacc6eb67">GetPools</a> () const </td></tr>
+<tr class="memdesc:aac46dd66042a4c2b5cc1420aacc6eb67 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ContactPools container.  <a href="#aac46dd66042a4c2b5cc1420aacc6eb67">More...</a><br /></td></tr>
+<tr class="separator:aac46dd66042a4c2b5cc1420aacc6eb67 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2329f98c5c4b167304e37ed54b599b1a inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">std::pair&lt; unsigned int, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a2329f98c5c4b167304e37ed54b599b1a">GetPopulationAndInfectedCount</a> () const </td></tr>
+<tr class="memdesc:a2329f98c5c4b167304e37ed54b599b1a inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a count of total population (first) and total number of infections (second).  <a href="#a2329f98c5c4b167304e37ed54b599b1a">More...</a><br /></td></tr>
+<tr class="separator:a2329f98c5c4b167304e37ed54b599b1a inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9de5bdce36efb88e40be7ebe21fcad11 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a9de5bdce36efb88e40be7ebe21fcad11">RegisterPool</a> (<a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> *pool)</td></tr>
+<tr class="memdesc:a9de5bdce36efb88e40be7ebe21fcad11 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a ContactPool with this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a9de5bdce36efb88e40be7ebe21fcad11">More...</a><br /></td></tr>
+<tr class="separator:a9de5bdce36efb88e40be7ebe21fcad11 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cf008ffb539c3f3e2883031a29e5c6d inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a7cf008ffb539c3f3e2883031a29e5c6d">~ContactCenter</a> ()=default</td></tr>
+<tr class="memdesc:a7cf008ffb539c3f3e2883031a29e5c6d inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor, but virtual.  <a href="#a7cf008ffb539c3f3e2883031a29e5c6d">More...</a><br /></td></tr>
+<tr class="separator:a7cf008ffb539c3f3e2883031a29e5c6d inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf0f3695ec3ffb2649285bda07d09e6c inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#acf0f3695ec3ffb2649285bda07d09e6c">begin</a> ()</td></tr>
+<tr class="memdesc:acf0f3695ec3ffb2649285bda07d09e6c inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#acf0f3695ec3ffb2649285bda07d09e6c">More...</a><br /></td></tr>
+<tr class="separator:acf0f3695ec3ffb2649285bda07d09e6c inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a109ef4d2af0700c23f56e4a790523aa5 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a109ef4d2af0700c23f56e4a790523aa5">end</a> ()</td></tr>
+<tr class="memdesc:a109ef4d2af0700c23f56e4a790523aa5 inherit pub_methods_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#a109ef4d2af0700c23f56e4a790523aa5">More...</a><br /></td></tr>
+<tr class="separator:a109ef4d2af0700c23f56e4a790523aa5 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_a00014"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00014')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../d2/de7/a00014.html">geopop::ContactCenter</a></td></tr>
+<tr class="memitem:ae22234bfc0e33988ca8c55a51b7a426e inherit pub_types_a00014"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a> = std::vector&lt; <a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> * &gt;::<a class="el" href="../../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e">iterator</a></td></tr>
+<tr class="memdesc:ae22234bfc0e33988ca8c55a51b7a426e inherit pub_types_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#ae22234bfc0e33988ca8c55a51b7a426e">More...</a><br /></td></tr>
+<tr class="separator:ae22234bfc0e33988ca8c55a51b7a426e inherit pub_types_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00014"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00014')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d2/de7/a00014.html">geopop::ContactCenter</a></td></tr>
+<tr class="memitem:ac3162fe2d7042ff5635cdc098e5f238f inherit pro_attribs_a00014"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#ac3162fe2d7042ff5635cdc098e5f238f">m_pools</a></td></tr>
+<tr class="memdesc:ac3162fe2d7042ff5635cdc098e5f238f inherit pro_attribs_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">ConatctPools for this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#ac3162fe2d7042ff5635cdc098e5f238f">More...</a><br /></td></tr>
+<tr class="separator:ac3162fe2d7042ff5635cdc098e5f238f inherit pro_attribs_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a178a4ea945deecc31ad9d1d032f5adb8 inherit pro_attribs_a00014"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a178a4ea945deecc31ad9d1d032f5adb8">m_id</a></td></tr>
+<tr class="memdesc:a178a4ea945deecc31ad9d1d032f5adb8 inherit pro_attribs_a00014"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Id of this <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a178a4ea945deecc31ad9d1d032f5adb8">More...</a><br /></td></tr>
+<tr class="separator:a178a4ea945deecc31ad9d1d032f5adb8 inherit pro_attribs_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An interface for writing the <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to a file, can be implemented with multiple file types. </p>
-<p>Protobuf and json are currently implemented. </p>
+<div class="textblock"><p>Models a <a class="el" href="../../df/d61/a00031.html" title="Models a Household as ContactCenter. ">Household</a> as <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00029">29</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridWriter.h</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00027">27</a> of file <a class="el" href="../../df/d17/a00231_source.html">Household.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac39b3553fa52b22d47cd5972d5e1c4b8"></a>
+<a class="anchor" id="aa97e88192f5aa80892a53a48dec796c7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -158,25 +200,40 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual geopop::GeoGridWriter::~GeoGridWriter </td>
+          <td class="memname">geopop::Household::Household </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em> = <code>0U</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct the Writer. </p>
+<p>Construct household with assigned ID. </p>
+
+<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00031">31</a> of file <a class="el" href="../../df/d17/a00231_source.html">Household.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/da8/a00230_source.html#l00025">Fill()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d61/a00031_aa97e88192f5aa80892a53a48dec796c7_cgraph.gif" border="0" usemap="#df/d61/a00031_aa97e88192f5aa80892a53a48dec796c7_cgraph" alt=""/></div>
+<map name="df/d61/a00031_aa97e88192f5aa80892a53a48dec796c7_cgraph" id="df/d61/a00031_aa97e88192f5aa80892a53a48dec796c7_cgraph">
+<area shape="rect" id="node2" href="../../df/d61/a00031.html#a8d67fc4309bd95246f5cef932a838107" title="See ContactCenter::Fill. " alt="" coords="208,13,377,39"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af7342f0a2876a0bfeb2668c69c52897c"></a>
+<a class="anchor" id="a8d67fc4309bd95246f5cef932a838107"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -184,16 +241,16 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void geopop::GeoGridWriter::Write </td>
+          <td class="memname">void geopop::Household::Fill </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt;&#160;</td>
-          <td class="paramname"><em>geoGrid</em>, </td>
+          <td class="paramtype">const <a class="el" href="../../d7/de0/a00022.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>stream</em>&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -203,27 +260,75 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Write the <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to ostream. </p>
+<p>See <a class="el" href="../../d2/de7/a00014.html#ac28296323455141703d4261da10ccf11" title="Create ContactPools in the GeoGrid and register them with the ContactCenter. ">ContactCenter::Fill</a>. </p>
 
-<p>Implemented in <a class="el" href="../../dc/d3c/a00028.html#a6f709a9e0724d34905806b0ae13688f0">geopop::GeoGridProtoWriter</a>, and <a class="el" href="../../d6/d5b/a00026.html#af984bb77723e4b49a57a44eafb28e570">geopop::GeoGridJSONWriter</a>.</p>
+<p>Implements <a class="el" href="../../d2/de7/a00014.html#ac28296323455141703d4261da10ccf11">geopop::ContactCenter</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d1/da8/a00230_source.html#l00025">25</a> of file <a class="el" href="../../d1/da8/a00230_source.html">Household.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462aea4be67641b70cfa3fec0f86ea7f239b">stride::ContactType::Household</a>, and <a class="el" href="../../d5/df1/a00206_source.html#l00078">geopop::GeoGridConfig::pools</a>.</p>
+
+<p>Referenced by <a class="el" href="../../df/d17/a00231_source.html#l00031">Household()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d61/a00031_a8d67fc4309bd95246f5cef932a838107_icgraph.gif" border="0" usemap="#df/d61/a00031_a8d67fc4309bd95246f5cef932a838107_icgraph" alt=""/></div>
+<map name="df/d61/a00031_a8d67fc4309bd95246f5cef932a838107_icgraph" id="df/d61/a00031_a8d67fc4309bd95246f5cef932a838107_icgraph">
+<area shape="rect" id="node2" href="../../df/d61/a00031.html#aa97e88192f5aa80892a53a48dec796c7" title="Construct household with assigned ID. " alt="" coords="223,5,377,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../dc/d98/a00225_source.html">GeoGridWriter.h</a></li>
+<a class="anchor" id="a26f96367bb3b6cc59b277fb2b206e2fa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462">stride::ContactType::Id</a> geopop::Household::GetContactPoolType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>See <a class="el" href="../../d2/de7/a00014.html#a71a4781db5b6787756ecd78bc19a7b39" title="Get the the type of ContactPools this ContactCenter contains. ">ContactCenter::GetContactPoolType</a>. </p>
+
+<p>Implements <a class="el" href="../../d2/de7/a00014.html#a71a4781db5b6787756ecd78bc19a7b39">geopop::ContactCenter</a>.</p>
+
+<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00037">37</a> of file <a class="el" href="../../df/d17/a00231_source.html">Household.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462aea4be67641b70cfa3fec0f86ea7f239b">stride::ContactType::Household</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../df/d17/a00231_source.html">Household.h</a></li>
+<li><a class="el" href="../../d1/da8/a00230_source.html">Household.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/de1/a00356.html">geopop</a></li><li class="navelem"><a class="el" href="../../df/d61/a00031.html">GeoGridWriter</a></li>
-    <li class="footer">Generated on Tue Mar 12 2019 21:05:44 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></li><li class="navelem"><a class="el" href="../../df/d61/a00031.html">Household</a></li>
+    <li class="footer">Generated on Thu Mar 14 2019 19:52:54 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
