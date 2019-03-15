@@ -86,7 +86,7 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
         for (auto& k12School : k12Schools) {
                 EXPECT_EQ(25, k12School->GetPools().size());
                 for (auto& pool : k12School->GetPools()) {
-                        EXPECT_EQ(usedCapacity[pool->GetId()], pool->GetSize());
+                        EXPECT_EQ(usedCapacity[pool->GetId()], pool->GetPool().size());
                         for (Person* person : *pool) {
                                 EXPECT_LE(person->GetAge(), 18);
                                 EXPECT_GE(person->GetAge(), 6);

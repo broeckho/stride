@@ -70,7 +70,7 @@ public:
         iterator end() { return m_pools.end(); }
 
 protected:
-        std::vector<stride::ContactPool*> m_pools; ///< ConatctPools for this ContactCenter.
+        std::vector<stride::ContactPool*> m_pools; ///< ContactPools for this ContactCenter.
         unsigned int                      m_id;    ///< The Id of this ContactCenter.
 };
 

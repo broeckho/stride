@@ -98,14 +98,14 @@ void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>
         while (numSusceptible > 0) {
                 // random pool, random order of members
                 const ContactPool&   p_pool = pools[intGenerator()];
-                const auto           size   = static_cast<unsigned int>(p_pool.GetSize());
+                const auto           size   = static_cast<unsigned int>(p_pool.GetPool().size());
                 vector<unsigned int> indices(size);
                 iota(indices.begin(), indices.end(), 0U);
                 m_rn_man.Shuffle(indices, 0U);
 
                 // loop over members, in random order
                 for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {
-                        Person& p = *p_pool.GetMember(indices[i_p]);
+                        Person& p = *p_pool.GetPool()[indices[i_p]];
                         // if p is immune and his/her age class has not reached the quota => make susceptible
                         if (p.GetHealth().IsImmune() && populationBrackets[p.GetAge()] > 0) {
                                 p.GetHealth().SetSusceptible();

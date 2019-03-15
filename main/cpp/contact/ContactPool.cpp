@@ -40,6 +40,18 @@ void ContactPool::AddMember(Person* p)
         m_index_immune++;
 }
 
+unsigned int ContactPool::GetInfectedCount() const
+{
+        unsigned int infected = 0;
+
+        for (stride::Person* person : m_members) {
+                if (person->GetHealth().IsInfected()) {
+                        infected++;
+                }
+        }
+        return infected;
+}
+
 std::tuple<bool, unsigned int> ContactPool::SortMembers()
 {
         bool         infectious_cases = false;
@@ -73,18 +85,6 @@ std::tuple<bool, unsigned int> ContactPool::SortMembers()
                 }
         }
         return std::make_tuple(infectious_cases, num_cases);
-}
-
-unsigned int ContactPool::GetInfectedCount()
-{
-        unsigned int infected = 0;
-
-        for (stride::Person* person : m_members) {
-                if (person->GetHealth().IsInfected()) {
-                        infected++;
-                }
-        }
-        return infected;
 }
 
 } // namespace stride

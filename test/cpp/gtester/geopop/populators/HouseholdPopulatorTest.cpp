@@ -73,7 +73,7 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 
         const auto& pools = household->GetPools();
         ASSERT_EQ(pools.size(), 1);
-        EXPECT_EQ(pools[0]->GetSize(), 1);
+        EXPECT_EQ(pools[0]->GetPool().size(), 1);
 }
 
 TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
@@ -123,7 +123,7 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 
         for (const auto& household : *loc1) {
                 ASSERT_EQ(household->GetPools().size(), 1);
-                ASSERT_EQ(household->GetPools()[0]->GetSize(), 1);
+                ASSERT_EQ(household->GetPools()[0]->GetPool().size(), 1);
                 EXPECT_EQ((*household->GetPools()[0]->begin())->GetAge(), 18);
         }
 }
@@ -165,18 +165,18 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
         householdPopulator->Apply(geoGrid, config);
 
         map<int, vector<ContactPool*>> pools_map;
-        pools_map[household->GetPools()[0]->GetSize()]  = household->GetPools();
-        pools_map[household2->GetPools()[0]->GetSize()] = household2->GetPools();
+        pools_map[household->GetPools()[0]->GetPool().size()]  = household->GetPools();
+        pools_map[household2->GetPools()[0]->GetPool().size()] = household2->GetPools();
         {
                 const auto& pools = pools_map[1];
                 ASSERT_EQ(pools.size(), 1);
-                EXPECT_EQ(pools[0]->GetSize(), 1);
+                EXPECT_EQ(pools[0]->GetPool().size(), 1);
                 EXPECT_EQ((*pools[0]->begin())->GetAge(), 18);
         }
         {
                 const auto& pools = pools_map[2];
                 ASSERT_EQ(pools.size(), 1);
-                EXPECT_EQ(pools[0]->GetSize(), 2);
+                EXPECT_EQ(pools[0]->GetPool().size(), 2);
                 EXPECT_EQ((*pools[0]->begin())->GetAge(), 12);
                 EXPECT_EQ((*(pools[0]->begin() + 1))->GetAge(), 56);
         }

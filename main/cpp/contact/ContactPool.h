@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "ContactType.h"
+#include "contact/ContactType.h"
 #include "contact/ContactLogMode.h"
 
 #include <tuple>
@@ -31,7 +31,9 @@ namespace stride {
 class Person;
 
 /**
- * Represents a group of Persons that potentially have contacts.
+ * A group of Persons that potentially have contacts with one another.
+ * We do not expose the vector that stores pool members because
+ * adding & sorting it takes some care.
  */
 class ContactPool
 {
@@ -39,23 +41,26 @@ public:
         /// Initializing constructor.
         ContactPool(unsigned int poolId, ContactType::Id type);
 
+        /// Default will do.
         ~ContactPool() = default;
 
         /// Add the given Person.
         void AddMember(Person* p);
 
-        /// Get member at index.
-        Person* GetMember(unsigned int index) const { return m_members[index]; }
+        /// Get the pool id
+        unsigned int GetId() const { return m_pool_id; }
+
+        /// Get Infected count
+        unsigned int GetInfectedCount() const;
 
         /// Get the entire pool of members.
         const std::vector<Person*>& GetPool() const { return m_members; }
 
-        /// Get size (number of members).
-        unsigned int GetSize() const { return static_cast<unsigned int>(m_members.size()); }
+        /// Get the type of ContactPool, used for logging and tests
+        ContactType::Id GetType() const { return m_pool_type; }
 
-        /// Get Infected count
-        unsigned int GetInfectedCount();
-
+public:
+        // To iterate over the members.
         using iterator = std::vector<stride::Person*>::iterator;
 
         /// Iterator to first person
@@ -64,17 +69,11 @@ public:
         /// Iterator to end of persons
         iterator end() { return m_members.end(); }
 
-        /// Get the pool id
-        unsigned int GetId() const { return m_pool_id; }
-
-        /// Get the type of ContactPool, used for logging and tests
-        ContactType::Id GetType() const { return m_pool_type; }
-
 private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
         std::tuple<bool, unsigned int> SortMembers();
 
-        /// Infector calculates contacts and transmissions.
+        /// Calculates contacts and transmissions; accesses private methods and data.
         template <ContactLogMode::Id LL, bool TIC, bool TO>
         friend class Infector;
 
