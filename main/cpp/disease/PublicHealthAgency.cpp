@@ -47,22 +47,23 @@ void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, uti
         }
 
         using namespace ContactType;
-        auto& population   = *pop;
-        auto& poolSys      = population.GetContactPoolSys();
         auto  uniform01Gen = rnMan.GetUniform01Generator(0U);
-        auto& logger       = population.GetContactLogger();
+        auto& logger       = pop->GetContactLogger();
 
         /// To allow iteration over pool types for the PublicHealthAgency.
         std::initializer_list<Id> AgencyPoolIdList{Id::Household};
 
-        for (auto& p_case : population) {
+        for (auto& p_case : *pop) {
                 if (p_case.GetHealth().IsSymptomatic() && p_case.GetHealth().SymptomsStartedToday()) {
                         for (Id typ : AgencyPoolIdList) {
+
+                                const auto& pools = pop->RefPoolSys().CRefPools(typ);
                                 const auto poolId = p_case.GetPoolId(typ);
                                 if (poolId == 0) {
                                         continue;
                                 }
-                                for (const auto& p_member : poolSys[typ][poolId].GetPool()) {
+
+                                for (const auto& p_member : pools[poolId].GetPool()) {
                                         if (p_case != *p_member && p_member->GetHealth().IsSusceptible() &&
                                             uniform01Gen() < m_detection_probability) {
 

@@ -36,11 +36,36 @@ namespace stride {
 class ContactPoolSys : public ContactType::IdSubscriptArray<util::SegmentedVector<ContactPool>>
 {
 public:
+        /// To make coding easier.
+        using CType = ContactType::IdSubscriptArray<util::SegmentedVector<ContactPool>>;
+public:
         /// Empty system.
         ContactPoolSys();
 
         /// Add a new contact pool of a given type
         ContactPool* CreateContactPool(ContactType::Id typeId);
+
+        template<ContactType::Id T>
+        ContactPool* CreateContactPool()
+        {
+                return (*this)[T].emplace_back(m_currentContactPoolId[T]++, T);
+        }
+
+        /// template
+        /// \return
+        template<ContactType::Id T>
+        util::SegmentedVector<ContactPool>& RefPools() { return CType::operator[](T); }
+
+        /// template
+        /// \return
+        template<ContactType::Id T>
+        const util::SegmentedVector<ContactPool>& CRefPools() const { return CType::operator[](T); }
+
+        /// \return
+        util::SegmentedVector<ContactPool>& RefPools(ContactType::Id id) { return CType::operator[](id); }
+
+        /// \return
+        const util::SegmentedVector<ContactPool>& CRefPools(ContactType::Id id) const { return CType::operator[](id); }
 
 private:
         /// The contact pool counters (one per type of pool) for assigning pool IDs. Counters

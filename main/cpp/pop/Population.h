@@ -25,6 +25,8 @@
 #include "pop/Person.h"
 #include "util/RnMan.h"
 #include "util/SegmentedVector.h"
+#include "contact/ContactPool.h"
+#include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
@@ -73,10 +75,10 @@ public:
         std::shared_ptr<spdlog::logger>& GetContactLogger() { return m_contact_logger; }
 
         /// The ContactPoolSys of the simulator.
-        ContactPoolSys& GetContactPoolSys() { return m_pool_sys; }
+        ContactPoolSys& RefPoolSys() { return m_pool_sys; }
 
         /// The ContactPoolSys of the simulator.
-        const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
+        const ContactPoolSys& RefPoolSys() const { return m_pool_sys; }
 
         /// Get the GeoGrid associated with this population (may be a nullptr).
         std::shared_ptr<geopop::GeoGrid>& GetGeoGrid() { return m_geo_grid; }

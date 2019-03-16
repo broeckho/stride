@@ -79,7 +79,7 @@ void Sim::TimeStep()
 
         // To be used in update of population & contact pools.
         Population& population    = *m_population;
-        auto&       poolSys       = population.GetContactPoolSys();
+        auto&       poolSys       = population.RefPoolSys();
         auto        contactLogger = population.GetContactLogger();
         const auto  simDay        = m_calendar->GetSimulationDay();
         const auto& infector      = *m_infector;

@@ -62,7 +62,7 @@ void GeoGrid::CheckFinalized(const string& functionName) const
 
 stride::ContactPool* GeoGrid::CreateContactPool(stride::ContactType::Id type)
 {
-        return m_population->GetContactPoolSys().CreateContactPool(type);
+        return m_population->RefPoolSys().CreateContactPool(type);
 }
 
 void GeoGrid::Finalize()

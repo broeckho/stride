@@ -115,7 +115,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         for (Id typ : IdList) {
                 for (unsigned int i = 1; i < maxIds[typ] + 1; i++) {
-                        pop->GetContactPoolSys()[typ].emplace_back(ContactPool(i, typ));
+                        pop->RefPoolSys().CreateContactPool(typ);
                 }
         }
 
@@ -132,7 +132,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
                 for (Id typ : IdList) {
                         const auto poolId = p.GetPoolId(typ);
                         if (poolId > 0) {
-                                pop->GetContactPoolSys()[typ][poolId].AddMember(&p);
+                                pop->RefPoolSys().RefPools(typ)[poolId].AddMember(&p);
                         }
                 }
         }
