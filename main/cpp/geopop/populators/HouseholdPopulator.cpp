@@ -28,7 +28,7 @@ using namespace stride::ContactType;
 
 void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
 {
-        m_logger->info("Starting to populate Households");
+        m_logger->trace("Starting to populate Households");
 
         auto person_id = 0U;
         auto household_dist =
@@ -48,6 +48,7 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 }
         }
         m_logger->debug("Number of persons in households: {}", person_id);
+        m_logger->trace("Done populating Households");
 }
 
 } // namespace geopop

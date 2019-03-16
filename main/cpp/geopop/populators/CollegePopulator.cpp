@@ -33,7 +33,7 @@ using namespace stride::ContactType;
 
 void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
 {
-        m_logger->info("Starting to populate Colleges");
+        m_logger->trace("Starting to populate Colleges");
 
         set<ContactPool*> found;
         auto              students  = 0U;
@@ -112,6 +112,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
         m_logger->debug("Number of students in Colleges: {}", students);
         m_logger->debug("Number of classes:  {}", found.size());
         m_logger->debug("Number students that commute: ", commuting);
+        m_logger->trace("Done populating Colleges");
 }
 
 } // namespace geopop

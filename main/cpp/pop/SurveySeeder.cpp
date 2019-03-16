@@ -42,7 +42,7 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
         if (logLevel != "None") {
                 Population& population  = *pop;
                 auto&       poolSys     = population.CRefPoolSys();
-                auto&       logger      = population.GetContactLogger();
+                auto&       logger      = population.RefContactLogger();
                 const auto  popCount    = static_cast<unsigned int>(population.size() - 1);
                 const auto  numSurveyed = m_config.get<unsigned int>("run.num_participants_survey");
 

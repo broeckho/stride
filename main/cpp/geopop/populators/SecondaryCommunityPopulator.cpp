@@ -31,7 +31,8 @@ namespace geopop {
 
 void SecondaryCommunityPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {
-        m_logger->info("Starting to populate Secondary Communities");
+        m_logger->trace("Starting to populate Secondary Communities");
+
         set<stride::ContactPool*> found;
 
         // for every location
@@ -67,7 +68,7 @@ void SecondaryCommunityPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGr
                 }
         }
 
-        m_logger->info("Finished populating Secondary Communities");
-        m_logger->info("Used {} different Secondary communities", found.size());
+        m_logger->debug("Used {} different Secondary communities", found.size());
+        m_logger->trace("Done populating Secondary Communities");
 }
 } // namespace geopop

@@ -38,10 +38,10 @@ class RnEngine;
 class RnMan
 {
 public:
-        /// Default constructor build empty manager.
+        /// Default constructor builds empty (uninitialized) manager.
         RnMan();
 
-        /// Initializes.
+        /// Initializing Constructor.
         explicit RnMan(const RnInfo& info);
 
         /// Equality of states

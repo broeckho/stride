@@ -50,12 +50,12 @@ class RnMan;
 class Population : public util::SegmentedVector<Person>
 {
 public:
-        /// Create a population initialized by the configuration in property tree.
-        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& config, util::RnMan& rnMan,
+        /// Create a Population initialized by the configuration in property tree.
+        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& config, util::RnMan rnMan,
                                                   std::shared_ptr<spdlog::logger> strideLogger = nullptr);
 
-        /// For use in python environment: create using configuration string i.o ptree.
-        static std::shared_ptr<Population> Create(const std::string& configString, util::RnMan& rnManager,
+        /// For use in python environment: create Population using configuration string i.o ptree.
+        static std::shared_ptr<Population> Create(const std::string& configString, util::RnMan rnMan,
                                                   std::shared_ptr<spdlog::logger> stride_logger = nullptr);
 
         /// Create an empty Population, used in gengeopop.
@@ -70,14 +70,14 @@ public:
         /// Get the cumulative number of cases.
         unsigned int GetInfectedCount() const;
 
-        /// Return the contactlogger.
-        std::shared_ptr<spdlog::logger>& GetContactLogger() { return m_contact_logger; }
-
         /// The ContactPoolSys of the simulator.
         const ContactPoolSys& CRefPoolSys() const { return m_pool_sys; }
 
         /// Get the GeoGrid associated with this population (may be a nullptr).
         const std::shared_ptr<geopop::GeoGrid>& CRefGeoGrid() const { return m_geo_grid; }
+
+        /// Return the contactlogger.
+        std::shared_ptr<spdlog::logger>& RefContactLogger() { return m_contact_logger; }
 
 private:
         /// The ContactPoolSys of the simulator.

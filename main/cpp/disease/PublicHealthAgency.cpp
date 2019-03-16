@@ -48,7 +48,7 @@ void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, uti
 
         using namespace ContactType;
         auto  uniform01Gen = rnMan.GetUniform01Generator(0U);
-        auto& logger       = pop->GetContactLogger();
+        auto& logger       = pop->RefContactLogger();
 
         /// To allow iteration over pool types for the PublicHealthAgency.
         std::initializer_list<Id> AgencyPoolIdList{Id::Household};

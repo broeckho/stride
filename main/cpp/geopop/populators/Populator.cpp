@@ -15,6 +15,7 @@
 
 #include "Populator.h"
 
+#include "contact/ContactPool.h"
 #include "geopop/College.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
@@ -24,8 +25,7 @@
 #include "geopop/PrimaryCommunity.h"
 #include "geopop/SecondaryCommunity.h"
 #include "geopop/Workplace.h"
-
-#include "contact/ContactPool.h"
+#include "util/LogUtils.h"
 
 namespace geopop {
 
@@ -36,6 +36,8 @@ using namespace stride::ContactType;
 Populator::Populator(util::RnMan& rnManager, shared_ptr<spdlog::logger> logger)
     : m_rn_man(rnManager), m_logger(move(logger))
 {
+        if (!m_logger)
+                m_logger = stride::util::LogUtils::CreateNullLogger();
 }
 
 bool Populator::MakeChoice(double fraction)

@@ -42,7 +42,7 @@ WorkplacePopulator::WorkplacePopulator(RnMan& rn_manager, shared_ptr<spdlog::log
 
 void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
 {
-        m_logger->info("Starting to populate Workplaces");
+        m_logger->trace("Starting to populate Workplaces");
 
         m_geoGrid                   = geoGrid;
         m_geoGridConfig             = geoGridConfig;
@@ -90,8 +90,9 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 }
         }
 
-        m_logger->info("Populated workplaces, assigned to 0 {}, assigned (commuting) {} assigned (not commuting) {} ",
+        m_logger->debug("Populated workplaces, assigned to 0 {}, assigned (commuting) {} assigned (not commuting) {} ",
                        m_assignedTo0, m_assignedCommuting, m_assignedNotCommuting);
+        m_logger->trace("Done populating Workplaces");
 }
 
 void WorkplacePopulator::CalculateFractionCommutingStudents()

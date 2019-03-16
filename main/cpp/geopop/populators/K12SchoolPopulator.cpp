@@ -30,7 +30,7 @@ using namespace stride::ContactType;
 
 void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {
-        m_logger->info("Starting to populate Schools");
+        m_logger->trace("Starting to populate Schools");
 
         set<ContactPool*> found;
         unsigned int      pupils = 0;
@@ -63,6 +63,7 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
 
         m_logger->debug("Number of pupils in schools: {}", pupils);
         m_logger->debug("Number of different classes: {}", found.size());
+        m_logger->trace("Done populating K12Schools");
 }
 
 } // namespace geopop

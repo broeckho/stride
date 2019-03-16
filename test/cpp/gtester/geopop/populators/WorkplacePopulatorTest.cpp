@@ -246,11 +246,11 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        auto rnManager = RnMan{RnInfo{}}; // Default random number manager.
-        auto pop       = Population::Create();
-        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto rnMan   = RnMan{RnInfo{}}; // Default random number manager.
+        auto pop     = Population::Create();
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
-        WorkplacePopulator workplacePopulator(rnManager, LogUtils::CreateNullLogger("nullLogger"));
+        WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
         unsigned int       contactCenterCounter   = 1;
         config.input.fraction_workplace_commuters = 0;

@@ -31,8 +31,7 @@ class WorkplacePopulator : public Populator
 {
 public:
         /// Constructor
-        explicit WorkplacePopulator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger =
-                                                                         stride::util::LogUtils::CreateNullLogger());
+        explicit WorkplacePopulator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger = nullptr);
 
         /// Populates the workplaces in geogrid with persons
         void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig) override;

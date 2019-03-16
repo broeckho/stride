@@ -27,7 +27,7 @@ namespace geopop {
 
 void PrimaryCommunityPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {
-        m_logger->info("Starting to populate Primary Communities");
+        m_logger->trace("Starting to populate Primary Communities");
 
         set<stride::ContactPool*> found;
         // for every location
@@ -55,6 +55,7 @@ void PrimaryCommunityPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGrid
 
         m_logger->debug("Finished populating Primary Communities");
         m_logger->debug("Used {} different Primary communities", found.size());
+        m_logger->trace("Done populating Primary Communities");
 }
 
 } // namespace geopop

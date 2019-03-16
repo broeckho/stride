@@ -16,7 +16,7 @@
 #pragma once
 
 #include "contact/ContactType.h"
-#include "util/LogUtils.h"
+
 #include "util/RnMan.h"
 
 #include <spdlog/logger.h>
@@ -46,7 +46,7 @@ class Populator
 public:
         /// Construct with a RnMan and a logger.
         explicit Populator(stride::util::RnMan&            rnManager,
-                           std::shared_ptr<spdlog::logger> logger = stride::util::LogUtils::CreateNullLogger());
+                           std::shared_ptr<spdlog::logger> logger = nullptr);
 
         /// Virtual destructor for inheritance.
         virtual ~Populator() = default;
