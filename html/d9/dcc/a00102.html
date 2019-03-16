@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
+   &#160;<span id="projectnumber">- generated for commit 8c3f06e</span>
    </div>
   </td>
  </tr>
@@ -111,20 +111,21 @@ $(document).ready(function(){initNavTree('d9/dcc/a00102.html','../../');});
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d3/de5/a00956.html">List of all members</a>  </div>
+<a href="#friends">Friends</a> &#124;
+<a href="../../dc/db6/a00955.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">stride::Population Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Key Data structure: container for (a) all individuals in the population (b) the <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all o...">ContactPoolSys</a> wchich is used to loop over ContactPools of each type (c) (if present) geographical grid of Locations with ContactCenters at that location.  
+<p>Key Data structure: container for (a) all individuals in the population (b) the <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> wchich is used to loop over ContactPools of each type (c) (if present) geographical grid of Locations with ContactCenters at that location.  
  <a href="../../d9/dcc/a00102.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for stride::Population:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/df7/a00957.gif" border="0" usemap="#stride_1_1Population_inherit__map" alt="Inheritance graph"/></div>
+<div class="center"><img src="../../d3/de5/a00956.gif" border="0" usemap="#stride_1_1Population_inherit__map" alt="Inheritance graph"/></div>
 <map name="stride_1_1Population_inherit__map" id="stride_1_1Population_inherit__map">
 <area shape="rect" id="node2" href="../../dc/ddf/a00067.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n|&#45; m_blocks\l&#45; m_size\l|+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="5,336,215,604"/>
 <area shape="rect" id="node3" href="../../dc/ddf/a00067.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="5,5,215,273"/>
@@ -133,20 +134,20 @@ Inheritance diagram for stride::Population:</div>
 <div class="dynheader">
 Collaboration diagram for stride::Population:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d9c/a00958.gif" border="0" usemap="#stride_1_1Population_coll__map" alt="Collaboration graph"/></div>
+<div class="center"><img src="../../d1/df7/a00957.gif" border="0" usemap="#stride_1_1Population_coll__map" alt="Collaboration graph"/></div>
 <map name="stride_1_1Population_coll__map" id="stride_1_1Population_coll__map">
-<area shape="rect" id="node2" href="../../dc/ddf/a00067.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="175,951,384,1204"/>
-<area shape="rect" id="node3" href="../../de/df4/a00450.html" title="{size_t\n||}" alt="" coords="50,421,109,499"/>
-<area shape="rect" id="node8" href="../../dc/ddf/a00067.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="102,635,311,888"/>
-<area shape="rect" id="node5" href="../../df/dbb/a00698.html" title="{Chunk *\n||}" alt="" coords="190,145,263,223"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="315,145,442,223"/>
-<area shape="rect" id="node12" title="STL class. " alt="" coords="426,247,704,339"/>
-<area shape="rect" id="node14" title="STL class. " alt="" coords="606,145,820,223"/>
-<area shape="rect" id="node16" title="STL class. " alt="" coords="786,247,942,339"/>
-<area shape="rect" id="node10" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all o..." alt="" coords="455,1031,622,1123"/>
-<area shape="rect" id="node11" href="../../d7/df7/a00058.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l util::SegmentedVector\l\&lt; ContactPool \&gt; \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="454,649,623,873"/>
-<area shape="rect" id="node13" href="../../d7/df7/a00058.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="639,363,811,557"/>
-<area shape="rect" id="node15" href="../../d7/df7/a00058.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="656,657,808,866"/>
+<area shape="rect" id="node2" href="../../dc/ddf/a00067.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="170,995,379,1248"/>
+<area shape="rect" id="node3" href="../../de/df4/a00450.html" title="{size_t\n||}" alt="" coords="56,451,114,528"/>
+<area shape="rect" id="node8" href="../../dc/ddf/a00067.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="102,679,311,932"/>
+<area shape="rect" id="node5" href="../../df/dbb/a00698.html" title="{Chunk *\n||}" alt="" coords="202,145,275,223"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="311,145,438,223"/>
+<area shape="rect" id="node12" title="STL class. " alt="" coords="438,261,594,353"/>
+<area shape="rect" id="node14" title="STL class. " alt="" coords="554,145,768,223"/>
+<area shape="rect" id="node16" title="STL class. " alt="" coords="771,247,948,368"/>
+<area shape="rect" id="node10" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al..." alt="" coords="446,1046,612,1197"/>
+<area shape="rect" id="node11" href="../../d7/df7/a00058.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="453,701,605,910"/>
+<area shape="rect" id="node13" href="../../d7/df7/a00058.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="575,392,747,587"/>
+<area shape="rect" id="node15" href="../../d7/df7/a00058.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l util::stride::util::\lSegmentedVector\&lt; stride\l::ContactPool \&gt; \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="629,686,818,925"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -158,21 +159,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5ffab38c3407832dcc0f1ecbf4e11cbd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a5ffab38c3407832dcc0f1ecbf4e11cbd">GetInfectedCount</a> () const </td></tr>
 <tr class="memdesc:a5ffab38c3407832dcc0f1ecbf4e11cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the cumulative number of cases.  <a href="#a5ffab38c3407832dcc0f1ecbf4e11cbd">More...</a><br /></td></tr>
 <tr class="separator:a5ffab38c3407832dcc0f1ecbf4e11cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a314f886a6abeb0e08aac8fee085e76bd"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a314f886a6abeb0e08aac8fee085e76bd">GetContactLogger</a> ()</td></tr>
-<tr class="memdesc:a314f886a6abeb0e08aac8fee085e76bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the contactlogger.  <a href="#a314f886a6abeb0e08aac8fee085e76bd">More...</a><br /></td></tr>
-<tr class="separator:a314f886a6abeb0e08aac8fee085e76bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ba18751ce5eb62217b105e716e61d63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/da4/a00078.html">ContactPoolSys</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a7ba18751ce5eb62217b105e716e61d63">GetContactPoolSys</a> ()</td></tr>
-<tr class="memdesc:a7ba18751ce5eb62217b105e716e61d63"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all o...">ContactPoolSys</a> of the simulator.  <a href="#a7ba18751ce5eb62217b105e716e61d63">More...</a><br /></td></tr>
-<tr class="separator:a7ba18751ce5eb62217b105e716e61d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a590df694a5ec7f41695a5bfec5fcd6e6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d9/da4/a00078.html">ContactPoolSys</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a590df694a5ec7f41695a5bfec5fcd6e6">GetContactPoolSys</a> () const </td></tr>
-<tr class="memdesc:a590df694a5ec7f41695a5bfec5fcd6e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all o...">ContactPoolSys</a> of the simulator.  <a href="#a590df694a5ec7f41695a5bfec5fcd6e6">More...</a><br /></td></tr>
-<tr class="separator:a590df694a5ec7f41695a5bfec5fcd6e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcf901fbb123e7618aea0bbc404c904d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">geopop::GeoGrid</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#adcf901fbb123e7618aea0bbc404c904d">GetGeoGrid</a> ()</td></tr>
-<tr class="memdesc:adcf901fbb123e7618aea0bbc404c904d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the GeoGrid associated with this population (may be a nullptr).  <a href="#adcf901fbb123e7618aea0bbc404c904d">More...</a><br /></td></tr>
-<tr class="separator:adcf901fbb123e7618aea0bbc404c904d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4579e1dcab0e42b630364b15c466bffc"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">geopop::GeoGrid</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a4579e1dcab0e42b630364b15c466bffc">GetGeoGrid</a> () const </td></tr>
-<tr class="memdesc:a4579e1dcab0e42b630364b15c466bffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the GeoGrid associated with this population (may be a nullptr).  <a href="#a4579e1dcab0e42b630364b15c466bffc">More...</a><br /></td></tr>
-<tr class="separator:a4579e1dcab0e42b630364b15c466bffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70b16fe667a40360d247e32c9422ad44"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d9/da4/a00078.html">ContactPoolSys</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a70b16fe667a40360d247e32c9422ad44">CRefPoolSys</a> () const </td></tr>
+<tr class="memdesc:a70b16fe667a40360d247e32c9422ad44"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> of the simulator.  <a href="#a70b16fe667a40360d247e32c9422ad44">More...</a><br /></td></tr>
+<tr class="separator:a70b16fe667a40360d247e32c9422ad44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81a1269b3ce17ab50324acc0d71994f0"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">geopop::GeoGrid</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a81a1269b3ce17ab50324acc0d71994f0">CRefGeoGrid</a> () const </td></tr>
+<tr class="memdesc:a81a1269b3ce17ab50324acc0d71994f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the GeoGrid associated with this population (may be a nullptr).  <a href="#a81a1269b3ce17ab50324acc0d71994f0">More...</a><br /></td></tr>
+<tr class="separator:a81a1269b3ce17ab50324acc0d71994f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4db3f0bf4c302b0f5d4b2bb1e8cc24fc"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a4db3f0bf4c302b0f5d4b2bb1e8cc24fc">RefContactLogger</a> ()</td></tr>
+<tr class="memdesc:a4db3f0bf4c302b0f5d4b2bb1e8cc24fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the contactlogger.  <a href="#a4db3f0bf4c302b0f5d4b2bb1e8cc24fc">More...</a><br /></td></tr>
+<tr class="separator:a4db3f0bf4c302b0f5d4b2bb1e8cc24fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_a00067"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00067')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../dc/ddf/a00067.html">stride::util::SegmentedVector&lt; Person &gt;</a></td></tr>
 <tr class="memitem:ada0935b74686a1ab1a513c310ffbe90c inherit pub_methods_a00067"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#ada0935b74686a1ab1a513c310ffbe90c">SegmentedVector</a> ()</td></tr>
 <tr class="memdesc:ada0935b74686a1ab1a513c310ffbe90c inherit pub_methods_a00067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct empty SegmentedVector.  <a href="#ada0935b74686a1ab1a513c310ffbe90c">More...</a><br /></td></tr>
@@ -275,18 +270,24 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6dcd9117e25db119fe96d10c8d2010b5"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a6dcd9117e25db119fe96d10c8d2010b5">Create</a> (const boost::property_tree::ptree &amp;config, <a class="el" href="../../da/d72/a00124.html">util::RnMan</a> &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; strideLogger=nullptr)</td></tr>
-<tr class="memdesc:a6dcd9117e25db119fe96d10c8d2010b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a population initialized by the configuration in property tree.  <a href="#a6dcd9117e25db119fe96d10c8d2010b5">More...</a><br /></td></tr>
-<tr class="separator:a6dcd9117e25db119fe96d10c8d2010b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4934eba041fe24376c4a627153f28e0"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#aa4934eba041fe24376c4a627153f28e0">Create</a> (const std::string &amp;configString, <a class="el" href="../../da/d72/a00124.html">util::RnMan</a> &amp;rnManager, std::shared_ptr&lt; spdlog::logger &gt; stride_logger=nullptr)</td></tr>
-<tr class="memdesc:aa4934eba041fe24376c4a627153f28e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">For use in python environment: create using configuration string i.o ptree.  <a href="#aa4934eba041fe24376c4a627153f28e0">More...</a><br /></td></tr>
-<tr class="separator:aa4934eba041fe24376c4a627153f28e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56ed209c60c77e0080a0a653b09b26ce"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a56ed209c60c77e0080a0a653b09b26ce">Create</a> (const boost::property_tree::ptree &amp;config, <a class="el" href="../../da/d72/a00124.html">util::RnMan</a> rnMan, std::shared_ptr&lt; spdlog::logger &gt; strideLogger=nullptr)</td></tr>
+<tr class="memdesc:a56ed209c60c77e0080a0a653b09b26ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d9/dcc/a00102.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> initialized by the configuration in property tree.  <a href="#a56ed209c60c77e0080a0a653b09b26ce">More...</a><br /></td></tr>
+<tr class="separator:a56ed209c60c77e0080a0a653b09b26ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2702b7b600edd1ce81bc24dac173c7e"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#ac2702b7b600edd1ce81bc24dac173c7e">Create</a> (const std::string &amp;configString, <a class="el" href="../../da/d72/a00124.html">util::RnMan</a> rnMan, std::shared_ptr&lt; spdlog::logger &gt; stride_logger=nullptr)</td></tr>
+<tr class="memdesc:ac2702b7b600edd1ce81bc24dac173c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">For use in python environment: create <a class="el" href="../../d9/dcc/a00102.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> using configuration string i.o ptree.  <a href="#ac2702b7b600edd1ce81bc24dac173c7e">More...</a><br /></td></tr>
+<tr class="separator:ac2702b7b600edd1ce81bc24dac173c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cfcedae698db0dc471770044de4834d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a7cfcedae698db0dc471770044de4834d">Create</a> ()</td></tr>
 <tr class="memdesc:a7cfcedae698db0dc471770044de4834d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an empty <a class="el" href="../../d9/dcc/a00102.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>, used in gengeopop.  <a href="#a7cfcedae698db0dc471770044de4834d">More...</a><br /></td></tr>
 <tr class="separator:a7cfcedae698db0dc471770044de4834d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:aa3cce01ca781a43bc67620e798c3b484"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/da4/a00078.html">ContactPoolSys</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#aa3cce01ca781a43bc67620e798c3b484">RefPoolSys</a> ()</td></tr>
+<tr class="memdesc:aa3cce01ca781a43bc67620e798c3b484"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> of the simulator.  <a href="#aa3cce01ca781a43bc67620e798c3b484">More...</a><br /></td></tr>
+<tr class="separator:aa3cce01ca781a43bc67620e798c3b484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a437b679d030556a3a283002b3cc44c0a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">geopop::GeoGrid</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a437b679d030556a3a283002b3cc44c0a">RefGeoGrid</a> ()</td></tr>
+<tr class="memdesc:a437b679d030556a3a283002b3cc44c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the GeoGrid associated with this population (may be a nullptr).  <a href="#a437b679d030556a3a283002b3cc44c0a">More...</a><br /></td></tr>
+<tr class="separator:a437b679d030556a3a283002b3cc44c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23ca2c3c5ef45fe26a11e0bc47cbe8ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a23ca2c3c5ef45fe26a11e0bc47cbe8ca">Population</a> ()</td></tr>
 <tr class="memdesc:a23ca2c3c5ef45fe26a11e0bc47cbe8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-trivial default constructor.  <a href="#a23ca2c3c5ef45fe26a11e0bc47cbe8ca">More...</a><br /></td></tr>
 <tr class="separator:a23ca2c3c5ef45fe26a11e0bc47cbe8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -303,6 +304,19 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a4474ea909c59e66eb185d35b820e996d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associated geoGrid may be nullptr.  <a href="#a4474ea909c59e66eb185d35b820e996d">More...</a><br /></td></tr>
 <tr class="separator:a4474ea909c59e66eb185d35b820e996d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a02a245ce62c95fd909b484f9ee01b29c"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a02a245ce62c95fd909b484f9ee01b29c">geopop::GeoGrid</a></td></tr>
+<tr class="separator:a02a245ce62c95fd909b484f9ee01b29c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa79c86f4bdecaefcfc763c2b2f5bee37"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#aa79c86f4bdecaefcfc763c2b2f5bee37">DefaultPopBuilder</a></td></tr>
+<tr class="separator:aa79c86f4bdecaefcfc763c2b2f5bee37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee783cf11d4fb4f556c985020efd7db"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a9ee783cf11d4fb4f556c985020efd7db">Sim</a></td></tr>
+<tr class="separator:a9ee783cf11d4fb4f556c985020efd7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a465c9716868863b14c1491b7cb7c3f49"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a465c9716868863b14c1491b7cb7c3f49">ImportPopBuilder</a></td></tr>
+<tr class="separator:a465c9716868863b14c1491b7cb7c3f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fc4d5bd8629b7e3e6d80037f1a49b3e"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcc/a00102.html#a9fc4d5bd8629b7e3e6d80037f1a49b3e">GeoPopBuilder</a></td></tr>
+<tr class="separator:a9fc4d5bd8629b7e3e6d80037f1a49b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_a00067"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00067')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../dc/ddf/a00067.html">stride::util::SegmentedVector&lt; Person &gt;</a></td></tr>
@@ -318,9 +332,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a1aba42e9e68bd96c3e7e07b089c648c1 inherit pub_types_a00067"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Key Data structure: container for (a) all individuals in the population (b) the <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all o...">ContactPoolSys</a> wchich is used to loop over ContactPools of each type (c) (if present) geographical grid of Locations with ContactCenters at that location. </p>
+<div class="textblock"><p>Key Data structure: container for (a) all individuals in the population (b) the <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> wchich is used to loop over ContactPools of each type (c) (if present) geographical grid of Locations with ContactCenters at that location. </p>
 
-<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00049">49</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00050">50</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a23ca2c3c5ef45fe26a11e0bc47cbe8ca"></a>
 <div class="memitem">
@@ -350,7 +364,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a6dcd9117e25db119fe96d10c8d2010b5"></a>
+<a class="anchor" id="a56ed209c60c77e0080a0a653b09b26ce"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -366,7 +380,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../da/d72/a00124.html">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../da/d72/a00124.html">util::RnMan</a>&#160;</td>
           <td class="paramname"><em>rnMan</em>, </td>
         </tr>
         <tr>
@@ -388,40 +402,29 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Create a population initialized by the configuration in property tree. </p>
+<p>Create a <a class="el" href="../../d9/dcc/a00102.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> initialized by the configuration in property tree. </p>
 
 <p>Definition at line <a class="el" href="../../d2/d04/a00281_source.html#l00045">45</a> of file <a class="el" href="../../d2/d04/a00281_source.html">Population.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d6/d08/a00244_source.html#l00038">stride::ImportPopBuilder::Build()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00089">stride::DefaultPopBuilder::Build()</a>, <a class="el" href="../../d5/ddf/a00224_source.html#l00054">stride::GeoPopBuilder::Build()</a>, <a class="el" href="../../d7/ded/a00196_source.html#l00052">stride::util::FileSys::BuildPath()</a>, <a class="el" href="../../d2/d04/a00281_source.html#l00094">Create()</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, and <a class="el" href="../../d9/d2a/a00270_source.html#l00088">stride::util::LogUtils::CreateRotatingLogger()</a>.</p>
+<p>References <a class="el" href="../../d7/ded/a00196_source.html#l00052">stride::util::FileSys::BuildPath()</a>, <a class="el" href="../../d2/d04/a00281_source.html#l00094">Create()</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00088">stride::util::LogUtils::CreateRotatingLogger()</a>, <a class="el" href="../../dc/dc9/a00282_source.html#l00087">DefaultPopBuilder</a>, <a class="el" href="../../dc/dc9/a00282_source.html#l00095">GeoPopBuilder</a>, and <a class="el" href="../../dc/dc9/a00282_source.html#l00094">ImportPopBuilder</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dcc/a00102_a6dcd9117e25db119fe96d10c8d2010b5_cgraph.gif" border="0" usemap="#d9/dcc/a00102_a6dcd9117e25db119fe96d10c8d2010b5_cgraph" alt=""/></div>
-<map name="d9/dcc/a00102_a6dcd9117e25db119fe96d10c8d2010b5_cgraph" id="d9/dcc/a00102_a6dcd9117e25db119fe96d10c8d2010b5_cgraph">
-<area shape="rect" id="node2" href="../../dc/d54/a00094.html#a78076cb42a88b90e4183bfb805d8361f" title="Creates a population by importing it. " alt="" coords="189,5,365,47"/>
-<area shape="rect" id="node4" href="../../d1/d1e/a00087.html#a8c1071f808ade6b38dd14a74024e64d4" title="Build Population and return it afterwards. " alt="" coords="187,71,367,112"/>
-<area shape="rect" id="node5" href="../../d9/dec/a00090.html#a23493e205a9a22922b1511b80e64bc1e" title="Generates a synthetic population. " alt="" coords="197,136,357,177"/>
-<area shape="rect" id="node13" href="../../d9/d4b/a00117.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="209,201,345,243"/>
-<area shape="rect" id="node15" href="../../d9/dcc/a00102.html#a7cfcedae698db0dc471770044de4834d" title="Create an empty Population, used in gengeopop. " alt="" coords="210,267,343,308"/>
-<area shape="rect" id="node16" href="../../df/dc8/a00122.html#af8edb0cd2ef9049e0347f06e73ae57c2" title="Return a (not&#45;yet&#45;registered) null logger, without registering it. " alt="" coords="205,332,349,373"/>
-<area shape="rect" id="node17" href="../../df/dc8/a00122.html#a137e01100d0d79b122f731bb1292179d" title="Return a (not&#45;yet&#45;registered) rotating logger, without registering it. " alt="" coords="192,397,361,439"/>
-<area shape="rect" id="node3" href="../../dc/d3c/a00028.html#afd9d54966d5a7c5d19308cc53d48f6e7" title="Create a GeoGridReader based on the provided extension in the filename. " alt="" coords="415,5,635,47"/>
-<area shape="rect" id="node6" href="../../d7/de0/a00022.html#aea2742355e7e5bd756a3204fa0dfb160" title="Read the househould data file, parse it and set data. " alt="" coords="439,136,610,177"/>
-<area shape="rect" id="node7" href="../../d6/d2d/a00047.html#af8f94fd8f5a9cafc1eff4399e2b3e093" title="Create a HouseholdReader based on the filename relative to the data directory. " alt="" coords="683,37,868,79"/>
-<area shape="rect" id="node10" href="../../d0/d89/a00071.html#ab773fa6a11ca2ab240ce27295561f2eb" title="stride::AgeBrackets\l::K12School::HasAge" alt="" coords="698,103,853,144"/>
-<area shape="rect" id="node11" href="../../d4/d31/a00069.html#a9da586fa49f908053a05ce521e904d27" title="stride::AgeBrackets\l::College::HasAge" alt="" coords="702,168,849,209"/>
-<area shape="rect" id="node12" href="../../d1/d6e/a00073.html#ae65edbaf591c0475af30028e30ff6005" title="stride::AgeBrackets\l::Workplace::HasAge" alt="" coords="699,233,851,275"/>
-<area shape="rect" id="node8" href="../../d9/d4b/a00117.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="916,37,1052,79"/>
-<area shape="rect" id="node9" href="../../d9/d4b/a00117.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="1100,45,1267,71"/>
-<area shape="rect" id="node14" href="../../d9/d4b/a00117.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="457,201,593,243"/>
+<div class="center"><img src="../../d9/dcc/a00102_a56ed209c60c77e0080a0a653b09b26ce_cgraph.gif" border="0" usemap="#d9/dcc/a00102_a56ed209c60c77e0080a0a653b09b26ce_cgraph" alt=""/></div>
+<map name="d9/dcc/a00102_a56ed209c60c77e0080a0a653b09b26ce_cgraph" id="d9/dcc/a00102_a56ed209c60c77e0080a0a653b09b26ce_cgraph">
+<area shape="rect" id="node2" href="../../d9/d4b/a00117.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="203,5,339,47"/>
+<area shape="rect" id="node4" href="../../d9/dcc/a00102.html#a7cfcedae698db0dc471770044de4834d" title="Create an empty Population, used in gengeopop. " alt="" coords="205,71,338,112"/>
+<area shape="rect" id="node5" href="../../df/dc8/a00122.html#af8edb0cd2ef9049e0347f06e73ae57c2" title="Return a (not&#45;yet&#45;registered) null logger, without registering it. " alt="" coords="199,136,343,177"/>
+<area shape="rect" id="node6" href="../../df/dc8/a00122.html#a137e01100d0d79b122f731bb1292179d" title="Return a (not&#45;yet&#45;registered) rotating logger, without registering it. " alt="" coords="187,201,356,243"/>
+<area shape="rect" id="node3" href="../../d9/d4b/a00117.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="404,5,540,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aa4934eba041fe24376c4a627153f28e0"></a>
+<a class="anchor" id="ac2702b7b600edd1ce81bc24dac173c7e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -437,8 +440,8 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../da/d72/a00124.html">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>, </td>
+          <td class="paramtype"><a class="el" href="../../da/d72/a00124.html">util::RnMan</a>&#160;</td>
+          <td class="paramname"><em>rnMan</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -459,7 +462,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>For use in python environment: create using configuration string i.o ptree. </p>
+<p>For use in python environment: create <a class="el" href="../../d9/dcc/a00102.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> using configuration string i.o ptree. </p>
 
 <p>Definition at line <a class="el" href="../../d2/d04/a00281_source.html#l00088">88</a> of file <a class="el" href="../../d2/d04/a00281_source.html">Population.cpp</a>.</p>
 
@@ -468,8 +471,8 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dcc/a00102_aa4934eba041fe24376c4a627153f28e0_cgraph.gif" border="0" usemap="#d9/dcc/a00102_aa4934eba041fe24376c4a627153f28e0_cgraph" alt=""/></div>
-<map name="d9/dcc/a00102_aa4934eba041fe24376c4a627153f28e0_cgraph" id="d9/dcc/a00102_aa4934eba041fe24376c4a627153f28e0_cgraph">
+<div class="center"><img src="../../d9/dcc/a00102_ac2702b7b600edd1ce81bc24dac173c7e_cgraph.gif" border="0" usemap="#d9/dcc/a00102_ac2702b7b600edd1ce81bc24dac173c7e_cgraph" alt=""/></div>
+<map name="d9/dcc/a00102_ac2702b7b600edd1ce81bc24dac173c7e_cgraph" id="d9/dcc/a00102_ac2702b7b600edd1ce81bc24dac173c7e_cgraph">
 <area shape="rect" id="node2" href="../../d9/dcc/a00102.html#a7cfcedae698db0dc471770044de4834d" title="Create an empty Population, used in gengeopop. " alt="" coords="226,5,359,47"/>
 <area shape="rect" id="node3" href="../../dc/dfe/a00125.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb" title="Reconstitute property tree from string representation. " alt="" coords="187,71,399,112"/>
 </map>
@@ -513,7 +516,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node2" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="187,5,365,47"/>
 <area shape="rect" id="node4" href="../../d7/d70/a00106.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="199,71,353,112"/>
 <area shape="rect" id="node5" href="../../d1/dd6/a00108.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="197,136,355,177"/>
-<area shape="rect" id="node6" href="../../d9/dcc/a00102.html#a6dcd9117e25db119fe96d10c8d2010b5" title="Create a population initialized by the configuration in property tree. " alt="" coords="209,201,343,243"/>
+<area shape="rect" id="node6" href="../../d9/dcc/a00102.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="209,201,343,243"/>
 <area shape="rect" id="node3" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="413,78,468,105"/>
 </map>
 </div>
@@ -595,6 +598,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="../../d9/dcc/a00102_a5680667e8da5d16b5f9b2c4d9a0207fa_cgraph.gif" border="0" usemap="#d9/dcc/a00102_a5680667e8da5d16b5f9b2c4d9a0207fa_cgraph" alt=""/></div>
 <map name="d9/dcc/a00102_a5680667e8da5d16b5f9b2c4d9a0207fa_cgraph" id="d9/dcc/a00102_a5680667e8da5d16b5f9b2c4d9a0207fa_cgraph">
 <area shape="rect" id="node2" href="../../dc/ddf/a00067.html#a2cd11f9b95b20b69378fc9268c380096" title="Constructs element in&#45;place at the end. " alt="" coords="187,5,396,47"/>
+<area shape="rect" id="node3" href="../../dc/ddf/a00067.html#a4f98e9e54da37bbf7c6ed0c2b40361d9" title="Get next available chunk for element construction with placement new. " alt="" coords="444,5,653,47"/>
 </map>
 </div>
 </p>
@@ -630,7 +634,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a314f886a6abeb0e08aac8fee085e76bd"></a>
+<a class="anchor" id="a70b16fe667a40360d247e32c9422ad44"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -638,7 +642,74 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt;&amp; stride::Population::GetContactLogger </td>
+          <td class="memname">const <a class="el" href="../../d9/da4/a00078.html">ContactPoolSys</a>&amp; stride::Population::CRefPoolSys </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> of the simulator. </p>
+
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00074">74</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/dfc/a00327_source.html#l00039">stride::SurveySeeder::Seed()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/dcc/a00102_a70b16fe667a40360d247e32c9422ad44_icgraph.gif" border="0" usemap="#d9/dcc/a00102_a70b16fe667a40360d247e32c9422ad44_icgraph" alt=""/></div>
+<map name="d9/dcc/a00102_a70b16fe667a40360d247e32c9422ad44_icgraph" id="d9/dcc/a00102_a70b16fe667a40360d247e32c9422ad44_icgraph">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="187,5,343,47"/>
+<area shape="rect" id="node3" href="../../d3/d32/a00105.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="391,5,525,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a81a1269b3ce17ab50324acc0d71994f0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::shared_ptr&lt;<a class="el" href="../../dd/da2/a00019.html">geopop::GeoGrid</a>&gt;&amp; stride::Population::CRefGeoGrid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the GeoGrid associated with this population (may be a nullptr). </p>
+
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00077">77</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4db3f0bf4c302b0f5d4b2bb1e8cc24fc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt;&amp; stride::Population::RefContactLogger </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -653,25 +724,25 @@ Here is the caller graph for this function:</div>
 
 <p>Return the contactlogger. </p>
 
-<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00073">73</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00080">80</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/dfc/a00327_source.html#l00039">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../d1/de3/a00306_source.html#l00072">stride::Sim::TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/dfc/a00327_source.html#l00039">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../d1/de3/a00306_source.html#l00058">stride::Sim::TimeStep()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dcc/a00102_a314f886a6abeb0e08aac8fee085e76bd_icgraph.gif" border="0" usemap="#d9/dcc/a00102_a314f886a6abeb0e08aac8fee085e76bd_icgraph" alt=""/></div>
-<map name="d9/dcc/a00102_a314f886a6abeb0e08aac8fee085e76bd_icgraph" id="d9/dcc/a00102_a314f886a6abeb0e08aac8fee085e76bd_icgraph">
-<area shape="rect" id="node2" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="202,5,358,47"/>
-<area shape="rect" id="node4" href="../../d0/dc2/a00104.html#a032911d7270c91e0a6a9c55f68800096" title="Run one time step, computing full simulation (default) or only index case. " alt="" coords="200,71,360,98"/>
-<area shape="rect" id="node3" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="408,5,543,47"/>
+<div class="center"><img src="../../d9/dcc/a00102_a4db3f0bf4c302b0f5d4b2bb1e8cc24fc_icgraph.gif" border="0" usemap="#d9/dcc/a00102_a4db3f0bf4c302b0f5d4b2bb1e8cc24fc_icgraph" alt=""/></div>
+<map name="d9/dcc/a00102_a4db3f0bf4c302b0f5d4b2bb1e8cc24fc_icgraph" id="d9/dcc/a00102_a4db3f0bf4c302b0f5d4b2bb1e8cc24fc_icgraph">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="198,5,354,47"/>
+<area shape="rect" id="node4" href="../../d0/dc2/a00104.html#a032911d7270c91e0a6a9c55f68800096" title="Run one time step, computing full simulation (default) or only index case. " alt="" coords="196,71,356,98"/>
+<area shape="rect" id="node3" href="../../d3/d32/a00105.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="404,5,539,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a7ba18751ce5eb62217b105e716e61d63"></a>
+<a class="anchor" id="aa3cce01ca781a43bc67620e798c3b484"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -679,7 +750,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/da4/a00078.html">ContactPoolSys</a>&amp; stride::Population::GetContactPoolSys </td>
+          <td class="memname"><a class="el" href="../../d9/da4/a00078.html">ContactPoolSys</a>&amp; stride::Population::RefPoolSys </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -687,33 +758,31 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all o...">ContactPoolSys</a> of the simulator. </p>
+<p>The <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> of the simulator. </p>
 
-<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00076">76</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00084">84</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d53/a00202_source.html#l00063">geopop::GeoGrid::CreateContactPool()</a>, <a class="el" href="../../d8/dfc/a00327_source.html#l00039">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../d1/de3/a00306_source.html#l00072">stride::Sim::TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d53/a00202_source.html#l00063">geopop::GeoGrid::CreateContactPool()</a>, and <a class="el" href="../../d1/de3/a00306_source.html#l00058">stride::Sim::TimeStep()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dcc/a00102_a7ba18751ce5eb62217b105e716e61d63_icgraph.gif" border="0" usemap="#d9/dcc/a00102_a7ba18751ce5eb62217b105e716e61d63_icgraph" alt=""/></div>
-<map name="d9/dcc/a00102_a7ba18751ce5eb62217b105e716e61d63_icgraph" id="d9/dcc/a00102_a7ba18751ce5eb62217b105e716e61d63_icgraph">
-<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a5058668191907ce10b18b03108c0f960" title="Create ContactPool of type in the Population associated withis GeoGrid. " alt="" coords="207,5,465,32"/>
-<area shape="rect" id="node3" href="../../dd/d42/a00109.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="258,57,414,98"/>
-<area shape="rect" id="node5" href="../../d0/dc2/a00104.html#a032911d7270c91e0a6a9c55f68800096" title="Run one time step, computing full simulation (default) or only index case. " alt="" coords="256,123,416,149"/>
-<area shape="rect" id="node4" href="../../d3/d32/a00105.html#a94ce5fb3cae915f0bdb261498f31c444" title="Build the simulator and return it afterwards. " alt="" coords="513,57,648,98"/>
+<div class="center"><img src="../../d9/dcc/a00102_aa3cce01ca781a43bc67620e798c3b484_icgraph.gif" border="0" usemap="#d9/dcc/a00102_aa3cce01ca781a43bc67620e798c3b484_icgraph" alt=""/></div>
+<map name="d9/dcc/a00102_aa3cce01ca781a43bc67620e798c3b484_icgraph" id="d9/dcc/a00102_aa3cce01ca781a43bc67620e798c3b484_icgraph">
+<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a5058668191907ce10b18b03108c0f960" title="Create ContactPool of type in the Population associated withis GeoGrid. " alt="" coords="187,5,445,32"/>
+<area shape="rect" id="node3" href="../../d0/dc2/a00104.html#a032911d7270c91e0a6a9c55f68800096" title="Run one time step, computing full simulation (default) or only index case. " alt="" coords="236,56,396,83"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a590df694a5ec7f41695a5bfec5fcd6e6"></a>
+<a class="anchor" id="a437b679d030556a3a283002b3cc44c0a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -721,34 +790,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="../../d9/da4/a00078.html">ContactPoolSys</a>&amp; stride::Population::GetContactPoolSys </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The <a class="el" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (household, school, ...) a vector of with all o...">ContactPoolSys</a> of the simulator. </p>
-
-<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00079">79</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adcf901fbb123e7618aea0bbc404c904d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../dd/da2/a00019.html">geopop::GeoGrid</a>&gt;&amp; stride::Population::GetGeoGrid </td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../dd/da2/a00019.html">geopop::GeoGrid</a>&gt;&amp; stride::Population::RefGeoGrid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -756,18 +798,19 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Get the GeoGrid associated with this population (may be a nullptr). </p>
 
-<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00082">82</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00092">92</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4579e1dcab0e42b630364b15c466bffc"></a>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a02a245ce62c95fd909b484f9ee01b29c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -775,22 +818,111 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::shared_ptr&lt;<a class="el" href="../../dd/da2/a00019.html">geopop::GeoGrid</a>&gt;&amp; stride::Population::GetGeoGrid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">friend class <a class="el" href="../../dd/da2/a00019.html">geopop::GeoGrid</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the GeoGrid associated with this population (may be a nullptr). </p>
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00086">86</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00085">85</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aa79c86f4bdecaefcfc763c2b2f5bee37"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d1/d1e/a00087.html">DefaultPopBuilder</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00087">87</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d04/a00281_source.html#l00045">Create()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ee783cf11d4fb4f556c985020efd7db"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d0/dc2/a00104.html">Sim</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00088">88</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a465c9716868863b14c1491b7cb7c3f49"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../dc/d54/a00094.html">ImportPopBuilder</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00094">94</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d04/a00281_source.html#l00045">Create()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9fc4d5bd8629b7e3e6d80037f1a49b3e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d9/dec/a00090.html">GeoPopBuilder</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00095">95</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d04/a00281_source.html#l00045">Create()</a>.</p>
 
 </div>
 </div>
@@ -815,7 +947,7 @@ Here is the caller graph for this function:</div>
 
 <p>Holds vector of ContactPools of different types. </p>
 
-<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00092">92</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00102">102</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
 
 </div>
 </div>
@@ -839,7 +971,7 @@ Here is the caller graph for this function:</div>
 
 <p>Logger for contact/transmission. </p>
 
-<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00093">93</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00103">103</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
 
 </div>
 </div>
@@ -863,7 +995,7 @@ Here is the caller graph for this function:</div>
 
 <p>Associated geoGrid may be nullptr. </p>
 
-<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00094">94</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/dc9/a00282_source.html#l00104">104</a> of file <a class="el" href="../../dc/dc9/a00282_source.html">Population.h</a>.</p>
 
 </div>
 </div>
@@ -877,7 +1009,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/dcc/a00102.html">Population</a></li>
-    <li class="footer">Generated on Thu Mar 14 2019 19:52:55 for Stride Reference Manual by
+    <li class="footer">Generated on Sat Mar 16 2019 22:23:39 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

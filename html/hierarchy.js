@@ -78,7 +78,6 @@ var hierarchy =
       [ "proto::GeoGrid_Person", "de/de1/a00065.html", null ]
     ] ],
     [ "geopop::KdTree< geogrid_detail::KdTree2DPoint >", "db/d3a/a00040.html", null ],
-    [ "stride::util::SegmentedVector< ContactPool >", "dc/ddf/a00067.html", null ],
     [ "stride::util::SegmentedVector< Person >", "dc/ddf/a00067.html", [
       [ "stride::Population", "d9/dcc/a00102.html", null ]
     ] ],
@@ -86,10 +85,9 @@ var hierarchy =
     [ "stride::util::SegmentedVector< stride::stride::Person >", "dc/ddf/a00067.html", null ],
     [ "std::array< T >", null, [
       [ "stride::ContactType::IdSubscriptArray< AgeContactProfile >", "d7/df7/a00058.html", null ],
+      [ "stride::ContactType::IdSubscriptArray< std::vector< std::shared_ptr< geopop::ContactCenter > > >", "d7/df7/a00058.html", null ],
       [ "stride::ContactType::IdSubscriptArray< unsigned int >", "d7/df7/a00058.html", null ],
-      [ "stride::ContactType::IdSubscriptArray< util::SegmentedVector< ContactPool > >", "d7/df7/a00058.html", [
-        [ "stride::ContactPoolSys", "d9/da4/a00078.html", null ]
-      ] ],
+      [ "stride::ContactType::IdSubscriptArray< util::stride::util::SegmentedVector< stride::ContactPool > >", "d7/df7/a00058.html", null ],
       [ "stride::AgeContactProfile", "db/db6/a00074.html", null ],
       [ "stride::ContactType::IdSubscriptArray< T >", "d7/df7/a00058.html", null ]
     ] ],
@@ -133,6 +131,7 @@ var hierarchy =
     [ "stride::Calendar", "d9/da5/a00075.html", null ],
     [ "stride::ContactHandler", "db/df8/a00076.html", null ],
     [ "stride::ContactPool", "d1/d09/a00077.html", null ],
+    [ "stride::ContactPoolSys", "d9/da4/a00078.html", null ],
     [ "stride::ContactType::IDPack< ids >", "d1/d51/a00079.html", null ],
     [ "stride::ControlHelper", "d8/d53/a00081.html", [
       [ "stride::GenPopController", "db/dab/a00089.html", null ],

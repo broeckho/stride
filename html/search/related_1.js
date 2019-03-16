@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['infector',['Infector',['../d1/d09/a00077.html#a9ffe141bfd5da5336894dc1cebf49fa7',1,'stride::ContactPool']]]
+  ['defaultpopbuilder',['DefaultPopBuilder',['../d9/da4/a00078.html#aa79c86f4bdecaefcfc763c2b2f5bee37',1,'stride::ContactPoolSys::DefaultPopBuilder()'],['../d9/dcc/a00102.html#aa79c86f4bdecaefcfc763c2b2f5bee37',1,'stride::Population::DefaultPopBuilder()']]]
 ];

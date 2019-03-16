@@ -2,7 +2,7 @@ var searchData=
 [
   ['latitude',['latitude',['../df/d5f/a00064.html#a6bc5976b2e0d0f05f1a134544844b6bc',1,'proto::GeoGrid_Location_Coordinate']]],
   ['latitude_5f',['latitude_',['../df/d5f/a00064.html#ac6fb61398d83024973e7b1db2763a81a',1,'proto::GeoGrid_Location_Coordinate']]],
-  ['location',['Location',['../d3/d8b/a00059.html#a963ab4b80a4a037b773704b483ca3d72',1,'proto::GeoGrid::Location()'],['../dd/d32/a00041.html#a11cbafc50157b43c46c31443828f635c',1,'geopop::Location::Location(unsigned int id, unsigned int province, Coordinate coordinate=Coordinate(0.0, 0.0), std::string name=&quot;&quot;)'],['../dd/d32/a00041.html#aa19e96a8bdec119079348e8a23bf3d72',1,'geopop::Location::Location(unsigned int id, unsigned int province, unsigned int popCount, Coordinate coordinate=Coordinate(0.0, 0.0), std::string name=&quot;&quot;)']]],
+  ['location',['Location',['../d3/d8b/a00059.html#a963ab4b80a4a037b773704b483ca3d72',1,'proto::GeoGrid::Location()'],['../dd/d32/a00041.html#a9836a46f8135be0d446bff0dd102a4b6',1,'geopop::Location::Location()']]],
   ['location',['Location',['../dd/d32/a00041.html',1,'geopop']]],
   ['location_2ecpp',['Location.cpp',['../db/d12/a00268.html',1,'']]],
   ['location_2eh',['Location.h',['../d5/d42/a00269.html',1,'']]],

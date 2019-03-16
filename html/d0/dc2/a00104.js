@@ -1,15 +1,13 @@
 var a00104 =
 [
-    [ "Sim", "d0/dc2/a00104.html#a419307faed65206a987f39072bdc34ab", null ],
-    [ "Sim", "d0/dc2/a00104.html#a5cf16ad00de0d1a780d009584904bcdd", null ],
-    [ "Create", "d0/dc2/a00104.html#a5f10c19f842c5398ec089d9886085098", null ],
-    [ "Create", "d0/dc2/a00104.html#a199a802d4e8498e81dc7f2bee9cda4a0", null ],
+    [ "Sim", "d0/dc2/a00104.html#a669d30fcc9d14fc6cce7deae4e4661f2", null ],
+    [ "Create", "d0/dc2/a00104.html#aaedfb9603bec92d8c0f5da169ff69700", null ],
     [ "GetCalendar", "d0/dc2/a00104.html#afea0f1297e849966883bcc1d8e3d8e86", null ],
     [ "GetConfigValue", "d0/dc2/a00104.html#a1b5ec0fca8e7496868ca067afe83f560", null ],
     [ "GetPopulation", "d0/dc2/a00104.html#ae0d62bc95008a4974dd9227b5084e161", null ],
-    [ "GetTransmissionProfile", "d0/dc2/a00104.html#a59f0ea739583f91283738089112a08dc", null ],
     [ "GetTransmissionRate", "d0/dc2/a00104.html#a484ffc98b4b45673cf1533a0571f38fd", null ],
-    [ "GetRnManager", "d0/dc2/a00104.html#ab93f63f0db601f8cd6543e6510808048", null ],
+    [ "RefRnManager", "d0/dc2/a00104.html#a499782f312a3ff96903f704daa4380c9", null ],
+    [ "RefTransmissionProfile", "d0/dc2/a00104.html#a2e659f1f72b251f6d6ce637b6321f9ff", null ],
     [ "TimeStep", "d0/dc2/a00104.html#a032911d7270c91e0a6a9c55f68800096", null ],
     [ "SimBuilder", "d0/dc2/a00104.html#a9a439036c5f4a413765b48764c0b1741", null ],
     [ "m_config", "d0/dc2/a00104.html#a6862a358332922c825f15bd9e770ccf0", null ],
@@ -22,8 +20,7 @@ var a00104 =
     [ "m_handlers", "d0/dc2/a00104.html#aa32eb53f04209e58c93b25d8c6c24a40", null ],
     [ "m_infector", "d0/dc2/a00104.html#a36d96f3112de535bd8a48b8694545212", null ],
     [ "m_population", "d0/dc2/a00104.html#ab558b35470a8f91f051a32f374e54e00", null ],
-    [ "m_rn_man", "d0/dc2/a00104.html#ad80e4b9d493d1e989619eda8d6404699", null ],
+    [ "m_rn_man", "d0/dc2/a00104.html#af5caa3c4296505c6f872dd27e5f7bcbe", null ],
     [ "m_transmission_profile", "d0/dc2/a00104.html#a07c55a625ad780341af4eef33ad3d5cf", null ],
-    [ "m_public_health_agency", "d0/dc2/a00104.html#a30f793306aa22a3f1623d0ceb4e8a252", null ],
-    [ "m_rn_manager_ptr", "d0/dc2/a00104.html#a88a205a5cfbd78547c63e7643f19de5a", null ]
+    [ "m_public_health_agency", "d0/dc2/a00104.html#a30f793306aa22a3f1623d0ceb4e8a252", null ]
 ];

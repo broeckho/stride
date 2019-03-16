@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "acegilprstv",
   7: "ghi",
   8: "acefghiknprstw",
-  9: ":ikos",
+  9: ":dgikos",
   10: "apst",
   11: "s"
 };

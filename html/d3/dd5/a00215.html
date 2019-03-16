@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit aa4fc0f</span>
+   &#160;<span id="projectnumber">- generated for commit 8c3f06e</span>
    </div>
   </td>
  </tr>
@@ -117,31 +117,32 @@ $(document).ready(function(){initNavTree('d3/dd5/a00215.html','../../');});
 <code>#include &quot;<a class="el" href="../../de/d79/a00203_source.html">geopop/GeoGrid.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d3/d2a/a00195_source.html">util/Exception.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
 <code>#include &lt;omp.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for GeoGridProtoWriter.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d4/d1e/a00497.gif" border="0" usemap="#GeoGridProtoWriter_8cpp" alt=""/></div>
 <map name="GeoGridProtoWriter_8cpp" id="GeoGridProtoWriter_8cpp">
-<area shape="rect" id="node2" href="../../d6/d43/a00216.html" title="GeoGridProtoWriter.h" alt="" coords="1689,155,1844,181"/>
-<area shape="rect" id="node15" href="../../d9/d90/a00178.html" title="Definition of ContactPool Id Type. " alt="" coords="975,393,1139,420"/>
-<area shape="rect" id="node18" href="../../d1/d72/a00204.html" title="geogrid.pb.h" alt="" coords="2867,393,2970,420"/>
-<area shape="rect" id="node34" href="../../de/d53/a00169.html" title="geopop/ContactCenter.h" alt="" coords="43,237,221,263"/>
-<area shape="rect" id="node35" href="../../de/d79/a00203.html" title="geopop/GeoGrid.h" alt="" coords="956,80,1095,107"/>
-<area shape="rect" id="node49" href="../../d3/d2a/a00195.html" title="util/Exception.h" alt="" coords="2009,393,2127,420"/>
-<area shape="rect" id="node3" href="../../dd/d52/a00221.html" title="GeoGridWriter.h" alt="" coords="1261,237,1382,263"/>
-<area shape="rect" id="node6" href="../../d5/d42/a00269.html" title="geopop/Location.h" alt="" coords="1593,237,1733,263"/>
-<area shape="rect" id="node7" href="../../d8/d64/a00181.html" title="Coordinate.h" alt="" coords="1025,319,1129,345"/>
-<area shape="rect" id="node36" href="../../d8/df1/a00174.html" title="Header for the core ContactPool class. " alt="" coords="496,319,659,345"/>
-<area shape="rect" id="node39" href="../../dd/dc1/a00212.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="728,155,936,181"/>
-<area shape="rect" id="node42" href="../../dc/dc9/a00282.html" title="Header file for the core Population class. " alt="" coords="961,155,1090,181"/>
-<area shape="rect" id="node37" href="../../d6/dfb/a00172.html" title="Header for the ContactLogMode class. " alt="" coords="1645,393,1840,420"/>
-<area shape="rect" id="node40" href="../../d3/dcc/a00264.html" title="KdTree.h" alt="" coords="297,237,373,263"/>
-<area shape="rect" id="node41" href="../../d5/d35/a00266.html" title="KdTree2DPoint.h" alt="" coords="783,237,910,263"/>
-<area shape="rect" id="node43" href="../../d5/de9/a00176.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="572,237,759,263"/>
-<area shape="rect" id="node44" href="../../d3/d07/a00305.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1398,393,1570,420"/>
-<area shape="rect" id="node46" href="../../dc/d28/a00276.html" title="Header file for the Person class. " alt="" coords="895,319,1001,345"/>
-<area shape="rect" id="node47" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="397,237,497,263"/>
+<area shape="rect" id="node2" href="../../d6/d43/a00216.html" title="GeoGridProtoWriter.h" alt="" coords="880,162,1035,189"/>
+<area shape="rect" id="node7" href="../../d9/d90/a00178.html" title="Definition of ContactPool Id Type. " alt="" coords="1515,393,1679,420"/>
+<area shape="rect" id="node15" href="../../de/d53/a00169.html" title="geopop/ContactCenter.h" alt="" coords="521,319,700,345"/>
+<area shape="rect" id="node21" href="../../d1/d72/a00204.html" title="geogrid.pb.h" alt="" coords="3354,80,3457,107"/>
+<area shape="rect" id="node37" href="../../de/d79/a00203.html" title="geopop/GeoGrid.h" alt="" coords="1324,80,1463,107"/>
+<area shape="rect" id="node48" href="../../d3/d2a/a00195.html" title="util/Exception.h" alt="" coords="2309,319,2427,345"/>
+<area shape="rect" id="node3" href="../../dd/d52/a00221.html" title="GeoGridWriter.h" alt="" coords="373,244,494,271"/>
+<area shape="rect" id="node6" href="../../d5/d42/a00269.html" title="geopop/Location.h" alt="" coords="1110,244,1250,271"/>
+<area shape="rect" id="node13" href="../../d6/db6/a00241.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1733,319,1923,345"/>
+<area shape="rect" id="node16" href="../../d8/d64/a00181.html" title="geopop/Coordinate.h" alt="" coords="725,319,881,345"/>
+<area shape="rect" id="node38" href="../../d8/df1/a00174.html" title="Header for the core ContactPool class. " alt="" coords="1997,319,2160,345"/>
+<area shape="rect" id="node41" href="../../dd/dc1/a00212.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="648,162,856,189"/>
+<area shape="rect" id="node44" href="../../dc/dc9/a00282.html" title="Header file for the core Population class. " alt="" coords="1582,162,1711,189"/>
+<area shape="rect" id="node39" href="../../d6/dfb/a00172.html" title="Header for the ContactLogMode class. " alt="" coords="2107,393,2301,420"/>
+<area shape="rect" id="node42" href="../../d3/dcc/a00264.html" title="KdTree.h" alt="" coords="195,319,271,345"/>
+<area shape="rect" id="node43" href="../../d5/d35/a00266.html" title="KdTree2DPoint.h" alt="" coords="689,244,815,271"/>
+<area shape="rect" id="node45" href="../../d5/de9/a00176.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1813,244,2000,271"/>
+<area shape="rect" id="node46" href="../../dc/d28/a00276.html" title="Header file for the Person class. " alt="" coords="1683,244,1789,271"/>
+<area shape="rect" id="node47" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="295,319,395,345"/>
 </map>
 </div>
 </div>
@@ -159,7 +160,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d3/dd5/a00215.html">GeoGridProtoWriter.cpp</a></li>
-    <li class="footer">Generated on Thu Mar 14 2019 19:52:54 for Stride Reference Manual by
+    <li class="footer">Generated on Sat Mar 16 2019 22:23:38 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
