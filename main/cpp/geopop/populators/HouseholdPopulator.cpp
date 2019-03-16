@@ -24,6 +24,7 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride::ContactType;
 
 void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
 {
@@ -34,7 +35,7 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
             m_rn_man.GetUniformIntGenerator(0, static_cast<int>(geoGridConfig.refHH.households.size()), 0U);
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
-                const vector<shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Household>();
+                const vector<shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Id::Household>();
                 for (const auto& h : households) {
                         auto contactPool = h->GetPools()[0];
                         auto hDraw       = static_cast<unsigned int>(household_dist());
@@ -46,7 +47,7 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                         }
                 }
         }
-        m_logger->info("Number of persons in households: {}", person_id);
+        m_logger->debug("Number of persons in households: {}", person_id);
 }
 
 } // namespace geopop

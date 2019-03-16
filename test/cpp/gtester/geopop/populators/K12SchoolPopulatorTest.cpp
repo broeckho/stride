@@ -64,7 +64,7 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
         k12SchoolPopulator.Apply(geoGrid, config);
 
         auto location   = *geoGrid->begin();
-        auto k12Schools = location->GetContactCentersOfType<K12School>();
+        auto k12Schools = location->GetContactCentersOfType(Id::K12School);
 
         EXPECT_EQ(5, k12Schools.size());
 
@@ -156,9 +156,9 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
         geoGrid->Finalize();
         k12SchoolPopulator.Apply(geoGrid, config);
 
-        auto k12Schools1 = brasschaat->GetContactCentersOfType<K12School>();
-        auto k12Schools2 = schoten->GetContactCentersOfType<K12School>();
-        auto k12Schools3 = kortrijk->GetContactCentersOfType<K12School>();
+        auto k12Schools1 = brasschaat->GetContactCentersOfType(Id::K12School);
+        auto k12Schools2 = schoten->GetContactCentersOfType(Id::K12School);
+        auto k12Schools3 = kortrijk->GetContactCentersOfType(Id::K12School);
 
         // Check 3 K12Schools per location.
         EXPECT_EQ(3, k12Schools1.size());
@@ -204,7 +204,7 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
                 EXPECT_EQ(persons[person.GetId()], person.GetPoolId(Id::K12School));
         }
 
-        for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
+        for (const auto& household : kortrijk->GetContactCentersOfType(Id::Household)) {
                 for (const auto& p : *household->GetPools()[0]) {
                         const auto k12Id = p->GetPoolId(Id::K12School);
                         if (AgeBrackets::K12School::HasAge(p->GetAge())) {

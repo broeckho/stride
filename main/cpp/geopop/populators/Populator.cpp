@@ -31,6 +31,7 @@ namespace geopop {
 
 using namespace std;
 using namespace stride;
+using namespace stride::ContactType;
 
 Populator::Populator(util::RnMan& rnManager, shared_ptr<spdlog::logger> logger)
     : m_rn_man(rnManager), m_logger(move(logger))
@@ -47,16 +48,15 @@ bool Populator::MakeChoice(double fraction)
         return static_cast<bool>(dist());
 }
 
-template <typename T>
-vector<ContactPool*> Populator::GetNearbyPools(const shared_ptr<GeoGrid>& geoGrid, const shared_ptr<Location>& start,
-                                               double startRadius) const
+vector<ContactPool*> Populator::GetNearbyPools(Id id, const shared_ptr<GeoGrid>& geoGrid,
+                                               const shared_ptr<Location>& start, double startRadius) const
 {
         double               currentRadius = startRadius;
         vector<ContactPool*> pools;
 
         while (pools.empty()) {
                 for (const shared_ptr<Location>& nearLoc : geoGrid->LocationsInRadius(start, currentRadius)) {
-                        const auto& centers = nearLoc->GetContactCentersOfType<T>();
+                        const auto& centers = nearLoc->GetContactCentersOfType(id);
                         for (const auto& center : centers) {
                                 pools.insert(pools.end(), center->begin(), center->end());
                         }
@@ -68,29 +68,5 @@ vector<ContactPool*> Populator::GetNearbyPools(const shared_ptr<GeoGrid>& geoGri
         }
         return pools;
 }
-
-template vector<ContactPool*> Populator::GetNearbyPools<College>(const shared_ptr<GeoGrid>&  geoGrid,
-                                                                 const shared_ptr<Location>& start,
-                                                                 double                      startRadius) const;
-
-template vector<ContactPool*> Populator::GetNearbyPools<Household>(const shared_ptr<GeoGrid>&  geoGrid,
-                                                                   const shared_ptr<Location>& start,
-                                                                   double                      startRadius) const;
-
-template vector<ContactPool*> Populator::GetNearbyPools<K12School>(const shared_ptr<GeoGrid>&  geoGrid,
-                                                                   const shared_ptr<Location>& start,
-                                                                   double                      startRadius) const;
-
-template vector<ContactPool*> Populator::GetNearbyPools<PrimaryCommunity>(const shared_ptr<GeoGrid>&  geoGrid,
-                                                                          const shared_ptr<Location>& start,
-                                                                          double startRadius) const;
-
-template vector<ContactPool*> Populator::GetNearbyPools<SecondaryCommunity>(const shared_ptr<GeoGrid>&  geoGrid,
-                                                                            const shared_ptr<Location>& start,
-                                                                            double startRadius) const;
-
-template vector<ContactPool*> Populator::GetNearbyPools<Workplace>(const shared_ptr<GeoGrid>&  geoGrid,
-                                                                   const shared_ptr<Location>& start,
-                                                                   double                      startRadius) const;
 
 } // namespace geopop

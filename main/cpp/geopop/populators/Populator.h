@@ -15,6 +15,7 @@
 
 #pragma once
 
+#include "contact/ContactType.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -57,8 +58,8 @@ protected:
         /// Find contactpools in startRadius (in km) around start and, if none are found, double
         /// the radius and search again until the radius gets infinite. May return an empty vector
         /// when there are no pools to be found.
-        template <typename T>
-        std::vector<stride::ContactPool*> GetNearbyPools(const std::shared_ptr<GeoGrid>&  geoGrid,
+        std::vector<stride::ContactPool*> GetNearbyPools(stride::ContactType::Id id,
+                                                         const std::shared_ptr<GeoGrid>&  geoGrid,
                                                          const std::shared_ptr<Location>& start,
                                                          double                           startRadius = 10.0) const;
 
@@ -69,23 +70,5 @@ protected:
         stride::util::RnMan&            m_rn_man; ///< RnManager used by populators.
         std::shared_ptr<spdlog::logger> m_logger; ///< Logger used by populators.
 };
-
-extern template std::vector<stride::ContactPool*> Populator::GetNearbyPools<College>(
-    const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start, double startRadius) const;
-
-extern template std::vector<stride::ContactPool*> Populator::GetNearbyPools<Household>(
-    const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start, double startRadius) const;
-
-extern template std::vector<stride::ContactPool*> Populator::GetNearbyPools<K12School>(
-    const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start, double startRadius) const;
-
-extern template std::vector<stride::ContactPool*> Populator::GetNearbyPools<PrimaryCommunity>(
-    const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start, double startRadius) const;
-
-extern template std::vector<stride::ContactPool*> Populator::GetNearbyPools<SecondaryCommunity>(
-    const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start, double startRadius) const;
-
-extern template std::vector<stride::ContactPool*> Populator::GetNearbyPools<Workplace>(
-    const std::shared_ptr<GeoGrid>& geoGrid, const std::shared_ptr<Location>& start, double startRadius) const;
 
 } // namespace geopop

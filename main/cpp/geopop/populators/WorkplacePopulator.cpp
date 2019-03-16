@@ -70,7 +70,7 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 CalculateNearbyWorkspaces();
 
                 // 2. for everyone of working age: decide between work or college (iff of College age)
-                for (const auto& household : loc->GetContactCentersOfType<Household>()) {
+                for (const auto& household : loc->GetContactCentersOfType(Id::Household)) {
                         auto contactPool = household->GetPools()[0];
                         for (auto p : *contactPool) {
                                 if (AgeBrackets::Workplace::HasAge((p->GetAge()))) {
@@ -109,7 +109,7 @@ void WorkplacePopulator::CalculateWorkplacesInCity()
 {
         for (const shared_ptr<Location>& loc : *m_geoGrid) {
                 vector<ContactPool*> contactPools;
-                for (const auto& wp : loc->GetContactCentersOfType<Workplace>()) {
+                for (const auto& wp : loc->GetContactCentersOfType(Id::Workplace)) {
                         contactPools.insert(contactPools.end(), wp->begin(), wp->end());
                 }
 
@@ -146,7 +146,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
 
         vector<double> commutingWeights;
         for (const pair<Location*, double>& commute : m_currentLoc->GetOutgoingCommutingCities()) {
-                const auto& workplaces = commute.first->GetContactCentersOfType<Workplace>();
+                const auto& workplaces = commute.first->GetContactCentersOfType(Id::Workplace);
                 if (!workplaces.empty()) {
                         m_commutingLocations.push_back(commute.first);
                         const auto weight = commute.second - (commute.second * m_fractionCommutingStudents);
@@ -163,7 +163,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
 
 void WorkplacePopulator::CalculateNearbyWorkspaces()
 {
-        m_nearByWorkplaces = GetNearbyPools<Workplace>(m_geoGrid, m_currentLoc);
+        m_nearByWorkplaces = GetNearbyPools(Id::Workplace, m_geoGrid, m_currentLoc);
         m_distNonCommuting = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(m_nearByWorkplaces.size()), 0U);
 }
 

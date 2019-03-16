@@ -32,6 +32,7 @@
 using namespace std;
 using namespace geopop;
 using namespace stride;
+using namespace stride::ContactType;
 using namespace stride::util;
 
 template <typename CommunityType>
@@ -142,7 +143,7 @@ protected:
 
         void HouseholdTest()
         {
-                auto pool    = *location->GetContactCentersOfType<Household>()[0]->begin();
+                auto pool    = *location->GetContactCentersOfType(Id::Household)[0]->begin();
                 auto person2 = make_shared<Person>();
                 person2->SetId(5);
                 person2->SetAge(2);

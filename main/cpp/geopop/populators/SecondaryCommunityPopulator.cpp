@@ -23,12 +23,16 @@
 
 #include <set>
 
+using namespace std;
+using namespace stride;
+using namespace stride::ContactType;
+
 namespace geopop {
 
-void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
+void SecondaryCommunityPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {
         m_logger->info("Starting to populate Secondary Communities");
-        std::set<stride::ContactPool*> found;
+        set<stride::ContactPool*> found;
 
         // for every location
         for (const auto& loc : *geoGrid) {
@@ -36,10 +40,10 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const 
                         continue;
                 }
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& nearbyPools = GetNearbyPools<SecondaryCommunity>(geoGrid, loc);
+                const auto& nearbyPools = GetNearbyPools(Id::SecondaryCommunity, geoGrid, loc);
 
                 // 2. find all households in this location
-                const auto& households = loc->GetContactCentersOfType<Household>();
+                const auto& households = loc->GetContactCentersOfType<Id::Household>();
 
                 auto hh_per_comm        = households.size() / nearbyPools.size();
                 auto remainder          = households.size() % nearbyPools.size();

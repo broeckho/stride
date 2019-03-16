@@ -15,7 +15,10 @@
 
 #pragma once
 
-#include "Coordinate.h"
+#include "contact/ContactType.h"
+#include "contact/IdSubscriptArray.h"
+#include "geopop/Coordinate.h"
+#include "geopop/ContactCenter.h"
 
 #include <iostream>
 #include <memory>
@@ -48,11 +51,10 @@ public:
         bool operator==(const Location& other) const;
 
         /// Add a ContactCenter.
-        template <typename T>
-        void AddContactCenter(std::shared_ptr<T> contactCenter)
+        void AddContactCenter(const std::shared_ptr<ContactCenter>& contactCenter)
         {
                 m_CC.push_back(contactCenter);
-                m_CC_OfType[typeid(T)].push_back(contactCenter);
+                m_CC_OfType[contactCenter->GetContactPoolType()].push_back(contactCenter);
         }
 
         /// Adds a Location and a proportion to the incoming commute vector.
@@ -70,10 +72,16 @@ public:
         const std::vector<std::shared_ptr<ContactCenter>>& GetContactCenters() const { return m_CC; }
 
         /// Gets the Contact Centers of a specific type (Household, Workplace, ...).
-        template <typename T>
+        std::vector<std::shared_ptr<ContactCenter>> GetContactCentersOfType(stride::ContactType::Id id)
+        {
+                return m_CC_OfType[id];
+        }
+
+        /// Gets the Contact Centers of a specific type (Household, Workplace, ...).
+        template <stride::ContactType::Id T>
         std::vector<std::shared_ptr<ContactCenter>> GetContactCentersOfType()
         {
-                return m_CC_OfType[typeid(T)];
+                return m_CC_OfType[T];
         }
 
         /// Gets a vector with the outgoing cities which people are commuting to + the proportion.
@@ -126,7 +134,7 @@ public:
         iterator end() { return m_CC.end(); }
 
 private:
-        unsigned int m_id = 0;       ///< Id.
+        unsigned int m_id = 0U;       ///< Id.
         std::string  m_name;         ///< Name.
         unsigned int m_province;     ///< Province id.
         unsigned int m_pop_count;    ///< Population count (number of individuals) at this Location.
@@ -143,7 +151,7 @@ private:
         std::vector<std::pair<Location*, double>> m_outCommuteLocations;
 
         ///< Stores the contact centers indexed by their type.
-        std::unordered_map<std::type_index, std::vector<std::shared_ptr<ContactCenter>>> m_CC_OfType;
+        stride::ContactType::IdSubscriptArray<std::vector<std::shared_ptr<ContactCenter>>> m_CC_OfType;
 };
 
 } // namespace geopop

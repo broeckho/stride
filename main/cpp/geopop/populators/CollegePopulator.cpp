@@ -45,7 +45,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                         continue;
                 }
                 // 1. find all highschools in an area of 10-k*10 km
-                const auto& nearByColleges = GetNearbyPools<College>(geoGrid, loc);
+                const auto& nearByColleges = GetNearbyPools(Id::College, geoGrid, loc);
 
                 AssertThrow(!nearByColleges.empty(), "No HighSchool found!", m_logger);
 
@@ -56,7 +56,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                 vector<Location*> commutingCollege;
                 vector<double>    commutingWeights;
                 for (const auto& commute : loc->GetOutgoingCommutingCities()) {
-                        const auto& highSchools = commute.first->GetContactCentersOfType<College>();
+                        const auto& highSchools = commute.first->GetContactCentersOfType<Id::College>();
                         if (!highSchools.empty()) {
                                 commutingCollege.push_back(commute.first);
                                 commutingWeights.push_back(commute.second);
@@ -70,7 +70,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                 }
 
                 // 2. for every student assign a class
-                for (const auto& household : loc->GetContactCentersOfType<Household>()) {
+                for (const auto& household : loc->GetContactCentersOfType<Id::Household>()) {
                         ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
@@ -87,7 +87,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                                                 auto locationId = disCommuting();
                                                 // create list of classes for each highschool at this location
                                                 const auto& highSchools =
-                                                    commutingCollege[locationId]->GetContactCentersOfType<College>();
+                                                    commutingCollege[locationId]->GetContactCentersOfType<Id::College>();
 
                                                 vector<ContactPool*> contactPools;
                                                 for (const auto& hs : highSchools) {
@@ -109,9 +109,9 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                         }
                 }
         }
-        m_logger->info("Number of students in Colleges: {}", students);
-        m_logger->info("Number of classes:  {}", found.size());
-        m_logger->info("Number students that commute: ", commuting);
+        m_logger->debug("Number of students in Colleges: {}", students);
+        m_logger->debug("Number of classes:  {}", found.size());
+        m_logger->debug("Number students that commute: ", commuting);
 }
 
 } // namespace geopop

@@ -42,12 +42,12 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 }
 
                 // 1. find all schools in an area of 10-k*10 km
-                const vector<ContactPool*>& classes = GetNearbyPools<K12School>(geoGrid, loc);
+                const vector<ContactPool*>& classes = GetNearbyPools(Id::K12School, geoGrid, loc);
 
                 auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(classes.size()), 0U);
 
                 // 2. for every student assign a class
-                for (const shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
+                for (const shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Id::Household>()) {
                         ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
@@ -61,8 +61,8 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 }
         }
 
-        m_logger->info("Number of pupils in schools: {}", pupils);
-        m_logger->info("Number of different classes: {}", found.size());
+        m_logger->debug("Number of pupils in schools: {}", pupils);
+        m_logger->debug("Number of different classes: {}", found.size());
 }
 
 } // namespace geopop

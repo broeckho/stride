@@ -20,26 +20,29 @@
 #include "geopop/Location.h"
 #include "geopop/PrimaryCommunity.h"
 
+using namespace std;
+using namespace stride::ContactType;
+
 namespace geopop {
 
-void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
+void PrimaryCommunityPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
 {
         m_logger->info("Starting to populate Primary Communities");
 
-        std::set<stride::ContactPool*> found;
+        set<stride::ContactPool*> found;
         // for every location
-        for (const std::shared_ptr<Location>& loc : *geoGrid) {
+        for (const shared_ptr<Location>& loc : *geoGrid) {
                 if (loc->GetPopCount() == 0) {
                         continue;
                 }
 
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& nearbyPools = GetNearbyPools<PrimaryCommunity>(geoGrid, loc);
+                const auto& nearbyPools = GetNearbyPools(Id::PrimaryCommunity, geoGrid, loc);
 
                 // 2. for every household assign a community
                 const auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearbyPools.size()), 0U);
 
-                for (const auto& household : loc->GetContactCentersOfType<Household>()) {
+                for (const auto& household : loc->GetContactCentersOfType<Id::Household>()) {
                         auto contactPool = household->GetPools()[0];
                         for (auto p : *contactPool) {
                                 auto& pool = nearbyPools[dist()];
@@ -50,8 +53,8 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const Ge
                 }
         }
 
-        m_logger->info("Finished populating Primary Communities");
-        m_logger->info("Used {} different Primary communities", found.size());
+        m_logger->debug("Finished populating Primary Communities");
+        m_logger->debug("Used {} different Primary communities", found.size());
 }
 
 } // namespace geopop

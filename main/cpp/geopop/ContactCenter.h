@@ -30,13 +30,19 @@ class GeoGrid;
 class GeoGridConfig;
 
 /**
- * A ContactCenter contains multiple ContactPools
+ * A ContactCenter represents a number of ContactPools of same ContactType::Id
+ * that are related. Examples are classes (Pools with ID value K12School) vs
+ * school (ContactCenter K12School) or teams (Pools with Id value Workplace)
+ * vs company (ContactCenter WorkPlace).
  */
 class ContactCenter
 {
 public:
         /// Construct ContactCenter with assigned ID.
         explicit ContactCenter(unsigned int id) : m_pools(), m_id(id) {}
+
+        /// Default destructor, but virtual
+        virtual ~ContactCenter() = default;
 
         /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
         virtual void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) = 0;
@@ -55,9 +61,6 @@ public:
 
         /// Register a ContactPool with this ContactCenter.
         void RegisterPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }
-
-        /// Default destructor, but virtual
-        virtual ~ContactCenter() = default;
 
 public:
         /// Allow range-based iteration over pools in contact center.

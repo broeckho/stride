@@ -128,7 +128,7 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         const auto pwc = GeoGridConfig().pools.pools_per_workplace;
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
-        for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
+        for (const auto& household : schoten->GetContactCentersOfType(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
@@ -142,7 +142,7 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         }
 
         // Assert that persons of Brasschaat only go to Schoten or Brasschaat
-        for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
+        for (const auto& household : brasschaat->GetContactCentersOfType(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
@@ -156,7 +156,7 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         }
 
         // Assert that persons of Kortrijk only go to Kortijk
-        for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
+        for (const auto& household : kortrijk->GetContactCentersOfType(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
@@ -216,7 +216,7 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         const auto pwc = GeoGridConfig().pools.pools_per_workplace;
 
         // Assert that persons of Schoten only go to Kortrijk
-        for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
+        for (const auto& household : schoten->GetContactCentersOfType(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
@@ -230,7 +230,7 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         }
 
         // Assert that persons of Kortrijk only go to Schoten
-        for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
+        for (const auto& household : kortrijk->GetContactCentersOfType(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
@@ -297,7 +297,7 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         const auto pwc = GeoGridConfig().pools.pools_per_workplace;
 
         // Assert that persons of Schoten only go to Kortrijk
-        for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
+        for (const auto& household : schoten->GetContactCentersOfType(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
@@ -311,7 +311,7 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         }
 
         // Assert that persons of Brasschaat only go to Brasschaat or Schoten
-        for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
+        for (const auto& household : brasschaat->GetContactCentersOfType(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
@@ -325,7 +325,7 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         }
 
         // Assert that persons of Kortrijk only go to Schoten
-        for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
+        for (const auto& household : kortrijk->GetContactCentersOfType(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
