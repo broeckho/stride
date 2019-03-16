@@ -26,17 +26,17 @@ using namespace stride::ContactType;
 namespace stride {
 
 ContactPoolSys::ContactPoolSys()
-    : ContactType::IdSubscriptArray<util::SegmentedVector<ContactPool>>(), m_currentContactPoolId()
+    : m_currentContactPoolId(), m_sys()
 {
         for (Id typ : IdList) {
-                (*this)[typ].emplace_back(ContactPool(0U, typ));
+                m_sys[typ].emplace_back(ContactPool(0U, typ));
                 m_currentContactPoolId[typ] = 1;
         }
 }
 
 ContactPool* ContactPoolSys::CreateContactPool(ContactType::Id typeId)
 {
-        return (*this)[typeId].emplace_back(m_currentContactPoolId[typeId]++, typeId);
+        return m_sys[typeId].emplace_back(m_currentContactPoolId[typeId]++, typeId);
 }
 
 } // namespace stride

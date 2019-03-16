@@ -107,8 +107,8 @@ void Sim::TimeStep()
                                 continue;
                         }
 #pragma omp for schedule(static)
-                        for (size_t i = 1; i < poolSys[typ].size(); i++) { // NOLINT
-                                infector(poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile,
+                        for (size_t i = 1; i < poolSys.RefPools(typ).size(); i++) { // NOLINT
+                                infector(poolSys.RefPools(typ)[i], m_contact_profiles[typ], m_transmission_profile,
                                          m_handlers[thread_num], simDay, contactLogger);
                         }
                 }

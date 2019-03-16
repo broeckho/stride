@@ -43,10 +43,10 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         // Population immunity (natural immunity & vaccination).
         // --------------------------------------------------------------
         const auto immunityProfile = m_config.get<std::string>("run.immunity_profile");
-        Vaccinate("immunity", immunityProfile, pop->RefPoolSys().RefPools<Id::Household>());
+        Vaccinate("immunity", immunityProfile, pop->RefPoolSys().CRefPools<Id::Household>());
 
         const auto vaccinationProfile = m_config.get<std::string>("run.vaccine_profile");
-        Vaccinate("vaccine", vaccinationProfile, pop->RefPoolSys().RefPools<Id::Household>());
+        Vaccinate("vaccine", vaccinationProfile, pop->RefPoolSys().CRefPools<Id::Household>());
 
         // --------------------------------------------------------------
         // Seed infected persons.
