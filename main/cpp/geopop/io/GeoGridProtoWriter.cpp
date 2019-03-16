@@ -22,6 +22,7 @@
 #include "util/Exception.h"
 
 #include <iostream>
+#include <map>
 #include <omp.h>
 
 namespace geopop {

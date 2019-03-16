@@ -36,10 +36,6 @@ namespace stride {
 class ContactPoolSys
 {
 public:
-        /// To make coding easier.
-        using CType = ContactType::IdSubscriptArray<util::SegmentedVector<ContactPool>>;
-
-public:
         /// Empty system.
         ContactPoolSys();
 
@@ -84,8 +80,11 @@ private:
         /// the index in the vector with pools is identical to the pool's UID.
         ContactType::IdSubscriptArray<unsigned int> m_currentContactPoolId;
 
-        ///
-        CType m_sys;
+        /// Pool system container: array that is subscriptable with ContactType::Ids and for
+        /// each Id contains a SegmentedVector with the ContactPools for that ContactType::Id.
+        /// We use the SegmentedVector not to run in re-allocations and to be able to use
+        /// pointers into the SegmentedVector.
+        ContactType::IdSubscriptArray<util::SegmentedVector<ContactPool>> m_sys;
 };
 
 } // namespace stride

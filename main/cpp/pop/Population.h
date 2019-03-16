@@ -75,16 +75,25 @@ public:
         std::shared_ptr<spdlog::logger>& GetContactLogger() { return m_contact_logger; }
 
         /// The ContactPoolSys of the simulator.
+        const ContactPoolSys& CRefPoolSys() const { return m_pool_sys; }
+
+        /// Get the GeoGrid associated with this population (may be a nullptr).
+        const std::shared_ptr<geopop::GeoGrid>& CRefGeoGrid() const { return m_geo_grid; }
+
+private:
+        /// The ContactPoolSys of the simulator.
         ContactPoolSys& RefPoolSys() { return m_pool_sys; }
 
-        /// The ContactPoolSys of the simulator.
-        const ContactPoolSys& RefPoolSys() const { return m_pool_sys; }
+        friend class geopop::GeoGrid;
+        friend class DefaultPopBuilder;
+        friend class Sim;
 
+private:
         /// Get the GeoGrid associated with this population (may be a nullptr).
-        std::shared_ptr<geopop::GeoGrid>& GetGeoGrid() { return m_geo_grid; }
+        std::shared_ptr<geopop::GeoGrid>& RefGeoGrid() { return m_geo_grid; }
 
-        /// Get the GeoGrid associated with this population (may be a nullptr).
-        const std::shared_ptr<geopop::GeoGrid>& GetGeoGrid() const { return m_geo_grid; }
+        friend class ImportPopBuilder;
+        friend class GeoPopBuilder;
 
 private:
         /// Non-trivial default constructor.

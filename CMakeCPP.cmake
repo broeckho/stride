@@ -110,7 +110,7 @@ if(NOT STRIDE_FORCE_NO_PROTOC)
 endif()
 #
 if(Protobuf_FOUND AND ${Protobuf_VERSION} VERSION_GREATER_EQUAL 3.0.0)
-    set(Protobuf_PBS_DIR ${CMAKE_CURRENT_BINARY_DIR}/main/cpp)
+    set(Protobuf_PBS_DIR ${CMAKE_BINARY_DIR}/main/cpp)
     include_directories(SYSTEM ${Protobuf_INCLUDE_DIRS})
 else()
     set(Protobuf_PBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/main/cpp/geopop/io/proto_pb)

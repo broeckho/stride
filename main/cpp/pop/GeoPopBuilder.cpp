@@ -96,7 +96,7 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Done.
         // --------------------------------------------------------------
-        pop->GetGeoGrid() = geoGrid;
+        pop->RefGeoGrid() = geoGrid;
         m_stride_logger->trace("Done building geopop.");
 
         return pop;
