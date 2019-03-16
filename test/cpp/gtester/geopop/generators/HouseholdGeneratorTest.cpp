@@ -28,6 +28,7 @@
 using namespace std;
 using namespace geopop;
 using namespace stride;
+using namespace stride::ContactType;
 using namespace stride::util;
 
 namespace {
@@ -47,7 +48,7 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
 
         householdGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        const auto& centersOfLoc1 = loc1->GetContactCenters();
+        const auto& centersOfLoc1 = loc1->GetContactCentersOfType(Id::Household);
         EXPECT_EQ(centersOfLoc1.size(), 4);
 }
 
@@ -96,19 +97,19 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
 
         householdGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        const auto& centersOfLoc1 = loc1->GetContactCenters();
+        const auto& centersOfLoc1 = loc1->GetContactCentersOfType(Id::Household);
         EXPECT_EQ(centersOfLoc1.size(), 1179);
 
-        const auto& centersOfLoc2 = loc2->GetContactCenters();
+        const auto& centersOfLoc2 = loc2->GetContactCentersOfType(Id::Household);
         EXPECT_EQ(centersOfLoc2.size(), 1137);
 
-        const auto& centersOfLoc3 = loc3->GetContactCenters();
+        const auto& centersOfLoc3 = loc3->GetContactCentersOfType(Id::Household);
         EXPECT_EQ(centersOfLoc3.size(), 868);
 
-        const auto& centersOfLoc4 = loc4->GetContactCenters();
+        const auto& centersOfLoc4 = loc4->GetContactCentersOfType(Id::Household);
         EXPECT_EQ(centersOfLoc4.size(), 358);
 
-        const auto& centersOfLoc5 = loc5->GetContactCenters();
+        const auto& centersOfLoc5 = loc5->GetContactCentersOfType(Id::Household);
         EXPECT_EQ(centersOfLoc5.size(), 458);
 }
 

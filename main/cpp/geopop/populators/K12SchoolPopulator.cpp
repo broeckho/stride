@@ -47,7 +47,7 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(classes.size()), 0U);
 
                 // 2. for every student assign a class
-                for (const shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Id::Household>()) {
+                for (const shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType(Id::Household)) {
                         ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {

@@ -148,9 +148,13 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
 {
         auto geoGrid        = getGeoGridForFile("test1.json", Population::Create().get());
         auto location       = geoGrid->Get(0);
-        auto contactCenters = location->GetContactCenters();
 
-        using namespace stride::ContactType;
+        vector<shared_ptr<ContactCenter>> centers;
+        for (Id typ : IdList) {
+                for (const auto& p : location->GetContactCentersOfType(typ)) {
+                        centers.emplace_back(p);
+                }
+        }
 
         map<Id, bool> found = {{Id::K12School, false},
                                {Id::PrimaryCommunity, false},
@@ -159,8 +163,8 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
                                {Id::Workplace, false}};
 
         for (unsigned int i = 0; i < 5; i++) {
-                EXPECT_FALSE(found[contactCenters[i]->GetContactPoolType()]);
-                found[contactCenters[i]->GetContactPoolType()] = true;
+                EXPECT_FALSE(found[centers[i]->GetContactPoolType()]);
+                found[centers[i]->GetContactPoolType()] = true;
         }
         for (auto& type : found) {
                 EXPECT_TRUE(type.second);
@@ -173,8 +177,6 @@ void runPeopleTest(const string& filename)
         auto geoGrid  = getGeoGridForFile(filename, pop.get());
         auto location = geoGrid->Get(0);
 
-        using namespace stride::ContactType;
-
         map<int, string> ids = {{0, "K12School"}, {1, "PrimaryCommunity"}, {2, "SecondaryCommunity"},
                                 {3, "College"},   {4, "Household"},        {5, "Workplace"}};
 
@@ -185,8 +187,14 @@ void runPeopleTest(const string& filename)
         EXPECT_EQ(get<0>(location->GetCoordinate()), 0);
         EXPECT_EQ(get<1>(location->GetCoordinate()), 0);
 
-        auto contactCenters = location->GetContactCenters();
-        for (const auto& center : contactCenters) {
+        vector<shared_ptr<ContactCenter>> centers;
+        for (Id typ : IdList) {
+                for (const auto& p : location->GetContactCentersOfType(typ)) {
+                        centers.emplace_back(p);
+                }
+        }
+
+        for (const auto& center : centers) {
                 auto pool   = center->GetPools()[0];
                 auto person = *(pool->begin());
                 EXPECT_EQ(ids[center->GetId()], ToString(center->GetContactPoolType()));

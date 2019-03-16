@@ -15,6 +15,7 @@
 
 #include "Location.h"
 #include "ContactCenter.h"
+#include "contact/ContactType.h"
 #include "util/Exception.h"
 
 #include <cmath>
@@ -22,10 +23,11 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride::ContactType;
 
 Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, string name)
     : m_id(id), m_name(move(name)), m_province(province), m_pop_count(0), m_pop_fraction(0.0), m_coordinate(coordinate),
-      m_CC(), m_inCommuteLocations(), m_outCommuteLocations(), m_CC_OfType()
+      m_inCommuteLocations(), m_outCommuteLocations(), m_CC_OfType()
 {
 }
 
@@ -38,10 +40,14 @@ Location::Location(unsigned int id, unsigned int province, unsigned int popCount
 bool Location::operator==(const Location& other) const
 {
         using boost::geometry::get;
-        return GetID() == other.GetID() && get<0>(GetCoordinate()) == get<0>(other.GetCoordinate()) &&
+
+        auto temp = true;
+        for (Id typ : IdList) {
+                temp = temp && (CRefContactCentersOfType(typ) == other.CRefContactCentersOfType(typ));
+        }
+        return temp && GetID() == other.GetID() && get<0>(GetCoordinate()) == get<0>(other.GetCoordinate()) &&
                get<1>(GetCoordinate()) == get<1>(other.GetCoordinate()) && GetName() == other.GetName() &&
                GetProvince() == other.GetProvince() && GetPopCount() == other.GetPopCount() &&
-               GetContactCenters() == other.GetContactCenters() &&
                GetIncomingCommuningCities() == other.GetIncomingCommuningCities() &&
                GetOutgoingCommutingCities() == other.GetOutgoingCommutingCities();
 }
@@ -72,9 +78,11 @@ double Location::GetInfectedCount() const
 {
         auto infected = 0U;
 
-        for (const auto& cc : m_CC) {
-                const auto r = cc->GetPopulationAndInfectedCount();
-                infected += r.second;
+        for (Id typ : IdList) {
+                for (const auto &cc: CRefContactCentersOfType(typ)) {
+                        const auto r = cc->GetPopulationAndInfectedCount();
+                        infected += r.second;
+                }
         }
 
         return infected;

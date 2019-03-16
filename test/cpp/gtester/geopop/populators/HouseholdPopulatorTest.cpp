@@ -30,6 +30,7 @@
 using namespace std;
 using namespace geopop;
 using namespace stride;
+using namespace stride::ContactType;
 using namespace stride::util;
 
 class HouseholdPopulatorTest : public testing::Test
@@ -121,7 +122,7 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 
         householdPopulator->Apply(geoGrid, config);
 
-        for (const auto& household : *loc1) {
+        for (const auto& household : loc1->GetContactCentersOfType(Id::Household)) {
                 ASSERT_EQ(household->GetPools().size(), 1);
                 ASSERT_EQ(household->GetPools()[0]->GetPool().size(), 1);
                 EXPECT_EQ((*household->GetPools()[0]->begin())->GetAge(), 18);

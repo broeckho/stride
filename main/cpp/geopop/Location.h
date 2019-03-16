@@ -53,7 +53,6 @@ public:
         /// Add a ContactCenter.
         void AddContactCenter(const std::shared_ptr<ContactCenter>& contactCenter)
         {
-                m_CC.push_back(contactCenter);
                 m_CC_OfType[contactCenter->GetContactPoolType()].push_back(contactCenter);
         }
 
@@ -68,35 +67,31 @@ public:
         /// Gets the Coordinate of this Location.
         const Coordinate& GetCoordinate() const { return m_coordinate; }
 
-        /// Gets all ContactCenters at this location.
-        const std::vector<std::shared_ptr<ContactCenter>>& GetContactCenters() const { return m_CC; }
-
         /// Gets the Contact Centers of a specific type (Household, Workplace, ...).
-        std::vector<std::shared_ptr<ContactCenter>> GetContactCentersOfType(stride::ContactType::Id id)
+        std::vector<std::shared_ptr<ContactCenter>>& GetContactCentersOfType(stride::ContactType::Id id)
         {
                 return m_CC_OfType[id];
         }
 
         /// Gets the Contact Centers of a specific type (Household, Workplace, ...).
-        template <stride::ContactType::Id T>
-        std::vector<std::shared_ptr<ContactCenter>> GetContactCentersOfType()
+        const std::vector<std::shared_ptr<ContactCenter>>& CRefContactCentersOfType (stride::ContactType::Id id) const
         {
-                return m_CC_OfType[T];
+                return m_CC_OfType[id];
         }
-
-        /// Gets a vector with the outgoing cities which people are commuting to + the proportion.
-        const std::vector<std::pair<Location*, double>>& GetIncomingCommuningCities() const;
 
         /// Gets ID of this Location.
         unsigned int GetID() const { return m_id; }
 
+        /// Gets a vector with the outgoing cities which people are commuting to + the proportion.
+        const std::vector<std::pair<Location*, double>>& GetIncomingCommuningCities() const;
+
         /// Calculates number of incomming commuters, given the fraction of the population that commutes.
         int GetIncomingCommuterCount(double fractionCommuters) const;
 
-        /// Gets the amount of people infected in the contactpools of this location.
+        /// Gets the number of people infected in the contactpools at this location.
         double GetInfectedCount() const;
 
-        /// Gets the name
+        /// Gets the name.
         std::string GetName() const { return m_name; }
 
         /// Returns outgoing cities which people are commuting to + the proportion.
@@ -105,16 +100,16 @@ public:
         /// Calculates number of outgoing commuters, given the fraction of the population that commutes.
         int GetOutgoingCommuterCount(double fractionCommuters) const;
 
-        /// Gets the absolute population
+        /// Gets the absolute population.
         unsigned int GetPopCount() const { return m_pop_count; }
 
-        /// Gets the province
+        /// Gets the province.
         unsigned int GetProvince() const { return m_province; }
 
-        /// Gets the relative population
+        /// Gets the relative population.
         double GetRelativePopulationSize() const;
 
-        /// Sets the Coordinate of this Socation.
+        /// Sets the Coordinate of this Location.
         void SetCoordinate(const Coordinate& coordinate) { m_coordinate = coordinate; }
 
         /// Calculates this location's population count using its relative population and the total population count.
@@ -123,26 +118,13 @@ public:
         /// Sets the relative population, which will be later used by @see CalculatePopulation.
         void SetRelativePopulation(double relativePopulation);
 
-public:
-        /// To iterate over container with ContactCenters at this Location.
-        using iterator = std::vector<std::shared_ptr<ContactCenter>>::iterator;
-
-        /// Gets iterator to the first ContacCenter at this Location.
-        iterator begin() { return m_CC.begin(); }
-
-        /// Gets iterator to the end of the ContactCenters at this Location.
-        iterator end() { return m_CC.end(); }
-
 private:
         unsigned int m_id = 0U;       ///< Id.
-        std::string  m_name;         ///< Name.
-        unsigned int m_province;     ///< Province id.
-        unsigned int m_pop_count;    ///< Population count (number of individuals) at this Location.
-        double       m_pop_fraction; ///< Fraction of whole population at thois Location.
-        Coordinate   m_coordinate;   ///< Coordinate of the Location.
-
-        ///< All contactCenters at this Location.
-        std::vector<std::shared_ptr<ContactCenter>> m_CC;
+        std::string  m_name;          ///< Name.
+        unsigned int m_province;      ///< Province id.
+        unsigned int m_pop_count;     ///< Population count (number of individuals) at this Location.
+        double       m_pop_fraction;  ///< Fraction of whole population at thois Location.
+        Coordinate   m_coordinate;    ///< Coordinate of the Location.
 
         /// Incomming commutes stored as pair of Location and fraction of population at that Location.
         std::vector<std::pair<Location*, double>> m_inCommuteLocations;

@@ -141,19 +141,15 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(shared_ptr<Location
         }
 
         boost::property_tree::ptree contactCenters;
-#pragma omp parallel
-#pragma omp single
-        {
-                for (const auto& contactCenter : *location) {
+        vector<shared_ptr<ContactCenter>> centers;
+        for (Id typ : IdList) {
+                for (const auto& c : location->GetContactCentersOfType(typ)) {
                         pair<string, boost::property_tree::ptree> child;
-#pragma omp task firstprivate(contactCenter)
                         {
-                                child = make_pair("", WriteContactCenter(contactCenter));
-#pragma omp critical
+                                child = make_pair("", WriteContactCenter(c));
                                 contactCenters.push_back(move(child));
                         }
                 }
-#pragma omp taskwait
         }
         location_root.add_child("contactCenters", contactCenters);
 

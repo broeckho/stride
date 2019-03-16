@@ -29,6 +29,7 @@
 using namespace std;
 using namespace geopop;
 using namespace stride;
+using namespace stride::ContactType;
 using namespace stride::util;
 
 namespace {
@@ -50,7 +51,7 @@ TEST(CollegeGeneratorTest, OneLocationTest)
 
         collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        const auto& centersOfLoc1 = loc1->GetContactCenters();
+        const auto& centersOfLoc1 = loc1->GetContactCentersOfType(Id::College);
         EXPECT_EQ(centersOfLoc1.size(), 3);
 }
 
@@ -88,9 +89,9 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         }
         collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        vector<int> expectedSchoolCount{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
+        vector<int> expectedCount{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedSchoolCount[i], geoGrid->Get(i)->GetContactCenters().size());
+                EXPECT_EQ(expectedCount[i], geoGrid->Get(i)->GetContactCentersOfType(Id::College).size());
         }
 }
 

@@ -28,6 +28,7 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride::ContactType;
 
 GeoGridProtoWriter::GeoGridProtoWriter() : m_persons_found() {}
 
@@ -54,8 +55,6 @@ void GeoGridProtoWriter::Write(shared_ptr<geopop::GeoGrid> geoGrid, ostream& str
 void GeoGridProtoWriter::WriteContactCenter(shared_ptr<ContactCenter>              contactCenter,
                                             proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
-        using namespace stride::ContactType;
-
         map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
             {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
@@ -105,9 +104,12 @@ void GeoGridProtoWriter::WriteLocation(shared_ptr<Location> location, proto::Geo
                 commute->set_proportion(commute_pair.second);
         }
 
-        for (const auto& contactCenter : *location) {
-                WriteContactCenter(contactCenter, protoLocation->add_contactcenters());
+        for (Id typ : IdList) {
+                for (const auto& c : location->GetContactCentersOfType(typ)) {
+                        WriteContactCenter(c, protoLocation->add_contactcenters());
+                }
         }
+
 }
 
 void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Person* protoPerson)

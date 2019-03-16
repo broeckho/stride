@@ -43,7 +43,7 @@ void SecondaryCommunityPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGr
                 const auto& nearbyPools = GetNearbyPools(Id::SecondaryCommunity, geoGrid, loc);
 
                 // 2. find all households in this location
-                const auto& households = loc->GetContactCentersOfType<Id::Household>();
+                const auto& households = loc->GetContactCentersOfType(Id::Household);
 
                 auto hh_per_comm        = households.size() / nearbyPools.size();
                 auto remainder          = households.size() % nearbyPools.size();

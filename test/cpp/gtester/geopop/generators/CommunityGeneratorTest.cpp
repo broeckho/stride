@@ -28,6 +28,7 @@
 using namespace std;
 using namespace geopop;
 using namespace stride;
+using namespace stride::ContactType;
 using namespace stride::util;
 
 namespace {
@@ -47,8 +48,9 @@ TEST(CommunityGeneratorTest, OneLocationTest)
 
         communityGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        const auto& centersOfLoc1 = loc1->GetContactCenters();
-        EXPECT_EQ(centersOfLoc1.size(), 10);
+        const auto& c1 = loc1->GetContactCentersOfType(Id::PrimaryCommunity);
+        const auto& c2 = loc1->GetContactCentersOfType(Id::SecondaryCommunity);
+        EXPECT_EQ(c1.size() + c2.size(), 10);
 }
 
 TEST(CommunityGeneratorTest, EqualLocationTest)
@@ -70,7 +72,9 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
         vector<int> expectedCount{1041, 1013, 940, 1004, 929, 1023, 959, 1077, 1005, 1009};
         for (int i = 0; i < 10; i++) {
-                EXPECT_EQ(expectedCount[i], geoGrid->Get(i)->GetContactCenters().size());
+                const auto& c1 = geoGrid->Get(i)->GetContactCentersOfType(Id::PrimaryCommunity);
+                const auto& c2 = geoGrid->Get(i)->GetContactCentersOfType(Id::SecondaryCommunity);
+                EXPECT_EQ(expectedCount[i], c1.size() + c2.size());
         }
 }
 
@@ -113,21 +117,31 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         geoGrid->AddLocation(loc5);
 
         communityGenerator.Apply(geoGrid, config, contactCenterCounter);
-
-        const auto& centersOfLoc1 = loc1->GetContactCenters();
-        EXPECT_EQ(centersOfLoc1.size(), 1101);
-
-        const auto& centersOfLoc2 = loc2->GetContactCenters();
-        EXPECT_EQ(centersOfLoc2.size(), 1067);
-
-        const auto& centersOfLoc3 = loc3->GetContactCenters();
-        EXPECT_EQ(centersOfLoc3.size(), 815);
-
-        const auto& centersOfLoc4 = loc4->GetContactCenters();
-        EXPECT_EQ(centersOfLoc4.size(), 340);
-
-        const auto& centersOfLoc5 = loc5->GetContactCenters();
-        EXPECT_EQ(centersOfLoc5.size(), 433);
+        {
+                const auto& c1 = loc1->GetContactCentersOfType(Id::PrimaryCommunity);
+                const auto& c2 = loc1->GetContactCentersOfType(Id::SecondaryCommunity);
+                EXPECT_EQ(c1.size() + c2.size(), 1101);
+        }
+        {
+                const auto& c1 = loc2->GetContactCentersOfType(Id::PrimaryCommunity);
+                const auto& c2 = loc2->GetContactCentersOfType(Id::SecondaryCommunity);
+                EXPECT_EQ(c1.size() + c2.size(), 1067);
+        }
+        {
+                const auto& c1 = loc3->GetContactCentersOfType(Id::PrimaryCommunity);
+                const auto& c2 = loc3->GetContactCentersOfType(Id::SecondaryCommunity);
+                EXPECT_EQ(c1.size() + c2.size(), 815);
+        }
+        {
+                const auto& c1 = loc4->GetContactCentersOfType(Id::PrimaryCommunity);
+                const auto& c2 = loc4->GetContactCentersOfType(Id::SecondaryCommunity);
+                EXPECT_EQ(c1.size() + c2.size(), 340);
+        }
+        {
+                const auto& c1 = loc5->GetContactCentersOfType(Id::PrimaryCommunity);
+                const auto& c2 = loc5->GetContactCentersOfType(Id::SecondaryCommunity);
+                EXPECT_EQ(c1.size() + c2.size(), 433);
+        }
 }
 
 } // namespace

@@ -112,17 +112,27 @@ void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Locatio
         EXPECT_EQ(location->GetPopCount(), protoLocation.population());
         EXPECT_EQ(location->GetPopCount(), protoLocation.population());
         CompareCoordinate(location->GetCoordinate(), protoLocation.coordinate());
-        ASSERT_EQ(protoLocation.contactcenters_size(), location->GetContactCenters().size());
+
+
+        //ASSERT_EQ(protoLocation.contactcenters_size(), location->GetContactCenters().size());
 
         map<int, shared_ptr<ContactCenter>>             idToCenter;
         map<int, proto::GeoGrid_Location_ContactCenter> idToProtoCenter;
 
+        vector<shared_ptr<ContactCenter>> centers;
+        for (Id typ : IdList) {
+                for (const auto& p : location->GetContactCentersOfType(typ)) {
+                        centers.emplace_back(p);
+                }
+        }
+
         for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
                 auto protoContactCenter                  = protoLocation.contactcenters(idx);
-                auto contactCenter                       = location->GetContactCenters()[idx];
+                auto contactCenter                       = centers[idx];
                 idToCenter[contactCenter->GetId()]       = contactCenter;
                 idToProtoCenter[protoContactCenter.id()] = move(protoContactCenter);
         }
+
         for (auto& contactCenterPair : idToCenter) {
                 CompareContactCenter(contactCenterPair.second, idToProtoCenter[contactCenterPair.first]);
         }
