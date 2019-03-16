@@ -69,8 +69,8 @@ void CommutesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
                                                         " to " + to_string(locTo->GetID()) +
                                                         " is invalid (0 <= proportion <= 1)");
                                 }
-                                locFrom->AddOutgoingCommutingLocation(locTo, proportion);
-                                locTo->AddIncomingCommutingLocation(locFrom, proportion);
+                                locFrom->AddOutgoingCommute(locTo, proportion);
+                                locTo->AddIncomingCommute(locFrom, proportion);
                         }
                 }
                 rowIndex++;

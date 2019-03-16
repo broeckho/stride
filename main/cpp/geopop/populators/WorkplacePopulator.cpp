@@ -70,7 +70,7 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 CalculateNearbyWorkspaces();
 
                 // 2. for everyone of working age: decide between work or college (iff of College age)
-                for (const auto& household : loc->GetContactCentersOfType(Id::Household)) {
+                for (const auto& household : loc->RefCenters(Id::Household)) {
                         auto contactPool = household->GetPools()[0];
                         for (auto p : *contactPool) {
                                 if (AgeBrackets::Workplace::HasAge((p->GetAge()))) {
@@ -109,7 +109,7 @@ void WorkplacePopulator::CalculateWorkplacesInCity()
 {
         for (const shared_ptr<Location>& loc : *m_geoGrid) {
                 vector<ContactPool*> contactPools;
-                for (const auto& wp : loc->GetContactCentersOfType(Id::Workplace)) {
+                for (const auto& wp : loc->RefCenters(Id::Workplace)) {
                         contactPools.insert(contactPools.end(), wp->begin(), wp->end());
                 }
 
@@ -145,8 +145,8 @@ void WorkplacePopulator::CalculateCommutingLocations()
         m_disCommuting = function<int()>();
 
         vector<double> commutingWeights;
-        for (const pair<Location*, double>& commute : m_currentLoc->GetOutgoingCommutingCities()) {
-                const auto& workplaces = commute.first->GetContactCentersOfType(Id::Workplace);
+        for (const pair<Location*, double>& commute : m_currentLoc->CRefOutgoingCommutes()) {
+                const auto& workplaces = commute.first->RefCenters(Id::Workplace);
                 if (!workplaces.empty()) {
                         m_commutingLocations.push_back(commute.first);
                         const auto weight = commute.second - (commute.second * m_fractionCommutingStudents);

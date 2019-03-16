@@ -97,7 +97,7 @@ void GeoGridProtoWriter::WriteLocation(shared_ptr<Location> location, proto::Geo
         WriteCoordinate(location->GetCoordinate(), coordinate);
         protoLocation->set_allocated_coordinate(coordinate);
 
-        auto commutes = location->GetOutgoingCommutingCities();
+        auto commutes = location->CRefOutgoingCommutes();
         for (auto commute_pair : commutes) {
                 auto commute = protoLocation->add_commutes();
                 commute->set_to(commute_pair.first->GetID());
@@ -105,11 +105,10 @@ void GeoGridProtoWriter::WriteLocation(shared_ptr<Location> location, proto::Geo
         }
 
         for (Id typ : IdList) {
-                for (const auto& c : location->GetContactCentersOfType(typ)) {
+                for (const auto& c : location->RefCenters(typ)) {
                         WriteContactCenter(c, protoLocation->add_contactcenters());
                 }
         }
-
 }
 
 void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Person* protoPerson)

@@ -131,7 +131,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(shared_ptr<Location
         location_root.put("population", location->GetPopCount());
         location_root.add_child("coordinate", WriteCoordinate(location->GetCoordinate()));
 
-        auto commutes = location->GetOutgoingCommutingCities();
+        auto commutes = location->CRefOutgoingCommutes();
         if (!commutes.empty()) {
                 boost::property_tree::ptree commutes_root;
                 for (auto commute_pair : commutes) {
@@ -140,10 +140,10 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(shared_ptr<Location
                 location_root.add_child("commutes", commutes_root);
         }
 
-        boost::property_tree::ptree contactCenters;
+        boost::property_tree::ptree       contactCenters;
         vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
-                for (const auto& c : location->GetContactCentersOfType(typ)) {
+                for (const auto& c : location->RefCenters(typ)) {
                         pair<string, boost::property_tree::ptree> child;
                         {
                                 child = make_pair("", WriteContactCenter(c));

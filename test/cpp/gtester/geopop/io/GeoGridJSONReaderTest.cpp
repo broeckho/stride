@@ -104,8 +104,8 @@ TEST(GeoGridJSONReaderTest, commutesTest)
         };
 
         {
-                auto commuting_in  = sortLoc(location1->GetIncomingCommuningCities());
-                auto commuting_out = sortLoc(location1->GetOutgoingCommutingCities());
+                auto commuting_in  = sortLoc(location1->CRefIncomingCommutes());
+                auto commuting_out = sortLoc(location1->CRefOutgoingCommutes());
                 EXPECT_EQ(commuting_in.size(), 1);
                 EXPECT_EQ(commuting_out.size(), 2);
 
@@ -118,8 +118,8 @@ TEST(GeoGridJSONReaderTest, commutesTest)
                 EXPECT_DOUBLE_EQ(commuting_out[1].second, 0.25);
         }
         {
-                auto commuting_in  = sortLoc(location2->GetIncomingCommuningCities());
-                auto commuting_out = sortLoc(location2->GetOutgoingCommutingCities());
+                auto commuting_in  = sortLoc(location2->CRefIncomingCommutes());
+                auto commuting_out = sortLoc(location2->CRefOutgoingCommutes());
                 EXPECT_EQ(commuting_out.size(), 2);
                 EXPECT_EQ(commuting_in.size(), 1);
 
@@ -132,8 +132,8 @@ TEST(GeoGridJSONReaderTest, commutesTest)
                 EXPECT_DOUBLE_EQ(commuting_out[1].second, 0.5);
         }
         {
-                auto commuting_in  = sortLoc(location3->GetIncomingCommuningCities());
-                auto commuting_out = sortLoc(location3->GetOutgoingCommutingCities());
+                auto commuting_in  = sortLoc(location3->CRefIncomingCommutes());
+                auto commuting_out = sortLoc(location3->CRefOutgoingCommutes());
                 EXPECT_EQ(commuting_out.size(), 0);
                 EXPECT_EQ(commuting_in.size(), 2);
 
@@ -146,12 +146,12 @@ TEST(GeoGridJSONReaderTest, commutesTest)
 
 TEST(GeoGridJSONReaderTest, contactCentersTest)
 {
-        auto geoGrid        = getGeoGridForFile("test1.json", Population::Create().get());
-        auto location       = geoGrid->Get(0);
+        auto geoGrid  = getGeoGridForFile("test1.json", Population::Create().get());
+        auto location = geoGrid->Get(0);
 
         vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
-                for (const auto& p : location->GetContactCentersOfType(typ)) {
+                for (const auto& p : location->RefCenters(typ)) {
                         centers.emplace_back(p);
                 }
         }
@@ -189,7 +189,7 @@ void runPeopleTest(const string& filename)
 
         vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
-                for (const auto& p : location->GetContactCentersOfType(typ)) {
+                for (const auto& p : location->RefCenters(typ)) {
                         centers.emplace_back(p);
                 }
         }

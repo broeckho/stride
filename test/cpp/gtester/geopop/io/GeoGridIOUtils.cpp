@@ -113,15 +113,14 @@ void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Locatio
         EXPECT_EQ(location->GetPopCount(), protoLocation.population());
         CompareCoordinate(location->GetCoordinate(), protoLocation.coordinate());
 
-
-        //ASSERT_EQ(protoLocation.contactcenters_size(), location->GetContactCenters().size());
+        // ASSERT_EQ(protoLocation.contactcenters_size(), location->GetContactCenters().size());
 
         map<int, shared_ptr<ContactCenter>>             idToCenter;
         map<int, proto::GeoGrid_Location_ContactCenter> idToProtoCenter;
 
         vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
-                for (const auto& p : location->GetContactCentersOfType(typ)) {
+                for (const auto& p : location->RefCenters(typ)) {
                         centers.emplace_back(p);
                 }
         }
@@ -137,10 +136,10 @@ void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Locatio
                 CompareContactCenter(contactCenterPair.second, idToProtoCenter[contactCenterPair.first]);
         }
 
-        ASSERT_EQ(protoLocation.commutes_size(), location->GetOutgoingCommutingCities().size());
+        ASSERT_EQ(protoLocation.commutes_size(), location->CRefOutgoingCommutes().size());
         for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
                 const auto& protoCommute = protoLocation.commutes(idx);
-                auto        commute_pair = location->GetOutgoingCommutingCities()[idx];
+                auto        commute_pair = location->CRefOutgoingCommutes()[idx];
                 EXPECT_EQ(protoCommute.to(), commute_pair.first->GetID());
                 EXPECT_EQ(protoCommute.proportion(), commute_pair.second);
         }
@@ -186,35 +185,35 @@ void CompareGeoGrid(proto::GeoGrid& protoGrid)
 shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
 {
         const auto geoGrid  = make_shared<GeoGrid>(pop);
-        const auto location = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
+        const auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
 
         const auto school = make_shared<K12School>(0);
-        location->AddContactCenter(school);
+        location->AddCenter(school);
         const auto schoolPool = new ContactPool(2, Id::K12School);
         school->RegisterPool(schoolPool);
 
         const auto community = make_shared<PrimaryCommunity>(1);
-        location->AddContactCenter(community);
+        location->AddCenter(community);
         const auto communityPool = new ContactPool(3, Id::PrimaryCommunity);
         community->RegisterPool(communityPool);
 
         const auto secondaryCommunity = make_shared<SecondaryCommunity>(2);
-        location->AddContactCenter(secondaryCommunity);
+        location->AddCenter(secondaryCommunity);
         const auto secondaryCommunityPool = new ContactPool(7, Id::SecondaryCommunity);
         secondaryCommunity->RegisterPool(secondaryCommunityPool);
 
         const auto college = make_shared<College>(3);
-        location->AddContactCenter(college);
+        location->AddCenter(college);
         const auto collegePool = new ContactPool(4, Id::College);
         college->RegisterPool(collegePool);
 
         const auto household = make_shared<Household>(4);
-        location->AddContactCenter(household);
+        location->AddCenter(household);
         const auto householdPool = new ContactPool(5, Id::Household);
         household->RegisterPool(householdPool);
 
         const auto workplace = make_shared<Workplace>(5);
-        location->AddContactCenter(workplace);
+        location->AddCenter(workplace);
         const auto workplacePool = new ContactPool(6, Id::Workplace);
         workplace->RegisterPool(workplacePool);
 
@@ -232,21 +231,21 @@ shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
 shared_ptr<GeoGrid> GetCommutesGeoGrid(Population* pop)
 {
         const auto geoGrid   = make_shared<GeoGrid>(pop);
-        const auto bavikhove = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
-        const auto gent      = make_shared<Location>(2, 4, 2500, Coordinate(0, 0), "Gent");
-        const auto mons      = make_shared<Location>(3, 4, 2500, Coordinate(0, 0), "Mons");
+        const auto bavikhove = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
+        const auto gent      = make_shared<Location>(2, 4, Coordinate(0, 0), "Gent", 2500);
+        const auto mons      = make_shared<Location>(3, 4, Coordinate(0, 0), "Mons", 2500);
 
-        bavikhove->AddOutgoingCommutingLocation(gent, 0.5);
-        gent->AddIncomingCommutingLocation(bavikhove, 0.5);
+        bavikhove->AddOutgoingCommute(gent, 0.5);
+        gent->AddIncomingCommute(bavikhove, 0.5);
 
-        bavikhove->AddOutgoingCommutingLocation(mons, 0.25);
-        mons->AddIncomingCommutingLocation(bavikhove, 0.25);
+        bavikhove->AddOutgoingCommute(mons, 0.25);
+        mons->AddIncomingCommute(bavikhove, 0.25);
 
-        gent->AddOutgoingCommutingLocation(bavikhove, 0.75);
-        bavikhove->AddIncomingCommutingLocation(gent, 0.75);
+        gent->AddOutgoingCommute(bavikhove, 0.75);
+        bavikhove->AddIncomingCommute(gent, 0.75);
 
-        gent->AddOutgoingCommutingLocation(mons, 0.5);
-        mons->AddIncomingCommutingLocation(gent, 0.5);
+        gent->AddOutgoingCommute(mons, 0.5);
+        mons->AddIncomingCommute(gent, 0.5);
 
         geoGrid->AddLocation(bavikhove);
         geoGrid->AddLocation(gent);

@@ -45,8 +45,11 @@ public:
         /// Templated version of @CreateContactPool for use when type id is fixed.
         /// \tparam T   One of the ContactType::Id's (Household, K12 School, ...).
         /// \return     Pointer to the newly created ContactPool.
-        template<ContactType::Id T>
-        ContactPool* CreateContactPool() { return m_sys[T].emplace_back(m_currentContactPoolId[T]++, T); }
+        template <ContactType::Id T>
+        ContactPool* CreateContactPool()
+        {
+                return m_sys[T].emplace_back(m_currentContactPoolId[T]++, T);
+        }
 
         /// Access through const reference to ContactPools of type 'id'.
         /// \param id   ContactType::Id of pools container you want to access.
@@ -56,9 +59,11 @@ public:
         /// Templated version of @CRefPools for use when the type id is fixed
         /// \tparam T   ContactType::Id of pools container you want to access.
         /// \return     The requested reference.
-        template<ContactType::Id T>
-        const util::SegmentedVector<ContactPool>& CRefPools() const { return m_sys[T]; }
-
+        template <ContactType::Id T>
+        const util::SegmentedVector<ContactPool>& CRefPools() const
+        {
+                return m_sys[T];
+        }
 
 private:
         /// /// Access through non-const reference to ContactPools of type 'id'.

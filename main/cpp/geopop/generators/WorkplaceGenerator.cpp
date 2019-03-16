@@ -44,8 +44,8 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         for (const auto& loc : *geoGrid) {
                 const double ActivePeopleCount =
                     (loc->GetPopCount() +
-                     loc->GetIncomingCommuterCount(geoGridConfig.input.fraction_workplace_commuters) -
-                     loc->GetOutgoingCommuterCount(geoGridConfig.input.fraction_workplace_commuters) *
+                     loc->GetIncomingCommuteCount(geoGridConfig.input.fraction_workplace_commuters) -
+                     loc->GetOutgoingCommuteCount(geoGridConfig.input.fraction_workplace_commuters) *
                          geoGridConfig.input.particpation_workplace);
 
                 const double weight = ActivePeopleCount / EmployeeCount;
@@ -65,7 +65,7 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 const auto loc = (*geoGrid)[dist()];
                 const auto w   = make_shared<Workplace>(contactCenterCounter++);
                 w->Fill(geoGridConfig, geoGrid);
-                loc->AddContactCenter(w);
+                loc->AddCenter(w);
         }
 }
 

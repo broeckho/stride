@@ -57,8 +57,8 @@ void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, uti
                 if (p_case.GetHealth().IsSymptomatic() && p_case.GetHealth().SymptomsStartedToday()) {
                         for (Id typ : AgencyPoolIdList) {
 
-                                const auto& pools = pop->CRefPoolSys().CRefPools(typ);
-                                const auto poolId = p_case.GetPoolId(typ);
+                                const auto& pools  = pop->CRefPoolSys().CRefPools(typ);
+                                const auto  poolId = p_case.GetPoolId(typ);
                                 if (poolId == 0) {
                                         continue;
                                 }

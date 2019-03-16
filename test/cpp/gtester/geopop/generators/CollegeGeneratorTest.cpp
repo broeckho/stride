@@ -45,13 +45,13 @@ TEST(CollegeGeneratorTest, OneLocationTest)
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
-        auto loc1    = make_shared<Location>(1, 4, 45000, Coordinate(0, 0), "Antwerpen");
+        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", config.input.pop_size);
 
         geoGrid->AddLocation(loc1);
 
         collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        const auto& centersOfLoc1 = loc1->GetContactCentersOfType(Id::College);
+        const auto& centersOfLoc1 = loc1->RefCenters(Id::College);
         EXPECT_EQ(centersOfLoc1.size(), 3);
 }
 
@@ -85,13 +85,14 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         vector<int> sizes{28559, 33319, 39323, 37755, 35050, 10060, 13468, 8384,
                           9033,  31426, 33860, 4110,  50412, 25098, 40135};
         for (int size : sizes) {
-                geoGrid->AddLocation(make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + to_string(size)));
+                const auto loc = make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size);
+                geoGrid->AddLocation(loc);
         }
         collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         vector<int> expectedCount{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedCount[i], geoGrid->Get(i)->GetContactCentersOfType(Id::College).size());
+                EXPECT_EQ(expectedCount[i], geoGrid->Get(i)->RefCenters(Id::College).size());
         }
 }
 

@@ -57,8 +57,8 @@ protected:
                 person->SetId(42);
                 contactPool->AddMember(person.get());
                 household->RegisterPool(contactPool);
-                location = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
-                location->AddContactCenter(household);
+                location = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
+                location->AddCenter(household);
                 auto pop = Population::Create();
                 geoGrid  = make_shared<GeoGrid>(pop.get());
                 geoGrid->AddLocation(location);
@@ -70,7 +70,7 @@ protected:
 
         void OneCommunityTest()
         {
-                location->AddContactCenter(community);
+                location->AddCenter(community);
                 geoGrid->Finalize();
 
                 populator->Apply(geoGrid, config);
@@ -93,8 +93,8 @@ protected:
         {
                 auto pop = Population::Create();
                 geoGrid  = make_shared<GeoGrid>(pop.get());
-                location = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
-                location->AddContactCenter(community);
+                location = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
+                location->AddCenter(community);
                 geoGrid->AddLocation(location);
                 geoGrid->Finalize();
                 EXPECT_NO_THROW(populator->Apply(geoGrid, config));
@@ -102,13 +102,13 @@ protected:
 
         void TwoLocationsTest()
         {
-                location->AddContactCenter(community);
+                location->AddCenter(community);
 
-                auto location2  = make_shared<Location>(2, 5, 1500, Coordinate(1, 1), "Brussel");
+                auto location2  = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
                 auto community2 = make_shared<PrimaryCommunity>(1);
                 auto pool       = new ContactPool(2, ContactType::Id::PrimaryCommunity);
                 community2->RegisterPool(pool);
-                location2->AddContactCenter(community2);
+                location2->AddCenter(community2);
 
                 geoGrid->AddLocation(location2);
                 geoGrid->Finalize();
@@ -128,8 +128,8 @@ protected:
 
         void OtherLocationTest()
         {
-                auto location2 = make_shared<Location>(2, 5, 1500, Coordinate(1, 1), "Brussel");
-                location2->AddContactCenter(community);
+                auto location2 = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
+                location2->AddCenter(community);
                 geoGrid->AddLocation(location2);
                 geoGrid->Finalize();
 
@@ -143,16 +143,16 @@ protected:
 
         void HouseholdTest()
         {
-                auto pool    = *location->GetContactCentersOfType(Id::Household)[0]->begin();
+                auto pool    = *location->RefCenters(Id::Household)[0]->begin();
                 auto person2 = make_shared<Person>();
                 person2->SetId(5);
                 person2->SetAge(2);
                 pool->AddMember(person2.get());
-                location->AddContactCenter(community);
+                location->AddCenter(community);
 
                 auto community2 = make_shared<CommunityType>(2);
                 community2->RegisterPool(new ContactPool(2, ContactType::Id::PrimaryCommunity));
-                location->AddContactCenter(community2);
+                location->AddCenter(community2);
 
                 geoGrid->Finalize();
                 populator->Apply(geoGrid, config);

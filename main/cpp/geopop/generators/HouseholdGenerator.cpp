@@ -28,7 +28,7 @@ void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridCo
 {
         std::vector<double> weights;
         for (const auto& loc : *geoGrid) {
-                weights.push_back(loc->GetRelativePopulationSize());
+                weights.push_back(loc->GetRelativePop());
         }
 
         if (weights.empty()) {
@@ -42,7 +42,7 @@ void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridCo
                 const auto loc = (*geoGrid)[dist()];
                 const auto h   = std::make_shared<Household>(contactCenterCounter++);
                 h->Fill(geoGridConfig, geoGrid);
-                loc->AddContactCenter(h);
+                loc->AddCenter(h);
         }
 }
 

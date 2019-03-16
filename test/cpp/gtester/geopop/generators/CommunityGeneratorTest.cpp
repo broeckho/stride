@@ -43,13 +43,13 @@ TEST(CommunityGeneratorTest, OneLocationTest)
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
-        auto loc1    = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
+        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         geoGrid->AddLocation(loc1);
 
         communityGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        const auto& c1 = loc1->GetContactCentersOfType(Id::PrimaryCommunity);
-        const auto& c2 = loc1->GetContactCentersOfType(Id::SecondaryCommunity);
+        const auto& c1 = loc1->RefCenters(Id::PrimaryCommunity);
+        const auto& c2 = loc1->RefCenters(Id::SecondaryCommunity);
         EXPECT_EQ(c1.size() + c2.size(), 10);
 }
 
@@ -65,15 +65,15 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
         auto geoGrid = make_shared<GeoGrid>(pop.get());
         for (int i = 0; i < 10; i++) {
                 geoGrid->AddLocation(
-                    make_shared<Location>(1, 4, 10 * 1000 * 1000, Coordinate(0, 0), "Location " + to_string(i)));
+                    make_shared<Location>(1, 4, Coordinate(0, 0), "Location " + to_string(i), 10 * 1000 * 1000));
         }
 
         communityGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         vector<int> expectedCount{1041, 1013, 940, 1004, 929, 1023, 959, 1077, 1005, 1009};
         for (int i = 0; i < 10; i++) {
-                const auto& c1 = geoGrid->Get(i)->GetContactCentersOfType(Id::PrimaryCommunity);
-                const auto& c2 = geoGrid->Get(i)->GetContactCentersOfType(Id::SecondaryCommunity);
+                const auto& c1 = geoGrid->Get(i)->RefCenters(Id::PrimaryCommunity);
+                const auto& c2 = geoGrid->Get(i)->RefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(expectedCount[i], c1.size() + c2.size());
         }
 }
@@ -104,11 +104,11 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
-        auto loc1    = make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0), "Antwerpen");
-        auto loc2    = make_shared<Location>(1, 4, 10040 * 100, Coordinate(0, 0), "Vlaams-Brabant");
-        auto loc3    = make_shared<Location>(1, 4, 7460 * 100, Coordinate(0, 0), "Henegouwen");
-        auto loc4    = make_shared<Location>(1, 4, 3269 * 100, Coordinate(0, 0), "Limburg");
-        auto loc5    = make_shared<Location>(1, 4, 4123 * 100, Coordinate(0, 0), "Luxemburg");
+        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
+        auto loc2    = make_shared<Location>(1, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
+        auto loc3    = make_shared<Location>(1, 4, Coordinate(0, 0), "Henegouwen", 7460 * 100);
+        auto loc4    = make_shared<Location>(1, 4, Coordinate(0, 0), "Limburg", 3269 * 100);
+        auto loc5    = make_shared<Location>(1, 4, Coordinate(0, 0), "Luxemburg", 4123 * 100);
 
         geoGrid->AddLocation(loc1);
         geoGrid->AddLocation(loc2);
@@ -118,28 +118,28 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
 
         communityGenerator.Apply(geoGrid, config, contactCenterCounter);
         {
-                const auto& c1 = loc1->GetContactCentersOfType(Id::PrimaryCommunity);
-                const auto& c2 = loc1->GetContactCentersOfType(Id::SecondaryCommunity);
+                const auto& c1 = loc1->RefCenters(Id::PrimaryCommunity);
+                const auto& c2 = loc1->RefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(c1.size() + c2.size(), 1101);
         }
         {
-                const auto& c1 = loc2->GetContactCentersOfType(Id::PrimaryCommunity);
-                const auto& c2 = loc2->GetContactCentersOfType(Id::SecondaryCommunity);
+                const auto& c1 = loc2->RefCenters(Id::PrimaryCommunity);
+                const auto& c2 = loc2->RefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(c1.size() + c2.size(), 1067);
         }
         {
-                const auto& c1 = loc3->GetContactCentersOfType(Id::PrimaryCommunity);
-                const auto& c2 = loc3->GetContactCentersOfType(Id::SecondaryCommunity);
+                const auto& c1 = loc3->RefCenters(Id::PrimaryCommunity);
+                const auto& c2 = loc3->RefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(c1.size() + c2.size(), 815);
         }
         {
-                const auto& c1 = loc4->GetContactCentersOfType(Id::PrimaryCommunity);
-                const auto& c2 = loc4->GetContactCentersOfType(Id::SecondaryCommunity);
+                const auto& c1 = loc4->RefCenters(Id::PrimaryCommunity);
+                const auto& c2 = loc4->RefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(c1.size() + c2.size(), 340);
         }
         {
-                const auto& c1 = loc5->GetContactCentersOfType(Id::PrimaryCommunity);
-                const auto& c2 = loc5->GetContactCentersOfType(Id::SecondaryCommunity);
+                const auto& c1 = loc5->RefCenters(Id::PrimaryCommunity);
+                const auto& c2 = loc5->RefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(c1.size() + c2.size(), 433);
         }
 }

@@ -20,8 +20,8 @@
 
 #pragma once
 
-#include "contact/ContactType.h"
 #include "contact/ContactLogMode.h"
+#include "contact/ContactType.h"
 
 #include <tuple>
 #include <vector>

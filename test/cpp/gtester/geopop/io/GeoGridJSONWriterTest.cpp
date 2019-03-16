@@ -84,9 +84,9 @@ TEST(GeoGridJSONWriterTest, locationTest)
 {
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
-        geoGrid->AddLocation(make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove"));
-        geoGrid->AddLocation(make_shared<Location>(2, 3, 5000, Coordinate(0, 0), "Gent"));
-        geoGrid->AddLocation(make_shared<Location>(3, 2, 2500, Coordinate(0, 0), "Mons"));
+        geoGrid->AddLocation(make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500));
+        geoGrid->AddLocation(make_shared<Location>(2, 3, Coordinate(0, 0), "Gent", 5000));
+        geoGrid->AddLocation(make_shared<Location>(3, 2, Coordinate(0, 0), "Mons", 2500));
 
         EXPECT_TRUE(compareGeoGrid(geoGrid, "test0.json"));
 }
@@ -94,12 +94,12 @@ TEST(GeoGridJSONWriterTest, contactCentersTest)
 {
         auto pop      = Population::Create();
         auto geoGrid  = make_shared<GeoGrid>(pop.get());
-        auto location = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
-        location->AddContactCenter(make_shared<K12School>(0));
-        location->AddContactCenter(make_shared<PrimaryCommunity>(1));
-        location->AddContactCenter(make_shared<College>(2));
-        location->AddContactCenter(make_shared<Household>(3));
-        location->AddContactCenter(make_shared<Workplace>(4));
+        auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
+        location->AddCenter(make_shared<K12School>(0));
+        location->AddCenter(make_shared<PrimaryCommunity>(1));
+        location->AddCenter(make_shared<College>(2));
+        location->AddCenter(make_shared<Household>(3));
+        location->AddCenter(make_shared<Workplace>(4));
         geoGrid->AddLocation(location);
 
         EXPECT_TRUE(compareGeoGrid(geoGrid, "test1.json"));

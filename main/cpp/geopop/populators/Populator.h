@@ -58,7 +58,7 @@ protected:
         /// Find contactpools in startRadius (in km) around start and, if none are found, double
         /// the radius and search again until the radius gets infinite. May return an empty vector
         /// when there are no pools to be found.
-        std::vector<stride::ContactPool*> GetNearbyPools(stride::ContactType::Id id,
+        std::vector<stride::ContactPool*> GetNearbyPools(stride::ContactType::Id          id,
                                                          const std::shared_ptr<GeoGrid>&  geoGrid,
                                                          const std::shared_ptr<Location>& start,
                                                          double                           startRadius = 10.0) const;

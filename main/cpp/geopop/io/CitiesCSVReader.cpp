@@ -46,7 +46,7 @@ void CitiesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
         }
 
         for (const auto& l : addedLocations) {
-                l.first->SetRelativePopulation(static_cast<double>(l.second) / static_cast<double>(totalPopulation));
+                l.first->SetRelativePop(static_cast<double>(l.second) / static_cast<double>(totalPopulation));
         }
 }
 

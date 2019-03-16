@@ -186,7 +186,7 @@ shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Loca
         const auto  population = protoLocation.population();
         const auto& coordinate = ParseCoordinate(protoLocation.coordinate());
 
-        auto result = make_shared<Location>(id, province, population, coordinate, name);
+        auto result = make_shared<Location>(id, province, coordinate, name, population);
 
         auto e = make_shared<ThreadException>();
 #pragma omp parallel
@@ -200,7 +200,7 @@ shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Loca
                                 e->Run([&protoCenter, this, &center] { center = ParseContactCenter(protoCenter); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        result->AddContactCenter(center);
+                                        result->AddCenter(center);
                         }
                 }
 #pragma omp taskwait

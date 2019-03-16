@@ -25,8 +25,7 @@ using namespace stride::ContactType;
 
 namespace stride {
 
-ContactPoolSys::ContactPoolSys()
-    : m_currentContactPoolId(), m_sys()
+ContactPoolSys::ContactPoolSys() : m_currentContactPoolId(), m_sys()
 {
         for (Id typ : IdList) {
                 m_sys[typ].emplace_back(ContactPool(0U, typ));

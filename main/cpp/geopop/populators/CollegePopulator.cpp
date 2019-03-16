@@ -55,8 +55,8 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                 // 2. find all colleges where students from this location commute to
                 vector<Location*> commutingCollege;
                 vector<double>    commutingWeights;
-                for (const auto& commute : loc->GetOutgoingCommutingCities()) {
-                        const auto& highSchools = commute.first->GetContactCentersOfType(Id::College);
+                for (const auto& commute : loc->CRefOutgoingCommutes()) {
+                        const auto& highSchools = commute.first->RefCenters(Id::College);
                         if (!highSchools.empty()) {
                                 commutingCollege.push_back(commute.first);
                                 commutingWeights.push_back(commute.second);
@@ -70,7 +70,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                 }
 
                 // 2. for every student assign a class
-                for (const auto& household : loc->GetContactCentersOfType(Id::Household)) {
+                for (const auto& household : loc->RefCenters(Id::Household)) {
                         ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
@@ -87,7 +87,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                                                 auto locationId = disCommuting();
                                                 // create list of classes for each highschool at this location
                                                 const auto& highSchools =
-                                                    commutingCollege[locationId]->GetContactCentersOfType(Id::College);
+                                                    commutingCollege[locationId]->RefCenters(Id::College);
 
                                                 vector<ContactPool*> contactPools;
                                                 for (const auto& hs : highSchools) {

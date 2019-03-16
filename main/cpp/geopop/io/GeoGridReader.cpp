@@ -30,8 +30,8 @@ void GeoGridReader::AddCommutes(std::shared_ptr<GeoGrid> geoGrid)
                 const auto a      = geoGrid->GetById(std::get<0>(commute_tuple));
                 const auto b      = geoGrid->GetById(std::get<1>(commute_tuple));
                 const auto amount = std::get<2>(commute_tuple);
-                a->AddOutgoingCommutingLocation(b, amount);
-                b->AddIncomingCommutingLocation(a, amount);
+                a->AddOutgoingCommute(b, amount);
+                b->AddIncomingCommute(a, amount);
         }
 }
 

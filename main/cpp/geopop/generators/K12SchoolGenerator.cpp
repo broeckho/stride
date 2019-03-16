@@ -40,7 +40,7 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
 
         vector<double> weights;
         for (const auto& loc : *geoGrid) {
-                weights.push_back(loc->GetRelativePopulationSize());
+                weights.push_back(loc->GetRelativePop());
         }
 
         if (weights.empty()) {
@@ -54,7 +54,7 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 const auto loc = (*geoGrid)[dist()];
                 const auto k12 = make_shared<K12School>(contactCenterCounter++);
                 k12->Fill(geoGridConfig, geoGrid);
-                loc->AddContactCenter(k12);
+                loc->AddCenter(k12);
         }
 }
 

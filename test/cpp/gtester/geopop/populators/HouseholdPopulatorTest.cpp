@@ -64,10 +64,10 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 
         auto pop       = Population::Create();
         auto geoGrid   = make_shared<GeoGrid>(pop.get());
-        auto loc1      = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
+        auto loc1      = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         auto household = make_shared<Household>();
         household->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddContactCenter(household);
+        loc1->AddCenter(household);
         geoGrid->AddLocation(loc1);
 
         householdPopulator->Apply(geoGrid, config);
@@ -100,29 +100,29 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
-        auto loc1    = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
+        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
 
         auto household1 = make_shared<Household>();
         household1->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddContactCenter(household1);
+        loc1->AddCenter(household1);
         auto household2 = make_shared<Household>();
         household2->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddContactCenter(household2);
+        loc1->AddCenter(household2);
         auto household3 = make_shared<Household>();
         household3->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddContactCenter(household3);
+        loc1->AddCenter(household3);
         auto household4 = make_shared<Household>();
         household4->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddContactCenter(household4);
+        loc1->AddCenter(household4);
         auto household5 = make_shared<Household>();
         household5->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddContactCenter(household5);
+        loc1->AddCenter(household5);
 
         geoGrid->AddLocation(loc1);
 
         householdPopulator->Apply(geoGrid, config);
 
-        for (const auto& household : loc1->GetContactCentersOfType(Id::Household)) {
+        for (const auto& household : loc1->RefCenters(Id::Household)) {
                 ASSERT_EQ(household->GetPools().size(), 1);
                 ASSERT_EQ(household->GetPools()[0]->GetPool().size(), 1);
                 EXPECT_EQ((*household->GetPools()[0]->begin())->GetAge(), 18);
@@ -155,14 +155,14 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
 
         auto       pop       = Population::Create();
         const auto geoGrid   = make_shared<GeoGrid>(pop.get());
-        const auto loc1      = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
+        const auto loc1      = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         const auto household = make_shared<Household>();
         household->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddContactCenter(household);
+        loc1->AddCenter(household);
         geoGrid->AddLocation(loc1);
         auto household2 = make_shared<Household>();
         household2->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddContactCenter(household2);
+        loc1->AddCenter(household2);
         householdPopulator->Apply(geoGrid, config);
 
         map<int, vector<ContactPool*>> pools_map;

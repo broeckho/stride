@@ -43,12 +43,12 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
-        auto loc1    = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
+        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         geoGrid->AddLocation(loc1);
 
         householdGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        const auto& centersOfLoc1 = loc1->GetContactCentersOfType(Id::Household);
+        const auto& centersOfLoc1 = loc1->RefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc1.size(), 4);
 }
 
@@ -78,11 +78,11 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
-        auto loc1    = make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0), "Antwerpen");
-        auto loc2    = make_shared<Location>(2, 4, 10040 * 100, Coordinate(0, 0), "Vlaams-Brabant");
-        auto loc3    = make_shared<Location>(3, 4, 7460 * 100, Coordinate(0, 0), "Henegouwen");
-        auto loc4    = make_shared<Location>(4, 4, 3269 * 100, Coordinate(0, 0), "Limburg");
-        auto loc5    = make_shared<Location>(5, 4, 4123 * 100, Coordinate(0, 0), "Luxemburg");
+        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
+        auto loc2    = make_shared<Location>(2, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
+        auto loc3    = make_shared<Location>(3, 4, Coordinate(0, 0), "Henegouwen", 7460 * 100);
+        auto loc4    = make_shared<Location>(4, 4, Coordinate(0, 0), "Limburg", 3269 * 100);
+        auto loc5    = make_shared<Location>(5, 4, Coordinate(0, 0), "Luxemburg", 4123 * 100);
 
         geoGrid->AddLocation(loc1);
         geoGrid->AddLocation(loc2);
@@ -91,25 +91,25 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         geoGrid->AddLocation(loc5);
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
-                loc->SetRelativePopulation(static_cast<double>(loc->GetPopCount()) /
-                                           static_cast<double>(config.input.pop_size));
+                loc->SetRelativePop(static_cast<double>(loc->GetPopCount()) /
+                                    static_cast<double>(config.input.pop_size));
         }
 
         householdGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        const auto& centersOfLoc1 = loc1->GetContactCentersOfType(Id::Household);
+        const auto& centersOfLoc1 = loc1->RefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc1.size(), 1179);
 
-        const auto& centersOfLoc2 = loc2->GetContactCentersOfType(Id::Household);
+        const auto& centersOfLoc2 = loc2->RefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc2.size(), 1137);
 
-        const auto& centersOfLoc3 = loc3->GetContactCentersOfType(Id::Household);
+        const auto& centersOfLoc3 = loc3->RefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc3.size(), 868);
 
-        const auto& centersOfLoc4 = loc4->GetContactCentersOfType(Id::Household);
+        const auto& centersOfLoc4 = loc4->RefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc4.size(), 358);
 
-        const auto& centersOfLoc5 = loc5->GetContactCentersOfType(Id::Household);
+        const auto& centersOfLoc5 = loc5->RefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc5.size(), 458);
 }
 

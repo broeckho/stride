@@ -20,12 +20,11 @@
 
 #pragma once
 
+#include "contact/ContactPool.h"
 #include "contact/ContactPoolSys.h"
 #include "contact/ContactType.h"
 #include "pop/Person.h"
 #include "util/RnMan.h"
-#include "util/SegmentedVector.h"
-#include "contact/ContactPool.h"
 #include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>

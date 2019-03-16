@@ -67,7 +67,7 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                         const auto pC   = p.GetPoolId(Id::College);
                         const auto pW   = p.GetPoolId(Id::Workplace);
                         const auto pPC  = p.GetPoolId(Id::PrimaryCommunity);
-                        const auto pSC = p.GetPoolId(Id::SecondaryCommunity);
+                        const auto pSC  = p.GetPoolId(Id::SecondaryCommunity);
                         logger->info("[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}", p.GetId(),
                                      p.GetAge(), pHH, pK12, pC, pW, h.IsSusceptible(), h.IsInfected(), h.IsInfectious(),
                                      h.IsRecovered(), h.IsImmune(), h.GetStartInfectiousness(), h.GetStartSymptomatic(),

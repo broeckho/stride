@@ -48,15 +48,15 @@ TEST(ReaderFactoryTest, TestCommutesFromFile)
         const shared_ptr<CommutesReader>& res2 =
             readerFactory.CreateCommutesReader(FileSys::GetTestsDir() / "testdata/io/commutes.csv");
         const auto geoGrid = make_shared<GeoGrid>(Population::Create().get());
-        geoGrid->AddLocation(make_shared<Location>(21, 0, 1000));
-        geoGrid->AddLocation(make_shared<Location>(22, 0, 1000));
+        geoGrid->AddLocation(make_shared<Location>(21, 0, Coordinate(0.0, 0.0), "", 1000));
+        geoGrid->AddLocation(make_shared<Location>(22, 0, Coordinate(0.0, 0.0), "", 1000));
 
         res2->FillGeoGrid(geoGrid);
 
-        EXPECT_EQ(geoGrid->GetById(21)->GetIncomingCommuterCount(1.0), 500);
-        EXPECT_EQ(geoGrid->GetById(22)->GetOutgoingCommuterCount(1.0), 500);
-        EXPECT_EQ(geoGrid->GetById(21)->GetIncomingCommuterCount(1.0), 500);
-        EXPECT_EQ(geoGrid->GetById(22)->GetOutgoingCommuterCount(1.0), 500);
+        EXPECT_EQ(geoGrid->GetById(21)->GetIncomingCommuteCount(1.0), 500);
+        EXPECT_EQ(geoGrid->GetById(22)->GetOutgoingCommuteCount(1.0), 500);
+        EXPECT_EQ(geoGrid->GetById(21)->GetIncomingCommuteCount(1.0), 500);
+        EXPECT_EQ(geoGrid->GetById(22)->GetOutgoingCommuteCount(1.0), 500);
 }
 
 TEST(ReaderFactoryTest, TestCities)

@@ -60,7 +60,7 @@ void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
                 auto loc     = cities[dist()];
                 auto college = make_shared<College>(contactCenterCounter++);
                 college->Fill(geoGridConfig, geoGrid);
-                loc->AddContactCenter(college);
+                loc->AddCenter(college);
         }
 }
 

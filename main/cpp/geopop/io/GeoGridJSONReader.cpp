@@ -99,7 +99,7 @@ shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree::ptre
         const auto population = boost::lexical_cast<unsigned int>(location.get<string>("population"));
         const auto coordinate = ParseCoordinate(location.get_child("coordinate"));
 
-        auto result         = make_shared<Location>(id, province, population, coordinate, name);
+        auto result         = make_shared<Location>(id, province, coordinate, name, population);
         auto contactCenters = location.get_child("contactCenters");
         auto e              = make_shared<ThreadException>();
 
@@ -113,7 +113,7 @@ shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree::ptre
                                 e->Run([&it, this, &center] { center = ParseContactCenter(it->second.get_child("")); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        result->AddContactCenter(center);
+                                        result->AddCenter(center);
                         }
                 }
 #pragma omp taskwait

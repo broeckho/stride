@@ -41,7 +41,7 @@ TEST(CollegePopulatorTest, NoPopulation)
         RnMan rnMan{RnInfo()}; // Default random number manager.
         auto  pop     = Population::Create();
         auto  geoGrid = make_shared<GeoGrid>(pop.get());
-        geoGrid->AddLocation(make_shared<Location>(0, 0, 0));
+        geoGrid->AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
         geoGrid->Finalize();
         CollegePopulator populator(rnMan);
         GeoGridConfig    config{};
@@ -67,19 +67,19 @@ TEST(CollegePopulatorTest, NoStudents)
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto collegeBra = make_shared<College>(contactCenterCounter++);
         collegeBra->Fill(config, geoGrid);
-        brasschaat->AddContactCenter(collegeBra);
+        brasschaat->AddCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto collegeScho = make_shared<College>(contactCenterCounter++);
         collegeScho->Fill(config, geoGrid);
-        schoten->AddContactCenter(collegeScho);
+        schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto collegeKort = make_shared<College>(contactCenterCounter++);
         collegeKort->Fill(config, geoGrid);
-        kortrijk->AddContactCenter(collegeKort);
+        kortrijk->AddCenter(collegeKort);
 
         geoGrid->Finalize();
         populator.Apply(geoGrid, config);
@@ -107,19 +107,19 @@ TEST(CollegePopulatorTest, NotCommuting)
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto collegeBra = make_shared<College>(contactCenterCounter++);
         collegeBra->Fill(config, geoGrid);
-        brasschaat->AddContactCenter(collegeBra);
+        brasschaat->AddCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto collegeScho = make_shared<College>(contactCenterCounter++);
         collegeScho->Fill(config, geoGrid);
-        schoten->AddContactCenter(collegeScho);
+        schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto collegeKort = make_shared<College>(contactCenterCounter++);
         collegeKort->Fill(config, geoGrid);
-        kortrijk->AddContactCenter(collegeKort);
+        kortrijk->AddCenter(collegeKort);
 
         geoGrid->Finalize();
         populator.Apply(geoGrid, config);
@@ -168,7 +168,7 @@ TEST(CollegePopulatorTest, NotCommuting)
         const auto ppc = GeoGridConfig().pools.pools_per_college;
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
-        for (const auto& household : schoten->GetContactCentersOfType(Id::Household)) {
+        for (const auto& household : schoten->RefCenters(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= 2 * ppc);
@@ -179,7 +179,7 @@ TEST(CollegePopulatorTest, NotCommuting)
         }
 
         // Assert that persons of Brasschaat only go to Schoten or Brasschaat
-        for (const auto& household : brasschaat->GetContactCentersOfType(Id::Household)) {
+        for (const auto& household : brasschaat->RefCenters(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= 2 * ppc);
@@ -190,7 +190,7 @@ TEST(CollegePopulatorTest, NotCommuting)
         }
 
         // Assert that persons of Kortrijk only go to Kortijk
-        for (const auto& household : kortrijk->GetContactCentersOfType(Id::Household)) {
+        for (const auto& household : kortrijk->RefCenters(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) > 2 * ppc &&
@@ -221,18 +221,18 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto collegeScho = make_shared<College>(contactCenterCounter++);
         collegeScho->Fill(config, geoGrid);
-        schoten->AddContactCenter(collegeScho);
+        schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto collegeKort = make_shared<College>(contactCenterCounter++);
         collegeKort->Fill(config, geoGrid);
-        kortrijk->AddContactCenter(collegeKort);
+        kortrijk->AddCenter(collegeKort);
 
-        schoten->AddOutgoingCommutingLocation(kortrijk, 0.5);
-        kortrijk->AddIncomingCommutingLocation(schoten, 0.5);
-        kortrijk->AddOutgoingCommutingLocation(schoten, 0.5);
-        schoten->AddIncomingCommutingLocation(kortrijk, 0.5);
+        schoten->AddOutgoingCommute(kortrijk, 0.5);
+        kortrijk->AddIncomingCommute(schoten, 0.5);
+        kortrijk->AddOutgoingCommute(schoten, 0.5);
+        schoten->AddIncomingCommute(kortrijk, 0.5);
 
         geoGrid->Finalize();
 
@@ -241,7 +241,7 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         const auto ppc = GeoGridConfig().pools.pools_per_college;
 
         // Assert that persons of Schoten only go to Kortrijk
-        for (const auto& household : schoten->GetContactCentersOfType(Id::Household)) {
+        for (const auto& household : schoten->RefCenters(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) > ppc && p->GetPoolId(Id::College) <= 2 * ppc);
@@ -252,7 +252,7 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         }
 
         // Assert that persons of Kortrijk only go to Schoten
-        for (const auto& household : kortrijk->GetContactCentersOfType(Id::Household)) {
+        for (const auto& household : kortrijk->RefCenters(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= ppc);
@@ -278,26 +278,26 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto collegeBra = make_shared<College>(contactCenterCounter++);
         collegeBra->Fill(config, geoGrid);
-        brasschaat->AddContactCenter(collegeBra);
+        brasschaat->AddCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto collegeScho = make_shared<College>(contactCenterCounter++);
         collegeScho->Fill(config, geoGrid);
-        schoten->AddContactCenter(collegeScho);
+        schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto collegeKort = make_shared<College>(contactCenterCounter++);
         collegeKort->Fill(config, geoGrid);
-        kortrijk->AddContactCenter(collegeKort);
+        kortrijk->AddCenter(collegeKort);
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat
-        schoten->AddOutgoingCommutingLocation(kortrijk, 0.5);
-        kortrijk->AddIncomingCommutingLocation(schoten, 0.5);
+        schoten->AddOutgoingCommute(kortrijk, 0.5);
+        kortrijk->AddIncomingCommute(schoten, 0.5);
 
-        kortrijk->AddOutgoingCommutingLocation(schoten, 0.5);
-        schoten->AddIncomingCommutingLocation(kortrijk, 0.5);
+        kortrijk->AddOutgoingCommute(schoten, 0.5);
+        schoten->AddIncomingCommute(kortrijk, 0.5);
 
         geoGrid->Finalize();
 
@@ -306,7 +306,7 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         const auto ppc = GeoGridConfig().pools.pools_per_college;
 
         // Assert that persons of Schoten only commute to Kortrijk
-        for (const auto& household : schoten->GetContactCentersOfType(Id::Household)) {
+        for (const auto& household : schoten->RefCenters(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) > 2 * ppc &&
@@ -318,7 +318,7 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         }
 
         // Assert that persons of Brasschaat only commute to Brasschaat or Schoten
-        for (const auto& household : brasschaat->GetContactCentersOfType(Id::Household)) {
+        for (const auto& household : brasschaat->RefCenters(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= 2 * ppc);
@@ -329,7 +329,7 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         }
 
         // Assert that persons of Kortrijk only commute to Schoten
-        for (const auto& household : kortrijk->GetContactCentersOfType(Id::Household)) {
+        for (const auto& household : kortrijk->RefCenters(Id::Household)) {
                 for (auto p : *household->GetPools()[0]) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) > ppc && p->GetPoolId(Id::College) <= 2 * ppc);
