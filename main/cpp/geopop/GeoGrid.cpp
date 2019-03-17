@@ -28,7 +28,7 @@ namespace geopop {
 using namespace std;
 
 GeoGrid::GeoGrid(stride::Population* population)
-    : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
+    : m_locations(), m_id_to_index(), m_population(population), m_finalized(false), m_tree()
 {
 }
 
@@ -38,7 +38,7 @@ void GeoGrid::AddLocation(shared_ptr<Location> location)
                 throw std::runtime_error("Calling addLocation while GeoGrid is finalized not supported!");
         }
         m_locations.emplace_back(location);
-        m_locationsToIdIndex[location->GetID()] = location;
+        m_id_to_index[location->GetID()] = static_cast<unsigned int>(m_locations.size() - 1);
 }
 
 template <typename Policy, typename F>
@@ -138,7 +138,7 @@ vector<shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 void GeoGrid::Remove(const shared_ptr<Location>& location)
 {
         m_locations.erase(::geopop::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
-        m_locationsToIdIndex.erase(location->GetID());
+        m_id_to_index.erase(location->GetID());
 }
 
 } // namespace geopop

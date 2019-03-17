@@ -65,7 +65,7 @@ public:
         std::shared_ptr<Location> Get(size_t index) const { return (*this)[index]; }
 
         /// Gets a Location by Id and check if the Id exists.
-        std::shared_ptr<Location> GetById(unsigned int id) const { return m_locationsToIdIndex.at(id); }
+        std::shared_ptr<Location> GetById(unsigned int id) const { return m_locations[m_id_to_index.at(id)]; }
 
         /// Provide access to the GeoGridKdTree spatial lookup structure.
         const GeoGridKdTree& KdTree() { return m_tree; }
@@ -140,8 +140,8 @@ private:
         ///< Container for Locations in GeoGrid.
         std::vector<std::shared_ptr<Location>> m_locations;
 
-        ///< Associative container by Id for Locations in the GeoGrid.
-        std::unordered_map<unsigned int, std::shared_ptr<Location>> m_locationsToIdIndex;
+        ///< Associative container maps Location Id to index in m_locations.
+        std::unordered_map<unsigned int, unsigned int> m_id_to_index;
 
         ///< Stores pointer to Popluation, but does not take ownership.
         stride::Population* m_population;
