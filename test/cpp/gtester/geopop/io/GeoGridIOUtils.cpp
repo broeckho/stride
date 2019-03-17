@@ -43,12 +43,12 @@ map<pair<int, Id>, int> persons_pools;
 namespace {
 
 // for internal use only
-void compareGeoGrid(const shared_ptr<GeoGrid>& geoGrid, proto::GeoGrid& protoGrid)
+void compareGeoGrid(const GeoGrid& geoGrid, proto::GeoGrid& protoGrid)
 {
-        ASSERT_EQ(geoGrid->size(), protoGrid.locations_size());
+        ASSERT_EQ(geoGrid.size(), protoGrid.locations_size());
         for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
                 const auto& protoLocation = protoGrid.locations(idx);
-                auto        location      = geoGrid->GetById(static_cast<unsigned int>(protoLocation.id()));
+                auto        location      = geoGrid.GetById(static_cast<unsigned int>(protoLocation.id()));
                 CompareLocation(location, protoLocation);
         }
         ASSERT_EQ(persons_found.size(), protoGrid.persons_size());
@@ -162,7 +162,7 @@ void ComparePerson(const proto::GeoGrid_Person& protoPerson)
                   person->GetPoolId(Id::SecondaryCommunity));
 }
 
-void CompareGeoGrid(shared_ptr<GeoGrid> geoGrid)
+void CompareGeoGrid(GeoGrid& geoGrid)
 {
         GeoGridProtoWriter writer;
         stringstream       ss;
@@ -180,7 +180,7 @@ void CompareGeoGrid(proto::GeoGrid& protoGrid)
         const auto          pop = Population::Create();
         GeoGridProtoReader  reader(move(is), pop.get());
         const auto          geogrid = reader.Read();
-        compareGeoGrid(geogrid, protoGrid);
+        compareGeoGrid(*geogrid, protoGrid);
 }
 
 shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)

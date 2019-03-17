@@ -32,7 +32,7 @@ using namespace stride::ContactType;
 
 GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 
-void GeoGridJSONWriter::Write(shared_ptr<GeoGrid> geoGrid, ostream& stream)
+void GeoGridJSONWriter::Write(GeoGrid& geoGrid, ostream& stream)
 {
         boost::property_tree::ptree root;
         boost::property_tree::ptree locations;
@@ -40,7 +40,7 @@ void GeoGridJSONWriter::Write(shared_ptr<GeoGrid> geoGrid, ostream& stream)
 #pragma omp parallel
 #pragma omp single
         {
-                for (const auto& location : *geoGrid) {
+                for (const auto& location : geoGrid) {
                         pair<string, boost::property_tree::ptree> child;
 #pragma omp task firstprivate(location)
                         {

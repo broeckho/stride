@@ -34,12 +34,12 @@ using namespace stride::ContactType;
 
 GeoGridProtoWriter::GeoGridProtoWriter() : m_persons_found() {}
 
-void GeoGridProtoWriter::Write(shared_ptr<geopop::GeoGrid> geoGrid, ostream& stream)
+void GeoGridProtoWriter::Write(GeoGrid& geoGrid, ostream& stream)
 {
         GOOGLE_PROTOBUF_VERIFY_VERSION;
 
         proto::GeoGrid protoGrid;
-        for (const auto& location : *geoGrid) {
+        for (const auto& location : geoGrid) {
                 WriteLocation(location, protoGrid.add_locations());
         }
         for (const auto& person : m_persons_found) {

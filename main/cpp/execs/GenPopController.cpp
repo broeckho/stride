@@ -22,7 +22,7 @@
 
 #include "geopop/GeoGrid.h"
 #include "geopop/io/GeoGridWriter.h"
-#include "geopop/io/GeoGridWriterFactory.h"
+#include "geopop/io/WriterFactory.h"
 
 #include "pop/GeoPopBuilder.h"
 #include "pop/Population.h"
@@ -62,14 +62,14 @@ void GenPopController::Control()
         LogStartup();
 
         // -----------------------------------------------------------------------------------------
-        // GenPop scenario: step 1, build a random number manager.
+        // MakePersons scenario: step 1, build a random number manager.
         // -----------------------------------------------------------------------------------------
         const RnInfo info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
                           m_config.get<unsigned int>("run.num_threads")};
         RnMan        rnMan{info};
 
         // -----------------------------------------------------------------------------------------
-        // GenPop scenario: step 2, set up the GenPopBuilder and build population with GeoGrid.
+        // MakePersons scenario: step 2, set up the GenPopBuilder and build population with GeoGrid.
         // -----------------------------------------------------------------------------------------
         m_stride_logger->trace("GenPopBuilder invoked.");
 
@@ -80,7 +80,7 @@ void GenPopController::Control()
         m_stride_logger->trace("GenPopBuilder done.");
 
         // ----------------------------------------------------------------------------------------
-        // GenPop scenario: step 3, write to population to file.
+        // MakePersons scenario: step 3, write to population to file.
         // ----------------------------------------------------------------------------------------
         m_stride_logger->trace("Start writing population to file.");
 
@@ -88,10 +88,10 @@ void GenPopController::Control()
         const auto popFileName = m_config.get<string>("run.population_file", "gengeopop.proto");
         const auto popFilePath = FileSys::BuildPath(prefix, popFileName);
         m_stride_logger->info("Population written to file {}.", popFilePath.string());
-        GeoGridWriterFactory      geoGridWriterFactory;
-        shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(popFileName);
+        WriterFactory      geoGridWriterFactory;
+        shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateGeoGridWriter(popFileName);
         ofstream                  outputFileStream(popFilePath.string());
-        geoGridWriter->Write(pop->CRefGeoGrid(), outputFileStream);
+        geoGridWriter->Write(*pop->CRefGeoGrid(), outputFileStream);
         outputFileStream.close();
 
         m_stride_logger->trace("Done writing population to file.");

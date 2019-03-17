@@ -35,7 +35,7 @@ TEST(ReaderFactoryTest, TestCommutes)
 {
         ReaderFactory readerFactory;
 
-        const shared_ptr<CommutesReader>& res1 = readerFactory.CreateCommutesReader(string("flanders_cities.csv"));
+        const shared_ptr<CommutesReader>& res1 = ReaderFactory::CreateCommutesReader(string("flanders_cities.csv"));
 
         EXPECT_NE(dynamic_pointer_cast<CommutesCSVReader>(res1), nullptr);
         EXPECT_THROW(readerFactory.CreateCommutesReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"),
@@ -44,10 +44,9 @@ TEST(ReaderFactoryTest, TestCommutes)
 
 TEST(ReaderFactoryTest, TestCommutesFromFile)
 {
-        ReaderFactory readerFactory;
-
         const shared_ptr<CommutesReader>& res2 =
-            readerFactory.CreateCommutesReader(FileSys::GetTestsDir() / "testdata/io/commutes.csv");
+            ReaderFactory::CreateCommutesReader(FileSys::GetTestsDir() / "testdata/io/commutes.csv");
+
         const auto geoGrid = make_shared<GeoGrid>(Population::Create().get());
         geoGrid->AddLocation(make_shared<Location>(21, 0, Coordinate(0.0, 0.0), "", 1000));
         geoGrid->AddLocation(make_shared<Location>(22, 0, Coordinate(0.0, 0.0), "", 1000));
@@ -62,26 +61,22 @@ TEST(ReaderFactoryTest, TestCommutesFromFile)
 
 TEST(ReaderFactoryTest, TestCities)
 {
-        ReaderFactory                   readerFactory;
-        const shared_ptr<CitiesReader>& res1 = readerFactory.CreateCitiesReader(string("flanders_cities.csv"));
+        const shared_ptr<CitiesReader>& res1 = ReaderFactory::CreateCitiesReader(string("flanders_cities.csv"));
 
         EXPECT_NE(dynamic_pointer_cast<CitiesCSVReader>(res1), nullptr);
 
-        EXPECT_THROW(readerFactory.CreateCitiesReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"), runtime_error);
-        EXPECT_THROW(readerFactory.CreateCitiesReader(FileSys::GetTestsDir() / "testdata/io/random.txt"),
+        EXPECT_THROW(ReaderFactory::CreateCitiesReader(FileSys::GetTestsDir()/"testdata/io/empty.txt"), runtime_error);
+        EXPECT_THROW(ReaderFactory::CreateCitiesReader(FileSys::GetTestsDir()/"testdata/io/random.txt"),
                      runtime_error);
 }
 
 TEST(ReaderFactoryTest, TestHouseHolds)
 {
-
-        ReaderFactory                      readerFactory;
-        const shared_ptr<HouseholdReader>& res1 = readerFactory.CreateHouseholdReader(string("flanders_cities.csv"));
+        const shared_ptr<HouseholdReader>& res1 = ReaderFactory::CreateHouseholdReader(string("flanders_cities.csv"));
 
         EXPECT_NE(dynamic_pointer_cast<HouseholdCSVReader>(res1), nullptr);
 
-        EXPECT_THROW(readerFactory.CreateHouseholdReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"),
-                     runtime_error);
+        EXPECT_THROW(ReaderFactory::CreateHouseholdReader(FileSys::GetTestsDir()/"testdata/io/empty.txt"), runtime_error);
 }
 
 } // namespace

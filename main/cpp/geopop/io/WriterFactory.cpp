@@ -13,7 +13,7 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "GeoGridWriterFactory.h"
+#include "WriterFactory.h"
 
 #include "GeoGridJSONWriter.h"
 #include "GeoGridProtoWriter.h"
@@ -33,7 +33,7 @@ namespace filesys = std::filesystem;
 
 namespace geopop {
 
-std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(const std::string& filename) const
+std::shared_ptr<GeoGridWriter> WriterFactory::CreateGeoGridWriter(const std::string &filename)
 {
         filesys::path path(filename);
 

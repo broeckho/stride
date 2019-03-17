@@ -48,7 +48,7 @@ public:
         GeoGridProtoWriter();
 
         /// Write the GeoGrid to the ostream in Protobuf format.
-        void Write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) override;
+        void Write(GeoGrid& geoGrid, std::ostream& stream) override;
 
 private:
         /// Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter.

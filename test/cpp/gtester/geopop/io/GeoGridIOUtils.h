@@ -47,7 +47,7 @@ void CompareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Lo
 
 void ComparePerson(const proto::GeoGrid_Person& protoPerson);
 
-void CompareGeoGrid(std::shared_ptr<GeoGrid> geoGrid);
+void CompareGeoGrid(GeoGrid& geoGrid);
 
 void CompareGeoGrid(proto::GeoGrid& protoGrid);
 
