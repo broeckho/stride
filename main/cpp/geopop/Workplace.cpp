@@ -21,9 +21,9 @@
 
 namespace geopop {
 
-void Workplace::SetupPools(const GeoGridConfig& /* geoGridConfig */, const std::shared_ptr<GeoGrid>& geoGrid)
+void Workplace::SetupPools(const GeoGridConfig& /* geoGridConfig */, stride::Population* pop)
 {
-        auto& poolSys = geoGrid->GetPopulation()->RefPoolSys();
+        auto& poolSys = pop->RefPoolSys();
 
         // TODO CheckThisAlgorithm
         // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {

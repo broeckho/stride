@@ -27,15 +27,15 @@ namespace geopop {
 using namespace std;
 using namespace stride::ContactType;
 
-void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
+void HouseholdPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         m_logger->trace("Starting to populate Households");
 
         auto person_id = 0U;
         auto hh_dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(geoGridConfig.refHH.ages.size()), 0U);
-        auto pop = geoGrid->GetPopulation();
+        auto pop = geoGrid.GetPopulation();
 
-        for (const shared_ptr<Location>& loc : *geoGrid) {
+        for (const shared_ptr<Location>& loc : geoGrid) {
                 const vector<shared_ptr<ContactCenter>>& hh_centers = loc->RefCenters(Id::Household);
                 for (const auto& h : hh_centers) {
                         auto hPool = h->CRefPools()[0];

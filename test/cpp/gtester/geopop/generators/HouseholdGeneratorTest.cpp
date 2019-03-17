@@ -42,9 +42,9 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         config.popInfo.count_households         = 4;
 
         auto pop     = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto geoGrid = GeoGrid(pop.get());
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-        geoGrid->AddLocation(loc1);
+        geoGrid.AddLocation(loc1);
 
         householdGenerator.Apply(geoGrid, config, contactCenterCounter);
 
@@ -61,10 +61,10 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
         config.popInfo.count_households         = 4;
 
         auto pop     = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto geoGrid = GeoGrid(pop.get());
         householdGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        EXPECT_EQ(geoGrid->size(), 0);
+        EXPECT_EQ(geoGrid.size(), 0);
 }
 
 TEST(HouseholdGeneratorTest, FiveLocationsTest)
@@ -77,20 +77,20 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         config.input.pop_size                   = 37542 * 100;
 
         auto pop     = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto geoGrid = GeoGrid(pop.get());
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
         auto loc2    = make_shared<Location>(2, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
         auto loc3    = make_shared<Location>(3, 4, Coordinate(0, 0), "Henegouwen", 7460 * 100);
         auto loc4    = make_shared<Location>(4, 4, Coordinate(0, 0), "Limburg", 3269 * 100);
         auto loc5    = make_shared<Location>(5, 4, Coordinate(0, 0), "Luxemburg", 4123 * 100);
 
-        geoGrid->AddLocation(loc1);
-        geoGrid->AddLocation(loc2);
-        geoGrid->AddLocation(loc3);
-        geoGrid->AddLocation(loc4);
-        geoGrid->AddLocation(loc5);
+        geoGrid.AddLocation(loc1);
+        geoGrid.AddLocation(loc2);
+        geoGrid.AddLocation(loc3);
+        geoGrid.AddLocation(loc4);
+        geoGrid.AddLocation(loc5);
 
-        for (const shared_ptr<Location>& loc : *geoGrid) {
+        for (const shared_ptr<Location>& loc : geoGrid) {
                 loc->SetRelativePop(static_cast<double>(loc->GetPopCount()) /
                                     static_cast<double>(config.input.pop_size));
         }

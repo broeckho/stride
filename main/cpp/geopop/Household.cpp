@@ -23,9 +23,9 @@ using namespace stride::ContactType;
 
 namespace geopop {
 
-void Household::SetupPools(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
+void Household::SetupPools(const GeoGridConfig& geoGridConfig, stride::Population* pop)
 {
-        auto& poolSys = geoGrid->GetPopulation()->RefPoolSys();
+        auto& poolSys = pop->RefPoolSys();
 
         for (auto i = 0U; i < geoGridConfig.pools.pools_per_houselhold; ++i) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Household);

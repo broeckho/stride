@@ -40,42 +40,42 @@ class CommunityPopulatorTest : public testing::Test
 {
 public:
         CommunityPopulatorTest()
-            : populator(), rnManager(), config(), location(), community(), geoGrid(), person(), logger()
+            : m_populator(), m_rn_man(), m_geogrid_config(), m_location(), m_community(), m_geo_grid(), m_person(), m_logger()
         {
         }
 
 protected:
         void SetUp() override
         {
-                rnManager = make_shared<RnMan>(RnInfo{});
-                logger    = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
-                logger->set_level(spdlog::level::off);
+                m_rn_man = make_shared<RnMan>(RnInfo{});
+                m_logger    = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
+                m_logger->set_level(spdlog::level::off);
 
                 auto household   = make_shared<Household>(2);
                 auto contactPool = new ContactPool(0, ContactType::Id::Household);
-                person           = make_shared<Person>();
-                person->SetId(42);
-                contactPool->AddMember(person.get());
+                m_person           = make_shared<Person>();
+                m_person->SetId(42);
+                contactPool->AddMember(m_person.get());
                 household->RegisterPool(contactPool);
-                location = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-                location->AddCenter(household);
+                m_location = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
+                m_location->AddCenter(household);
                 auto pop = Population::Create();
-                geoGrid  = make_shared<GeoGrid>(pop.get());
-                geoGrid->AddLocation(location);
+                m_geo_grid  = make_shared<GeoGrid>(pop.get());
+                m_geo_grid->AddLocation(m_location);
 
-                community = make_shared<CommunityType>(1);
+                m_community = make_shared<CommunityType>(1);
                 auto pool = new ContactPool(1, ContactType::Id::Household);
-                community->RegisterPool(pool);
+                m_community->RegisterPool(pool);
         }
 
         void OneCommunityTest()
         {
-                location->AddCenter(community);
-                geoGrid->Finalize();
+                m_location->AddCenter(m_community);
+                m_geo_grid->Finalize();
 
-                populator->Apply(geoGrid, config);
+                m_populator->Apply(*m_geo_grid, m_geogrid_config);
 
-                const auto& pools = community->CRefPools();
+                const auto& pools = m_community->CRefPools();
                 ASSERT_EQ(pools.size(), 1);
                 EXPECT_EQ(pools[0]->GetPool().size(), 1);
                 EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
@@ -84,25 +84,25 @@ protected:
         void ZeroCommunitiesTest()
         {
                 auto pop = Population::Create();
-                geoGrid  = make_shared<GeoGrid>(pop.get());
-                geoGrid->Finalize();
-                EXPECT_NO_THROW(populator->Apply(geoGrid, config));
+                m_geo_grid  = make_shared<GeoGrid>(pop.get());
+                m_geo_grid->Finalize();
+                EXPECT_NO_THROW(m_populator->Apply(*m_geo_grid, m_geogrid_config));
         }
 
         void EmptyLocationTest()
         {
                 auto pop = Population::Create();
-                geoGrid  = make_shared<GeoGrid>(pop.get());
-                location = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-                location->AddCenter(community);
-                geoGrid->AddLocation(location);
-                geoGrid->Finalize();
-                EXPECT_NO_THROW(populator->Apply(geoGrid, config));
+                m_geo_grid  = make_shared<GeoGrid>(pop.get());
+                m_location = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
+                m_location->AddCenter(m_community);
+                m_geo_grid->AddLocation(m_location);
+                m_geo_grid->Finalize();
+                EXPECT_NO_THROW(m_populator->Apply(*m_geo_grid, m_geogrid_config));
         }
 
         void TwoLocationsTest()
         {
-                location->AddCenter(community);
+                m_location->AddCenter(m_community);
 
                 auto location2  = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
                 auto community2 = make_shared<PrimaryCommunity>(1);
@@ -110,11 +110,11 @@ protected:
                 community2->RegisterPool(pool);
                 location2->AddCenter(community2);
 
-                geoGrid->AddLocation(location2);
-                geoGrid->Finalize();
-                populator->Apply(geoGrid, config);
+                m_geo_grid->AddLocation(location2);
+                m_geo_grid->Finalize();
+                m_populator->Apply(*m_geo_grid, m_geogrid_config);
                 {
-                        const auto& pools = community->CRefPools();
+                        const auto& pools = m_community->CRefPools();
                         ASSERT_EQ(pools.size(), 1);
                         EXPECT_EQ(pools[0]->GetPool().size(), 1);
                         EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
@@ -129,13 +129,13 @@ protected:
         void OtherLocationTest()
         {
                 auto location2 = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
-                location2->AddCenter(community);
-                geoGrid->AddLocation(location2);
-                geoGrid->Finalize();
+                location2->AddCenter(m_community);
+                m_geo_grid->AddLocation(location2);
+                m_geo_grid->Finalize();
 
-                populator->Apply(geoGrid, config);
+                m_populator->Apply(*m_geo_grid, m_geogrid_config);
 
-                const auto& pools = community->CRefPools();
+                const auto& pools = m_community->CRefPools();
                 ASSERT_EQ(pools.size(), 1);
                 EXPECT_EQ(pools[0]->GetPool().size(), 1);
                 EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
@@ -143,33 +143,33 @@ protected:
 
         void HouseholdTest()
         {
-                auto pool    = *location->RefCenters(Id::Household)[0]->begin();
+                auto pool    = *m_location->RefCenters(Id::Household)[0]->begin();
                 auto person2 = make_shared<Person>();
                 person2->SetId(5);
                 person2->SetAge(2);
                 pool->AddMember(person2.get());
-                location->AddCenter(community);
+                m_location->AddCenter(m_community);
 
                 auto community2 = make_shared<CommunityType>(2);
                 community2->RegisterPool(new ContactPool(2, ContactType::Id::PrimaryCommunity));
-                location->AddCenter(community2);
+                m_location->AddCenter(community2);
 
-                geoGrid->Finalize();
-                populator->Apply(geoGrid, config);
+                m_geo_grid->Finalize();
+                m_populator->Apply(*m_geo_grid, m_geogrid_config);
 
                 HouseholdTestCheck(community2);
         }
 
         virtual void HouseholdTestCheck(shared_ptr<CommunityType> community2) = 0;
 
-        shared_ptr<Populator>      populator;
-        shared_ptr<RnMan>          rnManager;
-        GeoGridConfig              config;
-        shared_ptr<Location>       location;
-        shared_ptr<CommunityType>  community;
-        shared_ptr<GeoGrid>        geoGrid;
-        shared_ptr<Person>         person;
-        shared_ptr<spdlog::logger> logger;
+        shared_ptr<Populator>      m_populator;
+        shared_ptr<RnMan>          m_rn_man;
+        GeoGridConfig              m_geogrid_config;
+        shared_ptr<Location>       m_location;
+        shared_ptr<CommunityType>  m_community;
+        shared_ptr<GeoGrid>        m_geo_grid;
+        shared_ptr<Person>         m_person;
+        shared_ptr<spdlog::logger> m_logger;
 };
 
 class PrimaryCommunityPopulatorTest : public CommunityPopulatorTest<PrimaryCommunity>
@@ -181,13 +181,13 @@ protected:
         void SetUp() override
         {
                 CommunityPopulatorTest::SetUp();
-                populator = make_shared<PrimaryCommunityPopulator>(*rnManager.get(), logger);
+                m_populator = make_shared<PrimaryCommunityPopulator>(*m_rn_man.get(), m_logger);
         }
 
         void HouseholdTestCheck(shared_ptr<PrimaryCommunity> community2) override
         {
                 {
-                        const auto& pools = community->CRefPools();
+                        const auto& pools = m_community->CRefPools();
                         ASSERT_EQ(pools.size(), 1);
                         EXPECT_EQ(pools[0]->GetPool().size(), 1);
                         EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
@@ -210,13 +210,13 @@ protected:
         void SetUp() override
         {
                 CommunityPopulatorTest::SetUp();
-                populator = make_shared<SecondaryCommunityPopulator>(*rnManager.get(), logger);
+                m_populator = make_shared<SecondaryCommunityPopulator>(*m_rn_man.get(), m_logger);
         }
 
         void HouseholdTestCheck(shared_ptr<SecondaryCommunity> community2) override
         {
                 {
-                        const auto& pools = community->CRefPools();
+                        const auto& pools = m_community->CRefPools();
                         ASSERT_EQ(pools.size(), 1);
                         EXPECT_EQ(pools[0]->GetPool().size(), 2);
                         EXPECT_EQ((*pools[0]->begin())->GetId(), 42);

@@ -40,55 +40,57 @@ namespace {
 
 TEST(WorkplacePopulatorTest, NoPopulation)
 {
-        auto rnManager = RnMan{RnInfo{}}; // Default random number manager.
-        auto pop       = Population::Create();
-        auto geoGrid   = make_shared<GeoGrid>(pop.get());
+        auto rnMan   = RnMan{RnInfo{}}; // Default random number manager.
+        auto pop     = Population::Create();
+        auto geoGrid = GeoGrid(pop.get());
 
-        geoGrid->AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
-        WorkplacePopulator workplacePopulator(rnManager);
+        geoGrid.AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
+        WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
-        geoGrid->Finalize();
+        geoGrid.Finalize();
 
         EXPECT_NO_THROW(workplacePopulator.Apply(geoGrid, config));
 }
 
 TEST(WorkplacePopulatorTest, NoActive)
 {
-        auto rnManager = RnMan(RnInfo{}); // Default random number manager.
-        auto pop       = Population::Create();
-        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto rnMan      = RnMan(RnInfo{}); // Default random number manager.
+        auto pop        = Population::Create();
+        auto geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto& geoGrid   = *geoGridPtr;
 
-        WorkplacePopulator workplacePopulator(rnManager);
+        WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
         config.input.particpation_workplace = 0;
         config.input.participation_college  = 1;
 
-        auto location = *geoGrid->begin();
+        auto location = *geoGrid.begin();
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
         // Kortrijk will only receive students from Kortrijik
-        auto brasschaat = *geoGrid->begin();
+        auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto schoten = *(geoGrid->begin() + 1);
+        auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto kortrijk = *(geoGrid->begin() + 2);
+        auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
 
-        geoGrid->Finalize();
+        geoGrid.Finalize();
         workplacePopulator.Apply(geoGrid, config);
 
-        for (const Person& p : *geoGrid->GetPopulation()) {
+        for (const Person& p : *geoGrid.GetPopulation()) {
                 EXPECT_EQ(0, p.GetPoolId(Id::Workplace));
         }
 }
 
 TEST(WorkplacePopulatorTest, NoCommuting)
 {
-        auto rnManager = RnMan(RnInfo{}); // Default random number manager.
-        auto pop       = Population::Create();
-        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto rnMan      = RnMan(RnInfo{}); // Default random number manager.
+        auto pop        = Population::Create();
+        auto geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto& geoGrid   = *geoGridPtr;
 
-        WorkplacePopulator workplacePopulator(rnManager);
+        WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
         unsigned int       contactCenterCounter   = 1;
         config.input.fraction_workplace_commuters = 0;
@@ -98,32 +100,32 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
         // Kortrijk will only receive students from Kortrijik
-        auto brasschaat = *geoGrid->begin();
+        auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto workBra1 = make_shared<Workplace>(contactCenterCounter++);
-        workBra1->SetupPools(config, geoGrid);
+        workBra1->SetupPools(config, pop.get());
         brasschaat->AddCenter(workBra1);
         auto workBra2 = make_shared<Workplace>(contactCenterCounter++);
-        workBra2->SetupPools(config, geoGrid);
+        workBra2->SetupPools(config, pop.get());
         brasschaat->AddCenter(workBra2);
-        auto schoten = *(geoGrid->begin() + 1);
+        auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto workScho1 = make_shared<Workplace>(contactCenterCounter++);
-        workScho1->SetupPools(config, geoGrid);
+        workScho1->SetupPools(config, pop.get());
         schoten->AddCenter(workScho1);
         auto workScho2 = make_shared<Workplace>(contactCenterCounter++);
-        workScho2->SetupPools(config, geoGrid);
+        workScho2->SetupPools(config, pop.get());
         schoten->AddCenter(workScho2);
-        auto kortrijk = *(geoGrid->begin() + 2);
+        auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto workKor1 = make_shared<Workplace>(contactCenterCounter++);
-        workKor1->SetupPools(config, geoGrid);
+        workKor1->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor1);
         auto workKor2 = make_shared<Workplace>(contactCenterCounter++);
-        workKor2->SetupPools(config, geoGrid);
+        workKor2->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor2);
 
-        geoGrid->Finalize();
+        geoGrid.Finalize();
         workplacePopulator.Apply(geoGrid, config);
 
         const auto pwc = GeoGridConfig().pools.pools_per_workplace;
@@ -173,11 +175,12 @@ TEST(WorkplacePopulatorTest, NoCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommuting)
 {
-        auto rnManager = RnMan(RnInfo{}); // Default random number manager.
-        auto pop       = Population::Create();
-        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto rnMan      = RnMan(RnInfo{}); // Default random number manager.
+        auto pop        = Population::Create();
+        auto geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto& geoGrid   = *geoGridPtr;
 
-        WorkplacePopulator workplacePopulator(rnManager);
+        WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
         unsigned int       contactCenterCounter   = 1;
         config.input.fraction_workplace_commuters = 0;
@@ -188,22 +191,22 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         config.input.participation_college        = 0.5;
 
         // only commuting
-        auto schoten = *(geoGrid->begin());
+        auto schoten = *(geoGrid.begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
 
         auto workScho1 = make_shared<Workplace>(contactCenterCounter++);
-        workScho1->SetupPools(config, geoGrid);
+        workScho1->SetupPools(config, pop.get());
         schoten->AddCenter(workScho1);
         auto workScho2 = make_shared<Workplace>(contactCenterCounter++);
-        workScho2->SetupPools(config, geoGrid);
+        workScho2->SetupPools(config, pop.get());
         schoten->AddCenter(workScho2);
-        auto kortrijk = *(geoGrid->begin() + 1);
+        auto kortrijk = *(geoGrid.begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto workKor1 = make_shared<Workplace>(contactCenterCounter++);
-        workKor1->SetupPools(config, geoGrid);
+        workKor1->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor1);
         auto workKor2 = make_shared<Workplace>(contactCenterCounter++);
-        workKor2->SetupPools(config, geoGrid);
+        workKor2->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor2);
 
         schoten->AddOutgoingCommute(kortrijk, 0.5);
@@ -211,7 +214,7 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         kortrijk->AddOutgoingCommute(schoten, 0.5);
         schoten->AddIncomingCommute(kortrijk, 0.5);
 
-        geoGrid->Finalize();
+        geoGrid.Finalize();
         workplacePopulator.Apply(geoGrid, config);
 
         const auto pwc = GeoGridConfig().pools.pools_per_workplace;
@@ -247,9 +250,10 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        auto rnMan   = RnMan{RnInfo{}}; // Default random number manager.
-        auto pop     = Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto rnMan      = RnMan{RnInfo{}}; // Default random number manager.
+        auto pop        = Population::Create();
+        auto geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto& geoGrid   = *geoGridPtr;
 
         WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
@@ -261,29 +265,29 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         config.input.particpation_workplace       = 1;
         config.input.participation_college        = 0.5;
 
-        auto brasschaat = *geoGrid->begin();
+        auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto workBra1 = make_shared<Workplace>(contactCenterCounter++);
-        workBra1->SetupPools(config, geoGrid);
+        workBra1->SetupPools(config, pop.get());
         brasschaat->AddCenter(workBra1);
         auto workBra2 = make_shared<Workplace>(contactCenterCounter++);
-        workBra2->SetupPools(config, geoGrid);
+        workBra2->SetupPools(config, pop.get());
         brasschaat->AddCenter(workBra2);
-        auto schoten = *(geoGrid->begin() + 1);
+        auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto workScho1 = make_shared<Workplace>(contactCenterCounter++);
-        workScho1->SetupPools(config, geoGrid);
+        workScho1->SetupPools(config, pop.get());
         schoten->AddCenter(workScho1);
         auto workScho2 = make_shared<Workplace>(contactCenterCounter++);
-        workScho2->SetupPools(config, geoGrid);
+        workScho2->SetupPools(config, pop.get());
         schoten->AddCenter(workScho2);
-        auto kortrijk = *(geoGrid->begin() + 2);
+        auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto workKor1 = make_shared<Workplace>(contactCenterCounter++);
-        workKor1->SetupPools(config, geoGrid);
+        workKor1->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor1);
         auto workKor2 = make_shared<Workplace>(contactCenterCounter++);
-        workKor2->SetupPools(config, geoGrid);
+        workKor2->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor2);
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat
@@ -292,7 +296,7 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         kortrijk->AddOutgoingCommute(schoten, 0.5);
         schoten->AddIncomingCommute(kortrijk, 0.5);
 
-        geoGrid->Finalize();
+        geoGrid.Finalize();
         workplacePopulator.Apply(geoGrid, config);
 
         const auto pwc = GeoGridConfig().pools.pools_per_workplace;

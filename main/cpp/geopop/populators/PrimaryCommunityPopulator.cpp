@@ -27,13 +27,13 @@ using namespace stride::ContactType;
 
 namespace geopop {
 
-void PrimaryCommunityPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
+void PrimaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 {
         m_logger->trace("Starting to populate Primary Communities");
 
         set<stride::ContactPool*> found;
         // for every location
-        for (const shared_ptr<Location>& loc : *geoGrid) {
+        for (const shared_ptr<Location>& loc : geoGrid) {
                 if (loc->GetPopCount() == 0) {
                         continue;
                 }

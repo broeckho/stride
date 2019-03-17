@@ -27,8 +27,7 @@ class CollegeGenerator : public Generator
 public:
         using Generator::Generator;
 
-        void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig,
-                   unsigned int& contactCenterCounter) override;
+        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& contactCenterCounter) override;
 };
 
 } // namespace geopop

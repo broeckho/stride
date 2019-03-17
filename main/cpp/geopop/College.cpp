@@ -19,13 +19,14 @@
 #include "geopop/GeoGridConfig.h"
 #include "pop/Population.h"
 
+using namespace stride;
 using namespace stride::ContactType;
 
 namespace geopop {
 
-void College::SetupPools(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
+void College::SetupPools(const GeoGridConfig& geoGridConfig, Population* pop)
 {
-        auto& poolSys = geoGrid->GetPopulation()->RefPoolSys();
+        auto& poolSys = pop->RefPoolSys();
 
         for (auto i = 0U; i < geoGridConfig.pools.pools_per_college; ++i) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::College);

@@ -42,9 +42,9 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         config.input.pop_size                   = 10000;
 
         auto pop     = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto geoGrid = GeoGrid(pop.get());
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-        geoGrid->AddLocation(loc1);
+        geoGrid.AddLocation(loc1);
 
         communityGenerator.Apply(geoGrid, config, contactCenterCounter);
 
@@ -62,9 +62,9 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
         config.input.pop_size                   = 100 * 100 * 1000;
 
         auto pop     = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto geoGrid = GeoGrid(pop.get());
         for (int i = 0; i < 10; i++) {
-                geoGrid->AddLocation(
+                geoGrid.AddLocation(
                     make_shared<Location>(1, 4, Coordinate(0, 0), "Location " + to_string(i), 10 * 1000 * 1000));
         }
 
@@ -72,8 +72,8 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
         vector<int> expectedCount{1041, 1013, 940, 1004, 929, 1023, 959, 1077, 1005, 1009};
         for (int i = 0; i < 10; i++) {
-                const auto& c1 = geoGrid->Get(i)->RefCenters(Id::PrimaryCommunity);
-                const auto& c2 = geoGrid->Get(i)->RefCenters(Id::SecondaryCommunity);
+                const auto& c1 = geoGrid.Get(i)->RefCenters(Id::PrimaryCommunity);
+                const auto& c2 = geoGrid.Get(i)->RefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(expectedCount[i], c1.size() + c2.size());
         }
 }
@@ -87,10 +87,10 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
         config.input.pop_size                   = 10000;
 
         auto pop     = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto geoGrid = GeoGrid(pop.get());
         communityGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        EXPECT_EQ(geoGrid->size(), 0);
+        EXPECT_EQ(geoGrid.size(), 0);
 }
 
 TEST(CommunityGeneratorTest, FiveLocationsTest)
@@ -103,18 +103,18 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         config.popInfo.popcount_k12school       = 750840;
 
         auto pop     = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto geoGrid = GeoGrid(pop.get());
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
         auto loc2    = make_shared<Location>(1, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
         auto loc3    = make_shared<Location>(1, 4, Coordinate(0, 0), "Henegouwen", 7460 * 100);
         auto loc4    = make_shared<Location>(1, 4, Coordinate(0, 0), "Limburg", 3269 * 100);
         auto loc5    = make_shared<Location>(1, 4, Coordinate(0, 0), "Luxemburg", 4123 * 100);
 
-        geoGrid->AddLocation(loc1);
-        geoGrid->AddLocation(loc2);
-        geoGrid->AddLocation(loc3);
-        geoGrid->AddLocation(loc4);
-        geoGrid->AddLocation(loc5);
+        geoGrid.AddLocation(loc1);
+        geoGrid.AddLocation(loc2);
+        geoGrid.AddLocation(loc3);
+        geoGrid.AddLocation(loc4);
+        geoGrid.AddLocation(loc5);
 
         communityGenerator.Apply(geoGrid, config, contactCenterCounter);
         {

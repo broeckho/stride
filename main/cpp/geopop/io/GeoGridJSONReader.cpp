@@ -153,19 +153,19 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
                 typeId = Id::K12School;
         } else if (type == ToString(Id::College)) {
                 result = make_shared<College>(id);
-                typeId = ContactType::Id::College;
+                typeId = Id::College;
         } else if (type == ToString(Id::Household)) {
                 result = make_shared<Household>(id);
-                typeId = ContactType::Id::Household;
+                typeId = Id::Household;
         } else if (type == ToString(Id::PrimaryCommunity)) {
                 result = make_shared<PrimaryCommunity>(id);
-                typeId = ContactType::Id::PrimaryCommunity;
+                typeId = Id::PrimaryCommunity;
         } else if (type == ToString(Id::SecondaryCommunity)) {
                 result = make_shared<SecondaryCommunity>(id);
-                typeId = ContactType::Id::SecondaryCommunity;
+                typeId = Id::SecondaryCommunity;
         } else if (type == ToString(Id::Workplace)) {
                 result = make_shared<Workplace>(id);
-                typeId = ContactType::Id::Workplace;
+                typeId = Id::Workplace;
         } else {
                 throw Exception("No such ContactCenter type: " + type);
         }

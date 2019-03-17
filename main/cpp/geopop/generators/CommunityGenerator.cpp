@@ -31,7 +31,7 @@ namespace geopop {
 
 using namespace std;
 
-void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
+void CommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
                                unsigned int& contactCenterCounter)
 {
         // 1. calculate number of communities, each community has average 2000 persons
@@ -43,7 +43,7 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
             static_cast<unsigned int>(ceil(popCount / static_cast<double>(geoGridConfig.pools.community_size)));
 
         vector<double> weights;
-        for (const auto& loc : *geoGrid) {
+        for (const auto& loc : geoGrid) {
                 const auto weight = static_cast<double>(loc->GetPopCount()) / static_cast<double>(popCount);
                 AssertThrow(weight >= 0 && weight <= 1 && !std::isnan(weight),
                             "CommunityGenerator> Invalid weight: " + to_string(weight), m_logger);
@@ -58,15 +58,15 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
 
         for (auto i = 0U; i < communityCount; i++) {
-                const auto loc = (*geoGrid)[dist()];
+                const auto loc = geoGrid[dist()];
                 const auto pc  = make_shared<PrimaryCommunity>(contactCenterCounter++);
-                pc->SetupPools(geoGridConfig, geoGrid);
+                pc->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(pc);
         }
         for (auto i = 0U; i < communityCount; i++) {
-                const auto loc = (*geoGrid)[dist()];
+                const auto loc = geoGrid[dist()];
                 const auto sc  = make_shared<SecondaryCommunity>(contactCenterCounter++);
-                sc->SetupPools(geoGridConfig, geoGrid);
+                sc->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(sc);
         }
 }

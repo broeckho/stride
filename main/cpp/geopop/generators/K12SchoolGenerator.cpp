@@ -25,7 +25,7 @@ namespace geopop {
 
 using namespace std;
 
-void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
+void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
                                unsigned int& contactCenterCounter)
 {
         // 1. given the number of persons of school age, calculate number of schools; schools
@@ -39,7 +39,7 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
             static_cast<unsigned int>(ceil(pupilCount / static_cast<double>(geoGridConfig.pools.k12school_size)));
 
         vector<double> weights;
-        for (const auto& loc : *geoGrid) {
+        for (const auto& loc : geoGrid) {
                 weights.push_back(loc->GetRelativePop());
         }
 
@@ -51,9 +51,9 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
 
         for (auto i = 0U; i < schoolCount; i++) {
-                const auto loc = (*geoGrid)[dist()];
+                const auto loc = geoGrid[dist()];
                 const auto k12 = make_shared<K12School>(contactCenterCounter++);
-                k12->SetupPools(geoGridConfig, geoGrid);
+                k12->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(k12);
         }
 }

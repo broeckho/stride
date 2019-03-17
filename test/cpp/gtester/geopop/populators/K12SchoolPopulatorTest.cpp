@@ -41,30 +41,31 @@ TEST(K12SchoolPopulatorTest, NoPopulation)
 {
         auto rnMan   = RnMan(RnInfo{});
         auto pop     = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto geoGrid = GeoGrid(pop.get());
 
-        geoGrid->AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
+        geoGrid.AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
         K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
 
-        geoGrid->Finalize();
+        geoGrid.Finalize();
 
         EXPECT_NO_THROW(k12SchoolPopulator.Apply(geoGrid, config));
 }
 
 TEST(K12SchoolPopulatorTest, OneLocationTest)
 {
-        auto rnMan   = RnMan(RnInfo{});
-        auto pop     = Population::Create();
-        auto geoGrid = CreateGeoGrid(1, 300, 5, 100, 3, pop.get());
+        auto rnMan      = RnMan(RnInfo{});
+        auto pop        = Population::Create();
+        auto geoGridPtr = CreateGeoGrid(1, 300, 5, 100, 3, pop.get());
+        auto& geoGrid   = *geoGridPtr;
 
         K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
 
-        geoGrid->Finalize();
+        geoGrid.Finalize();
         k12SchoolPopulator.Apply(geoGrid, config);
 
-        auto location   = *geoGrid->begin();
+        auto location   = *geoGrid.begin();
         auto k12Schools = location->RefCenters(Id::K12School);
 
         EXPECT_EQ(5, k12Schools.size());
@@ -131,30 +132,31 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
             {288, 0},   {289, 0},   {290, 0},   {291, 0},   {292, 0},   {293, 0},  {294, 0},  {295, 0},  {296, 0},
             {297, 111}, {298, 0},   {299, 0}};
 
-        for (const auto& person : *geoGrid->GetPopulation()) {
+        for (const auto& person : *geoGrid.GetPopulation()) {
                 EXPECT_EQ(persons[person.GetId()], person.GetPoolId(Id::K12School));
         }
 }
 
 TEST(K12SchoolPopulatorTest, TwoLocationTest)
 {
-        auto rnMan   = RnMan{RnInfo{}};
-        auto pop     = Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto rnMan      = RnMan{RnInfo{}};
+        auto pop        = Population::Create();
+        auto geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto& geoGrid   = *geoGridPtr;
 
         K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
 
         // Brasschaat and Schoten are close to each oter and will both have students from both
         // Kortrijk will only have students going to Kortrijk
-        auto brasschaat = *geoGrid->begin();
+        auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto schoten = *(geoGrid->begin() + 1);
+        auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto kortrijk = *(geoGrid->begin() + 2);
+        auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
 
-        geoGrid->Finalize();
+        geoGrid.Finalize();
         k12SchoolPopulator.Apply(geoGrid, config);
 
         auto k12Schools1 = brasschaat->RefCenters(Id::K12School);
@@ -201,7 +203,7 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
             {279, 0},   {280, 0},   {281, 0},   {282, 0},   {283, 163}, {284, 0},   {285, 0},   {286, 0},   {287, 0},
             {288, 0},   {289, 0},   {290, 0},   {291, 0},   {292, 0},   {293, 0},   {294, 0},   {295, 0},   {296, 0}};
 
-        for (const auto& person : *geoGrid->GetPopulation()) {
+        for (const auto& person : *pop) {
                 EXPECT_EQ(persons[person.GetId()], person.GetPoolId(Id::K12School));
         }
 

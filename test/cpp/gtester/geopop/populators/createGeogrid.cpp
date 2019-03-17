@@ -46,19 +46,19 @@ shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, 
         const auto    geoGrid = make_shared<GeoGrid>(pop);
 
         size_t sampleId = 0;
-        int    personId = 0;
+        auto   personId = 0U;
         for (int locI = 0; locI < locCount; locI++) {
                 auto loc = make_shared<Location>(locI, 1, Coordinate(0.0, 0.0), "", locPop);
 
                 for (int schI = 0; schI < k12SchoolCount; schI++) {
                         auto k12School = make_shared<K12School>(stoi(to_string(locI) + to_string(schI)));
-                        k12School->SetupPools(config, geoGrid);
+                        k12School->SetupPools(config, pop);
                         loc->AddCenter(k12School);
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {
                         auto household = make_shared<Household>(stoi(to_string(locI) + to_string(hI)));
-                        household->SetupPools(config, geoGrid);
+                        household->SetupPools(config, pop);
                         auto contactPool = household->CRefPools()[0];
 
                         for (int i = 0; i < personCount; i++) {

@@ -29,7 +29,7 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
+void K12SchoolPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 {
         m_logger->trace("Starting to populate Schools");
 
@@ -37,7 +37,7 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         unsigned int      pupils = 0;
 
         // for every location
-        for (const shared_ptr<Location>& loc : *geoGrid) {
+        for (const shared_ptr<Location>& loc : geoGrid) {
                 if (loc->GetPopCount() == 0) {
                         continue;
                 }

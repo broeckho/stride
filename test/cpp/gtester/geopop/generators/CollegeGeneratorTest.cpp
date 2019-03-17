@@ -44,10 +44,10 @@ TEST(CollegeGeneratorTest, OneLocationTest)
         config.popInfo.popcount_college       = 9000;
 
         auto pop     = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto geoGrid = GeoGrid(pop.get());
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", config.input.pop_size);
 
-        geoGrid->AddLocation(loc1);
+        geoGrid.AddLocation(loc1);
 
         collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
@@ -65,10 +65,10 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
         config.popInfo.popcount_college       = 2000;
 
         auto pop     = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto geoGrid = GeoGrid(pop.get());
         collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        EXPECT_EQ(geoGrid->size(), 0);
+        EXPECT_EQ(geoGrid.size(), 0);
 }
 
 TEST(CollegeGeneratorTest, FiveLocationsTest)
@@ -81,18 +81,18 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         config.popInfo.popcount_college       = 79998;
 
         auto        pop     = Population::Create();
-        auto        geoGrid = make_shared<GeoGrid>(pop.get());
+        auto        geoGrid = GeoGrid(pop.get());
         vector<int> sizes{28559, 33319, 39323, 37755, 35050, 10060, 13468, 8384,
                           9033,  31426, 33860, 4110,  50412, 25098, 40135};
         for (int size : sizes) {
                 const auto loc = make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size);
-                geoGrid->AddLocation(loc);
+                geoGrid.AddLocation(loc);
         }
         collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         vector<int> expectedCount{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedCount[i], geoGrid->Get(i)->RefCenters(Id::College).size());
+                EXPECT_EQ(expectedCount[i], geoGrid.Get(i)->RefCenters(Id::College).size());
         }
 }
 

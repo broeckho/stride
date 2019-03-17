@@ -26,13 +26,12 @@ namespace geopop {
 
 using namespace std;
 
-void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
-                             unsigned int& contactCenterCounter)
+void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& contactCenterCounter)
 {
         const auto pupilCount = geoGridConfig.popInfo.popcount_college;
         const auto schoolCount =
             static_cast<unsigned int>(ceil(pupilCount / static_cast<double>(geoGridConfig.pools.college_size)));
-        const auto cities = geoGrid->TopK(10);
+        const auto cities = geoGrid.TopK(10);
 
         if (cities.empty()) {
                 // trng can't handle empty vectors
@@ -59,7 +58,7 @@ void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
         for (auto i = 0U; i < schoolCount; i++) {
                 auto loc     = cities[dist()];
                 auto college = make_shared<College>(contactCenterCounter++);
-                college->SetupPools(geoGridConfig, geoGrid);
+                college->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(college);
         }
 }

@@ -31,7 +31,7 @@ public:
         explicit PrimaryCommunity(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
-        void SetupPools(const GeoGridConfig &geoGridConfig, const std::shared_ptr<GeoGrid> &geoGrid) override;
+        void SetupPools(const GeoGridConfig &geoGridConfig, stride::Population* pop) override;
 
         /// See ContactCenter::GetContactPoolType.
         stride::ContactType::Id GetContactPoolType() const override

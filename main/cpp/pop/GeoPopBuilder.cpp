@@ -131,7 +131,7 @@ void GeoPopBuilder::GenGeo(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGri
                                                  make_shared<HouseholdGenerator>(m_rn_man, m_stride_logger)};
 
         for (const auto& g : generators) {
-                g->Apply(geoGrid, geoGridConfig, m_ccCounter);
+                g->Apply(*geoGrid, geoGridConfig, m_ccCounter);
         }
 }
 
@@ -145,7 +145,7 @@ void GeoPopBuilder::GenPop(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGri
                                                  make_shared<WorkplacePopulator>(m_rn_man, m_stride_logger)};
 
         for (shared_ptr<Populator>& p : populators) {
-                p->Apply(geoGrid, geoGridConfig);
+                p->Apply(*geoGrid, geoGridConfig);
         }
 }
 

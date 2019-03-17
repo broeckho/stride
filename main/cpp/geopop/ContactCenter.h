@@ -22,11 +22,11 @@
 
 namespace stride {
 class ContactPool;
+class Population;
 }
 
 namespace geopop {
 
-class GeoGrid;
 class GeoGridConfig;
 
 /**
@@ -60,7 +60,7 @@ public:
         void RegisterPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }
 
         /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
-        virtual void SetupPools(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) = 0;
+        virtual void SetupPools(const GeoGridConfig& geoGridConfig, stride::Population* pop) = 0;
 
 public:
         /// Allow range-based iteration over pools in contact center.

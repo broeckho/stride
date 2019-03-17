@@ -23,11 +23,10 @@
 
 namespace geopop {
 
-void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
-                               unsigned int& contactCenterCounter)
+void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& contactCenterCounter)
 {
         std::vector<double> weights;
-        for (const auto& loc : *geoGrid) {
+        for (const auto& loc : geoGrid) {
                 weights.push_back(loc->GetRelativePop());
         }
 
@@ -39,9 +38,9 @@ void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridCo
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
 
         for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
-                const auto loc = (*geoGrid)[dist()];
+                const auto loc = geoGrid[dist()];
                 const auto h   = std::make_shared<Household>(contactCenterCounter++);
-                h->SetupPools(geoGridConfig, geoGrid);
+                h->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(h);
         }
 }
