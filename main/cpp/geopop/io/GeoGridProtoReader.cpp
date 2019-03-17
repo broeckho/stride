@@ -162,7 +162,7 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
         stride::ContactPool* result;
 
 #pragma omp critical
-        result = m_geoGrid->CreateContactPool(type);
+        result = m_geoGrid->GetPopulation()->RefPoolSys().CreateContactPool(type);
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 const auto person_id = static_cast<unsigned int>(protoContactPool.people(idx));
@@ -219,7 +219,8 @@ shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Loca
 
 stride::Person* GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& protoPerson)
 {
-        return m_geoGrid->GetPopulation()->CreatePerson(protoPerson.id(), protoPerson.age(), 0, 0, 0, 0, 0, 0);
+        const auto id = static_cast<unsigned int>(protoPerson.id());
+        return m_geoGrid->GetPopulation()->CreatePerson(id, protoPerson.age(), 0, 0, 0, 0, 0, 0);
 }
 
 } // namespace geopop

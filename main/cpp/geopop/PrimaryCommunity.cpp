@@ -17,17 +17,20 @@
 
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
+#include "pop/Population.h"
 
 using namespace stride::ContactType;
 
 namespace geopop {
 
-void PrimaryCommunity::SetupPools(const GeoGridConfig & /* geoGridConfig */, const std::shared_ptr<GeoGrid> &geoGrid)
+void PrimaryCommunity::SetupPools(const GeoGridConfig& /* geoGridConfig */, const std::shared_ptr<GeoGrid>& geoGrid)
 {
+        auto& poolSys = geoGrid->GetPopulation()->RefPoolSys();
+
         // TODO CheckThisAlgorithm
         // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
         if (m_pools.empty()) {
-                const auto p = geoGrid->CreateContactPool(stride::ContactType::Id::PrimaryCommunity);
+                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::PrimaryCommunity);
                 RegisterPool(p);
         }
 }

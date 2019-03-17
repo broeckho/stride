@@ -198,7 +198,7 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
 ContactPool* GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& contactPool, ContactType::Id typeId)
 {
         // Don't use the id of the ContactPool but the let the Population create an id.
-        auto result = m_geoGrid->CreateContactPool(typeId);
+        auto result = m_geoGrid->GetPopulation()->RefPoolSys().CreateContactPool(typeId);
         auto people = contactPool.get_child("people");
 
         for (auto it = people.begin(); it != people.end(); it++) {

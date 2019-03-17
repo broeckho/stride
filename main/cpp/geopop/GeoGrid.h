@@ -52,9 +52,6 @@ public:
         /// Adds a location to this GeoGrid.
         void AddLocation(std::shared_ptr<Location> location);
 
-        /// Create ContactPool of type in the Population associated withis GeoGrid.
-        stride::ContactPool* CreateContactPool(stride::ContactType::Id type);
-
         /// Disables the addLocation method and builds the kdtree.
         void Finalize();
 

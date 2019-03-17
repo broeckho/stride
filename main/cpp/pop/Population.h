@@ -45,7 +45,7 @@ class RnMan;
  * Key Data structure: container for
  * (a) all individuals in the population
  * (b) the ContactPoolSys wchich is used to loop over ContactPools of each type
- * (c) (if present) geographical grid of Locations with ContactCenters at that location.
+ * (c) (if present) the GeoGrid of Locations with ContactCenters at that location.
  */
 class Population : public util::SegmentedVector<Person>
 {
@@ -79,20 +79,11 @@ public:
         /// Return the contactlogger.
         std::shared_ptr<spdlog::logger>& RefContactLogger() { return m_contact_logger; }
 
-private:
-        /// The ContactPoolSys of the simulator.
+        /// Reference the ContactPoolSys of the Population.
         ContactPoolSys& RefPoolSys() { return m_pool_sys; }
 
-        friend class geopop::GeoGrid;
-        friend class DefaultPopBuilder;
-        friend class Sim;
-
-private:
-        /// Get the GeoGrid associated with this population (may be a nullptr).
+        /// Reference the GeoGrid associated with this population (may be a nullptr).
         std::shared_ptr<geopop::GeoGrid>& RefGeoGrid() { return m_geo_grid; }
-
-        friend class ImportPopBuilder;
-        friend class GeoPopBuilder;
 
 private:
         /// Non-trivial default constructor.

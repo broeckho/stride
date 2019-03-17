@@ -17,14 +17,17 @@
 
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
+#include "pop/Population.h"
 
 namespace geopop {
 
-void Workplace::SetupPools(const GeoGridConfig & /* geoGridConfig */, const std::shared_ptr<GeoGrid> &geoGrid)
+void Workplace::SetupPools(const GeoGridConfig& /* geoGridConfig */, const std::shared_ptr<GeoGrid>& geoGrid)
 {
+        auto& poolSys = geoGrid->GetPopulation()->RefPoolSys();
+
         // TODO CheckThisAlgorithm
         // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
-        const auto p = geoGrid->CreateContactPool(stride::ContactType::Id::Workplace);
+        const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
         RegisterPool(p);
         //}
 }

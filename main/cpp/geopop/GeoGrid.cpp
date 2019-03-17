@@ -62,11 +62,6 @@ void GeoGrid::CheckFinalized(const string& functionName) const
         }
 }
 
-stride::ContactPool* GeoGrid::CreateContactPool(stride::ContactType::Id type)
-{
-        return m_population->RefPoolSys().CreateContactPool(type);
-}
-
 void GeoGrid::Finalize()
 {
         vector<geogrid_detail::KdTree2DPoint> points;

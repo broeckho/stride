@@ -17,13 +17,16 @@
 
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
+#include "pop/Population.h"
 
 namespace geopop {
 
-void K12School::SetupPools(const GeoGridConfig &geoGridConfig, const std::shared_ptr<GeoGrid> &geoGrid)
+void K12School::SetupPools(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
 {
+        auto& poolSys = geoGrid->GetPopulation()->RefPoolSys();
+
         for (auto i = 0U; i < geoGridConfig.pools.pools_per_k12school; ++i) {
-                const auto p = geoGrid->CreateContactPool(stride::ContactType::Id::K12School);
+                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::K12School);
                 RegisterPool(p);
         }
 }
