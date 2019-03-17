@@ -22,12 +22,13 @@
 
 #include <cassert>
 #include <cmath>
+#include <iterator>
 #include <type_traits>
 
 namespace stride {
 namespace util {
 
-template <typename T, size_t N, bool Safe>
+template <typename T, std::size_t N, bool Safe>
 class SegmentedVector;
 
 /**
