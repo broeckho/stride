@@ -25,7 +25,7 @@ class GeoGridWriter;
 /**
  * Factory creates the correct implementation of a GeoGridWriter based on the filename extension.
  */
-class WriterFactory
+class GeoGridWriterFactory
 {
 public:
         /// Create a GeoGridWriter based on the provided extension in the filename.

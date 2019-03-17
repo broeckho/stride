@@ -198,7 +198,7 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
 ContactPool* GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& contactPool, ContactType::Id typeId)
 {
         // Don't use the id of the ContactPool but the let the Population create an id.
-        auto result = m_geoGrid->GetPopulation()->RefPoolSys().CreateContactPool(typeId);
+        auto result = m_population->RefPoolSys().CreateContactPool(typeId);
         auto people = contactPool.get_child("people");
 
         for (auto it = people.begin(); it != people.end(); it++) {
@@ -215,17 +215,16 @@ ContactPool* GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& co
 
 Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree& person)
 {
-        const auto id                   = boost::lexical_cast<unsigned int>(person.get<string>("id"));
-        const auto age                  = boost::lexical_cast<unsigned int>(person.get<string>("age"));
-        const auto schoolId             = boost::lexical_cast<unsigned int>(person.get<string>("K12School"));
-        const auto collegeId            = boost::lexical_cast<unsigned int>(person.get<string>("College"));
-        const auto householdId          = boost::lexical_cast<unsigned int>(person.get<string>("Household"));
-        const auto workplaceId          = boost::lexical_cast<unsigned int>(person.get<string>("Workplace"));
-        const auto primaryCommunityId   = boost::lexical_cast<unsigned int>(person.get<string>("PrimaryCommunity"));
-        const auto secondaryCommunityId = boost::lexical_cast<unsigned int>(person.get<string>("SecondaryCommunity"));
+        const auto id   = boost::lexical_cast<unsigned int>(person.get<string>("id"));
+        const auto age  = boost::lexical_cast<unsigned int>(person.get<string>("age"));
+        const auto hhId = boost::lexical_cast<unsigned int>(person.get<string>("Household"));
+        const auto ksId = boost::lexical_cast<unsigned int>(person.get<string>("K12School"));
+        const auto coId = boost::lexical_cast<unsigned int>(person.get<string>("College"));
+        const auto wpId = boost::lexical_cast<unsigned int>(person.get<string>("Workplace"));
+        const auto pcId = boost::lexical_cast<unsigned int>(person.get<string>("PrimaryCommunity"));
+        const auto scId = boost::lexical_cast<unsigned int>(person.get<string>("SecondaryCommunity"));
 
-        return m_geoGrid->GetPopulation()->CreatePerson(id, age, householdId, schoolId, collegeId, workplaceId,
-                                                        primaryCommunityId, secondaryCommunityId);
+        return m_population->CreatePerson(id, age, hhId, ksId, coId, wpId, pcId, scId);
 }
 
 } // namespace geopop

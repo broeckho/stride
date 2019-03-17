@@ -72,7 +72,7 @@ public:
 
         /**
          * Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2, lat2).
-         * The coordinates must be position on the diagonal, i.e:
+         * The coordinates must be positioned on the diagonal, i.e:
          *
          *  p1 -----+     +-------p1
          *  |       |     |       |
@@ -88,9 +88,6 @@ public:
 
         /// Gets the K biggest (in population count) locations of this GeoGrid
         std::vector<std::shared_ptr<Location>> TopK(size_t k) const;
-
-        /// Remove element of GeoGrid.
-        void Remove(const std::shared_ptr<Location>& location);
 
 public:
         /// Build a GeoAggregator with a predefined functor and given args for the Policy.

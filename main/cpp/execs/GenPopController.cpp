@@ -22,7 +22,7 @@
 
 #include "geopop/GeoGrid.h"
 #include "geopop/io/GeoGridWriter.h"
-#include "geopop/io/WriterFactory.h"
+#include "geopop/io/GeoGridWriterFactory.h"
 
 #include "pop/GeoPopBuilder.h"
 #include "pop/Population.h"
@@ -88,7 +88,7 @@ void GenPopController::Control()
         const auto popFileName = m_config.get<string>("run.population_file", "gengeopop.proto");
         const auto popFilePath = FileSys::BuildPath(prefix, popFileName);
         m_stride_logger->info("Population written to file {}.", popFilePath.string());
-        WriterFactory      geoGridWriterFactory;
+        GeoGridWriterFactory      geoGridWriterFactory;
         shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateGeoGridWriter(popFileName);
         ofstream                  outputFileStream(popFilePath.string());
         geoGridWriter->Write(*pop->CRefGeoGrid(), outputFileStream);

@@ -132,10 +132,4 @@ vector<shared_ptr<Location>> GeoGrid::TopK(size_t k) const
         return topLocations;
 }
 
-void GeoGrid::Remove(const shared_ptr<Location>& location)
-{
-        m_locations.erase(::geopop::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
-        m_id_to_index.erase(location->GetID());
-}
-
 } // namespace geopop
