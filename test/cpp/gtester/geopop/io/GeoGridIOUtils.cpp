@@ -179,8 +179,8 @@ void CompareGeoGrid(proto::GeoGrid& protoGrid)
         unique_ptr<istream> is(move(ss));
         const auto          pop = Population::Create();
         GeoGridProtoReader  reader(move(is), pop.get());
-        const auto          geogrid = reader.Read();
-        compareGeoGrid(*geogrid, protoGrid);
+        reader.Read();
+        compareGeoGrid(pop->RefGeoGrid(), protoGrid);
 }
 
 shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)

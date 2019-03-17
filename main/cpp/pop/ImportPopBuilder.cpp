@@ -42,9 +42,8 @@ shared_ptr<Population> ImportPopBuilder::Build(shared_ptr<Population> pop)
 
         GeoGridReaderFactory geoGridReaderFactory;
         const auto&          reader = geoGridReaderFactory.CreateReader(importFile, pop.get());
-
-        pop->RefGeoGrid() = reader->Read();
-        pop->RefGeoGrid()->Finalize();
+        reader->Read();
+        pop->RefGeoGrid().Finalize();
 
         return pop;
 }

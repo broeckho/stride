@@ -49,14 +49,14 @@ public:
 
 private:
         /// Reads the data files.
-        void MakeLocations(const std::shared_ptr<geopop::GeoGrid>& geoGrid, const geopop::GeoGridConfig& geoGridConfig,
+        void MakeLocations(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig,
                            const std::string& citiesFileName, const std::string& commutingFileName);
 
         /// Build and store the Geo part of the GeoGrid.
-        void MakeCenters(const std::shared_ptr<geopop::GeoGrid>& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
+        void MakeCenters(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
 
         /// Build and store the Pop part of the GeoGrid.
-        void MakePersons(const std::shared_ptr<geopop::GeoGrid>& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
+        void MakePersons(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
 
 private:
         /// The current number of ContactCenters, used to obtain an Id for a new contactCenter.

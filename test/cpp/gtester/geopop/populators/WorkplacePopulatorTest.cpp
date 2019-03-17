@@ -40,24 +40,24 @@ namespace {
 
 TEST(WorkplacePopulatorTest, NoPopulation)
 {
-        auto rnMan   = RnMan{RnInfo{}}; // Default random number manager.
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
-
         geoGrid.AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
+        geoGrid.Finalize();
+
+        auto rnMan   = RnMan{RnInfo{}};
         WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
-        geoGrid.Finalize();
 
         EXPECT_NO_THROW(workplacePopulator.Apply(geoGrid, config));
 }
 
 TEST(WorkplacePopulatorTest, NoActive)
 {
-        auto rnMan      = RnMan(RnInfo{}); // Default random number manager.
         auto pop        = Population::Create();
-        auto geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto& geoGrid   = *geoGridPtr;
+        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto& geoGrid   = pop->RefGeoGrid();
+        auto rnMan      = RnMan(RnInfo{});
 
         WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
@@ -85,11 +85,11 @@ TEST(WorkplacePopulatorTest, NoActive)
 
 TEST(WorkplacePopulatorTest, NoCommuting)
 {
-        auto rnMan      = RnMan(RnInfo{}); // Default random number manager.
         auto pop        = Population::Create();
-        auto geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto& geoGrid   = *geoGridPtr;
+        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto& geoGrid   = pop->RefGeoGrid();
 
+        auto rnMan      = RnMan(RnInfo{});
         WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
         unsigned int       contactCenterCounter   = 1;
@@ -175,11 +175,11 @@ TEST(WorkplacePopulatorTest, NoCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommuting)
 {
-        auto rnMan      = RnMan(RnInfo{}); // Default random number manager.
         auto pop        = Population::Create();
-        auto geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto& geoGrid   = *geoGridPtr;
+        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto& geoGrid   = pop->RefGeoGrid();
 
+        auto rnMan      = RnMan(RnInfo{});
         WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
         unsigned int       contactCenterCounter   = 1;
@@ -250,11 +250,12 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        auto rnMan      = RnMan{RnInfo{}}; // Default random number manager.
-        auto pop        = Population::Create();
-        auto geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto& geoGrid   = *geoGridPtr;
 
+        auto pop        = Population::Create();
+        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto& geoGrid   = pop->RefGeoGrid();
+
+        auto rnMan      = RnMan{RnInfo{}};
         WorkplacePopulator workplacePopulator(rnMan);
         GeoGridConfig      config{};
         unsigned int       contactCenterCounter   = 1;

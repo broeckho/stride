@@ -49,7 +49,7 @@ public:
         GeoGridProtoReader operator=(const GeoGridProtoReader&) = delete;
 
         /// Actually perform the read and return the GeoGrid.
-        std::shared_ptr<GeoGrid> Read() override;
+        void Read() override;
 
 private:
         /// Create a ContactCenter based on protobuf ContactCenter info.
@@ -68,9 +68,6 @@ private:
 
         /// Create a Person based on protobuf Person info.
         stride::Person* ParsePerson(const proto::GeoGrid_Person& person);
-
-private:
-        std::shared_ptr<GeoGrid> m_geoGrid; ///< GeoGrid being built.
 };
 
 } // namespace geopop

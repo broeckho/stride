@@ -23,6 +23,7 @@
 #include "contact/ContactPool.h"
 #include "contact/ContactPoolSys.h"
 #include "contact/ContactType.h"
+#include "geopop/GeoGrid.h"
 #include "pop/Person.h"
 #include "util/RnMan.h"
 #include "util/SegmentedVector.h"
@@ -30,10 +31,6 @@
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
 #include <spdlog/spdlog.h>
-
-namespace geopop {
-class GeoGrid;
-}
 
 namespace stride {
 
@@ -74,7 +71,7 @@ public:
         const ContactPoolSys& CRefPoolSys() const { return m_pool_sys; }
 
         /// Get the GeoGrid associated with this population (may be a nullptr).
-        const std::shared_ptr<geopop::GeoGrid>& CRefGeoGrid() const { return m_geo_grid; }
+        const geopop::GeoGrid& CRefGeoGrid() const { return m_geo_grid; }
 
         /// Return the contactlogger.
         std::shared_ptr<spdlog::logger>& RefContactLogger() { return m_contact_logger; }
@@ -83,7 +80,7 @@ public:
         ContactPoolSys& RefPoolSys() { return m_pool_sys; }
 
         /// Reference the GeoGrid associated with this population (may be a nullptr).
-        std::shared_ptr<geopop::GeoGrid>& RefGeoGrid() { return m_geo_grid; }
+        geopop::GeoGrid& RefGeoGrid() { return m_geo_grid; }
 
 private:
         /// Non-trivial default constructor.
@@ -92,7 +89,7 @@ private:
 private:
         ContactPoolSys                   m_pool_sys;       ///< Holds vector of ContactPools of different types.
         std::shared_ptr<spdlog::logger>  m_contact_logger; ///< Logger for contact/transmission.
-        std::shared_ptr<geopop::GeoGrid> m_geo_grid;       ///< Associated geoGrid may be nullptr.
+        geopop::GeoGrid                  m_geo_grid;       ///< Associated geoGrid may be nullptr.
 };
 
 } // namespace stride

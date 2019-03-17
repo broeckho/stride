@@ -68,13 +68,13 @@ TEST(CitiesCSVReaderTest, test1)
 
         const auto expectedGeoGrid = getExpectedGeoGrid();
         auto       pop             = Population::Create();
-        const auto geoGrid         = make_shared<GeoGrid>(pop.get());
+        auto&      geoGrid         = pop->RefGeoGrid();
         auto       instream        = make_unique<istringstream>(csvString);
 
         CitiesCSVReader reader(move(instream));
         reader.FillGeoGrid(geoGrid);
 
-        for (const auto& loc : *geoGrid) {
+        for (const auto& loc : geoGrid) {
                 EXPECT_EQ(*loc, *(expectedGeoGrid->GetById(loc->GetID())));
                 EXPECT_DOUBLE_EQ(loc->GetRelativePop(), (expectedGeoGrid->GetById(loc->GetID()))->GetRelativePop());
         }

@@ -62,9 +62,9 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         ggConfig.SetData(m_config.get<string>("run.geopop_gen.household_file"));
 
         // --------------------------------------------------------------
-        // Create empty GeoGrid associated with 'pop'.
+        // Get GeoGrid associated with 'pop'.
         // --------------------------------------------------------------
-        const auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto& geoGrid = pop->RefGeoGrid();
 
         // --------------------------------------------------------------
         // Read cities input files (commute info file only if present).
@@ -96,13 +96,12 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Done.
         // --------------------------------------------------------------
-        pop->RefGeoGrid() = geoGrid;
         m_stride_logger->trace("Done building geopop.");
 
         return pop;
 }
 
-void GeoPopBuilder::MakeLocations(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig,
+void GeoPopBuilder::MakeLocations(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
                                   const string& citiesFileName, const string& commutingFileName)
 {
         const auto citiesReader = ReaderFactory::CreateCitiesReader(citiesFileName);
@@ -113,13 +112,13 @@ void GeoPopBuilder::MakeLocations(const std::shared_ptr<GeoGrid>& geoGrid, const
                 commutesReader->FillGeoGrid(geoGrid);
         }
 
-        for (const shared_ptr<Location>& loc : *geoGrid) {
+        for (const shared_ptr<Location>& loc : geoGrid) {
                 loc->SetPopCount(geoGridConfig.input.pop_size);
         }
-        geoGrid->Finalize();
+        geoGrid.Finalize();
 }
 
-void GeoPopBuilder::MakeCenters(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig)
+void GeoPopBuilder::MakeCenters(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         vector<shared_ptr<Generator>> generators{make_shared<K12SchoolGenerator>(m_rn_man, m_stride_logger),
                                                  make_shared<CollegeGenerator>(m_rn_man, m_stride_logger),
@@ -128,11 +127,11 @@ void GeoPopBuilder::MakeCenters(const std::shared_ptr<GeoGrid>& geoGrid, const G
                                                  make_shared<HouseholdGenerator>(m_rn_man, m_stride_logger)};
 
         for (const auto& g : generators) {
-                g->Apply(*geoGrid, geoGridConfig, m_ccCounter);
+                g->Apply(geoGrid, geoGridConfig, m_ccCounter);
         }
 }
 
-void GeoPopBuilder::MakePersons(const std::shared_ptr<GeoGrid>& geoGrid, const GeoGridConfig& geoGridConfig)
+void GeoPopBuilder::MakePersons(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         vector<shared_ptr<Populator>> populators{make_shared<HouseholdPopulator>(m_rn_man, m_stride_logger),
                                                  make_shared<K12SchoolPopulator>(m_rn_man, m_stride_logger),
@@ -142,7 +141,7 @@ void GeoPopBuilder::MakePersons(const std::shared_ptr<GeoGrid>& geoGrid, const G
                                                  make_shared<WorkplacePopulator>(m_rn_man, m_stride_logger)};
 
         for (shared_ptr<Populator>& p : populators) {
-                p->Apply(*geoGrid, geoGridConfig);
+                p->Apply(geoGrid, geoGridConfig);
         }
 }
 

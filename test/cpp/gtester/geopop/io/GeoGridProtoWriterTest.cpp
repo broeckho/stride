@@ -35,8 +35,8 @@ namespace {
 
 TEST(GeoGridProtoWriterTest, locationTest)
 {
-        const auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
+        const auto pop = Population::Create();
+        auto& geoGrid  = pop->RefGeoGrid();
         geoGrid.AddLocation(make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500));
         geoGrid.AddLocation(make_shared<Location>(2, 3, Coordinate(0, 0), "Gent", 5000));
         geoGrid.AddLocation(make_shared<Location>(3, 2, Coordinate(0, 0), "Mons", 2500));
@@ -45,8 +45,8 @@ TEST(GeoGridProtoWriterTest, locationTest)
 }
 TEST(GeoGridProtoWriterTest, contactCentersTest)
 {
-        const auto pop      = Population::Create();
-        auto geoGrid  = GeoGrid(pop.get());
+        const auto pop = Population::Create();
+        auto& geoGrid  = pop->RefGeoGrid();
         const auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
         location->AddCenter(make_shared<K12School>(0));
         location->AddCenter(make_shared<PrimaryCommunity>(1));

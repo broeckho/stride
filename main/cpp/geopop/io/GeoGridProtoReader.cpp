@@ -36,17 +36,18 @@ namespace geopop {
 using namespace std;
 
 GeoGridProtoReader::GeoGridProtoReader(unique_ptr<istream> inputStream, stride::Population* pop)
-    : GeoGridReader(move(inputStream), pop), m_geoGrid()
+    : GeoGridReader(move(inputStream), pop)
 {
 }
 
-shared_ptr<GeoGrid> GeoGridProtoReader::Read()
+void GeoGridProtoReader::Read()
 {
         proto::GeoGrid protoGrid;
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
                 throw runtime_error("Failed to parse Proto file");
         }
-        m_geoGrid = make_shared<GeoGrid>(m_population);
+         auto& geoGrid = m_population->RefGeoGrid();
+
 #pragma omp parallel
 #pragma omp single
         {
@@ -75,16 +76,15 @@ shared_ptr<GeoGrid> GeoGridProtoReader::Read()
                                 e->Run([&loc, this, &protoLocation] { loc = ParseLocation(protoLocation); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        m_geoGrid->AddLocation(move(loc));
+                                        geoGrid.AddLocation(move(loc));
                         }
                 }
 #pragma omp taskwait
         }
         e->Rethrow();
-        AddCommutes(m_geoGrid);
+        AddCommutes(geoGrid);
         m_people.clear();
         m_commutes.clear();
-        return m_geoGrid;
 }
 
 shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(

@@ -44,25 +44,25 @@ TEST(K12SchoolPopulatorTest, NoPopulation)
         auto geoGrid = GeoGrid(pop.get());
 
         geoGrid.AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
+        geoGrid.Finalize();
+
         K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
-
-        geoGrid.Finalize();
 
         EXPECT_NO_THROW(k12SchoolPopulator.Apply(geoGrid, config));
 }
 
 TEST(K12SchoolPopulatorTest, OneLocationTest)
 {
-        auto rnMan      = RnMan(RnInfo{});
         auto pop        = Population::Create();
-        auto geoGridPtr = CreateGeoGrid(1, 300, 5, 100, 3, pop.get());
-        auto& geoGrid   = *geoGridPtr;
+        SetupGeoGrid(1, 300, 5, 100, 3, pop.get());
+        auto& geoGrid   = pop->RefGeoGrid();
+        geoGrid.Finalize();
 
+        auto rnMan      = RnMan(RnInfo{});
         K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
 
-        geoGrid.Finalize();
         k12SchoolPopulator.Apply(geoGrid, config);
 
         auto location   = *geoGrid.begin();
@@ -139,11 +139,11 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
 
 TEST(K12SchoolPopulatorTest, TwoLocationTest)
 {
-        auto rnMan      = RnMan{RnInfo{}};
         auto pop        = Population::Create();
-        auto geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto& geoGrid   = *geoGridPtr;
+        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto& geoGrid   = pop->RefGeoGrid();
 
+        auto rnMan      = RnMan{RnInfo{}};
         K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
 

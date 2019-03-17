@@ -91,7 +91,7 @@ void GenPopController::Control()
         GeoGridWriterFactory      geoGridWriterFactory;
         shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateGeoGridWriter(popFileName);
         ofstream                  outputFileStream(popFilePath.string());
-        geoGridWriter->Write(*pop->CRefGeoGrid(), outputFileStream);
+        geoGridWriter->Write(pop->RefGeoGrid(), outputFileStream);
         outputFileStream.close();
 
         m_stride_logger->trace("Done writing population to file.");

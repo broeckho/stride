@@ -43,7 +43,7 @@ public:
         GeoGridJSONReader operator=(const GeoGridJSONReader&) = delete;
 
         /// Actually perform the read and return the GeoGrid.
-        std::shared_ptr<GeoGrid> Read() override;
+        void Read() override;
 
 private:
         /// Create a ContactCenter based on the information stored in the provided boost property tree.
@@ -60,9 +60,6 @@ private:
 
         /// Create a Person based on the information stored in the provided boost property tree.
         stride::Person* ParsePerson(boost::property_tree::ptree& person);
-
-private:
-        std::shared_ptr<GeoGrid> m_geoGrid; ///< The GeoGrid which is being built.
 };
 
 } // namespace geopop

@@ -24,8 +24,7 @@ using namespace std;
 using namespace stride;
 using namespace geopop;
 
-shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, int houseHoldCount, int personCount,
-                                  Population* pop)
+void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount, Population *pop)
 {
         vector<unsigned int> populationSample = {
             17, 27, 65, 40, 29, 76, 27, 50, 28, 62, 50, 14, 30, 36, 12, 31, 25, 72, 62, 4,  40, 52, 55, 50, 62,
@@ -43,14 +42,14 @@ shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, 
 
         const auto    populationSize{populationSample.size()};
         GeoGridConfig config{};
-        const auto    geoGrid = make_shared<GeoGrid>(pop);
+        auto&         geoGrid = pop->RefGeoGrid();
 
         size_t sampleId = 0;
         auto   personId = 0U;
         for (int locI = 0; locI < locCount; locI++) {
                 auto loc = make_shared<Location>(locI, 1, Coordinate(0.0, 0.0), "", locPop);
 
-                for (int schI = 0; schI < k12SchoolCount; schI++) {
+                for (int schI = 0; schI < schoolCount; schI++) {
                         auto k12School = make_shared<K12School>(stoi(to_string(locI) + to_string(schI)));
                         k12School->SetupPools(config, pop);
                         loc->AddCenter(k12School);
@@ -70,7 +69,6 @@ shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, 
                         }
                         loc->AddCenter(household);
                 }
-                geoGrid->AddLocation(loc);
+                geoGrid.AddLocation(loc);
         }
-        return geoGrid;
 }

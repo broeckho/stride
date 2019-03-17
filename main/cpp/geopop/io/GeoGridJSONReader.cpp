@@ -39,11 +39,11 @@ using namespace stride::ContactType;
 using namespace stride::util;
 
 GeoGridJSONReader::GeoGridJSONReader(unique_ptr<istream> inputStream, Population* pop)
-    : GeoGridReader(move(inputStream), pop), m_geoGrid(nullptr)
+    : GeoGridReader(move(inputStream), pop)
 {
 }
 
-shared_ptr<GeoGrid> GeoGridJSONReader::Read()
+void GeoGridJSONReader::Read()
 {
         boost::property_tree::ptree root;
         try {
@@ -51,8 +51,10 @@ shared_ptr<GeoGrid> GeoGridJSONReader::Read()
         } catch (runtime_error&) {
                 throw Exception("Problem parsing JSON file, check whether empty or invalid JSON.");
         }
-        m_geoGrid   = make_shared<GeoGrid>(m_population);
+
+        auto& geoGrid = m_population->RefGeoGrid();
         auto people = root.get_child("persons");
+
 #pragma omp parallel
 #pragma omp single
         {
@@ -80,16 +82,15 @@ shared_ptr<GeoGrid> GeoGridJSONReader::Read()
                                 e->Run([&loc, this, &it] { loc = ParseLocation(it->second.get_child("")); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        m_geoGrid->AddLocation(move(loc));
+                                        geoGrid.AddLocation(move(loc));
                         }
                 }
 #pragma omp taskwait
         }
         e->Rethrow();
-        AddCommutes(m_geoGrid);
+        AddCommutes(geoGrid);
         m_commutes.clear();
         m_people.clear();
-        return m_geoGrid;
 }
 
 shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree::ptree& location)

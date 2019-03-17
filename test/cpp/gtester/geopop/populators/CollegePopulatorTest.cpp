@@ -42,8 +42,10 @@ TEST(CollegePopulatorTest, NoPopulation)
         RnMan rnMan{RnInfo()}; // Default random number manager.
         auto  pop     = Population::Create();
         auto  geoGrid = GeoGrid(pop.get());
+
         geoGrid.AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
         geoGrid.Finalize();
+
         CollegePopulator populator(rnMan);
         GeoGridConfig    config{};
 
@@ -52,10 +54,11 @@ TEST(CollegePopulatorTest, NoPopulation)
 
 TEST(CollegePopulatorTest, NoStudents)
 {
-        RnMan            rnMan(RnInfo{}); // Default random number manager.
         auto             pop     = Population::Create();
-        auto             geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto&            geoGrid = *geoGridPtr;
+        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto&            geoGrid = pop->RefGeoGrid();
+
+        RnMan            rnMan(RnInfo{});
         CollegePopulator populator(rnMan);
         GeoGridConfig    config{};
         unsigned int     contactCenterCounter   = 1;
@@ -93,10 +96,11 @@ TEST(CollegePopulatorTest, NoStudents)
 
 TEST(CollegePopulatorTest, NotCommuting)
 {
-        RnMan            rnMan(RnInfo{}); // Default random number manager.
         auto             pop     = Population::Create();
-        auto             geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto&            geoGrid = *geoGridPtr;
+        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto&            geoGrid = pop->RefGeoGrid();
+
+        RnMan            rnMan(RnInfo{});
         CollegePopulator populator(rnMan);
         GeoGridConfig    config{};
         unsigned int     contactCenterCounter   = 1;
@@ -207,8 +211,7 @@ TEST(CollegePopulatorTest, NotCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommuting)
 {
-        RnMan rnMan(RnInfo{}); // Default random number manager.
-
+        RnMan rnMan(RnInfo{});
         CollegePopulator populator(rnMan);
         GeoGridConfig    config{};
         unsigned int     contactCenterCounter   = 1;
@@ -216,8 +219,8 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         config.input.participation_college      = 1;
 
         auto pop        = Population::Create();
-        auto geoGridPtr = CreateGeoGrid(2, 100, 3, 50, 3, pop.get());
-        auto& geoGrid   = *geoGridPtr;
+        SetupGeoGrid(2, 100, 3, 50, 3, pop.get());
+        auto& geoGrid   = pop->RefGeoGrid();
         auto location   = *geoGrid.begin();
 
         // only commuting
@@ -269,10 +272,11 @@ TEST(CollegePopulatorTest, OnlyCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        RnMan            rnMan(RnInfo{}); // Default random number manager.
         auto             pop     = Population::Create();
-        auto             geoGridPtr = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto&            geoGrid = *geoGridPtr;
+        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto&            geoGrid = pop->RefGeoGrid();
+
+        RnMan            rnMan(RnInfo{});
         CollegePopulator populator(rnMan);
         GeoGridConfig    config{};
         unsigned int     contactCenterCounter   = 1;
