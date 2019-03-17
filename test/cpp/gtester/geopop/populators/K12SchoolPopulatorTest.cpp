@@ -22,6 +22,7 @@
 #include "geopop/Household.h"
 #include "geopop/K12School.h"
 #include "geopop/Location.h"
+#include "pop/Population.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -38,12 +39,12 @@ namespace {
 
 TEST(K12SchoolPopulatorTest, NoPopulation)
 {
-        auto rnManager = RnMan(RnInfo{});
-        auto pop       = Population::Create();
-        auto geoGrid   = make_shared<GeoGrid>(pop.get());
+        auto rnMan   = RnMan(RnInfo{});
+        auto pop     = Population::Create();
+        auto geoGrid = make_shared<GeoGrid>(pop.get());
 
         geoGrid->AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
-        K12SchoolPopulator k12SchoolPopulator(rnManager);
+        K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
 
         geoGrid->Finalize();
@@ -53,11 +54,11 @@ TEST(K12SchoolPopulatorTest, NoPopulation)
 
 TEST(K12SchoolPopulatorTest, OneLocationTest)
 {
-        auto rnManager = RnMan(RnInfo{});
-        auto pop       = Population::Create();
-        auto geoGrid   = CreateGeoGrid(1, 300, 5, 100, 3, pop.get());
+        auto rnMan   = RnMan(RnInfo{});
+        auto pop     = Population::Create();
+        auto geoGrid = CreateGeoGrid(1, 300, 5, 100, 3, pop.get());
 
-        K12SchoolPopulator k12SchoolPopulator(rnManager);
+        K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
 
         geoGrid->Finalize();
@@ -84,8 +85,8 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
             {121, 0}, {122, 1}, {123, 0}, {124, 0}, {125, 0}};
 
         for (auto& k12School : k12Schools) {
-                EXPECT_EQ(25, k12School->GetPools().size());
-                for (auto& pool : k12School->GetPools()) {
+                EXPECT_EQ(25, k12School->CRefPools().size());
+                for (auto& pool : k12School->CRefPools()) {
                         EXPECT_EQ(usedCapacity[pool->GetId()], pool->GetPool().size());
                         for (Person* person : *pool) {
                                 EXPECT_LE(person->GetAge(), 18);
@@ -137,11 +138,11 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
 
 TEST(K12SchoolPopulatorTest, TwoLocationTest)
 {
-        auto rnManager = RnMan{RnInfo{}};
-        auto pop       = Population::Create();
-        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto rnMan   = RnMan{RnInfo{}};
+        auto pop     = Population::Create();
+        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
-        K12SchoolPopulator k12SchoolPopulator(rnManager);
+        K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
 
         // Brasschaat and Schoten are close to each oter and will both have students from both
@@ -205,7 +206,7 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
         }
 
         for (const auto& household : kortrijk->RefCenters(Id::Household)) {
-                for (const auto& p : *household->GetPools()[0]) {
+                for (const auto& p : *household->CRefPools()[0]) {
                         const auto k12Id = p->GetPoolId(Id::K12School);
                         if (AgeBrackets::K12School::HasAge(p->GetAge())) {
                                 EXPECT_NE(0, k12Id);

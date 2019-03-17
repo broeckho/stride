@@ -15,6 +15,7 @@
 
 #include "SecondaryCommunityPopulator.h"
 
+#include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/Household.h"
 #include "geopop/Location.h"
@@ -52,7 +53,7 @@ void SecondaryCommunityPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGr
                 auto current_hh_in_comm = 0U;
 
                 for (const auto& household : households) {
-                        auto housePool = household->GetPools()[0];
+                        auto housePool = household->CRefPools()[0];
                         if ((current_hh_in_comm == hh_per_comm && (!remainder || current_comm >= remainder)) ||
                             (current_hh_in_comm == hh_per_comm + 1 && (remainder && current_comm < remainder))) {
                                 current_comm++;

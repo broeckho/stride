@@ -64,18 +64,15 @@ public:
         } input;
 
         // -----------------------------------------------------------------------------------------
-        // The reference set of Households used to generate the population by random draws.
+        // The reference Households used to generate the population by random draws.
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Reference households: the set of households that we sample from to generate the population.
-                std::vector<std::shared_ptr<Household>> households{};
+                /// Number of persons in the reference household set.
+                unsigned int person_count = 0U;
 
-                /// Persons in the reference households (segmented vector to have working pointers into it).
-                stride::util::SegmentedVector<stride::Person> persons{};
-
-                /// Contactpools used for reference households (segmented vector to have working pointers into it).
-                stride::util::SegmentedVector<stride::ContactPool> pools{};
+                /// Age profile per reference household.
+                std::vector<std::vector<unsigned int>> ages{};
         } refHH;
 
         // -----------------------------------------------------------------------------------------

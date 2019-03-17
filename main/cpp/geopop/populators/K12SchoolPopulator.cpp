@@ -16,6 +16,7 @@
 #include "K12SchoolPopulator.h"
 
 #include "contact/AgeBrackets.h"
+#include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/Household.h"
 #include "geopop/K12School.h"
@@ -48,7 +49,7 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
 
                 // 2. for every student assign a class
                 for (const shared_ptr<ContactCenter>& household : loc->RefCenters(Id::Household)) {
-                        ContactPool* contactPool = household->GetPools()[0];
+                        ContactPool* contactPool = household->CRefPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
                                 if (AgeBrackets::K12School::HasAge(p->GetAge())) {

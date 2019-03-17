@@ -23,6 +23,7 @@
 #include "geopop/PrimaryCommunity.h"
 #include "geopop/SecondaryCommunity.h"
 #include "geopop/Workplace.h"
+#include "pop/Population.h"
 #include "util/Exception.h"
 
 #include <boost/lexical_cast.hpp>
@@ -223,8 +224,8 @@ Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree& person)
         const auto primaryCommunityId   = boost::lexical_cast<unsigned int>(person.get<string>("PrimaryCommunity"));
         const auto secondaryCommunityId = boost::lexical_cast<unsigned int>(person.get<string>("SecondaryCommunity"));
 
-        return m_geoGrid->CreatePerson(id, age, householdId, schoolId, collegeId, workplaceId, primaryCommunityId,
-                                       secondaryCommunityId);
+        return m_geoGrid->GetPopulation()->CreatePerson(id, age, householdId, schoolId, collegeId, workplaceId,
+                                                        primaryCommunityId, secondaryCommunityId);
 }
 
 } // namespace geopop

@@ -22,7 +22,7 @@ using namespace stride::ContactType;
 
 namespace geopop {
 
-void PrimaryCommunity::Fill(const GeoGridConfig& /* geoGridConfig */, const std::shared_ptr<GeoGrid>& geoGrid)
+void PrimaryCommunity::SetupPools(const GeoGridConfig & /* geoGridConfig */, const std::shared_ptr<GeoGrid> &geoGrid)
 {
         // TODO CheckThisAlgorithm
         // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {

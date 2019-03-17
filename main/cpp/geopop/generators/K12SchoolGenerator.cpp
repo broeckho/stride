@@ -53,7 +53,7 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         for (auto i = 0U; i < schoolCount; i++) {
                 const auto loc = (*geoGrid)[dist()];
                 const auto k12 = make_shared<K12School>(contactCenterCounter++);
-                k12->Fill(geoGridConfig, geoGrid);
+                k12->SetupPools(geoGridConfig, geoGrid);
                 loc->AddCenter(k12);
         }
 }

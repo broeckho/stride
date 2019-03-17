@@ -15,10 +15,12 @@
 
 #include "PrimaryCommunityPopulator.h"
 
+#include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/Household.h"
 #include "geopop/Location.h"
 #include "geopop/PrimaryCommunity.h"
+#include "pop/Person.h"
 
 using namespace std;
 using namespace stride::ContactType;
@@ -43,7 +45,7 @@ void PrimaryCommunityPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGrid
                 const auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearbyPools.size()), 0U);
 
                 for (const auto& household : loc->RefCenters(Id::Household)) {
-                        auto contactPool = household->GetPools()[0];
+                        auto contactPool = household->CRefPools()[0];
                         for (auto p : *contactPool) {
                                 auto& pool = nearbyPools[dist()];
                                 found.insert(pool);

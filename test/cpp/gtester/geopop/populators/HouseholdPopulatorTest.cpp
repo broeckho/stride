@@ -54,13 +54,7 @@ protected:
 
 TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 {
-        auto householdType = make_shared<Household>();
-        auto poolType      = new ContactPool(0, ContactType::Id::Household);
-        auto personType    = make_shared<Person>();
-        personType->SetAge(18);
-        poolType->AddMember(personType.get());
-        householdType->RegisterPool(poolType);
-        config.refHH.households.push_back(householdType);
+        config.refHH.ages = vector<vector<unsigned int>>{{8U}};
 
         auto pop       = Population::Create();
         auto geoGrid   = make_shared<GeoGrid>(pop.get());
@@ -72,7 +66,7 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 
         householdPopulator->Apply(geoGrid, config);
 
-        const auto& pools = household->GetPools();
+        const auto& pools = household->CRefPools();
         ASSERT_EQ(pools.size(), 1);
         EXPECT_EQ(pools[0]->GetPool().size(), 1);
 }
@@ -87,16 +81,7 @@ TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
 
 TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 {
-        auto person = make_shared<Person>();
-
-        { // Set up the reference household.
-                auto refHousehold = make_shared<Household>();
-                auto pool         = new ContactPool(0, ContactType::Id::Household);
-                person->SetAge(18);
-                pool->AddMember(person.get());
-                refHousehold->RegisterPool(pool);
-                config.refHH.households.push_back(refHousehold);
-        }
+        config.refHH.ages = vector<vector<unsigned int>>{{18U}};
 
         auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
@@ -123,35 +108,15 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
         householdPopulator->Apply(geoGrid, config);
 
         for (const auto& household : loc1->RefCenters(Id::Household)) {
-                ASSERT_EQ(household->GetPools().size(), 1);
-                ASSERT_EQ(household->GetPools()[0]->GetPool().size(), 1);
-                EXPECT_EQ((*household->GetPools()[0]->begin())->GetAge(), 18);
+                ASSERT_EQ(household->CRefPools().size(), 1);
+                ASSERT_EQ(household->CRefPools()[0]->GetPool().size(), 1);
+                EXPECT_EQ((*household->CRefPools()[0]->begin())->GetAge(), 18);
         }
 }
+
 TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
 {
-        auto person  = make_shared<Person>();
-        auto person1 = make_shared<Person>();
-        auto person2 = make_shared<Person>();
-
-        { // Set up reference household with one person.
-                auto refHousehold = make_shared<Household>();
-                auto pool         = new ContactPool(0, ContactType::Id::Household);
-                person->SetAge(18);
-                pool->AddMember(person.get());
-                refHousehold->RegisterPool(pool);
-                config.refHH.households.push_back(refHousehold);
-        }
-        { // Set up reference household with two persons.
-                auto refHousehold = make_shared<Household>();
-                auto pool         = new ContactPool(0, ContactType::Id::Household);
-                person1->SetAge(12);
-                pool->AddMember(person1.get());
-                refHousehold->RegisterPool(pool);
-                person2->SetAge(56);
-                pool->AddMember(person2.get());
-                config.refHH.households.push_back(refHousehold);
-        }
+        config.refHH.ages = vector<vector<unsigned int>>{{18U}, {12U, 56U}};
 
         auto       pop       = Population::Create();
         const auto geoGrid   = make_shared<GeoGrid>(pop.get());
@@ -166,8 +131,8 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
         householdPopulator->Apply(geoGrid, config);
 
         map<int, vector<ContactPool*>> pools_map;
-        pools_map[household->GetPools()[0]->GetPool().size()]  = household->GetPools();
-        pools_map[household2->GetPools()[0]->GetPool().size()] = household2->GetPools();
+        pools_map[household->CRefPools()[0]->GetPool().size()]  = household->CRefPools();
+        pools_map[household2->CRefPools()[0]->GetPool().size()] = household2->CRefPools();
         {
                 const auto& pools = pools_map[1];
                 ASSERT_EQ(pools.size(), 1);

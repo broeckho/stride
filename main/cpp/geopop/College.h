@@ -33,7 +33,7 @@ public:
         explicit College(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
-        void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) override;
+        void SetupPools(const GeoGridConfig &geoGridConfig, const std::shared_ptr<GeoGrid> &geoGrid) override;
 
         /// See ContactCenter::GetContactPoolType.
         stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::College; }

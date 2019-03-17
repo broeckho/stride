@@ -44,14 +44,11 @@ public:
         /// Default destructor, but virtual
         virtual ~ContactCenter() = default;
 
-        /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
-        virtual void Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) = 0;
+        /// Get the ContactPools container.
+        const std::vector<stride::ContactPool*>& CRefPools() const { return m_pools; }
 
         /// Return the ID of this ContactCenter.
         unsigned int GetId() const { return m_id; }
-
-        /// Get the ContactPools container.
-        const std::vector<stride::ContactPool*>& GetPools() const { return m_pools; }
 
         /// Get a count of total population (first) and total number of infections (second).
         std::pair<unsigned int, unsigned int> GetPopulationAndInfectedCount() const;
@@ -61,6 +58,9 @@ public:
 
         /// Register a ContactPool with this ContactCenter.
         void RegisterPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }
+
+        /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
+        virtual void SetupPools(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid) = 0;
 
 public:
         /// Allow range-based iteration over pools in contact center.

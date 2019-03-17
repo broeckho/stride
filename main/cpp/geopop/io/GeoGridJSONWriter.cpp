@@ -15,8 +15,10 @@
 
 #include "GeoGridJSONWriter.h"
 
+#include "contact/ContactPool.h"
 #include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
+#include "pop/Person.h"
 
 #include <boost/property_tree/json_parser.hpp>
 #include <iostream>

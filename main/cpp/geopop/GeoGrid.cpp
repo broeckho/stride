@@ -15,9 +15,11 @@
 
 #include "GeoGrid.h"
 
+#include "contact/ContactPool.h"
 #include "geopop/Location.h"
 #include "geopop/geo/GeoAggregator.h"
 #include "geopop/geo/GeoGridKdTree.h"
+#include "pop/Population.h"
 
 #include <queue>
 #include <stdexcept>

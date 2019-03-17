@@ -71,7 +71,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& g
 
                 // 2. for every student assign a class
                 for (const auto& household : loc->RefCenters(Id::Household)) {
-                        ContactPool* contactPool = household->GetPools()[0];
+                        ContactPool* contactPool = household->CRefPools()[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
                                 if (AgeBrackets::College::HasAge(p->GetAge()) &&

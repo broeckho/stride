@@ -22,6 +22,7 @@
 #include "geopop/PrimaryCommunity.h"
 #include "geopop/Workplace.h"
 #include "geopop/io/GeoGridJSONWriter.h"
+#include "pop/Population.h"
 #include "util/FileSys.h"
 
 #include <boost/property_tree/json_parser.hpp>

@@ -22,6 +22,7 @@
 #include "geopop/PrimaryCommunity.h"
 #include "geopop/SecondaryCommunity.h"
 #include "geopop/Workplace.h"
+#include "pop/Population.h"
 #include "util/FileSys.h"
 
 #include <gtest/gtest.h>

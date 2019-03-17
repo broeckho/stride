@@ -71,7 +71,7 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
 
                 // 2. for everyone of working age: decide between work or college (iff of College age)
                 for (const auto& household : loc->RefCenters(Id::Household)) {
-                        auto contactPool = household->GetPools()[0];
+                        auto contactPool = household->CRefPools()[0];
                         for (auto p : *contactPool) {
                                 if (AgeBrackets::Workplace::HasAge((p->GetAge()))) {
                                         bool isStudent      = MakeChoice(geoGridConfig.input.participation_college);

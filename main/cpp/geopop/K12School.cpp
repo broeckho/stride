@@ -20,7 +20,7 @@
 
 namespace geopop {
 
-void K12School::Fill(const GeoGridConfig& geoGridConfig, const std::shared_ptr<GeoGrid>& geoGrid)
+void K12School::SetupPools(const GeoGridConfig &geoGridConfig, const std::shared_ptr<GeoGrid> &geoGrid)
 {
         for (auto i = 0U; i < geoGridConfig.pools.pools_per_k12school; ++i) {
                 const auto p = geoGrid->CreateContactPool(stride::ContactType::Id::K12School);

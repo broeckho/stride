@@ -20,6 +20,7 @@
 #include "geopop/Household.h"
 #include "geopop/K12School.h"
 #include "geopop/Location.h"
+#include "pop/Population.h"
 
 namespace geopop {
 
@@ -31,19 +32,18 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
         m_logger->trace("Starting to populate Households");
 
         auto person_id = 0U;
-        auto household_dist =
-            m_rn_man.GetUniformIntGenerator(0, static_cast<int>(geoGridConfig.refHH.households.size()), 0U);
+        auto hh_dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(geoGridConfig.refHH.ages.size()), 0U);
+        auto pop = geoGrid->GetPopulation();
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
-                const vector<shared_ptr<ContactCenter>>& households = loc->RefCenters(Id::Household);
-                for (const auto& h : households) {
-                        auto contactPool = h->GetPools()[0];
-                        auto hDraw       = static_cast<unsigned int>(household_dist());
-                        auto hProfile    = geoGridConfig.refHH.households[hDraw]->GetPools()[0];
-                        for (stride::Person* p : *hProfile) {
-                                auto person = geoGrid->CreatePerson(person_id++, p->GetAge(), contactPool->GetId(), 0,
-                                                                    0, 0, 0, 0);
-                                contactPool->AddMember(person);
+                const vector<shared_ptr<ContactCenter>>& hh_centers = loc->RefCenters(Id::Household);
+                for (const auto& h : hh_centers) {
+                        auto hPool = h->CRefPools()[0];
+                        auto hDraw = static_cast<unsigned int>(hh_dist());
+
+                        for (const auto& age : geoGridConfig.refHH.ages[hDraw]) {
+                                const auto p = pop->CreatePerson(person_id++, age, hPool->GetId(), 0, 0, 0, 0, 0);
+                                hPool->AddMember(p);
                         }
                 }
         }

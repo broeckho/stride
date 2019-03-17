@@ -18,6 +18,7 @@
 #include "geopop/io/CitiesCSVReader.h"
 #include "geopop/io/CommutesCSVReader.h"
 #include "geopop/io/HouseholdCSVReader.h"
+#include "pop/Population.h"
 #include "util/FileSys.h"
 
 #include <gtest/gtest.h>

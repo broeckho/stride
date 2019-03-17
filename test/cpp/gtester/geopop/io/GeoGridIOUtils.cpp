@@ -26,6 +26,7 @@
 #include "geopop/Workplace.h"
 #include "geopop/io/GeoGridProtoReader.h"
 #include "geopop/io/GeoGridProtoWriter.h"
+#include "pop/Population.h"
 
 #include <gtest/gtest.h>
 #include <map>
@@ -88,12 +89,12 @@ void CompareContactCenter(shared_ptr<ContactCenter>                    contactCe
 
         EXPECT_EQ(contactCenter->GetId(), protoContactCenter.id());
         EXPECT_EQ(types[contactCenter->GetContactPoolType()], protoContactCenter.type());
-        ASSERT_EQ(protoContactCenter.pools_size(), contactCenter->GetPools().size());
+        ASSERT_EQ(protoContactCenter.pools_size(), contactCenter->CRefPools().size());
 
         // Currently no tests with more than one contactpool
-        if (contactCenter->GetPools().size() == 1) {
+        if (contactCenter->CRefPools().size() == 1) {
                 const auto& protoContactPool = protoContactCenter.pools(0);
-                auto        contactPool      = contactCenter->GetPools()[0];
+                auto        contactPool      = contactCenter->CRefPools()[0];
                 CompareContactPool(contactPool, protoContactPool);
         }
 }
@@ -218,7 +219,7 @@ shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
         workplace->RegisterPool(workplacePool);
 
         geoGrid->AddLocation(location);
-        const auto person = geoGrid->CreatePerson(1, 18, 5, 2, 4, 6, 3, 7);
+        const auto person = geoGrid->GetPopulation()->CreatePerson(1, 18, 5, 2, 4, 6, 3, 7);
         communityPool->AddMember(person);
         schoolPool->AddMember(person);
         secondaryCommunityPool->AddMember(person);

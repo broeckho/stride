@@ -25,6 +25,7 @@
 #include "geopop/SecondaryCommunity.h"
 #include "geopop/Workplace.h"
 #include "pop/Person.h"
+#include "pop/Population.h"
 
 #include <iostream>
 #include <omp.h>
@@ -218,7 +219,7 @@ shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Loca
 
 stride::Person* GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& protoPerson)
 {
-        return m_geoGrid->CreatePerson(protoPerson.id(), protoPerson.age(), 0, 0, 0, 0, 0, 0);
+        return m_geoGrid->GetPopulation()->CreatePerson(protoPerson.id(), protoPerson.age(), 0, 0, 0, 0, 0, 0);
 }
 
 } // namespace geopop

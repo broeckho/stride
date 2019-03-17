@@ -47,38 +47,37 @@ void GeoGridConfig::SetData(const string& householdsFileName)
         ReaderFactory readerFactory;
 
         auto householdsReader = readerFactory.CreateHouseholdReader(householdsFileName);
-        householdsReader->SetReferenceHouseholds(refHH.households, refHH.persons, refHH.pools);
+        householdsReader->SetReferenceHouseholds(refHH.person_count, refHH.ages);
         const auto popSize = input.pop_size;
 
         //----------------------------------------------------------------
         // Determine age makeup of reference houshold population.
         //----------------------------------------------------------------
-        const auto ref_hh_count  = refHH.households.size();
-        const auto ref_pop_count = refHH.persons.size();
-        const auto averageHhSize = static_cast<double>(ref_pop_count) / ref_hh_count;
+        const auto ref_p_count   = refHH.person_count;
+        const auto averageHhSize = static_cast<double>(ref_p_count) / static_cast<double>(refHH.ages.size());
 
-        auto ref_k12school_age = 0U;
-        auto ref_college_age   = 0U;
-        auto ref_workplace_age = 0U;
-        for (const auto& p : refHH.persons) {
-                const auto age = p.GetAge();
-                if (K12School::HasAge(age)) {
-                        ref_k12school_age++;
-                }
-                if (College::HasAge(age)) {
-                        ref_college_age++;
-                }
-                if (Workplace::HasAge(age)) {
-                        ref_workplace_age++;
+        auto ref_k12school = 0U;
+        auto ref_college   = 0U;
+        auto ref_workplace = 0U;
+        for (const auto& hhAgeProfile : refHH.ages) {
+                for (const auto &age : hhAgeProfile) {
+                        if (K12School::HasAge(age)) {
+                                ref_k12school++;
+                        }
+                        if (College::HasAge(age)) {
+                                ref_college++;
+                        }
+                        if (Workplace::HasAge(age)) {
+                                ref_workplace++;
+                        }
                 }
         }
-
         //----------------------------------------------------------------
         // Scale up to the generated population size.
         //----------------------------------------------------------------
-        const auto fraction_k12school_age = static_cast<double>(ref_k12school_age) / static_cast<double>(ref_pop_count);
-        const auto fraction_college_age   = static_cast<double>(ref_college_age) / static_cast<double>(ref_pop_count);
-        const auto fraction_workplace_age = static_cast<double>(ref_workplace_age) / static_cast<double>(ref_pop_count);
+        const auto fraction_k12school_age = static_cast<double>(ref_k12school) / static_cast<double>(ref_p_count);
+        const auto fraction_college_age   = static_cast<double>(ref_college) / static_cast<double>(ref_p_count);
+        const auto fraction_workplace_age = static_cast<double>(ref_workplace) / static_cast<double>(ref_p_count);
 
         const auto age_count_k12school = static_cast<unsigned int>(floor(popSize * fraction_k12school_age));
         const auto age_count_college   = static_cast<unsigned int>(floor(popSize * fraction_college_age));

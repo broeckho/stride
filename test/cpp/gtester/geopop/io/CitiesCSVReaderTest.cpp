@@ -14,6 +14,7 @@
  */
 
 #include "geopop/io/CitiesCSVReader.h"
+#include "pop/Population.h"
 
 #include <gtest/gtest.h>
 

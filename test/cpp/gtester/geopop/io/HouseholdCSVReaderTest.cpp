@@ -27,36 +27,6 @@ using namespace stride;
 
 namespace {
 
-shared_ptr<geopop::Household> createCP(const vector<unsigned int>& ages)
-{
-        auto cp = new ContactPool(0, ContactType::Id::Household);
-        for (unsigned int age : ages) {
-                auto p = new Person();
-                p->SetAge(age);
-                cp->AddMember(p);
-        }
-
-        auto hh = make_shared<geopop::Household>();
-        hh->RegisterPool(cp);
-        return hh;
-}
-
-vector<shared_ptr<geopop::Household>> getExpectedHouseHolds()
-{
-        vector<shared_ptr<geopop::Household>> households;
-
-        households.push_back(createCP({42, 38, 15}));
-        households.push_back(createCP({70, 68}));
-        households.push_back(createCP({40, 39, 9, 6}));
-        households.push_back(createCP({43, 42}));
-        households.push_back(createCP({55, 54}));
-        households.push_back(createCP({40, 40, 3, 3}));
-        households.push_back(createCP({35, 32, 6, 3}));
-        households.push_back(createCP({78, 75}));
-
-        return households;
-}
-
 TEST(HouseholdCSVReader, test1)
 {
         string csvString =
@@ -75,31 +45,36 @@ TEST(HouseholdCSVReader, test1)
         auto               instream = make_unique<istringstream>(csvString);
         HouseholdCSVReader reader(move(instream));
 
-        reader.SetReferenceHouseholds(geoConfig.refHH.households, geoConfig.refHH.persons, geoConfig.refHH.pools);
+        reader.SetReferenceHouseholds(geoConfig.refHH.person_count, geoConfig.refHH.ages);
 
-        const vector<shared_ptr<geopop::Household>>& HHs         = geoConfig.refHH.households;
-        const vector<shared_ptr<geopop::Household>>& expectedHHS = getExpectedHouseHolds();
+        EXPECT_EQ(geoConfig.refHH.person_count, 23U);
 
-        EXPECT_EQ(HHs.size(), (unsigned int)8);
+        const vector<vector<unsigned int>>& HHages = geoConfig.refHH.ages;
 
-        int i = 0;
-        for (const auto& hh : expectedHHS) {
-                const auto& expectedCP = hh->GetPools()[0];
-                const auto& actualCP   = HHs[i]->GetPools()[0];
+        EXPECT_EQ(HHages.size(), 8U);
+        EXPECT_EQ(HHages[0].size(), 3U);
+        EXPECT_EQ(HHages[1].size(), 2U);
+        EXPECT_EQ(HHages[2].size(), 4U);
+        EXPECT_EQ(HHages[3].size(), 2U);
+        EXPECT_EQ(HHages[4].size(), 2U);
+        EXPECT_EQ(HHages[5].size(), 4U);
+        EXPECT_EQ(HHages[6].size(), 4U);
+        EXPECT_EQ(HHages[7].size(), 2U);
 
-                auto actualCPI = actualCP->begin();
-                for (const auto& person : *expectedCP) {
-                        EXPECT_EQ(person->GetAge(), (*actualCPI)->GetAge());
-                        actualCPI++;
-                }
+        EXPECT_EQ(HHages[0][0], 42U);
+        EXPECT_EQ(HHages[0][1], 38U);
+        EXPECT_EQ(HHages[0][2], 15U);
 
-                i++;
-        }
-        for (const auto& hh : expectedHHS) {
-                for (const auto& person : *hh->GetPools()[0]) {
-                        delete person;
-                }
-        }
+        EXPECT_EQ(HHages[1][0], 70U);
+        EXPECT_EQ(HHages[1][1], 68U);
+
+        EXPECT_EQ(HHages[6][0], 35U);
+        EXPECT_EQ(HHages[6][1], 32U);
+        EXPECT_EQ(HHages[6][2], 6U);
+        EXPECT_EQ(HHages[6][3], 3U);
+
+        EXPECT_EQ(HHages[7][0], 78U);
+        EXPECT_EQ(HHages[7][1], 75U);
 }
 
 } // namespace

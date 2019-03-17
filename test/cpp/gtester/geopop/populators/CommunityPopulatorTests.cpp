@@ -75,7 +75,7 @@ protected:
 
                 populator->Apply(geoGrid, config);
 
-                const auto& pools = community->GetPools();
+                const auto& pools = community->CRefPools();
                 ASSERT_EQ(pools.size(), 1);
                 EXPECT_EQ(pools[0]->GetPool().size(), 1);
                 EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
@@ -114,13 +114,13 @@ protected:
                 geoGrid->Finalize();
                 populator->Apply(geoGrid, config);
                 {
-                        const auto& pools = community->GetPools();
+                        const auto& pools = community->CRefPools();
                         ASSERT_EQ(pools.size(), 1);
                         EXPECT_EQ(pools[0]->GetPool().size(), 1);
                         EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
                 }
                 {
-                        const auto& pools = community2->GetPools();
+                        const auto& pools = community2->CRefPools();
                         ASSERT_EQ(pools.size(), 1);
                         EXPECT_EQ(pools[0]->GetPool().size(), 0);
                 }
@@ -135,7 +135,7 @@ protected:
 
                 populator->Apply(geoGrid, config);
 
-                const auto& pools = community->GetPools();
+                const auto& pools = community->CRefPools();
                 ASSERT_EQ(pools.size(), 1);
                 EXPECT_EQ(pools[0]->GetPool().size(), 1);
                 EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
@@ -187,13 +187,13 @@ protected:
         void HouseholdTestCheck(shared_ptr<PrimaryCommunity> community2) override
         {
                 {
-                        const auto& pools = community->GetPools();
+                        const auto& pools = community->CRefPools();
                         ASSERT_EQ(pools.size(), 1);
                         EXPECT_EQ(pools[0]->GetPool().size(), 1);
                         EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
                 }
                 {
-                        const auto& pools = community2->GetPools();
+                        const auto& pools = community2->CRefPools();
                         ASSERT_EQ(pools.size(), 1);
                         EXPECT_EQ(pools[0]->GetPool().size(), 1);
                         EXPECT_EQ((*pools[0]->begin())->GetId(), 5);
@@ -216,14 +216,14 @@ protected:
         void HouseholdTestCheck(shared_ptr<SecondaryCommunity> community2) override
         {
                 {
-                        const auto& pools = community->GetPools();
+                        const auto& pools = community->CRefPools();
                         ASSERT_EQ(pools.size(), 1);
                         EXPECT_EQ(pools[0]->GetPool().size(), 2);
                         EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
                         EXPECT_EQ((*(pools[0]->begin() + 1))->GetId(), 5);
                 }
                 {
-                        const auto& pools = community2->GetPools();
+                        const auto& pools = community2->CRefPools();
                         ASSERT_EQ(pools.size(), 1);
                         EXPECT_EQ(pools[0]->GetPool().size(), 0);
                 }

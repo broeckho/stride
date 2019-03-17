@@ -15,13 +15,17 @@
 
 #pragma once
 
-#include "contact/ContactPool.h"
+#include "contact/ContactType.h"
 #include "geopop/geo/GeoGridKdTree.h"
-#include "pop/Population.h"
 
 #include <set>
 #include <unordered_map>
 #include <vector>
+
+namespace stride {
+class ContactPool;
+class Population;
+}
 
 namespace geopop {
 
@@ -50,13 +54,6 @@ public:
 
         /// Create ContactPool of type in the Population associated withis GeoGrid.
         stride::ContactPool* CreateContactPool(stride::ContactType::Id type);
-
-        /// Create Person in the Population associated with this Grid.
-        template <typename... Args>
-        stride::Person* CreatePerson(Args&&... args)
-        {
-                return m_population->CreatePerson(args...);
-        }
 
         /// Disables the addLocation method and builds the kdtree.
         void Finalize();

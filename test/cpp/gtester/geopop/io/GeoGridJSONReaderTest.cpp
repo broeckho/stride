@@ -195,7 +195,7 @@ void runPeopleTest(const string& filename)
         }
 
         for (const auto& center : centers) {
-                auto pool   = center->GetPools()[0];
+                auto pool   = center->CRefPools()[0];
                 auto person = *(pool->begin());
                 EXPECT_EQ(ids[center->GetId()], ToString(center->GetContactPoolType()));
                 EXPECT_EQ(person->GetId(), 1);
