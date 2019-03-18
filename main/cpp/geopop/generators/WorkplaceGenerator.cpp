@@ -18,7 +18,7 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/Workplace.h"
+#include "geopop/WorkplaceCenter.h"
 #include "util/Assert.h"
 #include "util/RnMan.h"
 
@@ -62,7 +62,7 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto w   = make_shared<Workplace>(contactCenterCounter++);
+                const auto w   = make_shared<WorkplaceCenter>(contactCenterCounter++);
                 w->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(w);
         }

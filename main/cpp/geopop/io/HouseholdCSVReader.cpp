@@ -27,19 +27,20 @@ HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream
 {
 }
 
-void HouseholdCSVReader::SetReferenceHouseholds(unsigned int& ref_person_count,
-                                                std::vector<std::vector<unsigned int>>& ref_ages) {
+void HouseholdCSVReader::SetReferenceHouseholds(unsigned int&                           ref_person_count,
+                                                std::vector<std::vector<unsigned int>>& ref_ages)
+{
         CSV reader(*(m_input_stream.get()));
 
         unsigned int p_count = 0U;
-        for (const CSVRow &row : reader) {
+        for (const CSVRow& row : reader) {
 
                 vector<unsigned int> temp;
                 for (unsigned int i = 0; i < 12; i++) {
                         unsigned int age;
                         try {
                                 age = row.GetValue<unsigned int>(i);
-                        } catch (const std::bad_cast &e) {
+                        } catch (const std::bad_cast& e) {
                                 // NA
                                 break;
                         }

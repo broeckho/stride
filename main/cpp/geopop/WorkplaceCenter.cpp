@@ -13,28 +13,23 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#pragma once
+#include "WorkplaceCenter.h"
 
-#include "ContactCenter.h"
+#include "GeoGrid.h"
+#include "GeoGridConfig.h"
+#include "pop/Population.h"
 
 namespace geopop {
 
-class GeoGrid;
-
-/**
- * Models a K12School as ContactCenter.
- */
-class K12School : public ContactCenter
+void WorkplaceCenter::SetupPools(const GeoGridConfig& /* geoGridConfig */, stride::Population* pop)
 {
-public:
-        /// Construct K12school with assigned ID.
-        explicit K12School(unsigned int id) : ContactCenter(id) {}
+        auto& poolSys = pop->RefPoolSys();
 
-        /// See ContactCenter::Fill.
-        void SetupPools(const GeoGridConfig &geoGridConfig, stride::Population* pop) override;
-
-        /// See ContactCenter::GetContactPoolType.
-        stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::K12School; }
-};
+        // TODO CheckThisAlgorithm
+        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
+        const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
+        RegisterPool(p);
+        //}
+}
 
 } // namespace geopop

@@ -13,25 +13,20 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "SecondaryCommunity.h"
+#include "K12SchoolCenter.h"
 
 #include "GeoGrid.h"
 #include "GeoGridConfig.h"
 #include "pop/Population.h"
 
-using namespace stride::ContactType;
-
 namespace geopop {
 
-void SecondaryCommunity::SetupPools(const GeoGridConfig& /* geoGridConfig */, stride::Population* pop)
+void K12SchoolCenter::SetupPools(const GeoGridConfig& geoGridConfig, stride::Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 
-        // TODO CheckThisAlgorithm
-        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
-        if (m_pools.empty()) {
-
-                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::SecondaryCommunity);
+        for (auto i = 0U; i < geoGridConfig.pools.pools_per_k12school; ++i) {
+                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::K12School);
                 RegisterPool(p);
         }
 }

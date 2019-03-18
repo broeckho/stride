@@ -59,10 +59,10 @@ class SVIterator
 public:
         // C++17 deprecates std::iterator so we need to define these traits ourselves.
         using iterator_category = std::random_access_iterator_tag;
-        using value_type = T;
-        using difference_type = std::ptrdiff_t;
-        using pointer = P;
-        using reference = R;
+        using value_type        = T;
+        using difference_type   = std::ptrdiff_t;
+        using pointer           = P;
+        using reference         = R;
 
 public:
         // ==================================================================

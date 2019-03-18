@@ -13,7 +13,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "College.h"
+#include "CollegeCenter.h"
 
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
@@ -24,7 +24,7 @@ using namespace stride::ContactType;
 
 namespace geopop {
 
-void College::SetupPools(const GeoGridConfig& geoGridConfig, Population* pop)
+void CollegeCenter::SetupPools(const GeoGridConfig& geoGridConfig, Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 

@@ -15,13 +15,13 @@
 
 #include "GeoGridIOUtils.h"
 #include "geogrid.pb.h"
-#include "geopop/College.h"
+#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
-#include "geopop/PrimaryCommunity.h"
-#include "geopop/SecondaryCommunity.h"
-#include "geopop/Workplace.h"
+#include "geopop/HouseholdCenter.h"
+#include "geopop/K12SchoolCenter.h"
+#include "geopop/PrimaryCommunityCenter.h"
+#include "geopop/SecondaryCommunityCenter.h"
+#include "geopop/WorkplaceCenter.h"
 
 #include <gtest/gtest.h>
 
@@ -74,11 +74,11 @@ TEST(GeoGridProtoReaderTest, contactCentersTest)
         proto::GeoGrid geoGrid;
         auto           location = geoGrid.add_locations();
         fillLocation(1, 4, 2500, Coordinate(0, 0), "Bavikhove", location);
-        fillContactCenter(make_shared<K12School>(0), location->add_contactcenters());
-        fillContactCenter(make_shared<PrimaryCommunity>(1), location->add_contactcenters());
-        fillContactCenter(make_shared<College>(2), location->add_contactcenters());
-        fillContactCenter(make_shared<Household>(3), location->add_contactcenters());
-        fillContactCenter(make_shared<Workplace>(4), location->add_contactcenters());
+        fillContactCenter(make_shared<K12SchoolCenter>(0), location->add_contactcenters());
+        fillContactCenter(make_shared<PrimaryCommunityCenter>(1), location->add_contactcenters());
+        fillContactCenter(make_shared<CollegeCenter>(2), location->add_contactcenters());
+        fillContactCenter(make_shared<HouseholdCenter>(3), location->add_contactcenters());
+        fillContactCenter(make_shared<WorkplaceCenter>(4), location->add_contactcenters());
 
         CompareGeoGrid(geoGrid);
 }
@@ -90,42 +90,42 @@ TEST(GeoGridProtoReaderTest, peopleTest)
 
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<K12School>(0), contactCenter);
+                fillContactCenter(make_shared<K12SchoolCenter>(0), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(2);
                 pool->add_people(1);
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<PrimaryCommunity>(1), contactCenter);
+                fillContactCenter(make_shared<PrimaryCommunityCenter>(1), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(3);
                 pool->add_people(1);
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<SecondaryCommunity>(2), contactCenter);
+                fillContactCenter(make_shared<SecondaryCommunityCenter>(2), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(7);
                 pool->add_people(1);
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<College>(3), contactCenter);
+                fillContactCenter(make_shared<CollegeCenter>(3), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(4);
                 pool->add_people(1);
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<Household>(4), contactCenter);
+                fillContactCenter(make_shared<HouseholdCenter>(4), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(5);
                 pool->add_people(1);
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<Workplace>(5), contactCenter);
+                fillContactCenter(make_shared<WorkplaceCenter>(5), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(6);
                 pool->add_people(1);

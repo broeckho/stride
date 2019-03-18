@@ -19,10 +19,10 @@
 #include "geopop/Coordinate.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
+#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
-#include "geopop/PrimaryCommunity.h"
-#include "geopop/SecondaryCommunity.h"
+#include "geopop/PrimaryCommunityCenter.h"
+#include "geopop/SecondaryCommunityCenter.h"
 #include "pop/Population.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
@@ -40,7 +40,8 @@ class CommunityPopulatorTest : public testing::Test
 {
 public:
         CommunityPopulatorTest()
-            : m_populator(), m_rn_man(), m_geogrid_config(), m_location(), m_community(), m_geo_grid(), m_person(), m_logger()
+            : m_populator(), m_rn_man(), m_geogrid_config(), m_location(), m_community(), m_geo_grid(), m_person(),
+              m_logger()
         {
         }
 
@@ -48,23 +49,23 @@ protected:
         void SetUp() override
         {
                 m_rn_man = make_shared<RnMan>(RnInfo{});
-                m_logger    = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
+                m_logger = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
                 m_logger->set_level(spdlog::level::off);
 
-                auto household   = make_shared<Household>(2);
+                auto household   = make_shared<HouseholdCenter>(2);
                 auto contactPool = new ContactPool(0, ContactType::Id::Household);
-                m_person           = make_shared<Person>();
+                m_person         = make_shared<Person>();
                 m_person->SetId(42);
                 contactPool->AddMember(m_person.get());
                 household->RegisterPool(contactPool);
                 m_location = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
                 m_location->AddCenter(household);
-                auto pop = Population::Create();
-                m_geo_grid  = make_shared<GeoGrid>(pop.get());
+                auto pop   = Population::Create();
+                m_geo_grid = make_shared<GeoGrid>(pop.get());
                 m_geo_grid->AddLocation(m_location);
 
                 m_community = make_shared<CommunityType>(1);
-                auto pool = new ContactPool(1, ContactType::Id::Household);
+                auto pool   = new ContactPool(1, ContactType::Id::Household);
                 m_community->RegisterPool(pool);
         }
 
@@ -75,24 +76,23 @@ protected:
 
                 m_populator->Apply(*m_geo_grid, m_geogrid_config);
 
-                const auto& pools = m_community->CRefPools();
-                ASSERT_EQ(pools.size(), 1);
-                EXPECT_EQ(pools[0]->GetPool().size(), 1);
-                EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
+                ASSERT_EQ(m_community->size(), 1);
+                EXPECT_EQ((*m_community)[0]->size(), 1);
+                EXPECT_EQ((*(*m_community)[0])[0]->GetId(), 42);
         }
 
         void ZeroCommunitiesTest()
         {
-                auto pop = Population::Create();
-                m_geo_grid  = make_shared<GeoGrid>(pop.get());
+                auto pop   = Population::Create();
+                m_geo_grid = make_shared<GeoGrid>(pop.get());
                 m_geo_grid->Finalize();
                 EXPECT_NO_THROW(m_populator->Apply(*m_geo_grid, m_geogrid_config));
         }
 
         void EmptyLocationTest()
         {
-                auto pop = Population::Create();
-                m_geo_grid  = make_shared<GeoGrid>(pop.get());
+                auto pop   = Population::Create();
+                m_geo_grid = make_shared<GeoGrid>(pop.get());
                 m_location = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
                 m_location->AddCenter(m_community);
                 m_geo_grid->AddLocation(m_location);
@@ -105,7 +105,7 @@ protected:
                 m_location->AddCenter(m_community);
 
                 auto location2  = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
-                auto community2 = make_shared<PrimaryCommunity>(1);
+                auto community2 = make_shared<PrimaryCommunityCenter>(1);
                 auto pool       = new ContactPool(2, ContactType::Id::PrimaryCommunity);
                 community2->RegisterPool(pool);
                 location2->AddCenter(community2);
@@ -114,15 +114,13 @@ protected:
                 m_geo_grid->Finalize();
                 m_populator->Apply(*m_geo_grid, m_geogrid_config);
                 {
-                        const auto& pools = m_community->CRefPools();
-                        ASSERT_EQ(pools.size(), 1);
-                        EXPECT_EQ(pools[0]->GetPool().size(), 1);
-                        EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
+                        ASSERT_EQ(m_community->size(), 1);
+                        EXPECT_EQ((*m_community)[0]->size(), 1);
+                        EXPECT_EQ(((*(*m_community)[0])[0])->GetId(), 42);
                 }
                 {
-                        const auto& pools = community2->CRefPools();
-                        ASSERT_EQ(pools.size(), 1);
-                        EXPECT_EQ(pools[0]->GetPool().size(), 0);
+                        ASSERT_EQ(community2->size(), 1);
+                        EXPECT_EQ((*community2)[0]->size(), 0);
                 }
         }
 
@@ -135,10 +133,9 @@ protected:
 
                 m_populator->Apply(*m_geo_grid, m_geogrid_config);
 
-                const auto& pools = m_community->CRefPools();
-                ASSERT_EQ(pools.size(), 1);
-                EXPECT_EQ(pools[0]->GetPool().size(), 1);
-                EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
+                ASSERT_EQ(m_community->size(), 1);
+                EXPECT_EQ((*m_community)[0]->size(), 1);
+                EXPECT_EQ((*(*m_community)[0])[0]->GetId(), 42);
         }
 
         void HouseholdTest()
@@ -172,7 +169,7 @@ protected:
         shared_ptr<spdlog::logger> m_logger;
 };
 
-class PrimaryCommunityPopulatorTest : public CommunityPopulatorTest<PrimaryCommunity>
+class PrimaryCommunityPopulatorTest : public CommunityPopulatorTest<PrimaryCommunityCenter>
 {
 public:
         PrimaryCommunityPopulatorTest() = default;
@@ -184,24 +181,22 @@ protected:
                 m_populator = make_shared<PrimaryCommunityPopulator>(*m_rn_man.get(), m_logger);
         }
 
-        void HouseholdTestCheck(shared_ptr<PrimaryCommunity> community2) override
+        void HouseholdTestCheck(shared_ptr<PrimaryCommunityCenter> community2) override
         {
                 {
-                        const auto& pools = m_community->CRefPools();
-                        ASSERT_EQ(pools.size(), 1);
-                        EXPECT_EQ(pools[0]->GetPool().size(), 1);
-                        EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
+                        ASSERT_EQ(m_community->size(), 1);
+                        EXPECT_EQ((*m_community)[0]->size(), 1);
+                        EXPECT_EQ((*(*m_community)[0])[0]->GetId(), 42);
                 }
                 {
-                        const auto& pools = community2->CRefPools();
-                        ASSERT_EQ(pools.size(), 1);
-                        EXPECT_EQ(pools[0]->GetPool().size(), 1);
-                        EXPECT_EQ((*pools[0]->begin())->GetId(), 5);
+                        ASSERT_EQ(community2->size(), 1);
+                        EXPECT_EQ((*community2)[0]->size(), 1);
+                        EXPECT_EQ((*(*community2)[0])[0]->GetId(), 5);
                 }
         }
 };
 
-class SecondaryCommunityPopulatorTest : public CommunityPopulatorTest<SecondaryCommunity>
+class SecondaryCommunityPopulatorTest : public CommunityPopulatorTest<SecondaryCommunityCenter>
 {
 public:
         SecondaryCommunityPopulatorTest() = default;
@@ -213,19 +208,17 @@ protected:
                 m_populator = make_shared<SecondaryCommunityPopulator>(*m_rn_man.get(), m_logger);
         }
 
-        void HouseholdTestCheck(shared_ptr<SecondaryCommunity> community2) override
+        void HouseholdTestCheck(shared_ptr<SecondaryCommunityCenter> community2) override
         {
                 {
-                        const auto& pools = m_community->CRefPools();
-                        ASSERT_EQ(pools.size(), 1);
-                        EXPECT_EQ(pools[0]->GetPool().size(), 2);
-                        EXPECT_EQ((*pools[0]->begin())->GetId(), 42);
-                        EXPECT_EQ((*(pools[0]->begin() + 1))->GetId(), 5);
+                        ASSERT_EQ(m_community->size(), 1);
+                        EXPECT_EQ((*m_community)[0]->size(), 2);
+                        EXPECT_EQ((*(*m_community)[0])[0]->GetId(), 42);
+                        EXPECT_EQ((*(*m_community)[0])[1]->GetId(), 5);
                 }
                 {
-                        const auto& pools = community2->CRefPools();
-                        ASSERT_EQ(pools.size(), 1);
-                        EXPECT_EQ(pools[0]->GetPool().size(), 0);
+                        ASSERT_EQ(community2->size(), 1);
+                        EXPECT_EQ((*community2)[0]->size(), 0);
                 }
         }
 };

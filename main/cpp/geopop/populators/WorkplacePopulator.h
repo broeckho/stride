@@ -57,7 +57,7 @@ private:
         unsigned int m_assignedCommuting    = 0; ///< Number of persons assigned to workplace outside home location.
         unsigned int m_assignedNotCommuting = 0; ///< Amount of persons assigned to workplace at the home location.
 
-        std::shared_ptr<Location> m_currentLoc;    ///< The location for which the workers currently are being assigned..
+        std::shared_ptr<Location> m_currentLoc; ///< The location for which the workers currently are being assigned..
         GeoGridConfig             m_geoGridConfig; ///< The GeoGridConfig used during populating.
 
         std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, std::function<int()>>>

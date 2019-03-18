@@ -16,15 +16,15 @@
 #include "Populator.h"
 
 #include "contact/ContactPool.h"
-#include "geopop/College.h"
+#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
+#include "geopop/HouseholdCenter.h"
+#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
-#include "geopop/PrimaryCommunity.h"
-#include "geopop/SecondaryCommunity.h"
-#include "geopop/Workplace.h"
+#include "geopop/PrimaryCommunityCenter.h"
+#include "geopop/SecondaryCommunityCenter.h"
+#include "geopop/WorkplaceCenter.h"
 #include "util/LogUtils.h"
 
 namespace geopop {
@@ -33,8 +33,7 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-Populator::Populator(util::RnMan& rnMan, shared_ptr<spdlog::logger> logger)
-    : m_rn_man(rnMan), m_logger(move(logger))
+Populator::Populator(util::RnMan& rnMan, shared_ptr<spdlog::logger> logger) : m_rn_man(rnMan), m_logger(move(logger))
 {
         if (!m_logger)
                 m_logger = stride::util::LogUtils::CreateNullLogger();
@@ -50,8 +49,8 @@ bool Populator::MakeChoice(double fraction)
         return static_cast<bool>(dist());
 }
 
-vector<ContactPool*> Populator::GetNearbyPools(Id id, const GeoGrid& geoGrid,
-                                               const shared_ptr<Location>& start, double startRadius) const
+vector<ContactPool*> Populator::GetNearbyPools(Id id, const GeoGrid& geoGrid, const shared_ptr<Location>& start,
+                                               double startRadius) const
 {
         double               currentRadius = startRadius;
         vector<ContactPool*> pools;

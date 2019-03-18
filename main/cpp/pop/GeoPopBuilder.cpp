@@ -101,8 +101,8 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         return pop;
 }
 
-void GeoPopBuilder::MakeLocations(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
-                                  const string& citiesFileName, const string& commutingFileName)
+void GeoPopBuilder::MakeLocations(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, const string& citiesFileName,
+                                  const string& commutingFileName)
 {
         const auto citiesReader = ReaderFactory::CreateCitiesReader(citiesFileName);
         citiesReader->FillGeoGrid(geoGrid);

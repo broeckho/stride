@@ -22,19 +22,19 @@ namespace geopop {
 class GeoGrid;
 
 /**
- * Models a Household as ContactCenter
+ * Models a K12School as ContactCenter.
  */
-class Household : public ContactCenter
+class K12SchoolCenter : public ContactCenter
 {
 public:
-        /// Construct household with assigned ID.
-        explicit Household(unsigned int id = 0U) : ContactCenter(id) {}
+        /// Construct K12school with assigned ID.
+        explicit K12SchoolCenter(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
         void SetupPools(const GeoGridConfig& geoGridConfig, stride::Population* pop) override;
 
         /// See ContactCenter::GetContactPoolType.
-        stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::Household; }
+        stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::K12School; }
 };
 
 } // namespace geopop

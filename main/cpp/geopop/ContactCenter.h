@@ -23,7 +23,7 @@
 namespace stride {
 class ContactPool;
 class Population;
-}
+} // namespace stride
 
 namespace geopop {
 
@@ -63,14 +63,26 @@ public:
         virtual void SetupPools(const GeoGridConfig& geoGridConfig, stride::Population* pop) = 0;
 
 public:
-        /// Allow range-based iteration over pools in contact center.
-        using iterator = std::vector<stride::ContactPool*>::iterator;
+        using iterator       = std::vector<stride::ContactPool*>::iterator;
+        using const_iterator = std::vector<stride::ContactPool*>::const_iterator;
 
-        /// Allow range-based iteration over pools in contact center.
+        /// Iterator to first Location.
         iterator begin() { return m_pools.begin(); }
 
-        /// Allow range-based iteration over pools in contact center.
+        /// Iterator to the end of the Location storage.
         iterator end() { return m_pools.end(); }
+
+        /// Const Iterator to first Location.
+        const_iterator cbegin() const { return m_pools.cbegin(); }
+
+        /// Const iterator to the end of the Location storage.
+        const_iterator cend() const { return m_pools.cend(); }
+
+        /// Gets a ContactPool by index, doesn't performs a range check.
+        stride::ContactPool* const& operator[](size_t index) const { return m_pools[index]; }
+
+        /// Gets current size of Location storage.
+        size_t size() const { return m_pools.size(); }
 
 protected:
         std::vector<stride::ContactPool*> m_pools; ///< ContactPools for this ContactCenter.

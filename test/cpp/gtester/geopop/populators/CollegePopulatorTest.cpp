@@ -17,10 +17,10 @@
 
 #include "contact/AgeBrackets.h"
 #include "createGeogrid.h"
-#include "geopop/College.h"
+#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
+#include "geopop/HouseholdCenter.h"
+#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
 #include "pop/Population.h"
 #include "util/LogUtils.h"
@@ -54,9 +54,9 @@ TEST(CollegePopulatorTest, NoPopulation)
 
 TEST(CollegePopulatorTest, NoStudents)
 {
-        auto             pop     = Population::Create();
+        auto pop = Population::Create();
         SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto&            geoGrid = pop->RefGeoGrid();
+        auto& geoGrid = pop->RefGeoGrid();
 
         RnMan            rnMan(RnInfo{});
         CollegePopulator populator(rnMan);
@@ -70,19 +70,19 @@ TEST(CollegePopulatorTest, NoStudents)
         // Kortrijk will only receive students from Kortrijk
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto collegeBra = make_shared<College>(contactCenterCounter++);
+        auto collegeBra = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeBra->SetupPools(config, geoGrid.GetPopulation());
         brasschaat->AddCenter(collegeBra);
 
         auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = make_shared<College>(contactCenterCounter++);
+        auto collegeScho = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeScho->SetupPools(config, geoGrid.GetPopulation());
         schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = make_shared<College>(contactCenterCounter++);
+        auto collegeKort = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeKort->SetupPools(config, geoGrid.GetPopulation());
         kortrijk->AddCenter(collegeKort);
 
@@ -96,9 +96,9 @@ TEST(CollegePopulatorTest, NoStudents)
 
 TEST(CollegePopulatorTest, NotCommuting)
 {
-        auto             pop     = Population::Create();
+        auto pop = Population::Create();
         SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto&            geoGrid = pop->RefGeoGrid();
+        auto& geoGrid = pop->RefGeoGrid();
 
         RnMan            rnMan(RnInfo{});
         CollegePopulator populator(rnMan);
@@ -112,19 +112,19 @@ TEST(CollegePopulatorTest, NotCommuting)
         // Kortrijk will only receive students from Kortrijik
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto collegeBra = make_shared<College>(contactCenterCounter++);
+        auto collegeBra = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeBra->SetupPools(config, pop.get());
         brasschaat->AddCenter(collegeBra);
 
         auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = make_shared<College>(contactCenterCounter++);
+        auto collegeScho = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeScho->SetupPools(config, pop.get());
         schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = make_shared<College>(contactCenterCounter++);
+        auto collegeKort = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeKort->SetupPools(config, pop.get());
         kortrijk->AddCenter(collegeKort);
 
@@ -211,28 +211,28 @@ TEST(CollegePopulatorTest, NotCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommuting)
 {
-        RnMan rnMan(RnInfo{});
+        RnMan            rnMan(RnInfo{});
         CollegePopulator populator(rnMan);
         GeoGridConfig    config{};
         unsigned int     contactCenterCounter   = 1;
         config.input.fraction_college_commuters = 1;
         config.input.participation_college      = 1;
 
-        auto pop        = Population::Create();
+        auto pop = Population::Create();
         SetupGeoGrid(2, 100, 3, 50, 3, pop.get());
-        auto& geoGrid   = pop->RefGeoGrid();
-        auto location   = *geoGrid.begin();
+        auto& geoGrid  = pop->RefGeoGrid();
+        auto  location = *geoGrid.begin();
 
         // only commuting
         auto schoten = *(geoGrid.begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = make_shared<College>(contactCenterCounter++);
+        auto collegeScho = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeScho->SetupPools(config, pop.get());
         schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid.begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = make_shared<College>(contactCenterCounter++);
+        auto collegeKort = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeKort->SetupPools(config, pop.get());
         kortrijk->AddCenter(collegeKort);
 
@@ -272,9 +272,9 @@ TEST(CollegePopulatorTest, OnlyCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        auto             pop     = Population::Create();
+        auto pop = Population::Create();
         SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
-        auto&            geoGrid = pop->RefGeoGrid();
+        auto& geoGrid = pop->RefGeoGrid();
 
         RnMan            rnMan(RnInfo{});
         CollegePopulator populator(rnMan);
@@ -285,19 +285,19 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto collegeBra = make_shared<College>(contactCenterCounter++);
+        auto collegeBra = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeBra->SetupPools(config, pop.get());
         brasschaat->AddCenter(collegeBra);
 
         auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = make_shared<College>(contactCenterCounter++);
+        auto collegeScho = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeScho->SetupPools(config, pop.get());
         schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = make_shared<College>(contactCenterCounter++);
+        auto collegeKort = make_shared<CollegeCenter>(contactCenterCounter++);
         collegeKort->SetupPools(config, pop.get());
         kortrijk->AddCenter(collegeKort);
 

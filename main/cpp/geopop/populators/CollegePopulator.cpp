@@ -17,10 +17,10 @@
 
 #include "contact/AgeBrackets.h"
 #include "contact/ContactPool.h"
-#include "geopop/College.h"
+#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
+#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
 #include "pop/Person.h"
 #include "util/Assert.h"
@@ -70,8 +70,8 @@ void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
                 }
 
                 // 2. for every student assign a class
-                for (const auto& household : loc->RefCenters(Id::Household)) {
-                        ContactPool* contactPool = household->CRefPools()[0];
+                for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
+                        ContactPool* const contactPool = (*hhCenter)[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
                                 if (AgeBrackets::College::HasAge(p->GetAge()) &&

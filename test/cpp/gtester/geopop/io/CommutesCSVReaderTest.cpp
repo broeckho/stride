@@ -76,9 +76,9 @@ TEST(CommutesCSVReaderTest, test1)
                            "487,700,462,0\n"   // to 23
                            "0,611,0,0\n";      // to 24
 
-        auto& expectedGeoGrid = getExpectedGeoGrid()->RefGeoGrid();
-        const auto pop        = Population::Create();
-        auto& geoGrid         = pop->RefGeoGrid();
+        auto&      expectedGeoGrid = getExpectedGeoGrid()->RefGeoGrid();
+        const auto pop             = Population::Create();
+        auto&      geoGrid         = pop->RefGeoGrid();
 
         geoGrid.AddLocation(make_shared<Location>(21, 0, Coordinate(0.0, 0.0), "", 1000));
         geoGrid.AddLocation(make_shared<Location>(22, 0, Coordinate(0.0, 0.0), "", 800));

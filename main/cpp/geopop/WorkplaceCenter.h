@@ -15,28 +15,26 @@
 
 #pragma once
 
-#include "geopop/ContactCenter.h"
-
-#include <string>
+#include "ContactCenter.h"
 
 namespace geopop {
 
 class GeoGrid;
 
 /**
- * Models a College (institution of higher education).
+ * Models a Workplace as ContactCenter.
  */
-class College : public ContactCenter
+class WorkplaceCenter : public ContactCenter
 {
 public:
-        /// Construct college with assigned ID.
-        explicit College(unsigned int id) : ContactCenter(id) {}
+        /// Construct workplace with assigned ID.
+        explicit WorkplaceCenter(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
         void SetupPools(const GeoGridConfig& geoGridConfig, stride::Population* pop) override;
 
         /// See ContactCenter::GetContactPoolType.
-        stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::College; }
+        stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::Workplace; }
 };
 
 } // namespace geopop

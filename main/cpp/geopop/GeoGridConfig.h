@@ -26,7 +26,7 @@
 namespace geopop {
 
 class GeoGrid;
-class Household;
+class HouseholdCenter;
 
 /**
  * Configuration data mostly for generating a population, but also for computing

@@ -46,7 +46,7 @@ void getGeoGridFromFile(const string& filename, Population* pop)
 
 TEST(GeoGridJSONReaderTest, locationsTest)
 {
-        auto       pop     = Population::Create();
+        auto pop = Population::Create();
         getGeoGridFromFile("test0.json", pop.get());
         auto& geoGrid = pop->RefGeoGrid();
 
@@ -83,7 +83,7 @@ TEST(GeoGridJSONReaderTest, locationsTest)
 
 TEST(GeoGridJSONReaderTest, commutesTest)
 {
-        auto pop     = Population::Create();
+        auto pop = Population::Create();
         getGeoGridFromFile("test7.json", pop.get());
         auto& geoGrid = pop->RefGeoGrid();
 
@@ -149,8 +149,8 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
 {
         auto pop = Population::Create();
         getGeoGridFromFile("test1.json", pop.get());
-        auto& geoGrid = pop->RefGeoGrid();
-        auto location = geoGrid[0];
+        auto& geoGrid  = pop->RefGeoGrid();
+        auto  location = geoGrid[0];
 
         vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
@@ -176,10 +176,10 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
 
 void runPeopleTest(const string& filename)
 {
-        auto pop      = Population::Create();
+        auto pop = Population::Create();
         getGeoGridFromFile(filename, pop.get());
-        auto& geoGrid = pop->RefGeoGrid();
-        auto location = geoGrid[0];
+        auto& geoGrid  = pop->RefGeoGrid();
+        auto  location = geoGrid[0];
 
         map<int, string> ids = {{0, "K12School"}, {1, "PrimaryCommunity"}, {2, "SecondaryCommunity"},
                                 {3, "College"},   {4, "Household"},        {5, "Workplace"}};
@@ -199,7 +199,7 @@ void runPeopleTest(const string& filename)
         }
 
         for (const auto& center : centers) {
-                auto pool   = center->CRefPools()[0];
+                auto pool   = (*center)[0];
                 auto person = *(pool->begin());
                 EXPECT_EQ(ids[center->GetId()], ToString(center->GetContactPoolType()));
                 EXPECT_EQ(person->GetId(), 1);

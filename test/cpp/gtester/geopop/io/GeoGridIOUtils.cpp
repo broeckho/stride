@@ -17,13 +17,13 @@
 
 #include "contact/ContactType.h"
 #include "geogrid.pb.h"
-#include "geopop/College.h"
+#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
-#include "geopop/PrimaryCommunity.h"
-#include "geopop/SecondaryCommunity.h"
-#include "geopop/Workplace.h"
+#include "geopop/HouseholdCenter.h"
+#include "geopop/K12SchoolCenter.h"
+#include "geopop/PrimaryCommunityCenter.h"
+#include "geopop/SecondaryCommunityCenter.h"
+#include "geopop/WorkplaceCenter.h"
 #include "geopop/io/GeoGridProtoReader.h"
 #include "geopop/io/GeoGridProtoWriter.h"
 #include "pop/Population.h"
@@ -89,12 +89,12 @@ void CompareContactCenter(shared_ptr<ContactCenter>                    contactCe
 
         EXPECT_EQ(contactCenter->GetId(), protoContactCenter.id());
         EXPECT_EQ(types[contactCenter->GetContactPoolType()], protoContactCenter.type());
-        ASSERT_EQ(protoContactCenter.pools_size(), contactCenter->CRefPools().size());
+        ASSERT_EQ(protoContactCenter.pools_size(), contactCenter->size());
 
         // Currently no tests with more than one contactpool
-        if (contactCenter->CRefPools().size() == 1) {
+        if (contactCenter->size() == 1) {
                 const auto& protoContactPool = protoContactCenter.pools(0);
-                auto        contactPool      = contactCenter->CRefPools()[0];
+                auto        contactPool      = (*contactCenter)[0];
                 CompareContactPool(contactPool, protoContactPool);
         }
 }
@@ -188,32 +188,32 @@ shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
         const auto geoGrid  = make_shared<GeoGrid>(pop);
         const auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
 
-        const auto school = make_shared<K12School>(0);
+        const auto school = make_shared<K12SchoolCenter>(0);
         location->AddCenter(school);
         const auto schoolPool = new ContactPool(2, Id::K12School);
         school->RegisterPool(schoolPool);
 
-        const auto community = make_shared<PrimaryCommunity>(1);
+        const auto community = make_shared<PrimaryCommunityCenter>(1);
         location->AddCenter(community);
         const auto communityPool = new ContactPool(3, Id::PrimaryCommunity);
         community->RegisterPool(communityPool);
 
-        const auto secondaryCommunity = make_shared<SecondaryCommunity>(2);
+        const auto secondaryCommunity = make_shared<SecondaryCommunityCenter>(2);
         location->AddCenter(secondaryCommunity);
         const auto secondaryCommunityPool = new ContactPool(7, Id::SecondaryCommunity);
         secondaryCommunity->RegisterPool(secondaryCommunityPool);
 
-        const auto college = make_shared<College>(3);
+        const auto college = make_shared<CollegeCenter>(3);
         location->AddCenter(college);
         const auto collegePool = new ContactPool(4, Id::College);
         college->RegisterPool(collegePool);
 
-        const auto household = make_shared<Household>(4);
+        const auto household = make_shared<HouseholdCenter>(4);
         location->AddCenter(household);
         const auto householdPool = new ContactPool(5, Id::Household);
         household->RegisterPool(householdPool);
 
-        const auto workplace = make_shared<Workplace>(5);
+        const auto workplace = make_shared<WorkplaceCenter>(5);
         location->AddCenter(workplace);
         const auto workplacePool = new ContactPool(6, Id::Workplace);
         workplace->RegisterPool(workplacePool);

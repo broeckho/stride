@@ -15,13 +15,13 @@
 
 #include "geopop/io/GeoGridProtoWriter.h"
 #include "GeoGridIOUtils.h"
-#include "geopop/College.h"
+#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
-#include "geopop/PrimaryCommunity.h"
-#include "geopop/SecondaryCommunity.h"
-#include "geopop/Workplace.h"
+#include "geopop/HouseholdCenter.h"
+#include "geopop/K12SchoolCenter.h"
+#include "geopop/PrimaryCommunityCenter.h"
+#include "geopop/SecondaryCommunityCenter.h"
+#include "geopop/WorkplaceCenter.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
 
@@ -35,8 +35,8 @@ namespace {
 
 TEST(GeoGridProtoWriterTest, locationTest)
 {
-        const auto pop = Population::Create();
-        auto& geoGrid  = pop->RefGeoGrid();
+        const auto pop     = Population::Create();
+        auto&      geoGrid = pop->RefGeoGrid();
         geoGrid.AddLocation(make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500));
         geoGrid.AddLocation(make_shared<Location>(2, 3, Coordinate(0, 0), "Gent", 5000));
         geoGrid.AddLocation(make_shared<Location>(3, 2, Coordinate(0, 0), "Mons", 2500));
@@ -45,14 +45,14 @@ TEST(GeoGridProtoWriterTest, locationTest)
 }
 TEST(GeoGridProtoWriterTest, contactCentersTest)
 {
-        const auto pop = Population::Create();
-        auto& geoGrid  = pop->RefGeoGrid();
+        const auto pop      = Population::Create();
+        auto&      geoGrid  = pop->RefGeoGrid();
         const auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
-        location->AddCenter(make_shared<K12School>(0));
-        location->AddCenter(make_shared<PrimaryCommunity>(1));
-        location->AddCenter(make_shared<College>(2));
-        location->AddCenter(make_shared<Household>(3));
-        location->AddCenter(make_shared<Workplace>(4));
+        location->AddCenter(make_shared<K12SchoolCenter>(0));
+        location->AddCenter(make_shared<PrimaryCommunityCenter>(1));
+        location->AddCenter(make_shared<CollegeCenter>(2));
+        location->AddCenter(make_shared<HouseholdCenter>(3));
+        location->AddCenter(make_shared<WorkplaceCenter>(4));
         geoGrid.AddLocation(location);
 
         CompareGeoGrid(geoGrid);

@@ -17,8 +17,8 @@
 
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
+#include "geopop/HouseholdCenter.h"
+#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
 #include "pop/Population.h"
 
@@ -32,13 +32,13 @@ void HouseholdPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         m_logger->trace("Starting to populate Households");
 
         auto person_id = 0U;
-        auto hh_dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(geoGridConfig.refHH.ages.size()), 0U);
-        auto pop = geoGrid.GetPopulation();
+        auto hh_dist   = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(geoGridConfig.refHH.ages.size()), 0U);
+        auto pop       = geoGrid.GetPopulation();
 
         for (const shared_ptr<Location>& loc : geoGrid) {
                 const vector<shared_ptr<ContactCenter>>& hh_centers = loc->RefCenters(Id::Household);
                 for (const auto& h : hh_centers) {
-                        auto hPool = h->CRefPools()[0];
+                        auto hPool = (*h)[0];
                         auto hDraw = static_cast<unsigned int>(hh_dist());
 
                         for (const auto& age : geoGridConfig.refHH.ages[hDraw]) {

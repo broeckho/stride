@@ -50,7 +50,7 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         sim->m_num_threads                   = m_config.get<unsigned int>("run.num_threads");
         sim->m_calendar                      = make_shared<Calendar>(m_config);
         sim->m_contact_log_mode = ContactLogMode::ToMode(m_config.get<string>("run.contact_log_level", "None"));
-        sim->m_rn_man                        = std::move(rnMan);
+        sim->m_rn_man           = std::move(rnMan);
 
         // --------------------------------------------------------------
         // Contact handlers, each with generator bound to different

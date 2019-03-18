@@ -17,13 +17,13 @@
 
 #include "ThreadException.h"
 #include "geogrid.pb.h"
-#include "geopop/College.h"
+#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
-#include "geopop/PrimaryCommunity.h"
-#include "geopop/SecondaryCommunity.h"
-#include "geopop/Workplace.h"
+#include "geopop/HouseholdCenter.h"
+#include "geopop/K12SchoolCenter.h"
+#include "geopop/PrimaryCommunityCenter.h"
+#include "geopop/SecondaryCommunityCenter.h"
+#include "geopop/WorkplaceCenter.h"
 #include "pop/Person.h"
 #include "pop/Population.h"
 
@@ -46,7 +46,7 @@ void GeoGridProtoReader::Read()
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
                 throw runtime_error("Failed to parse Proto file");
         }
-         auto& geoGrid = m_population->RefGeoGrid();
+        auto& geoGrid = m_population->RefGeoGrid();
 
 #pragma omp parallel
 #pragma omp single
@@ -97,27 +97,27 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         stride::ContactType::Id   typeId;
         switch (type) {
         case proto::GeoGrid_Location_ContactCenter_Type_K12School:
-                result = make_shared<K12School>(id);
+                result = make_shared<K12SchoolCenter>(id);
                 typeId = stride::ContactType::Id::K12School;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
-                result = make_shared<PrimaryCommunity>(id);
+                result = make_shared<PrimaryCommunityCenter>(id);
                 typeId = stride::ContactType::Id::PrimaryCommunity;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
-                result = make_shared<SecondaryCommunity>(id);
+                result = make_shared<SecondaryCommunityCenter>(id);
                 typeId = stride::ContactType::Id::SecondaryCommunity;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_College:
-                result = make_shared<College>(id);
+                result = make_shared<CollegeCenter>(id);
                 typeId = stride::ContactType::Id::College;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Household:
-                result = make_shared<Household>(id);
+                result = make_shared<HouseholdCenter>(id);
                 typeId = stride::ContactType::Id::Household;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Workplace:
-                result = make_shared<Workplace>(id);
+                result = make_shared<WorkplaceCenter>(id);
                 typeId = stride::ContactType::Id::Workplace;
                 break;
                 break;

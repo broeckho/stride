@@ -31,12 +31,12 @@ class GeoGrid;
 class GeoGridConfig;
 class Location;
 
-class College;
-class Household;
-class K12School;
-class PrimaryCommunity;
-class SecondaryCommunity;
-class Workplace;
+class CollegeCenter;
+class HouseholdCenter;
+class K12SchoolCenter;
+class PrimaryCommunityCenter;
+class SecondaryCommunityCenter;
+class WorkplaceCenter;
 
 /**
  * Interface for populators. They generate some data and apply it to the GeoGrid.
@@ -45,8 +45,7 @@ class Populator
 {
 public:
         /// Construct with a RnMan and a logger.
-        explicit Populator(stride::util::RnMan&            rnMan,
-                           std::shared_ptr<spdlog::logger> logger = nullptr);
+        explicit Populator(stride::util::RnMan& rnMan, std::shared_ptr<spdlog::logger> logger = nullptr);
 
         /// Virtual destructor for inheritance.
         virtual ~Populator() = default;
@@ -58,8 +57,7 @@ protected:
         /// Find contactpools in startRadius (in km) around start and, if none are found, double
         /// the radius and search again until the radius gets infinite. May return an empty vector
         /// when there are no pools to be found.
-        std::vector<stride::ContactPool*> GetNearbyPools(stride::ContactType::Id          id,
-                                                         const GeoGrid&  geoGrid,
+        std::vector<stride::ContactPool*> GetNearbyPools(stride::ContactType::Id id, const GeoGrid& geoGrid,
                                                          const std::shared_ptr<Location>& start,
                                                          double                           startRadius = 10.0) const;
 

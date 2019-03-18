@@ -20,4 +20,4 @@
 
 /// Setup of the GeoGrid in the population.
 void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount,
-                  stride::Population *pop);
+                  stride::Population* pop);

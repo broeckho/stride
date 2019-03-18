@@ -18,8 +18,8 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/PrimaryCommunity.h"
-#include "geopop/SecondaryCommunity.h"
+#include "geopop/PrimaryCommunityCenter.h"
+#include "geopop/SecondaryCommunityCenter.h"
 #include "util/Assert.h"
 #include "util/RnMan.h"
 
@@ -31,8 +31,7 @@ namespace geopop {
 
 using namespace std;
 
-void CommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
-                               unsigned int& contactCenterCounter)
+void CommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& contactCenterCounter)
 {
         // 1. calculate number of communities, each community has average 2000 persons
         // 2. assign communities to a location using a discrete distribution reflecting the relative number of
@@ -59,13 +58,13 @@ void CommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto pc  = make_shared<PrimaryCommunity>(contactCenterCounter++);
+                const auto pc  = make_shared<PrimaryCommunityCenter>(contactCenterCounter++);
                 pc->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(pc);
         }
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto sc  = make_shared<SecondaryCommunity>(contactCenterCounter++);
+                const auto sc  = make_shared<SecondaryCommunityCenter>(contactCenterCounter++);
                 sc->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(sc);
         }

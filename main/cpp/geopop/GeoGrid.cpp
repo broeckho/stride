@@ -98,7 +98,7 @@ vector<Location*> GeoGrid::LocationsInRadius(Location* start, double radius) con
         CheckFinalized(__func__);
 
         geogrid_detail::KdTree2DPoint startPt(start);
-        vector<Location*>  result;
+        vector<Location*>             result;
 
         auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)), make_tuple(startPt, radius));
         agg();

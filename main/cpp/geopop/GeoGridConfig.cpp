@@ -60,7 +60,7 @@ void GeoGridConfig::SetData(const string& householdsFileName)
         auto ref_college   = 0U;
         auto ref_workplace = 0U;
         for (const auto& hhAgeProfile : refHH.ages) {
-                for (const auto &age : hhAgeProfile) {
+                for (const auto& age : hhAgeProfile) {
                         if (K12School::HasAge(age)) {
                                 ref_k12school++;
                         }

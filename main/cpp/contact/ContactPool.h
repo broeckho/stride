@@ -69,6 +69,12 @@ public:
         /// Iterator to end of persons
         iterator end() { return m_members.end(); }
 
+        /// Gets current size of Location storage.
+        size_t size() const { return m_members.size(); }
+
+        /// Gets a Person by index, doesn't performs a range check.
+        Person* const& operator[](size_t index) const { return m_members[index]; }
+
 private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
         std::tuple<bool, unsigned int> SortMembers();

@@ -63,17 +63,17 @@ set(STRIDE_SRC
     execs/SimController.cpp
     execs/StanController.cpp
     #---
-    geopop/College.cpp
+    geopop/CollegeCenter.cpp
     geopop/ContactCenter.cpp
     geopop/Coordinate.h
     geopop/GeoGrid.cpp
     geopop/GeoGridConfig.cpp
-    geopop/Household.cpp
-    geopop/K12School.cpp
+    geopop/HouseholdCenter.cpp
+    geopop/K12SchoolCenter.cpp
     geopop/Location.cpp
-    geopop/PrimaryCommunity.cpp
-    geopop/SecondaryCommunity.cpp
-    geopop/Workplace.cpp
+    geopop/PrimaryCommunityCenter.cpp
+    geopop/SecondaryCommunityCenter.cpp
+    geopop/WorkplaceCenter.cpp
     #---
     geopop/geo/GeoGridKdTree.cpp
     geopop/geo/KdTree2DPoint.cpp

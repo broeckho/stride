@@ -17,7 +17,7 @@
 
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/K12School.h"
+#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
 #include "util/RnMan.h"
 
@@ -25,8 +25,7 @@ namespace geopop {
 
 using namespace std;
 
-void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
-                               unsigned int& contactCenterCounter)
+void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& contactCenterCounter)
 {
         // 1. given the number of persons of school age, calculate number of schools; schools
         //    have 500 pupils on average
@@ -52,7 +51,7 @@ void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < schoolCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto k12 = make_shared<K12School>(contactCenterCounter++);
+                const auto k12 = make_shared<K12SchoolCenter>(contactCenterCounter++);
                 k12->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(k12);
         }

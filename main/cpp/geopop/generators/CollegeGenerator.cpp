@@ -15,7 +15,7 @@
 
 #include "CollegeGenerator.h"
 
-#include "geopop/College.h"
+#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -57,7 +57,7 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
 
         for (auto i = 0U; i < schoolCount; i++) {
                 auto loc     = cities[dist()];
-                auto college = make_shared<College>(contactCenterCounter++);
+                auto college = make_shared<CollegeCenter>(contactCenterCounter++);
                 college->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(college);
         }

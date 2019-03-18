@@ -15,7 +15,7 @@
 
 #include "geopop/io/HouseholdCSVReader.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
+#include "geopop/HouseholdCenter.h"
 
 #include <gtest/gtest.h>
 #include <memory>

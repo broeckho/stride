@@ -16,13 +16,13 @@
 #include "GeoGridJSONReader.h"
 
 #include "ThreadException.h"
-#include "geopop/College.h"
+#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
-#include "geopop/PrimaryCommunity.h"
-#include "geopop/SecondaryCommunity.h"
-#include "geopop/Workplace.h"
+#include "geopop/HouseholdCenter.h"
+#include "geopop/K12SchoolCenter.h"
+#include "geopop/PrimaryCommunityCenter.h"
+#include "geopop/SecondaryCommunityCenter.h"
+#include "geopop/WorkplaceCenter.h"
 #include "pop/Population.h"
 #include "util/Exception.h"
 
@@ -53,7 +53,7 @@ void GeoGridJSONReader::Read()
         }
 
         auto& geoGrid = m_population->RefGeoGrid();
-        auto people = root.get_child("persons");
+        auto  people  = root.get_child("persons");
 
 #pragma omp parallel
 #pragma omp single
@@ -150,22 +150,22 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
         shared_ptr<ContactCenter> result;
         ContactType::Id           typeId;
         if (type == ToString(Id::K12School)) {
-                result = make_shared<K12School>(id);
+                result = make_shared<K12SchoolCenter>(id);
                 typeId = Id::K12School;
         } else if (type == ToString(Id::College)) {
-                result = make_shared<College>(id);
+                result = make_shared<CollegeCenter>(id);
                 typeId = Id::College;
         } else if (type == ToString(Id::Household)) {
-                result = make_shared<Household>(id);
+                result = make_shared<HouseholdCenter>(id);
                 typeId = Id::Household;
         } else if (type == ToString(Id::PrimaryCommunity)) {
-                result = make_shared<PrimaryCommunity>(id);
+                result = make_shared<PrimaryCommunityCenter>(id);
                 typeId = Id::PrimaryCommunity;
         } else if (type == ToString(Id::SecondaryCommunity)) {
-                result = make_shared<SecondaryCommunity>(id);
+                result = make_shared<SecondaryCommunityCenter>(id);
                 typeId = Id::SecondaryCommunity;
         } else if (type == ToString(Id::Workplace)) {
-                result = make_shared<Workplace>(id);
+                result = make_shared<WorkplaceCenter>(id);
                 typeId = Id::Workplace;
         } else {
                 throw Exception("No such ContactCenter type: " + type);

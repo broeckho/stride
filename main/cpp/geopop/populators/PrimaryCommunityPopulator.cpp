@@ -17,9 +17,9 @@
 
 #include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/Household.h"
+#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
-#include "geopop/PrimaryCommunity.h"
+#include "geopop/PrimaryCommunityCenter.h"
 #include "pop/Person.h"
 
 using namespace std;
@@ -44,8 +44,8 @@ void PrimaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                 // 2. for every household assign a community
                 const auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearbyPools.size()), 0U);
 
-                for (const auto& household : loc->RefCenters(Id::Household)) {
-                        auto contactPool = household->CRefPools()[0];
+                for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
+                        auto contactPool = (*hhCenter)[0];
                         for (auto p : *contactPool) {
                                 auto& pool = nearbyPools[dist()];
                                 found.insert(pool);

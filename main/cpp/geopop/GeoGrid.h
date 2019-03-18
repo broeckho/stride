@@ -25,7 +25,7 @@
 namespace stride {
 class ContactPool;
 class Population;
-}
+} // namespace stride
 
 namespace geopop {
 

@@ -47,7 +47,7 @@ TEST(ReaderFactoryTest, TestCommutesFromFile)
         const shared_ptr<CommutesReader>& res2 =
             ReaderFactory::CreateCommutesReader(FileSys::GetTestsDir() / "testdata/io/commutes.csv");
 
-        auto pop = Population::Create();
+        auto  pop     = Population::Create();
         auto& geoGrid = pop->RefGeoGrid();
         geoGrid.AddLocation(make_shared<Location>(21, 0, Coordinate(0.0, 0.0), "", 1000));
         geoGrid.AddLocation(make_shared<Location>(22, 0, Coordinate(0.0, 0.0), "", 1000));
@@ -66,8 +66,9 @@ TEST(ReaderFactoryTest, TestCities)
 
         EXPECT_NE(dynamic_pointer_cast<CitiesCSVReader>(res1), nullptr);
 
-        EXPECT_THROW(ReaderFactory::CreateCitiesReader(FileSys::GetTestsDir()/"testdata/io/empty.txt"), runtime_error);
-        EXPECT_THROW(ReaderFactory::CreateCitiesReader(FileSys::GetTestsDir()/"testdata/io/random.txt"),
+        EXPECT_THROW(ReaderFactory::CreateCitiesReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"),
+                     runtime_error);
+        EXPECT_THROW(ReaderFactory::CreateCitiesReader(FileSys::GetTestsDir() / "testdata/io/random.txt"),
                      runtime_error);
 }
 
@@ -77,7 +78,8 @@ TEST(ReaderFactoryTest, TestHouseHolds)
 
         EXPECT_NE(dynamic_pointer_cast<HouseholdCSVReader>(res1), nullptr);
 
-        EXPECT_THROW(ReaderFactory::CreateHouseholdReader(FileSys::GetTestsDir()/"testdata/io/empty.txt"), runtime_error);
+        EXPECT_THROW(ReaderFactory::CreateHouseholdReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"),
+                     runtime_error);
 }
 
 } // namespace
