@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kdtree_3c_20p_20_3e',['KdTree&lt; P &gt;',['../d3/de7/a00039.html#a0d8dc73ff7f8bb9d7b6db0adc4509640',1,'geopop::kd::Node']]]
+  ['operator_3c_3c',['operator&lt;&lt;',['../d3/d00/a00113.html#a28ea564a70fdefa611b990e8c8fedd5a',1,'stride::util::CSV::operator&lt;&lt;()'],['../d8/d17/a00114.html#a0ec2f92503adc2a968a848d3fddf087d',1,'stride::util::CSVRow::operator&lt;&lt;()']]]
 ];

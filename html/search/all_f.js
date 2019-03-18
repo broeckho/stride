@@ -1,7 +1,7 @@
 var searchData=
 [
   ['offsets',['offsets',['../d2/df5/a00137.html#a98f3abc503157caec7b549c1fc4e2633',1,'TableStruct_geogrid_2eproto']]],
-  ['openfile',['OpenFile',['../d6/d2d/a00047.html#aa5640d5e37dfba459afda320885d9db7',1,'geopop::ReaderFactory']]],
+  ['openfile',['OpenFile',['../d6/d2d/a00047.html#aec0d3e2d69f4fe085e479a2cec3e398e',1,'geopop::ReaderFactory']]],
   ['operator_21_3d',['operator!=',['../d4/d3a/a00101.html#ab96580cd0eb920e25c0b68aef7984d70',1,'stride::Person::operator!=()'],['../d9/d47/a00129.html#ad1105a1f1358d5e88868a49bf4c2e34b',1,'stride::util::SVIterator::operator!=()']]],
   ['operator_28_29',['operator()',['../db/df8/a00076.html#ac03cd0d69d17bb0a97189c24ed537fdf',1,'stride::ContactHandler::operator()()'],['../de/d5e/a00007.html#a4cd2016d1cb6004c813d34d9141d3edc',1,'geopop::Collector::operator()()'],['../d4/d51/a00017.html#a9690fa2f2fd4865dc4fc1f36007cae6c',1,'geopop::GeoAggregator&lt; Policy &gt;::operator()()'],['../d1/d2b/a00018.html#aed4e74111a9bf00cc1404228c7387b32',1,'geopop::GeoAggregator&lt; Policy, F &gt;::operator()()'],['../d2/da3/a00115.html#af75ac339034526cfb3e419d0f175bf07',1,'stride::util::detail::pair2data::operator()()']]],
   ['operator_2a',['operator*',['../d9/d47/a00129.html#a7e3d418c40d965c28ed4b8370a9967e9',1,'stride::util::SVIterator']]],

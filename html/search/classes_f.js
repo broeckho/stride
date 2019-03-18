@@ -4,8 +4,6 @@ var searchData=
   ['secondarycommunitypopulator',['SecondaryCommunityPopulator',['../d2/dee/a00049.html',1,'geopop']]],
   ['segmentedvector',['SegmentedVector',['../dc/ddf/a00067.html',1,'stride::util']]],
   ['segmentedvector_3c_20person_20_3e',['SegmentedVector&lt; Person &gt;',['../dc/ddf/a00067.html',1,'stride::util']]],
-  ['segmentedvector_3c_20stride_3a_3astride_3a_3acontactpool_20_3e',['SegmentedVector&lt; stride::stride::ContactPool &gt;',['../dc/ddf/a00067.html',1,'stride::util']]],
-  ['segmentedvector_3c_20stride_3a_3astride_3a_3aperson_20_3e',['SegmentedVector&lt; stride::stride::Person &gt;',['../dc/ddf/a00067.html',1,'stride::util']]],
   ['sim',['Sim',['../d0/dc2/a00104.html',1,'stride']]],
   ['simbuilder',['SimBuilder',['../d3/d32/a00105.html',1,'stride']]],
   ['simcontroller',['SimController',['../d7/d70/a00106.html',1,'stride']]],

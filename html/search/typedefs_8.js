@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['self_5ftype',['self_type',['../dc/ddf/a00067.html#aa72e1f8f1437134e2ead160ca23c35bd',1,'stride::util::SegmentedVector::self_type()'],['../d9/d47/a00129.html#acf4391226c3334af2ab02fdbfcbe81c8',1,'stride::util::SVIterator::self_type()']]],
-  ['size_5ftype',['size_type',['../dc/ddf/a00067.html#a4344636a6d7dea3aff481c178b5ff008',1,'stride::util::SegmentedVector']]]
+  ['range_5ftype',['range_type',['../d7/d12/a00126.html#aa697693cf36c60a25c469e21b26cb84f',1,'stride::util::SliceIndexer']]],
+  ['reference',['reference',['../d9/d47/a00129.html#ad6269050ef800b2827028000efab4759',1,'stride::util::SVIterator']]],
+  ['rntype',['RnType',['../d9/db3/a00066.html#a33bdc913e6a82dbdc349484dc76cd6f2',1,'stride::util::Rn']]],
+  ['runtype_5ft',['RunType_t',['../d5/de0/a00050.html#ab53a521bc6b3102bc0842a645483d614',1,'geopop::ThreadException']]]
 ];

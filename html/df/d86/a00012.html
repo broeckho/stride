@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 8c3f06e</span>
+   &#160;<span id="projectnumber">- generated for commit f75babc</span>
    </div>
   </td>
  </tr>
@@ -145,9 +145,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a08896e164c5172832c662b18b0af7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a9a08896e164c5172832c662b18b0af7e">CommutesCSVReader</a> (std::unique_ptr&lt; std::istream &gt; istream)</td></tr>
 <tr class="memdesc:a9a08896e164c5172832c662b18b0af7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../df/d86/a00012.html" title="Create a Reader that fills a GeoGrid with the commute info from CSV file. ">CommutesCSVReader</a> with an istream containing the CSV data.  <a href="#a9a08896e164c5172832c662b18b0af7e">More...</a><br /></td></tr>
 <tr class="separator:a9a08896e164c5172832c662b18b0af7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86bc0d709350be645053f1a26fd211ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a86bc0d709350be645053f1a26fd211ff">FillGeoGrid</a> (std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt; geoGrid) const override</td></tr>
-<tr class="memdesc:a86bc0d709350be645053f1a26fd211ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the found Commutes to the provided <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a>.  <a href="#a86bc0d709350be645053f1a26fd211ff">More...</a><br /></td></tr>
-<tr class="separator:a86bc0d709350be645053f1a26fd211ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45fffb45b9c5fb2eb92b6b1fc1f3d88c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html#a45fffb45b9c5fb2eb92b6b1fc1f3d88c">FillGeoGrid</a> (<a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &amp;geoGrid) const override</td></tr>
+<tr class="memdesc:a45fffb45b9c5fb2eb92b6b1fc1f3d88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the found Commutes to the provided <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a>.  <a href="#a45fffb45b9c5fb2eb92b6b1fc1f3d88c">More...</a><br /></td></tr>
+<tr class="separator:a45fffb45b9c5fb2eb92b6b1fc1f3d88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_a00013"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00013')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d7/dd4/a00013.html">geopop::CommutesReader</a></td></tr>
 <tr class="memitem:a0dd104614182629344c1103571db7e4c inherit pub_methods_a00013"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd4/a00013.html#a0dd104614182629344c1103571db7e4c">CommutesReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
 <tr class="memdesc:a0dd104614182629344c1103571db7e4c inherit pub_methods_a00013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d7/dd4/a00013.html" title="Create an abstract Reader that fills a GeoGrid with the commute info from file. ">CommutesReader</a> with an istream with the file content.  <a href="#a0dd104614182629344c1103571db7e4c">More...</a><br /></td></tr>
@@ -197,7 +197,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a86bc0d709350be645053f1a26fd211ff"></a>
+<a class="anchor" id="a45fffb45b9c5fb2eb92b6b1fc1f3d88c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -207,7 +207,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void geopop::CommutesCSVReader::FillGeoGrid </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &amp;&#160;</td>
           <td class="paramname"><em>geoGrid</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -221,30 +221,31 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Add the found Commutes to the provided <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a>. </p>
 
-<p>Implements <a class="el" href="../../d7/dd4/a00013.html#ada2e2b5a381c32aa87aff225c8290529">geopop::CommutesReader</a>.</p>
+<p>Implements <a class="el" href="../../d7/dd4/a00013.html#af234e008eac36ce38d34edecef9cd477">geopop::CommutesReader</a>.</p>
 
 <p>Definition at line <a class="el" href="../../dd/dae/a00163_source.html#l00032">32</a> of file <a class="el" href="../../dd/dae/a00163_source.html">CommutesCSVReader.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dc/d52/a00183_source.html#l00101">stride::util::CSV::GetColumnCount()</a>, <a class="el" href="../../d7/d25/a00182_source.html#l00163">stride::util::CSV::GetLabels()</a>, and <a class="el" href="../../d0/d48/a00165_source.html#l00044">geopop::CommutesReader::m_inputStream</a>.</p>
+<p>References <a class="el" href="../../de/d79/a00203_source.html#l00062">geopop::GeoGrid::GetById()</a>, <a class="el" href="../../dc/d52/a00183_source.html#l00101">stride::util::CSV::GetColumnCount()</a>, <a class="el" href="../../d7/d25/a00182_source.html#l00163">stride::util::CSV::GetLabels()</a>, and <a class="el" href="../../d0/d48/a00165_source.html#l00044">geopop::CommutesReader::m_inputStream</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d86/a00012_a86bc0d709350be645053f1a26fd211ff_cgraph.gif" border="0" usemap="#df/d86/a00012_a86bc0d709350be645053f1a26fd211ff_cgraph" alt=""/></div>
-<map name="df/d86/a00012_a86bc0d709350be645053f1a26fd211ff_cgraph" id="df/d86/a00012_a86bc0d709350be645053f1a26fd211ff_cgraph">
-<area shape="rect" id="node2" href="../../d3/d00/a00113.html#a63ffba1157ea6381bbce102c430e189b" title="Number of columns in the CSV. " alt="" coords="273,136,405,177"/>
-<area shape="rect" id="node5" href="../../d3/d00/a00113.html#ad153bb329555a2b114defc97e53793ad" title="stride::util::CSV::\lGetLabels" alt="" coords="457,5,583,47"/>
-<area shape="rect" id="node3" href="../../d3/d00/a00113.html#aed99cf47769a6284b45c2815b08d1bd0" title="Convert label to index for more user friendly and robust implementation. " alt="" coords="453,71,587,112"/>
-<area shape="rect" id="node4" href="../../d3/d00/a00113.html#a37f3333bbf84b5babbdd63811ed773c1" title="Write CSV to file. " alt="" coords="457,136,583,177"/>
-<area shape="rect" id="node6" href="../../d3/d00/a00113.html#a2f3c33a76164f6cbc6e31aab6f8b560d" title="Read data from input stream. " alt="" coords="453,201,587,243"/>
-<area shape="rect" id="node13" href="../../d3/d00/a00113.html#a38b31963922766d5da78dfc5b95e6668" title="Write header with labels. " alt="" coords="457,267,583,308"/>
-<area shape="rect" id="node14" href="../../d3/d00/a00113.html#a8595802615346728b2e76121e1cbda4c" title="Write the body of rows. " alt="" coords="457,332,583,373"/>
-<area shape="rect" id="node7" href="../../d3/d30/a00370.html#a01882a252a5e262d442f9a8b8f64e3ef" title="Trim characters at both ends of string. " alt="" coords="639,158,757,185"/>
-<area shape="rect" id="node10" href="../../d3/d30/a00370.html#aadef750132d5d399e7ed8a96eab53c4c" title="Split a string (in order of occurence) by splitting it on the given delimiters. " alt="" coords="637,209,759,235"/>
-<area shape="rect" id="node11" href="../../d3/d00/a00113.html#a1ae467f9599974c0f180c529f8a9f298" title="Add row of values. " alt="" coords="635,260,761,301"/>
-<area shape="rect" id="node8" href="../../d3/d30/a00370.html#a2c5aacbb4d606af3e43a96e8aad692cf" title="Trim characters at left end of string. " alt="" coords="813,133,956,159"/>
-<area shape="rect" id="node9" href="../../d3/d30/a00370.html#a9fa614ccd671679a0e1feff6e0f6da33" title="Trim characters at right end of string. " alt="" coords="809,183,960,210"/>
-<area shape="rect" id="node12" href="../../d3/d30/a00370.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="813,267,957,294"/>
+<div class="center"><img src="../../df/d86/a00012_a45fffb45b9c5fb2eb92b6b1fc1f3d88c_cgraph.gif" border="0" usemap="#df/d86/a00012_a45fffb45b9c5fb2eb92b6b1fc1f3d88c_cgraph" alt=""/></div>
+<map name="df/d86/a00012_a45fffb45b9c5fb2eb92b6b1fc1f3d88c_cgraph" id="df/d86/a00012_a45fffb45b9c5fb2eb92b6b1fc1f3d88c_cgraph">
+<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a53d0f06d0142edf9b2abe5fc89dd3f28" title="Gets a Location by Id and check if the Id exists. " alt="" coords="273,5,461,32"/>
+<area shape="rect" id="node3" href="../../d3/d00/a00113.html#a63ffba1157ea6381bbce102c430e189b" title="Number of columns in the CSV. " alt="" coords="301,143,433,185"/>
+<area shape="rect" id="node6" href="../../d3/d00/a00113.html#ad153bb329555a2b114defc97e53793ad" title="stride::util::CSV::\lGetLabels" alt="" coords="513,13,639,54"/>
+<area shape="rect" id="node4" href="../../d3/d00/a00113.html#aed99cf47769a6284b45c2815b08d1bd0" title="Convert label to index for more user friendly and robust implementation. " alt="" coords="509,78,643,119"/>
+<area shape="rect" id="node5" href="../../d3/d00/a00113.html#a37f3333bbf84b5babbdd63811ed773c1" title="Write CSV to file. " alt="" coords="513,143,639,185"/>
+<area shape="rect" id="node7" href="../../d3/d00/a00113.html#a2f3c33a76164f6cbc6e31aab6f8b560d" title="Read data from input stream. " alt="" coords="509,209,643,250"/>
+<area shape="rect" id="node14" href="../../d3/d00/a00113.html#a38b31963922766d5da78dfc5b95e6668" title="Write header with labels. " alt="" coords="513,274,639,315"/>
+<area shape="rect" id="node15" href="../../d3/d00/a00113.html#a8595802615346728b2e76121e1cbda4c" title="Write the body of rows. " alt="" coords="513,339,639,381"/>
+<area shape="rect" id="node8" href="../../d3/d30/a00370.html#a01882a252a5e262d442f9a8b8f64e3ef" title="Trim characters at both ends of string. " alt="" coords="695,165,813,192"/>
+<area shape="rect" id="node11" href="../../d3/d30/a00370.html#aadef750132d5d399e7ed8a96eab53c4c" title="Split a string (in order of occurence) by splitting it on the given delimiters. " alt="" coords="693,216,815,243"/>
+<area shape="rect" id="node12" href="../../d3/d00/a00113.html#a1ae467f9599974c0f180c529f8a9f298" title="Add row of values. " alt="" coords="691,267,817,309"/>
+<area shape="rect" id="node9" href="../../d3/d30/a00370.html#a2c5aacbb4d606af3e43a96e8aad692cf" title="Trim characters at left end of string. " alt="" coords="869,140,1012,167"/>
+<area shape="rect" id="node10" href="../../d3/d30/a00370.html#a9fa614ccd671679a0e1feff6e0f6da33" title="Trim characters at right end of string. " alt="" coords="865,191,1016,217"/>
+<area shape="rect" id="node13" href="../../d3/d30/a00370.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="869,275,1013,301"/>
 </map>
 </div>
 </p>
@@ -261,7 +262,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></li><li class="navelem"><a class="el" href="../../df/d86/a00012.html">CommutesCSVReader</a></li>
-    <li class="footer">Generated on Sat Mar 16 2019 22:23:38 for Stride Reference Manual by
+    <li class="footer">Generated on Mon Mar 18 2019 07:48:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

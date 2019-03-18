@@ -6,10 +6,10 @@ var indexSectionsWithContent =
   3: "abcdefghiklmnprstuw",
   4: "abcdefghiklmnopqrstuvw~",
   5: "_acdfghiklmnoprstuw",
-  6: "acegilprstv",
+  6: "acdegilprstv",
   7: "ghi",
   8: "acefghiknprstw",
-  9: ":dgikos",
+  9: ":dikos",
   10: "apst",
   11: "s"
 };

@@ -22,7 +22,6 @@ var searchData=
   ['immunizer_2ecpp',['Immunizer.cpp',['../d2/dc8/a00242.html',1,'']]],
   ['immunizer_2eh',['Immunizer.h',['../d6/d82/a00243.html',1,'']]],
   ['importpopbuilder',['ImportPopBuilder',['../dc/d54/a00094.html',1,'stride']]],
-  ['importpopbuilder',['ImportPopBuilder',['../d9/dcc/a00102.html#a465c9716868863b14c1491b7cb7c3f49',1,'stride::Population']]],
   ['importpopbuilder_2ecpp',['ImportPopBuilder.cpp',['../d6/d08/a00244.html',1,'']]],
   ['importpopbuilder_2eh',['ImportPopBuilder.h',['../d6/d22/a00245.html',1,'']]],
   ['inbox',['InBox',['../db/db2/a00020.html#a95b74e013a8d4d2c6c5366e27fd3d951',1,'geopop::geogrid_detail::KdTree2DPoint']]],
@@ -86,5 +85,6 @@ var searchData=
   ['istype',['IsType',['../df/dee/a00369.html#a43c0310b3eef6024b540ffaa5c4c39b2',1,'stride::sim_event']]],
   ['isweekend',['IsWeekend',['../d9/da5/a00075.html#a3569df106b24b3df5bf6836849b150a4',1,'stride::Calendar']]],
   ['isworkoff',['IsWorkOff',['../d4/d63/a00082.html#a61f87cc93335185f90d9d772f168b1bb',1,'stride::DaysOffAll::IsWorkOff()'],['../d2/d1f/a00083.html#a2ae431c15cddca106e2a0753fde99f83',1,'stride::DaysOffInterface::IsWorkOff()'],['../df/d5d/a00084.html#a6287fa68ca109373fc9be31f3941079d',1,'stride::DaysOffNone::IsWorkOff()'],['../df/d13/a00085.html#a633453bbe4892b56891c42a4f4ac72fd',1,'stride::DaysOffSchool::IsWorkOff()'],['../da/d2a/a00086.html#a5f55ab77243cf483c5c47e8f81bf3b2a',1,'stride::DaysOffStandard::IsWorkOff()']]],
-  ['iterator',['iterator',['../d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03',1,'stride::ContactPool::iterator()'],['../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e',1,'geopop::ContactCenter::iterator()'],['../dd/da2/a00019.html#afdc8f3ded687e087f820ed3c892682bc',1,'geopop::GeoGrid::iterator()'],['../dc/ddf/a00067.html#ac336ef543eb696055a43b39bbe70499f',1,'stride::util::SegmentedVector::iterator()']]]
+  ['iterator',['iterator',['../d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03',1,'stride::ContactPool::iterator()'],['../d2/de7/a00014.html#ae22234bfc0e33988ca8c55a51b7a426e',1,'geopop::ContactCenter::iterator()'],['../dd/da2/a00019.html#afdc8f3ded687e087f820ed3c892682bc',1,'geopop::GeoGrid::iterator()'],['../dc/ddf/a00067.html#ac336ef543eb696055a43b39bbe70499f',1,'stride::util::SegmentedVector::iterator()']]],
+  ['iterator_5fcategory',['iterator_category',['../d9/d47/a00129.html#a85e365110b87125c54ae5d58948f656d',1,'stride::util::SVIterator']]]
 ];

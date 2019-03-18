@@ -81,8 +81,6 @@ var hierarchy =
     [ "stride::util::SegmentedVector< Person >", "dc/ddf/a00067.html", [
       [ "stride::Population", "d9/dcc/a00102.html", null ]
     ] ],
-    [ "stride::util::SegmentedVector< stride::stride::ContactPool >", "dc/ddf/a00067.html", null ],
-    [ "stride::util::SegmentedVector< stride::stride::Person >", "dc/ddf/a00067.html", null ],
     [ "std::array< T >", null, [
       [ "stride::ContactType::IdSubscriptArray< AgeContactProfile >", "d7/df7/a00058.html", null ],
       [ "stride::ContactType::IdSubscriptArray< std::vector< std::shared_ptr< geopop::ContactCenter > > >", "d7/df7/a00058.html", null ],
@@ -99,9 +97,6 @@ var hierarchy =
     ] ],
     [ "false_type", null, [
       [ "stride::util::is_iterator< T, class >", "d4/d98/a00120.html", null ]
-    ] ],
-    [ "iterator", null, [
-      [ "stride::util::SVIterator< T, N, Safe, P, R, is_const_iterator >", "d9/d47/a00129.html", null ]
     ] ],
     [ "std::map< K, T >", null, [
       [ "stride::InfectorMap", "d1/d84/a00097.html", null ]
@@ -173,6 +168,7 @@ var hierarchy =
     [ "stride::util::SliceIndexer< T, Key >", "d7/d12/a00126.html", null ],
     [ "stride::util::Stopwatch< T >", "df/dcd/a00127.html", null ],
     [ "stride::util::Subject< E >", "d1/d88/a00128.html", null ],
+    [ "stride::util::SVIterator< T, N, Safe, P, R, is_const_iterator >", "d9/d47/a00129.html", null ],
     [ "stride::util::TimeStamp", "d6/db3/a00130.html", null ],
     [ "stride::util::TimeToString", "d7/d06/a00131.html", null ],
     [ "stride::viewers::CliViewer", "d5/deb/a00132.html", null ],

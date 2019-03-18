@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['person',['Person',['../d3/d8b/a00059.html#afffd60fc3e9fad4e152b3fd8bc89bec9',1,'proto::GeoGrid']]]
+  ['location',['Location',['../d3/d8b/a00059.html#a963ab4b80a4a037b773704b483ca3d72',1,'proto::GeoGrid']]]
 ];

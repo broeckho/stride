@@ -2,9 +2,11 @@ var searchData=
 [
   ['main',['main',['../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'stride.cpp']]],
   ['make_5fslice_5findexer',['make_slice_indexer',['../d3/d30/a00370.html#adc11e43e4e7ef5743ad66f7b2e884782',1,'stride::util']]],
+  ['makecenters',['MakeCenters',['../d9/dec/a00090.html#a93529cc4e8a5e4de31bb2663777971cb',1,'stride::GeoPopBuilder']]],
   ['makechoice',['MakeChoice',['../d6/d42/a00043.html#af7b9250da3bb9be0c877028a56bf5b2a',1,'geopop::Populator']]],
   ['makecollector',['MakeCollector',['../d6/d9c/a00352.html#ad29105dc339e24a7c92af01763abce35',1,'geopop']]],
-  ['makepersons',['MakePersons',['../d1/d1e/a00087.html#a3738040e683004b9ecefc9ba7608eba4',1,'stride::DefaultPopBuilder']]],
+  ['makelocations',['MakeLocations',['../d9/dec/a00090.html#a0a67e3e8c4d250509a6f76acb076824e',1,'stride::GeoPopBuilder']]],
+  ['makepersons',['MakePersons',['../d1/d1e/a00087.html#a3738040e683004b9ecefc9ba7608eba4',1,'stride::DefaultPopBuilder::MakePersons()'],['../d9/dec/a00090.html#a22327526a0de14f648b2375065527fda',1,'stride::GeoPopBuilder::MakePersons()']]],
   ['maximumage',['MaximumAge',['../d9/d9b/a00363.html#ae2682ff4058ec78d0809d073dcdea2d1',1,'stride']]],
   ['maybearenaptr',['MaybeArenaPtr',['../df/d5f/a00064.html#a8954940606e349706935834031daf58e',1,'proto::GeoGrid_Location_Coordinate::MaybeArenaPtr()'],['../d1/d6f/a00063.html#a458acc07a0edf2bb32b840f35afcd2b6',1,'proto::GeoGrid_Location_ContactCenter_ContactPool::MaybeArenaPtr()'],['../df/d03/a00062.html#a0c431fa1776f5f448fe569bbf2e2f9e8',1,'proto::GeoGrid_Location_ContactCenter::MaybeArenaPtr()'],['../d4/de8/a00061.html#a63407deb623ad2e20f30bda988fd8fb8',1,'proto::GeoGrid_Location_Commute::MaybeArenaPtr()'],['../d9/d73/a00060.html#a9a8c3cb33092310d676a8c986f62ade9',1,'proto::GeoGrid_Location::MaybeArenaPtr()'],['../de/de1/a00065.html#a7eae347d84390d8d5df3426b8864f96b',1,'proto::GeoGrid_Person::MaybeArenaPtr()'],['../d3/d8b/a00059.html#a8e00fc98bc53673d0c70b6609b141b98',1,'proto::GeoGrid::MaybeArenaPtr()']]],
   ['median',['Median',['../d0/dc3/a00354.html#a6134a8bd4b14689b5d2d4385e3eebae2',1,'geopop::kd']]],
