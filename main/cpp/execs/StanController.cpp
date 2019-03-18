@@ -104,6 +104,11 @@ void StanController::Control()
                 results[i] = iViewer->GetInfectionCounts();
         }
 
+        for (unsigned int i = 0U; i < seeds.size(); ++i) {
+                m_stride_logger->info("For run with seed {} final infected count is: {}", seeds[i], results[i].back());
+        }
+
+
         // -----------------------------------------------------------------------------------------
         // Stan scenario: step 6, output to file.
         // -----------------------------------------------------------------------------------------

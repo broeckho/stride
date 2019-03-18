@@ -56,8 +56,8 @@ vector<ContactPool*> Populator::GetNearbyPools(Id id, const GeoGrid& geoGrid, co
         vector<ContactPool*> pools;
 
         while (pools.empty()) {
-                for (Location* nearLoc : geoGrid.LocationsInRadius(start, currentRadius)) {
-                        const auto& centers = nearLoc->RefCenters(id);
+                for (const Location* nearLoc : geoGrid.LocationsInRadius(start, currentRadius)) {
+                        const auto& centers = nearLoc->CRefCenters(id);
                         for (const auto& center : centers) {
                                 pools.insert(pools.end(), center->begin(), center->end());
                         }

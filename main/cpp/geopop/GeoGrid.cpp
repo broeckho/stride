@@ -72,11 +72,11 @@ void GeoGrid::Finalize()
         m_finalized = true;
 }
 
-set<Location*> GeoGrid::LocationsInBox(double long1, double lat1, double long2, double lat2) const
+set<const Location*> GeoGrid::LocationsInBox(double long1, double lat1, double long2, double lat2) const
 {
         CheckFinalized(__func__);
 
-        set<Location*> result;
+        set<const Location*> result;
 
         auto agg = BuildAggregator<BoxPolicy>(
             MakeCollector(inserter(result, result.begin())),
@@ -86,19 +86,19 @@ set<Location*> GeoGrid::LocationsInBox(double long1, double lat1, double long2, 
         return result;
 }
 
-set<Location*> GeoGrid::LocationsInBox(Location* loc1, Location* loc2) const
+set<const Location*> GeoGrid::LocationsInBox(Location* loc1, Location* loc2) const
 {
         using boost::geometry::get;
         return LocationsInBox(get<0>(loc1->GetCoordinate()), get<1>(loc1->GetCoordinate()),
                               get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
 }
 
-vector<Location*> GeoGrid::LocationsInRadius(const Location& start, double radius) const
+vector<const Location*> GeoGrid::LocationsInRadius(const Location& start, double radius) const
 {
         CheckFinalized(__func__);
 
-        geogrid_detail::KdTree2DPoint startPt(const_cast<Location*>(&start));
-        vector<Location*>             result;
+        geogrid_detail::KdTree2DPoint startPt(&start);
+        vector<const Location*>             result;
 
         auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)), make_tuple(startPt, radius));
         agg();
