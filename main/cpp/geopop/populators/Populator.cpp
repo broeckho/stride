@@ -33,8 +33,8 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-Populator::Populator(util::RnMan& rnManager, shared_ptr<spdlog::logger> logger)
-    : m_rn_man(rnManager), m_logger(move(logger))
+Populator::Populator(util::RnMan& rnMan, shared_ptr<spdlog::logger> logger)
+    : m_rn_man(rnMan), m_logger(move(logger))
 {
         if (!m_logger)
                 m_logger = stride::util::LogUtils::CreateNullLogger();
@@ -57,7 +57,7 @@ vector<ContactPool*> Populator::GetNearbyPools(Id id, const GeoGrid& geoGrid,
         vector<ContactPool*> pools;
 
         while (pools.empty()) {
-                for (const shared_ptr<Location>& nearLoc : geoGrid.LocationsInRadius(start, currentRadius)) {
+                for (Location* nearLoc : geoGrid.LocationsInRadius(start.get(), currentRadius)) {
                         const auto& centers = nearLoc->RefCenters(id);
                         for (const auto& center : centers) {
                                 pools.insert(pools.end(), center->begin(), center->end());

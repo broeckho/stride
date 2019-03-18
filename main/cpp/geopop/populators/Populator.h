@@ -45,7 +45,7 @@ class Populator
 {
 public:
         /// Construct with a RnMan and a logger.
-        explicit Populator(stride::util::RnMan&            rnManager,
+        explicit Populator(stride::util::RnMan&            rnMan,
                            std::shared_ptr<spdlog::logger> logger = nullptr);
 
         /// Virtual destructor for inheritance.

@@ -62,7 +62,7 @@ public:
         stride::Population* GetPopulation() const { return m_population; }
 
         /// Search for locations in \p radius (in km) around \p start.
-        std::vector<std::shared_ptr<Location>> LocationsInRadius(std::shared_ptr<Location> start, double radius) const;
+        std::vector<Location*> LocationsInRadius(Location* start, double radius) const;
 
         /**
          * Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2, lat2).
@@ -74,11 +74,10 @@ public:
          *  |       |     |       |
          *  +-------p2    p2------+
          */
-        std::set<std::shared_ptr<Location>> LocationsInBox(double long1, double lat1, double long2, double lat2) const;
+        std::set<Location*> LocationsInBox(double long1, double lat1, double long2, double lat2) const;
 
         /// Gets the location in a rectangle defined by the two Locations.
-        std::set<std::shared_ptr<Location>> LocationsInBox(const std::shared_ptr<Location>& loc1,
-                                                           const std::shared_ptr<Location>& loc2) const;
+        std::set<Location*> LocationsInBox(Location* loc1, Location* loc2) const;
 
         /// Gets the K biggest (in population count) locations of this GeoGrid
         std::vector<std::shared_ptr<Location>> TopK(size_t k) const;

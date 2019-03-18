@@ -66,17 +66,17 @@ void GeoGrid::Finalize()
 {
         vector<geogrid_detail::KdTree2DPoint> points;
         for (const auto& loc : m_locations) {
-                points.emplace_back(geogrid_detail::KdTree2DPoint(loc));
+                points.emplace_back(geogrid_detail::KdTree2DPoint(loc.get()));
         }
         m_tree      = GeoGridKdTree::Build(points);
         m_finalized = true;
 }
 
-set<shared_ptr<Location>> GeoGrid::LocationsInBox(double long1, double lat1, double long2, double lat2) const
+set<Location*> GeoGrid::LocationsInBox(double long1, double lat1, double long2, double lat2) const
 {
         CheckFinalized(__func__);
 
-        set<shared_ptr<Location>> result;
+        set<Location*> result;
 
         auto agg = BuildAggregator<BoxPolicy>(
             MakeCollector(inserter(result, result.begin())),
@@ -86,23 +86,21 @@ set<shared_ptr<Location>> GeoGrid::LocationsInBox(double long1, double lat1, dou
         return result;
 }
 
-std::set<std::shared_ptr<Location>> GeoGrid::LocationsInBox(const std::shared_ptr<Location>& loc1,
-                                                            const std::shared_ptr<Location>& loc2) const
+set<Location*> GeoGrid::LocationsInBox(Location* loc1, Location* loc2) const
 {
         using boost::geometry::get;
         return LocationsInBox(get<0>(loc1->GetCoordinate()), get<1>(loc1->GetCoordinate()),
                               get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
 }
 
-vector<shared_ptr<Location>> GeoGrid::LocationsInRadius(shared_ptr<Location> start, double radius) const
+vector<Location*> GeoGrid::LocationsInRadius(Location* start, double radius) const
 {
         CheckFinalized(__func__);
 
         geogrid_detail::KdTree2DPoint startPt(start);
-        vector<shared_ptr<Location>>  result;
+        vector<Location*>  result;
 
-        auto agg =
-            BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)), make_tuple(move(startPt), radius));
+        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)), make_tuple(startPt, radius));
         agg();
 
         return result;
