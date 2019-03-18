@@ -72,8 +72,8 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
         vector<int> expectedCount{1041, 1013, 940, 1004, 929, 1023, 959, 1077, 1005, 1009};
         for (int i = 0; i < 10; i++) {
-                const auto& c1 = geoGrid.Get(i)->RefCenters(Id::PrimaryCommunity);
-                const auto& c2 = geoGrid.Get(i)->RefCenters(Id::SecondaryCommunity);
+                const auto& c1 = geoGrid[i]->RefCenters(Id::PrimaryCommunity);
+                const auto& c2 = geoGrid[i]->RefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(expectedCount[i], c1.size() + c2.size());
         }
 }

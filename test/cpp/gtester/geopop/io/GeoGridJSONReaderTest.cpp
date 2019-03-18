@@ -150,7 +150,7 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
         auto pop = Population::Create();
         getGeoGridFromFile("test1.json", pop.get());
         auto& geoGrid = pop->RefGeoGrid();
-        auto location = geoGrid.Get(0);
+        auto location = geoGrid[0];
 
         vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
@@ -179,7 +179,7 @@ void runPeopleTest(const string& filename)
         auto pop      = Population::Create();
         getGeoGridFromFile(filename, pop.get());
         auto& geoGrid = pop->RefGeoGrid();
-        auto location = geoGrid.Get(0);
+        auto location = geoGrid[0];
 
         map<int, string> ids = {{0, "K12School"}, {1, "PrimaryCommunity"}, {2, "SecondaryCommunity"},
                                 {3, "College"},   {4, "Household"},        {5, "Workplace"}};

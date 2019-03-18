@@ -55,14 +55,8 @@ public:
         /// Disables the addLocation method and builds the kdtree.
         void Finalize();
 
-        /// Gets a Location by index, doesn't performs a range check.
-        std::shared_ptr<Location> Get(size_t index) const { return (*this)[index]; }
-
         /// Gets a Location by Id and check if the Id exists.
         std::shared_ptr<Location> GetById(unsigned int id) const { return m_locations[m_id_to_index.at(id)]; }
-
-        /// Provide access to the GeoGridKdTree spatial lookup structure.
-        const GeoGridKdTree& KdTree() { return m_tree; }
 
         /// Get the Population associated with this GeoGrid
         stride::Population* GetPopulation() const { return m_population; }

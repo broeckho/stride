@@ -92,7 +92,7 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
 
         vector<int> expectedCount{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedCount[i], geoGrid.Get(i)->RefCenters(Id::College).size());
+                EXPECT_EQ(expectedCount[i], geoGrid[i]->RefCenters(Id::College).size());
         }
 }
 
