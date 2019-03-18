@@ -41,7 +41,7 @@ dir_postfix <- '_cea'
 #names(xmlToList('./config/run_default.xml'))
 
 # set the number of realisations per configuration set
-num_seeds  <- 4
+num_seeds  <- 8
 
 # add parameters and values to combine in a full-factorial grid
 exp_design <- expand.grid(r0                         = 12,
@@ -58,8 +58,8 @@ exp_design <- expand.grid(r0                         = 12,
                           immunity_profile              = 'AgeDependent',           # 'None', 'Random', 'AgeDependent'
                           immunity_distribution_file    = 'data/immunity_measles_belgium.xml',
                           immunity_link_probability     = 0,
-                          vaccine_profile               = c('None','Random'),       # 'None', 'Random', 'AgeDependent'
-                          vaccine_rate                  = 0.9,                      # to be used with 'Random'
+                          vaccine_profile               = 'Random',                 # 'None', 'Random', 'AgeDependent'
+                          vaccine_rate                  = c(0,0.10,0.5,0.7,0.9),    # to be used with 'Random'
                           vaccine_min_age               = 20,                       # to be used with 'Random'
                           vaccine_max_age               = 25,                       # to be used with 'Random'
                           case_detection_probability    = 0,                        # Enable case finding
