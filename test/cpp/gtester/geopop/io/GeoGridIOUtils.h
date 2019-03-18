@@ -38,12 +38,12 @@ using namespace geopop;
 void CompareContactPool(stride::ContactPool*                                     contactPool,
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool);
 
-void CompareContactCenter(std::shared_ptr<ContactCenter>               contactCenter,
+void CompareContactCenter(const ContactCenter&                         contactCenter,
                           const proto::GeoGrid_Location_ContactCenter& protoContactCenter);
 
 void CompareCoordinate(const Coordinate& coordinate, const proto::GeoGrid_Location_Coordinate& protoCoordinate);
 
-void CompareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Location& protoLocation);
+void CompareLocation(const Location& location, const proto::GeoGrid_Location& protoLocation);
 
 void ComparePerson(const proto::GeoGrid_Person& protoPerson);
 

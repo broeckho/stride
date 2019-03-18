@@ -49,7 +49,7 @@ void compareGeoGrid(const GeoGrid& geoGrid, proto::GeoGrid& protoGrid)
         for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
                 const auto& protoLocation = protoGrid.locations(idx);
                 auto        location      = geoGrid.GetById(static_cast<unsigned int>(protoLocation.id()));
-                CompareLocation(location, protoLocation);
+                CompareLocation(*location, protoLocation);
         }
         ASSERT_EQ(persons_found.size(), protoGrid.persons_size());
         for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
@@ -75,7 +75,7 @@ void CompareContactPool(ContactPool*                                            
         }
 }
 
-void CompareContactCenter(shared_ptr<ContactCenter>                    contactCenter,
+void CompareContactCenter(const ContactCenter&                         contactCenter,
                           const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
 
@@ -87,14 +87,14 @@ void CompareContactCenter(shared_ptr<ContactCenter>                    contactCe
             {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
             {Id::Workplace, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
 
-        EXPECT_EQ(contactCenter->GetId(), protoContactCenter.id());
-        EXPECT_EQ(types[contactCenter->GetContactPoolType()], protoContactCenter.type());
-        ASSERT_EQ(protoContactCenter.pools_size(), contactCenter->size());
+        EXPECT_EQ(contactCenter.GetId(), protoContactCenter.id());
+        EXPECT_EQ(types[contactCenter.GetContactPoolType()], protoContactCenter.type());
+        ASSERT_EQ(protoContactCenter.pools_size(), contactCenter.size());
 
         // Currently no tests with more than one contactpool
-        if (contactCenter->size() == 1) {
+        if (contactCenter.size() == 1) {
                 const auto& protoContactPool = protoContactCenter.pools(0);
-                auto        contactPool      = (*contactCenter)[0];
+                auto        contactPool      = contactCenter[0];
                 CompareContactPool(contactPool, protoContactPool);
         }
 }
@@ -106,23 +106,23 @@ void CompareCoordinate(const Coordinate& coordinate, const proto::GeoGrid_Locati
         EXPECT_EQ(get<1>(coordinate), protoCoordinate.latitude());
 }
 
-void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Location& protoLocation)
+void CompareLocation(const Location& location, const proto::GeoGrid_Location& protoLocation)
 {
-        EXPECT_EQ(location->GetName(), protoLocation.name());
-        EXPECT_EQ(location->GetProvince(), protoLocation.province());
-        EXPECT_EQ(location->GetPopCount(), protoLocation.population());
-        EXPECT_EQ(location->GetPopCount(), protoLocation.population());
-        CompareCoordinate(location->GetCoordinate(), protoLocation.coordinate());
+        EXPECT_EQ(location.GetName(), protoLocation.name());
+        EXPECT_EQ(location.GetProvince(), protoLocation.province());
+        EXPECT_EQ(location.GetPopCount(), protoLocation.population());
+        EXPECT_EQ(location.GetPopCount(), protoLocation.population());
+        CompareCoordinate(location.GetCoordinate(), protoLocation.coordinate());
 
         // ASSERT_EQ(protoLocation.contactcenters_size(), location->GetContactCenters().size());
 
-        map<int, shared_ptr<ContactCenter>>             idToCenter;
+        map<int, ContactCenter*>                        idToCenter;
         map<int, proto::GeoGrid_Location_ContactCenter> idToProtoCenter;
 
-        vector<shared_ptr<ContactCenter>> centers;
+        vector<ContactCenter*> centers;
         for (Id typ : IdList) {
-                for (const auto& p : location->RefCenters(typ)) {
-                        centers.emplace_back(p);
+                for (const auto& p : location.CRefCenters(typ)) {
+                        centers.emplace_back(p.get());
                 }
         }
 
@@ -134,13 +134,13 @@ void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Locatio
         }
 
         for (auto& contactCenterPair : idToCenter) {
-                CompareContactCenter(contactCenterPair.second, idToProtoCenter[contactCenterPair.first]);
+                CompareContactCenter(*contactCenterPair.second, idToProtoCenter[contactCenterPair.first]);
         }
 
-        ASSERT_EQ(protoLocation.commutes_size(), location->CRefOutgoingCommutes().size());
+        ASSERT_EQ(protoLocation.commutes_size(), location.CRefOutgoingCommutes().size());
         for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
                 const auto& protoCommute = protoLocation.commutes(idx);
-                auto        commute_pair = location->CRefOutgoingCommutes()[idx];
+                auto        commute_pair = location.CRefOutgoingCommutes()[idx];
                 EXPECT_EQ(protoCommute.to(), commute_pair.first->GetID());
                 EXPECT_EQ(protoCommute.proportion(), commute_pair.second);
         }

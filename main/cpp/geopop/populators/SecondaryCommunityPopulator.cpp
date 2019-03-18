@@ -42,7 +42,7 @@ void SecondaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                         continue;
                 }
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& nearbyPools = GetNearbyPools(Id::SecondaryCommunity, geoGrid, loc);
+                const auto& nearbyPools = GetNearbyPools(Id::SecondaryCommunity, geoGrid, *loc);
 
                 // 2. find all households in this location
                 const auto& households = loc->RefCenters(Id::Household);

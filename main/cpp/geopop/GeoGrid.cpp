@@ -93,11 +93,11 @@ set<Location*> GeoGrid::LocationsInBox(Location* loc1, Location* loc2) const
                               get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
 }
 
-vector<Location*> GeoGrid::LocationsInRadius(Location* start, double radius) const
+vector<Location*> GeoGrid::LocationsInRadius(const Location& start, double radius) const
 {
         CheckFinalized(__func__);
 
-        geogrid_detail::KdTree2DPoint startPt(start);
+        geogrid_detail::KdTree2DPoint startPt(const_cast<Location*>(&start));
         vector<Location*>             result;
 
         auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)), make_tuple(startPt, radius));
@@ -106,21 +106,21 @@ vector<Location*> GeoGrid::LocationsInRadius(Location* start, double radius) con
         return result;
 }
 
-vector<shared_ptr<Location>> GeoGrid::TopK(size_t k) const
+vector<Location*> GeoGrid::TopK(size_t k) const
 {
-        auto cmp = [](const shared_ptr<Location>& rhs, const shared_ptr<Location>& lhs) {
+        auto cmp = [](Location* rhs, Location* lhs) {
                 return rhs->GetPopCount() > lhs->GetPopCount();
         };
 
-        priority_queue<shared_ptr<Location>, vector<shared_ptr<Location>>, decltype(cmp)> queue(cmp);
+        priority_queue<Location*, vector<Location*>, decltype(cmp)> queue(cmp);
         for (const auto& loc : m_locations) {
-                queue.push(loc);
+                queue.push(loc.get());
                 if (queue.size() > k) {
                         queue.pop();
                 }
         }
 
-        vector<shared_ptr<Location>> topLocations;
+        vector<Location*> topLocations;
         while (!queue.empty()) {
                 auto loc = queue.top();
                 topLocations.push_back(loc);

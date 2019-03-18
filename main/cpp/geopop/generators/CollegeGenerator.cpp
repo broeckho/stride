@@ -40,7 +40,7 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
 
         // Aggregate population in cities.
         auto totalPop = 0U;
-        for (const shared_ptr<Location>& c : cities) {
+        for (const auto& c : cities) {
                 totalPop += c->GetPopCount();
         }
 

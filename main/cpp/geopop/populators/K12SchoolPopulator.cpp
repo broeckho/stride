@@ -37,18 +37,18 @@ void K12SchoolPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
         unsigned int      pupils = 0;
 
         // for every location
-        for (const shared_ptr<Location>& loc : geoGrid) {
+        for (const auto& loc : geoGrid) {
                 if (loc->GetPopCount() == 0) {
                         continue;
                 }
 
                 // 1. find all schools in an area of 10-k*10 km
-                const vector<ContactPool*>& classes = GetNearbyPools(Id::K12School, geoGrid, loc);
+                const vector<ContactPool*>& classes = GetNearbyPools(Id::K12School, geoGrid, *loc);
 
                 auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(classes.size()), 0U);
 
                 // 2. for every student assign a class
-                for (const shared_ptr<ContactCenter>& hhCenter : loc->RefCenters(Id::Household)) {
+                for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
                         ContactPool* const contactPool = (*hhCenter)[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {

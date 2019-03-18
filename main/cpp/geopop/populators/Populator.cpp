@@ -49,14 +49,14 @@ bool Populator::MakeChoice(double fraction)
         return static_cast<bool>(dist());
 }
 
-vector<ContactPool*> Populator::GetNearbyPools(Id id, const GeoGrid& geoGrid, const shared_ptr<Location>& start,
+vector<ContactPool*> Populator::GetNearbyPools(Id id, const GeoGrid& geoGrid, const Location& start,
                                                double startRadius) const
 {
         double               currentRadius = startRadius;
         vector<ContactPool*> pools;
 
         while (pools.empty()) {
-                for (Location* nearLoc : geoGrid.LocationsInRadius(start.get(), currentRadius)) {
+                for (Location* nearLoc : geoGrid.LocationsInRadius(start, currentRadius)) {
                         const auto& centers = nearLoc->RefCenters(id);
                         for (const auto& center : centers) {
                                 pools.insert(pools.end(), center->begin(), center->end());

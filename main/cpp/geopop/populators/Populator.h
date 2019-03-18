@@ -58,8 +58,7 @@ protected:
         /// the radius and search again until the radius gets infinite. May return an empty vector
         /// when there are no pools to be found.
         std::vector<stride::ContactPool*> GetNearbyPools(stride::ContactType::Id id, const GeoGrid& geoGrid,
-                                                         const std::shared_ptr<Location>& start,
-                                                         double                           startRadius = 10.0) const;
+                                                         const Location& start, double startRadius = 10.0) const;
 
         /// Convenience wrapper around m_rnManager
         bool MakeChoice(double fraction);

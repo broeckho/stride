@@ -149,7 +149,7 @@ void WorkplacePopulator::CalculateFractionCommutingStudents()
 
 void WorkplacePopulator::CalculateWorkplacesInCity(GeoGrid& geoGrid)
 {
-        for (const shared_ptr<Location>& loc : geoGrid) {
+        for (const auto& loc : geoGrid) {
                 vector<ContactPool*> contactPools;
                 for (const auto& wp : loc->RefCenters(Id::Workplace)) {
                         contactPools.insert(contactPools.end(), wp->begin(), wp->end());
@@ -163,7 +163,7 @@ void WorkplacePopulator::CalculateWorkplacesInCity(GeoGrid& geoGrid)
 
 void WorkplacePopulator::CalculateNearbyWorkspaces(GeoGrid& geoGrid)
 {
-        m_nearByWorkplaces = GetNearbyPools(Id::Workplace, geoGrid, m_currentLoc);
+        m_nearByWorkplaces = GetNearbyPools(Id::Workplace, geoGrid, *m_currentLoc);
         m_distNonCommuting = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(m_nearByWorkplaces.size()), 0U);
 }
 
