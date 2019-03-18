@@ -13,12 +13,12 @@ var hierarchy =
       [ "geopop::CommutesCSVReader", "df/d86/a00012.html", null ]
     ] ],
     [ "geopop::ContactCenter", "d2/de7/a00014.html", [
-      [ "geopop::College", "d4/dee/a00008.html", null ],
-      [ "geopop::Household", "df/d61/a00031.html", null ],
-      [ "geopop::K12School", "de/d8c/a00036.html", null ],
-      [ "geopop::PrimaryCommunity", "d5/df9/a00044.html", null ],
-      [ "geopop::SecondaryCommunity", "d4/dca/a00048.html", null ],
-      [ "geopop::Workplace", "dc/dee/a00053.html", null ]
+      [ "geopop::CollegeCenter", "d4/dee/a00008.html", null ],
+      [ "geopop::HouseholdCenter", "df/d61/a00031.html", null ],
+      [ "geopop::K12SchoolCenter", "de/d8c/a00036.html", null ],
+      [ "geopop::PrimaryCommunityCenter", "d5/df9/a00044.html", null ],
+      [ "geopop::SecondaryCommunityCenter", "d4/dca/a00048.html", null ],
+      [ "geopop::WorkplaceCenter", "dc/dee/a00053.html", null ]
     ] ],
     [ "geopop::Generator", "dd/d1b/a00015.html", [
       [ "geopop::CollegeGenerator", "da/da0/a00009.html", null ],

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['k12school_2ecpp',['K12School.cpp',['../d9/d39/a00257.html',1,'']]],
-  ['k12school_2eh',['K12School.h',['../d7/d2f/a00258.html',1,'']]],
+  ['k12schoolcenter_2ecpp',['K12SchoolCenter.cpp',['../d9/d39/a00257.html',1,'']]],
+  ['k12schoolcenter_2eh',['K12SchoolCenter.h',['../d7/d2f/a00258.html',1,'']]],
   ['k12schoolgenerator_2ecpp',['K12SchoolGenerator.cpp',['../d0/d2f/a00259.html',1,'']]],
   ['k12schoolgenerator_2eh',['K12SchoolGenerator.h',['../dd/dd7/a00260.html',1,'']]],
   ['k12schoolpopulator_2ecpp',['K12SchoolPopulator.cpp',['../dc/d6a/a00261.html',1,'']]],

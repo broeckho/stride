@@ -1,12 +1,13 @@
 var searchData=
 [
   ['what',['what',['../d4/d3e/a00116.html#ad933b798ce411d1acfe2ff86f178f219',1,'stride::util::Exception']]],
-  ['workplace',['Workplace',['../dc/dee/a00053.html',1,'geopop']]],
   ['workplace',['Workplace',['../d1/d6e/a00073.html',1,'stride::AgeBrackets']]],
-  ['workplace',['Workplace',['../df/d03/a00062.html#adba138a3a614713524869a3d761cfdaa',1,'proto::GeoGrid_Location_ContactCenter::Workplace()'],['../dc/dee/a00053.html#a5426be9264b6cb5f80db11d208fc07e7',1,'geopop::Workplace::Workplace()'],['../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462a45c6a290fcb4fad167ee4b610eeea878',1,'stride::ContactType::Workplace()']]],
-  ['workplace_2ecpp',['Workplace.cpp',['../d4/dce/a00337.html',1,'']]],
-  ['workplace_2eh',['Workplace.h',['../dc/d84/a00338.html',1,'']]],
+  ['workplace',['Workplace',['../df/d03/a00062.html#adba138a3a614713524869a3d761cfdaa',1,'proto::GeoGrid_Location_ContactCenter::Workplace()'],['../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462a45c6a290fcb4fad167ee4b610eeea878',1,'stride::ContactType::Workplace()']]],
   ['workplace_5fsize',['workplace_size',['../d7/de0/a00022.html#a81fc4304e2a58751bf024695042becb6',1,'geopop::GeoGridConfig']]],
+  ['workplacecenter',['WorkplaceCenter',['../dc/dee/a00053.html',1,'geopop']]],
+  ['workplacecenter',['WorkplaceCenter',['../dc/dee/a00053.html#a58b16c8ac14b2ac97cd70032f9bfab8a',1,'geopop::WorkplaceCenter']]],
+  ['workplacecenter_2ecpp',['WorkplaceCenter.cpp',['../d4/dce/a00337.html',1,'']]],
+  ['workplacecenter_2eh',['WorkplaceCenter.h',['../dc/d84/a00338.html',1,'']]],
   ['workplacegenerator',['WorkplaceGenerator',['../d1/dea/a00054.html',1,'geopop']]],
   ['workplacegenerator_2ecpp',['WorkplaceGenerator.cpp',['../d0/d01/a00339.html',1,'']]],
   ['workplacegenerator_2eh',['WorkplaceGenerator.h',['../df/df1/a00340.html',1,'']]],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['secondarycommunity',['SecondaryCommunity',['../d4/dca/a00048.html',1,'geopop']]],
+  ['secondarycommunitycenter',['SecondaryCommunityCenter',['../d4/dca/a00048.html',1,'geopop']]],
   ['secondarycommunitypopulator',['SecondaryCommunityPopulator',['../d2/dee/a00049.html',1,'geopop']]],
   ['segmentedvector',['SegmentedVector',['../dc/ddf/a00067.html',1,'stride::util']]],
   ['segmentedvector_3c_20person_20_3e',['SegmentedVector&lt; Person &gt;',['../dc/ddf/a00067.html',1,'stride::util']]],

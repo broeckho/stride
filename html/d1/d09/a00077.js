@@ -10,6 +10,8 @@ var a00077 =
     [ "GetType", "d1/d09/a00077.html#a9cfd2356daa4191fe6951d7c704bf16c", null ],
     [ "begin", "d1/d09/a00077.html#a85249b3315c664761fbd1448708473ab", null ],
     [ "end", "d1/d09/a00077.html#a59eb79bf2d47f73de6ece95400106f2f", null ],
+    [ "size", "d1/d09/a00077.html#a2c357e530f204c4ba1e686f4903f40ad", null ],
+    [ "operator[]", "d1/d09/a00077.html#a3cae7beb1739e01246b4d9fa80b3aa79", null ],
     [ "SortMembers", "d1/d09/a00077.html#a38adafed84fa1801c5f1f6420158a7f3", null ],
     [ "Infector", "d1/d09/a00077.html#a9ffe141bfd5da5336894dc1cebf49fa7", null ],
     [ "m_index_immune", "d1/d09/a00077.html#a2efe968db2b7ac3adb440bb515cdf9c4", null ],

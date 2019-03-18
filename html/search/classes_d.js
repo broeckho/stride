@@ -8,7 +8,7 @@ var searchData=
   ['population',['Population',['../d9/dcc/a00102.html',1,'stride']]],
   ['populator',['Populator',['../d6/d42/a00043.html',1,'geopop']]],
   ['preschool',['PreSchool',['../d6/d2c/a00072.html',1,'stride::AgeBrackets']]],
-  ['primarycommunity',['PrimaryCommunity',['../d5/df9/a00044.html',1,'geopop']]],
+  ['primarycommunitycenter',['PrimaryCommunityCenter',['../d5/df9/a00044.html',1,'geopop']]],
   ['primarycommunitypopulator',['PrimaryCommunityPopulator',['../d6/d97/a00045.html',1,'geopop']]],
   ['publichealthagency',['PublicHealthAgency',['../d5/d1e/a00103.html',1,'stride']]]
 ];

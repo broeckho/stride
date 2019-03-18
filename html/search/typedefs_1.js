@@ -4,7 +4,7 @@ var searchData=
   ['child',['Child',['../d3/de7/a00039.html#ad244e4625f1d75bcd3ad52dde9bd1443',1,'geopop::kd::Node']]],
   ['chunk',['Chunk',['../dc/ddf/a00067.html#a211485e3a584153cee5a03212860e5f2',1,'stride::util::SegmentedVector']]],
   ['commute',['Commute',['../d9/d73/a00060.html#a135d7ab8a0e8c841230cd7cedb02f823',1,'proto::GeoGrid_Location']]],
-  ['const_5fiterator',['const_iterator',['../dd/da2/a00019.html#ad1bfe445adfee57b75b7a6ab174fc159',1,'geopop::GeoGrid::const_iterator()'],['../dc/ddf/a00067.html#a1aba42e9e68bd96c3e7e07b089c648c1',1,'stride::util::SegmentedVector::const_iterator()']]],
+  ['const_5fiterator',['const_iterator',['../d2/de7/a00014.html#a0403b61beb8ba1f50a73afbbb539f1ce',1,'geopop::ContactCenter::const_iterator()'],['../dd/da2/a00019.html#ad1bfe445adfee57b75b7a6ab174fc159',1,'geopop::GeoGrid::const_iterator()'],['../dc/ddf/a00067.html#a1aba42e9e68bd96c3e7e07b089c648c1',1,'stride::util::SegmentedVector::const_iterator()']]],
   ['contactcenter',['ContactCenter',['../d9/d73/a00060.html#aa4dce1d29875f19ff40d56b380f68450',1,'proto::GeoGrid_Location']]],
   ['contactpool',['ContactPool',['../df/d03/a00062.html#ac5af6d152bb5f787f1d23cdece09a27c',1,'proto::GeoGrid_Location_ContactCenter']]],
   ['container_5fpointer_5ftype',['container_pointer_type',['../d9/d47/a00129.html#a385306acf359ed5cfa28a7e2921d417d',1,'stride::util::SVIterator']]],

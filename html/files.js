@@ -39,9 +39,9 @@ var files =
     [ "CliViewer.h", "d3/d65/a00154.html", [
       [ "CliViewer", "d5/deb/a00132.html", "d5/deb/a00132" ]
     ] ],
-    [ "College.cpp", "d3/df8/a00155.html", null ],
-    [ "College.h", "d2/d34/a00156.html", [
-      [ "College", "d4/dee/a00008.html", "d4/dee/a00008" ]
+    [ "CollegeCenter.cpp", "d3/df8/a00155.html", null ],
+    [ "CollegeCenter.h", "d2/d34/a00156.html", [
+      [ "CollegeCenter", "d4/dee/a00008.html", "d4/dee/a00008" ]
     ] ],
     [ "CollegeGenerator.cpp", "d1/db7/a00157.html", null ],
     [ "CollegeGenerator.h", "d6/db8/a00158.html", [
@@ -186,9 +186,9 @@ var files =
     [ "HealthSeeder.h", "dd/d2d/a00229.html", [
       [ "HealthSeeder", "d1/dc1/a00092.html", "d1/dc1/a00092" ]
     ] ],
-    [ "Household.cpp", "d1/da8/a00230.html", null ],
-    [ "Household.h", "df/d17/a00231.html", [
-      [ "Household", "df/d61/a00031.html", "df/d61/a00031" ]
+    [ "HouseholdCenter.cpp", "d1/da8/a00230.html", null ],
+    [ "HouseholdCenter.h", "df/d17/a00231.html", [
+      [ "HouseholdCenter", "df/d61/a00031.html", "df/d61/a00031" ]
     ] ],
     [ "HouseholdCSVReader.cpp", "d0/d53/a00232.html", null ],
     [ "HouseholdCSVReader.h", "d6/de1/a00233.html", [
@@ -241,9 +241,9 @@ var files =
       [ "InfectorMap", "d1/d84/a00097.html", "d1/d84/a00097" ]
     ] ],
     [ "is_iterator.h", "d0/def/a00256.html", "d0/def/a00256" ],
-    [ "K12School.cpp", "d9/d39/a00257.html", null ],
-    [ "K12School.h", "d7/d2f/a00258.html", [
-      [ "K12School", "de/d8c/a00036.html", "de/d8c/a00036" ]
+    [ "K12SchoolCenter.cpp", "d9/d39/a00257.html", null ],
+    [ "K12SchoolCenter.h", "d7/d2f/a00258.html", [
+      [ "K12SchoolCenter", "de/d8c/a00036.html", "de/d8c/a00036" ]
     ] ],
     [ "K12SchoolGenerator.cpp", "d0/d2f/a00259.html", null ],
     [ "K12SchoolGenerator.h", "dd/dd7/a00260.html", [
@@ -298,9 +298,9 @@ var files =
     [ "Populator.h", "db/dc3/a00284.html", [
       [ "Populator", "d6/d42/a00043.html", "d6/d42/a00043" ]
     ] ],
-    [ "PrimaryCommunity.cpp", "d3/d58/a00285.html", null ],
-    [ "PrimaryCommunity.h", "d5/d7b/a00286.html", [
-      [ "PrimaryCommunity", "d5/df9/a00044.html", "d5/df9/a00044" ]
+    [ "PrimaryCommunityCenter.cpp", "d3/d58/a00285.html", null ],
+    [ "PrimaryCommunityCenter.h", "d5/d7b/a00286.html", [
+      [ "PrimaryCommunityCenter", "d5/df9/a00044.html", "d5/df9/a00044" ]
     ] ],
     [ "PrimaryCommunityPopulator.cpp", "d6/d7f/a00287.html", null ],
     [ "PrimaryCommunityPopulator.h", "da/ddc/a00288.html", [
@@ -328,9 +328,9 @@ var files =
     [ "RunConfigManager.h", "db/da2/a00300.html", [
       [ "RunConfigManager", "dc/dfe/a00125.html", "dc/dfe/a00125" ]
     ] ],
-    [ "SecondaryCommunity.cpp", "da/d50/a00301.html", null ],
-    [ "SecondaryCommunity.h", "d0/d61/a00302.html", [
-      [ "SecondaryCommunity", "d4/dca/a00048.html", "d4/dca/a00048" ]
+    [ "SecondaryCommunityCenter.cpp", "da/d50/a00301.html", null ],
+    [ "SecondaryCommunityCenter.h", "d0/d61/a00302.html", [
+      [ "SecondaryCommunityCenter", "d4/dca/a00048.html", "d4/dca/a00048" ]
     ] ],
     [ "SecondaryCommunityPopulator.cpp", "dc/d0f/a00303.html", null ],
     [ "SecondaryCommunityPopulator.h", "d8/d17/a00304.html", [
@@ -396,9 +396,9 @@ var files =
     [ "TransmissionProfile.h", "dd/d1d/a00336.html", [
       [ "TransmissionProfile", "d4/d81/a00110.html", "d4/d81/a00110" ]
     ] ],
-    [ "Workplace.cpp", "d4/dce/a00337.html", null ],
-    [ "Workplace.h", "dc/d84/a00338.html", [
-      [ "Workplace", "dc/dee/a00053.html", "dc/dee/a00053" ]
+    [ "WorkplaceCenter.cpp", "d4/dce/a00337.html", null ],
+    [ "WorkplaceCenter.h", "dc/d84/a00338.html", [
+      [ "WorkplaceCenter", "dc/dee/a00053.html", "dc/dee/a00053" ]
     ] ],
     [ "WorkplaceGenerator.cpp", "d0/d01/a00339.html", null ],
     [ "WorkplaceGenerator.h", "df/df1/a00340.html", [

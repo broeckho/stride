@@ -9,7 +9,7 @@ var searchData=
   ['haveopenmp',['HaveOpenMP',['../db/d57/a00112.html#ad6fc5f3f3e32a15f059c64b74dfea905',1,'stride::util::ConfigInfo']]],
   ['health',['Health',['../da/d82/a00091.html#a29ca39e47180884b3c7681636d1c550d',1,'stride::Health']]],
   ['healthseeder',['HealthSeeder',['../d1/dc1/a00092.html#a7b4785c0728c9f154aa1426034d6e1b5',1,'stride::HealthSeeder']]],
-  ['household',['Household',['../df/d61/a00031.html#aa97e88192f5aa80892a53a48dec796c7',1,'geopop::Household']]],
+  ['householdcenter',['HouseholdCenter',['../df/d61/a00031.html#a725991a9b653cd06def7f417ffab46c3',1,'geopop::HouseholdCenter']]],
   ['householdcsvreader',['HouseholdCSVReader',['../dc/d87/a00032.html#aa83f488af915c290a9d6ffb03712d244',1,'geopop::HouseholdCSVReader']]],
   ['householdreader',['HouseholdReader',['../d4/d8c/a00035.html#a176ab97c6e6fecf6f866a3acc173c82d',1,'geopop::HouseholdReader']]]
 ];

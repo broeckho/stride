@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['secondarycommunity_2ecpp',['SecondaryCommunity.cpp',['../da/d50/a00301.html',1,'']]],
-  ['secondarycommunity_2eh',['SecondaryCommunity.h',['../d0/d61/a00302.html',1,'']]],
+  ['secondarycommunitycenter_2ecpp',['SecondaryCommunityCenter.cpp',['../da/d50/a00301.html',1,'']]],
+  ['secondarycommunitycenter_2eh',['SecondaryCommunityCenter.h',['../d0/d61/a00302.html',1,'']]],
   ['secondarycommunitypopulator_2ecpp',['SecondaryCommunityPopulator.cpp',['../dc/d0f/a00303.html',1,'']]],
   ['secondarycommunitypopulator_2eh',['SecondaryCommunityPopulator.h',['../d8/d17/a00304.html',1,'']]],
   ['segmentedvector_2eh',['SegmentedVector.h',['../d3/d07/a00305.html',1,'']]],

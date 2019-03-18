@@ -61,7 +61,7 @@ var searchData=
   ['m_5flabels',['m_labels',['../d3/d00/a00113.html#a893717de16de8022736a1ecc92dd694c',1,'stride::util::CSV']]],
   ['m_5flast_5fstart',['m_last_start',['../df/dcd/a00127.html#ab9c7ba8e093b3c7d933ed5511d16cde4',1,'stride::util::Stopwatch']]],
   ['m_5fleft',['m_left',['../d3/de7/a00039.html#a3372794f67abd8d0d3dc8f63cd94913e',1,'geopop::kd::Node']]],
-  ['m_5flocation',['m_location',['../db/db2/a00020.html#ac3dc4e3803ab3423e3f9a315d53fed99',1,'geopop::geogrid_detail::KdTree2DPoint']]],
+  ['m_5flocation',['m_location',['../db/db2/a00020.html#a33b5c681970ff5bc8d9e9a87d5aa5f5b',1,'geopop::geogrid_detail::KdTree2DPoint']]],
   ['m_5flocations',['m_locations',['../dd/da2/a00019.html#a8db324bec812da32251659f00d962431',1,'geopop::GeoGrid']]],
   ['m_5flock',['m_lock',['../d5/de0/a00050.html#a8439b0eadb9a90e5326ffa10df0b5d44',1,'geopop::ThreadException']]],
   ['m_5flogger',['m_logger',['../dd/d1b/a00015.html#a4bb1600be2268f8a580517daf62b1944',1,'geopop::Generator::m_logger()'],['../d6/d42/a00043.html#aeecc8afde4f92991f8140a1f3145aeda',1,'geopop::Populator::m_logger()'],['../d5/deb/a00132.html#acc77dad91899a0d4183493023e082e9f',1,'stride::viewers::CliViewer::m_logger()']]],
