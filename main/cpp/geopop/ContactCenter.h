@@ -44,9 +44,6 @@ public:
         /// Default destructor, but virtual
         virtual ~ContactCenter() = default;
 
-        /// Get the ContactPools container.
-        const std::vector<stride::ContactPool*>& CRefPools() const { return m_pools; }
-
         /// Return the ID of this ContactCenter.
         unsigned int GetId() const { return m_id; }
 

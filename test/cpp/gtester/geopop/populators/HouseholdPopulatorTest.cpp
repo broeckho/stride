@@ -56,19 +56,18 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 {
         config.refHH.ages = vector<vector<unsigned int>>{{8U}};
 
-        auto pop       = Population::Create();
-        auto geoGrid   = GeoGrid(pop.get());
-        auto loc1      = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-        auto household = make_shared<HouseholdCenter>();
-        household->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddCenter(household);
+        auto pop     = Population::Create();
+        auto geoGrid = GeoGrid(pop.get());
+        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
+        auto hCenter = make_shared<HouseholdCenter>();
+        hCenter->RegisterPool(new ContactPool(0, ContactType::Id::Household));
+        loc1->AddCenter(hCenter);
         geoGrid.AddLocation(loc1);
 
         householdPopulator->Apply(geoGrid, config);
 
-        const auto& pools = household->CRefPools();
-        ASSERT_EQ(pools.size(), 1);
-        EXPECT_EQ(pools[0]->GetPool().size(), 1);
+        ASSERT_EQ(hCenter->size(), 1);
+        EXPECT_EQ((*hCenter)[0]->size(), 1);
 }
 
 TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
@@ -107,10 +106,10 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 
         householdPopulator->Apply(geoGrid, config);
 
-        for (const auto& household : loc1->RefCenters(Id::Household)) {
-                ASSERT_EQ(household->CRefPools().size(), 1);
-                ASSERT_EQ(household->CRefPools()[0]->GetPool().size(), 1);
-                EXPECT_EQ((*household->CRefPools()[0]->begin())->GetAge(), 18);
+        for (const auto& hCenter : loc1->RefCenters(Id::Household)) {
+                ASSERT_EQ(hCenter->size(), 1);
+                ASSERT_EQ((*hCenter)[0]->size(), 1);
+                EXPECT_EQ((*(*hCenter)[0]->begin())->GetAge(), 18);
         }
 }
 
@@ -118,32 +117,29 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
 {
         config.refHH.ages = vector<vector<unsigned int>>{{18U}, {12U, 56U}};
 
-        auto       pop       = Population::Create();
-        auto       geoGrid   = GeoGrid(pop.get());
-        const auto loc1      = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-        const auto household = make_shared<HouseholdCenter>();
-        household->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddCenter(household);
-        geoGrid.AddLocation(loc1);
-        auto household2 = make_shared<HouseholdCenter>();
-        household2->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddCenter(household2);
-        householdPopulator->Apply(geoGrid, config);
+        auto       pop     = Population::Create();
+        auto       geoGrid = GeoGrid(pop.get());
+        const auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
+        const auto hCenter = make_shared<HouseholdCenter>();
 
-        map<int, vector<ContactPool*>> pools_map;
-        pools_map[household->CRefPools()[0]->GetPool().size()]  = household->CRefPools();
-        pools_map[household2->CRefPools()[0]->GetPool().size()] = household2->CRefPools();
+        hCenter->RegisterPool(new ContactPool(0, ContactType::Id::Household));
+        loc1->AddCenter(hCenter);
+        geoGrid.AddLocation(loc1);
+
+        const auto hCenter2 = make_shared<HouseholdCenter>();
+        hCenter2->RegisterPool(new ContactPool(0, ContactType::Id::Household));
+        loc1->AddCenter(hCenter2);
+        householdPopulator->Apply(geoGrid, config);
+        
         {
-                const auto& pools = pools_map[1];
-                ASSERT_EQ(pools.size(), 1);
-                EXPECT_EQ(pools[0]->GetPool().size(), 1);
-                EXPECT_EQ((*pools[0]->begin())->GetAge(), 18);
+                ASSERT_EQ(hCenter->size(), 1);
+                EXPECT_EQ((*hCenter)[0]->size(), 1);
+                EXPECT_EQ((*(*hCenter)[0]->begin())->GetAge(), 18);
         }
         {
-                const auto& pools = pools_map[2];
-                ASSERT_EQ(pools.size(), 1);
-                EXPECT_EQ(pools[0]->GetPool().size(), 2);
-                EXPECT_EQ((*pools[0]->begin())->GetAge(), 12);
-                EXPECT_EQ((*(pools[0]->begin() + 1))->GetAge(), 56);
+                ASSERT_EQ(hCenter2->size(), 1);
+                EXPECT_EQ((*hCenter2)[0]->size(), 2);
+                EXPECT_EQ((*(*hCenter2)[0]->begin())->GetAge(), 12);
+                EXPECT_EQ((*(*hCenter2)[0]->begin() + 1)->GetAge(), 56);
         }
 }

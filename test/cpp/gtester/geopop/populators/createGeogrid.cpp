@@ -56,18 +56,18 @@ void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount,
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {
-                        auto household = make_shared<HouseholdCenter>(stoi(to_string(locI) + to_string(hI)));
-                        household->SetupPools(config, pop);
-                        auto contactPool = household->CRefPools()[0];
+                        auto hCenter = make_shared<HouseholdCenter>(stoi(to_string(locI) + to_string(hI)));
+                        hCenter->SetupPools(config, pop);
+                        auto contactPool = (*hCenter)[0];
 
                         for (int i = 0; i < personCount; i++) {
                                 auto sample = populationSample[sampleId % populationSize];
-                                auto p      = pop->CreatePerson(personId, sample, household->GetId(), 0, 0, 0, 0, 0);
+                                auto p      = pop->CreatePerson(personId, sample, hCenter->GetId(), 0, 0, 0, 0, 0);
                                 contactPool->AddMember(p);
                                 sampleId++;
                                 personId++;
                         }
-                        loc->AddCenter(household);
+                        loc->AddCenter(hCenter);
                 }
                 geoGrid.AddLocation(loc);
         }

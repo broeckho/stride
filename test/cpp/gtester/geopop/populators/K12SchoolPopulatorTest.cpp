@@ -85,10 +85,10 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
             {111, 1}, {112, 0}, {113, 1}, {114, 0}, {115, 0}, {116, 0}, {117, 0}, {118, 0}, {119, 0}, {120, 1},
             {121, 0}, {122, 1}, {123, 0}, {124, 0}, {125, 0}};
 
-        for (auto& k12School : k12Schools) {
-                EXPECT_EQ(25, k12School->CRefPools().size());
-                for (auto& pool : k12School->CRefPools()) {
-                        EXPECT_EQ(usedCapacity[pool->GetId()], pool->GetPool().size());
+        for (auto& k12Center : k12Schools) {
+                EXPECT_EQ(25, k12Center->size());
+                for (auto& pool : *k12Center) {
+                        EXPECT_EQ(usedCapacity[pool->GetId()], pool->size());
                         for (Person* person : *pool) {
                                 EXPECT_LE(person->GetAge(), 18);
                                 EXPECT_GE(person->GetAge(), 6);
@@ -207,10 +207,10 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
                 EXPECT_EQ(persons[person.GetId()], person.GetPoolId(Id::K12School));
         }
 
-        for (const auto& household : kortrijk->RefCenters(Id::Household)) {
-                for (const auto& p : *household->CRefPools()[0]) {
-                        const auto k12Id = p->GetPoolId(Id::K12School);
-                        if (AgeBrackets::K12School::HasAge(p->GetAge())) {
+        for (const auto& hCenter : kortrijk->RefCenters(Id::Household)) {
+                for (const auto& pool : *(*hCenter)[0]) {
+                        const auto k12Id = pool->GetPoolId(Id::K12School);
+                        if (AgeBrackets::K12School::HasAge(pool->GetAge())) {
                                 EXPECT_NE(0, k12Id);
                         } else {
                                 EXPECT_EQ(0, k12Id);
