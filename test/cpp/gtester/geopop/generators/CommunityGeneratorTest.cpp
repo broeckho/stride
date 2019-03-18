@@ -38,7 +38,9 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                   = 10000;
 
         auto pop     = Population::Create();
@@ -58,7 +60,9 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                   = 100 * 100 * 1000;
 
         auto pop     = Population::Create();
@@ -83,7 +87,9 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                   = 10000;
 
         auto pop     = Population::Create();
@@ -98,7 +104,9 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                   = 37542 * 100;
         config.popInfo.popcount_k12school       = 750840;
 

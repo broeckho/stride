@@ -16,6 +16,7 @@
 #pragma once
 
 #include "util/RnMan.h"
+#include "contact/IdSubscriptArray.h"
 
 #include <spdlog/logger.h>
 
@@ -44,7 +45,7 @@ public:
 
         /// Generate the contact centers for a pool type (fixed in implementation) to the geogrid.
         virtual void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig,
-                           unsigned int& contactCenterCounter) = 0;
+                           stride::ContactType::IdSubscriptArray<unsigned int>& ccCounter) = 0;
 
         /// Virtual destructor for inheritance
         virtual ~Generator() = default;

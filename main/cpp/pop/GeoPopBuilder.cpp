@@ -51,6 +51,10 @@ using namespace util;
 using namespace boost::property_tree;
 using namespace geopop;
 
+GeoPopBuilder::GeoPopBuilder(const ptree& config, RnMan& rnMan, shared_ptr<spdlog::logger> strideLogger)
+        : AbstractPopBuilder(config, rnMan, move(strideLogger)), m_cc_counters(1U)
+{}
+
 shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
 {
         m_stride_logger->trace("Building geopop.");
@@ -127,7 +131,7 @@ void GeoPopBuilder::MakeCenters(GeoGrid& geoGrid, const GeoGridConfig& geoGridCo
                                                  make_shared<HouseholdGenerator>(m_rn_man, m_stride_logger)};
 
         for (const auto& g : generators) {
-                g->Apply(geoGrid, geoGridConfig, m_ccCounter);
+                g->Apply(geoGrid, geoGridConfig, m_cc_counters);
         }
 }
 

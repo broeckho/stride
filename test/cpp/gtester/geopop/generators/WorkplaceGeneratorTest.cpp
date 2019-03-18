@@ -38,7 +38,9 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                   = 10000;
         config.popInfo.popcount_college         = 20000;
 
@@ -54,7 +56,9 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter   = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.input.particpation_workplace       = 0.20;
@@ -89,7 +93,9 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter   = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.input.particpation_workplace       = 0.20;
@@ -138,7 +144,9 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter   = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.input.particpation_workplace       = 0.20;

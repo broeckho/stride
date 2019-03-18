@@ -25,8 +25,10 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride::ContactType;
 
-void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& contactCenterCounter)
+void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
+                             IdSubscriptArray<unsigned int>& ccCounter)
 {
         const auto pupilCount = geoGridConfig.popInfo.popcount_college;
         const auto schoolCount =
@@ -57,7 +59,7 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
 
         for (auto i = 0U; i < schoolCount; i++) {
                 auto loc     = cities[dist()];
-                auto college = make_shared<CollegeCenter>(contactCenterCounter++);
+                auto college = make_shared<CollegeCenter>(ccCounter[Id::College]++);
                 college->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(college);
         }

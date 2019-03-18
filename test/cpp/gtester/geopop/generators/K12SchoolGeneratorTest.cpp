@@ -38,7 +38,9 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                   = 10000;
         config.popInfo.popcount_k12school       = 2000;
 
@@ -58,7 +60,9 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                   = 10000;
         config.popInfo.popcount_k12school       = 2000;
 
@@ -74,7 +78,9 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                   = 37542 * 100;
         config.popInfo.popcount_k12school       = 750840;
 

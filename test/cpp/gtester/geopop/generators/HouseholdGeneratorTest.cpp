@@ -38,7 +38,9 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        ContactType::IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.popInfo.count_households         = 4;
 
         auto pop     = Population::Create();
@@ -57,7 +59,9 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        ContactType::IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.popInfo.count_households         = 4;
 
         auto pop     = Population::Create();
@@ -72,7 +76,9 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
-        auto               contactCenterCounter = 1U;
+
+        ContactType::IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.popInfo.count_households         = 4000;
         config.input.pop_size                   = 37542 * 100;
 

@@ -39,7 +39,9 @@ TEST(CollegeGeneratorTest, OneLocationTest)
         RnMan            rnMan{RnInfo()}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
         GeoGridConfig    config{};
-        auto             contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                 = 45000;
         config.popInfo.popcount_college       = 9000;
 
@@ -60,7 +62,9 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
         RnMan            rnMan{RnInfo()}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
         GeoGridConfig    config{};
-        auto             contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                 = 10000;
         config.popInfo.popcount_college       = 2000;
 
@@ -76,7 +80,9 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         RnMan            rnMan{RnInfo()}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
         GeoGridConfig    config{};
-        auto             contactCenterCounter = 1U;
+
+        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+
         config.input.pop_size                 = 399992;
         config.popInfo.popcount_college       = 79998;
 

@@ -21,6 +21,7 @@
 #pragma once
 
 #include "AbstractPopBuilder.h"
+#include "contact/IdSubscriptArray.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 
@@ -42,7 +43,14 @@ class GeoPopBuilder : public AbstractPopBuilder
 {
 public:
         /// Use constructor of base.
-        using AbstractPopBuilder::AbstractPopBuilder;
+        //using AbstractPopBuilder::AbstractPopBuilder;
+
+        /// Initializing constructor.
+        /// \param config        Property_tree with general configuration settings.
+        /// \param rnMan         Random number manager for pop build process.
+        /// \param strideLogger  Logging.
+        GeoPopBuilder(const boost::property_tree::ptree& config, util::RnMan& rnMan,
+                      std::shared_ptr<spdlog::logger> strideLogger = nullptr);
 
         /// Generates a synthetic population.
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) override;
@@ -61,7 +69,7 @@ private:
 private:
         /// The current number of ContactCenters, used to obtain an Id for a new contactCenter.
         /// ! 0 has special meaning (not assigned)!
-        unsigned int m_ccCounter = 1;
+        ContactType::IdSubscriptArray<unsigned int> m_cc_counters;
 };
 
 } // namespace stride

@@ -21,11 +21,15 @@
 #include "geopop/Location.h"
 #include "util/RnMan.h"
 
+using namespace std;
+using namespace stride::ContactType;
+
 namespace geopop {
 
-void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& contactCenterCounter)
+void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
+                               IdSubscriptArray<unsigned int>& ccCounter)
 {
-        std::vector<double> weights;
+        vector<double> weights;
         for (const auto& loc : geoGrid) {
                 weights.push_back(loc->GetRelativePop());
         }
@@ -39,7 +43,7 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto h   = std::make_shared<HouseholdCenter>(contactCenterCounter++);
+                const auto h   = std::make_shared<HouseholdCenter>(ccCounter[Id::Household]++);
                 h->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(h);
         }

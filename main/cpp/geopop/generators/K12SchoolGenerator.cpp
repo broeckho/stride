@@ -24,8 +24,10 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride::ContactType;
 
-void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& contactCenterCounter)
+void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
+                               IdSubscriptArray<unsigned int>& ccCounter)
 {
         // 1. given the number of persons of school age, calculate number of schools; schools
         //    have 500 pupils on average
@@ -51,7 +53,7 @@ void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < schoolCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto k12 = make_shared<K12SchoolCenter>(contactCenterCounter++);
+                const auto k12 = make_shared<K12SchoolCenter>(ccCounter[Id::K12School]++);
                 k12->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(k12);
         }
