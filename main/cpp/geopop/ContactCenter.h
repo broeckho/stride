@@ -57,9 +57,6 @@ public:
         /// Register a ContactPool with this ContactCenter.
         void RegisterPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }
 
-        /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
-        virtual void SetupPools(const GeoGridConfig& geoGridConfig, stride::Population* pop) = 0;
-
 public:
         using iterator       = std::vector<stride::ContactPool*>::iterator;
         using const_iterator = std::vector<stride::ContactPool*>::const_iterator;

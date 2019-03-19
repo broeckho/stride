@@ -16,13 +16,11 @@
 #include "geopop/populators/PrimaryCommunityPopulator.h"
 #include "geopop/populators/SecondaryCommunityPopulator.h"
 
+#include "geopop/ContactCenter.h"
 #include "geopop/Coordinate.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
-#include "geopop/PrimaryCommunityCenter.h"
-#include "geopop/SecondaryCommunityCenter.h"
 #include "pop/Population.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
@@ -35,7 +33,7 @@ using namespace stride;
 using namespace stride::ContactType;
 using namespace stride::util;
 
-template <typename CommunityType, Id T>
+template <Id T>
 class CommunityPopulatorTest : public testing::Test
 {
 public:
@@ -52,7 +50,7 @@ protected:
                 m_logger = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
                 m_logger->set_level(spdlog::level::off);
 
-                auto household   = make_shared<HouseholdCenter>(2, Id::Household);
+                auto household   = make_shared<ContactCenter>(2, Id::Household);
                 auto contactPool = new ContactPool(0, ContactType::Id::Household);
                 m_person         = make_shared<Person>();
                 m_person->SetId(42);
@@ -64,7 +62,7 @@ protected:
                 m_geo_grid = make_shared<GeoGrid>(pop.get());
                 m_geo_grid->AddLocation(m_location);
 
-                m_community = make_shared<CommunityType>(1, T);
+                m_community = make_shared<ContactCenter>(1, T);
                 auto pool   = new ContactPool(1, ContactType::Id::Household);
                 m_community->RegisterPool(pool);
         }
@@ -105,7 +103,7 @@ protected:
                 m_location->AddCenter(m_community);
 
                 auto location2  = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
-                auto community2 = make_shared<PrimaryCommunityCenter>(1, Id::PrimaryCommunity);
+                auto community2 = make_shared<ContactCenter>(1, Id::PrimaryCommunity);
                 auto pool       = new ContactPool(2, Id::PrimaryCommunity);
                 community2->RegisterPool(pool);
                 location2->AddCenter(community2);
@@ -147,7 +145,7 @@ protected:
                 pool->AddMember(person2.get());
                 m_location->AddCenter(m_community);
 
-                auto community2 = make_shared<CommunityType>(2, T);
+                auto community2 = make_shared<ContactCenter>(2, T);
                 community2->RegisterPool(new ContactPool(2, ContactType::Id::PrimaryCommunity));
                 m_location->AddCenter(community2);
 
@@ -157,19 +155,19 @@ protected:
                 HouseholdTestCheck(community2);
         }
 
-        virtual void HouseholdTestCheck(shared_ptr<CommunityType> community2) = 0;
+        virtual void HouseholdTestCheck(shared_ptr<ContactCenter> community2) = 0;
 
         shared_ptr<Populator>      m_populator;
         shared_ptr<RnMan>          m_rn_man;
         GeoGridConfig              m_geogrid_config;
         shared_ptr<Location>       m_location;
-        shared_ptr<CommunityType>  m_community;
+        shared_ptr<ContactCenter>  m_community;
         shared_ptr<GeoGrid>        m_geo_grid;
         shared_ptr<Person>         m_person;
         shared_ptr<spdlog::logger> m_logger;
 };
 
-class PrimaryCommunityPopulatorTest : public CommunityPopulatorTest<PrimaryCommunityCenter, Id::PrimaryCommunity>
+class PrimaryCommunityPopulatorTest : public CommunityPopulatorTest<Id::PrimaryCommunity>
 {
 public:
         PrimaryCommunityPopulatorTest() = default;
@@ -181,7 +179,7 @@ protected:
                 m_populator = make_shared<PrimaryCommunityPopulator>(*m_rn_man.get(), m_logger);
         }
 
-        void HouseholdTestCheck(shared_ptr<PrimaryCommunityCenter> community2) override
+        void HouseholdTestCheck(shared_ptr<ContactCenter> community2) override
         {
                 {
                         ASSERT_EQ(m_community->size(), 1);
@@ -196,7 +194,7 @@ protected:
         }
 };
 
-class SecondaryCommunityPopulatorTest : public CommunityPopulatorTest<SecondaryCommunityCenter, Id::SecondaryCommunity>
+class SecondaryCommunityPopulatorTest : public CommunityPopulatorTest<Id::SecondaryCommunity>
 {
 public:
         SecondaryCommunityPopulatorTest() = default;
@@ -208,7 +206,7 @@ protected:
                 m_populator = make_shared<SecondaryCommunityPopulator>(*m_rn_man.get(), m_logger);
         }
 
-        void HouseholdTestCheck(shared_ptr<SecondaryCommunityCenter> community2) override
+        void HouseholdTestCheck(shared_ptr<ContactCenter> community2) override
         {
                 {
                         ASSERT_EQ(m_community->size(), 1);

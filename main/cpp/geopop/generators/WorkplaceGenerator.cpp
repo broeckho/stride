@@ -15,10 +15,11 @@
 
 #include "WorkplaceGenerator.h"
 
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/WorkplaceCenter.h"
+#include "pop/Population.h"
 #include "util/Assert.h"
 #include "util/RnMan.h"
 
@@ -64,10 +65,21 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto w   = make_shared<WorkplaceCenter>(ccCounter[Id::Workplace]++, Id::Workplace);
-                w->SetupPools(geoGridConfig, geoGrid.GetPopulation());
+                const auto w   = make_shared<ContactCenter>(ccCounter[Id::Workplace]++, Id::Workplace);
+                SetupPools(*w, geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(w);
         }
+}
+
+void WorkplaceGenerator::SetupPools(ContactCenter& center, const GeoGridConfig& /* geoGridConfig */, stride::Population* pop)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        // TODO CheckThisAlgorithm
+        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
+        const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
+        center.RegisterPool(p);
+        //}
 }
 
 } // namespace geopop

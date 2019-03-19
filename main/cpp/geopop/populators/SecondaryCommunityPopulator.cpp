@@ -17,9 +17,7 @@
 
 #include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
-#include "geopop/SecondaryCommunityCenter.h"
 #include "pop/Person.h"
 
 #include <set>

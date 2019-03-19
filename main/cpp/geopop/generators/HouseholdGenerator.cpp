@@ -15,10 +15,11 @@
 
 #include "HouseholdGenerator.h"
 
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
+#include "pop/Population.h"
 #include "util/RnMan.h"
 
 using namespace std;
@@ -43,9 +44,19 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto h   = std::make_shared<HouseholdCenter>(ccCounter[Id::Household]++, Id::Household);
-                h->SetupPools(geoGridConfig, geoGrid.GetPopulation());
+                const auto h   = std::make_shared<ContactCenter>(ccCounter[Id::Household]++, Id::Household);
+                SetupPools(*h, geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(h);
+        }
+}
+
+void HouseholdGenerator::SetupPools(ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        for (auto i = 0U; i < geoGridConfig.pools.pools_per_houselhold; ++i) {
+                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Household);
+                center.RegisterPool(p);
         }
 }
 

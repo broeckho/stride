@@ -20,15 +20,19 @@
 namespace geopop {
 
 /**
- * Generator for Community contact pools.
+ * Generates ContactCenters and pools for ContactType PrimaryCommunity.
  */
-class CommunityGenerator : public Generator
+class SecondaryCommunityGenerator : public Generator
 {
 public:
         using Generator::Generator;
 
+        /// See @Generator::Apply.
         void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig,
                    stride::ContactType::IdSubscriptArray<unsigned int>& ccCounter) override;
+
+        /// see @Generator::SetupPools.
+        void SetupPools(ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop) override;
 };
 
 } // namespace geopop

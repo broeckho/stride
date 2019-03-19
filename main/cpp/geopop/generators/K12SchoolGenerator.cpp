@@ -15,10 +15,11 @@
 
 #include "K12SchoolGenerator.h"
 
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
+#include "pop/Population.h"
 #include "util/RnMan.h"
 
 namespace geopop {
@@ -53,9 +54,19 @@ void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < schoolCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto k12 = make_shared<K12SchoolCenter>(ccCounter[Id::K12School]++, Id::K12School);
-                k12->SetupPools(geoGridConfig, geoGrid.GetPopulation());
+                const auto k12 = make_shared<ContactCenter>(ccCounter[Id::K12School]++, Id::K12School);
+                SetupPools(*k12, geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(k12);
+        }
+}
+
+void K12SchoolGenerator::SetupPools(ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        for (auto i = 0U; i < geoGridConfig.pools.pools_per_k12school; ++i) {
+                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::K12School);
+                center.RegisterPool(p);
         }
 }
 

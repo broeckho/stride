@@ -23,7 +23,8 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/generators/CollegeGenerator.h"
-#include "geopop/generators/CommunityGenerator.h"
+#include "geopop/generators/PrimaryCommunityGenerator.h"
+#include "geopop/generators/SecondaryCommunityGenerator.h"
 #include "geopop/generators/HouseholdGenerator.h"
 #include "geopop/generators/K12SchoolGenerator.h"
 #include "geopop/generators/WorkplaceGenerator.h"
@@ -127,7 +128,8 @@ void GeoPopBuilder::MakeCenters(GeoGrid& geoGrid, const GeoGridConfig& geoGridCo
         vector<shared_ptr<Generator>> generators{make_shared<K12SchoolGenerator>(m_rn_man, m_stride_logger),
                                                  make_shared<CollegeGenerator>(m_rn_man, m_stride_logger),
                                                  make_shared<WorkplaceGenerator>(m_rn_man, m_stride_logger),
-                                                 make_shared<CommunityGenerator>(m_rn_man, m_stride_logger),
+                                                 make_shared<PrimaryCommunityGenerator>(m_rn_man, m_stride_logger),
+                                                 make_shared<SecondaryCommunityGenerator>(m_rn_man, m_stride_logger),
                                                  make_shared<HouseholdGenerator>(m_rn_man, m_stride_logger)};
 
         for (const auto& g : generators) {

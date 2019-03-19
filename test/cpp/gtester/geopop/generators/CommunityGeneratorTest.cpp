@@ -13,10 +13,11 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "geopop/generators/CommunityGenerator.h"
+#include "geopop/generators/PrimaryCommunityGenerator.h"
+#include "geopop/generators/SecondaryCommunityGenerator.h"
 
 #include "../../createlogger.h"
-#include "geopop/CollegeCenter.h"
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -36,7 +37,8 @@ namespace {
 TEST(CommunityGeneratorTest, OneLocationTest)
 {
         RnMan              rnMan{RnInfo()}; // Default random number manager.
-        CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
+        PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
+        SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
         IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
@@ -48,17 +50,25 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         geoGrid.AddLocation(loc1);
 
-        communityGenerator.Apply(geoGrid, config, contactCenterCounter);
-
         const auto& c1 = loc1->RefCenters(Id::PrimaryCommunity);
         const auto& c2 = loc1->RefCenters(Id::SecondaryCommunity);
-        EXPECT_EQ(c1.size() + c2.size(), 10);
+        EXPECT_EQ(c1.size(), 0);
+        EXPECT_EQ(c2.size(), 0);
+
+        pcGenerator.Apply(geoGrid, config, contactCenterCounter);
+        EXPECT_EQ(c1.size(), 5);
+        EXPECT_EQ(c2.size(), 0);
+
+        scGenerator.Apply(geoGrid, config, contactCenterCounter);
+        EXPECT_EQ(c1.size(), 5);
+        EXPECT_EQ(c2.size(), 5);
 }
 
 TEST(CommunityGeneratorTest, EqualLocationTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
+        SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
         IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
@@ -72,7 +82,8 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
                     make_shared<Location>(1, 4, Coordinate(0, 0), "Location " + to_string(i), 10 * 1000 * 1000));
         }
 
-        communityGenerator.Apply(geoGrid, config, contactCenterCounter);
+        pcGenerator.Apply(geoGrid, config, contactCenterCounter);
+        scGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         vector<int> expectedCount{1041, 1013, 940, 1004, 929, 1023, 959, 1077, 1005, 1009};
         for (int i = 0; i < 10; i++) {
@@ -84,8 +95,9 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
 TEST(CommunityGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
+        SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
         IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
@@ -94,15 +106,18 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
-        communityGenerator.Apply(geoGrid, config, contactCenterCounter);
+
+        pcGenerator.Apply(geoGrid, config, contactCenterCounter);
+        scGenerator.Apply(geoGrid, config, contactCenterCounter);
 
         EXPECT_EQ(geoGrid.size(), 0);
 }
 
 TEST(CommunityGeneratorTest, FiveLocationsTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        CommunityGenerator communityGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
+        SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
         IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
@@ -123,8 +138,8 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         geoGrid.AddLocation(loc3);
         geoGrid.AddLocation(loc4);
         geoGrid.AddLocation(loc5);
-
-        communityGenerator.Apply(geoGrid, config, contactCenterCounter);
+        pcGenerator.Apply(geoGrid, config, contactCenterCounter);
+        scGenerator.Apply(geoGrid, config, contactCenterCounter);
         {
                 const auto& c1 = loc1->RefCenters(Id::PrimaryCommunity);
                 const auto& c2 = loc1->RefCenters(Id::SecondaryCommunity);

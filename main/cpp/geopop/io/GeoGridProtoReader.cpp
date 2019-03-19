@@ -17,13 +17,8 @@
 
 #include "ThreadException.h"
 #include "geogrid.pb.h"
-#include "geopop/CollegeCenter.h"
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/HouseholdCenter.h"
-#include "geopop/K12SchoolCenter.h"
-#include "geopop/PrimaryCommunityCenter.h"
-#include "geopop/SecondaryCommunityCenter.h"
-#include "geopop/WorkplaceCenter.h"
 #include "pop/Person.h"
 #include "pop/Population.h"
 
@@ -94,35 +89,29 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         const auto type = protoContactCenter.type();
         const auto id   = protoContactCenter.id();
 
-        shared_ptr<ContactCenter> result;
         Id   typeId;
         switch (type) {
         case proto::GeoGrid_Location_ContactCenter_Type_K12School:
                 typeId = Id::K12School;
-                result = make_shared<K12SchoolCenter>(id, typeId);
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
                 typeId = Id::PrimaryCommunity;
-                result = make_shared<PrimaryCommunityCenter>(id, typeId);
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
                 typeId = Id::SecondaryCommunity;
-                result = make_shared<SecondaryCommunityCenter>(id, typeId);
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_College:
                 typeId = Id::College;
-                result = make_shared<CollegeCenter>(id, typeId);
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Household:
                 typeId = Id::Household;
-                result = make_shared<HouseholdCenter>(id, typeId);
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Workplace:
                 typeId = Id::Workplace;
-                result = make_shared<WorkplaceCenter>(id, typeId);
                 break;
         default: throw runtime_error("No such ContactCenter type");
         }
+        auto result = make_shared<ContactCenter>(id, typeId);
 
         auto e = make_shared<ThreadException>();
 #pragma omp parallel

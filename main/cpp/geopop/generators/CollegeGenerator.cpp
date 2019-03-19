@@ -15,24 +15,26 @@
 
 #include "CollegeGenerator.h"
 
-#include "geopop/CollegeCenter.h"
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
+#include "pop/Population.h"
 #include "util/Assert.h"
 #include "util/RnMan.h"
 
 namespace geopop {
 
 using namespace std;
+using namespace stride;
 using namespace stride::ContactType;
 
 void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
                              IdSubscriptArray<unsigned int>& ccCounter)
 {
-        const auto pupilCount = geoGridConfig.popInfo.popcount_college;
-        const auto schoolCount =
-            static_cast<unsigned int>(ceil(pupilCount / static_cast<double>(geoGridConfig.pools.college_size)));
+        const auto studentCount = geoGridConfig.popInfo.popcount_college;
+        const auto collegeCount =
+            static_cast<unsigned int>(ceil(studentCount / static_cast<double>(geoGridConfig.pools.college_size)));
         const auto cities = geoGrid.TopK(10);
 
         if (cities.empty()) {
@@ -57,11 +59,21 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
 
-        for (auto i = 0U; i < schoolCount; i++) {
+        for (auto i = 0U; i < collegeCount; i++) {
                 auto loc     = cities[dist()];
-                auto college = make_shared<CollegeCenter>(ccCounter[Id::College]++, Id::College);
-                college->SetupPools(geoGridConfig, geoGrid.GetPopulation());
+                auto college = make_shared<ContactCenter>(ccCounter[Id::College]++, Id::College);
+                SetupPools(*college, geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(college);
+        }
+}
+
+void CollegeGenerator::SetupPools(ContactCenter& center, const GeoGridConfig& geoGridConfig, Population* pop)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        for (auto i = 0U; i < geoGridConfig.pools.pools_per_college; ++i) {
+                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::College);
+                center.RegisterPool(p);
         }
 }
 

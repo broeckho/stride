@@ -19,9 +19,7 @@
 #include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
-#include "geopop/WorkplaceCenter.h"
 #include "util/Assert.h"
 
 #include <utility>

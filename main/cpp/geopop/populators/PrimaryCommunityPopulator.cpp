@@ -17,9 +17,7 @@
 
 #include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
-#include "geopop/PrimaryCommunityCenter.h"
 #include "pop/Person.h"
 
 using namespace std;
@@ -37,13 +35,10 @@ void PrimaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                 if (loc->GetPopCount() == 0) {
                         continue;
                 }
-
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& nearbyPools = GetNearbyPools(Id::PrimaryCommunity, geoGrid, *loc);
-
+                const auto nearbyPools = GetNearbyPools(Id::PrimaryCommunity, geoGrid, *loc);
                 // 2. for every household assign a community
                 const auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearbyPools.size()), 0U);
-
                 for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
                         auto contactPool = (*hhCenter)[0];
                         for (auto p : *contactPool) {

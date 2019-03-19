@@ -16,9 +16,9 @@
 #include "geopop/generators/K12SchoolGenerator.h"
 
 #include "../../createlogger.h"
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"

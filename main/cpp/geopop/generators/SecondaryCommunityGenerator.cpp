@@ -13,13 +13,13 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "CommunityGenerator.h"
+#include "SecondaryCommunityGenerator.h"
 
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/PrimaryCommunityCenter.h"
-#include "geopop/SecondaryCommunityCenter.h"
+#include "pop/Population.h"
 #include "util/Assert.h"
 #include "util/RnMan.h"
 
@@ -30,9 +30,10 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride;
 using namespace stride::ContactType;
 
-void CommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
+void SecondaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
                               IdSubscriptArray<unsigned int>& ccCounter)
 {
         // 1. calculate number of communities, each community has average 2000 persons
@@ -47,10 +48,11 @@ void CommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         for (const auto& loc : geoGrid) {
                 const auto weight = static_cast<double>(loc->GetPopCount()) / static_cast<double>(popCount);
                 AssertThrow(weight >= 0 && weight <= 1 && !std::isnan(weight),
-                            "CommunityGenerator> Invalid weight: " + to_string(weight), m_logger);
+                            "SecondaryCommunityGenerator> Invalid weight: " + to_string(weight), m_logger);
                 weights.push_back(weight);
         }
 
+        //AssertThrow(!weights.empty(), "SecondaryCommunityGenerator> Cannot handle emplty weights.", m_logger);
         if (weights.empty()) {
                 // trng can't handle empty vectors
                 return;
@@ -59,18 +61,23 @@ void CommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
 
         for (auto i = 0U; i < communityCount; i++) {
-                const auto loc = geoGrid[dist()];
-                const auto pc  = make_shared<PrimaryCommunityCenter>(ccCounter[Id::PrimaryCommunity]++,
-                                                                     Id::PrimaryCommunity);
-                pc->SetupPools(geoGridConfig, geoGrid.GetPopulation());
-                loc->AddCenter(pc);
+                const auto l = geoGrid[dist()];
+                const auto c  = make_shared<ContactCenter>(ccCounter[Id::SecondaryCommunity]++, Id::SecondaryCommunity);
+                SetupPools(*c, geoGridConfig, geoGrid.GetPopulation());
+                l->AddCenter(c);
         }
-        for (auto i = 0U; i < communityCount; i++) {
-                const auto loc = geoGrid[dist()];
-                const auto sc  = make_shared<SecondaryCommunityCenter>(ccCounter[Id::SecondaryCommunity]++,
-                                                                       Id::SecondaryCommunity);
-                sc->SetupPools(geoGridConfig, geoGrid.GetPopulation());
-                loc->AddCenter(sc);
+}
+
+
+void SecondaryCommunityGenerator::SetupPools(ContactCenter& center, const GeoGridConfig&, Population* pop)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        // TODO CheckThisAlgorithm
+        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
+        if (center.size() == 0) {
+                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::SecondaryCommunity);
+                center.RegisterPool(p);
         }
 }
 
