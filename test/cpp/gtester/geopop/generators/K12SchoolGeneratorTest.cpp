@@ -99,7 +99,7 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         geoGrid.AddLocation(loc5);
 
         for (const shared_ptr<Location>& loc : geoGrid) {
-                loc->SetRelativePop(static_cast<double>(loc->GetPopCount()) /
+                loc->SetPopFraction(static_cast<double>(loc->GetPopCount()) /
                                     static_cast<double>(config.input.pop_size));
         }
 

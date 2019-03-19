@@ -81,17 +81,17 @@ public:
         /// Gets the province.
         unsigned int GetProvince() const { return m_province; }
 
-        /// Gets the relative population.
-        double GetRelativePop() const;
+        /// Get Location's population fraction (of the total populaion count).
+        double GetPopFraction() const;
 
         /// Sets the Coordinate of this Location.
         void SetCoordinate(const Coordinate& coordinate) { m_coordinate = coordinate; }
 
-        /// Calculates this location's population count using its relative population and the total population count.
+        /// Set Location's population count using its population fraction and the total population count.
         void SetPopCount(unsigned int totalPopCount);
 
-        /// Sets the relative population, which will be later used by @see CalculatePopulation.
-        void SetRelativePop(double relativePopulation);
+        /// Set Location's population fraction (of the total populaion count).
+        void SetPopFraction(double relativePopulation);
 
 public:
         /// References incoming commute Locations + fraction of commutes to that Location.

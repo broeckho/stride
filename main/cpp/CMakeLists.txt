@@ -84,7 +84,7 @@ set(STRIDE_SRC
     geopop/generators/K12SchoolGenerator.cpp
     geopop/generators/WorkplaceGenerator.cpp
     #---
-    geopop/io/CitiesCSVReader.cpp
+    geopop/io/LocationsCSVReader.cpp
     geopop/io/CommutesCSVReader.cpp
     geopop/io/GeoGridJSONReader.cpp
     geopop/io/GeoGridJSONWriter.cpp

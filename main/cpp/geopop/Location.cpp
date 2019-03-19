@@ -95,12 +95,12 @@ unsigned int Location::GetOutgoingCommuteCount(double fractionCommuters) const
         return static_cast<unsigned int>(floor(totalProportion * (fractionCommuters * m_pop_count)));
 }
 
-double Location::GetRelativePop() const { return m_pop_fraction; }
+double Location::GetPopFraction() const { return m_pop_fraction; }
 
 void Location::SetPopCount(unsigned int totalPopCount)
 {
         m_pop_count = static_cast<unsigned int>(floor(m_pop_fraction * totalPopCount));
 }
-void Location::SetRelativePop(double relativePopulation) { m_pop_fraction = relativePopulation; }
+void Location::SetPopFraction(double relativePopulation) { m_pop_fraction = relativePopulation; }
 
 } // namespace geopop

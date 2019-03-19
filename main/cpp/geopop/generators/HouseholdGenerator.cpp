@@ -31,7 +31,7 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 {
         vector<double> weights;
         for (const auto& loc : geoGrid) {
-                weights.push_back(loc->GetRelativePop());
+                weights.push_back(loc->GetPopFraction());
         }
 
         if (weights.empty()) {
