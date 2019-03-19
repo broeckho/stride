@@ -43,7 +43,7 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto h   = std::make_shared<HouseholdCenter>(ccCounter[Id::Household]++);
+                const auto h   = std::make_shared<HouseholdCenter>(ccCounter[Id::Household]++, Id::Household);
                 h->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(h);
         }

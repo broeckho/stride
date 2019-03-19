@@ -27,17 +27,10 @@ class GeoGrid;
 class SecondaryCommunityCenter : public ContactCenter
 {
 public:
-        /// Construct community with assigned ID.
-        explicit SecondaryCommunityCenter(unsigned int id) : ContactCenter(id) {}
+        using ContactCenter::ContactCenter;
 
         /// See ContactCenter::Fill.
         void SetupPools(const GeoGridConfig& geoGridConfig, stride::Population* pop) override;
-
-        /// See ContactCenter::GetContactPoolType.
-        stride::ContactType::Id GetContactPoolType() const override
-        {
-                return stride::ContactType::Id::SecondaryCommunity;
-        }
 };
 
 } // namespace geopop

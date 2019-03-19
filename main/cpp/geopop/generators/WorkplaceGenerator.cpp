@@ -64,7 +64,7 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto w   = make_shared<WorkplaceCenter>(ccCounter[Id::Workplace]++);
+                const auto w   = make_shared<WorkplaceCenter>(ccCounter[Id::Workplace]++, Id::Workplace);
                 w->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(w);
         }

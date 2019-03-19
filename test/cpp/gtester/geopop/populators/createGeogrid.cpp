@@ -22,6 +22,7 @@
 
 using namespace std;
 using namespace stride;
+using namespace stride::ContactType;
 using namespace geopop;
 
 void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount, Population* pop)
@@ -50,13 +51,15 @@ void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount,
                 auto loc = make_shared<Location>(locI, 1, Coordinate(0.0, 0.0), "", locPop);
 
                 for (int schI = 0; schI < schoolCount; schI++) {
-                        auto k12School = make_shared<K12SchoolCenter>(stoi(to_string(locI) + to_string(schI)));
+                        auto k12School = make_shared<K12SchoolCenter>(stoi(to_string(locI) + to_string(schI)),
+                                                                      Id::K12School);
                         k12School->SetupPools(config, pop);
                         loc->AddCenter(k12School);
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {
-                        auto hCenter = make_shared<HouseholdCenter>(stoi(to_string(locI) + to_string(hI)));
+                        auto hCenter = make_shared<HouseholdCenter>(stoi(to_string(locI) + to_string(hI)),
+                                                                    Id::Household);
                         hCenter->SetupPools(config, pop);
                         auto contactPool = (*hCenter)[0];
 

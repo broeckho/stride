@@ -102,26 +102,26 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         // Kortrijk will only receive students from Kortrijik
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto workBra1 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workBra1 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workBra1->SetupPools(config, pop.get());
         brasschaat->AddCenter(workBra1);
-        auto workBra2 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workBra2 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workBra2->SetupPools(config, pop.get());
         brasschaat->AddCenter(workBra2);
         auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto workScho1 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workScho1 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workScho1->SetupPools(config, pop.get());
         schoten->AddCenter(workScho1);
-        auto workScho2 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workScho2 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workScho2->SetupPools(config, pop.get());
         schoten->AddCenter(workScho2);
         auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto workKor1 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workKor1 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workKor1->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor1);
-        auto workKor2 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workKor2 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workKor2->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor2);
 
@@ -194,18 +194,18 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         auto schoten = *(geoGrid.begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
 
-        auto workScho1 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workScho1 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workScho1->SetupPools(config, pop.get());
         schoten->AddCenter(workScho1);
-        auto workScho2 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workScho2 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workScho2->SetupPools(config, pop.get());
         schoten->AddCenter(workScho2);
         auto kortrijk = *(geoGrid.begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto workKor1 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workKor1 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workKor1->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor1);
-        auto workKor2 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workKor2 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workKor2->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor2);
 
@@ -268,26 +268,26 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto workBra1 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workBra1 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workBra1->SetupPools(config, pop.get());
         brasschaat->AddCenter(workBra1);
-        auto workBra2 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workBra2 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workBra2->SetupPools(config, pop.get());
         brasschaat->AddCenter(workBra2);
         auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto workScho1 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workScho1 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workScho1->SetupPools(config, pop.get());
         schoten->AddCenter(workScho1);
-        auto workScho2 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workScho2 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workScho2->SetupPools(config, pop.get());
         schoten->AddCenter(workScho2);
         auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto workKor1 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workKor1 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workKor1->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor1);
-        auto workKor2 = make_shared<WorkplaceCenter>(contactCenterCounter++);
+        auto workKor2 = make_shared<WorkplaceCenter>(contactCenterCounter++, Id::Workplace);
         workKor2->SetupPools(config, pop.get());
         kortrijk->AddCenter(workKor2);
 

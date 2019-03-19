@@ -188,32 +188,32 @@ shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
         const auto geoGrid  = make_shared<GeoGrid>(pop);
         const auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
 
-        const auto school = make_shared<K12SchoolCenter>(0);
+        const auto school = make_shared<K12SchoolCenter>(0, Id::K12School);
         location->AddCenter(school);
         const auto schoolPool = new ContactPool(2, Id::K12School);
         school->RegisterPool(schoolPool);
 
-        const auto community = make_shared<PrimaryCommunityCenter>(1);
+        const auto community = make_shared<PrimaryCommunityCenter>(1, Id::PrimaryCommunity);
         location->AddCenter(community);
         const auto communityPool = new ContactPool(3, Id::PrimaryCommunity);
         community->RegisterPool(communityPool);
 
-        const auto secondaryCommunity = make_shared<SecondaryCommunityCenter>(2);
+        const auto secondaryCommunity = make_shared<SecondaryCommunityCenter>(2, Id::SecondaryCommunity);
         location->AddCenter(secondaryCommunity);
         const auto secondaryCommunityPool = new ContactPool(7, Id::SecondaryCommunity);
         secondaryCommunity->RegisterPool(secondaryCommunityPool);
 
-        const auto college = make_shared<CollegeCenter>(3);
+        const auto college = make_shared<CollegeCenter>(3, Id::College);
         location->AddCenter(college);
         const auto collegePool = new ContactPool(4, Id::College);
         college->RegisterPool(collegePool);
 
-        const auto household = make_shared<HouseholdCenter>(4);
+        const auto household = make_shared<HouseholdCenter>(4, Id::Household);
         location->AddCenter(household);
         const auto householdPool = new ContactPool(5, Id::Household);
         household->RegisterPool(householdPool);
 
-        const auto workplace = make_shared<WorkplaceCenter>(5);
+        const auto workplace = make_shared<WorkplaceCenter>(5, Id::Workplace);
         location->AddCenter(workplace);
         const auto workplacePool = new ContactPool(6, Id::Workplace);
         workplace->RegisterPool(workplacePool);

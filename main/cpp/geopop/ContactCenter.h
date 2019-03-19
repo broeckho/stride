@@ -39,19 +39,20 @@ class ContactCenter
 {
 public:
         /// Construct ContactCenter with assigned ID.
-        explicit ContactCenter(unsigned int id) : m_pools(), m_id(id) {}
+        explicit ContactCenter(unsigned int id, stride::ContactType::Id typeId)
+                : m_pools(), m_id(id), m_type_id(typeId) {}
 
         /// Default destructor, but virtual
         virtual ~ContactCenter() = default;
+
+        /// Get the the type of ContactPools this ContactCenter contains.
+        stride::ContactType::Id GetContactPoolType() const { return m_type_id; };
 
         /// Return the ID of this ContactCenter.
         unsigned int GetId() const { return m_id; }
 
         /// Get a count of total population (first) and total number of infections (second).
         std::pair<unsigned int, unsigned int> GetPopulationAndInfectedCount() const;
-
-        /// Get the the type of ContactPools this ContactCenter contains.
-        virtual stride::ContactType::Id GetContactPoolType() const = 0;
 
         /// Register a ContactPool with this ContactCenter.
         void RegisterPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }
@@ -82,8 +83,9 @@ public:
         size_t size() const { return m_pools.size(); }
 
 protected:
-        std::vector<stride::ContactPool*> m_pools; ///< ContactPools for this ContactCenter.
-        unsigned int                      m_id;    ///< The Id of this ContactCenter.
+        std::vector<stride::ContactPool*> m_pools;    ///< ContactPools for this ContactCenter.
+        unsigned int                      m_id;       ///< The Id of this ContactCenter.
+        stride::ContactType::Id           m_type_id;  ///< The ContactTYpe Id for this center.
 };
 
 } // namespace geopop

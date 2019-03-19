@@ -35,7 +35,7 @@ using namespace stride;
 using namespace stride::ContactType;
 using namespace stride::util;
 
-template <typename CommunityType>
+template <typename CommunityType, Id T>
 class CommunityPopulatorTest : public testing::Test
 {
 public:
@@ -52,7 +52,7 @@ protected:
                 m_logger = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
                 m_logger->set_level(spdlog::level::off);
 
-                auto household   = make_shared<HouseholdCenter>(2);
+                auto household   = make_shared<HouseholdCenter>(2, Id::Household);
                 auto contactPool = new ContactPool(0, ContactType::Id::Household);
                 m_person         = make_shared<Person>();
                 m_person->SetId(42);
@@ -64,7 +64,7 @@ protected:
                 m_geo_grid = make_shared<GeoGrid>(pop.get());
                 m_geo_grid->AddLocation(m_location);
 
-                m_community = make_shared<CommunityType>(1);
+                m_community = make_shared<CommunityType>(1, T);
                 auto pool   = new ContactPool(1, ContactType::Id::Household);
                 m_community->RegisterPool(pool);
         }
@@ -105,8 +105,8 @@ protected:
                 m_location->AddCenter(m_community);
 
                 auto location2  = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
-                auto community2 = make_shared<PrimaryCommunityCenter>(1);
-                auto pool       = new ContactPool(2, ContactType::Id::PrimaryCommunity);
+                auto community2 = make_shared<PrimaryCommunityCenter>(1, Id::PrimaryCommunity);
+                auto pool       = new ContactPool(2, Id::PrimaryCommunity);
                 community2->RegisterPool(pool);
                 location2->AddCenter(community2);
 
@@ -147,7 +147,7 @@ protected:
                 pool->AddMember(person2.get());
                 m_location->AddCenter(m_community);
 
-                auto community2 = make_shared<CommunityType>(2);
+                auto community2 = make_shared<CommunityType>(2, T);
                 community2->RegisterPool(new ContactPool(2, ContactType::Id::PrimaryCommunity));
                 m_location->AddCenter(community2);
 
@@ -169,7 +169,7 @@ protected:
         shared_ptr<spdlog::logger> m_logger;
 };
 
-class PrimaryCommunityPopulatorTest : public CommunityPopulatorTest<PrimaryCommunityCenter>
+class PrimaryCommunityPopulatorTest : public CommunityPopulatorTest<PrimaryCommunityCenter, Id::PrimaryCommunity>
 {
 public:
         PrimaryCommunityPopulatorTest() = default;
@@ -196,7 +196,7 @@ protected:
         }
 };
 
-class SecondaryCommunityPopulatorTest : public CommunityPopulatorTest<SecondaryCommunityCenter>
+class SecondaryCommunityPopulatorTest : public CommunityPopulatorTest<SecondaryCommunityCenter, Id::SecondaryCommunity>
 {
 public:
         SecondaryCommunityPopulatorTest() = default;

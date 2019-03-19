@@ -60,13 +60,15 @@ void CommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto pc  = make_shared<PrimaryCommunityCenter>(ccCounter[Id::PrimaryCommunity]++);
+                const auto pc  = make_shared<PrimaryCommunityCenter>(ccCounter[Id::PrimaryCommunity]++,
+                                                                     Id::PrimaryCommunity);
                 pc->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(pc);
         }
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto sc  = make_shared<SecondaryCommunityCenter>(ccCounter[Id::SecondaryCommunity]++);
+                const auto sc  = make_shared<SecondaryCommunityCenter>(ccCounter[Id::SecondaryCommunity]++,
+                                                                       Id::SecondaryCommunity);
                 sc->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(sc);
         }

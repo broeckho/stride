@@ -27,14 +27,10 @@ class GeoGrid;
 class K12SchoolCenter : public ContactCenter
 {
 public:
-        /// Construct K12school with assigned ID.
-        explicit K12SchoolCenter(unsigned int id) : ContactCenter(id) {}
+        using ContactCenter::ContactCenter;
 
         /// See ContactCenter::Fill.
         void SetupPools(const GeoGridConfig& geoGridConfig, stride::Population* pop) override;
-
-        /// See ContactCenter::GetContactPoolType.
-        stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::K12School; }
 };
 
 } // namespace geopop

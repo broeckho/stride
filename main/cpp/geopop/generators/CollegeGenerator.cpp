@@ -59,7 +59,7 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
 
         for (auto i = 0U; i < schoolCount; i++) {
                 auto loc     = cities[dist()];
-                auto college = make_shared<CollegeCenter>(ccCounter[Id::College]++);
+                auto college = make_shared<CollegeCenter>(ccCounter[Id::College]++, Id::College);
                 college->SetupPools(geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(college);
         }
