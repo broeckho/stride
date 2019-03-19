@@ -40,7 +40,7 @@ void GeoGridProtoWriter::Write(GeoGrid& geoGrid, ostream& stream)
 
         proto::GeoGrid protoGrid;
         for (const auto& location : geoGrid) {
-                WriteLocation(location, protoGrid.add_locations());
+                WriteLocation(*location, protoGrid.add_locations());
         }
         for (const auto& person : m_persons_found) {
                 WritePerson(person, protoGrid.add_persons());
@@ -89,17 +89,17 @@ void GeoGridProtoWriter::WriteCoordinate(const Coordinate&                   coo
         protoCoordinate->set_latitude(boost::geometry::get<1>(coordinate));
 }
 
-void GeoGridProtoWriter::WriteLocation(shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation)
+void GeoGridProtoWriter::WriteLocation(const Location& location, proto::GeoGrid_Location* protoLocation)
 {
-        protoLocation->set_id(location->GetID());
-        protoLocation->set_name(location->GetName());
-        protoLocation->set_province(location->GetProvince());
-        protoLocation->set_population(location->GetPopCount());
+        protoLocation->set_id(location.GetID());
+        protoLocation->set_name(location.GetName());
+        protoLocation->set_province(location.GetProvince());
+        protoLocation->set_population(location.GetPopCount());
         auto coordinate = new proto::GeoGrid_Location_Coordinate();
-        WriteCoordinate(location->GetCoordinate(), coordinate);
+        WriteCoordinate(location.GetCoordinate(), coordinate);
         protoLocation->set_allocated_coordinate(coordinate);
 
-        auto commutes = location->CRefOutgoingCommutes();
+        auto commutes = location.CRefOutgoingCommutes();
         for (auto commute_pair : commutes) {
                 auto commute = protoLocation->add_commutes();
                 commute->set_to(commute_pair.first->GetID());
@@ -107,7 +107,7 @@ void GeoGridProtoWriter::WriteLocation(shared_ptr<Location> location, proto::Geo
         }
 
         for (Id typ : IdList) {
-                for (const auto& c : location->RefCenters(typ)) {
+                for (const auto& c : location.CRefCenters(typ)) {
                         WriteContactCenter(c, protoLocation->add_contactcenters());
                 }
         }
