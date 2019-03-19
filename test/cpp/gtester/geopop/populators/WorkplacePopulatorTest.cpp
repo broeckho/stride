@@ -92,7 +92,7 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         config.input.particpation_workplace       = 1;
         config.input.participation_college        = 0.5;
 
-        WorkplaceGenerator             wpGen(rnMan);
+        WorkplaceGenerator wpGen(rnMan);
 
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
@@ -187,7 +187,7 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         config.input.particpation_workplace       = 1;
         config.input.participation_college        = 0.5;
 
-        WorkplaceGenerator             wpGen(rnMan);
+        WorkplaceGenerator wpGen(rnMan);
 
         // only commuting
         auto schoten = *(geoGrid.begin());
@@ -265,12 +265,12 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         config.input.particpation_workplace       = 1;
         config.input.participation_college        = 0.5;
 
-        WorkplaceGenerator             wpGen(rnMan);
+        WorkplaceGenerator wpGen(rnMan);
 
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto workBra1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workBra1,config, pop.get());
+        wpGen.SetupPools(*workBra1, config, pop.get());
         brasschaat->AddCenter(workBra1);
         auto workBra2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
         wpGen.SetupPools(*workBra2, config, pop.get());

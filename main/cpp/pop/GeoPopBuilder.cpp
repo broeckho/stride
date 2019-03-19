@@ -23,10 +23,10 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/generators/CollegeGenerator.h"
-#include "geopop/generators/PrimaryCommunityGenerator.h"
-#include "geopop/generators/SecondaryCommunityGenerator.h"
 #include "geopop/generators/HouseholdGenerator.h"
 #include "geopop/generators/K12SchoolGenerator.h"
+#include "geopop/generators/PrimaryCommunityGenerator.h"
+#include "geopop/generators/SecondaryCommunityGenerator.h"
 #include "geopop/generators/WorkplaceGenerator.h"
 #include "geopop/io/ReaderFactory.h"
 #include "geopop/populators/CollegePopulator.h"
@@ -53,8 +53,9 @@ using namespace boost::property_tree;
 using namespace geopop;
 
 GeoPopBuilder::GeoPopBuilder(const ptree& config, RnMan& rnMan, shared_ptr<spdlog::logger> strideLogger)
-        : AbstractPopBuilder(config, rnMan, move(strideLogger)), m_cc_counters(1U)
-{}
+    : AbstractPopBuilder(config, rnMan, move(strideLogger)), m_cc_counters(1U)
+{
+}
 
 shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
 {

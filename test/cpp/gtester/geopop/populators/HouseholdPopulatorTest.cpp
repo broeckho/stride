@@ -129,7 +129,7 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
         hCenter2->RegisterPool(new ContactPool(0, ContactType::Id::Household));
         loc1->AddCenter(hCenter2);
         householdPopulator->Apply(geoGrid, config);
-        
+
         {
                 ASSERT_EQ(hCenter->size(), 1);
                 EXPECT_EQ((*hCenter)[0]->size(), 1);

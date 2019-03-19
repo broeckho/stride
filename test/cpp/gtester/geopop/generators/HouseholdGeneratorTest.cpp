@@ -38,9 +38,9 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
-        ContactType::IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        ContactType::IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.popInfo.count_households         = 4;
+        config.popInfo.count_households = 4;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
@@ -59,9 +59,9 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
         HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
-        ContactType::IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        ContactType::IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.popInfo.count_households         = 4;
+        config.popInfo.count_households = 4;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
@@ -76,10 +76,10 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
         HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
-        ContactType::IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        ContactType::IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.popInfo.count_households         = 4000;
-        config.input.pop_size                   = 37542 * 100;
+        config.popInfo.count_households = 4000;
+        config.input.pop_size           = 37542 * 100;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());

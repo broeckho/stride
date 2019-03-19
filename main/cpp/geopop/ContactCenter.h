@@ -39,8 +39,9 @@ class ContactCenter
 {
 public:
         /// Construct ContactCenter with assigned ID.
-        explicit ContactCenter(unsigned int id, stride::ContactType::Id typeId)
-                : m_pools(), m_id(id), m_type_id(typeId) {}
+        explicit ContactCenter(unsigned int id, stride::ContactType::Id typeId) : m_pools(), m_id(id), m_type_id(typeId)
+        {
+        }
 
         /// Default destructor, but virtual
         virtual ~ContactCenter() = default;
@@ -80,9 +81,9 @@ public:
         size_t size() const { return m_pools.size(); }
 
 protected:
-        std::vector<stride::ContactPool*> m_pools;    ///< ContactPools for this ContactCenter.
-        unsigned int                      m_id;       ///< The Id of this ContactCenter.
-        stride::ContactType::Id           m_type_id;  ///< The ContactTYpe Id for this center.
+        std::vector<stride::ContactPool*> m_pools;   ///< ContactPools for this ContactCenter.
+        unsigned int                      m_id;      ///< The Id of this ContactCenter.
+        stride::ContactType::Id           m_type_id; ///< The ContactTYpe Id for this center.
 };
 
 } // namespace geopop

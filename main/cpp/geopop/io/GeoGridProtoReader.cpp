@@ -89,26 +89,14 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         const auto type = protoContactCenter.type();
         const auto id   = protoContactCenter.id();
 
-        Id   typeId;
+        Id typeId;
         switch (type) {
-        case proto::GeoGrid_Location_ContactCenter_Type_K12School:
-                typeId = Id::K12School;
-                break;
-        case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
-                typeId = Id::PrimaryCommunity;
-                break;
-        case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
-                typeId = Id::SecondaryCommunity;
-                break;
-        case proto::GeoGrid_Location_ContactCenter_Type_College:
-                typeId = Id::College;
-                break;
-        case proto::GeoGrid_Location_ContactCenter_Type_Household:
-                typeId = Id::Household;
-                break;
-        case proto::GeoGrid_Location_ContactCenter_Type_Workplace:
-                typeId = Id::Workplace;
-                break;
+        case proto::GeoGrid_Location_ContactCenter_Type_K12School: typeId = Id::K12School; break;
+        case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity: typeId = Id::PrimaryCommunity; break;
+        case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity: typeId = Id::SecondaryCommunity; break;
+        case proto::GeoGrid_Location_ContactCenter_Type_College: typeId = Id::College; break;
+        case proto::GeoGrid_Location_ContactCenter_Type_Household: typeId = Id::Household; break;
+        case proto::GeoGrid_Location_ContactCenter_Type_Workplace: typeId = Id::Workplace; break;
         default: throw runtime_error("No such ContactCenter type");
         }
         auto result = make_shared<ContactCenter>(id, typeId);

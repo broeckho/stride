@@ -142,7 +142,7 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
         const auto type = contactCenter.get<string>("type");
         const auto id   = boost::lexical_cast<unsigned int>(contactCenter.get<string>("id"));
 
-        ContactType::Id           typeId;
+        ContactType::Id typeId;
         if (type == ToString(Id::K12School)) {
                 typeId = Id::K12School;
         } else if (type == ToString(Id::College)) {

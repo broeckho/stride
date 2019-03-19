@@ -71,7 +71,8 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 }
 
-void WorkplaceGenerator::SetupPools(ContactCenter& center, const GeoGridConfig& /* geoGridConfig */, stride::Population* pop)
+void WorkplaceGenerator::SetupPools(ContactCenter&      center, const GeoGridConfig& /* geoGridConfig */,
+                                    stride::Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 

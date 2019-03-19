@@ -43,7 +43,7 @@ class GeoPopBuilder : public AbstractPopBuilder
 {
 public:
         /// Use constructor of base.
-        //using AbstractPopBuilder::AbstractPopBuilder;
+        // using AbstractPopBuilder::AbstractPopBuilder;
 
         /// Initializing constructor.
         /// \param config        Property_tree with general configuration settings.

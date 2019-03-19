@@ -39,10 +39,10 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                   = 10000;
-        config.popInfo.popcount_k12school       = 2000;
+        config.input.pop_size             = 10000;
+        config.popInfo.popcount_k12school = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
@@ -61,10 +61,10 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
         K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                   = 10000;
-        config.popInfo.popcount_k12school       = 2000;
+        config.input.pop_size             = 10000;
+        config.popInfo.popcount_k12school = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
@@ -79,10 +79,10 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
         K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                   = 37542 * 100;
-        config.popInfo.popcount_k12school       = 750840;
+        config.input.pop_size             = 37542 * 100;
+        config.popInfo.popcount_k12school = 750840;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());

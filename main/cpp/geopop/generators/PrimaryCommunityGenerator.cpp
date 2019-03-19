@@ -52,7 +52,7 @@ void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geo
                 weights.push_back(weight);
         }
 
-        //AssertThrow(!weights.empty(), "SecondaryCommunityGenerator> Cannot handle emplty weights.", m_logger);
+        // AssertThrow(!weights.empty(), "SecondaryCommunityGenerator> Cannot handle emplty weights.", m_logger);
         if (weights.empty()) {
                 // trng can't handle empty vectors
                 return;
@@ -68,7 +68,7 @@ void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geo
         }
 }
 
-void PrimaryCommunityGenerator::SetupPools(ContactCenter& center, const GeoGridConfig& , Population* pop)
+void PrimaryCommunityGenerator::SetupPools(ContactCenter& center, const GeoGridConfig&, Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 

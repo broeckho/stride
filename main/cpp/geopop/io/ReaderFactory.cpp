@@ -15,9 +15,9 @@
 
 #include "ReaderFactory.h"
 
-#include "LocationsCSVReader.h"
 #include "CommutesCSVReader.h"
 #include "HouseholdCSVReader.h"
+#include "LocationsCSVReader.h"
 #include "util/FileSys.h"
 
 #include <fstream>

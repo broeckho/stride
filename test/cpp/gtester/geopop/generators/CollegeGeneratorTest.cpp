@@ -40,10 +40,10 @@ TEST(CollegeGeneratorTest, OneLocationTest)
         CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
         GeoGridConfig    config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                 = 45000;
-        config.popInfo.popcount_college       = 9000;
+        config.input.pop_size           = 45000;
+        config.popInfo.popcount_college = 9000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
@@ -63,10 +63,10 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
         CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
         GeoGridConfig    config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                 = 10000;
-        config.popInfo.popcount_college       = 2000;
+        config.input.pop_size           = 10000;
+        config.popInfo.popcount_college = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
@@ -81,10 +81,10 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
         GeoGridConfig    config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                 = 399992;
-        config.popInfo.popcount_college       = 79998;
+        config.input.pop_size           = 399992;
+        config.popInfo.popcount_college = 79998;
 
         auto        pop     = Population::Create();
         auto        geoGrid = GeoGrid(pop.get());

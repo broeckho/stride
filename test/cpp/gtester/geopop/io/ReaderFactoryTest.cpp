@@ -15,9 +15,9 @@
 
 #include "geopop/io/ReaderFactory.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/io/LocationsCSVReader.h"
 #include "geopop/io/CommutesCSVReader.h"
 #include "geopop/io/HouseholdCSVReader.h"
+#include "geopop/io/LocationsCSVReader.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
 

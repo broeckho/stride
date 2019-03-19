@@ -39,10 +39,10 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                   = 10000;
-        config.popInfo.popcount_college         = 20000;
+        config.input.pop_size           = 10000;
+        config.popInfo.popcount_college = 20000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
@@ -57,7 +57,7 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
@@ -94,7 +94,7 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
@@ -145,7 +145,7 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
         WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
         GeoGridConfig      config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);

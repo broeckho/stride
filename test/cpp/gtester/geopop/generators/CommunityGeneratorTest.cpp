@@ -36,14 +36,14 @@ namespace {
 
 TEST(CommunityGeneratorTest, OneLocationTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
+        RnMan                       rnMan{RnInfo()}; // Default random number manager.
         PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
         SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
-        GeoGridConfig      config{};
+        GeoGridConfig               config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                   = 10000;
+        config.input.pop_size = 10000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
@@ -66,14 +66,14 @@ TEST(CommunityGeneratorTest, OneLocationTest)
 
 TEST(CommunityGeneratorTest, EqualLocationTest)
 {
-        RnMan              rnMan{RnInfo()};
+        RnMan                       rnMan{RnInfo()};
         PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
         SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
-        GeoGridConfig      config{};
+        GeoGridConfig               config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                   = 100 * 100 * 1000;
+        config.input.pop_size = 100 * 100 * 1000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
@@ -95,14 +95,14 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
 TEST(CommunityGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnMan{RnInfo()};
+        RnMan                       rnMan{RnInfo()};
         PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
         SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
-        GeoGridConfig      config{};
+        GeoGridConfig               config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                   = 10000;
+        config.input.pop_size = 10000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
@@ -115,15 +115,15 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
 
 TEST(CommunityGeneratorTest, FiveLocationsTest)
 {
-        RnMan              rnMan{RnInfo()};
+        RnMan                       rnMan{RnInfo()};
         PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
         SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
-        GeoGridConfig      config{};
+        GeoGridConfig               config{};
 
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
+        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
-        config.input.pop_size                   = 37542 * 100;
-        config.popInfo.popcount_k12school       = 750840;
+        config.input.pop_size             = 37542 * 100;
+        config.popInfo.popcount_k12school = 750840;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());

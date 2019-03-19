@@ -78,8 +78,8 @@ public:
         bool InRadius(const KdTree2DPoint& start, double radius) const;
 
 private:
-        Coordinate m_pt;       ///< Shortcut for access without dereferencing.
-        const Location*  m_location; ///< The underlying location.
+        Coordinate      m_pt;       ///< Shortcut for access without dereferencing.
+        const Location* m_location; ///< The underlying location.
 };
 
 } // namespace geogrid_detail

@@ -15,9 +15,9 @@
 
 #pragma once
 
-#include "LocationsReader.h"
 #include "CommutesReader.h"
 #include "HouseholdReader.h"
+#include "LocationsReader.h"
 
 #include <istream>
 #include <memory>

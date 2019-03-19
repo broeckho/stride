@@ -20,10 +20,10 @@
 namespace geopop {
 
 Generator::Generator(stride::util::RnMan rnMan, std::shared_ptr<spdlog::logger> logger)
-        : m_rn_man(std::move(rnMan)), m_logger(std::move(logger))
+    : m_rn_man(std::move(rnMan)), m_logger(std::move(logger))
 {
-      if (!m_logger)
-              m_logger = stride::util::LogUtils::CreateNullLogger();
+        if (!m_logger)
+                m_logger = stride::util::LogUtils::CreateNullLogger();
 }
 
 } // namespace geopop
