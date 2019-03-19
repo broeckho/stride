@@ -20,8 +20,8 @@
 
 #pragma once
 
-#include "ContactType.h"
 #include "contact/ContactLogMode.h"
+#include "contact/ContactType.h"
 
 #include <tuple>
 #include <vector>
@@ -31,31 +31,36 @@ namespace stride {
 class Person;
 
 /**
- * Represents a group of Persons that potentially have contacts.
+ * A group of Persons that potentially have contacts with one another.
+ * We do not expose the vector that stores pool members because
+ * adding & sorting it takes some care.
  */
 class ContactPool
 {
 public:
         /// Initializing constructor.
-        ContactPool(std::size_t pool_id, ContactType::Id type);
+        ContactPool(unsigned int poolId, ContactType::Id type);
 
+        /// Default will do.
         ~ContactPool() = default;
 
         /// Add the given Person.
         void AddMember(Person* p);
 
-        /// Get member at index.
-        Person* GetMember(unsigned int index) const { return m_members[index]; }
+        /// Get the pool id
+        unsigned int GetId() const { return m_pool_id; }
+
+        /// Get Infected count
+        unsigned int GetInfectedCount() const;
 
         /// Get the entire pool of members.
         const std::vector<Person*>& GetPool() const { return m_members; }
 
-        /// Get size (number of members).
-        std::size_t GetSize() const { return m_members.size(); }
+        /// Get the type of ContactPool, used for logging and tests
+        ContactType::Id GetType() const { return m_pool_type; }
 
-        /// Get Infected count
-        std::size_t GetInfectedCount();
-
+public:
+        // To iterate over the members.
         using iterator = std::vector<stride::Person*>::iterator;
 
         /// Iterator to first person
@@ -64,24 +69,24 @@ public:
         /// Iterator to end of persons
         iterator end() { return m_members.end(); }
 
-        /// Get the pool id
-        std::size_t GetId() const { return m_pool_id; }
+        /// Gets current size of Location storage.
+        size_t size() const { return m_members.size(); }
 
-        /// Get the type of ContactPool, used for logging and tests
-        ContactType::Id GetType() const { return m_pool_type; }
+        /// Gets a Person by index, doesn't performs a range check.
+        Person* const& operator[](size_t index) const { return m_members[index]; }
 
 private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
-        std::tuple<bool, size_t> SortMembers();
+        std::tuple<bool, unsigned int> SortMembers();
 
-        /// Infector calculates contacts and transmissions.
+        /// Calculates contacts and transmissions; accesses private methods and data.
         template <ContactLogMode::Id LL, bool TIC, bool TO>
         friend class Infector;
 
 private:
-        std::size_t          m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
+        unsigned int         m_index_immune; ///< Index of the first immune member in the ContactPool.
+        unsigned int         m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
         ContactType::Id      m_pool_type;    ///< The type of the ContactPool (for logging and testing purposes).
-        std::size_t          m_index_immune; ///< Index of the first immune member in the ContactPool.
         std::vector<Person*> m_members;      ///< Pointers to contactpool members (raw pointers intentional).
 };
 

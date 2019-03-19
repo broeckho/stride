@@ -41,22 +41,18 @@ using namespace boost::property_tree::xml_parser;
 namespace stride {
 
 ControlHelper::ControlHelper()
-    : m_config(), m_name(), m_output_prefix(), m_rn_manager(), m_run_clock("run"), m_stride_logger(nullptr),
-      m_use_install_dirs()
+    : m_config(), m_name(), m_output_prefix(), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs()
 
 {
 }
 
-ControlHelper::ControlHelper(string name, const ptree& configPt) : ControlHelper()
+ControlHelper::ControlHelper(string name, const ptree& config) : ControlHelper()
 {
         m_run_clock.Start();
-        m_config        = configPt;
+        m_config           = config;
         m_name             = std::move(name);
         m_output_prefix    = m_config.get<string>("run.output_prefix");
         m_use_install_dirs = m_config.get<bool>("run.use_install_dirs");
-
-        m_rn_manager.Initialize(RnMan::Info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
-                                            m_config.get<unsigned int>("run.num_threads")});
 }
 
 void ControlHelper::CheckEnv()
@@ -96,7 +92,8 @@ void ControlHelper::LogShutdown()
 void ControlHelper::LogStartup()
 {
         m_stride_logger->info("{} starting up at: {}", m_name, TimeStamp().ToString());
-        m_stride_logger->info("Executing revision {}", ConfigInfo::GitRevision());
+        m_stride_logger->info("Executing revision: {}", ConfigInfo::GitRevision());
+        m_stride_logger->info("Processor count: {}", ConfigInfo::ProcessorCount());
         m_stride_logger->info("Creating dir:  {}", m_output_prefix);
         m_stride_logger->trace("Executing:           {}", FileSys::GetExecPath().string());
         m_stride_logger->trace("Current directory:   {}", FileSys::GetCurrentDir().string());

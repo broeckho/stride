@@ -20,7 +20,6 @@
 
 #pragma once
 
-#include "contact/ContactPool.h"
 #include "contact/ContactType.h"
 
 #include <array>
@@ -87,7 +86,7 @@ public:
         /// Makes sure nothing is default constructed
         /// Delegate it to the array move constructor
         /// Destructive...
-        IdSubscriptArray(std::array<T, NumOfTypes()>&& l) : std::array<T, NumOfTypes()>(l) {}
+        explicit IdSubscriptArray(std::array<T, NumOfTypes()>&& l) : std::array<T, NumOfTypes()>(l) {}
 
         /// This actually works in itself but interferes annoyingly with the first
         /// constructor above and is for practical purpose redundant.

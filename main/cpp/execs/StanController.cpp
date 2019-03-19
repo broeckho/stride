@@ -21,6 +21,7 @@
 #include "StanController.h"
 
 #include "pop/Population.h"
+#include "sim/Sim.h"
 #include "sim/SimRunner.h"
 #include "util/BoxPlotData.h"
 #include "util/CSV.h"
@@ -42,7 +43,7 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-StanController::StanController(const ptree& configPt) : ControlHelper("Stancontoller", configPt) {}
+StanController::StanController(const ptree& config) : ControlHelper("Stancontoller", config) {}
 
 void StanController::Control()
 {
@@ -55,11 +56,11 @@ void StanController::Control()
         LogStartup();
 
         // -----------------------------------------------------------------------------------------
-        // Seeds for the stochastic analysis.
+        // Stan scenario: step 2, make seeds for the stochastic analysis.
         // -----------------------------------------------------------------------------------------
-        const auto                              stanCount = m_config.get<size_t>("run.stan_count");
-        random_device                           rd;
-        vector<std::random_device::result_type> seeds;
+        const auto           stanCount = m_config.get<unsigned int>("run.stan_count");
+        random_device        rd;
+        vector<unsigned int> seeds;
         for (unsigned int i = 0; i < stanCount; i++) {
                 seeds.emplace_back(rd());
         }
@@ -67,26 +68,49 @@ void StanController::Control()
 
         // -----------------------------------------------------------------------------------------
         // Instantiate simRunners & run, once for each seed.
-        // Multiple runs in parallel, individual runs not.
+        // Multiple runs in parallel, individual runs in single thread.
         // -----------------------------------------------------------------------------------------
         m_config.put("run.num_threads", 1);
+
 #pragma omp parallel for num_threads(ConfigInfo::NumberAvailableThreads())
         for (unsigned int i = 0U; i < seeds.size(); ++i) {
+
+                // ---------------------------------------------------------------------------------
+                // Stan scenario: step 2, build a single stream random number manager for each run.
+                // ---------------------------------------------------------------------------------
                 ptree configPt(m_config);
                 configPt.put("run.rng_seed", seeds[i]);
-                m_stride_logger->info("Starting run using seed {}", seeds[i]);
+                RnMan rnMan{RnInfo{configPt.get<string>("run.rng_seed"), "", 1U}};
 
-                auto runner =
-                    make_shared<SimRunner>(configPt, Population::Create(configPt, m_rn_manager), m_rn_manager);
+                m_stride_logger->info("Starting run using seed {}", configPt.get<string>("run.rng_seed"));
+
+                // ---------------------------------------------------------------------------------
+                // Stan scenario: step 3, build a population as specified in config.
+                // ---------------------------------------------------------------------------------
+                auto pop = Population::Create(configPt, rnMan);
+
+                // -----------------------------------------------------------------------------------------
+                // Sim scenario: step 4, create a simulator, as described by the parameter in the config.
+                // -----------------------------------------------------------------------------------------
+                auto sim = Sim::Create(configPt, pop, rnMan);
+
+                // ---------------------------------------------------------------------------------
+                // Stan scenario: step 5, build a simulator, register viewer, run, collect results.
+                // ---------------------------------------------------------------------------------
+                auto runner  = make_shared<SimRunner>(configPt, sim);
                 auto iViewer = make_shared<viewers::InfectedViewer>(runner);
                 runner->Register(iViewer, bind(&viewers::InfectedViewer::Update, iViewer, std::placeholders::_1));
-
                 runner->Run();
                 results[i] = iViewer->GetInfectionCounts();
         }
 
+        for (unsigned int i = 0U; i < seeds.size(); ++i) {
+                m_stride_logger->info("For run with seed {} final infected count is: {}", seeds[i], results[i].back());
+        }
+
+
         // -----------------------------------------------------------------------------------------
-        // Output to file.
+        // Stan scenario: step 6, output to file.
         // -----------------------------------------------------------------------------------------
         const auto numDays = m_config.get<unsigned int>("run.num_days");
         CSV        csv(seeds.begin(), seeds.end());
@@ -100,7 +124,7 @@ void StanController::Control()
         csv.Write(FileSys::BuildPath(m_config.get<string>("run.output_prefix"), "stan_infected.csv"));
 
         // -----------------------------------------------------------------------------------------
-        // Shutdown.
+        // Done, shutdown.
         // -----------------------------------------------------------------------------------------
         LogShutdown();
         spdlog::drop_all();

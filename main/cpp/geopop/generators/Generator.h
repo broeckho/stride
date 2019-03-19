@@ -15,6 +15,9 @@
 
 #pragma once
 
+#include "util/RnMan.h"
+#include "contact/IdSubscriptArray.h"
+
 #include <spdlog/logger.h>
 
 namespace stride {
@@ -35,21 +38,21 @@ class Generator
 {
 public:
         /// Constructor with random number manager and logger.
-        explicit Generator(stride::util::RnMan& rnManager, std::shared_ptr<spdlog::logger> logger)
-            : m_rnManager(rnManager), m_logger(std::move(logger))
+        explicit Generator(stride::util::RnMan rnMan, std::shared_ptr<spdlog::logger> logger)
+            : m_rn_man(std::move(rnMan)), m_logger(std::move(logger))
         {
         }
 
         /// Generate the contact centers for a pool type (fixed in implementation) to the geogrid.
-        virtual void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig,
-                           unsigned int& contactCenterCounter) = 0;
+        virtual void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig,
+                           stride::ContactType::IdSubscriptArray<unsigned int>& ccCounter) = 0;
 
         /// Virtual destructor for inheritance
         virtual ~Generator() = default;
 
 protected:
-        stride::util::RnMan&            m_rnManager; ///< RnManager used by generators.
-        std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by generators.
+        stride::util::RnMan             m_rn_man; ///< RnManager used by generators.
+        std::shared_ptr<spdlog::logger> m_logger; ///< Logger used by generators.
 };
 
 } // namespace geopop

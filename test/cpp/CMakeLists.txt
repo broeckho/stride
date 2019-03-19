@@ -18,11 +18,15 @@
 #============================================================================
 # Define smoke test. DO NOT BREAK THE COMMAND LINE.
 #============================================================================
-add_test(NAME sim_default_pop_smoke
+add_test(NAME sim_defaultpop_smoke
     WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-    COMMAND ${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/sim_default_pop_smoke
+    COMMAND ${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/sim_defaultpop_smoke
 	)
-add_test(NAME sim_gen_pop_smoke
+add_test(NAME stan_defaultpop_smoke
+	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
+	COMMAND ${BIN_INSTALL_LOCATION}/stride --stan 3 --override output_prefix=tests/stan_defaultpop_smoke
+	)
+add_test(NAME sim_geopop_smoke
 	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
 	COMMAND ${BIN_INSTALL_LOCATION}/stride -c run_generate_default.xml --override output_prefix=tests/sim_generate_smoke
 	)

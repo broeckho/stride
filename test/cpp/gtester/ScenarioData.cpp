@@ -19,6 +19,7 @@
  */
 
 #include "ScenarioData.h"
+
 #include "util/RunConfigManager.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -35,51 +36,45 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
 {
         ptree pt = tag.substr(0, 2) != "r0" ? RunConfigManager::Create("TestsInfluenza")
                                             : RunConfigManager::Create("TestsMeasles");
-        bool gengeopop = tag.size() > std::string("gengeopop").size() &&
-                         tag.substr(tag.size() - std::string("gengeopop").size(), tag.size() - 1) == "gengeopop";
+        bool geopop = tag.size() > string("geopop").size() &&
+                      tag.substr(tag.size() - string("geopop").size(), tag.size() - 1) == "geopop";
 
-        if (gengeopop)
-                RunConfigManager::ConvertToGenGeoPop(pt);
+        if (geopop)
+                RunConfigManager::AddGeoPopConfig(pt);
 
-        std::map<std::string, unsigned int> targets_default = {
-            {"influenza_a", 550429U}, {"influenza_b", 0U}, {"influenza_c", 5U}, {"measles_16", 273372U},
-            {"measles_26", 600000U},  {"r0_0", 1200U},     {"r0_4", 4077U},     {"r0_8", 14588U},
-            {"r0_12", 39234U},        {"r0_16", 71171}};
+        const map<string, unsigned int> targets_default = {
+            {"influenza_a", 550000U}, {"influenza_b", 0U}, {"influenza_c", 5U}, {"measles_16", 275000U},
+            {"measles_26", 600000U},  {"r0_0", 1200U},     {"r0_4", 4000U},     {"r0_8", 14600U},
+            {"r0_12", 38500U},        {"r0_16", 71000U}};
 
-        std::map<std::string, double> sigmas_default = {{"influenza_a", 120.0},
-                                                        {"influenza_b", 0},
-                                                        {"influenza_c", 0.2},
-                                                        {"measles_16", 8000.0},
-                                                        {"measles_26", 1000.0},
-                                                        {"r0_0", targets_default["r0_0"] * 0.1},
-                                                        {"r0_4", targets_default["r0_4"] * 0.1},
-                                                        {"r0_8", targets_default["r0_8"] * 0.1},
-                                                        {"r0_12", targets_default["r0_12"] * 0.1},
-                                                        {"r0_16", targets_default["r0_16"] * 0.1}};
+        const map<string, double> margins_default = {
+            {"influenza_a", 2.0e-03}, {"influenza_b", 0.0}, {"influenza_c", 2.0e-01}, {"measles_16", 8.0e-02},
+            {"measles_26", 1.0e-03},  {"r0_0", 5.0e-02},    {"r0_4", 8.0e-02},        {"r0_8", 8.0e-02},
+            {"r0_12", 1.0e-01},       {"r0_16", 8.0e-02}};
 
-        std::map<std::string, unsigned int> targets_gengeopop = {
-            {"influenza_a_gengeopop", 554299U}, {"influenza_b_gengeopop", 0},      {"influenza_c_gengeopop", 5},
-            {"measles_16_gengeopop", 275643U},  {"measles_26_gengeopop", 600000U}, {"r0_0_gengeopop", 1199U},
-            {"r0_12_gengeopop", 39362U},        {"r0_16_gengeopop", 71220U},       {"r0_4_gengeopop", 4354U},
-            {"r0_8_gengeopop", 15849U}};
+        const map<string, unsigned int> targets_geopop = {
+            {"influenza_a_geopop", 554000U}, {"influenza_b_geopop", 0U},     {"influenza_c_geopop", 5U},
+            {"measles_16_geopop", 270000U},  {"measles_26_geopop", 600000U}, {"r0_0_geopop", 1200U},
+            {"r0_12_geopop", 39300U},        {"r0_16_geopop", 70500U},       {"r0_4_geopop", 4300U},
+            {"r0_8_geopop", 15900U}};
 
-        std::map<std::string, double> sigmas_gengeopop = {
-            {"influenza_a_gengeopop", 400.0}, {"influenza_b_gengeopop", 0},     {"influenza_c_gengeopop", 0.2},
-            {"measles_16_gengeopop", 2000.0}, {"measles_26_gengeopop", 1000.0}, {"r0_0_gengeopop", 1.6278820596099706},
-            {"r0_12_gengeopop", 500.0},       {"r0_16_gengeopop", 500.0},       {"r0_4_gengeopop", 1000.0},
-            {"r0_8_gengeopop", 300.0}};
+        const map<string, double> margins_geopop = {{"influenza_a_geopop", 3.0e-03}, {"influenza_b_geopop", 0.0},
+                                                    {"influenza_c_geopop", 1.0e-1},  {"measles_16_geopop", 8.0e-02},
+                                                    {"measles_26_geopop", 2.0e-03},  {"r0_0_geopop", 1.0e-03},
+                                                    {"r0_12_geopop", 5.0e-02},       {"r0_16_geopop", 5.0e-02},
+                                                    {"r0_4_geopop", 5.0e-02},        {"r0_8_geopop", 5.0e-02}};
 
         unsigned int target;
-        double       sigma;
-        if (gengeopop) {
-                target = targets_gengeopop[tag];
-                sigma  = sigmas_gengeopop[tag];
+        double       margin;
+        if (geopop) {
+                target = targets_geopop.at(tag);
+                margin = margins_geopop.at(tag);
         } else {
-                target = targets_default[tag];
-                sigma  = sigmas_default[tag];
+                target = targets_default.at(tag);
+                margin = margins_default.at(tag);
         }
-        if (gengeopop) {
-                tag = tag.substr(0, tag.size() - std::string("_gengeopop").size());
+        if (geopop) {
+                tag = tag.substr(0, tag.size() - string("_geopop").size());
         }
 
         if (tag == "influenza_b") {
@@ -114,7 +109,7 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
         if (tag == "r0_16") {
                 pt.put("run.r0", 16.0);
         }
-        return make_tuple(pt, target, sigma);
+        return make_tuple(pt, target, margin);
 }
 
 } // namespace Tests

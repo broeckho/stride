@@ -29,7 +29,7 @@ public:
         explicit CitiesCSVReader(std::unique_ptr<std::istream> inputStream);
 
         /// Add the locations read to the GeoGrid.
-        void FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
+        void FillGeoGrid(GeoGrid& geoGrid) const override;
 };
 
 } // namespace geopop

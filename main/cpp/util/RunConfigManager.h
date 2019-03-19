@@ -35,6 +35,9 @@ namespace util {
 class RunConfigManager
 {
 public:
+        /// Adapt the configuration by adding the gengeopop data items.
+        static void AddGeoPopConfig(boost::property_tree::ptree& pt);
+
         /// Clean (i.e. indent, sort and produde the sha1) the ptree config file.
         static void CleanConfigFile(boost::property_tree::ptree pt);
 
@@ -42,7 +45,7 @@ public:
         static boost::property_tree::ptree Create(const std::string& configName);
 
         /// Set of threadcounts to use for tests based an nomber of available OpenMP threads.
-        static std::vector<unsigned int> CreateNumThreads(unsigned int max = ConfigInfo::ProcessorCount());
+        static std::vector<unsigned int> CreateNumThreads(unsigned int maxNum = ConfigInfo::NumberAvailableThreads());
 
         /// Reconstitute property tree from string representation.
         static boost::property_tree::ptree FromString(const std::string& s);
@@ -55,9 +58,6 @@ public:
 
         /// Produce the short sha1 hash of property tree (of it's string representation).
         static std::string ToShortSha1(const boost::property_tree::ptree& pt, unsigned int n = 7U);
-
-        /// Adapt the configuration by adding the gengeopop data items.
-        static void ConvertToGenGeoPop(boost::property_tree::ptree&);
 
 private:
         /// Produce Influenza config for Benchmarking.

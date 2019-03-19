@@ -16,28 +16,26 @@
 #############################################################################
 
 #============================================================================
-# Protocol Buffers.
+# Protocol Buffer sources.
 #============================================================================
-set(PROTO_DIR geopop/io/proto)
-if(STRIDE_GEN_PROTO)
-    include(FindProtobuf)
-    find_package(Protobuf)
-    if(${PROTOBUF_FOUND} AND NOT ${PROTOBUF_PROTOC_EXECUTABLE} STREQUAL "Protobuf_PROTOC_EXECUTABLE-NOTFOUND")
-        file(GLOB proto_source "${PROTO_DIR}/*.proto")
-        protobuf_generate_cpp(PROTO_SRC PROTO_HEADER ${proto_source})
-        add_custom_target(proto
-            COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_HEADER} io/proto
-            COMMAND ${CMAKE_COMMAND} -E copy ${PROTO_SRC} io/proto
-            )
-    endif()
+if(Protobuf_FOUND)
+    protobuf_generate_cpp(PROTO_SRC PROTO_HDR geopop/io/proto/geogrid.proto)
 else()
-    file(GLOB PROTO_HEADER "${PROTO_DIR}/*.pb.h")
-    file(GLOB PROTO_SRC "${PROTO_DIR}/*.pb.cc")
+    set(PROTO_SRC ${Protobuf_PBS_DIR}/geogrid.pb.cc)
+    set(PROTO_HDR ${Protobuf_PBS_DIR}/geogrid.pb.h)
 endif()
 
-set_property(SOURCE ${PROTO_HEADER} ${PROTO_SRC}
+set_source_files_properties(
+    geopop/io/GeoGridProtoReader.cpp
+    geopop/io/GeoGridProtoWriter.cpp
+    PROPERTIES
+    COMPILE_FLAGS "-I${Protobuf_PBS_DIR}"
+)
+
+set_property(SOURCE ${PROTO_HDR} ${PROTO_SRC}
     PROPERTY
-    COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
+    COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic"
+)
 
 #============================================================================
 # Sources.
@@ -49,6 +47,7 @@ set(STRIDE_SRC
     contact/AgeContactProfile.cpp
     contact/ContactLogMode.cpp
     contact/ContactPool.cpp
+    contact/ContactPoolSys.cpp
     contact/ContactType.cpp
     contact/Infector.cpp
     contact/TransmissionProfile.cpp
@@ -64,19 +63,17 @@ set(STRIDE_SRC
     execs/SimController.cpp
     execs/StanController.cpp
     #---
-    geopop/College.cpp
+    geopop/CollegeCenter.cpp
     geopop/ContactCenter.cpp
     geopop/Coordinate.h
     geopop/GeoGrid.cpp
-    geopop/GeoGridBuilder.cpp
     geopop/GeoGridConfig.cpp
-    geopop/GeoGridConfigBuilder.cpp
-    geopop/Household.cpp
-    geopop/K12School.cpp
+    geopop/HouseholdCenter.cpp
+    geopop/K12SchoolCenter.cpp
     geopop/Location.cpp
-    geopop/PrimaryCommunity.cpp
-    geopop/SecondaryCommunity.cpp
-    geopop/Workplace.cpp
+    geopop/PrimaryCommunityCenter.cpp
+    geopop/SecondaryCommunityCenter.cpp
+    geopop/WorkplaceCenter.cpp
     #---
     geopop/geo/GeoGridKdTree.cpp
     geopop/geo/KdTree2DPoint.cpp
@@ -92,10 +89,14 @@ set(STRIDE_SRC
     geopop/io/GeoGridJSONReader.cpp
     geopop/io/GeoGridJSONWriter.cpp
     geopop/io/GeoGridProtoReader.cpp
+    geopop/io/GeoGridProtoReader.h
     geopop/io/GeoGridProtoWriter.cpp
+    geopop/io/GeoGridProtoWriter.h
     geopop/io/GeoGridReader.cpp
     geopop/io/GeoGridReaderFactory.cpp
+    geopop/io/GeoGridReaderFactory.h
     geopop/io/GeoGridWriterFactory.cpp
+    geopop/io/GeoGridWriterFactory.h
     geopop/io/HouseholdCSVReader.cpp
     geopop/io/ReaderFactory.cpp
     geopop/populators/CollegePopulator.cpp
@@ -113,6 +114,7 @@ set(STRIDE_SRC
     viewers/PersonsFile.cpp
     viewers/SummaryFile.cpp
     #---
+    pop/AbstractPopBuilder.cpp
     pop/Person.cpp
     pop/Population.cpp
     pop/DefaultPopBuilder.cpp
@@ -126,36 +128,36 @@ set(STRIDE_SRC
     sim/event/Id.cpp
     sim/event/Subject.cpp
     #---
+    util/ConfigInfo.cpp
+    util/CSV.cpp
     util/CSVRow.cpp
+    util/FileSys.cpp
     util/LogUtils.cpp
     util/Rn.cpp
-    util/CSV.cpp
-    util/ConfigInfo.cpp
-    util/FileSys.cpp
+    util/RnMan.cpp
     util/RunConfigManager.cpp
     util/TimeStamp.cpp
     util/TimeToString.cpp
     #---
+    viewers/CliViewer.cpp
     viewers/InfectedFileViewer.cpp
     viewers/InfectedViewer.cpp
-    viewers/CliViewer.cpp
     viewers/PersonsFileViewer.cpp
     viewers/SummaryFileViewer.cpp
 )
 
 #============================================================================
-# MACROS to inject in ConfigInfo.cpp
-#============================================================================
-set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
-    COMPILE_FLAGS "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
-set_source_files_properties(util/ConfigInfo.cpp PROPERTIES
-    COMPILE_FLAGS "-DPROCCOUNT=${PROCCOUNT}")
-
-#============================================================================
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${STRIDE_SRC})
-target_link_libraries(libstride ${LIBS} libprotobuf_insrc)
+target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
+target_compile_definitions(libstride PUBLIC "-DPROCCOUNT=${PROCCOUNT}")
+target_link_libraries(libstride PRIVATE ${LIBS})
+if(Protobuf_FOUND)
+    target_link_libraries(libstride PRIVATE ${Protobuf_LIBRARIES})
+else()
+    target_link_libraries(libstride PRIVATE libprotobuf)
+endif()
 set_target_properties(libstride
     PROPERTIES
         POSITION_INDEPENDENT_CODE ON

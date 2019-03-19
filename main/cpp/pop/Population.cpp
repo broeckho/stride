@@ -36,44 +36,47 @@
 using namespace boost::property_tree;
 using namespace std;
 using namespace stride::util;
+using namespace stride::ContactType;
 
 namespace stride {
 
-std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
-                                               std::shared_ptr<spdlog::logger> stride_logger)
+Population::Population() : m_pool_sys(), m_contact_logger(), m_geo_grid(this) {}
+
+std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& config, util::RnMan rnMan,
+                                               std::shared_ptr<spdlog::logger> strideLogger)
 {
-        if (!stride_logger) {
-                stride_logger = LogUtils::CreateNullLogger("Population_logger");
+        if (!strideLogger) {
+                strideLogger = LogUtils::CreateNullLogger("Population_logger");
         }
 
         // --------------------------------------------------------------
-        // Create (empty) population & and give it a ContactLogger.
+        // Create empty population & and give it a ContactLogger.
         // --------------------------------------------------------------
         const auto pop = Create();
-        if (configPt.get<bool>("run.contact_output_file", true)) {
-                const auto prefix       = configPt.get<string>("run.output_prefix");
+        if (config.get<bool>("run.contact_output_file", true)) {
+                const auto prefix       = config.get<string>("run.output_prefix");
                 const auto logPath      = FileSys::BuildPath(prefix, "contact_log.txt");
-                pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
-                pop->GetContactLogger()->set_pattern("%v");
-                stride_logger->info("Contact logging requested; logger set up.");
+                pop->RefContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
+                pop->RefContactLogger()->set_pattern("%v");
+                strideLogger->info("Contact logging requested; logger set up.");
         } else {
-                pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
-                stride_logger->info("No contact logging requested.");
+                pop->RefContactLogger() = LogUtils::CreateNullLogger("contact_logger");
+                strideLogger->info("No contact logging requested.");
         }
 
         // -----------------------------------------------------------------------------------------
         // Build population.
         // -----------------------------------------------------------------------------------------
-        std::string pop_type = configPt.get<std::string>("run.population_type", "default");
+        std::string pop_type = config.get<std::string>("run.population_type", "default");
         if (pop_type == "import") {
-                stride_logger->info("ImportPopBuilder invoked.");
-                ImportPopBuilder(configPt, rnManager).Build(pop);
+                strideLogger->info("Invoking ImportPopBuilder.");
+                ImportPopBuilder(config, rnMan, strideLogger).Build(pop);
         } else if (pop_type == "generate") {
-                stride_logger->info("GenPopBuilder invoked.");
-                GeoPopBuilder(configPt, rnManager).Build(pop);
+                strideLogger->info("Invoking GeoPopBuilder.");
+                GeoPopBuilder(config, rnMan, strideLogger).Build(pop);
         } else {
-                stride_logger->info("DefaultPopBuilder invoked.");
-                DefaultPopBuilder(configPt, rnManager).Build(pop);
+                strideLogger->info("Invoking DefaultPopBuilder.");
+                DefaultPopBuilder(config, rnMan, strideLogger).Build(pop);
         }
 
         // -----------------------------------------------------------------------------------------
@@ -82,10 +85,10 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         return pop;
 }
 
-std::shared_ptr<Population> Population::Create(const string& configString, util::RnMan& rnManager,
+std::shared_ptr<Population> Population::Create(const string& configString, util::RnMan rnMan,
                                                std::shared_ptr<spdlog::logger> stride_logger)
 {
-        return Create(RunConfigManager::FromString(configString), rnManager, std::move(stride_logger));
+        return Create(RunConfigManager::FromString(configString), std::move(rnMan), std::move(stride_logger));
 }
 
 std::shared_ptr<Population> Population::Create()
@@ -116,11 +119,6 @@ Person* Population::CreatePerson(unsigned int id, double age, unsigned int house
 {
         return emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId,
                             secondaryCommunityId);
-}
-
-ContactPool* Population::CreateContactPool(ContactType::Id typeId)
-{
-        return m_pool_sys[typeId].emplace_back(m_currentContactPoolId++, typeId);
 }
 
 } // namespace stride

@@ -17,18 +17,17 @@
 
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/K12School.h"
+#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
 #include "util/RnMan.h"
-
-#include <trng/discrete_dist.hpp>
 
 namespace geopop {
 
 using namespace std;
+using namespace stride::ContactType;
 
-void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
-                               unsigned int& contactCenterCounter)
+void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
+                               IdSubscriptArray<unsigned int>& ccCounter)
 {
         // 1. given the number of persons of school age, calculate number of schools; schools
         //    have 500 pupils on average
@@ -41,8 +40,8 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
             static_cast<unsigned int>(ceil(pupilCount / static_cast<double>(geoGridConfig.pools.k12school_size)));
 
         vector<double> weights;
-        for (const auto& loc : *geoGrid) {
-                weights.push_back(loc->GetRelativePopulationSize());
+        for (const auto& loc : geoGrid) {
+                weights.push_back(loc->GetRelativePop());
         }
 
         if (weights.empty()) {
@@ -50,13 +49,13 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 return;
         }
 
-        const auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
 
         for (auto i = 0U; i < schoolCount; i++) {
-                const auto loc = (*geoGrid)[dist()];
-                const auto k12 = make_shared<K12School>(contactCenterCounter++);
-                k12->Fill(geoGridConfig, geoGrid);
-                loc->AddContactCenter(k12);
+                const auto loc = geoGrid[dist()];
+                const auto k12 = make_shared<K12SchoolCenter>(ccCounter[Id::K12School]++);
+                k12->SetupPools(geoGridConfig, geoGrid.GetPopulation());
+                loc->AddCenter(k12);
         }
 }
 

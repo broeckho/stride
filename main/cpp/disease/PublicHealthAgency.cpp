@@ -23,7 +23,6 @@
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
-#include <trng/uniform01_dist.hpp>
 #include <numeric>
 #include <vector>
 
@@ -32,61 +31,54 @@ namespace stride {
 using namespace std;
 using namespace util;
 
-/// Execute
 void PublicHealthAgency::Exec(std::shared_ptr<Population> pop, util::RnMan& rnManager, unsigned short int simDay)
 {
-        PerformCaseFinding(pop, rnManager, simDay);
+        PerformCaseFinding(std::move(pop), rnManager, simDay);
 }
 
-/// Initialize
-void PublicHealthAgency::Initialize(const double case_detection_probability)
-{
-        m_case_detection_probability = case_detection_probability;
-}
+void PublicHealthAgency::Initialize(double detection_probability) { m_detection_probability = detection_probability; }
 
-/// Public Health Strategy: vaccinate the household of a symptomatic case if symptoms started today
-void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, util::RnMan& rnManager,
+void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop, util::RnMan& rnMan,
                                             unsigned short int simDay)
 {
+        // perform case finding, only if the probability is > 0.0
+        if (m_detection_probability <= 0.0) {
+                return;
+        }
 
-        // perform case finding, if the probability is > 0.0
-        if (m_case_detection_probability > 0.0) {
+        using namespace ContactType;
+        auto  uniform01Gen = rnMan.GetUniform01Generator(0U);
+        auto& logger       = pop->RefContactLogger();
 
-                using namespace ContactType;
-                auto& population         = *pop;
-                auto& poolSys            = population.GetContactPoolSys();
-                auto  uniform01Generator = rnManager[0].variate_generator(trng::uniform01_dist<double>());
-                auto& logger             = pop->GetContactLogger();
+        /// To allow iteration over pool types for the PublicHealthAgency.
+        std::initializer_list<Id> AgencyPoolIdList{Id::Household};
 
-                /// To allow iteration over pool types for the PublicHealthAgency.
-                std::initializer_list<Id> AgencyPoolIdList{Id::Household};
+        for (auto& p_case : *pop) {
+                if (p_case.GetHealth().IsSymptomatic() && p_case.GetHealth().SymptomsStartedToday()) {
+                        for (Id typ : AgencyPoolIdList) {
 
-                for (auto& p_case : population) {
-                        if (p_case.GetHealth().IsSymptomatic() && p_case.GetHealth().SymptomsStartedToday()) {
+                                const auto& pools  = pop->CRefPoolSys().CRefPools(typ);
+                                const auto  poolId = p_case.GetPoolId(typ);
+                                if (poolId == 0) {
+                                        continue;
+                                }
 
-                                for (Id typ : AgencyPoolIdList) {
-                                        const auto poolId = p_case.GetPoolId(typ);
-                                        if (poolId > 0) {
-                                                for (const auto& p_member : poolSys[typ][poolId].GetPool()) {
-                                                        if (p_case != *p_member &&
-                                                            p_member->GetHealth().IsSusceptible() &&
-                                                            uniform01Generator() < m_case_detection_probability) {
+                                for (const auto& p_member : pools[poolId].GetPool()) {
+                                        if (p_case != *p_member && p_member->GetHealth().IsSusceptible() &&
+                                            uniform01Gen() < m_detection_probability) {
 
-                                                                // set immune
-                                                                p_member->GetHealth().SetImmune();
+                                                // set immune
+                                                p_member->GetHealth().SetImmune();
 
-                                                                // TODO: check log_level
-                                                                logger->info("[VACC] {} {} {} {} {} {} {}",
-                                                                             p_member->GetId(), p_member->GetAge(),
-                                                                             ToString(typ), poolId, p_case.GetId(),
-                                                                             p_case.GetAge(), simDay);
-                                                        }
-                                                }
+                                                // TODO: check log_level
+                                                logger->info("[VACC] {} {} {} {} {} {} {}", p_member->GetId(),
+                                                             p_member->GetAge(), ToString(typ), poolId, p_case.GetId(),
+                                                             p_case.GetAge(), simDay);
                                         }
                                 }
                         }
                 }
-        } // end if-clause whether the case detection probability > 0
+        }
 }
 
-} /* namespace stride */
+} // namespace stride

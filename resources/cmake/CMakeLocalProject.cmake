@@ -52,7 +52,6 @@ if(APPLE)
     if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR STRIDE_COMPILER_ID STREQUAL "GNU")
         set(STRIDE_FORCE_NO_BOOST ON)
         set(BOOST_NO_SYSTEM_PATHS ON)
-
     else()
         set(BOOST_ROOT /opt/local)
         set(BOOST_NO_SYSTEM_PATHS ON)

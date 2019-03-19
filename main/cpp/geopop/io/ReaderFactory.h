@@ -43,26 +43,26 @@ class ReaderFactory
 {
 public:
         /// Create a CitiesReader based on the filename relative to the data directory.
-        std::shared_ptr<CitiesReader> CreateCitiesReader(const std::string& filename);
+        static std::shared_ptr<CitiesReader> CreateCitiesReader(const std::string& filename);
 
         /// Create a CitiesReader based on an absolute filesystem path for the input file.
-        std::shared_ptr<CitiesReader> CreateCitiesReader(const filesys::path& path);
+        static std::shared_ptr<CitiesReader> CreateCitiesReader(const filesys::path& path);
 
         /// Create a CommutesReader based on the filename relative to the data directory.
-        std::shared_ptr<CommutesReader> CreateCommutesReader(const std::string& filename);
+        static std::shared_ptr<CommutesReader> CreateCommutesReader(const std::string& filename);
 
         /// Create a CommutesReader based on the absolute filesystem path the input file.
-        std::shared_ptr<CommutesReader> CreateCommutesReader(const filesys::path& path);
+        static std::shared_ptr<CommutesReader> CreateCommutesReader(const filesys::path& path);
 
         /// Create a HouseholdReader based on the filename relative to the data directory.
-        std::shared_ptr<HouseholdReader> CreateHouseholdReader(const std::string& filename);
+        static std::shared_ptr<HouseholdReader> CreateHouseholdReader(const std::string& filename);
 
         /// Create a HouseholdReader based on the absolute filesystem path the input file.
-        std::shared_ptr<HouseholdReader> CreateHouseholdReader(const filesys::path& path);
+        static std::shared_ptr<HouseholdReader> CreateHouseholdReader(const filesys::path& path);
 
 private:
         /// Create an istream based on the filesystem path.
-        std::unique_ptr<std::istream> OpenFile(const filesys::path& path) const;
+        static std::unique_ptr<std::istream> OpenFile(const filesys::path& path);
 };
 
 } // namespace geopop

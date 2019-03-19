@@ -42,8 +42,8 @@ std::string TimeStamp::ToTag() const
 {
         // This is the C++11 implementation but clang 5 on Travis Linux VM's
         // still does not implement std::put_time.
-        auto now = std::chrono::system_clock::now();
-        auto in_time_t = std::chrono::system_clock::to_time_t(now);
+        auto              now       = std::chrono::system_clock::now();
+        auto              in_time_t = std::chrono::system_clock::to_time_t(now);
         std::stringstream ss;
         ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%X");
         return ss.str();

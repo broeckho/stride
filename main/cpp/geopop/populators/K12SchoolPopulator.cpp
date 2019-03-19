@@ -16,13 +16,12 @@
 #include "K12SchoolPopulator.h"
 
 #include "contact/AgeBrackets.h"
+#include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
+#include "geopop/HouseholdCenter.h"
+#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
 #include "pop/Person.h"
-
-#include <trng/uniform_int_dist.hpp>
 
 namespace geopop {
 
@@ -30,28 +29,27 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
+void K12SchoolPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 {
-        m_logger->info("Starting to populate Schools");
+        m_logger->trace("Starting to populate Schools");
 
         set<ContactPool*> found;
         unsigned int      pupils = 0;
 
         // for every location
-        for (const shared_ptr<Location>& loc : *geoGrid) {
+        for (const auto& loc : geoGrid) {
                 if (loc->GetPopCount() == 0) {
                         continue;
                 }
 
                 // 1. find all schools in an area of 10-k*10 km
-                const vector<ContactPool*>& classes = GetNearbyPools<K12School>(geoGrid, loc);
+                const vector<ContactPool*>& classes = GetNearbyPools(Id::K12School, geoGrid, *loc);
 
-                auto dist = m_rnManager[0].variate_generator(
-                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(classes.size())));
+                auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(classes.size()), 0U);
 
                 // 2. for every student assign a class
-                for (const shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
-                        ContactPool* contactPool = household->GetPools()[0];
+                for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
+                        ContactPool* const contactPool = (*hhCenter)[0];
                         found.insert(contactPool);
                         for (Person* p : *contactPool) {
                                 if (AgeBrackets::K12School::HasAge(p->GetAge())) {
@@ -64,8 +62,9 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 }
         }
 
-        m_logger->info("Number of pupils in schools: {}", pupils);
-        m_logger->info("Number of different classes: {}", found.size());
+        m_logger->debug("Number of pupils in schools: {}", pupils);
+        m_logger->debug("Number of different classes: {}", found.size());
+        m_logger->trace("Done populating K12Schools");
 }
 
 } // namespace geopop

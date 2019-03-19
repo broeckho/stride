@@ -16,15 +16,16 @@
 #include "GeoGridProtoReader.h"
 
 #include "ThreadException.h"
-#include "geopop/College.h"
+#include "geogrid.pb.h"
+#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
-#include "geopop/PrimaryCommunity.h"
-#include "geopop/SecondaryCommunity.h"
-#include "geopop/Workplace.h"
-#include "geopop/io/proto/geogrid.pb.h"
+#include "geopop/HouseholdCenter.h"
+#include "geopop/K12SchoolCenter.h"
+#include "geopop/PrimaryCommunityCenter.h"
+#include "geopop/SecondaryCommunityCenter.h"
+#include "geopop/WorkplaceCenter.h"
 #include "pop/Person.h"
+#include "pop/Population.h"
 
 #include <iostream>
 #include <omp.h>
@@ -35,17 +36,18 @@ namespace geopop {
 using namespace std;
 
 GeoGridProtoReader::GeoGridProtoReader(unique_ptr<istream> inputStream, stride::Population* pop)
-    : GeoGridReader(move(inputStream), pop), m_geoGrid()
+    : GeoGridReader(move(inputStream), pop)
 {
 }
 
-shared_ptr<GeoGrid> GeoGridProtoReader::Read()
+void GeoGridProtoReader::Read()
 {
         proto::GeoGrid protoGrid;
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
                 throw runtime_error("Failed to parse Proto file");
         }
-        m_geoGrid = make_shared<GeoGrid>(m_population);
+        auto& geoGrid = m_population->RefGeoGrid();
+
 #pragma omp parallel
 #pragma omp single
         {
@@ -74,59 +76,15 @@ shared_ptr<GeoGrid> GeoGridProtoReader::Read()
                                 e->Run([&loc, this, &protoLocation] { loc = ParseLocation(protoLocation); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        m_geoGrid->AddLocation(move(loc));
+                                        geoGrid.AddLocation(move(loc));
                         }
                 }
 #pragma omp taskwait
         }
         e->Rethrow();
-        AddCommutes(m_geoGrid);
+        AddCommutes(geoGrid);
         m_people.clear();
         m_commutes.clear();
-        return m_geoGrid;
-}
-
-shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
-{
-        const auto  id         = protoLocation.id();
-        const auto& name       = protoLocation.name();
-        const auto  province   = protoLocation.province();
-        const auto  population = protoLocation.population();
-        const auto& coordinate = ParseCoordinate(protoLocation.coordinate());
-
-        auto result = make_shared<Location>(id, province, population, coordinate, name);
-
-        auto e = make_shared<ThreadException>();
-#pragma omp parallel
-#pragma omp single
-        {
-                for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
-                        shared_ptr<ContactCenter>                    center;
-                        const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
-#pragma omp task firstprivate(protoCenter, center)
-                        {
-                                e->Run([&protoCenter, this, &center] { center = ParseContactCenter(protoCenter); });
-                                if (!e->HasError())
-#pragma omp critical
-                                        result->AddContactCenter(center);
-                        }
-                }
-#pragma omp taskwait
-        }
-        e->Rethrow();
-
-        for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
-                const proto::GeoGrid_Location_Commute& commute = protoLocation.commutes(idx);
-#pragma omp critical
-                m_commutes.emplace_back(make_tuple(id, commute.to(), commute.proportion()));
-        }
-
-        return result;
-}
-
-Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate)
-{
-        return {protoCoordinate.longitude(), protoCoordinate.latitude()};
 }
 
 shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
@@ -139,27 +97,27 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         stride::ContactType::Id   typeId;
         switch (type) {
         case proto::GeoGrid_Location_ContactCenter_Type_K12School:
-                result = make_shared<K12School>(id);
+                result = make_shared<K12SchoolCenter>(id);
                 typeId = stride::ContactType::Id::K12School;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
-                result = make_shared<PrimaryCommunity>(id);
+                result = make_shared<PrimaryCommunityCenter>(id);
                 typeId = stride::ContactType::Id::PrimaryCommunity;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
-                result = make_shared<SecondaryCommunity>(id);
+                result = make_shared<SecondaryCommunityCenter>(id);
                 typeId = stride::ContactType::Id::SecondaryCommunity;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_College:
-                result = make_shared<College>(id);
+                result = make_shared<CollegeCenter>(id);
                 typeId = stride::ContactType::Id::College;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Household:
-                result = make_shared<Household>(id);
+                result = make_shared<HouseholdCenter>(id);
                 typeId = stride::ContactType::Id::Household;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Workplace:
-                result = make_shared<Workplace>(id);
+                result = make_shared<WorkplaceCenter>(id);
                 typeId = stride::ContactType::Id::Workplace;
                 break;
                 break;
@@ -192,6 +150,11 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
         return result;
 }
 
+Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate)
+{
+        return {protoCoordinate.longitude(), protoCoordinate.latitude()};
+}
+
 stride::ContactPool* GeoGridProtoReader::ParseContactPool(
     const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, stride::ContactType::Id type)
 {
@@ -199,7 +162,7 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
         stride::ContactPool* result;
 
 #pragma omp critical
-        result = m_geoGrid->CreateContactPool(type);
+        result = m_population->RefPoolSys().CreateContactPool(type);
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 const auto person_id = static_cast<unsigned int>(protoContactPool.people(idx));
@@ -216,9 +179,48 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
         return result;
 }
 
+shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
+{
+        const auto  id         = protoLocation.id();
+        const auto& name       = protoLocation.name();
+        const auto  province   = protoLocation.province();
+        const auto  population = protoLocation.population();
+        const auto& coordinate = ParseCoordinate(protoLocation.coordinate());
+
+        auto result = make_shared<Location>(id, province, coordinate, name, population);
+
+        auto e = make_shared<ThreadException>();
+#pragma omp parallel
+#pragma omp single
+        {
+                for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
+                        shared_ptr<ContactCenter>                    center;
+                        const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
+#pragma omp task firstprivate(protoCenter, center)
+                        {
+                                e->Run([&protoCenter, this, &center] { center = ParseContactCenter(protoCenter); });
+                                if (!e->HasError())
+#pragma omp critical
+                                        result->AddCenter(center);
+                        }
+                }
+#pragma omp taskwait
+        }
+        e->Rethrow();
+
+        for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
+                const proto::GeoGrid_Location_Commute& commute = protoLocation.commutes(idx);
+#pragma omp critical
+                m_commutes.emplace_back(make_tuple(id, commute.to(), commute.proportion()));
+        }
+
+        return result;
+}
+
 stride::Person* GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& protoPerson)
 {
-        return m_geoGrid->CreatePerson(protoPerson.id(), protoPerson.age(), 0, 0, 0, 0, 0, 0);
+        const auto id = static_cast<unsigned int>(protoPerson.id());
+        return m_population->CreatePerson(id, protoPerson.age(), 0, 0, 0, 0, 0, 0);
 }
 
 } // namespace geopop

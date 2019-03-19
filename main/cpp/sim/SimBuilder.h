@@ -20,6 +20,8 @@
 
 #pragma once
 
+#include "util/RnMan.h"
+
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
 
@@ -40,10 +42,10 @@ class SimBuilder
 {
 public:
         /// Initializing SimBuilder.
-        explicit SimBuilder(const boost::property_tree::ptree& configPt);
+        explicit SimBuilder(const boost::property_tree::ptree& config);
 
         /// Build the simulator and return it afterwards.
-        std::shared_ptr<Sim> Build(std::shared_ptr<Sim> sim, std::shared_ptr<Population> pop);
+        std::shared_ptr<Sim> Build(std::shared_ptr<Sim> sim, std::shared_ptr<Population> pop, util::RnMan rnMan);
 
 private:
         /// Get the contact configuration data.

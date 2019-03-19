@@ -25,7 +25,7 @@ using namespace stride::util;
 
 CitiesCSVReader::CitiesCSVReader(unique_ptr<istream> inputStream) : CitiesReader(move(inputStream)) {}
 
-void CitiesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
+void CitiesCSVReader::FillGeoGrid(GeoGrid& geoGrid) const
 {
         vector<pair<shared_ptr<Location>, int>> addedLocations;
 
@@ -40,13 +40,13 @@ void CitiesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
                 const auto loc = make_shared<Location>(id, row.GetValue<int>(1),
                                                        Coordinate(row.GetValue<double>(6), row.GetValue<double>(5)),
                                                        row.GetValue(7));
-                geoGrid->AddLocation(loc);
+                geoGrid.AddLocation(loc);
                 addedLocations.emplace_back(loc, row.GetValue<int>(2));
                 totalPopulation += row.GetValue<int>(2);
         }
 
         for (const auto& l : addedLocations) {
-                l.first->SetRelativePopulation(static_cast<double>(l.second) / static_cast<double>(totalPopulation));
+                l.first->SetRelativePop(static_cast<double>(l.second) / static_cast<double>(totalPopulation));
         }
 }
 

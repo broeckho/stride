@@ -18,6 +18,8 @@
  * Main program for test runs.
  */
 
+#include "util/LogUtils.h"
+
 #include <cerrno>
 #include <exception>
 #include <gtest/gtest.h>
@@ -31,6 +33,8 @@ int main(int argc, char** argv)
 
         int exit_status = EXIT_SUCCESS;
         try {
+                auto logger = stride::util::LogUtils::CreateFileLogger("gtester_logger", "gtester_logger.txt");
+                spdlog::register_logger(logger);
                 ::testing::InitGoogleTest(&argc, argv);
                 return RUN_ALL_TESTS();
         } catch (std::exception& e) {
