@@ -24,11 +24,13 @@
 #include "pop/DefaultPopBuilder.h"
 #include "pop/GeoPopBuilder.h"
 #include "pop/ImportPopBuilder.h"
+#include "util/Assert.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 #include "util/RunConfigManager.h"
 #include "util/SegmentedVector.h"
+#include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <utility>

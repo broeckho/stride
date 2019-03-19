@@ -87,45 +87,45 @@ TEST(GeoGridProtoReaderTest, peopleTest)
                 fillContactCenter(make_shared<ContactCenter>(0, Id::K12School), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(2);
-                pool->add_people(1);
+                pool->add_people(0);
         }
         {
                 auto contactCenter = location->add_contactcenters();
                 fillContactCenter(make_shared<ContactCenter>(1, Id::PrimaryCommunity), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(3);
-                pool->add_people(1);
+                pool->add_people(0);
         }
         {
                 auto contactCenter = location->add_contactcenters();
                 fillContactCenter(make_shared<ContactCenter>(2, Id::SecondaryCommunity), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(7);
-                pool->add_people(1);
+                pool->add_people(0);
         }
         {
                 auto contactCenter = location->add_contactcenters();
                 fillContactCenter(make_shared<ContactCenter>(3, Id::College), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(4);
-                pool->add_people(1);
+                pool->add_people(0);
         }
         {
                 auto contactCenter = location->add_contactcenters();
                 fillContactCenter(make_shared<ContactCenter>(4, Id::Household), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(5);
-                pool->add_people(1);
+                pool->add_people(0);
         }
         {
                 auto contactCenter = location->add_contactcenters();
                 fillContactCenter(make_shared<ContactCenter>(5, Id::Workplace), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(6);
-                pool->add_people(1);
+                pool->add_people(0);
         }
         auto person = geoGrid.add_persons();
-        person->set_id(1);
+        person->set_id(0);
         person->set_age(18);
 
         CompareGeoGrid(geoGrid);

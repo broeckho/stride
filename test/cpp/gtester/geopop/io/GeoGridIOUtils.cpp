@@ -213,7 +213,7 @@ shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
         workplace->RegisterPool(workplacePool);
 
         geoGrid->AddLocation(location);
-        const auto person = geoGrid->GetPopulation()->CreatePerson(1, 18, 5, 2, 4, 6, 3, 7);
+        const auto person = geoGrid->GetPopulation()->CreatePerson(0, 18, 5, 2, 4, 6, 3, 7);
         communityPool->AddMember(person);
         schoolPool->AddMember(person);
         secondaryCommunityPool->AddMember(person);
