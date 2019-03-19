@@ -12,6 +12,7 @@ import os
 import csv
 import sys
 import re
+import random
 import matplotlib.pyplot as plt
 
 from pystride.Event import Event, EventType
@@ -81,6 +82,7 @@ def runSimulation(level, outputPrefix):
         controller.runConfig.setParameter("num_days", sim_days)
         controller.runConfig.setParameter("output_prefix", outputPrefix + "_" + str(level))
         controller.runConfig.setParameter("seeding_rate", 0.00000334)
+        controller.runConfig.setParameter("rng_seed", random()) 
         controller.registerCallback(trackCases, EventType.Stepped)
         controller.control()
 
