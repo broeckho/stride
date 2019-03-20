@@ -65,9 +65,10 @@ inspect_transmission_data <- function(project_dir)
     
     
     # LOCATION
-    data_transm$cnt_location[data_transm$cnt_location == 'household'] <- 'HH'
-    data_transm$cnt_location[data_transm$cnt_location == 'primary_community'] <- 'com wknd'
-    data_transm$cnt_location[data_transm$cnt_location == 'secondary_community'] <- 'com week'
+    data_transm$cnt_location[data_transm$cnt_location == 'Household'] <- 'HH'
+    data_transm$cnt_location[data_transm$cnt_location == 'PrimaryCommunity'] <- 'com wknd'
+    data_transm$cnt_location[data_transm$cnt_location == 'SecondaryCommunity'] <- 'com week'
+    data_transm$cnt_location[data_transm$cnt_location == 'K12School'] <- 'school'
     
     # rename the cnt location for the "seed infected"
     num_transm_events <- nrow(data_transm)
@@ -114,12 +115,12 @@ inspect_transmission_data <- function(project_dir)
     infection_time <- merge(infection_time,infector_time, all.x = TRUE)
     
     
-    # secundary cases per local_id
+    # secondary cases per local_id
     tbl_infections <- table(data_transm$infector_id)
     data_infectors <- data.frame(local_id     = as.numeric(names(tbl_infections)),
                                  sec_cases    = as.numeric(tbl_infections))
     
-    # merge secundary cases with time of infection
+    # merge secondary cases with time of infection
     sec_transm    <- merge(infection_time,data_infectors,all=T)
     sec_transm$sec_cases[is.na(sec_transm$sec_cases)] <- 0
     
@@ -128,7 +129,7 @@ inspect_transmission_data <- function(project_dir)
     plot_ymax <- range(c(0,6,sec_transm$sec_cases))
     boxplot(sec_cases ~ infection_day, data = sec_transm, outline = F,
             at=sort(unique(sec_transm$infection_day)), xlim=plot_xlim,
-            xlab='day',ylab='secundary infections',
+            xlab='day',ylab='secondary infections',
             main='reproduction number',
             ylim=plot_ymax)
     
@@ -159,11 +160,16 @@ inspect_transmission_data <- function(project_dir)
     
     ## OUTBREAKS
     data_transm$outbreak_id <- as.numeric(as.factor(data_transm$id_index_case))
+    outbreak_size_data      <- as.numeric(table(data_transm$outbreak_id))
+    outbreak_size_breaks    <- c(1,2,5,10,20,50,max(c(100,outbreak_size_data+1)))
+    outbreak_size_cat       <- cut(outbreak_size_data,breaks=outbreak_size_breaks,right = F)
     
-    outbreak_size_data   <- as.numeric(table(data_transm$outbreak_id))
-    outbreak_size_breaks <- c(1,2,5,10,20,50,max(c(100,outbreak_size_data+1)))
-    outbreak_size_cat    <- cut(outbreak_size_data,breaks=outbreak_size_breaks,right = F)
+    # adjust labels
+    levels(outbreak_size_cat) <- paste0('[',outbreak_size_breaks[-length(outbreak_size_breaks)],',',outbreak_size_breaks[-1]-1,']')
+    levels(outbreak_size_cat)[1] <- "[1]"
     levels(outbreak_size_cat)[6] <- "[50,+]"
+    
+    # plot
     percentage_plot <- round(table(outbreak_size_cat)/length(outbreak_size_cat)*100)
     bplot <- barplot(percentage_plot,
                      ylab='%',
@@ -190,7 +196,7 @@ inspect_transmission_data <- function(project_dir)
     # take the inverse for the cummulative sum
     # and analyse the outbreaks over time
     tbl_all_inv  <- tbl_all_matrix[nrow(tbl_all_matrix):1,] 
-    if(typeof(tbl_all_inv)=="double"){
+    if(is.null(dim(tbl_all_inv))){
       tbl_all_cum  <- cumsum(tbl_all_inv)
       outbreaks_over_time <- data.frame(day = 1:length(tbl_all_cum),
                                         count = tbl_all_cum)
@@ -271,8 +277,8 @@ inspect_transmission_data <- function(project_dir)
     
     # plot the secondary incidence per age group
     barplot(inc_sec_case_age,
-            las=2,xlab='age',ylab='Secundary incidence',cex.names=0.8,
-            ylim=plot_ylim, main = 'Secundary incidence per outbreak \nby age group')
+            las=2,xlab='age',ylab='Secondary incidence',cex.names=0.8,
+            ylim=plot_ylim, main = 'Secondary incidence per outbreak \nby age group')
     
     
   } # end for-loop to vary the input_opt_design

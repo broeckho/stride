@@ -212,9 +212,19 @@ if(!(exists('.rstride'))){
 ###############################
 ## MATRIX OPERATIONS         ##
 ###############################
-
+# note: integers are converted to a string with the transpose operation of a mixed matrix...
+# so, separate the comparison for numeric and non-numeric types
 .rstride$get_equal_rows <- function(f_matrix,f_vector){
-  return(as.logical(colSums(t(f_matrix[,names(f_vector)]) == c(f_vector)) == length(f_vector)))
+  
+  # get numeric columns
+  col_numeric      <- unlist(lapply(f_vector,is.numeric))
+  
+  # compare
+  bool_numeric     <- as.logical(colSums(t(f_matrix[,names(f_vector)[col_numeric]]) == c(f_vector[col_numeric])) == sum(col_numeric))
+  bool_not_numeric <- as.logical(colSums(t(f_matrix[,names(f_vector)[!col_numeric]]) == c(f_vector[!col_numeric])) == sum(!col_numeric))
+  
+  # return combined result
+  return(bool_numeric & bool_not_numeric)
 }
 
 
@@ -460,6 +470,10 @@ if(!(exists('.rstride'))){
   
   # terminal message
   .rstride$cli_print('SET PROJECT DIR TO ', project_dir)
+  
+  # load rStride source code
+  source('bin/rstride/rStride.R')
+  .rstride$cli_print('rSTRIDE LOADED')
   
 }
 
