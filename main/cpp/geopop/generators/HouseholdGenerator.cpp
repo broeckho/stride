@@ -40,11 +40,17 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
+        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
 
         for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
                 const auto loc = geoGrid[dist()];
                 const auto h   = make_shared<ContactCenter>(ccCounter++, Id::Household);
-                SetupPools(*h, geoGridConfig, geoGrid.GetPopulation());
+
+                for (auto j = 0U; j < geoGridConfig.pools.pools_per_houselhold; ++j) {
+                        const auto p = poolSys.CreateContactPool(Id::Household);
+                        h->RegisterPool(p);
+                }
+
                 loc->AddCenter(h);
         }
 }

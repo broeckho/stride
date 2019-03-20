@@ -50,11 +50,17 @@ void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
+        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
 
         for (auto i = 0U; i < schoolCount; i++) {
                 const auto loc = geoGrid[dist()];
                 const auto k12 = make_shared<ContactCenter>(ccCounter++, Id::K12School);
-                SetupPools(*k12, geoGridConfig, geoGrid.GetPopulation());
+
+                for (auto j = 0U; j < geoGridConfig.pools.pools_per_k12school; ++j) {
+                        const auto p = poolSys.CreateContactPool(Id::K12School);
+                        k12->RegisterPool(p);
+                }
+
                 loc->AddCenter(k12);
         }
 }

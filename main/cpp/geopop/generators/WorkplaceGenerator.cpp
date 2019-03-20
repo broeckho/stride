@@ -61,17 +61,23 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
+        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = geoGrid[dist()];
                 const auto w   = make_shared<ContactCenter>(ccCounter++, Id::Workplace);
-                SetupPools(*w, geoGridConfig, geoGrid.GetPopulation());
+
+                // TODO CheckThisAlgorithm
+                // for (std::size_t j = 0; j < geoGridConfig.pools.pools_per_workplace; ++j) {
+                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
+                w->RegisterPool(p);
+                //}
+
                 loc->AddCenter(w);
         }
 }
 
-void WorkplaceGenerator::SetupPools(ContactCenter&      center, const GeoGridConfig& /* geoGridConfig */,
-                                    stride::Population* pop)
+void WorkplaceGenerator::SetupPools(ContactCenter& center, const GeoGridConfig&, stride::Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 

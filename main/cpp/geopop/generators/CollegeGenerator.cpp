@@ -57,11 +57,17 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
+        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
 
         for (auto i = 0U; i < collegeCount; i++) {
                 auto loc     = cities[dist()];
                 auto college = make_shared<ContactCenter>(ccCounter++, Id::College);
-                SetupPools(*college, geoGridConfig, geoGrid.GetPopulation());
+
+                for (auto j = 0U; j < geoGridConfig.pools.pools_per_college; ++j) {
+                        const auto p = poolSys.CreateContactPool(Id::College);
+                        college->RegisterPool(p);
+                }
+                
                 loc->AddCenter(college);
         }
 }

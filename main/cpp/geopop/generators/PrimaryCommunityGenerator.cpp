@@ -51,18 +51,25 @@ void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geo
                 weights.push_back(weight);
         }
 
-        // AssertThrow(!weights.empty(), "SecondaryCommunityGenerator> Cannot handle emplty weights.", m_logger);
         if (weights.empty()) {
                 // trng can't handle empty vectors
                 return;
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
+        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
                 const auto pc  = make_shared<ContactCenter>(ccCounter++, Id::PrimaryCommunity);
-                SetupPools(*pc, geoGridConfig, geoGrid.GetPopulation());
+
+                // TODO CheckThisAlgorithm
+                // for (std::size_t j = 0; j < geoGridConfig.pools.pools_per_community; ++j) {
+                if (pc->size() == 0) {
+                        const auto p = poolSys.CreateContactPool(Id::PrimaryCommunity);
+                        pc->RegisterPool(p);
+                }
+                
                 loc->AddCenter(pc);
         }
 }
