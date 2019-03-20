@@ -40,7 +40,7 @@ def createEffectiveRPlot(outputDir, R0, scenarioNames, scenarioDisplayNames,
 def createEffectiveROverviewPlot(outputDir, R0s, scenarioNames, scenarioDisplayNames,
     fractionSusceptibles, poolSize, xLabel, figName, stat="mean"):
     ax = plt.axes(projection="3d")
-    colors = ["blue", "orange", "green", "red", "purple", "brown"]
+    colors = ["blue", "orange", "pink", "green", "red", "purple", "brown", "magenta", "cyan", "firebrick"]
     expectedRs = []
     z = 0
     for R0 in R0s:
