@@ -45,7 +45,7 @@ void HouseholdPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
                         }
                 }
         }
-        m_logger->debug("Number of persons in households: {}", person_id);
+
         m_logger->trace("Done populating Households");
 }
 
