@@ -27,8 +27,7 @@ using namespace stride::ContactType;
 
 namespace geopop {
 
-void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
-                               IdSubscriptArray<unsigned int>& ccCounter)
+void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
 {
         vector<double> weights;
         for (const auto& loc : geoGrid) {
@@ -44,7 +43,7 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto h   = std::make_shared<ContactCenter>(ccCounter[Id::Household]++, Id::Household);
+                const auto h   = make_shared<ContactCenter>(ccCounter++, Id::Household);
                 SetupPools(*h, geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(h);
         }

@@ -33,8 +33,7 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
-                                      IdSubscriptArray<unsigned int>& ccCounter)
+void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
 {
         // 1. calculate number of communities, each community has average 2000 persons
         // 2. assign communities to a location using a discrete distribution reflecting the relative number of
@@ -62,7 +61,7 @@ void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geo
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto pc  = make_shared<ContactCenter>(ccCounter[Id::PrimaryCommunity]++, Id::PrimaryCommunity);
+                const auto pc  = make_shared<ContactCenter>(ccCounter++, Id::PrimaryCommunity);
                 SetupPools(*pc, geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(pc);
         }

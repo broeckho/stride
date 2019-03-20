@@ -16,7 +16,6 @@
 #include "geopop/generators/PrimaryCommunityGenerator.h"
 #include "geopop/generators/SecondaryCommunityGenerator.h"
 
-#include "../../createlogger.h"
 #include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
@@ -36,13 +35,12 @@ namespace {
 
 TEST(CommunityGeneratorTest, OneLocationTest)
 {
-        RnMan                       rnMan{RnInfo()}; // Default random number manager.
-        PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
-        SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
+        RnMan                       rnMan{RnInfo()};
+        PrimaryCommunityGenerator   pcGenerator(rnMan);
+        unsigned int                pcCounter{1U};
+        SecondaryCommunityGenerator scGenerator(rnMan);
+        unsigned int                scCounter{1U};
         GeoGridConfig               config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.input.pop_size = 10000;
 
         auto pop     = Population::Create();
@@ -55,11 +53,11 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         EXPECT_EQ(c1.size(), 0);
         EXPECT_EQ(c2.size(), 0);
 
-        pcGenerator.Apply(geoGrid, config, contactCenterCounter);
+        pcGenerator.Apply(geoGrid, config, pcCounter);
         EXPECT_EQ(c1.size(), 5);
         EXPECT_EQ(c2.size(), 0);
 
-        scGenerator.Apply(geoGrid, config, contactCenterCounter);
+        scGenerator.Apply(geoGrid, config, scCounter);
         EXPECT_EQ(c1.size(), 5);
         EXPECT_EQ(c2.size(), 5);
 }
@@ -67,12 +65,11 @@ TEST(CommunityGeneratorTest, OneLocationTest)
 TEST(CommunityGeneratorTest, EqualLocationTest)
 {
         RnMan                       rnMan{RnInfo()};
-        PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
-        SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
+        PrimaryCommunityGenerator   pcGenerator(rnMan);
+        unsigned int                pcCounter{1U};
+        SecondaryCommunityGenerator scGenerator(rnMan);
+        unsigned int                scCounter{1U};
         GeoGridConfig               config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.input.pop_size = 100 * 100 * 1000;
 
         auto pop     = Population::Create();
@@ -82,8 +79,8 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
                     make_shared<Location>(1, 4, Coordinate(0, 0), "Location " + to_string(i), 10 * 1000 * 1000));
         }
 
-        pcGenerator.Apply(geoGrid, config, contactCenterCounter);
-        scGenerator.Apply(geoGrid, config, contactCenterCounter);
+        pcGenerator.Apply(geoGrid, config, pcCounter);
+        scGenerator.Apply(geoGrid, config, scCounter);
 
         vector<int> expectedCount{1041, 1013, 940, 1004, 929, 1023, 959, 1077, 1005, 1009};
         for (int i = 0; i < 10; i++) {
@@ -96,19 +93,18 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 TEST(CommunityGeneratorTest, ZeroLocationTest)
 {
         RnMan                       rnMan{RnInfo()};
-        PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
-        SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
+        PrimaryCommunityGenerator   pcGenerator(rnMan);
+        unsigned int                pcCounter{1U};
+        SecondaryCommunityGenerator scGenerator(rnMan);
+        unsigned int                scCounter{1U};
         GeoGridConfig               config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.input.pop_size = 10000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
 
-        pcGenerator.Apply(geoGrid, config, contactCenterCounter);
-        scGenerator.Apply(geoGrid, config, contactCenterCounter);
+        pcGenerator.Apply(geoGrid, config, pcCounter);
+        scGenerator.Apply(geoGrid, config, scCounter);
 
         EXPECT_EQ(geoGrid.size(), 0);
 }
@@ -116,8 +112,10 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
 TEST(CommunityGeneratorTest, FiveLocationsTest)
 {
         RnMan                       rnMan{RnInfo()};
-        PrimaryCommunityGenerator   pcGenerator(rnMan, CreateTestLogger());
-        SecondaryCommunityGenerator scGenerator(rnMan, CreateTestLogger());
+        PrimaryCommunityGenerator   pcGenerator(rnMan);
+        unsigned int                pcCounter{1U};
+        SecondaryCommunityGenerator scGenerator(rnMan);
+        unsigned int                scCounter{1U};
         GeoGridConfig               config{};
 
         IdSubscriptArray<unsigned int> contactCenterCounter(1U);
@@ -138,31 +136,31 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         geoGrid.AddLocation(loc3);
         geoGrid.AddLocation(loc4);
         geoGrid.AddLocation(loc5);
-        pcGenerator.Apply(geoGrid, config, contactCenterCounter);
-        scGenerator.Apply(geoGrid, config, contactCenterCounter);
+        pcGenerator.Apply(geoGrid, config, pcCounter);
+        scGenerator.Apply(geoGrid, config, scCounter);
         {
-                const auto& c1 = loc1->RefCenters(Id::PrimaryCommunity);
-                const auto& c2 = loc1->RefCenters(Id::SecondaryCommunity);
+                const auto& c1 = loc1->CRefCenters(Id::PrimaryCommunity);
+                const auto& c2 = loc1->CRefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(c1.size() + c2.size(), 1101);
         }
         {
-                const auto& c1 = loc2->RefCenters(Id::PrimaryCommunity);
-                const auto& c2 = loc2->RefCenters(Id::SecondaryCommunity);
+                const auto& c1 = loc2->CRefCenters(Id::PrimaryCommunity);
+                const auto& c2 = loc2->CRefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(c1.size() + c2.size(), 1067);
         }
         {
-                const auto& c1 = loc3->RefCenters(Id::PrimaryCommunity);
-                const auto& c2 = loc3->RefCenters(Id::SecondaryCommunity);
+                const auto& c1 = loc3->CRefCenters(Id::PrimaryCommunity);
+                const auto& c2 = loc3->CRefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(c1.size() + c2.size(), 815);
         }
         {
-                const auto& c1 = loc4->RefCenters(Id::PrimaryCommunity);
-                const auto& c2 = loc4->RefCenters(Id::SecondaryCommunity);
+                const auto& c1 = loc4->CRefCenters(Id::PrimaryCommunity);
+                const auto& c2 = loc4->CRefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(c1.size() + c2.size(), 340);
         }
         {
-                const auto& c1 = loc5->RefCenters(Id::PrimaryCommunity);
-                const auto& c2 = loc5->RefCenters(Id::SecondaryCommunity);
+                const auto& c1 = loc5->CRefCenters(Id::PrimaryCommunity);
+                const auto& c2 = loc5->CRefCenters(Id::SecondaryCommunity);
                 EXPECT_EQ(c1.size() + c2.size(), 433);
         }
 }

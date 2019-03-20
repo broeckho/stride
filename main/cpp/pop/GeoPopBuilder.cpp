@@ -44,16 +44,18 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <spdlog/logger.h>
+#include <contact/ContactType.h>
 
 namespace stride {
 
 using namespace std;
 using namespace util;
+using namespace ContactType;
 using namespace boost::property_tree;
 using namespace geopop;
 
 GeoPopBuilder::GeoPopBuilder(const ptree& config, RnMan& rnMan, shared_ptr<spdlog::logger> strideLogger)
-    : AbstractPopBuilder(config, rnMan, move(strideLogger)), m_cc_counters(1U)
+    : AbstractPopBuilder(config, rnMan, move(strideLogger))
 {
 }
 
@@ -134,7 +136,8 @@ void GeoPopBuilder::MakeCenters(GeoGrid& geoGrid, const GeoGridConfig& geoGridCo
                                                  make_shared<HouseholdGenerator>(m_rn_man, m_stride_logger)};
 
         for (const auto& g : generators) {
-                g->Apply(geoGrid, geoGridConfig, m_cc_counters);
+                auto ccCounter = 1U;
+                g->Apply(geoGrid, geoGridConfig, ccCounter);
         }
 }
 

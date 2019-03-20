@@ -15,7 +15,6 @@
 
 #include "geopop/generators/HouseholdGenerator.h"
 
-#include "../../createlogger.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -35,11 +34,9 @@ namespace {
 TEST(HouseholdGeneratorTest, OneLocationTest)
 {
         RnMan              rnMan{RnInfo()}; // Default random number manager.
-        HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
+        HouseholdGenerator householdGenerator(rnMan);
+        unsigned int       ccCounter{1U};
         GeoGridConfig      config{};
-
-        ContactType::IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.popInfo.count_households = 4;
 
         auto pop     = Population::Create();
@@ -47,7 +44,7 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         geoGrid.AddLocation(loc1);
 
-        householdGenerator.Apply(geoGrid, config, contactCenterCounter);
+        householdGenerator.Apply(geoGrid, config, ccCounter);
 
         const auto& centersOfLoc1 = loc1->RefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc1.size(), 4);
@@ -55,29 +52,26 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
 
 TEST(HouseholdGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        HouseholdGenerator householdGenerator(rnMan);
+        unsigned int       ccCounter{1U};
         GeoGridConfig      config{};
-
-        ContactType::IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.popInfo.count_households = 4;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
-        householdGenerator.Apply(geoGrid, config, contactCenterCounter);
+
+        householdGenerator.Apply(geoGrid, config, ccCounter);
 
         EXPECT_EQ(geoGrid.size(), 0);
 }
 
 TEST(HouseholdGeneratorTest, FiveLocationsTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        HouseholdGenerator householdGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        HouseholdGenerator householdGenerator(rnMan);
+        unsigned int       ccCounter{1U};
         GeoGridConfig      config{};
-
-        ContactType::IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.popInfo.count_households = 4000;
         config.input.pop_size           = 37542 * 100;
 
@@ -100,7 +94,7 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
                                     static_cast<double>(config.input.pop_size));
         }
 
-        householdGenerator.Apply(geoGrid, config, contactCenterCounter);
+        householdGenerator.Apply(geoGrid, config, ccCounter);
 
         const auto& centersOfLoc1 = loc1->RefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc1.size(), 1179);

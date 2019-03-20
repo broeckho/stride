@@ -28,8 +28,7 @@ namespace geopop {
 using namespace std;
 using namespace stride::ContactType;
 
-void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
-                               IdSubscriptArray<unsigned int>& ccCounter)
+void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
 {
         // 1. active people count and the commuting people count are given
         // 2. count the workplaces, each workplace has an average of 20 employees
@@ -65,7 +64,7 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto w   = make_shared<ContactCenter>(ccCounter[Id::Workplace]++, Id::Workplace);
+                const auto w   = make_shared<ContactCenter>(ccCounter++, Id::Workplace);
                 SetupPools(*w, geoGridConfig, geoGrid.GetPopulation());
                 loc->AddCenter(w);
         }

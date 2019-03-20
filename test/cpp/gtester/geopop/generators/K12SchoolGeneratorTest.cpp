@@ -15,7 +15,6 @@
 
 #include "geopop/generators/K12SchoolGenerator.h"
 
-#include "../../createlogger.h"
 #include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
@@ -35,12 +34,10 @@ namespace {
 
 TEST(SchoolGeneratorTest, OneLocationTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        K12SchoolGenerator schoolGenerator(rnMan);
+        unsigned int       ccCounter{1U};
         GeoGridConfig      config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.input.pop_size             = 10000;
         config.popInfo.popcount_k12school = 2000;
 
@@ -49,38 +46,34 @@ TEST(SchoolGeneratorTest, OneLocationTest)
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         geoGrid.AddLocation(loc1);
 
-        schoolGenerator.Apply(geoGrid, config, contactCenterCounter);
+        schoolGenerator.Apply(geoGrid, config, ccCounter);
 
-        const auto& centersOfLoc1 = loc1->RefCenters(Id::K12School);
+        const auto& centersOfLoc1 = loc1->CRefCenters(Id::K12School);
         EXPECT_EQ(centersOfLoc1.size(), 4);
 }
 
 TEST(SchoolGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        K12SchoolGenerator schoolGenerator(rnMan);
+        unsigned int       ccCounter{1U};
         GeoGridConfig      config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.input.pop_size             = 10000;
         config.popInfo.popcount_k12school = 2000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
-        schoolGenerator.Apply(geoGrid, config, contactCenterCounter);
+        schoolGenerator.Apply(geoGrid, config, ccCounter);
 
         EXPECT_EQ(geoGrid.size(), 0);
 }
 
 TEST(SchoolGeneratorTest, FiveLocationsTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        K12SchoolGenerator schoolGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        K12SchoolGenerator schoolGenerator(rnMan);
+        unsigned int       ccCounter{1U};
         GeoGridConfig      config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.input.pop_size             = 37542 * 100;
         config.popInfo.popcount_k12school = 750840;
 
@@ -103,21 +96,21 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
                                     static_cast<double>(config.input.pop_size));
         }
 
-        schoolGenerator.Apply(geoGrid, config, contactCenterCounter);
+        schoolGenerator.Apply(geoGrid, config, ccCounter);
 
-        const auto& centersOfLoc1 = loc1->RefCenters(Id::K12School);
+        const auto& centersOfLoc1 = loc1->CRefCenters(Id::K12School);
         EXPECT_EQ(centersOfLoc1.size(), 444);
 
-        const auto& centersOfLoc2 = loc2->RefCenters(Id::K12School);
+        const auto& centersOfLoc2 = loc2->CRefCenters(Id::K12School);
         EXPECT_EQ(centersOfLoc2.size(), 416);
 
-        const auto& centersOfLoc3 = loc3->RefCenters(Id::K12School);
+        const auto& centersOfLoc3 = loc3->CRefCenters(Id::K12School);
         EXPECT_EQ(centersOfLoc3.size(), 330);
 
-        const auto& centersOfLoc4 = loc4->RefCenters(Id::K12School);
+        const auto& centersOfLoc4 = loc4->CRefCenters(Id::K12School);
         EXPECT_EQ(centersOfLoc4.size(), 133);
 
-        const auto& centersOfLoc5 = loc5->RefCenters(Id::K12School);
+        const auto& centersOfLoc5 = loc5->CRefCenters(Id::K12School);
         EXPECT_EQ(centersOfLoc5.size(), 179);
 }
 

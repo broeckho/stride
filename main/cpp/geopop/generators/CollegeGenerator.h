@@ -28,8 +28,7 @@ public:
         using Generator::Generator;
 
         /// see @Generator::Apply
-        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig,
-                   stride::ContactType::IdSubscriptArray<unsigned int>& ccCounter) override;
+        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) override;
 
         /// see @Generator::SetupPools.
         void SetupPools(ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop) override;

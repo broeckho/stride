@@ -15,7 +15,6 @@
 
 #include "geopop/generators/WorkplaceGenerator.h"
 
-#include "../../createlogger.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -35,8 +34,9 @@ namespace {
 
 TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        WorkplaceGenerator workplaceGenerator(rnMan);
+        unsigned int       ccCounter{1U};
         GeoGridConfig      config{};
 
         IdSubscriptArray<unsigned int> contactCenterCounter(1U);
@@ -46,18 +46,17 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
-        workplaceGenerator.Apply(geoGrid, config, contactCenterCounter);
+        workplaceGenerator.Apply(geoGrid, config, ccCounter);
 
         EXPECT_EQ(geoGrid.size(), 0);
 }
 
 TEST(WorkplaceGeneratorTest, NoCommuting)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        WorkplaceGenerator workplaceGenerator(rnMan);
+        unsigned int       ccCounter{1U};
         GeoGridConfig      config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
@@ -76,7 +75,7 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
                 geoGrid.AddLocation(make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size));
         }
 
-        workplaceGenerator.Apply(geoGrid, config, contactCenterCounter);
+        workplaceGenerator.Apply(geoGrid, config, ccCounter);
 
         vector<int> expectedWorkplaceCount{1342, 512,  1948, 1801, 1919, 1087, 1304, 6,    1133, 1728, 646,  441,  450,
                                            1643, 1897, 1410, 810,  382,  1192, 1688, 1691, 161,  204,  1433, 1796, 1187,
@@ -90,11 +89,10 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
 
 TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        WorkplaceGenerator workplaceGenerator(rnMan);
+        unsigned int       ccCounter{1U};
         GeoGridConfig      config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
@@ -128,24 +126,23 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 
         // -> shouldn't change the test outcome in comparision with the previous test
 
-        workplaceGenerator.Apply(geoGrid, config, contactCenterCounter);
+        workplaceGenerator.Apply(geoGrid, config, ccCounter);
 
         vector<int> expectedWorkplaceCount{1351, 521,  1960, 1798, 1907, 1088, 1301, 5,    1134, 1739, 644,  431,  447,
                                            1650, 1894, 1409, 809,  377,  1198, 1685, 1692, 155,  210,  1430, 1793, 1191,
                                            1449, 203,  1536, 928,  446,  1754, 1169, 263,  1194, 1456, 1058, 594,  793,
                                            869,  1356, 591,  105,  1297, 136,  95,   139,  499,  588,  1663};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid[i]->RefCenters(Id::Workplace).size());
+                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid[i]->CRefCenters(Id::Workplace).size());
         }
 }
 
 TEST(WorkplaceGeneratorTest, TenCommuting)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        WorkplaceGenerator workplaceGenerator(rnMan, CreateTestLogger());
+        RnMan              rnMan{RnInfo()};
+        WorkplaceGenerator workplaceGenerator(rnMan);
+        unsigned int       ccCounter{1U};
         GeoGridConfig      config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
 
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
@@ -211,7 +208,7 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
         // = 0,10 * (0,65 * 76946 + 0,22  * 141389 + 0,47 * 20775 + 0,25* 63673) = 10680,298
         EXPECT_EQ(10680, geoGrid[17]->GetIncomingCommuteCount(config.input.fraction_workplace_commuters));
 
-        workplaceGenerator.Apply(geoGrid, config, contactCenterCounter);
+        workplaceGenerator.Apply(geoGrid, config, ccCounter);
 
         vector<int> expectedWorkplaceCount{1328, 516,  1941, 1850, 1906, 1087, 1297, 6,    1132, 1727, 671,  428,  447,
                                            1647, 1896, 1394, 810,  464,  1220, 1682, 1672, 149,  211,  1423, 1802, 1185,
@@ -219,7 +216,7 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
                                            873,  1355, 589,  101,  1291, 142,  93,   132,  507,  584,  1659};
         ;
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid[i]->RefCenters(Id::Workplace).size());
+                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid[i]->CRefCenters(Id::Workplace).size());
         }
 
         cout << endl;

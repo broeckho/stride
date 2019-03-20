@@ -47,7 +47,6 @@ set(SRC
     UnitSlice1.cpp
     UnitSlice2.cpp
     #---
-    createlogger.h
     #---
     geopop/generators/CollegeGeneratorTest.cpp
     geopop/generators/CommunityGeneratorTest.cpp

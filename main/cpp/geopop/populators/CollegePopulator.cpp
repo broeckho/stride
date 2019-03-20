@@ -54,8 +54,8 @@ void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
                 vector<Location*> commutingCollege;
                 vector<double>    commutingWeights;
                 for (const auto& commute : loc->CRefOutgoingCommutes()) {
-                        const auto& highSchools = commute.first->RefCenters(Id::College);
-                        if (!highSchools.empty()) {
+                        const auto& college = commute.first->RefCenters(Id::College);
+                        if (!college.empty()) {
                                 commutingCollege.push_back(commute.first);
                                 commutingWeights.push_back(commute.second);
                         }
