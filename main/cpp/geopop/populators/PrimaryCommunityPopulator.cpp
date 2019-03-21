@@ -33,8 +33,13 @@ void PrimaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                 if (loc->GetPopCount() == 0) {
                         continue;
                 }
+
                 // 1. find all communities in an area of 10-k*10 km
                 const auto nearbyPools = GetNearbyPools(Id::PrimaryCommunity, geoGrid, *loc);
+
+                if (nearbyPools.empty()) { //apparently no commumity pools present, so nothing to populate
+                        return;
+                }
 
                 // 2. for every household assign a community
                 const auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearbyPools.size()), 0U);

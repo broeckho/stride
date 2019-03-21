@@ -82,7 +82,7 @@ void PrimaryCommunityGenerator::SetupPools(Location& loc, ContactCenter& center,
         // TODO CheckThisAlgorithm
         // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
         if (center.size() == 0) {
-                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::PrimaryCommunity);
+                const auto p = poolSys.CreateContactPool(Id::PrimaryCommunity);
                 center.RegisterPool(p);
                 loc.RegisterPool<Id::PrimaryCommunity>(p);
         }
