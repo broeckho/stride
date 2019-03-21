@@ -48,7 +48,6 @@ void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount,
         GeoGridConfig                  config{};
         auto&                          geoGrid = pop->RefGeoGrid();
         RnMan                          rnMan(RnInfo{});
-        IdSubscriptArray<unsigned int> ccCounter(1U);
         K12SchoolGenerator             k12Gen(rnMan);
         HouseholdGenerator             hhGen(rnMan);
 
@@ -60,13 +59,13 @@ void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount,
                 for (int schI = 0; schI < schoolCount; schI++) {
                         auto k12School =
                             make_shared<ContactCenter>(stoi(to_string(locI) + to_string(schI)), Id::K12School);
-                        k12Gen.SetupPools(*k12School, config, pop);
+                        k12Gen.SetupPools(*loc, *k12School, config, pop);
                         loc->AddCenter(k12School);
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {
                         auto hCenter = make_shared<ContactCenter>(stoi(to_string(locI) + to_string(hI)), Id::Household);
-                        hhGen.SetupPools(*hCenter, config, pop);
+                        hhGen.SetupPools(*loc, *hCenter, config, pop);
                         auto contactPool = (*hCenter)[0];
 
                         for (int i = 0; i < personCount; i++) {

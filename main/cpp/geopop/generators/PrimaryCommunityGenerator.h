@@ -31,7 +31,8 @@ public:
         void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) override;
 
         /// see @Generator::SetupPools.
-        void SetupPools(ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop) override;
+        void SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+                        stride::Population* pop) override;
 };
 
 } // namespace geopop

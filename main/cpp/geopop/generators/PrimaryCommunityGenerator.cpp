@@ -75,7 +75,7 @@ void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geo
         }
 }
 
-void PrimaryCommunityGenerator::SetupPools(ContactCenter& center, const GeoGridConfig&, Population* pop)
+void PrimaryCommunityGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig&, Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 
@@ -84,6 +84,7 @@ void PrimaryCommunityGenerator::SetupPools(ContactCenter& center, const GeoGridC
         if (center.size() == 0) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::PrimaryCommunity);
                 center.RegisterPool(p);
+                loc.RegisterPool<Id::College>(p);
         }
 }
 

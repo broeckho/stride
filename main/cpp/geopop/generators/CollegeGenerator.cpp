@@ -73,13 +73,15 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
         }
 }
 
-void CollegeGenerator::SetupPools(ContactCenter& center, const GeoGridConfig& geoGridConfig, Population* pop)
+void CollegeGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+                                  Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 
         for (auto i = 0U; i < geoGridConfig.pools.pools_per_college; ++i) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::College);
                 center.RegisterPool(p);
+                loc.RegisterPool<Id::College>(p);
         }
 }
 

@@ -66,13 +66,15 @@ void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 }
 
-void K12SchoolGenerator::SetupPools(ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop)
+void K12SchoolGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+                                    stride::Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 
         for (auto i = 0U; i < geoGridConfig.pools.pools_per_k12school; ++i) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::K12School);
                 center.RegisterPool(p);
+                loc.RegisterPool<Id::College>(p);
         }
 }
 

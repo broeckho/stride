@@ -31,6 +31,7 @@ namespace geopop {
 class GeoGrid;
 class GeoGridConfig;
 class ContactCenter;
+class Location;
 
 /**
  * An interface base class for generators that provide geo data and apply it onto the GeoGrid.
@@ -48,7 +49,8 @@ public:
         virtual void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) = 0;
 
         /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
-        virtual void SetupPools(ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop) = 0;
+        virtual void SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+                                stride::Population* pop) = 0;
 
 protected:
         stride::util::RnMan             m_rn_man; ///< RnManager used by generators.

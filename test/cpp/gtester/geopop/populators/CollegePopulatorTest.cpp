@@ -72,19 +72,19 @@ TEST(CollegePopulatorTest, NoStudents)
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto collegeBra = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeBra, config, geoGrid.GetPopulation());
+        collegeGen.SetupPools(*brasschaat, *collegeBra, config, geoGrid.GetPopulation());
         brasschaat->AddCenter(collegeBra);
 
         auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto collegeScho = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeScho, config, geoGrid.GetPopulation());
+        collegeGen.SetupPools(*schoten, *collegeScho, config, geoGrid.GetPopulation());
         schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto collegeKort = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeKort, config, geoGrid.GetPopulation());
+        collegeGen.SetupPools(*kortrijk, *collegeKort, config, geoGrid.GetPopulation());
         kortrijk->AddCenter(collegeKort);
 
         geoGrid.Finalize();
@@ -117,19 +117,19 @@ TEST(CollegePopulatorTest, NotCommuting)
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto collegeBra = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeBra, config, pop.get());
+        collegeGen.SetupPools(*brasschaat, *collegeBra, config, pop.get());
         brasschaat->AddCenter(collegeBra);
 
         auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto collegeScho = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeScho, config, pop.get());
+        collegeGen.SetupPools(*schoten, *collegeScho, config, pop.get());
         schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto collegeKort = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeKort, config, pop.get());
+        collegeGen.SetupPools(*kortrijk, *collegeKort, config, pop.get());
         kortrijk->AddCenter(collegeKort);
 
         geoGrid.Finalize();
@@ -234,13 +234,13 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         auto schoten = *(geoGrid.begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto collegeScho = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeScho, config, pop.get());
+        collegeGen.SetupPools(*schoten, *collegeScho, config, pop.get());
         schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid.begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto collegeKort = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeKort, config, pop.get());
+        collegeGen.SetupPools(*kortrijk, *collegeKort, config, pop.get());
         kortrijk->AddCenter(collegeKort);
 
         schoten->AddOutgoingCommute(kortrijk, 0.5);
@@ -296,30 +296,28 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto collegeBra = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeBra, config, pop.get());
+        collegeGen.SetupPools(*brasschaat, *collegeBra, config, pop.get());
         brasschaat->AddCenter(collegeBra);
 
         auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto collegeScho = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeScho, config, pop.get());
+        collegeGen.SetupPools(*schoten, *collegeScho, config, pop.get());
         schoten->AddCenter(collegeScho);
 
         auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto collegeKort = make_shared<ContactCenter>(contactCenterCounter++, Id::College);
-        collegeGen.SetupPools(*collegeKort, config, pop.get());
+        collegeGen.SetupPools(*kortrijk, *collegeKort, config, pop.get());
         kortrijk->AddCenter(collegeKort);
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat
         schoten->AddOutgoingCommute(kortrijk, 0.5);
         kortrijk->AddIncomingCommute(schoten, 0.5);
-
         kortrijk->AddOutgoingCommute(schoten, 0.5);
         schoten->AddIncomingCommute(kortrijk, 0.5);
 
         geoGrid.Finalize();
-
         populator.Apply(geoGrid, config);
 
         const auto ppc = GeoGridConfig().pools.pools_per_college;

@@ -56,13 +56,15 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 }
 
-void HouseholdGenerator::SetupPools(ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop)
+void HouseholdGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+                                    stride::Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 
         for (auto i = 0U; i < geoGridConfig.pools.pools_per_household; ++i) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Household);
                 center.RegisterPool(p);
+                loc.RegisterPool<Id::College>(p);
         }
 }
 

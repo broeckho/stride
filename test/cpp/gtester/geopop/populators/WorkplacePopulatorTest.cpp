@@ -97,29 +97,32 @@ TEST(WorkplacePopulatorTest, NoCommuting)
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
         // Kortrijk will only receive students from Kortrijik
+
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto workBra1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workBra1, config, pop.get());
+        wpGen.SetupPools(*brasschaat, *workBra1, config, pop.get());
         brasschaat->AddCenter(workBra1);
         auto workBra2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workBra2, config, pop.get());
+        wpGen.SetupPools(*brasschaat, *workBra2, config, pop.get());
         brasschaat->AddCenter(workBra2);
+
         auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto workScho1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workScho1, config, pop.get());
+        wpGen.SetupPools(*schoten, *workScho1, config, pop.get());
         schoten->AddCenter(workScho1);
         auto workScho2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workScho2, config, pop.get());
+        wpGen.SetupPools(*schoten, *workScho2, config, pop.get());
         schoten->AddCenter(workScho2);
+
         auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto workKor1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workKor1, config, pop.get());
+        wpGen.SetupPools(*kortrijk, *workKor1, config, pop.get());
         kortrijk->AddCenter(workKor1);
         auto workKor2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workKor2, config, pop.get());
+        wpGen.SetupPools(*kortrijk, *workKor2, config, pop.get());
         kortrijk->AddCenter(workKor2);
 
         geoGrid.Finalize();
@@ -192,20 +195,20 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         // only commuting
         auto schoten = *(geoGrid.begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-
         auto workScho1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workScho1, config, pop.get());
+        wpGen.SetupPools(*schoten, *workScho1, config, pop.get());
         schoten->AddCenter(workScho1);
         auto workScho2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workScho2, config, pop.get());
+        wpGen.SetupPools(*schoten, *workScho2, config, pop.get());
         schoten->AddCenter(workScho2);
+
         auto kortrijk = *(geoGrid.begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto workKor1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workKor1, config, pop.get());
+        wpGen.SetupPools(*kortrijk, *workKor1, config, pop.get());
         kortrijk->AddCenter(workKor1);
         auto workKor2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workKor2, config, pop.get());
+        wpGen.SetupPools(*kortrijk, *workKor2, config, pop.get());
         kortrijk->AddCenter(workKor2);
 
         schoten->AddOutgoingCommute(kortrijk, 0.5);
@@ -270,26 +273,28 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         auto brasschaat = *geoGrid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto workBra1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workBra1, config, pop.get());
+        wpGen.SetupPools(*brasschaat, *workBra1, config, pop.get());
         brasschaat->AddCenter(workBra1);
         auto workBra2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workBra2, config, pop.get());
+        wpGen.SetupPools(*brasschaat, *workBra2, config, pop.get());
         brasschaat->AddCenter(workBra2);
+
         auto schoten = *(geoGrid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto workScho1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workScho1, config, pop.get());
+        wpGen.SetupPools(*schoten, *workScho1, config, pop.get());
         schoten->AddCenter(workScho1);
         auto workScho2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workScho2, config, pop.get());
+        wpGen.SetupPools(*schoten, *workScho2, config, pop.get());
         schoten->AddCenter(workScho2);
+
         auto kortrijk = *(geoGrid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
         auto workKor1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workKor1, config, pop.get());
+        wpGen.SetupPools(*kortrijk, *workKor1, config, pop.get());
         kortrijk->AddCenter(workKor1);
         auto workKor2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        wpGen.SetupPools(*workKor2, config, pop.get());
+        wpGen.SetupPools(*kortrijk, *workKor2, config, pop.get());
         kortrijk->AddCenter(workKor2);
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat
