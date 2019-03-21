@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2019, Jan Broeckhove.
  */
 
 #include "geopop/generators/HouseholdGenerator.h"
@@ -105,35 +105,12 @@ TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
         unsigned int       ccCounter{1U};
         m_household_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
 
-        const auto& centersOfLoc1 = loc1->CRefCenters(Id::Household);
-        EXPECT_EQ(centersOfLoc1.size(), 1179);
-
-        const auto& centersOfLoc2 = loc2->CRefCenters(Id::Household);
-        EXPECT_EQ(centersOfLoc2.size(), 1137);
-
-        const auto& centersOfLoc3 = loc3->CRefCenters(Id::Household);
-        EXPECT_EQ(centersOfLoc3.size(), 868);
-
-        const auto& centersOfLoc4 = loc4->CRefCenters(Id::Household);
-        EXPECT_EQ(centersOfLoc4.size(), 358);
-
-        const auto& centersOfLoc5 = loc5->CRefCenters(Id::Household);
-        EXPECT_EQ(centersOfLoc5.size(), 458);
-
-        const auto& poolsOfLoc1 = loc1->CRefPools(Id::Household);
-        EXPECT_EQ(poolsOfLoc1.size(), 1179);
-
-        const auto& poolsOfLoc2 = loc2->CRefPools(Id::Household);
-        EXPECT_EQ(poolsOfLoc2.size(), 1137);
-
-        const auto& poolsOfLoc3 = loc3->CRefPools(Id::Household);
-        EXPECT_EQ(poolsOfLoc3.size(), 868);
-
-        const auto& poolsOfLoc4 = loc4->CRefPools(Id::Household);
-        EXPECT_EQ(poolsOfLoc4.size(), 358);
-
-        const auto& poolsOfLoc5 = loc5->CRefPools(Id::Household);
-        EXPECT_EQ(poolsOfLoc5.size(), 458);
+        vector<unsigned int> sizes{1179, 1137, 868, 358, 458};
+        for (size_t i = 0; i < sizes.size(); i++) {
+                EXPECT_EQ(sizes[i], m_geo_grid[i]->CRefCenters(Id::Household).size());
+                EXPECT_EQ(sizes[i] * m_geogrid_config.pools.pools_per_household,
+                          m_geo_grid[i]->CRefPools(Id::Household).size() );
+        }
 }
 
 } // namespace
