@@ -67,12 +67,13 @@ set(SRC
     #---
     geopop/kdtree.cpp
     #---
-    geopop/populators/CommunityPopulatorTests.cpp
+    geopop/populators/createGeogrid.cpp
     geopop/populators/CollegePopulatorTest.cpp
     geopop/populators/HouseholdPopulatorTest.cpp
     geopop/populators/K12SchoolPopulatorTest.cpp
+    geopop/populators/PrimaryCommunityPopulatorTests.cpp
+    geopop/populators/SecondaryCommunityPopulatorTests.cpp
     geopop/populators/WorkplacePopulatorTest.cpp
-    geopop/populators/createGeogrid.cpp
     #---
     myhayai/DeliveryMan.cpp
     myhayai/MyhayaiTests.cpp
