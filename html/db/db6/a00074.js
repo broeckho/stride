@@ -1,5 +1,4 @@
 var a00074 =
 [
-    [ "AgeContactProfile", "db/db6/a00074.html#abcac910ea28f2cefae9efd6f462aa34d", null ],
-    [ "AgeContactProfile", "db/db6/a00074.html#a664eb15ad31c205050674e663f94129b", null ]
+    [ "AsInitializerList", "db/db6/a00074.html#ab4b205c0dbb43287d21de4dc938e5a68", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::HouseholdGenerator Class Reference</title>
+<title>Stride Reference Manual: geopop::kd::Node&lt; P, D &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -108,121 +108,408 @@ $(document).ready(function(){initNavTree('d0/dc0/a00033.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../df/d0e/a00800.html">List of all members</a>  </div>
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="../../d3/db4/a00823.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::HouseholdGenerator Class Reference</div>  </div>
+<div class="title">geopop::kd::Node&lt; P, D &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="../../dd/d1b/a00015.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid...">Generator</a> Household contact pools.  
+<p>A node in the <a class="el" href="../../db/df3/a00034.html" title="A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for effi...">KdTree</a> (parameter P: the type of point, parameter D: dimension this node splits on).  
  <a href="../../d0/dc0/a00033.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d3/d42/a00235_source.html">HouseholdGenerator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for geopop::HouseholdGenerator:</div>
+Inheritance diagram for geopop::kd::Node&lt; P, D &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d0a/a00801.gif" border="0" usemap="#geopop_1_1HouseholdGenerator_inherit__map" alt="Inheritance graph"/></div>
-<map name="geopop_1_1HouseholdGenerator_inherit__map" id="geopop_1_1HouseholdGenerator_inherit__map">
-<area shape="rect" id="node2" href="../../dd/d1b/a00015.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid..." alt="" coords="39,5,182,127"/>
+<div class="center"><img src="../../d8/d1c/a00824.gif" border="0" usemap="#geopop_1_1kd_1_1Node_3_01P_00_01D_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="geopop_1_1kd_1_1Node_3_01P_00_01D_01_4_inherit__map" id="geopop_1_1kd_1_1Node_3_01P_00_01D_01_4_inherit__map">
+<area shape="rect" id="node3" href="../../d0/dc0/a00033.html" title="{geopop::kd::Node\&lt; geogrid\l_detail::KdTree2DPoint, 0 \&gt;\n|&#45; m_point\l&#45; m_left\l&#45; m_right\l|+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="5,463,204,657"/>
+<area shape="rect" id="node4" href="../../d0/dc0/a00033.html" title="{geopop::kd::Node\&lt; P, 0 \&gt;\n|&#45; m_point\l&#45; m_left\l&#45; m_right\l|+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="229,470,418,650"/>
+<area shape="rect" id="node2" href="../../d7/d46/a00002.html" title="A base class for all instantiations of a Node with D. " alt="" coords="111,5,317,156"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for geopop::HouseholdGenerator:</div>
+Collaboration diagram for geopop::kd::Node&lt; P, D &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/dcd/a00802.gif" border="0" usemap="#geopop_1_1HouseholdGenerator_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1HouseholdGenerator_coll__map" id="geopop_1_1HouseholdGenerator_coll__map">
-<area shape="rect" id="node2" href="../../dd/d1b/a00015.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid..." alt="" coords="84,417,227,524"/>
-<area shape="rect" id="node4" href="../../da/d72/a00124.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,145,381,355"/>
+<div class="center"><img src="../../dd/d5f/a00825.gif" border="0" usemap="#geopop_1_1kd_1_1Node_3_01P_00_01D_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1kd_1_1Node_3_01P_00_01D_01_4_coll__map" id="geopop_1_1kd_1_1Node_3_01P_00_01D_01_4_coll__map">
+<area shape="rect" id="node2" href="../../d7/d46/a00002.html" title="A base class for all instantiations of a Node with D. " alt="" coords="163,5,368,156"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="5,255,160,333"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0625ad05baa51d70848523f5b7ac9793"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#a0625ad05baa51d70848523f5b7ac9793">Apply</a> (<a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &amp;geogrid, const <a class="el" href="../../d7/de0/a00022.html">GeoGridConfig</a> &amp;geoGridConfig, <a class="el" href="../../d7/df7/a00058.html">stride::ContactType::IdSubscriptArray</a>&lt; unsigned int &gt; &amp;ccCounter) override</td></tr>
-<tr class="memdesc:a0625ad05baa51d70848523f5b7ac9793"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the contact centers for a pool type (fixed in implementation) to the geogrid.  <a href="#a0625ad05baa51d70848523f5b7ac9793">More...</a><br /></td></tr>
-<tr class="separator:a0625ad05baa51d70848523f5b7ac9793"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00015"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00015')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../dd/d1b/a00015.html">geopop::Generator</a></td></tr>
-<tr class="memitem:abfb8338be9949140ff2da20f2883476e inherit pub_methods_a00015"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1b/a00015.html#abfb8338be9949140ff2da20f2883476e">Generator</a> (<a class="el" href="../../da/d72/a00124.html">stride::util::RnMan</a> rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
-<tr class="memdesc:abfb8338be9949140ff2da20f2883476e inherit pub_methods_a00015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with random number manager and logger.  <a href="#abfb8338be9949140ff2da20f2883476e">More...</a><br /></td></tr>
-<tr class="separator:abfb8338be9949140ff2da20f2883476e inherit pub_methods_a00015"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00015"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1b/a00015.html#abf1362cb66b511c7c7fba7feb4fc70f1">~Generator</a> ()=default</td></tr>
-<tr class="memdesc:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#abf1362cb66b511c7c7fba7feb4fc70f1">More...</a><br /></td></tr>
-<tr class="separator:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f4b98d53147785c559a5589ae2bdc98"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#a3f4b98d53147785c559a5589ae2bdc98">Node</a> (P pt)</td></tr>
+<tr class="separator:a3f4b98d53147785c559a5589ae2bdc98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a855737875c4699cc13d0de4e5f125dbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#a855737875c4699cc13d0de4e5f125dbc">BorrowLeft</a> () const override</td></tr>
+<tr class="memdesc:a855737875c4699cc13d0de4e5f125dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the left child (nullptr if no such child).  <a href="#a855737875c4699cc13d0de4e5f125dbc">More...</a><br /></td></tr>
+<tr class="separator:a855737875c4699cc13d0de4e5f125dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addda626c2df6d7e051a1f4fc9d13bd7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#addda626c2df6d7e051a1f4fc9d13bd7f">BorrowRight</a> () const override</td></tr>
+<tr class="memdesc:addda626c2df6d7e051a1f4fc9d13bd7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the right child (nullptr if no such child).  <a href="#addda626c2df6d7e051a1f4fc9d13bd7f">More...</a><br /></td></tr>
+<tr class="separator:addda626c2df6d7e051a1f4fc9d13bd7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a7604ed3cfbefb8ab1aded6d498e2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt; P &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#a46a7604ed3cfbefb8ab1aded6d498e2d">BorrowSplitChild</a> (const P &amp;point) const override</td></tr>
+<tr class="memdesc:a46a7604ed3cfbefb8ab1aded6d498e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a non-owning pointer to the child corresponding to the correct split for point.  <a href="#a46a7604ed3cfbefb8ab1aded6d498e2d">More...</a><br /></td></tr>
+<tr class="separator:a46a7604ed3cfbefb8ab1aded6d498e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4df06059bf9a335d0dd05c427631ab1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#a4df06059bf9a335d0dd05c427631ab1d">AddChild</a> (P point) override</td></tr>
+<tr class="memdesc:a4df06059bf9a335d0dd05c427631ab1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new child in the right place, according to split.  <a href="#a4df06059bf9a335d0dd05c427631ab1d">More...</a><br /></td></tr>
+<tr class="separator:a4df06059bf9a335d0dd05c427631ab1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21d7c9706a215ff6afd49d1216526f5e"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#a21d7c9706a215ff6afd49d1216526f5e">GetPoint</a> () const override</td></tr>
+<tr class="memdesc:a21d7c9706a215ff6afd49d1216526f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the point for this node.  <a href="#a21d7c9706a215ff6afd49d1216526f5e">More...</a><br /></td></tr>
+<tr class="separator:a21d7c9706a215ff6afd49d1216526f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00002"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00002')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d7/d46/a00002.html">geopop::kd::BaseNode&lt; P &gt;</a></td></tr>
+<tr class="memitem:a228daa8a108dd960bc1b6d4e7ee06857 inherit pub_methods_a00002"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#a228daa8a108dd960bc1b6d4e7ee06857">~BaseNode</a> ()=default</td></tr>
+<tr class="separator:a228daa8a108dd960bc1b6d4e7ee06857 inherit pub_methods_a00002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00015"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00015')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../dd/d1b/a00015.html">geopop::Generator</a></td></tr>
-<tr class="memitem:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00015"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d72/a00124.html">stride::util::RnMan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1b/a00015.html#af8316a93aaae7285075fd5f5d89d8c32">m_rn_man</a></td></tr>
-<tr class="memdesc:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00015"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#af8316a93aaae7285075fd5f5d89d8c32">More...</a><br /></td></tr>
-<tr class="separator:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00015"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00015"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1b/a00015.html#a4bb1600be2268f8a580517daf62b1944">m_logger</a></td></tr>
-<tr class="memdesc:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a4bb1600be2268f8a580517daf62b1944">More...</a><br /></td></tr>
-<tr class="separator:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:ad244e4625f1d75bcd3ad52dde9bd1443"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#ad244e4625f1d75bcd3ad52dde9bd1443">Child</a> = <a class="el" href="../../d0/dc0/a00033.html">Node</a>&lt; P,(D+1)%P::dim &gt;</td></tr>
+<tr class="separator:ad244e4625f1d75bcd3ad52dde9bd1443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a07234c42f63e763fd53d6f41ab385950"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#a07234c42f63e763fd53d6f41ab385950">m_point</a></td></tr>
+<tr class="separator:a07234c42f63e763fd53d6f41ab385950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3372794f67abd8d0d3dc8f63cd94913e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../d0/dc0/a00033.html#ad244e4625f1d75bcd3ad52dde9bd1443">Child</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#a3372794f67abd8d0d3dc8f63cd94913e">m_left</a></td></tr>
+<tr class="separator:a3372794f67abd8d0d3dc8f63cd94913e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bf28b75d0a2154828f3690a13cf492e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../d0/dc0/a00033.html#ad244e4625f1d75bcd3ad52dde9bd1443">Child</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#a8bf28b75d0a2154828f3690a13cf492e">m_right</a></td></tr>
+<tr class="separator:a8bf28b75d0a2154828f3690a13cf492e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a0d8dc73ff7f8bb9d7b6db0adc4509640"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#a0d8dc73ff7f8bb9d7b6db0adc4509640">KdTree&lt; P &gt;</a></td></tr>
+<tr class="separator:a0d8dc73ff7f8bb9d7b6db0adc4509640"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="../../dd/d1b/a00015.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid...">Generator</a> Household contact pools. </p>
+<div class="textblock"><h3>template&lt;typename P, std::size_t D&gt;<br />
+class geopop::kd::Node&lt; P, D &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d3/d42/a00235_source.html#l00027">27</a> of file <a class="el" href="../../d3/d42/a00235_source.html">HouseholdGenerator.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a0625ad05baa51d70848523f5b7ac9793"></a>
+<p>A node in the <a class="el" href="../../db/df3/a00034.html" title="A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for effi...">KdTree</a> (parameter P: the type of point, parameter D: dimension this node splits on). </p>
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00058">58</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="ad244e4625f1d75bcd3ad52dde9bd1443"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void geopop::HouseholdGenerator::Apply </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &amp;&#160;</td>
-          <td class="paramname"><em>geogrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d7/de0/a00022.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/df7/a00058.html">stride::ContactType::IdSubscriptArray</a>&lt; unsigned int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ccCounter</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">using <a class="el" href="../../d0/dc0/a00033.html">geopop::kd::Node</a>&lt; P, D &gt;::<a class="el" href="../../d0/dc0/a00033.html#ad244e4625f1d75bcd3ad52dde9bd1443">Child</a> =  <a class="el" href="../../d0/dc0/a00033.html">Node</a>&lt;P, (D + 1) % P::dim&gt;</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generate the contact centers for a pool type (fixed in implementation) to the geogrid. </p>
-
-<p>Implements <a class="el" href="../../dd/d1b/a00015.html#a943ea8b33280d6c8c72cc6fa6c1c8e6b">geopop::Generator</a>.</p>
-
-<p>Definition at line <a class="el" href="../../da/d31/a00234_source.html#l00029">29</a> of file <a class="el" href="../../da/d31/a00234_source.html">HouseholdGenerator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/df1/a00206_source.html#l00096">geopop::GeoGridConfig::count_households</a>, and <a class="el" href="../../d7/de0/a00022.html#aa7ab12667956a7a9f263bb8be8f07155">geopop::GeoGridConfig::popInfo</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00092">92</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d3/d42/a00235_source.html">HouseholdGenerator.h</a></li>
-<li><a class="el" href="../../da/d31/a00234_source.html">HouseholdGenerator.cpp</a></li>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a3f4b98d53147785c559a5589ae2bdc98"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/dc0/a00033.html">geopop::kd::Node</a>&lt; P, D &gt;::<a class="el" href="../../d0/dc0/a00033.html">Node</a> </td>
+          <td>(</td>
+          <td class="paramtype">P&#160;</td>
+          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00061">61</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a855737875c4699cc13d0de4e5f125dbc"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../d0/dc0/a00033.html">geopop::kd::Node</a>&lt; P, D &gt;::BorrowLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a non-owning pointer to the left child (nullptr if no such child). </p>
+
+<p>Implements <a class="el" href="../../d7/d46/a00002.html#a83e6b96f8869ce043b7bf93be52f2fbe">geopop::kd::BaseNode&lt; P &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00063">63</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="addda626c2df6d7e051a1f4fc9d13bd7f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../d0/dc0/a00033.html">geopop::kd::Node</a>&lt; P, D &gt;::BorrowRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a non-owning pointer to the right child (nullptr if no such child). </p>
+
+<p>Implements <a class="el" href="../../d7/d46/a00002.html#a43f7f621457b5e613446bb7485ac9ad5">geopop::kd::BaseNode&lt; P &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00065">65</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a46a7604ed3cfbefb8ab1aded6d498e2d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d46/a00002.html">BaseNode</a>&lt;P&gt;* <a class="el" href="../../d0/dc0/a00033.html">geopop::kd::Node</a>&lt; P, D &gt;::BorrowSplitChild </td>
+          <td>(</td>
+          <td class="paramtype">const P &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a non-owning pointer to the child corresponding to the correct split for point. </p>
+
+<p>Implements <a class="el" href="../../d7/d46/a00002.html#aa3b60863467493bc693049f77a110f4a">geopop::kd::BaseNode&lt; P &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00067">67</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4df06059bf9a335d0dd05c427631ab1d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/dc0/a00033.html">geopop::kd::Node</a>&lt; P, D &gt;::AddChild </td>
+          <td>(</td>
+          <td class="paramtype">P&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a new child in the right place, according to split. </p>
+
+<p>Implements <a class="el" href="../../d7/d46/a00002.html#a775357f7169994f30eaf5f22457493a7">geopop::kd::BaseNode&lt; P &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00078">78</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21d7c9706a215ff6afd49d1216526f5e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">P <a class="el" href="../../d0/dc0/a00033.html">geopop::kd::Node</a>&lt; P, D &gt;::GetPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the point for this node. </p>
+
+<p>Implements <a class="el" href="../../d7/d46/a00002.html#a3a350c47f85cd424eeabf34aed9398ea">geopop::kd::BaseNode&lt; P &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00089">89</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a0d8dc73ff7f8bb9d7b6db0adc4509640"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../db/df3/a00034.html">KdTree</a>&lt; P &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00097">97</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a07234c42f63e763fd53d6f41ab385950"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">P <a class="el" href="../../d0/dc0/a00033.html">geopop::kd::Node</a>&lt; P, D &gt;::m_point</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00094">94</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3372794f67abd8d0d3dc8f63cd94913e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../d0/dc0/a00033.html#ad244e4625f1d75bcd3ad52dde9bd1443">Child</a>&gt; <a class="el" href="../../d0/dc0/a00033.html">geopop::kd::Node</a>&lt; P, D &gt;::m_left</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00095">95</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8bf28b75d0a2154828f3690a13cf492e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P, std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../d0/dc0/a00033.html#ad244e4625f1d75bcd3ad52dde9bd1443">Child</a>&gt; <a class="el" href="../../d0/dc0/a00033.html">geopop::kd::Node</a>&lt; P, D &gt;::m_right</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00095">95</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dd/dd7/a00248_source.html">KdNode.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></li><li class="navelem"><a class="el" href="../../d0/dc0/a00033.html">HouseholdGenerator</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:23 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d84/a00338.html">geopop</a></li><li class="navelem"><a class="el" href="../../df/df1/a00340.html">kd</a></li><li class="navelem"><a class="el" href="../../d0/dc0/a00033.html">Node</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:33 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

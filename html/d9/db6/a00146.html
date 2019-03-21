@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Assert.h File Reference</title>
+<title>Stride Reference Manual: CliViewer.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -105,149 +105,63 @@ $(document).ready(function(){initNavTree('d9/db6/a00146.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Assert.h File Reference</div>  </div>
+<div class="title">CliViewer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Definition of .  
+<p>Observer for SimEvents for commandline interface usage.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d2a/a00195_source.html">util/Exception.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;spdlog/logger.h&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d01/a00227_source.html">sim/event/Id.h</a>&quot;</code><br />
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Assert.h:</div>
+Include dependency graph for CliViewer.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dc1/a00388.gif" border="0" usemap="#Assert_8h" alt=""/></div>
-<map name="Assert_8h" id="Assert_8h">
-<area shape="rect" id="node2" href="../../d3/d2a/a00195.html" title="util/Exception.h" alt="" coords="5,80,124,107"/>
+<div class="center"><img src="../../da/dee/a00383.gif" border="0" usemap="#CliViewer_8h" alt=""/></div>
+<map name="CliViewer_8h" id="CliViewer_8h">
+<area shape="rect" id="node2" href="../../d9/d01/a00227.html" title="Definition of EventId. " alt="" coords="28,80,140,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/dc9/a00389.gif" border="0" usemap="#Assert_8hdep" alt=""/></div>
-<map name="Assert_8hdep" id="Assert_8hdep">
-<area shape="rect" id="node2" href="../../dc/d55/a00226.html" title="Implementation for the Health class. " alt="" coords="5,80,96,107"/>
-<area shape="rect" id="node3" href="../../de/dc2/a00228.html" title="Implementation for HelthSeeder class. " alt="" coords="120,80,256,107"/>
-<area shape="rect" id="node4" href="../../d1/db7/a00157.html" title="CollegeGenerator.cpp" alt="" coords="280,80,440,107"/>
-<area shape="rect" id="node5" href="../../d6/d7d/a00161.html" title="CommunityGenerator.cpp" alt="" coords="464,80,651,107"/>
-<area shape="rect" id="node6" href="../../d0/d01/a00339.html" title="WorkplaceGenerator.cpp" alt="" coords="675,80,853,107"/>
-<area shape="rect" id="node7" href="../../de/db9/a00159.html" title="CollegePopulator.cpp" alt="" coords="877,80,1033,107"/>
-<area shape="rect" id="node8" href="../../d3/d93/a00341.html" title="WorkplacePopulator.cpp" alt="" coords="1057,80,1231,107"/>
+<div class="center"><img src="../../d2/d56/a00384.gif" border="0" usemap="#CliViewer_8hdep" alt=""/></div>
+<map name="CliViewer_8hdep" id="CliViewer_8hdep">
+<area shape="rect" id="node2" href="../../dc/de6/a00167.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../da/ddb/a00145.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="165,80,270,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d9/db6/a00146_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcd/a00127.html">stride::viewers::CliViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for commandline interface.  <a href="../../df/dcd/a00127.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
-<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/d30/a00370"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html">stride::util</a></td></tr>
-<tr class="memdesc:d3/d30/a00370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:d4/def/a00359"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/def/a00359.html">stride::viewers</a></td></tr>
+<tr class="memdesc:d4/def/a00359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d9/dcc/a00102.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:abb9b6f8dbf5a3b5559684d8a9095ed9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#abb9b6f8dbf5a3b5559684d8a9095ed9a">AssertLog</a>(CONDITION,  MESSAGE,  LOGGER)&#160;&#160;&#160;((void)0)</td></tr>
-<tr class="separator:abb9b6f8dbf5a3b5559684d8a9095ed9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a904cea5d50cd8499f36a9befdf774a0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db6/a00146.html#a904cea5d50cd8499f36a9befdf774a0b">AssertThrow</a>(CONDITION,  MESSAGE,  LOGGER)&#160;&#160;&#160;((void)0)</td></tr>
-<tr class="separator:a904cea5d50cd8499f36a9befdf774a0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ad34dca6a7a235cc5935cf931efe19fec"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html#ad34dca6a7a235cc5935cf931efe19fec">stride::util::AssertMessage</a> (const char *condition, const std::string &amp;message, const std::shared_ptr&lt; spdlog::logger &gt; &amp;logger, const char *file, int line)</td></tr>
-<tr class="separator:ad34dca6a7a235cc5935cf931efe19fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definition of . </p>
+<div class="textblock"><p>Observer for SimEvents for commandline interface usage. </p>
 
-<p>Definition in file <a class="el" href="../../d9/db6/a00146_source.html">Assert.h</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="abb9b6f8dbf5a3b5559684d8a9095ed9a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AssertLog</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">CONDITION, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">MESSAGE, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">LOGGER&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;((void)0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/db6/a00146_source.html#l00067">67</a> of file <a class="el" href="../../d9/db6/a00146_source.html">Assert.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a904cea5d50cd8499f36a9befdf774a0b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AssertThrow</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">CONDITION, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">MESSAGE, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">LOGGER&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;((void)0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/db6/a00146_source.html#l00068">68</a> of file <a class="el" href="../../d9/db6/a00146_source.html">Assert.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00030">geopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00035">geopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../d0/d01/a00339_source.html#l00030">geopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00034">geopop::CollegePopulator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00116">geopop::WorkplacePopulator::CalculateCommutingLocations()</a>, <a class="el" href="../../de/dc2/a00228_source.html#l00036">stride::HealthSeeder::HealthSeeder()</a>, <a class="el" href="../../dc/d55/a00226_source.html#l00035">stride::Health::StartInfection()</a>, and <a class="el" href="../../dc/d55/a00226_source.html#l00042">stride::Health::StopInfection()</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../d9/db6/a00146_source.html">CliViewer.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">Assert.h</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:22 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">CliViewer.h</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

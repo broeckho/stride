@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: K12SchoolPopulator.cpp File Reference</title>
+<title>Stride Reference Manual: Median.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -105,46 +105,31 @@ $(document).ready(function(){initNavTree('dc/d6a/a00261.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">K12SchoolPopulator.cpp File Reference</div>  </div>
+<div class="title">Median.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d8d/a00262_source.html">K12SchoolPopulator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/d82/a00142_source.html">contact/AgeBrackets.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/df1/a00174_source.html">contact/ContactPool.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/d79/a00203_source.html">geopop/GeoGrid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../df/d17/a00231_source.html">geopop/HouseholdCenter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/d2f/a00258_source.html">geopop/K12SchoolCenter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/d42/a00269_source.html">geopop/Location.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dc/d28/a00276_source.html">pop/Person.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for K12SchoolPopulator.cpp:</div>
+Include dependency graph for Median.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/dd7/a00567.gif" border="0" usemap="#K12SchoolPopulator_8cpp" alt=""/></div>
-<map name="K12SchoolPopulator_8cpp" id="K12SchoolPopulator_8cpp">
-<area shape="rect" id="node2" href="../../d9/d8d/a00262.html" title="K12SchoolPopulator.h" alt="" coords="284,80,446,107"/>
-<area shape="rect" id="node15" href="../../d2/d82/a00142.html" title="contact/AgeBrackets.h" alt="" coords="1464,80,1631,107"/>
-<area shape="rect" id="node16" href="../../d8/df1/a00174.html" title="Header for the core ContactPool class. " alt="" coords="1956,155,2118,181"/>
-<area shape="rect" id="node19" href="../../de/d79/a00203.html" title="geopop/GeoGrid.h" alt="" coords="470,80,609,107"/>
-<area shape="rect" id="node33" href="../../df/d17/a00231.html" title="geopop/HouseholdCenter.h" alt="" coords="634,80,830,107"/>
-<area shape="rect" id="node35" href="../../d7/d2f/a00258.html" title="geopop/K12SchoolCenter.h" alt="" coords="854,80,1049,107"/>
-<area shape="rect" id="node36" href="../../d5/d42/a00269.html" title="geopop/Location.h" alt="" coords="1074,80,1214,107"/>
-<area shape="rect" id="node44" href="../../dc/d28/a00276.html" title="Header file for the Person class. " alt="" coords="1282,80,1389,107"/>
-<area shape="rect" id="node3" href="../../db/dc3/a00284.html" title="Populator.h" alt="" coords="318,155,412,181"/>
-<area shape="rect" id="node4" href="../../d9/d90/a00178.html" title="Definition of ContactPool Id Type. " alt="" coords="1208,229,1372,256"/>
-<area shape="rect" id="node10" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="615,229,715,256"/>
-<area shape="rect" id="node11" href="../../db/d7b/a00296.html" title="Interface of RnPcg. " alt="" coords="1160,311,1234,338"/>
-<area shape="rect" id="node17" href="../../d6/dfb/a00172.html" title="Header for the ContactLogMode class. " alt="" coords="1949,311,2144,338"/>
-<area shape="rect" id="node20" href="../../dd/dc1/a00212.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="85,155,293,181"/>
-<area shape="rect" id="node21" href="../../d3/dcc/a00264.html" title="KdTree.h" alt="" coords="372,229,448,256"/>
-<area shape="rect" id="node26" href="../../d5/d35/a00266.html" title="KdTree2DPoint.h" alt="" coords="126,229,252,256"/>
-<area shape="rect" id="node22" href="../../d4/ddd/a00138.html" title="AABBox.h" alt="" coords="209,311,294,338"/>
-<area shape="rect" id="node23" href="../../df/da9/a00263.html" title="KdNode.h" alt="" coords="370,311,454,338"/>
-<area shape="rect" id="node27" href="../../d8/d64/a00181.html" title="geopop/Coordinate.h" alt="" coords="842,311,998,338"/>
-<area shape="rect" id="node34" href="../../de/d53/a00169.html" title="ContactCenter.h" alt="" coords="806,155,932,181"/>
-<area shape="rect" id="node37" href="../../d6/db6/a00241.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1508,155,1697,181"/>
-<area shape="rect" id="node45" href="../../d9/d01/a00227.html" title="Header for the Health class. " alt="" coords="1802,155,1931,181"/>
+<div class="center"><img src="../../d2/d50/a00561.gif" border="0" usemap="#Median_8h" alt=""/></div>
+<map name="Median_8h" id="Median_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d3/d2f/a00562.gif" border="0" usemap="#Median_8hdep" alt=""/></div>
+<map name="Median_8hdep" id="Median_8hdep">
+<area shape="rect" id="node2" href="../../dc/ded/a00252.html" title="KdTree_def.h" alt="" coords="25,80,128,107"/>
+<area shape="rect" id="node3" href="../../d3/db1/a00200.html" title="GeoGridKdTree.cpp" alt="" coords="5,155,148,181"/>
 </map>
 </div>
 </div>
@@ -152,17 +137,25 @@ Include dependency graph for K12SchoolPopulator.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></td></tr>
-<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:dc/d84/a00338"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d84/a00338.html">geopop</a></td></tr>
+<tr class="memdesc:dc/d84/a00338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:df/df1/a00340"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/a00340.html">geopop::kd</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6134a8bd4b14689b5d2d4385e3eebae2"><td class="memTemplParams" colspan="2">template&lt;typename P , std::size_t D&gt; </td></tr>
+<tr class="memitem:a6134a8bd4b14689b5d2d4385e3eebae2"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/df1/a00340.html#a6134a8bd4b14689b5d2d4385e3eebae2">geopop::kd::Median</a> (const std::vector&lt; P &gt; &amp;points)</td></tr>
+<tr class="separator:a6134a8bd4b14689b5d2d4385e3eebae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_e7e2007abe30c6c76c8a673fdd5d8158.html">populators</a></li><li class="navelem"><a class="el" href="../../dc/d6a/a00261.html">K12SchoolPopulator.cpp</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:22 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_1fafd3a38d53c2ca250f450f6134d22a.html">geo</a></li><li class="navelem"><a class="el" href="../../dc/d6a/a00261.html">Median.h</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

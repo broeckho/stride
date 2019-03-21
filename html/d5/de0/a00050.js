@@ -1,14 +1,16 @@
 var a00050 =
 [
-    [ "RunType", "d2/d79/a00051.html", "d2/d79/a00051" ],
-    [ "RunType< void >", "d1/d84/a00052.html", "d1/d84/a00052" ],
-    [ "RunType_t", "d5/de0/a00050.html#ab53a521bc6b3102bc0842a645483d614", null ],
-    [ "ThreadException", "d5/de0/a00050.html#a36e2bb75a85f81eb26b08f5184b2cde5", null ],
-    [ "~ThreadException", "d5/de0/a00050.html#a725efd368a13d2990a73cb10cc1ebaf5", null ],
-    [ "Rethrow", "d5/de0/a00050.html#a9386c09eacb17c9408b0990afa4bb4e0", null ],
-    [ "CaptureException", "d5/de0/a00050.html#a71a8271dad92a65bb392f9f214e9092e", null ],
-    [ "Run", "d5/de0/a00050.html#a31c9155741791ef543efdbbe5f43f10e", null ],
-    [ "HasError", "d5/de0/a00050.html#a818a0a38afb4565502a5e160c439f9e5", null ],
-    [ "m_ptr", "d5/de0/a00050.html#a0e5a4b5e420a3c03d1f6b75a427473e4", null ],
-    [ "m_lock", "d5/de0/a00050.html#a8439b0eadb9a90e5326ffa10df0b5d44", null ]
+    [ "WorkplacePopulator", "d5/de0/a00050.html#a0f46a889a7162b41220deea210ffdf76", null ],
+    [ "Apply", "d5/de0/a00050.html#a237dee7e694e3e6a693efd00afe46286", null ],
+    [ "AssignActive", "d5/de0/a00050.html#a230e7343ac24afda7bb007f8e820da5a", null ],
+    [ "CommutingLocations", "d5/de0/a00050.html#aea8fef2442d7d2911444b8424bee402f", null ],
+    [ "FractionCommutingStudents", "d5/de0/a00050.html#a003fe52d3c225edd395f365ddf287275", null ],
+    [ "NearbyWorkspacePools", "d5/de0/a00050.html#ae0011ab21239f9faadf566a976d7d0fb", null ],
+    [ "WorkplacePoolsAtLocation", "d5/de0/a00050.html#aa971313f2da7515a2a5244029e740c25", null ],
+    [ "m_geogrid_config", "d5/de0/a00050.html#aaf823c3ec7db75560ddb7a4271f87513", null ],
+    [ "m_wp_at_location", "d5/de0/a00050.html#a6f1d8490f2a50cf098e322dd4ef3ba72", null ],
+    [ "m_nearby_wp", "d5/de0/a00050.html#ab4e1335920c045028d08fbda4b87c542", null ],
+    [ "m_gen_non_commute", "d5/de0/a00050.html#a1407ce0c553ddf402829e2c3b4a9262a", null ],
+    [ "m_commuting_locations", "d5/de0/a00050.html#aa77acd77398ff8232f8008f1add8b6d5", null ],
+    [ "m_gen_commute", "d5/de0/a00050.html#a976fc7070f6b52528a4bff0155323667", null ]
 ];

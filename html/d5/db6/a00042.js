@@ -1,8 +1,9 @@
 var a00042 =
 [
-    [ "Args", "d5/db6/a00042.html#a5468ac31eae54f8b993ffd14a62927d7", null ],
-    [ "PolygonPolicy", "d5/db6/a00042.html#a9f6a7862371bdb5991a62af32bfc44fe", null ],
-    [ "GetBoundingBox", "d5/db6/a00042.html#a37ead64e0fc7096f4d71ee2c2b5ce8d0", null ],
-    [ "Contains", "d5/db6/a00042.html#aa76a2a2617b5fd1ae1ff45891adf65b5", null ],
-    [ "m_poly", "d5/db6/a00042.html#a69ddb55e11e6fa42222646a21432bfb1", null ]
+    [ "Args", "d5/db6/a00042.html#accda57e4be842861b37817e9372067fb", null ],
+    [ "RadiusPolicy", "d5/db6/a00042.html#aa869fa4c0225f7d6a14d35702edae08f", null ],
+    [ "GetBoundingBox", "d5/db6/a00042.html#ae11ddb7976888e32a96f5567d7ee0c9e", null ],
+    [ "Contains", "d5/db6/a00042.html#abba48a42260870f97e6d307e234254e6", null ],
+    [ "m_center", "d5/db6/a00042.html#a6812dfb6d144028b7224a5422c762f49", null ],
+    [ "m_radius", "d5/db6/a00042.html#a821d856a8ec37727229092ae9227cc90", null ]
 ];

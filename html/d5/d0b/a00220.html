@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GeoGridReaderFactory.h File Reference</title>
+<title>Stride Reference Manual: HouseholdCSVReader.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -108,25 +108,28 @@ $(document).ready(function(){initNavTree('d5/d0b/a00220.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGridReaderFactory.h File Reference</div>  </div>
+<div class="title">HouseholdCSVReader.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d98/a00225_source.html">HouseholdReader.h</a>&quot;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGridReaderFactory.h:</div>
+Include dependency graph for HouseholdCSVReader.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/de5/a00503.gif" border="0" usemap="#GeoGridReaderFactory_8h" alt=""/></div>
-<map name="GeoGridReaderFactory_8h" id="GeoGridReaderFactory_8h">
+<div class="center"><img src="../../d3/dad/a00496.gif" border="0" usemap="#HouseholdCSVReader_8h" alt=""/></div>
+<map name="HouseholdCSVReader_8h" id="HouseholdCSVReader_8h">
+<area shape="rect" id="node2" href="../../dc/d98/a00225.html" title="HouseholdReader.h" alt="" coords="207,80,352,107"/>
+<area shape="rect" id="node3" href="../../d6/d82/a00293.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="253,155,425,181"/>
+<area shape="rect" id="node4" href="../../da/de0/a00317.html" title="Interface/Implementation for SVIterator. " alt="" coords="143,229,242,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d1c/a00504.gif" border="0" usemap="#GeoGridReaderFactory_8hdep" alt=""/></div>
-<map name="GeoGridReaderFactory_8hdep" id="GeoGridReaderFactory_8hdep">
-<area shape="rect" id="node2" href="../../dd/df3/a00219.html" title="GeoGridReaderFactory.cpp" alt="" coords="5,80,195,107"/>
-<area shape="rect" id="node3" href="../../d6/d08/a00244.html" title="Initialize populations: implementation. " alt="" coords="219,80,378,107"/>
+<div class="center"><img src="../../d4/d1e/a00497.gif" border="0" usemap="#HouseholdCSVReader_8hdep" alt=""/></div>
+<map name="HouseholdCSVReader_8hdep" id="HouseholdCSVReader_8hdep">
+<area shape="rect" id="node2" href="../../dd/df3/a00219.html" title="HouseholdCSVReader.cpp" alt="" coords="5,80,192,107"/>
+<area shape="rect" id="node3" href="../../d0/dcd/a00280.html" title="ReaderFactory.cpp" alt="" coords="217,80,354,107"/>
 </map>
 </div>
 </div>
@@ -134,17 +137,17 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html">geopop::GeoGridReaderFactory</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Factory for creating the correct implementation of a <a class="el" href="../../d0/d33/a00027.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the filename extension.  <a href="../../dc/d3c/a00028.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html">geopop::HouseholdCSVReader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Reader that retrieves the different Household profiles from a given CSV file.  <a href="../../d0/d33/a00027.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
-<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></td></tr>
-<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:dc/d84/a00338"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d84/a00338.html">geopop</a></td></tr>
+<tr class="memdesc:dc/d84/a00338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -152,8 +155,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">GeoGridReaderFactory.h</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:22 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">HouseholdCSVReader.h</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

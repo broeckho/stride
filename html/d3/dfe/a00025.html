@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::GeoGridProtoReader Class Reference</title>
+<title>Stride Reference Manual: geopop::GeoGridWriter Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -108,166 +108,49 @@ $(document).ready(function(){initNavTree('d3/dfe/a00025.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="../../d6/d17/a00778.html">List of all members</a>  </div>
+<a href="../../d5/de8/a00749.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::GeoGridProtoReader Class Reference</div>  </div>
+<div class="title">geopop::GeoGridWriter Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>An implementation of the <a class="el" href="../../d0/d33/a00027.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> using Protocol Buffers.  
+<p>An interface for writing the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to a file, can be implemented with multiple file types.  
  <a href="../../d3/dfe/a00025.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d3/dd1/a00214_source.html">GeoGridProtoReader.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../da/de7/a00210_source.html">GeoGridWriter.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for geopop::GeoGridProtoReader:</div>
+Inheritance diagram for geopop::GeoGridWriter:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d95/a00779.gif" border="0" usemap="#geopop_1_1GeoGridProtoReader_inherit__map" alt="Inheritance graph"/></div>
-<map name="geopop_1_1GeoGridProtoReader_inherit__map" id="geopop_1_1GeoGridProtoReader_inherit__map">
-<area shape="rect" id="node2" href="../../d0/d33/a00027.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul..." alt="" coords="22,5,197,200"/>
+<div class="center"><img src="../../d9/db0/a00750.gif" border="0" usemap="#geopop_1_1GeoGridWriter_inherit__map" alt="Inheritance graph"/></div>
+<map name="geopop_1_1GeoGridWriter_inherit__map" id="geopop_1_1GeoGridWriter_inherit__map">
+<area shape="rect" id="node2" href="../../db/db2/a00020.html" title="Writes a GeoGrid to a JSON file. " alt="" coords="5,145,204,311"/>
+<area shape="rect" id="node3" href="../../d7/de0/a00022.html" title="An implementation of the GeoGridWriter using Protocol Buffers This class is used to write a GeoGrid t..." alt="" coords="227,145,427,311"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for geopop::GeoGridProtoReader:</div>
+Collaboration diagram for geopop::GeoGridWriter:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d42/a00780.gif" border="0" usemap="#geopop_1_1GeoGridProtoReader_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1GeoGridProtoReader_coll__map" id="geopop_1_1GeoGridProtoReader_coll__map">
-<area shape="rect" id="node2" href="../../d0/d33/a00027.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul..." alt="" coords="1403,2953,1578,3104"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="799,2446,897,2523"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="739,2137,877,2229"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="697,1836,865,1913"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="728,1535,835,1612"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="1395,145,1549,223"/>
-<area shape="rect" id="node13" title="STL class. " alt="" coords="318,451,450,528"/>
-<area shape="rect" id="node20" title="STL class. " alt="" coords="2605,451,2731,528"/>
-<area shape="rect" id="node25" title="STL class. " alt="" coords="99,261,255,353"/>
-<area shape="rect" id="node27" title="STL class. " alt="" coords="485,145,699,223"/>
-<area shape="rect" id="node29" title="STL class. " alt="" coords="630,247,807,368"/>
-<area shape="rect" id="node46" title="STL class. " alt="" coords="809,443,961,535"/>
-<area shape="rect" id="node37" href="../../dd/d32/a00041.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. " alt="" coords="1113,686,1343,910"/>
-<area shape="rect" id="node15" href="../../d9/dcc/a00102.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich..." alt="" coords="1964,2667,2124,2891"/>
-<area shape="rect" id="node30" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. " alt="" coords="1963,2365,2125,2604"/>
-<area shape="rect" id="node16" href="../../dc/ddf/a00067.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="2454,1447,2663,1700"/>
-<area shape="rect" id="node17" href="../../d9/d10/a00449.html" title="{size_t\n||}" alt="" coords="2352,759,2411,837"/>
-<area shape="rect" id="node21" href="../../dc/ddf/a00067.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="2499,1131,2709,1384"/>
-<area shape="rect" id="node31" href="../../db/d3a/a00040.html" title="{geopop::KdTree\&lt; geogrid\l_detail::KdTree2DPoint \&gt;\n||+ KdTree()\l+ Apply()\l+ Apply()\l+ Contains()\l+ Empty()\l+ GetHeight()\l+ Insert()\l+ Query()\l+ Size()\l+ Build()\l&#45; Construct()\l}" alt="" coords="2029,2064,2211,2303"/>
-<area shape="rect" id="node36" href="../../db/db2/a00020.html" title="KdTree for some more information on methods. " alt="" coords="1405,1145,1573,1369"/>
-<area shape="rect" id="node41" href="../../db/d3a/a00040.html" title="A k&#45;d tree: a k&#45;dimensional generalization of binary search trees This data structure allows for effi..." alt="" coords="2042,1763,2201,1987"/>
-<area shape="rect" id="node19" href="../../d2/d74/a00697.html" title="{Chunk *\n||}" alt="" coords="2427,451,2501,528"/>
-<area shape="rect" id="node23" href="../../d9/da4/a00078.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al..." alt="" coords="601,1182,767,1333"/>
-<area shape="rect" id="node24" href="../../d7/df7/a00058.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="356,693,508,903"/>
-<area shape="rect" id="node26" href="../../d7/df7/a00058.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="490,392,662,587"/>
-<area shape="rect" id="node28" href="../../d7/df7/a00058.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l util::stride::util::\lSegmentedVector\&lt; stride\l::ContactPool \&gt; \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="589,679,779,917"/>
-<area shape="rect" id="node33" href="../../d3/de7/a00039.html" title="{geopop::kd::Node\&lt; geogrid\l_detail::KdTree2DPoint, 0 \&gt;\n||+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="1542,1491,1741,1656"/>
-<area shape="rect" id="node34" href="../../d7/d46/a00002.html" title="{geopop::kd::BaseNode\l\&lt; geogrid_detail::KdTree2DPoint \&gt;\n||+ ~BaseNode()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="1920,941,2163,1107"/>
-<area shape="rect" id="node35" href="../../d7/d46/a00002.html" title="A base class for all instantiations of a Node with D. " alt="" coords="1848,414,2053,565"/>
-<area shape="rect" id="node40" href="../../d3/de7/a00039.html" title="A node in the KdTree (parameter P: the type of point, parameter D: dimension this node splits on)..." alt="" coords="1619,723,1810,873"/>
-<area shape="rect" id="node43" href="../../d3/de7/a00039.html" title="{geopop::kd::Node\&lt; P, 0 \&gt;\n||+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="1864,1182,2053,1333"/>
+<div class="center"><img src="../../da/df2/a00751.gif" border="0" usemap="#geopop_1_1GeoGridWriter_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1GeoGridWriter_coll__map" id="geopop_1_1GeoGridWriter_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2bc7a6c320f71725c258447b672c2078"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a2bc7a6c320f71725c258447b672c2078">GeoGridProtoReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream, <a class="el" href="../../d9/dcc/a00102.html">stride::Population</a> *pop)</td></tr>
-<tr class="memdesc:a2bc7a6c320f71725c258447b672c2078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d3/d52/a00023.html" title="An implementation of the GeoGridReader using JSON. ">GeoGridJSONReader</a> with the istream which contains the Protobuf info.  <a href="#a2bc7a6c320f71725c258447b672c2078">More...</a><br /></td></tr>
-<tr class="separator:a2bc7a6c320f71725c258447b672c2078"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78242e37d912267ce0d5143b0d211933"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a78242e37d912267ce0d5143b0d211933">GeoGridProtoReader</a> (const <a class="el" href="../../d3/dfe/a00025.html">GeoGridProtoReader</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a78242e37d912267ce0d5143b0d211933"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy constructor.  <a href="#a78242e37d912267ce0d5143b0d211933">More...</a><br /></td></tr>
-<tr class="separator:a78242e37d912267ce0d5143b0d211933"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacca4ced44b0fc60e24767f1bbc93b78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dfe/a00025.html">GeoGridProtoReader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#aacca4ced44b0fc60e24767f1bbc93b78">operator=</a> (const <a class="el" href="../../d3/dfe/a00025.html">GeoGridProtoReader</a> &amp;)=delete</td></tr>
-<tr class="memdesc:aacca4ced44b0fc60e24767f1bbc93b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy assignement.  <a href="#aacca4ced44b0fc60e24767f1bbc93b78">More...</a><br /></td></tr>
-<tr class="separator:aacca4ced44b0fc60e24767f1bbc93b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f156064f4af6a0905e1959605ac9826"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a6f156064f4af6a0905e1959605ac9826">Read</a> () override</td></tr>
-<tr class="memdesc:a6f156064f4af6a0905e1959605ac9826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actually perform the read and return the <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a>.  <a href="#a6f156064f4af6a0905e1959605ac9826">More...</a><br /></td></tr>
-<tr class="separator:a6f156064f4af6a0905e1959605ac9826"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00027"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00027')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d0/d33/a00027.html">geopop::GeoGridReader</a></td></tr>
-<tr class="memitem:adc1015b5fbff85ded8432cf9a930593b inherit pub_methods_a00027"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#adc1015b5fbff85ded8432cf9a930593b">GeoGridReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream, <a class="el" href="../../d9/dcc/a00102.html">stride::Population</a> *pop)</td></tr>
-<tr class="memdesc:adc1015b5fbff85ded8432cf9a930593b inherit pub_methods_a00027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parametrized constructor.  <a href="#adc1015b5fbff85ded8432cf9a930593b">More...</a><br /></td></tr>
-<tr class="separator:adc1015b5fbff85ded8432cf9a930593b inherit pub_methods_a00027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a671a251cdd0577d381cfd1f031915f4e inherit pub_methods_a00027"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a671a251cdd0577d381cfd1f031915f4e">GeoGridReader</a> (const <a class="el" href="../../d0/d33/a00027.html">GeoGridReader</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a671a251cdd0577d381cfd1f031915f4e inherit pub_methods_a00027"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy constructor.  <a href="#a671a251cdd0577d381cfd1f031915f4e">More...</a><br /></td></tr>
-<tr class="separator:a671a251cdd0577d381cfd1f031915f4e inherit pub_methods_a00027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac951eb7110732c82081e872eb7b4493d inherit pub_methods_a00027"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d33/a00027.html">GeoGridReader</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#ac951eb7110732c82081e872eb7b4493d">operator=</a> (const <a class="el" href="../../d0/d33/a00027.html">GeoGridReader</a> &amp;)=delete</td></tr>
-<tr class="memdesc:ac951eb7110732c82081e872eb7b4493d inherit pub_methods_a00027"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy assignment.  <a href="#ac951eb7110732c82081e872eb7b4493d">More...</a><br /></td></tr>
-<tr class="separator:ac951eb7110732c82081e872eb7b4493d inherit pub_methods_a00027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7874b9c1d2e2c878a8e8b8d3bb4ced34 inherit pub_methods_a00027"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a7874b9c1d2e2c878a8e8b8d3bb4ced34">~GeoGridReader</a> ()=default</td></tr>
-<tr class="memdesc:a7874b9c1d2e2c878a8e8b8d3bb4ced34 inherit pub_methods_a00027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a7874b9c1d2e2c878a8e8b8d3bb4ced34">More...</a><br /></td></tr>
-<tr class="separator:a7874b9c1d2e2c878a8e8b8d3bb4ced34 inherit pub_methods_a00027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a913aee104b2c1982d1cb4164f7ad0e65"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d2/de7/a00014.html">ContactCenter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a913aee104b2c1982d1cb4164f7ad0e65">ParseContactCenter</a> (const <a class="el" href="../../df/d03/a00062.html">proto::GeoGrid_Location_ContactCenter</a> &amp;protoContactCenter)</td></tr>
-<tr class="memdesc:a913aee104b2c1982d1cb4164f7ad0e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a> based on protobuf <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a> info.  <a href="#a913aee104b2c1982d1cb4164f7ad0e65">More...</a><br /></td></tr>
-<tr class="separator:a913aee104b2c1982d1cb4164f7ad0e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6dbedaf2a8098e075607c358066a849"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#aa6dbedaf2a8098e075607c358066a849">ParseContactPool</a> (const <a class="el" href="../../d1/d6f/a00063.html">proto::GeoGrid_Location_ContactCenter_ContactPool</a> &amp;protoContactPool, <a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462">stride::ContactType::Id</a> typeId)</td></tr>
-<tr class="memdesc:aa6dbedaf2a8098e075607c358066a849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a ContactPool based on the provided protobuf ContactPool.  <a href="#aa6dbedaf2a8098e075607c358066a849">More...</a><br /></td></tr>
-<tr class="separator:aa6dbedaf2a8098e075607c358066a849"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25bb12687d13e26a40d0d15d44220744"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d9c/a00352.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a25bb12687d13e26a40d0d15d44220744">ParseCoordinate</a> (const <a class="el" href="../../df/d5f/a00064.html">proto::GeoGrid_Location_Coordinate</a> &amp;protoCoordinate)</td></tr>
-<tr class="memdesc:a25bb12687d13e26a40d0d15d44220744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Coordinate based on the provided protobuf Coordinate.  <a href="#a25bb12687d13e26a40d0d15d44220744">More...</a><br /></td></tr>
-<tr class="separator:a25bb12687d13e26a40d0d15d44220744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d7e93b8c38a12f8c662d18973e14a79"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Location</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a2d7e93b8c38a12f8c662d18973e14a79">ParseLocation</a> (const <a class="el" href="../../d9/d73/a00060.html">proto::GeoGrid_Location</a> &amp;protoLocation)</td></tr>
-<tr class="memdesc:a2d7e93b8c38a12f8c662d18973e14a79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../dd/d32/a00041.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. ">Location</a> based on protobuf <a class="el" href="../../dd/d32/a00041.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. ">Location</a> info.  <a href="#a2d7e93b8c38a12f8c662d18973e14a79">More...</a><br /></td></tr>
-<tr class="separator:a2d7e93b8c38a12f8c662d18973e14a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af379f9881c0626dd1efbb969798ab38e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d3a/a00101.html">stride::Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#af379f9881c0626dd1efbb969798ab38e">ParsePerson</a> (const <a class="el" href="../../de/de1/a00065.html">proto::GeoGrid_Person</a> &amp;person)</td></tr>
-<tr class="memdesc:af379f9881c0626dd1efbb969798ab38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Person based on protobuf Person info.  <a href="#af379f9881c0626dd1efbb969798ab38e">More...</a><br /></td></tr>
-<tr class="separator:af379f9881c0626dd1efbb969798ab38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_a00027"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00027')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d0/d33/a00027.html">geopop::GeoGridReader</a></td></tr>
-<tr class="memitem:a72ea40450cdeb7fef66501752d12bbb2 inherit pro_methods_a00027"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a72ea40450cdeb7fef66501752d12bbb2">AddCommutes</a> (<a class="el" href="../../dd/da2/a00019.html">GeoGrid</a> &amp;geoGrid)</td></tr>
-<tr class="memdesc:a72ea40450cdeb7fef66501752d12bbb2 inherit pro_methods_a00027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the commutes that were found to their respective Locations symmetrically.  <a href="#a72ea40450cdeb7fef66501752d12bbb2">More...</a><br /></td></tr>
-<tr class="separator:a72ea40450cdeb7fef66501752d12bbb2 inherit pro_methods_a00027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00027"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00027')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d0/d33/a00027.html">geopop::GeoGridReader</a></td></tr>
-<tr class="memitem:af138fc7cc754b1b9e2740a7796f3e57c inherit pro_attribs_a00027"><td class="memItemLeft" align="right" valign="top">std::map&lt; unsigned int, <a class="el" href="../../d4/d3a/a00101.html">stride::Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#af138fc7cc754b1b9e2740a7796f3e57c">m_people</a></td></tr>
-<tr class="memdesc:af138fc7cc754b1b9e2740a7796f3e57c inherit pro_attribs_a00027"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Store the persons (id-&gt;person) that were found while loping over the ContactPools.  <a href="#af138fc7cc754b1b9e2740a7796f3e57c">More...</a><br /></td></tr>
-<tr class="separator:af138fc7cc754b1b9e2740a7796f3e57c inherit pro_attribs_a00027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9193775a55084c5ff26b581a07e3ef01 inherit pro_attribs_a00027"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::tuple&lt; unsigned int, unsigned int, <a class="el" href="../../dd/dcb/a00375.html">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a9193775a55084c5ff26b581a07e3ef01">m_commutes</a></td></tr>
-<tr class="separator:a9193775a55084c5ff26b581a07e3ef01 inherit pro_attribs_a00027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb9bbe5addf30fbc5e82d8cbffb164de inherit pro_attribs_a00027"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#aeb9bbe5addf30fbc5e82d8cbffb164de">m_inputStream</a></td></tr>
-<tr class="memdesc:aeb9bbe5addf30fbc5e82d8cbffb164de inherit pro_attribs_a00027"><td class="mdescLeft">&#160;</td><td class="mdescRight">File to read.  <a href="#aeb9bbe5addf30fbc5e82d8cbffb164de">More...</a><br /></td></tr>
-<tr class="separator:aeb9bbe5addf30fbc5e82d8cbffb164de inherit pro_attribs_a00027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd64ac3a2023dc806ce9e4bb218b4121 inherit pro_attribs_a00027"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dcc/a00102.html">stride::Population</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#abd64ac3a2023dc806ce9e4bb218b4121">m_population</a></td></tr>
-<tr class="memdesc:abd64ac3a2023dc806ce9e4bb218b4121 inherit pro_attribs_a00027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Population to use in the <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> may be nullptr.  <a href="#abd64ac3a2023dc806ce9e4bb218b4121">More...</a><br /></td></tr>
-<tr class="separator:abd64ac3a2023dc806ce9e4bb218b4121 inherit pro_attribs_a00027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac39b3553fa52b22d47cd5972d5e1c4b8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#ac39b3553fa52b22d47cd5972d5e1c4b8">~GeoGridWriter</a> ()=default</td></tr>
+<tr class="memdesc:ac39b3553fa52b22d47cd5972d5e1c4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the Writer.  <a href="#ac39b3553fa52b22d47cd5972d5e1c4b8">More...</a><br /></td></tr>
+<tr class="separator:ac39b3553fa52b22d47cd5972d5e1c4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a4c494a6bbe1776e71706a1c3a7ff9a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a2a4c494a6bbe1776e71706a1c3a7ff9a">Write</a> (<a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;geoGrid, std::ostream &amp;stream)=0</td></tr>
+<tr class="memdesc:a2a4c494a6bbe1776e71706a1c3a7ff9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to ostream.  <a href="#a2a4c494a6bbe1776e71706a1c3a7ff9a">More...</a><br /></td></tr>
+<tr class="separator:a2a4c494a6bbe1776e71706a1c3a7ff9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An implementation of the <a class="el" href="../../d0/d33/a00027.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> using Protocol Buffers. </p>
-<p>This class is used to read a <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> from a Proto file. </p>
+<div class="textblock"><p>An interface for writing the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to a file, can be implemented with multiple file types. </p>
+<p>Protobuf and json are currently implemented. </p>
 
-<p>Definition at line <a class="el" href="../../d3/dd1/a00214_source.html#l00039">39</a> of file <a class="el" href="../../d3/dd1/a00214_source.html">GeoGridProtoReader.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00029">29</a> of file <a class="el" href="../../da/de7/a00210_source.html">GeoGridWriter.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a2bc7a6c320f71725c258447b672c2078"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">geopop::GeoGridProtoReader::GeoGridProtoReader </td>
-          <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
-          <td class="paramname"><em>inputStream</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/dcc/a00102.html">stride::Population</a> *&#160;</td>
-          <td class="paramname"><em>pop</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct the <a class="el" href="../../d3/d52/a00023.html" title="An implementation of the GeoGridReader using JSON. ">GeoGridJSONReader</a> with the istream which contains the Protobuf info. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00038">38</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridProtoReader.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a78242e37d912267ce0d5143b0d211933"></a>
+<a class="anchor" id="ac39b3553fa52b22d47cd5972d5e1c4b8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -275,26 +158,25 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">geopop::GeoGridProtoReader::GeoGridProtoReader </td>
+          <td class="memname">virtual geopop::GeoGridWriter::~GeoGridWriter </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/dfe/a00025.html">GeoGridProtoReader</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>No copy constructor. </p>
+<p>Construct the Writer. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aacca4ced44b0fc60e24767f1bbc93b78"></a>
+<a class="anchor" id="a2a4c494a6bbe1776e71706a1c3a7ff9a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -302,188 +184,16 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/dfe/a00025.html">GeoGridProtoReader</a> geopop::GeoGridProtoReader::operator= </td>
+          <td class="memname">virtual void geopop::GeoGridWriter::Write </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/dfe/a00025.html">GeoGridProtoReader</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>No copy assignement. </p>
-
-</div>
-</div>
-<a class="anchor" id="a6f156064f4af6a0905e1959605ac9826"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void geopop::GeoGridProtoReader::Read </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Actually perform the read and return the <a class="el" href="../../dd/da2/a00019.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a>. </p>
-
-<p>Implements <a class="el" href="../../d0/d33/a00027.html#a5acaf132416850a433e1f41565c35e87">geopop::GeoGridReader</a>.</p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00043">43</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridProtoReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../df/d24/a00217_source.html#l00027">geopop::GeoGridReader::AddCommutes()</a>, <a class="el" href="../../dc/d28/a00276_source.html#l00062">stride::Person::GetId()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01522">proto::GeoGrid::locations()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01507">proto::GeoGrid::locations_size()</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00064">geopop::GeoGridReader::m_commutes</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00066">geopop::GeoGridReader::m_inputStream</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00061">geopop::GeoGridReader::m_people</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00067">geopop::GeoGridReader::m_population</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00182">ParseLocation()</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00220">ParsePerson()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01552">proto::GeoGrid::persons()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01537">proto::GeoGrid::persons_size()</a>, and <a class="el" href="../../dc/dc9/a00282_source.html#l00083">stride::Population::RefGeoGrid()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_a6f156064f4af6a0905e1959605ac9826_cgraph.gif" border="0" usemap="#d3/dfe/a00025_a6f156064f4af6a0905e1959605ac9826_cgraph" alt=""/></div>
-<map name="d3/dfe/a00025_a6f156064f4af6a0905e1959605ac9826_cgraph" id="d3/dfe/a00025_a6f156064f4af6a0905e1959605ac9826_cgraph">
-<area shape="rect" id="node2" href="../../d0/d33/a00027.html#a72ea40450cdeb7fef66501752d12bbb2" title="Add the commutes that were found to their respective Locations symmetrically. " alt="" coords="281,139,455,181"/>
-<area shape="rect" id="node4" href="../../d4/d3a/a00101.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="292,347,444,373"/>
-<area shape="rect" id="node5" href="../../d3/d8b/a00059.html#a3b5d0b66ec5382518acb9fc346d600a7" title="proto::GeoGrid::locations" alt="" coords="277,397,459,424"/>
-<area shape="rect" id="node6" href="../../d3/d8b/a00059.html#aa4e4cc38da711b133be850b95d4cf2cb" title="proto::GeoGrid::locations_size" alt="" coords="261,448,475,475"/>
-<area shape="rect" id="node7" href="../../d3/dfe/a00025.html#a2d7e93b8c38a12f8c662d18973e14a79" title="Create a Location based on protobuf Location info. " alt="" coords="264,499,472,541"/>
-<area shape="rect" id="node35" href="../../d3/dfe/a00025.html#af379f9881c0626dd1efbb969798ab38e" title="Create a Person based on protobuf Person info. " alt="" coords="264,565,472,606"/>
-<area shape="rect" id="node41" href="../../d3/d8b/a00059.html#af24fe8aeed116df8e4dc62d33c871653" title="proto::GeoGrid::persons" alt="" coords="281,631,455,657"/>
-<area shape="rect" id="node42" href="../../d3/d8b/a00059.html#a2305009892d1e70cf58a9ff9b422a21d" title="proto::GeoGrid::persons_size" alt="" coords="265,681,471,708"/>
-<area shape="rect" id="node43" href="../../d9/dcc/a00102.html#aed61b0a0c312dba5b64733e21be7a1b2" title="Reference the GeoGrid associated with this population (may be a nullptr). " alt="" coords="301,733,435,774"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00019.html#a53d0f06d0142edf9b2abe5fc89dd3f28" title="Gets a Location by Id and check if the Id exists. " alt="" coords="533,5,721,32"/>
-<area shape="rect" id="node8" href="../../d9/d73/a00060.html#a9f787c871e478cd4706979b0d78edce4" title="proto::GeoGrid_Location::id" alt="" coords="529,56,725,83"/>
-<area shape="rect" id="node9" href="../../d9/d73/a00060.html#ae5d5287002d2a97e9c59fc974e850df8" title="proto::GeoGrid_Location\l::name" alt="" coords="538,107,715,149"/>
-<area shape="rect" id="node10" href="../../d9/d73/a00060.html#aefd4205f29912c851f50c5cc9858b96c" title="proto::GeoGrid_Location\l::province" alt="" coords="538,173,715,214"/>
-<area shape="rect" id="node11" href="../../d9/d73/a00060.html#a8f722f8a9c6609c033a0654fd3bef9d8" title="proto::GeoGrid_Location\l::population" alt="" coords="538,238,715,279"/>
-<area shape="rect" id="node12" href="../../d3/dfe/a00025.html#a25bb12687d13e26a40d0d15d44220744" title="Create a Coordinate based on the provided protobuf Coordinate. " alt="" coords="523,303,731,345"/>
-<area shape="rect" id="node15" href="../../d9/d73/a00060.html#a20327f38bc0288016b3eeb04997e66fd" title="proto::GeoGrid_Location\l::coordinate" alt="" coords="538,369,715,410"/>
-<area shape="rect" id="node16" href="../../d9/d73/a00060.html#a9af8ca81e0d174f95d789faa3c185d2a" title="proto::GeoGrid_Location\l::contactcenters_size" alt="" coords="538,434,715,475"/>
-<area shape="rect" id="node17" href="../../d9/d73/a00060.html#aadf531763d2e4f044e98f688958d8353" title="proto::GeoGrid_Location\l::contactcenters" alt="" coords="538,499,715,541"/>
-<area shape="rect" id="node18" href="../../d3/dfe/a00025.html#a913aee104b2c1982d1cb4164f7ad0e65" title="Create a ContactCenter based on protobuf ContactCenter info. " alt="" coords="523,565,731,606"/>
-<area shape="rect" id="node31" href="../../d9/d73/a00060.html#a61d7217103491dd110c59c46cc32aa25" title="proto::GeoGrid_Location\l::commutes_size" alt="" coords="538,630,715,671"/>
-<area shape="rect" id="node32" href="../../d9/d73/a00060.html#af51162270a0c084022903489941101ab" title="proto::GeoGrid_Location\l::commutes" alt="" coords="538,695,715,737"/>
-<area shape="rect" id="node33" href="../../d4/de8/a00061.html#a7c9df75a7447c72721d84f192a2c19b7" title="proto::GeoGrid_Location\l_Commute::to" alt="" coords="538,761,715,802"/>
-<area shape="rect" id="node34" href="../../d4/de8/a00061.html#a84004e570416a8aaae361bb53f57d8f6" title="proto::GeoGrid_Location\l_Commute::proportion" alt="" coords="538,826,715,867"/>
-<area shape="rect" id="node13" href="../../df/d5f/a00064.html#a03d2590a2f44bf79ad4872b5bcfb3b6d" title="proto::GeoGrid_Location\l_Coordinate::longitude" alt="" coords="795,271,972,313"/>
-<area shape="rect" id="node14" href="../../df/d5f/a00064.html#a6bc5976b2e0d0f05f1a134544844b6bc" title="proto::GeoGrid_Location\l_Coordinate::latitude" alt="" coords="795,337,972,378"/>
-<area shape="rect" id="node19" href="../../df/d03/a00062.html#a527127a37e7e5f5735eb829bf959da9d" title="proto::GeoGrid_Location\l_ContactCenter::type" alt="" coords="795,434,972,475"/>
-<area shape="rect" id="node20" href="../../df/d03/a00062.html#a836da18e7ce8173b075a1fa72d33ea84" title="proto::GeoGrid_Location\l_ContactCenter::id" alt="" coords="795,499,972,541"/>
-<area shape="rect" id="node21" href="../../df/d03/a00062.html#a2fba27d68b28b8f526346d0fe1d3cdd6" title="proto::GeoGrid_Location\l_ContactCenter::pools_size" alt="" coords="785,565,981,606"/>
-<area shape="rect" id="node22" href="../../df/d03/a00062.html#ad72f8f06adf64bedd21c233827dc8d65" title="proto::GeoGrid_Location\l_ContactCenter::pools" alt="" coords="795,630,972,671"/>
-<area shape="rect" id="node23" href="../../d3/dfe/a00025.html#aa6dbedaf2a8098e075607c358066a849" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="779,695,987,737"/>
-<area shape="rect" id="node24" href="../../d9/dcc/a00102.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="1074,501,1207,542"/>
-<area shape="rect" id="node25" href="../../d9/da4/a00078.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="1057,566,1224,607"/>
-<area shape="rect" id="node26" href="../../d1/d6f/a00063.html#af18dfe27121c6513a6edf82892651fab" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people_size" alt="" coords="1037,631,1244,687"/>
-<area shape="rect" id="node27" href="../../d1/d6f/a00063.html#a0de33357e50cb2549d9aad7b987dcc5a" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people" alt="" coords="1037,711,1244,767"/>
-<area shape="rect" id="node28" href="../../d1/d09/a00077.html#aa9aeb5154fea3446d9a4ac4d1844b510" title="Add the given Person. " alt="" coords="1069,790,1212,831"/>
-<area shape="rect" id="node29" href="../../d1/d09/a00077.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="1069,855,1212,897"/>
-<area shape="rect" id="node30" href="../../d1/d09/a00077.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="1293,855,1436,897"/>
-<area shape="rect" id="node36" href="../../de/de1/a00065.html#a4af5dc5058c3aa6cf84838094d6514af" title="proto::GeoGrid_Person::id" alt="" coords="533,892,720,919"/>
-<area shape="rect" id="node37" href="../../d9/dcc/a00102.html#a5680667e8da5d16b5f9b2c4d9a0207fa" title="Create Person in the population. " alt="" coords="560,943,693,985"/>
-<area shape="rect" id="node40" href="../../de/de1/a00065.html#aff796dcc38d801c94f34280e473cd3d4" title="proto::GeoGrid_Person::age" alt="" coords="527,1009,726,1036"/>
-<area shape="rect" id="node38" href="../../dc/ddf/a00067.html#a2cd11f9b95b20b69378fc9268c380096" title="Constructs element in&#45;place at the end. " alt="" coords="779,943,988,985"/>
-<area shape="rect" id="node39" href="../../dc/ddf/a00067.html#a4f98e9e54da37bbf7c6ed0c2b40361d9" title="Get next available chunk for element construction with placement new. " alt="" coords="1036,943,1245,985"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a913aee104b2c1982d1cb4164f7ad0e65"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d2/de7/a00014.html">ContactCenter</a> &gt; geopop::GeoGridProtoReader::ParseContactCenter </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../df/d03/a00062.html">proto::GeoGrid_Location_ContactCenter</a> &amp;&#160;</td>
-          <td class="paramname"><em>protoContactCenter</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create a <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a> based on protobuf <a class="el" href="../../d2/de7/a00014.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a> info. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00090">90</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridProtoReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462a2806259c227f694c678ec9444aec2042">stride::ContactType::College</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00092">proto::GeoGrid_Location_ContactCenter_Type_College</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00093">proto::GeoGrid_Location_ContactCenter_Type_Household</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00089">proto::GeoGrid_Location_ContactCenter_Type_K12School</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00090">proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00091">proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00094">proto::GeoGrid_Location_ContactCenter_Type_Workplace</a>, <a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462aea4be67641b70cfa3fec0f86ea7f239b">stride::ContactType::Household</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01174">proto::GeoGrid_Location_ContactCenter::id()</a>, <a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462ab055a361403830ea4fa7bd1c8519b38e">stride::ContactType::K12School</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00158">ParseContactPool()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01214">proto::GeoGrid_Location_ContactCenter::pools()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01199">proto::GeoGrid_Location_ContactCenter::pools_size()</a>, <a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462a96ebabb1132dcba9eed74dd06579a2a6">stride::ContactType::PrimaryCommunity</a>, <a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462ad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactType::SecondaryCommunity</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01188">proto::GeoGrid_Location_ContactCenter::type()</a>, and <a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462a45c6a290fcb4fad167ee4b610eeea878">stride::ContactType::Workplace</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/de1/a00213_source.html#l00182">ParseLocation()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_a913aee104b2c1982d1cb4164f7ad0e65_cgraph.gif" border="0" usemap="#d3/dfe/a00025_a913aee104b2c1982d1cb4164f7ad0e65_cgraph" alt=""/></div>
-<map name="d3/dfe/a00025_a913aee104b2c1982d1cb4164f7ad0e65_cgraph" id="d3/dfe/a00025_a913aee104b2c1982d1cb4164f7ad0e65_cgraph">
-<area shape="rect" id="node2" href="../../df/d03/a00062.html#a836da18e7ce8173b075a1fa72d33ea84" title="proto::GeoGrid_Location\l_ContactCenter::id" alt="" coords="277,117,454,159"/>
-<area shape="rect" id="node3" href="../../d3/dfe/a00025.html#aa6dbedaf2a8098e075607c358066a849" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="261,183,469,224"/>
-<area shape="rect" id="node11" href="../../df/d03/a00062.html#ad72f8f06adf64bedd21c233827dc8d65" title="proto::GeoGrid_Location\l_ContactCenter::pools" alt="" coords="277,248,454,289"/>
-<area shape="rect" id="node12" href="../../df/d03/a00062.html#a2fba27d68b28b8f526346d0fe1d3cdd6" title="proto::GeoGrid_Location\l_ContactCenter::pools_size" alt="" coords="267,313,463,355"/>
-<area shape="rect" id="node13" href="../../df/d03/a00062.html#a527127a37e7e5f5735eb829bf959da9d" title="proto::GeoGrid_Location\l_ContactCenter::type" alt="" coords="277,379,454,420"/>
-<area shape="rect" id="node4" href="../../d9/dcc/a00102.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="554,5,687,47"/>
-<area shape="rect" id="node5" href="../../d9/da4/a00078.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="537,71,704,112"/>
-<area shape="rect" id="node6" href="../../d1/d6f/a00063.html#af18dfe27121c6513a6edf82892651fab" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people_size" alt="" coords="517,135,724,191"/>
-<area shape="rect" id="node7" href="../../d1/d6f/a00063.html#a0de33357e50cb2549d9aad7b987dcc5a" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people" alt="" coords="517,215,724,271"/>
-<area shape="rect" id="node8" href="../../d1/d09/a00077.html#aa9aeb5154fea3446d9a4ac4d1844b510" title="Add the given Person. " alt="" coords="549,295,692,336"/>
-<area shape="rect" id="node9" href="../../d1/d09/a00077.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="549,360,692,401"/>
-<area shape="rect" id="node10" href="../../d1/d09/a00077.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="772,360,915,401"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_a913aee104b2c1982d1cb4164f7ad0e65_icgraph.gif" border="0" usemap="#d3/dfe/a00025_a913aee104b2c1982d1cb4164f7ad0e65_icgraph" alt=""/></div>
-<map name="d3/dfe/a00025_a913aee104b2c1982d1cb4164f7ad0e65_icgraph" id="d3/dfe/a00025_a913aee104b2c1982d1cb4164f7ad0e65_icgraph">
-<area shape="rect" id="node2" href="../../d3/dfe/a00025.html#a2d7e93b8c38a12f8c662d18973e14a79" title="Create a Location based on protobuf Location info. " alt="" coords="261,5,469,47"/>
-<area shape="rect" id="node3" href="../../d3/dfe/a00025.html#a6f156064f4af6a0905e1959605ac9826" title="Actually perform the read and return the GeoGrid. " alt="" coords="517,5,725,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="aa6dbedaf2a8098e075607c358066a849"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> * geopop::GeoGridProtoReader::ParseContactPool </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d1/d6f/a00063.html">proto::GeoGrid_Location_ContactCenter_ContactPool</a> &amp;&#160;</td>
-          <td class="paramname"><em>protoContactPool</em>, </td>
+          <td class="paramtype"><a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d2/d3e/a00366.html#a61a32e88a50c57e6f5c49f0996b6b462">stride::ContactType::Id</a>&#160;</td>
-          <td class="paramname"><em>typeId</em>&#160;</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -493,248 +203,27 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Create a ContactPool based on the provided protobuf ContactPool. </p>
+<p>Write the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to ostream. </p>
 
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00158">158</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridProtoReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d3f/a00173_source.html#l00037">stride::ContactPool::AddMember()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00036">stride::ContactPoolSys::CreateContactPool()</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00051">stride::ContactPool::GetId()</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00061">geopop::GeoGridReader::m_people</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00067">geopop::GeoGridReader::m_population</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01143">proto::GeoGrid_Location_ContactCenter_ContactPool::people()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01137">proto::GeoGrid_Location_ContactCenter_ContactPool::people_size()</a>, and <a class="el" href="../../dc/dc9/a00282_source.html#l00080">stride::Population::RefPoolSys()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/de1/a00213_source.html#l00090">ParseContactCenter()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_aa6dbedaf2a8098e075607c358066a849_cgraph.gif" border="0" usemap="#d3/dfe/a00025_aa6dbedaf2a8098e075607c358066a849_cgraph" alt=""/></div>
-<map name="d3/dfe/a00025_aa6dbedaf2a8098e075607c358066a849_cgraph" id="d3/dfe/a00025_aa6dbedaf2a8098e075607c358066a849_cgraph">
-<area shape="rect" id="node2" href="../../d1/d09/a00077.html#aa9aeb5154fea3446d9a4ac4d1844b510" title="Add the given Person. " alt="" coords="293,5,436,47"/>
-<area shape="rect" id="node3" href="../../d9/da4/a00078.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="281,71,448,112"/>
-<area shape="rect" id="node4" href="../../d1/d09/a00077.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="293,136,436,177"/>
-<area shape="rect" id="node6" href="../../d1/d6f/a00063.html#a0de33357e50cb2549d9aad7b987dcc5a" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people" alt="" coords="261,201,468,257"/>
-<area shape="rect" id="node7" href="../../d1/d6f/a00063.html#af18dfe27121c6513a6edf82892651fab" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people_size" alt="" coords="261,281,468,337"/>
-<area shape="rect" id="node8" href="../../d9/dcc/a00102.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="298,360,431,401"/>
-<area shape="rect" id="node5" href="../../d1/d09/a00077.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="516,136,659,177"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_aa6dbedaf2a8098e075607c358066a849_icgraph.gif" border="0" usemap="#d3/dfe/a00025_aa6dbedaf2a8098e075607c358066a849_icgraph" alt=""/></div>
-<map name="d3/dfe/a00025_aa6dbedaf2a8098e075607c358066a849_icgraph" id="d3/dfe/a00025_aa6dbedaf2a8098e075607c358066a849_icgraph">
-<area shape="rect" id="node2" href="../../d3/dfe/a00025.html#a913aee104b2c1982d1cb4164f7ad0e65" title="Create a ContactCenter based on protobuf ContactCenter info. " alt="" coords="261,5,469,47"/>
-<area shape="rect" id="node3" href="../../d3/dfe/a00025.html#a2d7e93b8c38a12f8c662d18973e14a79" title="Create a Location based on protobuf Location info. " alt="" coords="517,5,725,47"/>
-<area shape="rect" id="node4" href="../../d3/dfe/a00025.html#a6f156064f4af6a0905e1959605ac9826" title="Actually perform the read and return the GeoGrid. " alt="" coords="773,5,981,47"/>
-</map>
-</div>
-</p>
+<p>Implemented in <a class="el" href="../../d7/de0/a00022.html#abaddb399f1f826203ae6086858dbfbde">geopop::GeoGridProtoWriter</a>, and <a class="el" href="../../db/db2/a00020.html#ad29ac72b56a116252620d06921f0365e">geopop::GeoGridJSONWriter</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a25bb12687d13e26a40d0d15d44220744"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d6/d9c/a00352.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a> geopop::GeoGridProtoReader::ParseCoordinate </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../df/d5f/a00064.html">proto::GeoGrid_Location_Coordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>protoCoordinate</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create a Coordinate based on the provided protobuf Coordinate. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00153">153</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridProtoReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/d72/a00204_source.html#l01108">proto::GeoGrid_Location_Coordinate::latitude()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l01094">proto::GeoGrid_Location_Coordinate::longitude()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/de1/a00213_source.html#l00182">ParseLocation()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_a25bb12687d13e26a40d0d15d44220744_cgraph.gif" border="0" usemap="#d3/dfe/a00025_a25bb12687d13e26a40d0d15d44220744_cgraph" alt=""/></div>
-<map name="d3/dfe/a00025_a25bb12687d13e26a40d0d15d44220744_cgraph" id="d3/dfe/a00025_a25bb12687d13e26a40d0d15d44220744_cgraph">
-<area shape="rect" id="node2" href="../../df/d5f/a00064.html#a6bc5976b2e0d0f05f1a134544844b6bc" title="proto::GeoGrid_Location\l_Coordinate::latitude" alt="" coords="261,5,439,47"/>
-<area shape="rect" id="node3" href="../../df/d5f/a00064.html#a03d2590a2f44bf79ad4872b5bcfb3b6d" title="proto::GeoGrid_Location\l_Coordinate::longitude" alt="" coords="261,71,439,112"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_a25bb12687d13e26a40d0d15d44220744_icgraph.gif" border="0" usemap="#d3/dfe/a00025_a25bb12687d13e26a40d0d15d44220744_icgraph" alt=""/></div>
-<map name="d3/dfe/a00025_a25bb12687d13e26a40d0d15d44220744_icgraph" id="d3/dfe/a00025_a25bb12687d13e26a40d0d15d44220744_icgraph">
-<area shape="rect" id="node2" href="../../d3/dfe/a00025.html#a2d7e93b8c38a12f8c662d18973e14a79" title="Create a Location based on protobuf Location info. " alt="" coords="261,5,469,47"/>
-<area shape="rect" id="node3" href="../../d3/dfe/a00025.html#a6f156064f4af6a0905e1959605ac9826" title="Actually perform the read and return the GeoGrid. " alt="" coords="517,5,725,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a2d7e93b8c38a12f8c662d18973e14a79"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Location</a> &gt; geopop::GeoGridProtoReader::ParseLocation </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d9/d73/a00060.html">proto::GeoGrid_Location</a> &amp;&#160;</td>
-          <td class="paramname"><em>protoLocation</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create a <a class="el" href="../../dd/d32/a00041.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. ">Location</a> based on protobuf <a class="el" href="../../dd/d32/a00041.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. ">Location</a> info. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00182">182</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridProtoReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/d72/a00204_source.html#l01456">proto::GeoGrid_Location::commutes()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01441">proto::GeoGrid_Location::commutes_size()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01426">proto::GeoGrid_Location::contactcenters()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01411">proto::GeoGrid_Location::contactcenters_size()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01369">proto::GeoGrid_Location::coordinate()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01268">proto::GeoGrid_Location::id()</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00064">geopop::GeoGridReader::m_commutes</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01282">proto::GeoGrid_Location::name()</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00090">ParseContactCenter()</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00153">ParseCoordinate()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01349">proto::GeoGrid_Location::population()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01250">proto::GeoGrid_Location_Commute::proportion()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01335">proto::GeoGrid_Location::province()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l01236">proto::GeoGrid_Location_Commute::to()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/de1/a00213_source.html#l00043">Read()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_a2d7e93b8c38a12f8c662d18973e14a79_cgraph.gif" border="0" usemap="#d3/dfe/a00025_a2d7e93b8c38a12f8c662d18973e14a79_cgraph" alt=""/></div>
-<map name="d3/dfe/a00025_a2d7e93b8c38a12f8c662d18973e14a79_cgraph" id="d3/dfe/a00025_a2d7e93b8c38a12f8c662d18973e14a79_cgraph">
-<area shape="rect" id="node2" href="../../d9/d73/a00060.html#af51162270a0c084022903489941101ab" title="proto::GeoGrid_Location\l::commutes" alt="" coords="277,5,454,47"/>
-<area shape="rect" id="node3" href="../../d9/d73/a00060.html#a61d7217103491dd110c59c46cc32aa25" title="proto::GeoGrid_Location\l::commutes_size" alt="" coords="277,71,454,112"/>
-<area shape="rect" id="node4" href="../../d9/d73/a00060.html#aadf531763d2e4f044e98f688958d8353" title="proto::GeoGrid_Location\l::contactcenters" alt="" coords="277,136,454,177"/>
-<area shape="rect" id="node5" href="../../d9/d73/a00060.html#a9af8ca81e0d174f95d789faa3c185d2a" title="proto::GeoGrid_Location\l::contactcenters_size" alt="" coords="277,201,454,243"/>
-<area shape="rect" id="node6" href="../../d9/d73/a00060.html#a20327f38bc0288016b3eeb04997e66fd" title="proto::GeoGrid_Location\l::coordinate" alt="" coords="277,267,454,308"/>
-<area shape="rect" id="node7" href="../../d9/d73/a00060.html#a9f787c871e478cd4706979b0d78edce4" title="proto::GeoGrid_Location::id" alt="" coords="267,333,463,359"/>
-<area shape="rect" id="node8" href="../../d9/d73/a00060.html#ae5d5287002d2a97e9c59fc974e850df8" title="proto::GeoGrid_Location\l::name" alt="" coords="277,384,454,425"/>
-<area shape="rect" id="node9" href="../../d3/dfe/a00025.html#a913aee104b2c1982d1cb4164f7ad0e65" title="Create a ContactCenter based on protobuf ContactCenter info. " alt="" coords="261,449,469,491"/>
-<area shape="rect" id="node22" href="../../d3/dfe/a00025.html#a25bb12687d13e26a40d0d15d44220744" title="Create a Coordinate based on the provided protobuf Coordinate. " alt="" coords="261,515,469,556"/>
-<area shape="rect" id="node25" href="../../d9/d73/a00060.html#a8f722f8a9c6609c033a0654fd3bef9d8" title="proto::GeoGrid_Location\l::population" alt="" coords="277,580,454,621"/>
-<area shape="rect" id="node26" href="../../d4/de8/a00061.html#a84004e570416a8aaae361bb53f57d8f6" title="proto::GeoGrid_Location\l_Commute::proportion" alt="" coords="277,645,454,687"/>
-<area shape="rect" id="node27" href="../../d9/d73/a00060.html#aefd4205f29912c851f50c5cc9858b96c" title="proto::GeoGrid_Location\l::province" alt="" coords="277,711,454,752"/>
-<area shape="rect" id="node28" href="../../d4/de8/a00061.html#a7c9df75a7447c72721d84f192a2c19b7" title="proto::GeoGrid_Location\l_Commute::to" alt="" coords="277,776,454,817"/>
-<area shape="rect" id="node10" href="../../df/d03/a00062.html#a836da18e7ce8173b075a1fa72d33ea84" title="proto::GeoGrid_Location\l_ContactCenter::id" alt="" coords="533,253,710,295"/>
-<area shape="rect" id="node11" href="../../d3/dfe/a00025.html#aa6dbedaf2a8098e075607c358066a849" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="517,319,725,360"/>
-<area shape="rect" id="node19" href="../../df/d03/a00062.html#ad72f8f06adf64bedd21c233827dc8d65" title="proto::GeoGrid_Location\l_ContactCenter::pools" alt="" coords="533,384,710,425"/>
-<area shape="rect" id="node20" href="../../df/d03/a00062.html#a2fba27d68b28b8f526346d0fe1d3cdd6" title="proto::GeoGrid_Location\l_ContactCenter::pools_size" alt="" coords="523,449,719,491"/>
-<area shape="rect" id="node21" href="../../df/d03/a00062.html#a527127a37e7e5f5735eb829bf959da9d" title="proto::GeoGrid_Location\l_ContactCenter::type" alt="" coords="533,515,710,556"/>
-<area shape="rect" id="node12" href="../../d1/d09/a00077.html#aa9aeb5154fea3446d9a4ac4d1844b510" title="Add the given Person. " alt="" coords="805,152,948,193"/>
-<area shape="rect" id="node13" href="../../d9/da4/a00078.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="793,217,960,259"/>
-<area shape="rect" id="node14" href="../../d1/d09/a00077.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="805,283,948,324"/>
-<area shape="rect" id="node16" href="../../d1/d6f/a00063.html#a0de33357e50cb2549d9aad7b987dcc5a" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people" alt="" coords="773,347,980,403"/>
-<area shape="rect" id="node17" href="../../d1/d6f/a00063.html#af18dfe27121c6513a6edf82892651fab" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::people_size" alt="" coords="773,427,980,483"/>
-<area shape="rect" id="node18" href="../../d9/dcc/a00102.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="810,507,943,548"/>
-<area shape="rect" id="node15" href="../../d1/d09/a00077.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="1028,283,1171,324"/>
-<area shape="rect" id="node23" href="../../df/d5f/a00064.html#a6bc5976b2e0d0f05f1a134544844b6bc" title="proto::GeoGrid_Location\l_Coordinate::latitude" alt="" coords="533,580,710,621"/>
-<area shape="rect" id="node24" href="../../df/d5f/a00064.html#a03d2590a2f44bf79ad4872b5bcfb3b6d" title="proto::GeoGrid_Location\l_Coordinate::longitude" alt="" coords="533,645,710,687"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_a2d7e93b8c38a12f8c662d18973e14a79_icgraph.gif" border="0" usemap="#d3/dfe/a00025_a2d7e93b8c38a12f8c662d18973e14a79_icgraph" alt=""/></div>
-<map name="d3/dfe/a00025_a2d7e93b8c38a12f8c662d18973e14a79_icgraph" id="d3/dfe/a00025_a2d7e93b8c38a12f8c662d18973e14a79_icgraph">
-<area shape="rect" id="node2" href="../../d3/dfe/a00025.html#a6f156064f4af6a0905e1959605ac9826" title="Actually perform the read and return the GeoGrid. " alt="" coords="261,5,469,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="af379f9881c0626dd1efbb969798ab38e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d3a/a00101.html">stride::Person</a> * geopop::GeoGridProtoReader::ParsePerson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../de/de1/a00065.html">proto::GeoGrid_Person</a> &amp;&#160;</td>
-          <td class="paramname"><em>person</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create a Person based on protobuf Person info. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00220">220</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridProtoReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/d72/a00204_source.html#l01492">proto::GeoGrid_Person::age()</a>, <a class="el" href="../../d2/d04/a00281_source.html#l00116">stride::Population::CreatePerson()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l01478">proto::GeoGrid_Person::id()</a>, and <a class="el" href="../../dc/d9a/a00218_source.html#l00067">geopop::GeoGridReader::m_population</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/de1/a00213_source.html#l00043">Read()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_af379f9881c0626dd1efbb969798ab38e_cgraph.gif" border="0" usemap="#d3/dfe/a00025_af379f9881c0626dd1efbb969798ab38e_cgraph" alt=""/></div>
-<map name="d3/dfe/a00025_af379f9881c0626dd1efbb969798ab38e_cgraph" id="d3/dfe/a00025_af379f9881c0626dd1efbb969798ab38e_cgraph">
-<area shape="rect" id="node2" href="../../de/de1/a00065.html#aff796dcc38d801c94f34280e473cd3d4" title="proto::GeoGrid_Person::age" alt="" coords="261,5,460,32"/>
-<area shape="rect" id="node3" href="../../d9/dcc/a00102.html#a5680667e8da5d16b5f9b2c4d9a0207fa" title="Create Person in the population. " alt="" coords="294,57,427,98"/>
-<area shape="rect" id="node6" href="../../de/de1/a00065.html#a4af5dc5058c3aa6cf84838094d6514af" title="proto::GeoGrid_Person::id" alt="" coords="267,123,454,149"/>
-<area shape="rect" id="node4" href="../../dc/ddf/a00067.html#a2cd11f9b95b20b69378fc9268c380096" title="Constructs element in&#45;place at the end. " alt="" coords="508,57,717,98"/>
-<area shape="rect" id="node5" href="../../dc/ddf/a00067.html#a4f98e9e54da37bbf7c6ed0c2b40361d9" title="Get next available chunk for element construction with placement new. " alt="" coords="765,57,975,98"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_af379f9881c0626dd1efbb969798ab38e_icgraph.gif" border="0" usemap="#d3/dfe/a00025_af379f9881c0626dd1efbb969798ab38e_icgraph" alt=""/></div>
-<map name="d3/dfe/a00025_af379f9881c0626dd1efbb969798ab38e_icgraph" id="d3/dfe/a00025_af379f9881c0626dd1efbb969798ab38e_icgraph">
-<area shape="rect" id="node2" href="../../d3/dfe/a00025.html#a6f156064f4af6a0905e1959605ac9826" title="Actually perform the read and return the GeoGrid. " alt="" coords="261,5,469,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d3/dd1/a00214_source.html">GeoGridProtoReader.h</a></li>
-<li><a class="el" href="../../d1/de1/a00213_source.html">GeoGridProtoReader.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../da/de7/a00210_source.html">GeoGridWriter.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></li><li class="navelem"><a class="el" href="../../d3/dfe/a00025.html">GeoGridProtoReader</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:23 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d84/a00338.html">geopop</a></li><li class="navelem"><a class="el" href="../../d3/dfe/a00025.html">GeoGridWriter</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:33 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,8 +1,7 @@
 var a00105 =
 [
-    [ "SimBuilder", "d3/d32/a00105.html#a8ec762745a42a867aa755791f21dab12", null ],
-    [ "Build", "d3/d32/a00105.html#a1f32dd929e6e21eabd41f7f7246a7aa1", null ],
-    [ "ReadAgeContactPtree", "d3/d32/a00105.html#ad551b02c507948570f07af10d85d29ce", null ],
-    [ "ReadDiseasePtree", "d3/d32/a00105.html#adffa42c6b8b171616fcdfb4805260c92", null ],
-    [ "m_config", "d3/d32/a00105.html#acbb3153c81c97a062f8351ec8ab1db0b", null ]
+    [ "TransmissionProfile", "d3/d32/a00105.html#a1645757a571f63d0583d54a6838ca1fb", null ],
+    [ "GetRate", "d3/d32/a00105.html#a51ffe104253ffd5bcf12ab299fa6f2e2", null ],
+    [ "Initialize", "d3/d32/a00105.html#a5e67e9eab813de18fff32722ee6f1437", null ],
+    [ "m_transmission_rate", "d3/d32/a00105.html#afbb8227d4d8b61b291fa521f33dce3ce", null ]
 ];

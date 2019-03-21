@@ -1,5 +1,6 @@
 var a00005 =
 [
-    [ "CitiesCSVReader", "dd/dad/a00005.html#a2c0a1a4feb0f17a4ffa09c3355a8085c", null ],
-    [ "FillGeoGrid", "dd/dad/a00005.html#a3d98f0b66e770e59af0d3f7d5c546691", null ]
+    [ "Collector", "dd/dad/a00005.html#a51d50ff423abe3d4c568a01db3df5f98", null ],
+    [ "operator()", "dd/dad/a00005.html#a4cd2016d1cb6004c813d34d9141d3edc", null ],
+    [ "m_ins", "dd/dad/a00005.html#a006d956ca7ce672e9c9fe853402f69c7", null ]
 ];

@@ -1,6 +1,5 @@
 var a00036 =
 [
-    [ "K12SchoolCenter", "de/d8c/a00036.html#ace3ea5b6c7fbe9a536d0a1dc8b9e181b", null ],
-    [ "SetupPools", "de/d8c/a00036.html#a02d1b25f973e441c0264f663e9ff63b8", null ],
-    [ "GetContactPoolType", "de/d8c/a00036.html#a8f276c506dcace1dba095be78f52e464", null ]
+    [ "LocationsCSVReader", "de/d8c/a00036.html#a03d6126b7e3450a5a5660d65acd4e5d2", null ],
+    [ "FillGeoGrid", "de/d8c/a00036.html#a37d5fefcf5e36a282e471d46fd082ad2", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::GeoGridReaderFactory Class Reference</title>
+<title>Stride Reference Manual: geopop::HouseholdGenerator Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -108,72 +108,174 @@ $(document).ready(function(){initNavTree('dc/d3c/a00028.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d8/d7f/a00787.html">List of all members</a>  </div>
+<a href="../../d3/d95/a00757.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::GeoGridReaderFactory Class Reference</div>  </div>
+<div class="title">geopop::HouseholdGenerator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A Factory for creating the correct implementation of a <a class="el" href="../../d0/d33/a00027.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the filename extension.  
+<p>Generates ContactCenters and pools for ContactType Household.  
  <a href="../../dc/d3c/a00028.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReaderFactory.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d0/d24/a00222_source.html">HouseholdGenerator.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for geopop::GeoGridReaderFactory:</div>
+Inheritance diagram for geopop::HouseholdGenerator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d0c/a00788.gif" border="0" usemap="#geopop_1_1GeoGridReaderFactory_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1GeoGridReaderFactory_coll__map" id="geopop_1_1GeoGridReaderFactory_coll__map">
+<div class="center"><img src="../../d2/d4a/a00758.gif" border="0" usemap="#geopop_1_1HouseholdGenerator_inherit__map" alt="Inheritance graph"/></div>
+<map name="geopop_1_1HouseholdGenerator_inherit__map" id="geopop_1_1HouseholdGenerator_inherit__map">
+<area shape="rect" id="node2" href="../../da/d45/a00011.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid..." alt="" coords="39,5,182,141"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for geopop::HouseholdGenerator:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d2/d87/a00759.gif" border="0" usemap="#geopop_1_1HouseholdGenerator_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1HouseholdGenerator_coll__map" id="geopop_1_1HouseholdGenerator_coll__map">
+<area shape="rect" id="node2" href="../../da/d45/a00011.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid..." alt="" coords="84,417,227,539"/>
+<area shape="rect" id="node4" href="../../df/d6a/a00119.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,145,381,355"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afd9d54966d5a7c5d19308cc53d48f6e7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGridReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#afd9d54966d5a7c5d19308cc53d48f6e7">CreateReader</a> (const std::string &amp;filename, <a class="el" href="../../d9/dcc/a00102.html">stride::Population</a> *pop) const </td></tr>
-<tr class="memdesc:afd9d54966d5a7c5d19308cc53d48f6e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d0/d33/a00027.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the provided extension in the filename.  <a href="#afd9d54966d5a7c5d19308cc53d48f6e7">More...</a><br /></td></tr>
-<tr class="separator:afd9d54966d5a7c5d19308cc53d48f6e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe06efbe0c2393a456277bd4d62edb7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#abe06efbe0c2393a456277bd4d62edb7e">Apply</a> (<a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;geogrid, const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;geoGridConfig, unsigned int &amp;ccCounter) override</td></tr>
+<tr class="memdesc:abe06efbe0c2393a456277bd4d62edb7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">See ::Apply.  <a href="#abe06efbe0c2393a456277bd4d62edb7e">More...</a><br /></td></tr>
+<tr class="separator:abe06efbe0c2393a456277bd4d62edb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba893f2e0086a3865839587e380e0821"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#aba893f2e0086a3865839587e380e0821">SetupPools</a> (<a class="el" href="../../d4/d8c/a00035.html">Location</a> &amp;loc, <a class="el" href="../../d7/dec/a00010.html">ContactCenter</a> &amp;center, const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;geoGridConfig, <a class="el" href="../../d1/d84/a00097.html">stride::Population</a> *pop) override</td></tr>
+<tr class="memdesc:aba893f2e0086a3865839587e380e0821"><td class="mdescLeft">&#160;</td><td class="mdescRight">see ::SetupPools.  <a href="#aba893f2e0086a3865839587e380e0821">More...</a><br /></td></tr>
+<tr class="separator:aba893f2e0086a3865839587e380e0821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00011"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00011')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../da/d45/a00011.html">geopop::Generator</a></td></tr>
+<tr class="memitem:ac9372a526b3a7672b5dca424b3743fd5 inherit pub_methods_a00011"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#ac9372a526b3a7672b5dca424b3743fd5">Generator</a> (<a class="el" href="../../df/d6a/a00119.html">stride::util::RnMan</a> rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger=nullptr)</td></tr>
+<tr class="memdesc:ac9372a526b3a7672b5dca424b3743fd5 inherit pub_methods_a00011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with random number manager and logger.  <a href="#ac9372a526b3a7672b5dca424b3743fd5">More...</a><br /></td></tr>
+<tr class="separator:ac9372a526b3a7672b5dca424b3743fd5 inherit pub_methods_a00011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00011"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#abf1362cb66b511c7c7fba7feb4fc70f1">~Generator</a> ()=default</td></tr>
+<tr class="memdesc:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#abf1362cb66b511c7c7fba7feb4fc70f1">More...</a><br /></td></tr>
+<tr class="separator:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_a00011"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00011')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../da/d45/a00011.html">geopop::Generator</a></td></tr>
+<tr class="memitem:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00011"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d6a/a00119.html">stride::util::RnMan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#af8316a93aaae7285075fd5f5d89d8c32">m_rn_man</a></td></tr>
+<tr class="memdesc:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00011"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#af8316a93aaae7285075fd5f5d89d8c32">More...</a><br /></td></tr>
+<tr class="separator:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00011"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a4bb1600be2268f8a580517daf62b1944">m_logger</a></td></tr>
+<tr class="memdesc:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a4bb1600be2268f8a580517daf62b1944">More...</a><br /></td></tr>
+<tr class="separator:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00011"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A Factory for creating the correct implementation of a <a class="el" href="../../d0/d33/a00027.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the filename extension. </p>
+<div class="textblock"><p>Generates ContactCenters and pools for ContactType Household. </p>
 
-<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00032">32</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReaderFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00025">25</a> of file <a class="el" href="../../d0/d24/a00222_source.html">HouseholdGenerator.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="afd9d54966d5a7c5d19308cc53d48f6e7"></a>
+<a class="anchor" id="abe06efbe0c2393a456277bd4d62edb7e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGridReader</a> &gt; geopop::GeoGridReaderFactory::CreateReader </td>
+          <td class="memname">void geopop::HouseholdGenerator::Apply </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
+          <td class="paramtype"><a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geogrid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/dcc/a00102.html">stride::Population</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>ccCounter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>See ::Apply. </p>
+
+<p>Implements <a class="el" href="../../da/d45/a00011.html#ae430e942261483c78fe9ec27cbb8875a">geopop::Generator</a>.</p>
+
+<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00030">30</a> of file <a class="el" href="../../dd/d52/a00221_source.html">HouseholdGenerator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/d2a/a00195_source.html#l00096">geopop::GeoGridConfig::count_households</a>, <a class="el" href="../../d1/d2b/a00018.html#ac2118fdaa02c6c419fe1c9b2ec7a87dd">geopop::GeoGridConfig::pools</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00105">geopop::GeoGridConfig::pools_per_household</a>, and <a class="el" href="../../d1/d2b/a00018.html#aa7ab12667956a7a9f263bb8be8f07155">geopop::GeoGridConfig::popInfo</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aba893f2e0086a3865839587e380e0821"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::HouseholdGenerator::SetupPools </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d8c/a00035.html">Location</a> &amp;&#160;</td>
+          <td class="paramname"><em>loc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/dec/a00010.html">ContactCenter</a> &amp;&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d84/a00097.html">stride::Population</a> *&#160;</td>
           <td class="paramname"><em>pop</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Create a <a class="el" href="../../d0/d33/a00027.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the provided extension in the filename. </p>
+<p>see ::SetupPools. </p>
 
-<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00036">36</a> of file <a class="el" href="../../dd/df3/a00219_source.html">GeoGridReaderFactory.cpp</a>.</p>
+<p>Implements <a class="el" href="../../da/d45/a00011.html#a7ba3c0cb4d85f84389bff48ec069b37c">geopop::Generator</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/d08/a00244_source.html#l00038">stride::ImportPopBuilder::Build()</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00059">59</a> of file <a class="el" href="../../dd/d52/a00221_source.html">HouseholdGenerator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dd/dae/a00163_source.html#l00036">stride::ContactPoolSys::CreateContactPool()</a>, <a class="el" href="../../d6/d9c/a00352.html#a61a32e88a50c57e6f5c49f0996b6b462aea4be67641b70cfa3fec0f86ea7f239b">stride::ContactType::Household</a>, <a class="el" href="../../d1/d2b/a00018.html#ac2118fdaa02c6c419fe1c9b2ec7a87dd">geopop::GeoGridConfig::pools</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00105">geopop::GeoGridConfig::pools_per_household</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00080">stride::Population::RefPoolSys()</a>, <a class="el" href="../../d1/db7/a00157_source.html#l00059">geopop::ContactCenter::RegisterPool()</a>, and <a class="el" href="../../d7/d03/a00254_source.html#l00139">geopop::Location::RegisterPool()</a>.</p>
 
 <p><div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d3c/a00028_afd9d54966d5a7c5d19308cc53d48f6e7_icgraph.gif" border="0" usemap="#dc/d3c/a00028_afd9d54966d5a7c5d19308cc53d48f6e7_icgraph" alt=""/></div>
-<map name="dc/d3c/a00028_afd9d54966d5a7c5d19308cc53d48f6e7_icgraph" id="dc/d3c/a00028_afd9d54966d5a7c5d19308cc53d48f6e7_icgraph">
-<area shape="rect" id="node2" href="../../dc/d54/a00094.html#a78076cb42a88b90e4183bfb805d8361f" title="Creates a population by importing it. " alt="" coords="273,5,449,47"/>
-<area shape="rect" id="node3" href="../../d9/dcc/a00102.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="497,5,631,47"/>
+<div class="center"><img src="../../dc/d3c/a00028_aba893f2e0086a3865839587e380e0821_cgraph.gif" border="0" usemap="#dc/d3c/a00028_aba893f2e0086a3865839587e380e0821_cgraph" alt=""/></div>
+<map name="dc/d3c/a00028_aba893f2e0086a3865839587e380e0821_cgraph" id="dc/d3c/a00028_aba893f2e0086a3865839587e380e0821_cgraph">
+<area shape="rect" id="node2" href="../../d1/d6e/a00073.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="290,5,457,47"/>
+<area shape="rect" id="node3" href="../../d1/d84/a00097.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="307,71,440,112"/>
+<area shape="rect" id="node4" href="../../d7/dec/a00010.html#a9de5bdce36efb88e40be7ebe21fcad11" title="Register a ContactPool with this ContactCenter. " alt="" coords="288,136,459,177"/>
+<area shape="rect" id="node5" href="../../d4/d8c/a00035.html#a5bd9b521763ed0bc766cc51e0d6e35ab" title="Register a ContactPool pointer in this Location&#39;s pool system. " alt="" coords="264,202,483,229"/>
 </map>
 </div>
 </p>
@@ -181,16 +283,16 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReaderFactory.h</a></li>
-<li><a class="el" href="../../dd/df3/a00219_source.html">GeoGridReaderFactory.cpp</a></li>
+<li><a class="el" href="../../d0/d24/a00222_source.html">HouseholdGenerator.h</a></li>
+<li><a class="el" href="../../dd/d52/a00221_source.html">HouseholdGenerator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></li><li class="navelem"><a class="el" href="../../dc/d3c/a00028.html">GeoGridReaderFactory</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:23 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d84/a00338.html">geopop</a></li><li class="navelem"><a class="el" href="../../dc/d3c/a00028.html">HouseholdGenerator</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:33 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,21 +1,6 @@
 var a00077 =
 [
-    [ "iterator", "d1/d09/a00077.html#a12e167b902612c7efe48d2e396ad0e03", null ],
-    [ "ContactPool", "d1/d09/a00077.html#ac592918e280c29411c64df9bc41688c6", null ],
-    [ "~ContactPool", "d1/d09/a00077.html#adee0ae5ebfa3ec1ccd684b2a4e16542c", null ],
-    [ "AddMember", "d1/d09/a00077.html#aa9aeb5154fea3446d9a4ac4d1844b510", null ],
-    [ "GetId", "d1/d09/a00077.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a", null ],
-    [ "GetInfectedCount", "d1/d09/a00077.html#acd38806272aa6ee77aae82edaf1224ba", null ],
-    [ "GetPool", "d1/d09/a00077.html#afb9a65718e51a5afa72e9f34724f1fe0", null ],
-    [ "GetType", "d1/d09/a00077.html#a9cfd2356daa4191fe6951d7c704bf16c", null ],
-    [ "begin", "d1/d09/a00077.html#a85249b3315c664761fbd1448708473ab", null ],
-    [ "end", "d1/d09/a00077.html#a59eb79bf2d47f73de6ece95400106f2f", null ],
-    [ "size", "d1/d09/a00077.html#a2c357e530f204c4ba1e686f4903f40ad", null ],
-    [ "operator[]", "d1/d09/a00077.html#a3cae7beb1739e01246b4d9fa80b3aa79", null ],
-    [ "SortMembers", "d1/d09/a00077.html#a38adafed84fa1801c5f1f6420158a7f3", null ],
-    [ "Infector", "d1/d09/a00077.html#a9ffe141bfd5da5336894dc1cebf49fa7", null ],
-    [ "m_index_immune", "d1/d09/a00077.html#a2efe968db2b7ac3adb440bb515cdf9c4", null ],
-    [ "m_pool_id", "d1/d09/a00077.html#a491a3a04acc39cf5ffccd30714a8e76a", null ],
-    [ "m_pool_type", "d1/d09/a00077.html#afe687068792fae04b6b3edb61f6ad93f", null ],
-    [ "m_members", "d1/d09/a00077.html#a672b69837fbd57d9a61f8acb18fec82e", null ]
+    [ "DaysOffAll", "d1/d09/a00077.html#a8804c46ae3703253cb96e5f81f92251b", null ],
+    [ "IsWorkOff", "d1/d09/a00077.html#a61f87cc93335185f90d9d772f168b1bb", null ],
+    [ "IsSchoolOff", "d1/d09/a00077.html#a12a699d750a9b0a640db4ea47df0b11c", null ]
 ];

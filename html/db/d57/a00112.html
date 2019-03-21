@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::ConfigInfo Class Reference</title>
+<title>Stride Reference Manual: stride::util::FileSys Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -107,49 +107,96 @@ $(document).ready(function(){initNavTree('db/d57/a00112.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../dc/d81/a01006.html">List of all members</a>  </div>
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="../../df/dce/a00974.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::ConfigInfo Class Reference</div>  </div>
+<div class="title">stride::util::FileSys Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Config information.  
+<p>Utilities for interaction with filesystem.  
  <a href="../../db/d57/a00112.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/de6/a00167_source.html">ConfigInfo.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/df3/a00185_source.html">FileSys.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::ConfigInfo:</div>
+Collaboration diagram for stride::util::FileSys:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d8d/a01007.gif" border="0" usemap="#stride_1_1util_1_1ConfigInfo_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1ConfigInfo_coll__map" id="stride_1_1util_1_1ConfigInfo_coll__map">
+<div class="center"><img src="../../db/dbf/a00975.gif" border="0" usemap="#stride_1_1util_1_1FileSys_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1FileSys_coll__map" id="stride_1_1util_1_1FileSys_coll__map">
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d00/a00113.html">Dirs</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using this to avoid global variables &amp; their initialization.  <a href="../../d3/d00/a00113.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#ad6fc5f3f3e32a15f059c64b74dfea905">HaveOpenMP</a> ()</td></tr>
-<tr class="memdesc:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if OpenMP in executable, false otherwise.  <a href="#ad6fc5f3f3e32a15f059c64b74dfea905">More...</a><br /></td></tr>
-<tr class="separator:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea2c9d397f10f54b7ae47f4b0f181799"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#aea2c9d397f10f54b7ae47f4b0f181799">GitRevision</a> ()</td></tr>
-<tr class="memdesc:aea2c9d397f10f54b7ae47f4b0f181799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return git revision string.  <a href="#aea2c9d397f10f54b7ae47f4b0f181799">More...</a><br /></td></tr>
-<tr class="separator:aea2c9d397f10f54b7ae47f4b0f181799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a502bd4410a3e77792ea575f77f470d41"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a502bd4410a3e77792ea575f77f470d41">GetHostname</a> ()</td></tr>
-<tr class="memdesc:a502bd4410a3e77792ea575f77f470d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current hostname.  <a href="#a502bd4410a3e77792ea575f77f470d41">More...</a><br /></td></tr>
-<tr class="separator:a502bd4410a3e77792ea575f77f470d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b4240ce29160e778c69f9e246e1747d"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a6b4240ce29160e778c69f9e246e1747d">NumberAvailableThreads</a> ()</td></tr>
-<tr class="memdesc:a6b4240ce29160e778c69f9e246e1747d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of threads (in case of OpenMP).  <a href="#a6b4240ce29160e778c69f9e246e1747d">More...</a><br /></td></tr>
-<tr class="separator:a6b4240ce29160e778c69f9e246e1747d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b191149cb109105f73c84df61bebbb6"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a9b191149cb109105f73c84df61bebbb6">ProcessorCount</a> ()</td></tr>
-<tr class="memdesc:a9b191149cb109105f73c84df61bebbb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return processor count for system.  <a href="#a9b191149cb109105f73c84df61bebbb6">More...</a><br /></td></tr>
-<tr class="separator:a9b191149cb109105f73c84df61bebbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33c582aaa9397e6ba22efc14b1a44189"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a33c582aaa9397e6ba22efc14b1a44189">IsDirectoryString</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a33c582aaa9397e6ba22efc14b1a44189"><td class="mdescLeft">&#160;</td><td class="mdescRight">String represents a directory path (relative or absolute) iff it contains at least one / (may be a trailing one).  <a href="#a33c582aaa9397e6ba22efc14b1a44189">More...</a><br /></td></tr>
+<tr class="separator:a33c582aaa9397e6ba22efc14b1a44189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1710fc9d900dba634d24c76f4bea072c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a1710fc9d900dba634d24c76f4bea072c">CreateDirectory</a> (std::string s)</td></tr>
+<tr class="memdesc:a1710fc9d900dba634d24c76f4bea072c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a directory relative to the current directory with the given path, returns if it was succesful.  <a href="#a1710fc9d900dba634d24c76f4bea072c">More...</a><br /></td></tr>
+<tr class="separator:a1710fc9d900dba634d24c76f4bea072c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9230a86f4c23a2ea906ebaaafb18e37"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#aa9230a86f4c23a2ea906ebaaafb18e37">BuildPath</a> (const std::string &amp;output_prefix, const std::string &amp;filename)</td></tr>
+<tr class="memdesc:aa9230a86f4c23a2ea906ebaaafb18e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpret prefix (directory or filename prefix) and return appropriate path.  <a href="#aa9230a86f4c23a2ea906ebaaafb18e37">More...</a><br /></td></tr>
+<tr class="separator:aa9230a86f4c23a2ea906ebaaafb18e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d54b4b545adf557c65c238ad2fb7801"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a5d54b4b545adf557c65c238ad2fb7801">ReadPtreeFile</a> (const filesys::path &amp;f_p)</td></tr>
+<tr class="memdesc:a5d54b4b545adf557c65c238ad2fb7801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read ptree from file at path.  <a href="#a5d54b4b545adf557c65c238ad2fb7801">More...</a><br /></td></tr>
+<tr class="separator:a5d54b4b545adf557c65c238ad2fb7801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad397ab1440ed0fb182ed9afc7ea6fa10"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#ad397ab1440ed0fb182ed9afc7ea6fa10">ReadPtreeFile</a> (const std::string &amp;f_n)</td></tr>
+<tr class="memdesc:ad397ab1440ed0fb182ed9afc7ea6fa10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read ptree from file specifified by name string.  <a href="#ad397ab1440ed0fb182ed9afc7ea6fa10">More...</a><br /></td></tr>
+<tr class="separator:ad397ab1440ed0fb182ed9afc7ea6fa10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ab591daff5792d906df8d113de9b81"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a04ab591daff5792d906df8d113de9b81">WritePtreeFile</a> (const filesys::path &amp;f_p, const boost::property_tree::ptree &amp;pt)</td></tr>
+<tr class="memdesc:a04ab591daff5792d906df8d113de9b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write ptree to file at path.  <a href="#a04ab591daff5792d906df8d113de9b81">More...</a><br /></td></tr>
+<tr class="separator:a04ab591daff5792d906df8d113de9b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30bfccbc01dda2a7a09fda4560cb13ea"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a30bfccbc01dda2a7a09fda4560cb13ea">WritePtreeFile</a> (const std::string &amp;f_n, const boost::property_tree::ptree &amp;pt)</td></tr>
+<tr class="memdesc:a30bfccbc01dda2a7a09fda4560cb13ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write ptree to file specifified by name string.  <a href="#a30bfccbc01dda2a7a09fda4560cb13ea">More...</a><br /></td></tr>
+<tr class="separator:a30bfccbc01dda2a7a09fda4560cb13ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed578f28e57ef8a7e0c2653c30c10e6"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a2ed578f28e57ef8a7e0c2653c30c10e6">GetCurrentDir</a> ()</td></tr>
+<tr class="memdesc:a2ed578f28e57ef8a7e0c2653c30c10e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get path to the current directory.  <a href="#a2ed578f28e57ef8a7e0c2653c30c10e6">More...</a><br /></td></tr>
+<tr class="separator:a2ed578f28e57ef8a7e0c2653c30c10e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86435813fb1eb87fcf9023ddbf27fe4a"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a86435813fb1eb87fcf9023ddbf27fe4a">GetExecPath</a> ()</td></tr>
+<tr class="memdesc:a86435813fb1eb87fcf9023ddbf27fe4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get path of the executable.  <a href="#a86435813fb1eb87fcf9023ddbf27fe4a">More...</a><br /></td></tr>
+<tr class="separator:a86435813fb1eb87fcf9023ddbf27fe4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dde9db2fbf4a2f6fa9e3116b5fe2949"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a9dde9db2fbf4a2f6fa9e3116b5fe2949">CheckInstallEnv</a> (std::function&lt; void(const std::string &amp;)&gt; logger=std::function&lt; void(const std::string &amp;)&gt;())</td></tr>
+<tr class="memdesc:a9dde9db2fbf4a2f6fa9e3116b5fe2949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that current dir is root dir and all install dirs are present.  <a href="#a9dde9db2fbf4a2f6fa9e3116b5fe2949">More...</a><br /></td></tr>
+<tr class="separator:a9dde9db2fbf4a2f6fa9e3116b5fe2949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a308fbee71fc0e0e43f3c4d1de1b61808"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a308fbee71fc0e0e43f3c4d1de1b61808">GetBinDir</a> ()</td></tr>
+<tr class="memdesc:a308fbee71fc0e0e43f3c4d1de1b61808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return bin dir (only relevant when use_install_dirs mode is active)  <a href="#a308fbee71fc0e0e43f3c4d1de1b61808">More...</a><br /></td></tr>
+<tr class="separator:a308fbee71fc0e0e43f3c4d1de1b61808"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74338206b2b8392ff8e727b0be31d123"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a74338206b2b8392ff8e727b0be31d123">GetConfigDir</a> ()</td></tr>
+<tr class="memdesc:a74338206b2b8392ff8e727b0be31d123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return config dir (only relevant when use_install_dirs mode is active)  <a href="#a74338206b2b8392ff8e727b0be31d123">More...</a><br /></td></tr>
+<tr class="separator:a74338206b2b8392ff8e727b0be31d123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf7673eaecc73f8e0b1ac635c23a8d3f"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#adf7673eaecc73f8e0b1ac635c23a8d3f">GetDataDir</a> ()</td></tr>
+<tr class="memdesc:adf7673eaecc73f8e0b1ac635c23a8d3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">/// Return data dir (only relevant when use_install_dirs mode is active)  <a href="#adf7673eaecc73f8e0b1ac635c23a8d3f">More...</a><br /></td></tr>
+<tr class="separator:adf7673eaecc73f8e0b1ac635c23a8d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08ac8bd3a86a0db3901aa2d422bd6d13"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a08ac8bd3a86a0db3901aa2d422bd6d13">GetRootDir</a> ()</td></tr>
+<tr class="memdesc:a08ac8bd3a86a0db3901aa2d422bd6d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return install root dir (only relevant when use_install_dirs mode is active)  <a href="#a08ac8bd3a86a0db3901aa2d422bd6d13">More...</a><br /></td></tr>
+<tr class="separator:a08ac8bd3a86a0db3901aa2d422bd6d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf429c79cfcd82e0f363d6b977bedeb1"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#abf429c79cfcd82e0f363d6b977bedeb1">GetTestsDir</a> ()</td></tr>
+<tr class="memdesc:abf429c79cfcd82e0f363d6b977bedeb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return tests dir (only relevant when use_install_dirs mode is active)  <a href="#abf429c79cfcd82e0f363d6b977bedeb1">More...</a><br /></td></tr>
+<tr class="separator:abf429c79cfcd82e0f363d6b977bedeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a6f86062b82181245b6b483926eea62f1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d3/d00/a00113.html">Dirs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a6f86062b82181245b6b483926eea62f1">Initialize</a> ()</td></tr>
+<tr class="memdesc:a6f86062b82181245b6b483926eea62f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize all paths.  <a href="#a6f86062b82181245b6b483926eea62f1">More...</a><br /></td></tr>
+<tr class="separator:a6f86062b82181245b6b483926eea62f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a811a1d113f57785952045d9541c95db5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d3/d00/a00113.html">Dirs</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a811a1d113f57785952045d9541c95db5">Get</a> ()</td></tr>
+<tr class="memdesc:a811a1d113f57785952045d9541c95db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return paths.  <a href="#a811a1d113f57785952045d9541c95db5">More...</a><br /></td></tr>
+<tr class="separator:a811a1d113f57785952045d9541c95db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Config information. </p>
+<div class="textblock"><p>Utilities for interaction with filesystem. </p>
 
-<p>Definition at line <a class="el" href="../../dc/de6/a00167_source.html#l00031">31</a> of file <a class="el" href="../../dc/de6/a00167_source.html">ConfigInfo.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df3/a00185_source.html#l00042">42</a> of file <a class="el" href="../../de/df3/a00185_source.html">FileSys.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad6fc5f3f3e32a15f059c64b74dfea905"></a>
+<a class="anchor" id="a33c582aaa9397e6ba22efc14b1a44189"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -157,7 +204,323 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr bool stride::util::ConfigInfo::HaveOpenMP </td>
+          <td class="memname">bool stride::util::FileSys::IsDirectoryString </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>String represents a directory path (relative or absolute) iff it contains at least one / (may be a trailing one). </p>
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00193">193</a> of file <a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/d94/a00184_source.html#l00052">BuildPath()</a>, and <a class="el" href="../../dc/de6/a00167_source.html#l00068">stride::ControlHelper::CheckOutputPrefix()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_a33c582aaa9397e6ba22efc14b1a44189_icgraph.gif" border="0" usemap="#db/d57/a00112_a33c582aaa9397e6ba22efc14b1a44189_icgraph" alt=""/></div>
+<map name="db/d57/a00112_a33c582aaa9397e6ba22efc14b1a44189_icgraph" id="db/d57/a00112_a33c582aaa9397e6ba22efc14b1a44189_icgraph">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="189,205,325,246"/>
+<area shape="rect" id="node14" href="../../db/df8/a00076.html#a7015fce5931f444015baca6c73e67360" title="stride::ControlHelper\l::CheckOutputPrefix" alt="" coords="395,51,550,93"/>
+<area shape="rect" id="node3" href="../../db/df8/a00076.html#a49b3d3980626e92e16758d63bd6240a7" title="Make the appropriate logger for cli environment and register as stride_logger. " alt="" coords="395,117,550,158"/>
+<area shape="rect" id="node4" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="630,150,809,191"/>
+<area shape="rect" id="node7" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="640,19,799,61"/>
+<area shape="rect" id="node8" href="../../d4/d7d/a00093.html#a1f9b3fab4125e26c2eebd32ee27dd977" title="Constructor: initialize. " alt="" coords="389,430,556,471"/>
+<area shape="rect" id="node9" href="../../dc/d54/a00094.html#a70798ee06674e243f7dad24ae2dca7fd" title="Generate file name and open the file stream. " alt="" coords="379,299,566,341"/>
+<area shape="rect" id="node11" href="../../d1/d84/a00097.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="406,234,539,275"/>
+<area shape="rect" id="node12" href="../../d9/d77/a00095.html#a73334b641e8aeb7edff5cc8b6affc86c" title="Generate file name and open the file stream. " alt="" coords="373,365,572,406"/>
+<area shape="rect" id="node6" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="643,85,796,126"/>
+<area shape="rect" id="node5" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="867,92,921,119"/>
+<area shape="rect" id="node10" href="../../dc/d54/a00094.html#ab2c1e70237152817647dded0f5906c6b" title="Constructor: initialize. " alt="" coords="626,299,813,341"/>
+<area shape="rect" id="node13" href="../../d9/d77/a00095.html#a1f848c3aa92042b2fa7d399ad31b0e33" title="Constructor: initialize. " alt="" coords="620,365,819,406"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1710fc9d900dba634d24c76f4bea072c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::util::FileSys::CreateDirectory </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a directory relative to the current directory with the given path, returns if it was succesful. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00199">199</a> of file <a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00068">stride::ControlHelper::CheckOutputPrefix()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_a1710fc9d900dba634d24c76f4bea072c_icgraph.gif" border="0" usemap="#db/d57/a00112_a1710fc9d900dba634d24c76f4bea072c_icgraph" alt=""/></div>
+<map name="db/d57/a00112_a1710fc9d900dba634d24c76f4bea072c_icgraph" id="db/d57/a00112_a1710fc9d900dba634d24c76f4bea072c_icgraph">
+<area shape="rect" id="node2" href="../../db/df8/a00076.html#a7015fce5931f444015baca6c73e67360" title="stride::ControlHelper\l::CheckOutputPrefix" alt="" coords="189,71,344,112"/>
+<area shape="rect" id="node3" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="392,5,571,47"/>
+<area shape="rect" id="node5" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="405,71,558,112"/>
+<area shape="rect" id="node6" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="402,136,561,177"/>
+<area shape="rect" id="node4" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="619,78,673,105"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9230a86f4c23a2ea906ebaaafb18e37"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">filesys::path stride::util::FileSys::BuildPath </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>output_prefix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Interpret prefix (directory or filename prefix) and return appropriate path. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00052">52</a> of file <a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d2/d94/a00184_source.html#l00193">IsDirectoryString()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/d15/a00188_source.html#l00054">stride::GenPopController::Control()</a>, <a class="el" href="../../dc/d0f/a00303_source.html#l00048">stride::StanController::Control()</a>, <a class="el" href="../../d5/d42/a00269_source.html#l00047">stride::Population::Create()</a>, <a class="el" href="../../d6/de1/a00233_source.html#l00030">stride::output::InfectedFile::InfectedFile()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00037">stride::output::SummaryFile::Initialize()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00036">stride::output::PersonsFile::Initialize()</a>, and <a class="el" href="../../dc/de6/a00167_source.html#l00075">stride::ControlHelper::InstallLogger()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_aa9230a86f4c23a2ea906ebaaafb18e37_cgraph.gif" border="0" usemap="#db/d57/a00112_aa9230a86f4c23a2ea906ebaaafb18e37_cgraph" alt=""/></div>
+<map name="db/d57/a00112_aa9230a86f4c23a2ea906ebaaafb18e37_cgraph" id="db/d57/a00112_aa9230a86f4c23a2ea906ebaaafb18e37_cgraph">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="189,5,325,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_aa9230a86f4c23a2ea906ebaaafb18e37_icgraph.gif" border="0" usemap="#db/d57/a00112_aa9230a86f4c23a2ea906ebaaafb18e37_icgraph" alt=""/></div>
+<map name="db/d57/a00112_aa9230a86f4c23a2ea906ebaaafb18e37_icgraph" id="db/d57/a00112_aa9230a86f4c23a2ea906ebaaafb18e37_icgraph">
+<area shape="rect" id="node2" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="446,136,625,177"/>
+<area shape="rect" id="node4" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="456,5,615,47"/>
+<area shape="rect" id="node5" href="../../d1/d84/a00097.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="222,129,355,171"/>
+<area shape="rect" id="node6" href="../../d4/d7d/a00093.html#a1f9b3fab4125e26c2eebd32ee27dd977" title="Constructor: initialize. " alt="" coords="205,195,372,236"/>
+<area shape="rect" id="node7" href="../../d9/d77/a00095.html#a73334b641e8aeb7edff5cc8b6affc86c" title="Generate file name and open the file stream. " alt="" coords="189,312,388,353"/>
+<area shape="rect" id="node9" href="../../dc/d54/a00094.html#a70798ee06674e243f7dad24ae2dca7fd" title="Generate file name and open the file stream. " alt="" coords="195,377,382,419"/>
+<area shape="rect" id="node11" href="../../db/df8/a00076.html#a49b3d3980626e92e16758d63bd6240a7" title="Make the appropriate logger for cli environment and register as stride_logger. " alt="" coords="211,64,366,105"/>
+<area shape="rect" id="node3" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="683,78,737,105"/>
+<area shape="rect" id="node8" href="../../d9/d77/a00095.html#a1f848c3aa92042b2fa7d399ad31b0e33" title="Constructor: initialize. " alt="" coords="436,312,635,353"/>
+<area shape="rect" id="node10" href="../../dc/d54/a00094.html#ab2c1e70237152817647dded0f5906c6b" title="Constructor: initialize. " alt="" coords="442,377,629,419"/>
+<area shape="rect" id="node12" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="459,71,612,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d54b4b545adf557c65c238ad2fb7801"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptree stride::util::FileSys::ReadPtreeFile </td>
+          <td>(</td>
+          <td class="paramtype">const filesys::path &amp;&#160;</td>
+          <td class="paramname"><em>f_p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read ptree from file at path. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00208">208</a> of file <a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../db/d7b/a00296_source.html#l00107">stride::SimBuilder::ReadAgeContactPtree()</a>, <a class="el" href="../../db/d7b/a00296_source.html#l00114">stride::SimBuilder::ReadDiseasePtree()</a>, and <a class="el" href="../../d8/d64/a00181_source.html#l00076">stride::DiseaseSeeder::Vaccinate()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_a5d54b4b545adf557c65c238ad2fb7801_icgraph.gif" border="0" usemap="#db/d57/a00112_a5d54b4b545adf557c65c238ad2fb7801_icgraph" alt=""/></div>
+<map name="db/d57/a00112_a5d54b4b545adf557c65c238ad2fb7801_icgraph" id="db/d57/a00112_a5d54b4b545adf557c65c238ad2fb7801_icgraph">
+<area shape="rect" id="node2" href="../../d0/d61/a00100.html#ad551b02c507948570f07af10d85d29ce" title="Get the contact configuration data. " alt="" coords="400,5,571,47"/>
+<area shape="rect" id="node4" href="../../d0/d61/a00100.html#adffa42c6b8b171616fcdfb4805260c92" title="Get the disease configuration data. " alt="" coords="197,64,344,105"/>
+<area shape="rect" id="node5" href="../../d2/d1f/a00083.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="189,129,352,171"/>
+<area shape="rect" id="node3" href="../../d0/d61/a00100.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="619,64,753,105"/>
+<area shape="rect" id="node6" href="../../d2/d1f/a00083.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="404,125,567,167"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad397ab1440ed0fb182ed9afc7ea6fa10"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptree stride::util::FileSys::ReadPtreeFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>f_n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read ptree from file specifified by name string. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00227">227</a> of file <a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04ab591daff5792d906df8d113de9b81"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::util::FileSys::WritePtreeFile </td>
+          <td>(</td>
+          <td class="paramtype">const filesys::path &amp;&#160;</td>
+          <td class="paramname"><em>f_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>pt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write ptree to file at path. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00229">229</a> of file <a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a30bfccbc01dda2a7a09fda4560cb13ea"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::util::FileSys::WritePtreeFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>f_n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>pt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write ptree to file specifified by name string. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00240">240</a> of file <a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ed578f28e57ef8a7e0c2653c30c10e6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static filesys::path stride::util::FileSys::GetCurrentDir </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -170,23 +533,20 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>True if OpenMP in executable, false otherwise. </p>
+<p>Get path to the current directory. </p>
 
-<p>Definition at line <a class="el" href="../../dc/de6/a00167_source.html#l00035">35</a> of file <a class="el" href="../../dc/de6/a00167_source.html">ConfigInfo.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df3/a00185_source.html#l00069">69</a> of file <a class="el" href="../../de/df3/a00185_source.html">FileSys.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/d38/a00166_source.html#l00035">GetHostname()</a>, <a class="el" href="../../d9/d38/a00166_source.html#l00033">GitRevision()</a>, <a class="el" href="../../d9/d38/a00166_source.html#l00044">NumberAvailableThreads()</a>, and <a class="el" href="../../d9/d38/a00166_source.html#l00042">ProcessorCount()</a>.</p>
+<p>References <a class="el" href="../../d2/d94/a00184_source.html#l00096">Get()</a>, and <a class="el" href="../../de/df3/a00185_source.html#l00102">stride::util::FileSys::Dirs::m_current_dir</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/dd9/a00179_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d57/a00112_ad6fc5f3f3e32a15f059c64b74dfea905_cgraph.gif" border="0" usemap="#db/d57/a00112_ad6fc5f3f3e32a15f059c64b74dfea905_cgraph" alt=""/></div>
-<map name="db/d57/a00112_ad6fc5f3f3e32a15f059c64b74dfea905_cgraph" id="db/d57/a00112_ad6fc5f3f3e32a15f059c64b74dfea905_cgraph">
-<area shape="rect" id="node2" href="../../db/d57/a00112.html#a502bd4410a3e77792ea575f77f470d41" title="Return current hostname. " alt="" coords="226,5,382,47"/>
-<area shape="rect" id="node3" href="../../db/d57/a00112.html#aea2c9d397f10f54b7ae47f4b0f181799" title="Return git revision string. " alt="" coords="226,71,382,112"/>
-<area shape="rect" id="node4" href="../../db/d57/a00112.html#a6b4240ce29160e778c69f9e246e1747d" title="Return number of threads (in case of OpenMP). " alt="" coords="209,136,399,177"/>
-<area shape="rect" id="node5" href="../../db/d57/a00112.html#a9b191149cb109105f73c84df61bebbb6" title="Return processor count for system. " alt="" coords="226,201,382,243"/>
+<div class="center"><img src="../../db/d57/a00112_a2ed578f28e57ef8a7e0c2653c30c10e6_cgraph.gif" border="0" usemap="#db/d57/a00112_a2ed578f28e57ef8a7e0c2653c30c10e6_cgraph" alt=""/></div>
+<map name="db/d57/a00112_a2ed578f28e57ef8a7e0c2653c30c10e6_cgraph" id="db/d57/a00112_a2ed578f28e57ef8a7e0c2653c30c10e6_cgraph">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="189,13,356,39"/>
 </map>
 </div>
 </p>
@@ -194,20 +554,20 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d57/a00112_ad6fc5f3f3e32a15f059c64b74dfea905_icgraph.gif" border="0" usemap="#db/d57/a00112_ad6fc5f3f3e32a15f059c64b74dfea905_icgraph" alt=""/></div>
-<map name="db/d57/a00112_ad6fc5f3f3e32a15f059c64b74dfea905_icgraph" id="db/d57/a00112_ad6fc5f3f3e32a15f059c64b74dfea905_icgraph">
-<area shape="rect" id="node2" href="../../d8/d53/a00081.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="209,71,364,112"/>
-<area shape="rect" id="node3" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="412,5,591,47"/>
-<area shape="rect" id="node5" href="../../d7/d70/a00106.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="425,71,578,112"/>
-<area shape="rect" id="node6" href="../../d1/dd6/a00108.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="422,136,581,177"/>
-<area shape="rect" id="node4" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="639,78,693,105"/>
+<div class="center"><img src="../../db/d57/a00112_a2ed578f28e57ef8a7e0c2653c30c10e6_icgraph.gif" border="0" usemap="#db/d57/a00112_a2ed578f28e57ef8a7e0c2653c30c10e6_icgraph" alt=""/></div>
+<map name="db/d57/a00112_a2ed578f28e57ef8a7e0c2653c30c10e6_icgraph" id="db/d57/a00112_a2ed578f28e57ef8a7e0c2653c30c10e6_icgraph">
+<area shape="rect" id="node2" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="189,71,344,112"/>
+<area shape="rect" id="node3" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="392,5,571,47"/>
+<area shape="rect" id="node5" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="405,71,558,112"/>
+<area shape="rect" id="node6" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="402,136,561,177"/>
+<area shape="rect" id="node4" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="619,78,673,105"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aea2c9d397f10f54b7ae47f4b0f181799"></a>
+<a class="anchor" id="a86435813fb1eb87fcf9023ddbf27fe4a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -215,9 +575,66 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string stride::util::ConfigInfo::GitRevision </td>
+          <td class="memname">static filesys::path stride::util::FileSys::GetExecPath </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get path of the executable. </p>
+
+<p>Definition at line <a class="el" href="../../de/df3/a00185_source.html#l00072">72</a> of file <a class="el" href="../../de/df3/a00185_source.html">FileSys.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d94/a00184_source.html#l00065">CheckInstallEnv()</a>, <a class="el" href="../../d2/d94/a00184_source.html#l00096">Get()</a>, and <a class="el" href="../../de/df3/a00185_source.html#l00105">stride::util::FileSys::Dirs::m_exec_path</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_a86435813fb1eb87fcf9023ddbf27fe4a_cgraph.gif" border="0" usemap="#db/d57/a00112_a86435813fb1eb87fcf9023ddbf27fe4a_cgraph" alt=""/></div>
+<map name="db/d57/a00112_a86435813fb1eb87fcf9023ddbf27fe4a_cgraph" id="db/d57/a00112_a86435813fb1eb87fcf9023ddbf27fe4a_cgraph">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html#a9dde9db2fbf4a2f6fa9e3116b5fe2949" title="Verify that current dir is root dir and all install dirs are present. " alt="" coords="205,5,341,47"/>
+<area shape="rect" id="node3" href="../../db/d57/a00112.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="189,71,356,98"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_a86435813fb1eb87fcf9023ddbf27fe4a_icgraph.gif" border="0" usemap="#db/d57/a00112_a86435813fb1eb87fcf9023ddbf27fe4a_icgraph" alt=""/></div>
+<map name="db/d57/a00112_a86435813fb1eb87fcf9023ddbf27fe4a_icgraph" id="db/d57/a00112_a86435813fb1eb87fcf9023ddbf27fe4a_icgraph">
+<area shape="rect" id="node2" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="189,71,344,112"/>
+<area shape="rect" id="node3" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="392,5,571,47"/>
+<area shape="rect" id="node5" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="405,71,558,112"/>
+<area shape="rect" id="node6" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="402,136,561,177"/>
+<area shape="rect" id="node4" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="619,78,673,105"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9dde9db2fbf4a2f6fa9e3116b5fe2949"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::util::FileSys::CheckInstallEnv </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(const std::string &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>logger</em> = <code>std::function&lt;void(const&#160;std::string&amp;)&gt;()</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -228,32 +645,41 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Return git revision string. </p>
+<p>Verify that current dir is root dir and all install dirs are present. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>logger verification finds failures; defaults to no-op. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>staus true iff everything verifies ok. </dd></dl>
+<p>There has to be a config dir in the install root dir.</p>
+<p>There has to be a data dir in the install root dir.</p>
+<p>There has to be a data dir in the install root dir. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d38/a00166_source.html#l00033">33</a> of file <a class="el" href="../../d9/d38/a00166_source.html">ConfigInfo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00065">65</a> of file <a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d9/d38/a00166_source.html#l00028">TOSTRING</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00035">HaveOpenMP()</a>, and <a class="el" href="../../db/dd9/a00179_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00058">stride::ControlHelper::CheckEnv()</a>, and <a class="el" href="../../de/df3/a00185_source.html#l00072">GetExecPath()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d57/a00112_aea2c9d397f10f54b7ae47f4b0f181799_icgraph.gif" border="0" usemap="#db/d57/a00112_aea2c9d397f10f54b7ae47f4b0f181799_icgraph" alt=""/></div>
-<map name="db/d57/a00112_aea2c9d397f10f54b7ae47f4b0f181799_icgraph" id="db/d57/a00112_aea2c9d397f10f54b7ae47f4b0f181799_icgraph">
-<area shape="rect" id="node2" href="../../db/d57/a00112.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="True if OpenMP in executable, false otherwise. " alt="" coords="209,41,365,83"/>
-<area shape="rect" id="node3" href="../../d8/d53/a00081.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="413,71,568,112"/>
-<area shape="rect" id="node4" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="616,5,795,47"/>
-<area shape="rect" id="node6" href="../../d7/d70/a00106.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="629,71,782,112"/>
-<area shape="rect" id="node7" href="../../d1/dd6/a00108.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="626,136,785,177"/>
-<area shape="rect" id="node5" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="843,78,897,105"/>
+<div class="center"><img src="../../db/d57/a00112_a9dde9db2fbf4a2f6fa9e3116b5fe2949_icgraph.gif" border="0" usemap="#db/d57/a00112_a9dde9db2fbf4a2f6fa9e3116b5fe2949_icgraph" alt=""/></div>
+<map name="db/d57/a00112_a9dde9db2fbf4a2f6fa9e3116b5fe2949_icgraph" id="db/d57/a00112_a9dde9db2fbf4a2f6fa9e3116b5fe2949_icgraph">
+<area shape="rect" id="node2" href="../../db/df8/a00076.html#a9fd666ad523f15ba9f3b3249ba6b0a90" title="Check install environment. " alt="" coords="373,39,528,80"/>
+<area shape="rect" id="node7" href="../../db/d57/a00112.html#a86435813fb1eb87fcf9023ddbf27fe4a" title="Get path of the executable. " alt="" coords="189,101,325,143"/>
+<area shape="rect" id="node3" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="576,5,755,47"/>
+<area shape="rect" id="node5" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="589,71,742,112"/>
+<area shape="rect" id="node6" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="586,136,745,177"/>
+<area shape="rect" id="node4" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="803,78,857,105"/>
+<area shape="rect" id="node8" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="373,104,528,145"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a502bd4410a3e77792ea575f77f470d41"></a>
+<a class="anchor" id="a308fbee71fc0e0e43f3c4d1de1b61808"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -261,7 +687,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string stride::util::ConfigInfo::GetHostname </td>
+          <td class="memname">static filesys::path stride::util::FileSys::GetBinDir </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -269,35 +695,30 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return current hostname. </p>
+<p>Return bin dir (only relevant when use_install_dirs mode is active) </p>
 
-<p>Definition at line <a class="el" href="../../d9/d38/a00166_source.html#l00035">35</a> of file <a class="el" href="../../d9/d38/a00166_source.html">ConfigInfo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df3/a00185_source.html#l00082">82</a> of file <a class="el" href="../../de/df3/a00185_source.html">FileSys.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00035">HaveOpenMP()</a>.</p>
+<p>References <a class="el" href="../../d2/d94/a00184_source.html#l00096">Get()</a>, and <a class="el" href="../../de/df3/a00185_source.html#l00108">stride::util::FileSys::Dirs::m_bin_dir</a>.</p>
 
 <p><div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d57/a00112_a502bd4410a3e77792ea575f77f470d41_icgraph.gif" border="0" usemap="#db/d57/a00112_a502bd4410a3e77792ea575f77f470d41_icgraph" alt=""/></div>
-<map name="db/d57/a00112_a502bd4410a3e77792ea575f77f470d41_icgraph" id="db/d57/a00112_a502bd4410a3e77792ea575f77f470d41_icgraph">
-<area shape="rect" id="node2" href="../../db/d57/a00112.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="True if OpenMP in executable, false otherwise. " alt="" coords="209,71,365,112"/>
-<area shape="rect" id="node3" href="../../d8/d53/a00081.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="413,71,568,112"/>
-<area shape="rect" id="node4" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="616,5,795,47"/>
-<area shape="rect" id="node6" href="../../d7/d70/a00106.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="629,71,782,112"/>
-<area shape="rect" id="node7" href="../../d1/dd6/a00108.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="626,136,785,177"/>
-<area shape="rect" id="node5" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="843,78,897,105"/>
+<div class="center"><img src="../../db/d57/a00112_a308fbee71fc0e0e43f3c4d1de1b61808_cgraph.gif" border="0" usemap="#db/d57/a00112_a308fbee71fc0e0e43f3c4d1de1b61808_cgraph" alt=""/></div>
+<map name="db/d57/a00112_a308fbee71fc0e0e43f3c4d1de1b61808_cgraph" id="db/d57/a00112_a308fbee71fc0e0e43f3c4d1de1b61808_cgraph">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="189,13,356,39"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a6b4240ce29160e778c69f9e246e1747d"></a>
+<a class="anchor" id="a74338206b2b8392ff8e727b0be31d123"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -305,7 +726,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int stride::util::ConfigInfo::NumberAvailableThreads </td>
+          <td class="memname">static filesys::path stride::util::FileSys::GetConfigDir </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -313,35 +734,46 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return number of threads (in case of OpenMP). </p>
+<p>Return config dir (only relevant when use_install_dirs mode is active) </p>
 
-<p>Definition at line <a class="el" href="../../d9/d38/a00166_source.html#l00044">44</a> of file <a class="el" href="../../d9/d38/a00166_source.html">ConfigInfo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df3/a00185_source.html#l00085">85</a> of file <a class="el" href="../../de/df3/a00185_source.html">FileSys.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00035">HaveOpenMP()</a>, and <a class="el" href="../../db/dd9/a00179_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
+<p>References <a class="el" href="../../d2/d94/a00184_source.html#l00096">Get()</a>, and <a class="el" href="../../de/df3/a00185_source.html#l00109">stride::util::FileSys::Dirs::m_config_dir</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_a74338206b2b8392ff8e727b0be31d123_cgraph.gif" border="0" usemap="#db/d57/a00112_a74338206b2b8392ff8e727b0be31d123_cgraph" alt=""/></div>
+<map name="db/d57/a00112_a74338206b2b8392ff8e727b0be31d123_cgraph" id="db/d57/a00112_a74338206b2b8392ff8e727b0be31d123_cgraph">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="189,13,356,39"/>
+</map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d57/a00112_a6b4240ce29160e778c69f9e246e1747d_icgraph.gif" border="0" usemap="#db/d57/a00112_a6b4240ce29160e778c69f9e246e1747d_icgraph" alt=""/></div>
-<map name="db/d57/a00112_a6b4240ce29160e778c69f9e246e1747d_icgraph" id="db/d57/a00112_a6b4240ce29160e778c69f9e246e1747d_icgraph">
-<area shape="rect" id="node2" href="../../db/d57/a00112.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="True if OpenMP in executable, false otherwise. " alt="" coords="243,41,399,83"/>
-<area shape="rect" id="node3" href="../../d8/d53/a00081.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="447,71,601,112"/>
-<area shape="rect" id="node4" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="649,5,828,47"/>
-<area shape="rect" id="node6" href="../../d7/d70/a00106.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="662,71,815,112"/>
-<area shape="rect" id="node7" href="../../d1/dd6/a00108.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="659,136,818,177"/>
-<area shape="rect" id="node5" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="876,78,931,105"/>
+<div class="center"><img src="../../db/d57/a00112_a74338206b2b8392ff8e727b0be31d123_icgraph.gif" border="0" usemap="#db/d57/a00112_a74338206b2b8392ff8e727b0be31d123_icgraph" alt=""/></div>
+<map name="db/d57/a00112_a74338206b2b8392ff8e727b0be31d123_icgraph" id="db/d57/a00112_a74338206b2b8392ff8e727b0be31d123_icgraph">
+<area shape="rect" id="node2" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="189,71,344,112"/>
+<area shape="rect" id="node3" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="392,5,571,47"/>
+<area shape="rect" id="node5" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="405,71,558,112"/>
+<area shape="rect" id="node6" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="402,136,561,177"/>
+<area shape="rect" id="node4" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="619,78,673,105"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a9b191149cb109105f73c84df61bebbb6"></a>
+<a class="anchor" id="adf7673eaecc73f8e0b1ac635c23a8d3f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -349,7 +781,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int stride::util::ConfigInfo::ProcessorCount </td>
+          <td class="memname">static filesys::path stride::util::FileSys::GetDataDir </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -357,28 +789,250 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return processor count for system. </p>
+<p>/// Return data dir (only relevant when use_install_dirs mode is active) </p>
 
-<p>Definition at line <a class="el" href="../../d9/d38/a00166_source.html#l00042">42</a> of file <a class="el" href="../../d9/d38/a00166_source.html">ConfigInfo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df3/a00185_source.html#l00088">88</a> of file <a class="el" href="../../de/df3/a00185_source.html">FileSys.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00035">HaveOpenMP()</a>, and <a class="el" href="../../db/dd9/a00179_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
+<p>References <a class="el" href="../../d2/d94/a00184_source.html#l00096">Get()</a>, and <a class="el" href="../../de/df3/a00185_source.html#l00110">stride::util::FileSys::Dirs::m_data_dir</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/dcd/a00280_source.html#l00032">geopop::ReaderFactory::CreateCitiesReader()</a>, <a class="el" href="../../d0/dcd/a00280_source.html#l00042">geopop::ReaderFactory::CreateCommutesReader()</a>, <a class="el" href="../../d0/dcd/a00280_source.html#l00052">geopop::ReaderFactory::CreateHouseholdReader()</a>, <a class="el" href="../../d7/dce/a00143_source.html#l00123">stride::Calendar::InitializeHolidays()</a>, <a class="el" href="../../dc/de6/a00167_source.html#l00092">stride::ControlHelper::LogStartup()</a>, <a class="el" href="../../db/dd9/a00179_source.html#l00044">stride::DefaultPopBuilder::MakePersons()</a>, <a class="el" href="../../db/d7b/a00296_source.html#l00107">stride::SimBuilder::ReadAgeContactPtree()</a>, and <a class="el" href="../../db/d7b/a00296_source.html#l00114">stride::SimBuilder::ReadDiseasePtree()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_adf7673eaecc73f8e0b1ac635c23a8d3f_cgraph.gif" border="0" usemap="#db/d57/a00112_adf7673eaecc73f8e0b1ac635c23a8d3f_cgraph" alt=""/></div>
+<map name="db/d57/a00112_adf7673eaecc73f8e0b1ac635c23a8d3f_cgraph" id="db/d57/a00112_adf7673eaecc73f8e0b1ac635c23a8d3f_cgraph">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="189,13,356,39"/>
+</map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d57/a00112_a9b191149cb109105f73c84df61bebbb6_icgraph.gif" border="0" usemap="#db/d57/a00112_a9b191149cb109105f73c84df61bebbb6_icgraph" alt=""/></div>
-<map name="db/d57/a00112_a9b191149cb109105f73c84df61bebbb6_icgraph" id="db/d57/a00112_a9b191149cb109105f73c84df61bebbb6_icgraph">
-<area shape="rect" id="node2" href="../../db/d57/a00112.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="True if OpenMP in executable, false otherwise. " alt="" coords="209,41,365,83"/>
-<area shape="rect" id="node3" href="../../d8/d53/a00081.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="413,71,568,112"/>
-<area shape="rect" id="node4" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="616,5,795,47"/>
-<area shape="rect" id="node6" href="../../d7/d70/a00106.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="629,71,782,112"/>
-<area shape="rect" id="node7" href="../../d1/dd6/a00108.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="626,136,785,177"/>
-<area shape="rect" id="node5" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="843,78,897,105"/>
+<div class="center"><img src="../../db/d57/a00112_adf7673eaecc73f8e0b1ac635c23a8d3f_icgraph.gif" border="0" usemap="#db/d57/a00112_adf7673eaecc73f8e0b1ac635c23a8d3f_icgraph" alt=""/></div>
+<map name="db/d57/a00112_adf7673eaecc73f8e0b1ac635c23a8d3f_icgraph" id="db/d57/a00112_adf7673eaecc73f8e0b1ac635c23a8d3f_icgraph">
+<area shape="rect" id="node2" href="../../d6/d42/a00043.html#a6d2ed9033fa50940b6fcb601a18d127c" title="Create a CitiesReader based on the filename relative to the data directory. " alt="" coords="199,5,367,47"/>
+<area shape="rect" id="node8" href="../../d6/d42/a00043.html#abb99b826e135cac651269f27058c9e81" title="Create a CommutesReader based on the filename relative to the data directory. " alt="" coords="189,71,377,112"/>
+<area shape="rect" id="node9" href="../../d6/d42/a00043.html#af8f94fd8f5a9cafc1eff4399e2b3e093" title="Create a HouseholdReader based on the filename relative to the data directory. " alt="" coords="191,136,376,177"/>
+<area shape="rect" id="node11" href="../../d2/db1/a00070.html#acfc5f6f917fe7d81ead2fecdeb85eb70" title="stride::Calendar::Initialize\lHolidays" alt="" coords="192,201,375,243"/>
+<area shape="rect" id="node14" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="675,245,829,287"/>
+<area shape="rect" id="node17" href="../../d4/d63/a00082.html#a3738040e683004b9ecefc9ba7608eba4" title="Generates pop&#39;s individuals and return pop. " alt="" coords="193,319,373,360"/>
+<area shape="rect" id="node18" href="../../d0/d61/a00100.html#ad551b02c507948570f07af10d85d29ce" title="Get the contact configuration data. " alt="" coords="198,384,369,425"/>
+<area shape="rect" id="node20" href="../../d0/d61/a00100.html#adffa42c6b8b171616fcdfb4805260c92" title="Get the disease configuration data. " alt="" coords="210,449,357,491"/>
+<area shape="rect" id="node3" href="../../df/d13/a00085.html#a0a67e3e8c4d250509a6f76acb076824e" title="Reads the data files. " alt="" coords="445,35,605,76"/>
+<area shape="rect" id="node4" href="../../df/d13/a00085.html#a23493e205a9a22922b1511b80e64bc1e" title="Generates a synthetic population. " alt="" coords="672,100,832,141"/>
+<area shape="rect" id="node5" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="880,172,1059,213"/>
+<area shape="rect" id="node7" href="../../d1/d84/a00097.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="903,100,1036,141"/>
+<area shape="rect" id="node6" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="1107,245,1161,271"/>
+<area shape="rect" id="node10" href="../../d1/d2b/a00018.html#aea2742355e7e5bd756a3204fa0dfb160" title="Read the househould data file, parse it and set data. " alt="" coords="439,100,610,141"/>
+<area shape="rect" id="node12" href="../../d2/db1/a00070.html#a2f1b3543ea350957ea793e6b2d3ae851" title="Constructor. " alt="" coords="431,166,619,193"/>
+<area shape="rect" id="node13" href="../../d2/db1/a00070.html#a3569df106b24b3df5bf6836849b150a4" title="Check if it&#39;s the weekend. " alt="" coords="425,217,624,243"/>
+<area shape="rect" id="node15" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="893,237,1046,279"/>
+<area shape="rect" id="node16" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="890,303,1049,344"/>
+<area shape="rect" id="node19" href="../../d0/d61/a00100.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="457,416,592,457"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a08ac8bd3a86a0db3901aa2d422bd6d13"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static filesys::path stride::util::FileSys::GetRootDir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return install root dir (only relevant when use_install_dirs mode is active) </p>
+
+<p>Definition at line <a class="el" href="../../de/df3/a00185_source.html#l00091">91</a> of file <a class="el" href="../../de/df3/a00185_source.html">FileSys.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d94/a00184_source.html#l00096">Get()</a>, and <a class="el" href="../../de/df3/a00185_source.html#l00111">stride::util::FileSys::Dirs::m_root_dir</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_a08ac8bd3a86a0db3901aa2d422bd6d13_cgraph.gif" border="0" usemap="#db/d57/a00112_a08ac8bd3a86a0db3901aa2d422bd6d13_cgraph" alt=""/></div>
+<map name="db/d57/a00112_a08ac8bd3a86a0db3901aa2d422bd6d13_cgraph" id="db/d57/a00112_a08ac8bd3a86a0db3901aa2d422bd6d13_cgraph">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="189,13,356,39"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_a08ac8bd3a86a0db3901aa2d422bd6d13_icgraph.gif" border="0" usemap="#db/d57/a00112_a08ac8bd3a86a0db3901aa2d422bd6d13_icgraph" alt=""/></div>
+<map name="db/d57/a00112_a08ac8bd3a86a0db3901aa2d422bd6d13_icgraph" id="db/d57/a00112_a08ac8bd3a86a0db3901aa2d422bd6d13_icgraph">
+<area shape="rect" id="node2" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="189,71,344,112"/>
+<area shape="rect" id="node3" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="392,5,571,47"/>
+<area shape="rect" id="node5" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="405,71,558,112"/>
+<area shape="rect" id="node6" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="402,136,561,177"/>
+<area shape="rect" id="node4" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="619,78,673,105"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abf429c79cfcd82e0f363d6b977bedeb1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static filesys::path stride::util::FileSys::GetTestsDir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return tests dir (only relevant when use_install_dirs mode is active) </p>
+
+<p>Definition at line <a class="el" href="../../de/df3/a00185_source.html#l00094">94</a> of file <a class="el" href="../../de/df3/a00185_source.html">FileSys.h</a>.</p>
+
+<p>References <a class="el" href="../../d2/d94/a00184_source.html#l00096">Get()</a>, and <a class="el" href="../../de/df3/a00185_source.html#l00112">stride::util::FileSys::Dirs::m_tests_dir</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_abf429c79cfcd82e0f363d6b977bedeb1_cgraph.gif" border="0" usemap="#db/d57/a00112_abf429c79cfcd82e0f363d6b977bedeb1_cgraph" alt=""/></div>
+<map name="db/d57/a00112_abf429c79cfcd82e0f363d6b977bedeb1_cgraph" id="db/d57/a00112_abf429c79cfcd82e0f363d6b977bedeb1_cgraph">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="189,13,356,39"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f86062b82181245b6b483926eea62f1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d00/a00113.html">FileSys::Dirs</a> stride::util::FileSys::Initialize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize all paths. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00102">102</a> of file <a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a>.</p>
+
+<p>References <a class="el" href="../../de/df3/a00185_source.html#l00108">stride::util::FileSys::Dirs::m_bin_dir</a>, <a class="el" href="../../de/df3/a00185_source.html#l00109">stride::util::FileSys::Dirs::m_config_dir</a>, <a class="el" href="../../de/df3/a00185_source.html#l00102">stride::util::FileSys::Dirs::m_current_dir</a>, <a class="el" href="../../de/df3/a00185_source.html#l00110">stride::util::FileSys::Dirs::m_data_dir</a>, <a class="el" href="../../de/df3/a00185_source.html#l00105">stride::util::FileSys::Dirs::m_exec_path</a>, <a class="el" href="../../de/df3/a00185_source.html#l00111">stride::util::FileSys::Dirs::m_root_dir</a>, <a class="el" href="../../de/df3/a00185_source.html#l00112">stride::util::FileSys::Dirs::m_tests_dir</a>, and <a class="el" href="../../d0/da2/a00307_source.html#l00135">stride::util::ToLower()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_a6f86062b82181245b6b483926eea62f1_cgraph.gif" border="0" usemap="#db/d57/a00112_a6f86062b82181245b6b483926eea62f1_cgraph" alt=""/></div>
+<map name="db/d57/a00112_a6f86062b82181245b6b483926eea62f1_cgraph" id="db/d57/a00112_a6f86062b82181245b6b483926eea62f1_cgraph">
+<area shape="rect" id="node2" href="../../d6/de1/a00356.html#aa45ab4a5a30f65dcd1bf25c3d095825b" title="Builds a string with lower case characters only. " alt="" coords="189,13,332,39"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a811a1d113f57785952045d9541c95db5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d00/a00113.html">FileSys::Dirs</a> &amp; stride::util::FileSys::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return paths. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00096">96</a> of file <a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/df3/a00185_source.html#l00082">GetBinDir()</a>, <a class="el" href="../../de/df3/a00185_source.html#l00085">GetConfigDir()</a>, <a class="el" href="../../de/df3/a00185_source.html#l00069">GetCurrentDir()</a>, <a class="el" href="../../de/df3/a00185_source.html#l00088">GetDataDir()</a>, <a class="el" href="../../de/df3/a00185_source.html#l00072">GetExecPath()</a>, <a class="el" href="../../de/df3/a00185_source.html#l00091">GetRootDir()</a>, and <a class="el" href="../../de/df3/a00185_source.html#l00094">GetTestsDir()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d57/a00112_a811a1d113f57785952045d9541c95db5_icgraph.gif" border="0" usemap="#db/d57/a00112_a811a1d113f57785952045d9541c95db5_icgraph" alt=""/></div>
+<map name="db/d57/a00112_a811a1d113f57785952045d9541c95db5_icgraph" id="db/d57/a00112_a811a1d113f57785952045d9541c95db5_icgraph">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html#a308fbee71fc0e0e43f3c4d1de1b61808" title="Return bin dir (only relevant when use_install_dirs mode is active) " alt="" coords="220,5,356,47"/>
+<area shape="rect" id="node3" href="../../db/d57/a00112.html#a74338206b2b8392ff8e727b0be31d123" title="Return config dir (only relevant when use_install_dirs mode is active) " alt="" coords="220,267,356,308"/>
+<area shape="rect" id="node9" href="../../db/d57/a00112.html#a2ed578f28e57ef8a7e0c2653c30c10e6" title="Get path to the current directory. " alt="" coords="220,71,356,112"/>
+<area shape="rect" id="node10" href="../../db/d57/a00112.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="220,332,356,373"/>
+<area shape="rect" id="node25" href="../../db/d57/a00112.html#a86435813fb1eb87fcf9023ddbf27fe4a" title="Get path of the executable. " alt="" coords="220,136,356,177"/>
+<area shape="rect" id="node26" href="../../db/d57/a00112.html#a08ac8bd3a86a0db3901aa2d422bd6d13" title="Return install root dir (only relevant when use_install_dirs mode is active) " alt="" coords="220,201,356,243"/>
+<area shape="rect" id="node27" href="../../db/d57/a00112.html#abf429c79cfcd82e0f363d6b977bedeb1" title="Return tests dir (only relevant when use_install_dirs mode is active) " alt="" coords="220,397,356,439"/>
+<area shape="rect" id="node4" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="421,136,575,177"/>
+<area shape="rect" id="node5" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="1095,199,1273,240"/>
+<area shape="rect" id="node7" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="890,75,1043,116"/>
+<area shape="rect" id="node8" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="887,140,1046,181"/>
+<area shape="rect" id="node6" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="1321,147,1376,174"/>
+<area shape="rect" id="node11" href="../../d6/d42/a00043.html#a6d2ed9033fa50940b6fcb601a18d127c" title="Create a CitiesReader based on the filename relative to the data directory. " alt="" coords="414,201,582,243"/>
+<area shape="rect" id="node15" href="../../d6/d42/a00043.html#abb99b826e135cac651269f27058c9e81" title="Create a CommutesReader based on the filename relative to the data directory. " alt="" coords="404,267,592,308"/>
+<area shape="rect" id="node16" href="../../d6/d42/a00043.html#af8f94fd8f5a9cafc1eff4399e2b3e093" title="Create a HouseholdReader based on the filename relative to the data directory. " alt="" coords="405,332,591,373"/>
+<area shape="rect" id="node18" href="../../d2/db1/a00070.html#acfc5f6f917fe7d81ead2fecdeb85eb70" title="stride::Calendar::Initialize\lHolidays" alt="" coords="407,593,589,635"/>
+<area shape="rect" id="node21" href="../../d4/d63/a00082.html#a3738040e683004b9ecefc9ba7608eba4" title="Generates pop&#39;s individuals and return pop. " alt="" coords="408,528,588,569"/>
+<area shape="rect" id="node22" href="../../d0/d61/a00100.html#ad551b02c507948570f07af10d85d29ce" title="Get the contact configuration data. " alt="" coords="413,463,583,504"/>
+<area shape="rect" id="node24" href="../../d0/d61/a00100.html#adffa42c6b8b171616fcdfb4805260c92" title="Get the disease configuration data. " alt="" coords="425,397,571,439"/>
+<area shape="rect" id="node12" href="../../df/d13/a00085.html#a0a67e3e8c4d250509a6f76acb076824e" title="Reads the data files. " alt="" coords="659,265,819,307"/>
+<area shape="rect" id="node13" href="../../df/d13/a00085.html#a23493e205a9a22922b1511b80e64bc1e" title="Generates a synthetic population. " alt="" coords="887,265,1047,307"/>
+<area shape="rect" id="node14" href="../../d1/d84/a00097.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="1117,265,1251,307"/>
+<area shape="rect" id="node17" href="../../d1/d2b/a00018.html#aea2742355e7e5bd756a3204fa0dfb160" title="Read the househould data file, parse it and set data. " alt="" coords="654,332,825,373"/>
+<area shape="rect" id="node19" href="../../d2/db1/a00070.html#a2f1b3543ea350957ea793e6b2d3ae851" title="Constructor. " alt="" coords="645,626,833,653"/>
+<area shape="rect" id="node20" href="../../d2/db1/a00070.html#a3569df106b24b3df5bf6836849b150a4" title="Check if it&#39;s the weekend. " alt="" coords="640,575,839,602"/>
+<area shape="rect" id="node23" href="../../d0/d61/a00100.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="672,431,807,472"/>
 </map>
 </div>
 </p>
@@ -386,16 +1040,16 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dc/de6/a00167_source.html">ConfigInfo.h</a></li>
-<li><a class="el" href="../../d9/d38/a00166_source.html">ConfigInfo.cpp</a></li>
+<li><a class="el" href="../../de/df3/a00185_source.html">FileSys.h</a></li>
+<li><a class="el" href="../../d2/d94/a00184_source.html">FileSys.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d30/a00370.html">util</a></li><li class="navelem"><a class="el" href="../../db/d57/a00112.html">ConfigInfo</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:23 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00356.html">util</a></li><li class="navelem"><a class="el" href="../../db/d57/a00112.html">FileSys</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:34 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

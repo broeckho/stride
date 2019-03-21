@@ -1,7 +1,9 @@
 var a00132 =
 [
-    [ "CliViewer", "d5/deb/a00132.html#a4ddb15ac567fd751c2be3a9d973d1666", null ],
-    [ "Update", "d5/deb/a00132.html#a9f3a2f9efda499fa6a80f3871c7298d7", null ],
-    [ "m_logger", "d5/deb/a00132.html#acc77dad91899a0d4183493023e082e9f", null ],
-    [ "m_runner", "d5/deb/a00132.html#af789850b449fdadcc8572def4a0eb4af", null ]
+    [ "PROTOBUF_SECTION_VARIABLE", "d5/deb/a00132.html#adb95088fb677be84100b82414b6c460d", null ],
+    [ "PROTOBUF_SECTION_VARIABLE", "d5/deb/a00132.html#ac48357e89549fe4cce91a7cda00a1535", null ],
+    [ "PROTOBUF_SECTION_VARIABLE", "d5/deb/a00132.html#a601dfa94bfbe18955d33f8b660985720", null ],
+    [ "field_metadata", "d5/deb/a00132.html#a9a8e9e93c507543eb7899332656b706d", null ],
+    [ "serialization_table", "d5/deb/a00132.html#a5bd363cc6c43ac962af44d0a3a51f8cc", null ],
+    [ "offsets", "d5/deb/a00132.html#a98f3abc503157caec7b549c1fc4e2633", null ]
 ];

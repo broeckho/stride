@@ -1,8 +1,7 @@
 var a00088 =
 [
-    [ "DiseaseSeeder", "db/ddf/a00088.html#a66cbeee60e72d2a8f5ec2836abeae9c9", null ],
-    [ "Seed", "db/ddf/a00088.html#adc5b1f152367382afe3dade9421357da", null ],
-    [ "Vaccinate", "db/ddf/a00088.html#adddf4de9a6ae831d6e46d2f047309504", null ],
-    [ "m_config", "db/ddf/a00088.html#a7f897725d29dc459e6fda6c0fef91f37", null ],
-    [ "m_rn_man", "db/ddf/a00088.html#aeee28660d3988b645ebc1c26f6d82b2a", null ]
+    [ "Immunizer", "db/ddf/a00088.html#a9cf69f9df2b2b2e357fab3d3ed48b64a", null ],
+    [ "Random", "db/ddf/a00088.html#ac187b34c18ec3cd1efccaf8f197766fc", null ],
+    [ "Cocoon", "db/ddf/a00088.html#a9b4435f990b9a24bc0ededbd9af4877b", null ],
+    [ "m_rn_man", "db/ddf/a00088.html#aea5b1b7d720384302b740a11d0ec484b", null ]
 ];

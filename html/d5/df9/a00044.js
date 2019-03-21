@@ -1,6 +1,5 @@
 var a00044 =
 [
-    [ "PrimaryCommunityCenter", "d5/df9/a00044.html#aa6d30439be8d901d8cbc9913db84d6ec", null ],
-    [ "SetupPools", "d5/df9/a00044.html#a2e84ca4d4390cab299c7a3f8957b7490", null ],
-    [ "GetContactPoolType", "d5/df9/a00044.html#a222b094ba90944d58fa812db7e7576fb", null ]
+    [ "Apply", "d5/df9/a00044.html#aaeb2993b23971ed05acb27abf74566a5", null ],
+    [ "SetupPools", "d5/df9/a00044.html#a3cdaab457109c7ee8d5b7ddfc796c7d3", null ]
 ];

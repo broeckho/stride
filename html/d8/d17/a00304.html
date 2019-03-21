@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SecondaryCommunityPopulator.h File Reference</title>
+<title>Stride Reference Manual: StanController.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -108,28 +108,33 @@ $(document).ready(function(){initNavTree('d8/d17/a00304.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SecondaryCommunityPopulator.h File Reference</div>  </div>
+<div class="title">StanController.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/dc3/a00284_source.html">Populator.h</a>&quot;</code><br />
+
+<p>Header for the St(ochastic)an(alysis)Controller.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/da7/a00168_source.html">ControlHelper.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SecondaryCommunityPopulator.h:</div>
+Include dependency graph for StanController.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d66/a00630.gif" border="0" usemap="#SecondaryCommunityPopulator_8h" alt=""/></div>
-<map name="SecondaryCommunityPopulator_8h" id="SecondaryCommunityPopulator_8h">
-<area shape="rect" id="node2" href="../../db/dc3/a00284.html" title="Populator.h" alt="" coords="367,80,462,107"/>
-<area shape="rect" id="node3" href="../../d9/d90/a00178.html" title="Definition of ContactPool Id Type. " alt="" coords="135,155,299,181"/>
-<area shape="rect" id="node9" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="365,155,465,181"/>
-<area shape="rect" id="node10" href="../../db/d7b/a00296.html" title="Interface of RnPcg. " alt="" coords="378,229,451,256"/>
+<div class="center"><img src="../../d3/dd6/a00624.gif" border="0" usemap="#StanController_8h" alt=""/></div>
+<map name="StanController_8h" id="StanController_8h">
+<area shape="rect" id="node2" href="../../dd/da7/a00168.html" title="Header for the command line controller. " alt="" coords="403,87,524,114"/>
+<area shape="rect" id="node3" href="../../d5/d7b/a00286.html" title="Interface of RnMan. " alt="" coords="195,177,295,203"/>
+<area shape="rect" id="node10" href="../../d3/d07/a00305.html" title="Definition of Stopwatch. " alt="" coords="452,177,576,203"/>
+<area shape="rect" id="node4" href="../../db/dc3/a00284.html" title="Interface of RnPcg. " alt="" coords="8,259,81,285"/>
+<area shape="rect" id="node11" href="../../de/de9/a00322.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="503,259,619,285"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/de3/a00631.gif" border="0" usemap="#SecondaryCommunityPopulator_8hdep" alt=""/></div>
-<map name="SecondaryCommunityPopulator_8hdep" id="SecondaryCommunityPopulator_8hdep">
-<area shape="rect" id="node2" href="../../dc/d0f/a00303.html" title="SecondaryCommunityPopulator.cpp" alt="" coords="5,80,256,107"/>
-<area shape="rect" id="node3" href="../../d5/ddf/a00224.html" title="Initialize populations: implementation. " alt="" coords="281,80,423,107"/>
+<div class="center"><img src="../../d2/d34/a00625.gif" border="0" usemap="#StanController_8hdep" alt=""/></div>
+<map name="StanController_8hdep" id="StanController_8hdep">
+<area shape="rect" id="node2" href="../../dc/d0f/a00303.html" title="Header for the command line controller. " alt="" coords="5,80,145,107"/>
+<area shape="rect" id="node3" href="../../d1/de3/a00306.html" title="Main program: command line handling. " alt="" coords="170,80,255,107"/>
 </map>
 </div>
 </div>
@@ -137,23 +142,27 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dee/a00049.html">geopop::SecondaryCommunityPopulator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the secondary communities.  <a href="../../d2/dee/a00049.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d1e/a00103.html">stride::StanController</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs a simulation multiple times, with different random engine seeds.  <a href="../../d5/d1e/a00103.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></td></tr>
-<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header for the St(ochastic)an(alysis)Controller. </p>
+
+<p>Definition in file <a class="el" href="../../d8/d17/a00304_source.html">StanController.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_e7e2007abe30c6c76c8a673fdd5d8158.html">populators</a></li><li class="navelem"><a class="el" href="../../d8/d17/a00304.html">SecondaryCommunityPopulator.h</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:22 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../d8/d17/a00304.html">StanController.h</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

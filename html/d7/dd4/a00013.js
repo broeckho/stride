@@ -1,7 +1,7 @@
 var a00013 =
 [
-    [ "CommutesReader", "d7/dd4/a00013.html#a0dd104614182629344c1103571db7e4c", null ],
-    [ "~CommutesReader", "d7/dd4/a00013.html#a87275d249311463450de4aa0a8312f28", null ],
-    [ "FillGeoGrid", "d7/dd4/a00013.html#af234e008eac36ce38d34edecef9cd477", null ],
-    [ "m_inputStream", "d7/dd4/a00013.html#a045bcd22a463157da9d270ae2ceec8b1", null ]
+    [ "GeoAggregator", "d7/dd4/a00013.html#a98061f715d7f989acc80177244b9e382", null ],
+    [ "operator()", "d7/dd4/a00013.html#a9690fa2f2fd4865dc4fc1f36007cae6c", null ],
+    [ "m_policy", "d7/dd4/a00013.html#a8869ab6e0b5648b01be252b664c29c4f", null ],
+    [ "m_tree", "d7/dd4/a00013.html#a72d96601581d45ac424d0d5b2ff60a5d", null ]
 ];

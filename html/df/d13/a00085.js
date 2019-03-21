@@ -1,7 +1,8 @@
 var a00085 =
 [
-    [ "DaysOffSchool", "df/d13/a00085.html#ab77c78d8d9b00fe50c8f845fe459a657", null ],
-    [ "IsWorkOff", "df/d13/a00085.html#a633453bbe4892b56891c42a4f4ac72fd", null ],
-    [ "IsSchoolOff", "df/d13/a00085.html#a709acf6d0cec5722e20760a797ae35bb", null ],
-    [ "m_calendar", "df/d13/a00085.html#a5ac5b045ac4db6ae397d91d7dd663784", null ]
+    [ "GeoPopBuilder", "df/d13/a00085.html#a9159585958c5ab6405e8022c5bbd7421", null ],
+    [ "Build", "df/d13/a00085.html#a23493e205a9a22922b1511b80e64bc1e", null ],
+    [ "MakeLocations", "df/d13/a00085.html#a0a67e3e8c4d250509a6f76acb076824e", null ],
+    [ "MakeCenters", "df/d13/a00085.html#a93529cc4e8a5e4de31bb2663777971cb", null ],
+    [ "MakePersons", "df/d13/a00085.html#a22327526a0de14f648b2375065527fda", null ]
 ];

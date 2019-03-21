@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::GeoGridConfig Class Reference</title>
+<title>Stride Reference Manual: geopop::GeoGridProtoWriter Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -108,122 +108,84 @@ $(document).ready(function(){initNavTree('d7/de0/a00022.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d3/d2c/a00764.html">List of all members</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../da/da3/a00741.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::GeoGridConfig Class Reference</div>  </div>
+<div class="title">geopop::GeoGridProtoWriter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Configuration data mostly for generating a population, but also for computing the required number of schools, workplaces, communities etc.  
+<p>An implementation of the <a class="el" href="../../d3/dfe/a00025.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> using Protocol Buffers This class is used to write a <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to a Proto file.  
  <a href="../../d7/de0/a00022.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/d13/a00205_source.html">GeoGridProtoWriter.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for geopop::GeoGridConfig:</div>
+Inheritance diagram for geopop::GeoGridProtoWriter:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/de2/a00765.gif" border="0" usemap="#geopop_1_1GeoGridConfig_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1GeoGridConfig_coll__map" id="geopop_1_1GeoGridConfig_coll__map">
-<area shape="rect" id="node2" href="../../dd/dcb/a00375.html" title="{double\n||}" alt="" coords="71,447,136,525"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="180,145,307,223"/>
+<div class="center"><img src="../../d4/d8f/a00742.gif" border="0" usemap="#geopop_1_1GeoGridProtoWriter_inherit__map" alt="Inheritance graph"/></div>
+<map name="geopop_1_1GeoGridProtoWriter_inherit__map" id="geopop_1_1GeoGridProtoWriter_inherit__map">
+<area shape="rect" id="node2" href="../../d3/dfe/a00025.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types..." alt="" coords="22,5,189,97"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for geopop::GeoGridProtoWriter:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/d0a/a00743.gif" border="0" usemap="#geopop_1_1GeoGridProtoWriter_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1GeoGridProtoWriter_coll__map" id="geopop_1_1GeoGridProtoWriter_coll__map">
+<area shape="rect" id="node2" href="../../d3/dfe/a00025.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types..." alt="" coords="5,285,172,377"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="295,145,403,223"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a088dd31f1a0ac5f2aa217ed3c6113bbd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a088dd31f1a0ac5f2aa217ed3c6113bbd">GeoGridConfig</a> ()</td></tr>
-<tr class="memdesc:a088dd31f1a0ac5f2aa217ed3c6113bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor needed in test code.  <a href="#a088dd31f1a0ac5f2aa217ed3c6113bbd">More...</a><br /></td></tr>
-<tr class="separator:a088dd31f1a0ac5f2aa217ed3c6113bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a808a145911801f2194703fb4815f6763"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a808a145911801f2194703fb4815f6763">GeoGridConfig</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:a808a145911801f2194703fb4815f6763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that configures input data.  <a href="#a808a145911801f2194703fb4815f6763">More...</a><br /></td></tr>
-<tr class="separator:a808a145911801f2194703fb4815f6763"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea2742355e7e5bd756a3204fa0dfb160"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#aea2742355e7e5bd756a3204fa0dfb160">SetData</a> (const std::string &amp;householdsFileName)</td></tr>
-<tr class="memdesc:aea2742355e7e5bd756a3204fa0dfb160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the househould data file, parse it and set data.  <a href="#aea2742355e7e5bd756a3204fa0dfb160">More...</a><br /></td></tr>
-<tr class="separator:aea2742355e7e5bd756a3204fa0dfb160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a926d6c4ac5d5d4ce1814a8a782bc408e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a926d6c4ac5d5d4ce1814a8a782bc408e">GeoGridProtoWriter</a> ()</td></tr>
+<tr class="memdesc:a926d6c4ac5d5d4ce1814a8a782bc408e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d7/de0/a00022.html" title="An implementation of the GeoGridWriter using Protocol Buffers This class is used to write a GeoGrid t...">GeoGridProtoWriter</a>.  <a href="#a926d6c4ac5d5d4ce1814a8a782bc408e">More...</a><br /></td></tr>
+<tr class="separator:a926d6c4ac5d5d4ce1814a8a782bc408e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaddb399f1f826203ae6086858dbfbde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#abaddb399f1f826203ae6086858dbfbde">Write</a> (<a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;geoGrid, std::ostream &amp;stream) override</td></tr>
+<tr class="memdesc:abaddb399f1f826203ae6086858dbfbde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to the ostream in Protobuf format.  <a href="#abaddb399f1f826203ae6086858dbfbde">More...</a><br /></td></tr>
+<tr class="separator:abaddb399f1f826203ae6086858dbfbde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00025"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00025')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d3/dfe/a00025.html">geopop::GeoGridWriter</a></td></tr>
+<tr class="memitem:ac39b3553fa52b22d47cd5972d5e1c4b8 inherit pub_methods_a00025"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#ac39b3553fa52b22d47cd5972d5e1c4b8">~GeoGridWriter</a> ()=default</td></tr>
+<tr class="memdesc:ac39b3553fa52b22d47cd5972d5e1c4b8 inherit pub_methods_a00025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the Writer.  <a href="#ac39b3553fa52b22d47cd5972d5e1c4b8">More...</a><br /></td></tr>
+<tr class="separator:ac39b3553fa52b22d47cd5972d5e1c4b8 inherit pub_methods_a00025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ae6b25524fbb9a5d3406e0cb37b2cc18f"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:a710420baba9e56992048611bc45be939"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dd/dcb/a00375.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a079dd4c7d18c3d25e3af1509a1ec7b75">participation_college</a></td></tr>
-<tr class="memdesc:a710420baba9e56992048611bc45be939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Participation of college (fraction of people of college age going to college).  <a href="#a710420baba9e56992048611bc45be939">More...</a><br /></td></tr>
-<tr class="separator:a710420baba9e56992048611bc45be939"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0359b5c89bc83f4e814810ffafbb5715"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dd/dcb/a00375.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a680f78bbf91c7a7d297a6b37dd8543c2">particpation_workplace</a></td></tr>
-<tr class="memdesc:a0359b5c89bc83f4e814810ffafbb5715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Participation of workplace (fraction of people of work age and not going to college having emplayment).  <a href="#a0359b5c89bc83f4e814810ffafbb5715">More...</a><br /></td></tr>
-<tr class="separator:a0359b5c89bc83f4e814810ffafbb5715"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb14a0cdba3fff6a95e8651d67b185c9"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dd/dcb/a00375.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a4af24f062d897f70d30e4b353ed2e65c">fraction_college_commuters</a></td></tr>
-<tr class="memdesc:abb14a0cdba3fff6a95e8651d67b185c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of college students that commute.  <a href="#abb14a0cdba3fff6a95e8651d67b185c9">More...</a><br /></td></tr>
-<tr class="separator:abb14a0cdba3fff6a95e8651d67b185c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cb0522a61d574bc041f39658588ab7f"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dd/dcb/a00375.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#af9c8808fa2cba963254602956ed1543d">fraction_workplace_commuters</a></td></tr>
-<tr class="memdesc:a4cb0522a61d574bc041f39658588ab7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of people in the workplace that commute.  <a href="#a4cb0522a61d574bc041f39658588ab7f">More...</a><br /></td></tr>
-<tr class="separator:a4cb0522a61d574bc041f39658588ab7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a449cbb4706bad5fbc6abb67843d201fe"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a0deb035c1ea53adff9e0014b67824454">pop_size</a></td></tr>
-<tr class="memdesc:a449cbb4706bad5fbc6abb67843d201fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Target population size for the generated population.  <a href="#a449cbb4706bad5fbc6abb67843d201fe">More...</a><br /></td></tr>
-<tr class="separator:a449cbb4706bad5fbc6abb67843d201fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6b25524fbb9a5d3406e0cb37b2cc18f"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#ae6b25524fbb9a5d3406e0cb37b2cc18f">input</a></td></tr>
-<tr class="separator:ae6b25524fbb9a5d3406e0cb37b2cc18f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9662b39487348642124af214d4c6ca82"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:adf49b314f5a2b38f432f4785686a4e16"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a517eacc33e89307a10ec3108996a9b67">person_count</a> = 0U</td></tr>
-<tr class="memdesc:adf49b314f5a2b38f432f4785686a4e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of persons in the reference household set.  <a href="#adf49b314f5a2b38f432f4785686a4e16">More...</a><br /></td></tr>
-<tr class="separator:adf49b314f5a2b38f432f4785686a4e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d5600f56ae9f1d3a9415af438fc79e6"><td class="memItemLeft" >&#160;&#160;&#160;std::vector&lt; std::vector&lt; unsigned int &gt; &gt;&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a8e91e65111dbf2eb5cc4902b136b33c1">ages</a> {}</td></tr>
-<tr class="memdesc:a4d5600f56ae9f1d3a9415af438fc79e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Age profile per reference household.  <a href="#a4d5600f56ae9f1d3a9415af438fc79e6">More...</a><br /></td></tr>
-<tr class="separator:a4d5600f56ae9f1d3a9415af438fc79e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9662b39487348642124af214d4c6ca82"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a9662b39487348642124af214d4c6ca82">refHH</a></td></tr>
-<tr class="separator:a9662b39487348642124af214d4c6ca82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7ab12667956a7a9f263bb8be8f07155"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:af8bc26318387e4d6bfb7a2b9afbe8f76"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a4aa5218a500d6f3fa7d3827495bc532d">popcount_k12school</a></td></tr>
-<tr class="memdesc:af8bc26318387e4d6bfb7a2b9afbe8f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numbers of individuals in K12School.  <a href="#af8bc26318387e4d6bfb7a2b9afbe8f76">More...</a><br /></td></tr>
-<tr class="separator:af8bc26318387e4d6bfb7a2b9afbe8f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4063a634fd74c19e0c7b7d5d76dbc3fd"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#ac1ee99e8c1ceea7126f91ae2aa5c9034">popcount_college</a></td></tr>
-<tr class="memdesc:a4063a634fd74c19e0c7b7d5d76dbc3fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of individuals in College.  <a href="#a4063a634fd74c19e0c7b7d5d76dbc3fd">More...</a><br /></td></tr>
-<tr class="separator:a4063a634fd74c19e0c7b7d5d76dbc3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4963c63136eb0705307a07c8c77c691"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a0ed4fde37b92426045b2539bfeb5970d">popcount_workplace</a></td></tr>
-<tr class="memdesc:ae4963c63136eb0705307a07c8c77c691"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of individuals in Workplace.  <a href="#ae4963c63136eb0705307a07c8c77c691">More...</a><br /></td></tr>
-<tr class="separator:ae4963c63136eb0705307a07c8c77c691"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41d61406ca75c0262787278afab412d3"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a4275043333421d18cb78d7f957b7609d">count_households</a></td></tr>
-<tr class="memdesc:a41d61406ca75c0262787278afab412d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of households.  <a href="#a41d61406ca75c0262787278afab412d3">More...</a><br /></td></tr>
-<tr class="separator:a41d61406ca75c0262787278afab412d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7ab12667956a7a9f263bb8be8f07155"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#aa7ab12667956a7a9f263bb8be8f07155">popInfo</a></td></tr>
-<tr class="separator:aa7ab12667956a7a9f263bb8be8f07155"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2118fdaa02c6c419fe1c9b2ec7a87dd"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:a9ba0db61bff377286d439a2a0ba5b789"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a739a1a42262c1069c2f6917c02b104da">pools_per_houselhold</a> = 1U</td></tr>
-<tr class="memdesc:a9ba0db61bff377286d439a2a0ba5b789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Every houselhold constitutes a single ContactPool.  <a href="#a9ba0db61bff377286d439a2a0ba5b789">More...</a><br /></td></tr>
-<tr class="separator:a9ba0db61bff377286d439a2a0ba5b789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a909fe14d2e110aaf95f875efbbcdd05b"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#aac81d7949eee1708c2b11b9c62bd0b1a">k12school_size</a> = 500U</td></tr>
-<tr class="memdesc:a909fe14d2e110aaf95f875efbbcdd05b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to calculate the number of K12Schools.  <a href="#a909fe14d2e110aaf95f875efbbcdd05b">More...</a><br /></td></tr>
-<tr class="separator:a909fe14d2e110aaf95f875efbbcdd05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5f50ca4c9cd59adae53de7e86699dc8"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#ac8b916b0b19f075762950b20c759ab9a">pools_per_k12school</a> = 25U</td></tr>
-<tr class="separator:aa5f50ca4c9cd59adae53de7e86699dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e1f6b4da4b7c671f8f08e579f26cf24"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a9aa0a0e39c702ca40578fccf3c46c1d9">college_size</a> = 3000U</td></tr>
-<tr class="memdesc:a3e1f6b4da4b7c671f8f08e579f26cf24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to calculate the number of Colleges.  <a href="#a3e1f6b4da4b7c671f8f08e579f26cf24">More...</a><br /></td></tr>
-<tr class="separator:a3e1f6b4da4b7c671f8f08e579f26cf24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a649f8167d0e7761b3d73c6f8a7839e9d"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#ab05f5a133385878b4a2e1175dccda71e">pools_per_college</a> = 20U</td></tr>
-<tr class="separator:a649f8167d0e7761b3d73c6f8a7839e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8c96972afe2bdd49b811378777e1637"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#ace504bf21249eaaf8e23dbbc08087a83">community_size</a> = 2000U</td></tr>
-<tr class="memdesc:ab8c96972afe2bdd49b811378777e1637"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to calculate the number of Communities.  <a href="#ab8c96972afe2bdd49b811378777e1637">More...</a><br /></td></tr>
-<tr class="separator:ab8c96972afe2bdd49b811378777e1637"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b52941751d18c68bf3f669d99dc2548"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a0e5ad0d12ea60034426b11dde06887a6">pools_per_community</a> = 1U</td></tr>
-<tr class="separator:a2b52941751d18c68bf3f669d99dc2548"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeecb57531d50b7437000ed2e79b0b0e3"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a81fc4304e2a58751bf024695042becb6">workplace_size</a> = 20U</td></tr>
-<tr class="memdesc:aeecb57531d50b7437000ed2e79b0b0e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to calculate the number of Workplaces.  <a href="#aeecb57531d50b7437000ed2e79b0b0e3">More...</a><br /></td></tr>
-<tr class="separator:aeecb57531d50b7437000ed2e79b0b0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a172a89f598486846b796fc7e764cb015"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d7/de0/a00022.html#a2a253ebd063ff05197a23f2b8dbfd5d5">pools_per_workplace</a> = 1U</td></tr>
-<tr class="separator:a172a89f598486846b796fc7e764cb015"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2118fdaa02c6c419fe1c9b2ec7a87dd"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#ac2118fdaa02c6c419fe1c9b2ec7a87dd">pools</a></td></tr>
-<tr class="separator:ac2118fdaa02c6c419fe1c9b2ec7a87dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a29b971ed219c5b0b2fc3664374a358d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a29b971ed219c5b0b2fc3664374a358d6">WriteContactCenter</a> (std::shared_ptr&lt; <a class="el" href="../../d7/dec/a00010.html">ContactCenter</a> &gt; contactCenter, <a class="el" href="../../d1/d22/a00057.html">proto::GeoGrid_Location_ContactCenter</a> *protoContactCenter)</td></tr>
+<tr class="memdesc:a29b971ed219c5b0b2fc3664374a358d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a ProtoBuf <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a> containing all the information needed to reconstruct a <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a>.  <a href="#a29b971ed219c5b0b2fc3664374a358d6">More...</a><br /></td></tr>
+<tr class="separator:a29b971ed219c5b0b2fc3664374a358d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac914db129c8a1822bd4c06e669ef1cd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#ac914db129c8a1822bd4c06e669ef1cd4">WriteContactPool</a> (<a class="el" href="../../d6/d2c/a00072.html">stride::ContactPool</a> *contactPool, <a class="el" href="../../d7/df7/a00058.html">proto::GeoGrid_Location_ContactCenter_ContactPool</a> *protoContactPool)</td></tr>
+<tr class="memdesc:ac914db129c8a1822bd4c06e669ef1cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool.  <a href="#ac914db129c8a1822bd4c06e669ef1cd4">More...</a><br /></td></tr>
+<tr class="separator:ac914db129c8a1822bd4c06e669ef1cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b7c60a6fb168dd8dfcaa338c055019c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a5b7c60a6fb168dd8dfcaa338c055019c">WriteCoordinate</a> (const <a class="el" href="../../dc/d84/a00338.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a> &amp;coordinate, <a class="el" href="../../d3/d8b/a00059.html">proto::GeoGrid_Location_Coordinate</a> *protoCoordinate)</td></tr>
+<tr class="memdesc:a5b7c60a6fb168dd8dfcaa338c055019c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a ProtoBuf Coordinate containing all the info needed to reconstruct a Coordinate..  <a href="#a5b7c60a6fb168dd8dfcaa338c055019c">More...</a><br /></td></tr>
+<tr class="separator:a5b7c60a6fb168dd8dfcaa338c055019c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a371d8e5181a6138f0443989d3a66d35d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a371d8e5181a6138f0443989d3a66d35d">WriteLocation</a> (const <a class="el" href="../../d4/d8c/a00035.html">Location</a> &amp;location, <a class="el" href="../../d4/d6d/a00055.html">proto::GeoGrid_Location</a> *protoLocation)</td></tr>
+<tr class="memdesc:a371d8e5181a6138f0443989d3a66d35d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a ProtoBuf <a class="el" href="../../d4/d8c/a00035.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. ">Location</a> containing all the info needed to reconstruct a <a class="el" href="../../d4/d8c/a00035.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. ">Location</a>.  <a href="#a371d8e5181a6138f0443989d3a66d35d">More...</a><br /></td></tr>
+<tr class="separator:a371d8e5181a6138f0443989d3a66d35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86db40bd91910ffd9d795c4320f980a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a86db40bd91910ffd9d795c4320f980a0">WritePerson</a> (<a class="el" href="../../d9/df8/a00096.html">stride::Person</a> *person, <a class="el" href="../../d9/d73/a00060.html">proto::GeoGrid_Person</a> *protoPerson)</td></tr>
+<tr class="memdesc:a86db40bd91910ffd9d795c4320f980a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a ProtoBuf Person containing all the info needed to reconstruct a Person.  <a href="#a86db40bd91910ffd9d795c4320f980a0">More...</a><br /></td></tr>
+<tr class="separator:a86db40bd91910ffd9d795c4320f980a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a0c73512e036c7f443d73a9c2552f63bb"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="../../d9/df8/a00096.html">stride::Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a0c73512e036c7f443d73a9c2552f63bb">m_persons_found</a></td></tr>
+<tr class="memdesc:a0c73512e036c7f443d73a9c2552f63bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The persons found when looping over the ContactPools.  <a href="#a0c73512e036c7f443d73a9c2552f63bb">More...</a><br /></td></tr>
+<tr class="separator:a0c73512e036c7f443d73a9c2552f63bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Configuration data mostly for generating a population, but also for computing the required number of schools, workplaces, communities etc. </p>
-<p>for that population. </p>
+<div class="textblock"><p>An implementation of the <a class="el" href="../../d3/dfe/a00025.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> using Protocol Buffers This class is used to write a <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to a Proto file. </p>
 
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00035">35</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00044">44</a> of file <a class="el" href="../../d5/d13/a00205_source.html">GeoGridProtoWriter.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a088dd31f1a0ac5f2aa217ed3c6113bbd"></a>
+<a class="anchor" id="a926d6c4ac5d5d4ce1814a8a782bc408e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">geopop::GeoGridConfig::GeoGridConfig </td>
+          <td class="memname">geopop::GeoGridProtoWriter::GeoGridProtoWriter </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -231,15 +193,14 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Default constructor needed in test code. </p>
+<p>Construct the <a class="el" href="../../d7/de0/a00022.html" title="An implementation of the GeoGridWriter using Protocol Buffers This class is used to write a GeoGrid t...">GeoGridProtoWriter</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00034">34</a> of file <a class="el" href="../../d5/d13/a00205_source.html">GeoGridConfig.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/de0/a00022.html#ae6b25524fbb9a5d3406e0cb37b2cc18f">input</a>, <a class="el" href="../../d7/de0/a00022.html#ac2118fdaa02c6c419fe1c9b2ec7a87dd">pools</a>, <a class="el" href="../../d7/de0/a00022.html#aa7ab12667956a7a9f263bb8be8f07155">popInfo</a>, and <a class="el" href="../../d7/de0/a00022.html#a9662b39487348642124af214d4c6ca82">refHH</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00035">35</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridProtoWriter.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a808a145911801f2194703fb4815f6763"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="abaddb399f1f826203ae6086858dbfbde"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -247,58 +208,141 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">geopop::GeoGridConfig::GeoGridConfig </td>
+          <td class="memname">void geopop::GeoGridProtoWriter::Write </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor that configures input data. </p>
+<p>Write the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> to the ostream in Protobuf format. </p>
 
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aea2742355e7e5bd756a3204fa0dfb160"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void geopop::GeoGridConfig::SetData </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>householdsFileName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Implements <a class="el" href="../../d3/dfe/a00025.html#a2a4c494a6bbe1776e71706a1c3a7ff9a">geopop::GeoGridWriter</a>.</p>
 
-<p>Read the househould data file, parse it and set data. </p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00037">37</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridProtoWriter.cpp</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00045">45</a> of file <a class="el" href="../../d5/d13/a00205_source.html">GeoGridConfig.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d8/d0a/a00292_source.html#l00052">geopop::ReaderFactory::CreateHouseholdReader()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00048">stride::AgeBrackets::K12School::HasAge()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00057">stride::AgeBrackets::College::HasAge()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00066">stride::AgeBrackets::Workplace::HasAge()</a>, <a class="el" href="../../d7/de0/a00022.html#ae6b25524fbb9a5d3406e0cb37b2cc18f">input</a>, <a class="el" href="../../d7/de0/a00022.html#aa7ab12667956a7a9f263bb8be8f07155">popInfo</a>, and <a class="el" href="../../d7/de0/a00022.html#a9662b39487348642124af214d4c6ca82">refHH</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/ddf/a00224_source.html#l00058">stride::GeoPopBuilder::Build()</a>.</p>
+<p>References <a class="el" href="../../dd/df4/a00193_source.html#l01526">proto::GeoGrid::add_locations()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01556">proto::GeoGrid::add_persons()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00072">m_persons_found</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00092">WriteLocation()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l00116">WritePerson()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/de0/a00022_aea2742355e7e5bd756a3204fa0dfb160_cgraph.gif" border="0" usemap="#d7/de0/a00022_aea2742355e7e5bd756a3204fa0dfb160_cgraph" alt=""/></div>
-<map name="d7/de0/a00022_aea2742355e7e5bd756a3204fa0dfb160_cgraph" id="d7/de0/a00022_aea2742355e7e5bd756a3204fa0dfb160_cgraph">
-<area shape="rect" id="node2" href="../../d6/d2d/a00047.html#af8f94fd8f5a9cafc1eff4399e2b3e093" title="Create a HouseholdReader based on the filename relative to the data directory. " alt="" coords="224,5,409,47"/>
-<area shape="rect" id="node5" href="../../d0/d89/a00071.html#ab773fa6a11ca2ab240ce27295561f2eb" title="stride::AgeBrackets\l::K12School::HasAge" alt="" coords="239,71,394,112"/>
-<area shape="rect" id="node6" href="../../d4/d31/a00069.html#a9da586fa49f908053a05ce521e904d27" title="stride::AgeBrackets\l::College::HasAge" alt="" coords="243,136,390,177"/>
-<area shape="rect" id="node7" href="../../d1/d6e/a00073.html#ae65edbaf591c0475af30028e30ff6005" title="stride::AgeBrackets\l::Workplace::HasAge" alt="" coords="241,201,393,243"/>
-<area shape="rect" id="node3" href="../../d9/d4b/a00117.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="457,5,593,47"/>
-<area shape="rect" id="node4" href="../../d9/d4b/a00117.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="641,13,808,39"/>
+<div class="center"><img src="../../d7/de0/a00022_abaddb399f1f826203ae6086858dbfbde_cgraph.gif" border="0" usemap="#d7/de0/a00022_abaddb399f1f826203ae6086858dbfbde_cgraph" alt=""/></div>
+<map name="d7/de0/a00022_abaddb399f1f826203ae6086858dbfbde_cgraph" id="d7/de0/a00022_abaddb399f1f826203ae6086858dbfbde_cgraph">
+<area shape="rect" id="node2" href="../../d1/dea/a00054.html#a3e490616ea40c285ca1cf5832d1fc244" title="proto::GeoGrid::add\l_locations" alt="" coords="279,387,427,428"/>
+<area shape="rect" id="node3" href="../../d1/dea/a00054.html#ac0bd3b734049997531218f3507b844bf" title="proto::GeoGrid::add\l_persons" alt="" coords="279,452,427,493"/>
+<area shape="rect" id="node4" href="../../d7/de0/a00022.html#a371d8e5181a6138f0443989d3a66d35d" title="Create a ProtoBuf Location containing all the info needed to reconstruct a Location. " alt="" coords="253,517,453,559"/>
+<area shape="rect" id="node36" href="../../d7/de0/a00022.html#a86db40bd91910ffd9d795c4320f980a0" title="Create a ProtoBuf Person containing all the info needed to reconstruct a Person. " alt="" coords="253,1108,453,1149"/>
+<area shape="rect" id="node5" href="../../d4/d6d/a00055.html#a1d365381ae92aed8249b91cce620cf99" title="proto::GeoGrid_Location\l::set_id" alt="" coords="529,5,707,47"/>
+<area shape="rect" id="node6" href="../../d4/d8c/a00035.html#aff45be35ed8e0f7e3c0951ee70057f63" title="Gets ID of this Location. " alt="" coords="530,71,706,98"/>
+<area shape="rect" id="node9" href="../../d4/d6d/a00055.html#a7c05daf9d464d1459286d096d989bf23" title="proto::GeoGrid_Location\l::set_name" alt="" coords="529,123,707,164"/>
+<area shape="rect" id="node10" href="../../d4/d8c/a00035.html#a03bce2c9b91adf113d2f1f9611ae73da" title="Gets the name. " alt="" coords="517,189,719,215"/>
+<area shape="rect" id="node12" href="../../d4/d6d/a00055.html#ac0e0fef5af15055b22c4d2419107caf1" title="proto::GeoGrid_Location\l::set_province" alt="" coords="529,240,707,281"/>
+<area shape="rect" id="node13" href="../../d4/d8c/a00035.html#a3921cf045293c04cddcd32920121b870" title="Gets the province. " alt="" coords="509,306,727,333"/>
+<area shape="rect" id="node15" href="../../d4/d6d/a00055.html#a881f94e3b033b5535b37654013177e31" title="proto::GeoGrid_Location\l::set_population" alt="" coords="529,357,707,399"/>
+<area shape="rect" id="node16" href="../../d4/d8c/a00035.html#a7fde850960f5c783ed650ea2de16a24f" title="Gets the absolute population. " alt="" coords="525,423,711,464"/>
+<area shape="rect" id="node17" href="../../d7/de0/a00022.html#a5b7c60a6fb168dd8dfcaa338c055019c" title="Create a ProtoBuf Coordinate containing all the info needed to reconstruct a Coordinate.. " alt="" coords="518,488,718,529"/>
+<area shape="rect" id="node20" href="../../d4/d8c/a00035.html#a01914e7628a0b84613e155fcaa7155dd" title="Gets the Coordinate of this Location. " alt="" coords="501,554,735,581"/>
+<area shape="rect" id="node21" href="../../d4/d6d/a00055.html#ae6dbb45201d633d8cb62b7a553f76d37" title="proto::GeoGrid_Location\l::set_allocated_coordinate" alt="" coords="523,605,713,647"/>
+<area shape="rect" id="node22" href="../../d4/d8c/a00035.html#a470e42db21a7417ce4ecf8167eb1bb05" title="References outgoing commute Locations + fraction of commutes to that Location. " alt="" coords="505,671,731,712"/>
+<area shape="rect" id="node23" href="../../d4/d6d/a00055.html#afcaa78dcf409d0cb1f68907948ed761a" title="proto::GeoGrid_Location\l::add_commutes" alt="" coords="529,736,707,777"/>
+<area shape="rect" id="node24" href="../../d9/d2e/a00056.html#a87a5dda29b7cf251d8f8c57c901ca815" title="proto::GeoGrid_Location\l_Commute::set_to" alt="" coords="529,801,707,843"/>
+<area shape="rect" id="node25" href="../../d4/d8c/a00035.html#a2beb3f84b1a6fc3def9299a086b7b073" title="Reference the Contact Centers of a specific type id (Household, Workplace, ...). " alt="" coords="509,867,727,894"/>
+<area shape="rect" id="node26" href="../../d7/de0/a00022.html#a29b971ed219c5b0b2fc3664374a358d6" title="Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter..." alt="" coords="518,919,718,960"/>
+<area shape="rect" id="node35" href="../../d4/d6d/a00055.html#afe71705ad7142a1f8b6260631f42ffc7" title="proto::GeoGrid_Location\l::add_contactcenters" alt="" coords="529,984,707,1025"/>
+<area shape="rect" id="node7" href="../../d4/d8c/a00035.html#ad4f791dc4b7209db83b7c30079b903ff" title="Calculates number of incomming commuters, given the fraction of the population that commutes..." alt="" coords="783,25,1004,67"/>
+<area shape="rect" id="node8" href="../../d4/d8c/a00035.html#a05ebaf47b892c8dca868ab48bc262e23" title="Gets the number of people infected in the contactpools at this location. " alt="" coords="786,91,1001,132"/>
+<area shape="rect" id="node11" href="../../d4/d8c/a00035.html#a0a5e86820deb8f0aa8e409e870be96fa" title="Calculates number of outgoing commuters, given the fraction of the population that commutes..." alt="" coords="783,181,1004,223"/>
+<area shape="rect" id="node14" href="../../d4/d8c/a00035.html#a4117d7579640419c0985113b170e493f" title="Get Location&#39;s population fraction (of the total populaion count). " alt="" coords="800,299,987,340"/>
+<area shape="rect" id="node18" href="../../d3/d8b/a00059.html#a41462bd58d029d61dcb0fb40238b0285" title="proto::GeoGrid_Location\l_Coordinate::set_longitude" alt="" coords="797,456,990,497"/>
+<area shape="rect" id="node19" href="../../d3/d8b/a00059.html#a676dbe40aedbf5a4e3ea42a86a6878e3" title="proto::GeoGrid_Location\l_Coordinate::set_latitude" alt="" coords="802,521,985,563"/>
+<area shape="rect" id="node27" href="../../d1/d22/a00057.html#a8e7caabf4b4a582a09158b2f9b081147" title="proto::GeoGrid_Location\l_ContactCenter::set_id" alt="" coords="805,820,982,861"/>
+<area shape="rect" id="node28" href="../../d1/d22/a00057.html#a52834c8723f6f469c13bddd262ad01bd" title="proto::GeoGrid_Location\l_ContactCenter::set_type" alt="" coords="801,885,986,927"/>
+<area shape="rect" id="node29" href="../../d7/de0/a00022.html#ac914db129c8a1822bd4c06e669ef1cd4" title="Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool. " alt="" coords="793,951,993,992"/>
+<area shape="rect" id="node34" href="../../d1/d22/a00057.html#ad60595d25a1d1bd0fde30587f42fb4b0" title="proto::GeoGrid_Location\l_ContactCenter::add_pools" alt="" coords="796,1016,991,1057"/>
+<area shape="rect" id="node30" href="../../d7/df7/a00058.html#a3a96e7914b029f35fbb01df4994e19ca" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::set_id" alt="" coords="1052,871,1259,927"/>
+<area shape="rect" id="node31" href="../../d6/d2c/a00072.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="1084,951,1227,992"/>
+<area shape="rect" id="node33" href="../../d7/df7/a00058.html#aa0d19e37f4c187d754b71a7696ad32eb" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::add_people" alt="" coords="1052,1015,1259,1071"/>
+<area shape="rect" id="node32" href="../../d6/d2c/a00072.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="1307,951,1449,992"/>
+<area shape="rect" id="node37" href="../../d9/d73/a00060.html#af5a849164874e312f51a5d100ecb2c61" title="proto::GeoGrid_Person\l::set_id" alt="" coords="535,1049,701,1091"/>
+<area shape="rect" id="node38" href="../../d9/df8/a00096.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="542,1115,694,1142"/>
+<area shape="rect" id="node39" href="../../d9/d73/a00060.html#a36332585a29c97a4fa000feaef30192a" title="proto::GeoGrid_Person\l::set_age" alt="" coords="535,1167,701,1208"/>
+<area shape="rect" id="node40" href="../../d9/df8/a00096.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="535,1233,701,1259"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a29b971ed219c5b0b2fc3664374a358d6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::GeoGridProtoWriter::WriteContactCenter </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d7/dec/a00010.html">ContactCenter</a> &gt;&#160;</td>
+          <td class="paramname"><em>contactCenter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d1/d22/a00057.html">proto::GeoGrid_Location_ContactCenter</a> *&#160;</td>
+          <td class="paramname"><em>protoContactCenter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a ProtoBuf <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a> containing all the information needed to reconstruct a <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a>. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00057">57</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridProtoWriter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dd/df4/a00193_source.html#l01218">proto::GeoGrid_Location_ContactCenter::add_pools()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l00092">proto::GeoGrid_Location_ContactCenter_Type_College</a>, <a class="el" href="../../dd/df4/a00193_source.html#l00093">proto::GeoGrid_Location_ContactCenter_Type_Household</a>, <a class="el" href="../../dd/df4/a00193_source.html#l00089">proto::GeoGrid_Location_ContactCenter_Type_K12School</a>, <a class="el" href="../../dd/df4/a00193_source.html#l00090">proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity</a>, <a class="el" href="../../dd/df4/a00193_source.html#l00091">proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity</a>, <a class="el" href="../../dd/df4/a00193_source.html#l00094">proto::GeoGrid_Location_ContactCenter_Type_Workplace</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01178">proto::GeoGrid_Location_ContactCenter::set_id()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01192">proto::GeoGrid_Location_ContactCenter::set_type()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l00075">WriteContactPool()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d72/a00204_source.html#l00092">WriteLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/de0/a00022_a29b971ed219c5b0b2fc3664374a358d6_cgraph.gif" border="0" usemap="#d7/de0/a00022_a29b971ed219c5b0b2fc3664374a358d6_cgraph" alt=""/></div>
+<map name="d7/de0/a00022_a29b971ed219c5b0b2fc3664374a358d6_cgraph" id="d7/de0/a00022_a29b971ed219c5b0b2fc3664374a358d6_cgraph">
+<area shape="rect" id="node2" href="../../d1/d22/a00057.html#ad60595d25a1d1bd0fde30587f42fb4b0" title="proto::GeoGrid_Location\l_ContactCenter::add_pools" alt="" coords="256,5,451,47"/>
+<area shape="rect" id="node3" href="../../d1/d22/a00057.html#a8e7caabf4b4a582a09158b2f9b081147" title="proto::GeoGrid_Location\l_ContactCenter::set_id" alt="" coords="265,71,442,112"/>
+<area shape="rect" id="node4" href="../../d1/d22/a00057.html#a52834c8723f6f469c13bddd262ad01bd" title="proto::GeoGrid_Location\l_ContactCenter::set_type" alt="" coords="261,136,446,177"/>
+<area shape="rect" id="node5" href="../../d7/de0/a00022.html#ac914db129c8a1822bd4c06e669ef1cd4" title="Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool. " alt="" coords="253,201,453,243"/>
+<area shape="rect" id="node6" href="../../d7/df7/a00058.html#a3a96e7914b029f35fbb01df4994e19ca" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::set_id" alt="" coords="501,122,708,178"/>
+<area shape="rect" id="node7" href="../../d6/d2c/a00072.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="533,201,676,243"/>
+<area shape="rect" id="node9" href="../../d7/df7/a00058.html#aa0d19e37f4c187d754b71a7696ad32eb" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::add_people" alt="" coords="501,266,708,322"/>
+<area shape="rect" id="node8" href="../../d6/d2c/a00072.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="756,201,899,243"/>
 </map>
 </div>
 </p>
@@ -306,12 +350,298 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/de0/a00022_aea2742355e7e5bd756a3204fa0dfb160_icgraph.gif" border="0" usemap="#d7/de0/a00022_aea2742355e7e5bd756a3204fa0dfb160_icgraph" alt=""/></div>
-<map name="d7/de0/a00022_aea2742355e7e5bd756a3204fa0dfb160_icgraph" id="d7/de0/a00022_aea2742355e7e5bd756a3204fa0dfb160_icgraph">
-<area shape="rect" id="node2" href="../../d9/dec/a00090.html#a23493e205a9a22922b1511b80e64bc1e" title="Generates a synthetic population. " alt="" coords="224,39,384,80"/>
-<area shape="rect" id="node3" href="../../db/dab/a00089.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="432,5,611,47"/>
-<area shape="rect" id="node5" href="../../d9/dcc/a00102.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="455,71,588,112"/>
-<area shape="rect" id="node4" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="659,13,713,39"/>
+<div class="center"><img src="../../d7/de0/a00022_a29b971ed219c5b0b2fc3664374a358d6_icgraph.gif" border="0" usemap="#d7/de0/a00022_a29b971ed219c5b0b2fc3664374a358d6_icgraph" alt=""/></div>
+<map name="d7/de0/a00022_a29b971ed219c5b0b2fc3664374a358d6_icgraph" id="d7/de0/a00022_a29b971ed219c5b0b2fc3664374a358d6_icgraph">
+<area shape="rect" id="node2" href="../../d7/de0/a00022.html#a371d8e5181a6138f0443989d3a66d35d" title="Create a ProtoBuf Location containing all the info needed to reconstruct a Location. " alt="" coords="253,5,453,47"/>
+<area shape="rect" id="node3" href="../../d7/de0/a00022.html#abaddb399f1f826203ae6086858dbfbde" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="501,5,701,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac914db129c8a1822bd4c06e669ef1cd4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::GeoGridProtoWriter::WriteContactPool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d2c/a00072.html">stride::ContactPool</a> *&#160;</td>
+          <td class="paramname"><em>contactPool</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/df7/a00058.html">proto::GeoGrid_Location_ContactCenter_ContactPool</a> *&#160;</td>
+          <td class="paramname"><em>protoContactPool</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00075">75</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridProtoWriter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dd/df4/a00193_source.html#l01151">proto::GeoGrid_Location_ContactCenter_ContactPool::add_people()</a>, <a class="el" href="../../db/d44/a00162_source.html#l00051">stride::ContactPool::GetId()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00072">m_persons_found</a>, and <a class="el" href="../../dd/df4/a00193_source.html#l01130">proto::GeoGrid_Location_ContactCenter_ContactPool::set_id()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d72/a00204_source.html#l00057">WriteContactCenter()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/de0/a00022_ac914db129c8a1822bd4c06e669ef1cd4_cgraph.gif" border="0" usemap="#d7/de0/a00022_ac914db129c8a1822bd4c06e669ef1cd4_cgraph" alt=""/></div>
+<map name="d7/de0/a00022_ac914db129c8a1822bd4c06e669ef1cd4_cgraph" id="d7/de0/a00022_ac914db129c8a1822bd4c06e669ef1cd4_cgraph">
+<area shape="rect" id="node2" href="../../d7/df7/a00058.html#aa0d19e37f4c187d754b71a7696ad32eb" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::add_people" alt="" coords="253,5,460,61"/>
+<area shape="rect" id="node3" href="../../d6/d2c/a00072.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="285,85,428,126"/>
+<area shape="rect" id="node5" href="../../d7/df7/a00058.html#a3a96e7914b029f35fbb01df4994e19ca" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::set_id" alt="" coords="253,149,460,205"/>
+<area shape="rect" id="node4" href="../../d6/d2c/a00072.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="508,85,651,126"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/de0/a00022_ac914db129c8a1822bd4c06e669ef1cd4_icgraph.gif" border="0" usemap="#d7/de0/a00022_ac914db129c8a1822bd4c06e669ef1cd4_icgraph" alt=""/></div>
+<map name="d7/de0/a00022_ac914db129c8a1822bd4c06e669ef1cd4_icgraph" id="d7/de0/a00022_ac914db129c8a1822bd4c06e669ef1cd4_icgraph">
+<area shape="rect" id="node2" href="../../d7/de0/a00022.html#a29b971ed219c5b0b2fc3664374a358d6" title="Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter..." alt="" coords="253,5,453,47"/>
+<area shape="rect" id="node3" href="../../d7/de0/a00022.html#a371d8e5181a6138f0443989d3a66d35d" title="Create a ProtoBuf Location containing all the info needed to reconstruct a Location. " alt="" coords="501,5,701,47"/>
+<area shape="rect" id="node4" href="../../d7/de0/a00022.html#abaddb399f1f826203ae6086858dbfbde" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="749,5,949,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5b7c60a6fb168dd8dfcaa338c055019c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::GeoGridProtoWriter::WriteCoordinate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d84/a00338.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a> &amp;&#160;</td>
+          <td class="paramname"><em>coordinate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d8b/a00059.html">proto::GeoGrid_Location_Coordinate</a> *&#160;</td>
+          <td class="paramname"><em>protoCoordinate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a ProtoBuf Coordinate containing all the info needed to reconstruct a Coordinate.. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00085">85</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridProtoWriter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dd/df4/a00193_source.html#l01112">proto::GeoGrid_Location_Coordinate::set_latitude()</a>, and <a class="el" href="../../dd/df4/a00193_source.html#l01098">proto::GeoGrid_Location_Coordinate::set_longitude()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d72/a00204_source.html#l00092">WriteLocation()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/de0/a00022_a5b7c60a6fb168dd8dfcaa338c055019c_cgraph.gif" border="0" usemap="#d7/de0/a00022_a5b7c60a6fb168dd8dfcaa338c055019c_cgraph" alt=""/></div>
+<map name="d7/de0/a00022_a5b7c60a6fb168dd8dfcaa338c055019c_cgraph" id="d7/de0/a00022_a5b7c60a6fb168dd8dfcaa338c055019c_cgraph">
+<area shape="rect" id="node2" href="../../d3/d8b/a00059.html#a676dbe40aedbf5a4e3ea42a86a6878e3" title="proto::GeoGrid_Location\l_Coordinate::set_latitude" alt="" coords="259,5,441,47"/>
+<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a41462bd58d029d61dcb0fb40238b0285" title="proto::GeoGrid_Location\l_Coordinate::set_longitude" alt="" coords="253,71,447,112"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/de0/a00022_a5b7c60a6fb168dd8dfcaa338c055019c_icgraph.gif" border="0" usemap="#d7/de0/a00022_a5b7c60a6fb168dd8dfcaa338c055019c_icgraph" alt=""/></div>
+<map name="d7/de0/a00022_a5b7c60a6fb168dd8dfcaa338c055019c_icgraph" id="d7/de0/a00022_a5b7c60a6fb168dd8dfcaa338c055019c_icgraph">
+<area shape="rect" id="node2" href="../../d7/de0/a00022.html#a371d8e5181a6138f0443989d3a66d35d" title="Create a ProtoBuf Location containing all the info needed to reconstruct a Location. " alt="" coords="253,5,453,47"/>
+<area shape="rect" id="node3" href="../../d7/de0/a00022.html#abaddb399f1f826203ae6086858dbfbde" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="501,5,701,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a371d8e5181a6138f0443989d3a66d35d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::GeoGridProtoWriter::WriteLocation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d8c/a00035.html">Location</a> &amp;&#160;</td>
+          <td class="paramname"><em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d6d/a00055.html">proto::GeoGrid_Location</a> *&#160;</td>
+          <td class="paramname"><em>protoLocation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a ProtoBuf <a class="el" href="../../d4/d8c/a00035.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. ">Location</a> containing all the info needed to reconstruct a <a class="el" href="../../d4/d8c/a00035.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. ">Location</a>. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00092">92</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridProtoWriter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dd/df4/a00193_source.html#l01460">proto::GeoGrid_Location::add_commutes()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01430">proto::GeoGrid_Location::add_contactcenters()</a>, <a class="el" href="../../d7/d03/a00254_source.html#l00159">geopop::Location::CRefCenters()</a>, <a class="el" href="../../d7/d03/a00254_source.html#l00156">geopop::Location::CRefOutgoingCommutes()</a>, <a class="el" href="../../d7/d03/a00254_source.html#l00067">geopop::Location::GetCoordinate()</a>, <a class="el" href="../../d7/d03/a00254_source.html#l00070">geopop::Location::GetID()</a>, <a class="el" href="../../d7/d03/a00254_source.html#l00079">geopop::Location::GetName()</a>, <a class="el" href="../../d7/d03/a00254_source.html#l00085">geopop::Location::GetPopCount()</a>, <a class="el" href="../../d7/d03/a00254_source.html#l00088">geopop::Location::GetProvince()</a>, <a class="el" href="../../d9/d38/a00166_source.html#l00075">stride::ContactType::IdList</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01391">proto::GeoGrid_Location::set_allocated_coordinate()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01272">proto::GeoGrid_Location::set_id()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01286">proto::GeoGrid_Location::set_name()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01353">proto::GeoGrid_Location::set_population()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01339">proto::GeoGrid_Location::set_province()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01240">proto::GeoGrid_Location_Commute::set_to()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00057">WriteContactCenter()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l00085">WriteCoordinate()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d72/a00204_source.html#l00037">Write()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/de0/a00022_a371d8e5181a6138f0443989d3a66d35d_cgraph.gif" border="0" usemap="#d7/de0/a00022_a371d8e5181a6138f0443989d3a66d35d_cgraph" alt=""/></div>
+<map name="d7/de0/a00022_a371d8e5181a6138f0443989d3a66d35d_cgraph" id="d7/de0/a00022_a371d8e5181a6138f0443989d3a66d35d_cgraph">
+<area shape="rect" id="node2" href="../../d4/d6d/a00055.html#afcaa78dcf409d0cb1f68907948ed761a" title="proto::GeoGrid_Location\l::add_commutes" alt="" coords="281,5,459,47"/>
+<area shape="rect" id="node3" href="../../d4/d6d/a00055.html#afe71705ad7142a1f8b6260631f42ffc7" title="proto::GeoGrid_Location\l::add_contactcenters" alt="" coords="281,71,459,112"/>
+<area shape="rect" id="node4" href="../../d4/d8c/a00035.html#a2beb3f84b1a6fc3def9299a086b7b073" title="Reference the Contact Centers of a specific type id (Household, Workplace, ...). " alt="" coords="261,137,479,163"/>
+<area shape="rect" id="node5" href="../../d4/d8c/a00035.html#a470e42db21a7417ce4ecf8167eb1bb05" title="References outgoing commute Locations + fraction of commutes to that Location. " alt="" coords="257,188,483,229"/>
+<area shape="rect" id="node6" href="../../d4/d8c/a00035.html#a01914e7628a0b84613e155fcaa7155dd" title="Gets the Coordinate of this Location. " alt="" coords="253,254,487,281"/>
+<area shape="rect" id="node7" href="../../d4/d8c/a00035.html#aff45be35ed8e0f7e3c0951ee70057f63" title="Gets ID of this Location. " alt="" coords="282,305,458,331"/>
+<area shape="rect" id="node10" href="../../d4/d8c/a00035.html#a03bce2c9b91adf113d2f1f9611ae73da" title="Gets the name. " alt="" coords="269,355,471,382"/>
+<area shape="rect" id="node12" href="../../d4/d8c/a00035.html#a7fde850960f5c783ed650ea2de16a24f" title="Gets the absolute population. " alt="" coords="277,407,463,448"/>
+<area shape="rect" id="node13" href="../../d4/d8c/a00035.html#a3921cf045293c04cddcd32920121b870" title="Gets the province. " alt="" coords="261,473,479,499"/>
+<area shape="rect" id="node15" href="../../d4/d6d/a00055.html#ae6dbb45201d633d8cb62b7a553f76d37" title="proto::GeoGrid_Location\l::set_allocated_coordinate" alt="" coords="275,524,465,565"/>
+<area shape="rect" id="node16" href="../../d4/d6d/a00055.html#a1d365381ae92aed8249b91cce620cf99" title="proto::GeoGrid_Location\l::set_id" alt="" coords="281,589,459,631"/>
+<area shape="rect" id="node17" href="../../d4/d6d/a00055.html#a7c05daf9d464d1459286d096d989bf23" title="proto::GeoGrid_Location\l::set_name" alt="" coords="281,655,459,696"/>
+<area shape="rect" id="node18" href="../../d4/d6d/a00055.html#a881f94e3b033b5535b37654013177e31" title="proto::GeoGrid_Location\l::set_population" alt="" coords="281,720,459,761"/>
+<area shape="rect" id="node19" href="../../d4/d6d/a00055.html#ac0e0fef5af15055b22c4d2419107caf1" title="proto::GeoGrid_Location\l::set_province" alt="" coords="281,785,459,827"/>
+<area shape="rect" id="node20" href="../../d9/d2e/a00056.html#a87a5dda29b7cf251d8f8c57c901ca815" title="proto::GeoGrid_Location\l_Commute::set_to" alt="" coords="281,851,459,892"/>
+<area shape="rect" id="node21" href="../../d7/de0/a00022.html#a29b971ed219c5b0b2fc3664374a358d6" title="Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter..." alt="" coords="270,916,470,957"/>
+<area shape="rect" id="node30" href="../../d7/de0/a00022.html#a5b7c60a6fb168dd8dfcaa338c055019c" title="Create a ProtoBuf Coordinate containing all the info needed to reconstruct a Coordinate.. " alt="" coords="270,1047,470,1088"/>
+<area shape="rect" id="node8" href="../../d4/d8c/a00035.html#ad4f791dc4b7209db83b7c30079b903ff" title="Calculates number of incomming commuters, given the fraction of the population that commutes..." alt="" coords="535,232,756,273"/>
+<area shape="rect" id="node9" href="../../d4/d8c/a00035.html#a05ebaf47b892c8dca868ab48bc262e23" title="Gets the number of people infected in the contactpools at this location. " alt="" coords="538,297,753,339"/>
+<area shape="rect" id="node11" href="../../d4/d8c/a00035.html#a0a5e86820deb8f0aa8e409e870be96fa" title="Calculates number of outgoing commuters, given the fraction of the population that commutes..." alt="" coords="535,363,756,404"/>
+<area shape="rect" id="node14" href="../../d4/d8c/a00035.html#a4117d7579640419c0985113b170e493f" title="Get Location&#39;s population fraction (of the total populaion count). " alt="" coords="552,465,739,507"/>
+<area shape="rect" id="node22" href="../../d1/d22/a00057.html#ad60595d25a1d1bd0fde30587f42fb4b0" title="proto::GeoGrid_Location\l_ContactCenter::add_pools" alt="" coords="548,785,743,827"/>
+<area shape="rect" id="node23" href="../../d1/d22/a00057.html#a8e7caabf4b4a582a09158b2f9b081147" title="proto::GeoGrid_Location\l_ContactCenter::set_id" alt="" coords="557,851,734,892"/>
+<area shape="rect" id="node24" href="../../d1/d22/a00057.html#a52834c8723f6f469c13bddd262ad01bd" title="proto::GeoGrid_Location\l_ContactCenter::set_type" alt="" coords="553,916,738,957"/>
+<area shape="rect" id="node25" href="../../d7/de0/a00022.html#ac914db129c8a1822bd4c06e669ef1cd4" title="Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool. " alt="" coords="545,981,745,1023"/>
+<area shape="rect" id="node26" href="../../d7/df7/a00058.html#aa0d19e37f4c187d754b71a7696ad32eb" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::add_people" alt="" coords="804,902,1011,958"/>
+<area shape="rect" id="node27" href="../../d6/d2c/a00072.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="836,981,979,1023"/>
+<area shape="rect" id="node29" href="../../d7/df7/a00058.html#a3a96e7914b029f35fbb01df4994e19ca" title="proto::GeoGrid_Location\l_ContactCenter_ContactPool\l::set_id" alt="" coords="804,1046,1011,1102"/>
+<area shape="rect" id="node28" href="../../d6/d2c/a00072.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="1059,981,1201,1023"/>
+<area shape="rect" id="node31" href="../../d3/d8b/a00059.html#a676dbe40aedbf5a4e3ea42a86a6878e3" title="proto::GeoGrid_Location\l_Coordinate::set_latitude" alt="" coords="554,1047,737,1088"/>
+<area shape="rect" id="node32" href="../../d3/d8b/a00059.html#a41462bd58d029d61dcb0fb40238b0285" title="proto::GeoGrid_Location\l_Coordinate::set_longitude" alt="" coords="549,1112,742,1153"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/de0/a00022_a371d8e5181a6138f0443989d3a66d35d_icgraph.gif" border="0" usemap="#d7/de0/a00022_a371d8e5181a6138f0443989d3a66d35d_icgraph" alt=""/></div>
+<map name="d7/de0/a00022_a371d8e5181a6138f0443989d3a66d35d_icgraph" id="d7/de0/a00022_a371d8e5181a6138f0443989d3a66d35d_icgraph">
+<area shape="rect" id="node2" href="../../d7/de0/a00022.html#abaddb399f1f826203ae6086858dbfbde" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="253,5,453,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a86db40bd91910ffd9d795c4320f980a0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::GeoGridProtoWriter::WritePerson </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/df8/a00096.html">stride::Person</a> *&#160;</td>
+          <td class="paramname"><em>person</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d73/a00060.html">proto::GeoGrid_Person</a> *&#160;</td>
+          <td class="paramname"><em>protoPerson</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a ProtoBuf Person containing all the info needed to reconstruct a Person. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00116">116</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridProtoWriter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/dcc/a00264_source.html#l00053">stride::Person::GetAge()</a>, <a class="el" href="../../d3/dcc/a00264_source.html#l00062">stride::Person::GetId()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l01496">proto::GeoGrid_Person::set_age()</a>, and <a class="el" href="../../dd/df4/a00193_source.html#l01482">proto::GeoGrid_Person::set_id()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d72/a00204_source.html#l00037">Write()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/de0/a00022_a86db40bd91910ffd9d795c4320f980a0_cgraph.gif" border="0" usemap="#d7/de0/a00022_a86db40bd91910ffd9d795c4320f980a0_cgraph" alt=""/></div>
+<map name="d7/de0/a00022_a86db40bd91910ffd9d795c4320f980a0_cgraph" id="d7/de0/a00022_a86db40bd91910ffd9d795c4320f980a0_cgraph">
+<area shape="rect" id="node2" href="../../d9/df8/a00096.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="253,5,420,32"/>
+<area shape="rect" id="node3" href="../../d9/df8/a00096.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="261,56,413,83"/>
+<area shape="rect" id="node4" href="../../d9/d73/a00060.html#a36332585a29c97a4fa000feaef30192a" title="proto::GeoGrid_Person\l::set_age" alt="" coords="253,107,420,149"/>
+<area shape="rect" id="node5" href="../../d9/d73/a00060.html#af5a849164874e312f51a5d100ecb2c61" title="proto::GeoGrid_Person\l::set_id" alt="" coords="253,173,420,214"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/de0/a00022_a86db40bd91910ffd9d795c4320f980a0_icgraph.gif" border="0" usemap="#d7/de0/a00022_a86db40bd91910ffd9d795c4320f980a0_icgraph" alt=""/></div>
+<map name="d7/de0/a00022_a86db40bd91910ffd9d795c4320f980a0_icgraph" id="d7/de0/a00022_a86db40bd91910ffd9d795c4320f980a0_icgraph">
+<area shape="rect" id="node2" href="../../d7/de0/a00022.html#abaddb399f1f826203ae6086858dbfbde" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="253,5,453,47"/>
 </map>
 </div>
 </p>
@@ -319,419 +649,43 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a079dd4c7d18c3d25e3af1509a1ec7b75"></a>
+<a class="anchor" id="a0c73512e036c7f443d73a9c2552f63bb"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dd/dcb/a00375.html">double</a> geopop::GeoGridConfig::participation_college</td>
+          <td class="memname">std::set&lt;<a class="el" href="../../d9/df8/a00096.html">stride::Person</a>*&gt; geopop::GeoGridProtoWriter::m_persons_found</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Participation of college (fraction of people of college age going to college). </p>
+<p>The persons found when looping over the ContactPools. </p>
 
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00050">50</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00072">72</a> of file <a class="el" href="../../d5/d13/a00205_source.html">GeoGridProtoWriter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/db9/a00159_source.html#l00034">geopop::CollegePopulator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00043">geopop::WorkplacePopulator::Apply()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00096">geopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a680f78bbf91c7a7d297a6b37dd8543c2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/dcb/a00375.html">double</a> geopop::GeoGridConfig::particpation_workplace</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Participation of workplace (fraction of people of work age and not going to college having emplayment). </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00054">54</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d01/a00339_source.html#l00030">geopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00043">geopop::WorkplacePopulator::Apply()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00096">geopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4af24f062d897f70d30e4b353ed2e65c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/dcb/a00375.html">double</a> geopop::GeoGridConfig::fraction_college_commuters</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fraction of college students that commute. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00057">57</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db9/a00159_source.html#l00034">geopop::CollegePopulator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00139">geopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00096">geopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af9c8808fa2cba963254602956ed1543d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/dcb/a00375.html">double</a> geopop::GeoGridConfig::fraction_workplace_commuters</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fraction of people in the workplace that commute. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00060">60</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d01/a00339_source.html#l00030">geopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00097">geopop::WorkplacePopulator::AssignActive()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00139">geopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00096">geopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0deb035c1ea53adff9e0014b67824454"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::pop_size</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Target population size for the generated population. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00063">63</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00035">geopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../d5/ddf/a00224_source.html#l00108">stride::GeoPopBuilder::MakeLocations()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00096">geopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae6b25524fbb9a5d3406e0cb37b2cc18f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct { ... }   geopop::GeoGridConfig::input</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00035">geopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../d0/d01/a00339_source.html#l00030">geopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00034">geopop::CollegePopulator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00043">geopop::WorkplacePopulator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00097">geopop::WorkplacePopulator::AssignActive()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00139">geopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00034">GeoGridConfig()</a>, <a class="el" href="../../d5/ddf/a00224_source.html#l00108">stride::GeoPopBuilder::MakeLocations()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00096">geopop::operator&lt;&lt;()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00045">SetData()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a517eacc33e89307a10ec3108996a9b67"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::person_count = 0U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Number of persons in the reference household set. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00072">72</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8e91e65111dbf2eb5cc4902b136b33c1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;std::vector&lt;unsigned int&gt; &gt; geopop::GeoGridConfig::ages {}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Age profile per reference household. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00075">75</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d40/a00236_source.html#l00030">geopop::HouseholdPopulator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9662b39487348642124af214d4c6ca82"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct { ... }   geopop::GeoGridConfig::refHH</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="../../d7/d40/a00236_source.html#l00030">geopop::HouseholdPopulator::Apply()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00034">GeoGridConfig()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00045">SetData()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4aa5218a500d6f3fa7d3827495bc532d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::popcount_k12school</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Numbers of individuals in K12School. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00087">87</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d2f/a00259_source.html#l00029">geopop::K12SchoolGenerator::Apply()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00096">geopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac1ee99e8c1ceea7126f91ae2aa5c9034"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::popcount_college</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Number of individuals in College. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00090">90</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00030">geopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00139">geopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00096">geopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0ed4fde37b92426045b2539bfeb5970d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::popcount_workplace</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Number of individuals in Workplace. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00093">93</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d01/a00339_source.html#l00030">geopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00139">geopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00096">geopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4275043333421d18cb78d7f957b7609d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::count_households</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The number of households. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00096">96</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d31/a00234_source.html#l00029">geopop::HouseholdGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa7ab12667956a7a9f263bb8be8f07155"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct { ... }   geopop::GeoGridConfig::popInfo</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00030">geopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d0/d2f/a00259_source.html#l00029">geopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d0/d01/a00339_source.html#l00030">geopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../da/d31/a00234_source.html#l00029">geopop::HouseholdGenerator::Apply()</a>, <a class="el" href="../../d3/d93/a00341_source.html#l00139">geopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00034">GeoGridConfig()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00096">geopop::operator&lt;&lt;()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00045">SetData()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a739a1a42262c1069c2f6917c02b104da"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::pools_per_houselhold = 1U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Every houselhold constitutes a single ContactPool. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00105">105</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/da8/a00230_source.html#l00026">geopop::HouseholdCenter::SetupPools()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aac81d7949eee1708c2b11b9c62bd0b1a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::k12school_size = 500U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Used to calculate the number of K12Schools. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00108">108</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d2f/a00259_source.html#l00029">geopop::K12SchoolGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac8b916b0b19f075762950b20c759ab9a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::pools_per_k12school = 25U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00109">109</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00024">geopop::K12SchoolCenter::SetupPools()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9aa0a0e39c702ca40578fccf3c46c1d9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::college_size = 3000U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Used to calculate the number of Colleges. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00112">112</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00030">geopop::CollegeGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab05f5a133385878b4a2e1175dccda71e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::pools_per_college = 20U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00113">113</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/df8/a00155_source.html#l00027">geopop::CollegeCenter::SetupPools()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ace504bf21249eaaf8e23dbbc08087a83"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::community_size = 2000U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Used to calculate the number of Communities. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00116">116</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00035">geopop::CommunityGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0e5ad0d12ea60034426b11dde06887a6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::pools_per_community = 1U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00117">117</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a81fc4304e2a58751bf024695042becb6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::workplace_size = 20U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Used to calculate the number of Workplaces. </p>
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00120">120</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d01/a00339_source.html#l00030">geopop::WorkplaceGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2a253ebd063ff05197a23f2b8dbfd5d5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int geopop::GeoGridConfig::pools_per_workplace = 1U</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00121">121</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac2118fdaa02c6c419fe1c9b2ec7a87dd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct { ... }   geopop::GeoGridConfig::pools</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00030">geopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d0/d01/a00339_source.html#l00030">geopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d0/d2f/a00259_source.html#l00029">geopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00035">geopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00034">GeoGridConfig()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00026">geopop::HouseholdCenter::SetupPools()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00024">geopop::K12SchoolCenter::SetupPools()</a>, and <a class="el" href="../../d3/df8/a00155_source.html#l00027">geopop::CollegeCenter::SetupPools()</a>.</p>
+<p>Referenced by <a class="el" href="../../d1/d72/a00204_source.html#l00037">Write()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l00075">WriteContactPool()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a></li>
-<li><a class="el" href="../../d5/d13/a00205_source.html">GeoGridConfig.cpp</a></li>
+<li><a class="el" href="../../d5/d13/a00205_source.html">GeoGridProtoWriter.h</a></li>
+<li><a class="el" href="../../d1/d72/a00204_source.html">GeoGridProtoWriter.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></li><li class="navelem"><a class="el" href="../../d7/de0/a00022.html">GeoGridConfig</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:22 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d84/a00338.html">geopop</a></li><li class="navelem"><a class="el" href="../../d7/de0/a00022.html">GeoGridProtoWriter</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:33 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

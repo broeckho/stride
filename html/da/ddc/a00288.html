@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: PrimaryCommunityPopulator.h File Reference</title>
+<title>Stride Reference Manual: RunConfigManager.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -108,28 +108,33 @@ $(document).ready(function(){initNavTree('da/ddc/a00288.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">PrimaryCommunityPopulator.h File Reference</div>  </div>
+<div class="title">RunConfigManager.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/dc3/a00284_source.html">Populator.h</a>&quot;</code><br />
+
+<p>Produce run config ptree.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/df8/a00155_source.html">util/ConfigInfo.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PrimaryCommunityPopulator.h:</div>
+Include dependency graph for RunConfigManager.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d00/a00606.gif" border="0" usemap="#PrimaryCommunityPopulator_8h" alt=""/></div>
-<map name="PrimaryCommunityPopulator_8h" id="PrimaryCommunityPopulator_8h">
-<area shape="rect" id="node2" href="../../db/dc3/a00284.html" title="Populator.h" alt="" coords="367,80,462,107"/>
-<area shape="rect" id="node3" href="../../d9/d90/a00178.html" title="Definition of ContactPool Id Type. " alt="" coords="135,155,299,181"/>
-<area shape="rect" id="node9" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="365,155,465,181"/>
-<area shape="rect" id="node10" href="../../db/d7b/a00296.html" title="Interface of RnPcg. " alt="" coords="378,229,451,256"/>
+<div class="center"><img src="../../d1/d8c/a00600.gif" border="0" usemap="#RunConfigManager_8h" alt=""/></div>
+<map name="RunConfigManager_8h" id="RunConfigManager_8h">
+<area shape="rect" id="node2" href="../../d3/df8/a00155.html" title="Info on configuration. " alt="" coords="5,87,125,114"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d07/a00607.gif" border="0" usemap="#PrimaryCommunityPopulator_8hdep" alt=""/></div>
-<map name="PrimaryCommunityPopulator_8hdep" id="PrimaryCommunityPopulator_8hdep">
-<area shape="rect" id="node2" href="../../d6/d7f/a00287.html" title="PrimaryCommunityPopulator.cpp" alt="" coords="5,80,237,107"/>
-<area shape="rect" id="node3" href="../../d5/ddf/a00224.html" title="Initialize populations: implementation. " alt="" coords="262,80,405,107"/>
+<div class="center"><img src="../../d6/db2/a00601.gif" border="0" usemap="#RunConfigManager_8hdep" alt=""/></div>
+<map name="RunConfigManager_8hdep" id="RunConfigManager_8hdep">
+<area shape="rect" id="node2" href="../../d1/de3/a00306.html" title="Main program: command line handling. " alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node3" href="../../d5/d42/a00269.html" title="Core Population class. " alt="" coords="115,80,231,107"/>
+<area shape="rect" id="node4" href="../../d4/d5b/a00294.html" title="Implementation for the Simulator class. " alt="" coords="256,80,331,107"/>
+<area shape="rect" id="node5" href="../../d6/d7f/a00287.html" title="Implementation of ptree utils. " alt="" coords="354,80,521,107"/>
 </map>
 </div>
 </div>
@@ -137,23 +142,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html">geopop::PrimaryCommunityPopulator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the primary communities.  <a href="../../d6/d97/a00045.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html">stride::util::RunConfigManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce run config ptree.  <a href="../../d4/d98/a00120.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></td></tr>
-<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d6/de1/a00356"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/a00356.html">stride::util</a></td></tr>
+<tr class="memdesc:d6/de1/a00356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Produce run config ptree. </p>
+
+<p>Definition in file <a class="el" href="../../da/ddc/a00288_source.html">RunConfigManager.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_e7e2007abe30c6c76c8a673fdd5d8158.html">populators</a></li><li class="navelem"><a class="el" href="../../da/ddc/a00288.html">PrimaryCommunityPopulator.h</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:22 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../da/ddc/a00288.html">RunConfigManager.h</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::viewers::InfectedViewer Class Reference</title>
+<title>Stride Reference Manual: AbstractPopBuilder.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,10 +70,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
+      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -107,208 +105,47 @@ $(document).ready(function(){initNavTree('de/d76/a00134.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/d9e/a01061.html">List of all members</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">stride::viewers::InfectedViewer Class Reference</div>  </div>
+<div class="title">AbstractPopBuilder.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Viewer gathers infection count at each sim step.  
- <a href="../../de/d76/a00134.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d3/d1a/a00251_source.html">InfectedViewer.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for stride::viewers::InfectedViewer:</div>
+<p>Initialize populations: implementation.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d5b/a00135_source.html">AbstractPopBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d2f/a00259_source.html">util/LogUtils.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;spdlog/common.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for AbstractPopBuilder.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d8a/a01062.gif" border="0" usemap="#stride_1_1viewers_1_1InfectedViewer_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1viewers_1_1InfectedViewer_coll__map" id="stride_1_1viewers_1_1InfectedViewer_coll__map">
-<area shape="rect" id="node4" title="STL class. " alt="" coords="129,145,256,223"/>
+<div class="center"><img src="../../dd/db5/a00365.gif" border="0" usemap="#AbstractPopBuilder_8cpp" alt=""/></div>
+<map name="AbstractPopBuilder_8cpp" id="AbstractPopBuilder_8cpp">
+<area shape="rect" id="node2" href="../../d5/d5b/a00135.html" title="Base Class for PopBuilders. " alt="" coords="183,87,337,114"/>
+<area shape="rect" id="node6" href="../../d0/d2f/a00259.html" title="Logging (spdlog) utilities. " alt="" coords="406,87,514,114"/>
 </map>
 </div>
+</div>
+<p><a href="../../de/d76/a00134_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a772cf9c0229d31368250d437f1596ab0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a772cf9c0229d31368250d437f1596ab0">InfectedViewer</a> (std::shared_ptr&lt; <a class="el" href="../../df/d98/a00107.html">SimRunner</a> &gt; runner)</td></tr>
-<tr class="memdesc:a772cf9c0229d31368250d437f1596ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cases viewer.  <a href="#a772cf9c0229d31368250d437f1596ab0">More...</a><br /></td></tr>
-<tr class="separator:a772cf9c0229d31368250d437f1596ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3051b3ab2155b525830220d7a4e1d3d4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a3051b3ab2155b525830220d7a4e1d3d4">GetInfectionCounts</a> ()</td></tr>
-<tr class="separator:a3051b3ab2155b525830220d7a4e1d3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac539c7549cc8c19530813f0bdb35a14d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#ac539c7549cc8c19530813f0bdb35a14d">Update</a> (<a class="el" href="../../df/dee/a00369.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
-<tr class="memdesc:ac539c7549cc8c19530813f0bdb35a14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#ac539c7549cc8c19530813f0bdb35a14d">More...</a><br /></td></tr>
-<tr class="separator:ac539c7549cc8c19530813f0bdb35a14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a613860070a4a0778c61631fc4f343028"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a613860070a4a0778c61631fc4f343028">m_infected</a></td></tr>
-<tr class="separator:a613860070a4a0778c61631fc4f343028"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13b27fd1d407a15fe3b542952168ba33"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../df/d98/a00107.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a13b27fd1d407a15fe3b542952168ba33">m_runner</a></td></tr>
-<tr class="separator:a13b27fd1d407a15fe3b542952168ba33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Viewer gathers infection count at each sim step. </p>
+<div class="textblock"><p>Initialize populations: implementation. </p>
 
-<p>Definition at line <a class="el" href="../../d3/d1a/a00251_source.html#l00034">34</a> of file <a class="el" href="../../d3/d1a/a00251_source.html">InfectedViewer.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a772cf9c0229d31368250d437f1596ab0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::viewers::InfectedViewer::InfectedViewer </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../df/d98/a00107.html">SimRunner</a> &gt;&#160;</td>
-          <td class="paramname"><em>runner</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Instantiate cases viewer. </p>
-
-<p>Definition at line <a class="el" href="../../d3/d1a/a00251_source.html#l00038">38</a> of file <a class="el" href="../../d3/d1a/a00251_source.html">InfectedViewer.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a3051b3ab2155b525830220d7a4e1d3d4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;unsigned int&gt; stride::viewers::InfectedViewer::GetInfectionCounts </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d3/d1a/a00251_source.html#l00040">40</a> of file <a class="el" href="../../d3/d1a/a00251_source.html">InfectedViewer.h</a>.</p>
-
-<p>References <a class="el" href="../../d3/d1a/a00251_source.html#l00046">m_infected</a>, and <a class="el" href="../../d0/da7/a00250_source.html#l00033">Update()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../de/d76/a00134_a3051b3ab2155b525830220d7a4e1d3d4_cgraph.gif" border="0" usemap="#de/d76/a00134_a3051b3ab2155b525830220d7a4e1d3d4_cgraph" alt=""/></div>
-<map name="de/d76/a00134_a3051b3ab2155b525830220d7a4e1d3d4_cgraph" id="de/d76/a00134_a3051b3ab2155b525830220d7a4e1d3d4_cgraph">
-<area shape="rect" id="node2" href="../../de/d76/a00134.html#ac539c7549cc8c19530813f0bdb35a14d" title="Let viewer perform update. " alt="" coords="248,5,420,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ac539c7549cc8c19530813f0bdb35a14d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::viewers::InfectedViewer::Update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../df/dee/a00369.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Let viewer perform update. </p>
-
-<p>Definition at line <a class="el" href="../../d0/da7/a00250_source.html#l00033">33</a> of file <a class="el" href="../../d0/da7/a00250_source.html">InfectedViewer.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d6f/a00315_source.html#l00048">stride::StanController::Control()</a>, and <a class="el" href="../../d3/d1a/a00251_source.html#l00040">GetInfectionCounts()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../de/d76/a00134_ac539c7549cc8c19530813f0bdb35a14d_icgraph.gif" border="0" usemap="#de/d76/a00134_ac539c7549cc8c19530813f0bdb35a14d_icgraph" alt=""/></div>
-<map name="de/d76/a00134_ac539c7549cc8c19530813f0bdb35a14d_icgraph" id="de/d76/a00134_ac539c7549cc8c19530813f0bdb35a14d_icgraph">
-<area shape="rect" id="node2" href="../../d1/dd6/a00108.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="243,5,402,47"/>
-<area shape="rect" id="node4" href="../../de/d76/a00134.html#a3051b3ab2155b525830220d7a4e1d3d4" title="stride::viewers::Infected\lViewer::GetInfectionCounts" alt="" coords="225,71,420,112"/>
-<area shape="rect" id="node3" href="../../d2/d41/a00318.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="468,13,523,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a613860070a4a0778c61631fc4f343028"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;unsigned int&gt; stride::viewers::InfectedViewer::m_infected</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d3/d1a/a00251_source.html#l00046">46</a> of file <a class="el" href="../../d3/d1a/a00251_source.html">InfectedViewer.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d1a/a00251_source.html#l00040">GetInfectionCounts()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a13b27fd1d407a15fe3b542952168ba33"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../df/d98/a00107.html">SimRunner</a>&gt; stride::viewers::InfectedViewer::m_runner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d3/d1a/a00251_source.html#l00047">47</a> of file <a class="el" href="../../d3/d1a/a00251_source.html">InfectedViewer.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d3/d1a/a00251_source.html">InfectedViewer.h</a></li>
-<li><a class="el" href="../../d0/da7/a00250_source.html">InfectedViewer.cpp</a></li>
-</ul>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../de/d76/a00134_source.html">AbstractPopBuilder.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/de3/a00373.html">viewers</a></li><li class="navelem"><a class="el" href="../../de/d76/a00134.html">InfectedViewer</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:24 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../de/d76/a00134.html">AbstractPopBuilder.cpp</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

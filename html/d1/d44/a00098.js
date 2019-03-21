@@ -1,7 +1,8 @@
 var a00098 =
 [
-    [ "InfectedFile", "d1/d44/a00098.html#a1f9b3fab4125e26c2eebd32ee27dd977", null ],
-    [ "~InfectedFile", "d1/d44/a00098.html#ab67bfb80c8ca94162f3c33d2c7be3f89", null ],
-    [ "Print", "d1/d44/a00098.html#ae42038f7696374e29aef434de61d386d", null ],
-    [ "m_fstream", "d1/d44/a00098.html#ab499185c218c6a1ef08779d8e0ece660", null ]
+    [ "PublicHealthAgency", "d1/d44/a00098.html#a03ebd97271af159e0831b61b43e6e62f", null ],
+    [ "Exec", "d1/d44/a00098.html#a5096270693bc78b306cc236d6dcfb747", null ],
+    [ "Initialize", "d1/d44/a00098.html#a96febde4c86b8e16590d782130058533", null ],
+    [ "PerformCaseFinding", "d1/d44/a00098.html#a009d5f79aa598d721d252c4470411237", null ],
+    [ "m_detection_probability", "d1/d44/a00098.html#a4511cc382abab53cdea308741ce59a43", null ]
 ];

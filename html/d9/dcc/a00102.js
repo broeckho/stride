@@ -1,17 +1,13 @@
 var a00102 =
 [
-    [ "Population", "d9/dcc/a00102.html#a23ca2c3c5ef45fe26a11e0bc47cbe8ca", null ],
-    [ "Create", "d9/dcc/a00102.html#a56ed209c60c77e0080a0a653b09b26ce", null ],
-    [ "Create", "d9/dcc/a00102.html#ac2702b7b600edd1ce81bc24dac173c7e", null ],
-    [ "Create", "d9/dcc/a00102.html#a7cfcedae698db0dc471770044de4834d", null ],
-    [ "CreatePerson", "d9/dcc/a00102.html#a5680667e8da5d16b5f9b2c4d9a0207fa", null ],
-    [ "GetInfectedCount", "d9/dcc/a00102.html#a5ffab38c3407832dcc0f1ecbf4e11cbd", null ],
-    [ "CRefPoolSys", "d9/dcc/a00102.html#a70b16fe667a40360d247e32c9422ad44", null ],
-    [ "CRefGeoGrid", "d9/dcc/a00102.html#a3eeacceb199c4b26b7c7687fe5cdcfb0", null ],
-    [ "RefContactLogger", "d9/dcc/a00102.html#a4db3f0bf4c302b0f5d4b2bb1e8cc24fc", null ],
-    [ "RefPoolSys", "d9/dcc/a00102.html#aa3cce01ca781a43bc67620e798c3b484", null ],
-    [ "RefGeoGrid", "d9/dcc/a00102.html#aed61b0a0c312dba5b64733e21be7a1b2", null ],
-    [ "m_pool_sys", "d9/dcc/a00102.html#ac21ecf3db6ee91694eec6b13ffef5144", null ],
-    [ "m_contact_logger", "d9/dcc/a00102.html#aa24a679c5885bb18710a77700bbaeeca", null ],
-    [ "m_geo_grid", "d9/dcc/a00102.html#a94db0ae08c7091b0aba6db69d9fbf67b", null ]
+    [ "SimRunner", "d9/dcc/a00102.html#a22679f34074793fde2fd0e4ea0f6bea8", null ],
+    [ "~SimRunner", "d9/dcc/a00102.html#ad59e65dfe839b8a589b1c6ffa805ba2f", null ],
+    [ "GetClock", "d9/dcc/a00102.html#aceb24930d50702acfa88bdfe5cb13a1b", null ],
+    [ "GetConfig", "d9/dcc/a00102.html#a9eeaa63450413a62f31bcee07df29fa3", null ],
+    [ "GetSim", "d9/dcc/a00102.html#a99014dd891a3422214c2a088dd38cde9", null ],
+    [ "Run", "d9/dcc/a00102.html#a81720a1766d513eb248cb443d948567f", null ],
+    [ "Run", "d9/dcc/a00102.html#a233f76f6af0cef8c5971112b6d2235d0", null ],
+    [ "m_clock", "d9/dcc/a00102.html#ae2de72162f806fe5b7008e81854bdc2d", null ],
+    [ "m_config", "d9/dcc/a00102.html#a83447e89523054d043db597e17d4d501", null ],
+    [ "m_sim", "d9/dcc/a00102.html#a4ff961d97649b68ef661d38c098baaf0", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: HouseholdGenerator.cpp File Reference</title>
+<title>Stride Reference Manual: InfectedFile.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -105,63 +105,65 @@ $(document).ready(function(){initNavTree('da/d31/a00234.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">HouseholdGenerator.cpp File Reference</div>  </div>
+<div class="title">InfectedFile.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d42/a00235_source.html">HouseholdGenerator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/d79/a00203_source.html">geopop/GeoGrid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/df1/a00206_source.html">geopop/GeoGridConfig.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../df/d17/a00231_source.html">geopop/HouseholdCenter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/d42/a00269_source.html">geopop/Location.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/d0d/a00298_source.html">util/RnMan.h</a>&quot;</code><br />
+
+<p>Header for the InfectedFile class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for HouseholdGenerator.cpp:</div>
+Include dependency graph for InfectedFile.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d24/a00524.gif" border="0" usemap="#HouseholdGenerator_8cpp" alt=""/></div>
-<map name="HouseholdGenerator_8cpp" id="HouseholdGenerator_8cpp">
-<area shape="rect" id="node2" href="../../d3/d42/a00235.html" title="HouseholdGenerator.h" alt="" coords="1045,80,1211,107"/>
-<area shape="rect" id="node4" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="1527,319,1627,345"/>
-<area shape="rect" id="node20" href="../../d5/df1/a00206.html" title="geopop/GeoGridConfig.h" alt="" coords="1039,155,1217,181"/>
-<area shape="rect" id="node35" href="../../de/d79/a00203.html" title="geopop/GeoGrid.h" alt="" coords="2121,80,2260,107"/>
-<area shape="rect" id="node46" href="../../df/d17/a00231.html" title="geopop/HouseholdCenter.h" alt="" coords="1439,80,1635,107"/>
-<area shape="rect" id="node48" href="../../d5/d42/a00269.html" title="geopop/Location.h" alt="" coords="1589,237,1729,263"/>
-<area shape="rect" id="node3" href="../../d7/da0/a00198.html" title="Generator.h" alt="" coords="692,237,791,263"/>
-<area shape="rect" id="node11" href="../../d6/db6/a00241.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="567,319,756,345"/>
-<area shape="rect" id="node5" href="../../db/d7b/a00296.html" title="Interface of RnPcg. " alt="" coords="1479,401,1553,427"/>
-<area shape="rect" id="node12" href="../../d9/d90/a00178.html" title="Definition of ContactPool Id Type. " alt="" coords="891,401,1055,427"/>
-<area shape="rect" id="node21" href="../../d8/df1/a00174.html" title="Header for the core ContactPool class. " alt="" coords="1036,319,1199,345"/>
-<area shape="rect" id="node24" href="../../dc/d28/a00276.html" title="Header file for the Person class. " alt="" coords="883,237,989,263"/>
-<area shape="rect" id="node27" href="../../d3/d07/a00305.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="227,319,399,345"/>
-<area shape="rect" id="node22" href="../../d6/dfb/a00172.html" title="Header for the ContactLogMode class. " alt="" coords="1209,401,1404,427"/>
-<area shape="rect" id="node25" href="../../d9/d01/a00227.html" title="Header for the Health class. " alt="" coords="781,319,910,345"/>
-<area shape="rect" id="node28" href="../../dd/d4e/a00329.html" title="Interface/Implementation for SVIterator. " alt="" coords="165,401,264,427"/>
-<area shape="rect" id="node36" href="../../dd/dc1/a00212.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="2379,155,2587,181"/>
-<area shape="rect" id="node37" href="../../d3/dcc/a00264.html" title="KdTree.h" alt="" coords="2721,237,2797,263"/>
-<area shape="rect" id="node40" href="../../d5/d35/a00266.html" title="KdTree2DPoint.h" alt="" coords="2407,237,2534,263"/>
-<area shape="rect" id="node38" href="../../d4/ddd/a00138.html" title="AABBox.h" alt="" coords="2560,319,2645,345"/>
-<area shape="rect" id="node39" href="../../df/da9/a00263.html" title="KdNode.h" alt="" coords="2822,319,2906,345"/>
-<area shape="rect" id="node41" href="../../d8/d64/a00181.html" title="geopop/Coordinate.h" alt="" coords="2379,319,2535,345"/>
-<area shape="rect" id="node47" href="../../de/d53/a00169.html" title="ContactCenter.h" alt="" coords="1274,319,1401,345"/>
+<div class="center"><img src="../../d5/dee/a00518.gif" border="0" usemap="#InfectedFile_8h" alt=""/></div>
+<map name="InfectedFile_8h" id="InfectedFile_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/d4d/a00519.gif" border="0" usemap="#InfectedFile_8hdep" alt=""/></div>
+<map name="InfectedFile_8hdep" id="InfectedFile_8hdep">
+<area shape="rect" id="node2" href="../../d6/de1/a00233.html" title="Implementation of the CasesFile class. " alt="" coords="5,80,125,107"/>
+<area shape="rect" id="node3" href="../../d7/d40/a00236.html" title="Observer for Infected output. " alt="" coords="149,80,296,107"/>
+<area shape="rect" id="node4" href="../../dc/de6/a00167.html" title="Header for the command line controller. " alt="" coords="68,155,204,181"/>
+<area shape="rect" id="node5" href="../../d3/d42/a00235.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="229,155,390,181"/>
 </map>
 </div>
 </div>
 <p><a href="../../da/d31/a00234_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html">stride::output::InfectedFile</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with daily count of infected persons.  <a href="../../d4/d7d/a00093.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></td></tr>
-<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:db/ddc/a00353"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddc/a00353.html">stride::output</a></td></tr>
+<tr class="memdesc:db/ddc/a00353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header for the InfectedFile class. </p>
+
+<p>Definition in file <a class="el" href="../../da/d31/a00234_source.html">InfectedFile.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_02b8471d88aea77fae7c19982808da05.html">generators</a></li><li class="navelem"><a class="el" href="../../da/d31/a00234.html">HouseholdGenerator.cpp</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:22 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../da/d31/a00234.html">InfectedFile.h</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

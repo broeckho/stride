@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: HouseholdCenter.cpp File Reference</title>
+<title>Stride Reference Manual: Immunizer.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -105,60 +105,67 @@ $(document).ready(function(){initNavTree('d1/da8/a00230.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">HouseholdCenter.cpp File Reference</div>  </div>
+<div class="title">Immunizer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d17/a00231_source.html">HouseholdCenter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/df1/a00206_source.html">GeoGridConfig.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dc/dc9/a00282_source.html">pop/Population.h</a>&quot;</code><br />
+
+<p>Header for the Immunizer class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/d44/a00162_source.html">contact/ContactPool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d7b/a00286_source.html">util/RnMan.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d82/a00293_source.html">util/SegmentedVector.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for HouseholdCenter.cpp:</div>
+Include dependency graph for Immunizer.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/dee/a00518.gif" border="0" usemap="#HouseholdCenter_8cpp" alt=""/></div>
-<map name="HouseholdCenter_8cpp" id="HouseholdCenter_8cpp">
-<area shape="rect" id="node2" href="../../df/d17/a00231.html" title="HouseholdCenter.h" alt="" coords="815,80,959,107"/>
-<area shape="rect" id="node11" href="../../de/d79/a00203.html" title="GeoGrid.h" alt="" coords="825,162,912,189"/>
-<area shape="rect" id="node26" href="../../d5/df1/a00206.html" title="GeoGridConfig.h" alt="" coords="2333,80,2460,107"/>
-<area shape="rect" id="node45" href="../../dc/dc9/a00282.html" title="Header file for the core Population class. " alt="" coords="1544,80,1673,107"/>
-<area shape="rect" id="node3" href="../../de/d53/a00169.html" title="ContactCenter.h" alt="" coords="569,244,696,271"/>
-<area shape="rect" id="node4" href="../../d9/d90/a00178.html" title="Definition of ContactPool Id Type. " alt="" coords="1637,319,1801,345"/>
-<area shape="rect" id="node12" href="../../dd/dc1/a00212.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="337,244,545,271"/>
-<area shape="rect" id="node13" href="../../d3/dcc/a00264.html" title="KdTree.h" alt="" coords="792,319,868,345"/>
-<area shape="rect" id="node19" href="../../d5/d35/a00266.html" title="KdTree2DPoint.h" alt="" coords="377,319,504,345"/>
-<area shape="rect" id="node14" href="../../d4/ddd/a00138.html" title="AABBox.h" alt="" coords="643,401,729,427"/>
-<area shape="rect" id="node15" href="../../df/da9/a00263.html" title="KdNode.h" alt="" coords="855,401,939,427"/>
-<area shape="rect" id="node20" href="../../d8/d64/a00181.html" title="geopop/Coordinate.h" alt="" coords="129,401,285,427"/>
-<area shape="rect" id="node27" href="../../d8/df1/a00174.html" title="Header for the core ContactPool class. " alt="" coords="1426,244,1589,271"/>
-<area shape="rect" id="node30" href="../../dc/d28/a00276.html" title="Header file for the Person class. " alt="" coords="2054,162,2161,189"/>
-<area shape="rect" id="node37" href="../../d3/d07/a00305.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2304,244,2476,271"/>
-<area shape="rect" id="node28" href="../../d6/dfb/a00172.html" title="Header for the ContactLogMode class. " alt="" coords="1418,319,1613,345"/>
-<area shape="rect" id="node31" href="../../d6/db6/a00241.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1905,244,2094,271"/>
-<area shape="rect" id="node36" href="../../d9/d01/a00227.html" title="Header for the Health class. " alt="" coords="2565,244,2695,271"/>
-<area shape="rect" id="node38" href="../../dd/d4e/a00329.html" title="Interface/Implementation for SVIterator. " alt="" coords="2529,319,2627,345"/>
-<area shape="rect" id="node46" href="../../d5/de9/a00176.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1646,162,1833,189"/>
-<area shape="rect" id="node47" href="../../d9/d0d/a00298.html" title="Interface of RnMan. " alt="" coords="1153,244,1253,271"/>
-<area shape="rect" id="node48" href="../../db/d7b/a00296.html" title="Interface of RnPcg. " alt="" coords="1241,319,1315,345"/>
+<div class="center"><img src="../../d4/dfb/a00512.gif" border="0" usemap="#Immunizer_8h" alt=""/></div>
+<map name="Immunizer_8h" id="Immunizer_8h">
+<area shape="rect" id="node2" href="../../db/d44/a00162.html" title="Header for the core ContactPool class. " alt="" coords="401,80,564,107"/>
+<area shape="rect" id="node11" href="../../d5/d7b/a00286.html" title="Interface of RnMan. " alt="" coords="643,80,743,107"/>
+<area shape="rect" id="node15" href="../../d6/d82/a00293.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1175,80,1347,107"/>
+<area shape="rect" id="node3" href="../../de/d38/a00160.html" title="Header for the ContactLogMode class. " alt="" coords="5,155,200,181"/>
+<area shape="rect" id="node5" href="../../d9/d38/a00166.html" title="Definition of ContactPool Id Type. " alt="" coords="401,155,565,181"/>
+<area shape="rect" id="node12" href="../../db/dc3/a00284.html" title="Interface of RnPcg. " alt="" coords="303,155,377,181"/>
+<area shape="rect" id="node16" href="../../da/de0/a00317.html" title="Interface/Implementation for SVIterator. " alt="" coords="1451,155,1549,181"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/def/a00513.gif" border="0" usemap="#Immunizer_8hdep" alt=""/></div>
+<map name="Immunizer_8hdep" id="Immunizer_8hdep">
+<area shape="rect" id="node2" href="../../d8/d64/a00181.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="5,80,151,107"/>
+<area shape="rect" id="node3" href="../../dd/d2d/a00229.html" title="Implementation for the Immunizer class. " alt="" coords="175,80,291,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d1/da8/a00230_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html">stride::Immunizer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deals with immunization strategies.  <a href="../../db/ddf/a00088.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">geopop</a></td></tr>
-<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header for the Immunizer class. </p>
+
+<p>Definition in file <a class="el" href="../../d1/da8/a00230_source.html">Immunizer.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../d1/da8/a00230.html">HouseholdCenter.cpp</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:22 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d1/da8/a00230.html">Immunizer.h</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

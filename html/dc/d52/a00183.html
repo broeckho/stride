@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CSV.h File Reference</title>
+<title>Stride Reference Manual: Exception.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 46fe878</span>
+   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
    </div>
   </td>
  </tr>
@@ -106,43 +106,42 @@ $(document).ready(function(){initNavTree('dc/d52/a00183.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CSV.h File Reference</div>  </div>
+<div class="title">Exception.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Header file of base class for config that needs to be read from a file.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../de/df3/a00185_source.html">CSVRow.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/dab/a00319_source.html">util/StringUtils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/def/a00256_source.html">util/is_iterator.h</a>&quot;</code><br />
-<code>#include &lt;iosfwd&gt;</code><br />
-<code>#include &lt;type_traits&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;filesystem&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CSV.h:</div>
+Include dependency graph for Exception.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/def/a00446.gif" border="0" usemap="#CSV_8h" alt=""/></div>
-<map name="CSV_8h" id="CSV_8h">
-<area shape="rect" id="node2" href="../../de/df3/a00185.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="567,80,651,107"/>
-<area shape="rect" id="node3" href="../../de/dab/a00319.html" title="Miscellaneous string utilities. " alt="" coords="345,155,467,181"/>
-<area shape="rect" id="node13" href="../../d0/def/a00256.html" title="Interface/Implementation of is_iterator. " alt="" coords="814,80,934,107"/>
+<div class="center"><img src="../../de/df8/a00440.gif" border="0" usemap="#Exception_8h" alt=""/></div>
+<map name="Exception_8h" id="Exception_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d84/a00447.gif" border="0" usemap="#CSV_8hdep" alt=""/></div>
-<map name="CSV_8hdep" id="CSV_8hdep">
-<area shape="rect" id="node2" href="../../d4/d6f/a00315.html" title="Header for the command line controller. " alt="" coords="5,80,145,107"/>
-<area shape="rect" id="node3" href="../../d9/d7d/a00150.html" title="CitiesCSVReader.cpp" alt="" coords="170,80,325,107"/>
-<area shape="rect" id="node4" href="../../dd/dae/a00163.html" title="CommutesCSVReader.cpp" alt="" coords="349,80,540,107"/>
-<area shape="rect" id="node5" href="../../d0/d53/a00232.html" title="HouseholdCSVReader.cpp" alt="" coords="565,80,751,107"/>
-<area shape="rect" id="node6" href="../../d7/d25/a00182.html" title="Source file of csv. " alt="" coords="775,80,850,107"/>
-<area shape="rect" id="node7" href="../../d2/d94/a00184.html" title="Source file of CSVRow. " alt="" coords="874,80,973,107"/>
+<div class="center"><img src="../../d6/d66/a00441.gif" border="0" usemap="#Exception_8hdep" alt=""/></div>
+<map name="Exception_8hdep" id="Exception_8hdep">
+<area shape="rect" id="node2" href="../../dd/db2/a00151.html" title="CommutesCSVReader.cpp" alt="" coords="5,80,196,107"/>
+<area shape="rect" id="node3" href="../../d7/ded/a00196.html" title="GeoGridJSONReader.cpp" alt="" coords="221,80,397,107"/>
+<area shape="rect" id="node4" href="../../d1/d72/a00204.html" title="GeoGridProtoWriter.cpp" alt="" coords="421,80,591,107"/>
+<area shape="rect" id="node5" href="../../dc/d31/a00208.html" title="GeoGridReaderFactory.cpp" alt="" coords="615,80,805,107"/>
+<area shape="rect" id="node6" href="../../dd/ded/a00211.html" title="GeoGridWriterFactory.cpp" alt="" coords="829,80,1010,107"/>
+<area shape="rect" id="node7" href="../../d0/d3e/a00253.html" title="Location.cpp" alt="" coords="1035,80,1137,107"/>
+<area shape="rect" id="node8" href="../../d4/d6f/a00315.html" title="Implementation for the SurveySeeder class. " alt="" coords="1162,80,1301,107"/>
+<area shape="rect" id="node9" href="../../d5/d4e/a00141.html" title="Definition of . " alt="" coords="1325,80,1399,107"/>
+<area shape="rect" id="node10" href="../../d3/dd5/a00215.html" title="Implementation for the Health class. " alt="" coords="517,155,607,181"/>
+<area shape="rect" id="node11" href="../../df/d24/a00217.html" title="Implementation for HelthSeeder class. " alt="" coords="631,155,767,181"/>
+<area shape="rect" id="node12" href="../../d0/d4a/a00147.html" title="CollegeGenerator.cpp" alt="" coords="791,155,951,181"/>
+<area shape="rect" id="node13" href="../../d0/d19/a00273.html" title="PrimaryCommunityGenerator.cpp" alt="" coords="975,155,1211,181"/>
+<area shape="rect" id="node14" href="../../d4/d66/a00289.html" title="SecondaryCommunityGenerator.cpp" alt="" coords="1235,155,1489,181"/>
+<area shape="rect" id="node15" href="../../de/dc8/a00325.html" title="WorkplaceGenerator.cpp" alt="" coords="1513,155,1691,181"/>
+<area shape="rect" id="node16" href="../../da/d1e/a00149.html" title="CollegePopulator.cpp" alt="" coords="1715,155,1871,181"/>
+<area shape="rect" id="node17" href="../../d8/dfc/a00327.html" title="WorkplacePopulator.cpp" alt="" coords="1895,155,2069,181"/>
+<area shape="rect" id="node18" href="../../d5/d42/a00269.html" title="Core Population class. " alt="" coords="2093,155,2209,181"/>
 </map>
 </div>
 </div>
@@ -150,35 +149,26 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d00/a00113.html">stride::util::CSV</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of <a class="el" href="../../d8/d17/a00114.html" title="Row in CSV file. ">CSVRow</a> elements.  <a href="../../d3/d00/a00113.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html">stride::util::Exception</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic exception class: needed to prevent clang-tidy warning "thrown exception type is not nothrow copy constructible".  <a href="../../dd/d6d/a00111.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">stride</a></td></tr>
-<tr class="memdesc:d9/d9b/a00363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/d30/a00370"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html">stride::util</a></td></tr>
-<tr class="memdesc:d3/d30/a00370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:d6/de1/a00356"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de1/a00356.html">stride::util</a></td></tr>
+<tr class="memdesc:d6/de1/a00356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ab8f4ca13e5c3a78333ce8cfa62f36fe1"><td class="memItemLeft" align="right" valign="top">std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d30/a00370.html#ab8f4ca13e5c3a78333ce8cfa62f36fe1">stride::util::operator&lt;&lt;</a> (std::ofstream &amp;ofs, const CSV &amp;csv)</td></tr>
-<tr class="separator:ab8f4ca13e5c3a78333ce8cfa62f36fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file of base class for config that needs to be read from a file. </p>
-
-<p>Definition in file <a class="el" href="../../dc/d52/a00183_source.html">CSV.h</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dc/d52/a00183.html">CSV.h</a></li>
-    <li class="footer">Generated on Tue Mar 19 2019 08:40:22 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dc/d52/a00183.html">Exception.h</a></li>
+    <li class="footer">Generated on Thu Mar 21 2019 16:51:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

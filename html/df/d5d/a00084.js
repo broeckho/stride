@@ -1,6 +1,5 @@
 var a00084 =
 [
-    [ "DaysOffNone", "df/d5d/a00084.html#afa7a609a793bf8aa77b5ee94fdb94fda", null ],
-    [ "IsWorkOff", "df/d5d/a00084.html#a6287fa68ca109373fc9be31f3941079d", null ],
-    [ "IsSchoolOff", "df/d5d/a00084.html#a939df1a48d594f56ec3099d1edcfdca7", null ]
+    [ "GenPopController", "df/d5d/a00084.html#a5585b723dfd364bbe94361148be98799", null ],
+    [ "Control", "df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96", null ]
 ];

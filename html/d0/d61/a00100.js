@@ -1,8 +1,8 @@
 var a00100 =
 [
-    [ "SummaryFile", "d0/d61/a00100.html#a1f848c3aa92042b2fa7d399ad31b0e33", null ],
-    [ "~SummaryFile", "d0/d61/a00100.html#ade602b6935ee6c38f21f15b5bcc77847", null ],
-    [ "Print", "d0/d61/a00100.html#a9b4fb82839ddf6a7c8d10fc119bf22fb", null ],
-    [ "Initialize", "d0/d61/a00100.html#a73334b641e8aeb7edff5cc8b6affc86c", null ],
-    [ "m_fstream", "d0/d61/a00100.html#a473d1c4d75f2e873e1b0ee256dabf73a", null ]
+    [ "SimBuilder", "d0/d61/a00100.html#a8ec762745a42a867aa755791f21dab12", null ],
+    [ "Build", "d0/d61/a00100.html#a1f32dd929e6e21eabd41f7f7246a7aa1", null ],
+    [ "ReadAgeContactPtree", "d0/d61/a00100.html#ad551b02c507948570f07af10d85d29ce", null ],
+    [ "ReadDiseasePtree", "d0/d61/a00100.html#adffa42c6b8b171616fcdfb4805260c92", null ],
+    [ "m_config", "d0/d61/a00100.html#acbb3153c81c97a062f8351ec8ab1db0b", null ]
 ];
