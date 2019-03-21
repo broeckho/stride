@@ -17,38 +17,48 @@
 
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
-#include "geopop/K12School.h"
 #include "geopop/Location.h"
-
-#include <trng/uniform_int_dist.hpp>
+#include "pop/Population.h"
 
 namespace geopop {
 
 using namespace std;
+using namespace stride::ContactType;
 
-void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
+void HouseholdPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
-        m_logger->info("Starting to populate Households");
+        m_logger->trace("Starting to populate Households");
 
-        auto person_id      = 0U;
-        auto household_dist = m_rnManager[0].variate_generator(trng::uniform_int_dist(
-            0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.refHH.households.size())));
+        auto person_id = 0U;
+        auto hh_dist   = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(geoGridConfig.refHH.ages.size()), 0U);
+        auto pop       = geoGrid.GetPopulation();
 
-        for (const shared_ptr<Location>& loc : *geoGrid) {
-                const vector<shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Household>();
-                for (const auto& h : households) {
-                        auto contactPool = h->GetPools()[0];
-                        auto hDraw       = static_cast<unsigned int>(household_dist());
-                        auto hProfile    = geoGridConfig.refHH.households[hDraw]->GetPools()[0];
-                        for (stride::Person* p : *hProfile) {
-                                auto person = geoGrid->CreatePerson(person_id++, p->GetAge(), contactPool->GetId(), 0,
-                                                                    0, 0, 0, 0);
-                                contactPool->AddMember(person);
+        for (const shared_ptr<Location>& loc : geoGrid) {
+                const auto& hh_centers = loc->RefCenters(Id::Household);
+                for (const auto& h : hh_centers) {
+                        auto hPool = (*h)[0];
+                        auto hDraw = static_cast<unsigned int>(hh_dist());
+
+                        for (const auto& age : geoGridConfig.refHH.ages[hDraw]) {
+                                const auto p = pop->CreatePerson(person_id++, age, hPool->GetId(), 0, 0, 0, 0, 0);
+                                hPool->AddMember(p);
                         }
                 }
         }
-        m_logger->info("Number of persons in households: {}", person_id);
+
+        /* To replaced by:
+         *         for (const shared_ptr<Location>& loc : geoGrid) {
+                for (auto& pool : loc->RefPools(Id::Household)) {
+                        const auto hDraw = static_cast<unsigned int>(hh_dist());
+                        for (const auto& age : geoGridConfig.refHH.ages[hDraw]) {
+                                const auto p = pop->CreatePerson(person_id++, age, pool->GetId(), 0, 0, 0, 0, 0);
+                                pool->AddMember(p);
+                        }
+                }
+        }
+        */
+
+        m_logger->trace("Done populating Households");
 }
 
 } // namespace geopop

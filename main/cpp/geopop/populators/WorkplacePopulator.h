@@ -21,13 +21,7 @@
 #include "pop/Person.h"
 #include "util/LogUtils.h"
 
-#include <trng/discrete_dist.hpp>
-
 namespace geopop {
-
-namespace {
-using DiscreteDistType = std::function<trng::discrete_dist::result_type()>;
-}
 
 /**
  * Populate the workplaces.
@@ -37,47 +31,38 @@ class WorkplacePopulator : public Populator
 {
 public:
         /// Constructor
-        explicit WorkplacePopulator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger =
-                                                                         stride::util::LogUtils::CreateNullLogger());
+        explicit WorkplacePopulator(stride::util::RnMan& rnMan, std::shared_ptr<spdlog::logger> logger = nullptr);
 
         /// Populates the workplaces in geogrid with persons
-        void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig) override;
+        void Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig) override;
 
 private:
-        /// Fills the m_workplacesInCity map
-        void CalculateWorkplacesInCity();
-
-        /// Calculates m_fractionCommutingStudents
-        void CalculateFractionCommutingStudents();
-
-        /// Calculates the workplaces which are nearby to m_currentLoc
-        void CalculateNearbyWorkspaces();
-
-        /// Calculates the workplaces to which persons from m_currentLoc may commute to
-        void CalculateCommutingLocations();
-
         /// Assign a workplace to an active person
         void AssignActive(stride::Person* person);
 
+        /// Calculates the workplaces to which persons at this Location may commute to.
+        void CommutingLocations(const std::shared_ptr<Location>& loc, double fractionCommuteStudents);
+
+        /// Calculates the fraction of student population that commutes.
+        double FractionCommutingStudents();
+
+        /// Calculates the workplaces which are nearby Location loc.
+        void NearbyWorkspacePools(GeoGrid& geoGrid, std::shared_ptr<Location> loc);
+
+        /// Determines workplace pools at each Wocation.
+        void WorkplacePoolsAtLocation(GeoGrid& geoGrid);
+
 private:
-        unsigned int m_assignedTo0          = 0; ///< Number of persons assigned to no workplace.
-        unsigned int m_assignedCommuting    = 0; ///< Number of persons assigned to workplace outside home location.
-        unsigned int m_assignedNotCommuting = 0; ///< Amount of persons assigned to workplace at the home location.
+        GeoGridConfig m_geogrid_config; ///< The GeoGridConfig used during populating.
 
-        std::shared_ptr<Location> m_currentLoc;    ///< The location for which the workers currently are being assigned.
-        std::shared_ptr<GeoGrid>  m_geoGrid;       ///< The GeoGrid which will be populated.
-        GeoGridConfig             m_geoGridConfig; ///< The GeoGridConfig used during populating.
+        std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, std::function<int()>>>
+            m_wp_at_location; ///< For each location store workplaces and a distribution fot random selection.
 
-        std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, DiscreteDistType>>
-            m_workplacesInCity; ///< For each location store workplaces and a distribution fot random selection.
+        std::vector<stride::ContactPool*> m_nearby_wp;       ///< Workplaces near current location.
+        std::function<int()>              m_gen_non_commute; ///< Genrator to select nerby workplace.
 
-        double m_fractionCommutingStudents; ///< Fraction of the commuting people who are a student.
-
-        std::vector<stride::ContactPool*> m_nearByWorkplaces; ///< Workplaces which are nearby to the m_currentLoc.
-        DiscreteDistType                  m_distNonCommuting; ///< Distribution to choose from m_nearByWorkPlaces.
-
-        std::vector<Location*> m_commutingLocations; ///< Workplaces which persons from m_currentLoc may commute to.
-        DiscreteDistType       m_disCommuting;       ///< Distribution to choose from m_commutingLocations.
+        std::vector<Location*> m_commuting_locations; ///< Workplaces one may commute to from current loaction.
+        std::function<int()>   m_gen_commute;         ///< Generator to select commuting workplace.
 };
 
 } // namespace geopop

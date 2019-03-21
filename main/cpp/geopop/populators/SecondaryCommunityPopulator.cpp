@@ -15,39 +15,40 @@
 
 #include "SecondaryCommunityPopulator.h"
 
+#include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/Household.h"
 #include "geopop/Location.h"
-#include "geopop/SecondaryCommunity.h"
 #include "pop/Person.h"
 
 #include <set>
 
+using namespace std;
+using namespace stride;
+using namespace stride::ContactType;
+
 namespace geopop {
 
-void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&)
+void SecondaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 {
-        m_logger->info("Starting to populate Secondary Communities");
-        std::set<stride::ContactPool*> found;
+        m_logger->trace("Starting to populate Secondary Communities");
 
-        // for every location
-        for (const auto& loc : *geoGrid) {
+        for (const auto& loc : geoGrid) {
                 if (loc->GetPopCount() == 0) {
                         continue;
                 }
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& nearbyPools = GetNearbyPools<SecondaryCommunity>(geoGrid, loc);
+                const auto& nearbyPools = GetNearbyPools(Id::SecondaryCommunity, geoGrid, *loc);
 
                 // 2. find all households in this location
-                const auto& households = loc->GetContactCentersOfType<Household>();
+                const auto& households = loc->RefCenters(Id::Household);
 
                 auto hh_per_comm        = households.size() / nearbyPools.size();
                 auto remainder          = households.size() % nearbyPools.size();
                 auto current_comm       = 0U;
                 auto current_hh_in_comm = 0U;
 
-                for (const auto& household : households) {
-                        auto housePool = household->GetPools()[0];
+                for (const auto& hhCenter : households) {
+                        auto housePool = (*hhCenter)[0];
                         if ((current_hh_in_comm == hh_per_comm && (!remainder || current_comm >= remainder)) ||
                             (current_hh_in_comm == hh_per_comm + 1 && (remainder && current_comm < remainder))) {
                                 current_comm++;
@@ -56,14 +57,12 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, const 
                         current_hh_in_comm++;
                         auto pool = nearbyPools[current_comm];
                         for (auto p : *housePool) {
-                                found.insert(pool);
                                 pool->AddMember(p);
                                 p->SetPoolId(stride::ContactType::Id::SecondaryCommunity, pool->GetId());
                         }
                 }
         }
 
-        m_logger->info("Finished populating Secondary Communities");
-        m_logger->info("Used {} different Secondary communities", found.size());
+        m_logger->trace("Done populating Secondary Communities");
 }
 } // namespace geopop

@@ -26,23 +26,20 @@
 namespace geopop {
 
 class GeoGrid;
-class Household;
+class HouseholdCenter;
 
 /**
  * Configuration data mostly for generating a population, but also for computing
- * the required number od schools, workplaces, communities etc for that population.
+ * the required number of schools, workplaces, communities etc. for that population.
  */
 class GeoGridConfig
 {
 public:
-        /// Default constructor needed.
+        /// Default constructor needed in test code.
         GeoGridConfig();
 
         /// Constructor that configures input data.
         explicit GeoGridConfig(const boost::property_tree::ptree& configPt);
-
-        /// Prints the GeoGridconfig
-        friend std::ostream& operator<<(std::ostream& stream, const GeoGridConfig& config);
 
         // -----------------------------------------------------------------------------------------
         // Input parameters set by constructor with configuration property tree.
@@ -67,18 +64,15 @@ public:
         } input;
 
         // -----------------------------------------------------------------------------------------
-        // The reference set of Households used to generate the population by random draws.
+        // The reference Households used to generate the population by random draws.
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Reference households: the set of households that we sample from to generate the population.
-                std::vector<std::shared_ptr<Household>> households{};
+                /// Number of persons in the reference household set.
+                unsigned int person_count = 0U;
 
-                /// Persons in the reference households (segmented vector to have working pointers into it).
-                stride::util::SegmentedVector<stride::Person> persons{};
-
-                /// Contactpools used for reference households (segmented vector to have working pointers into it).
-                stride::util::SegmentedVector<stride::ContactPool> pools{};
+                /// Age profile per reference household.
+                std::vector<std::vector<unsigned int>> ages{};
         } refHH;
 
         // -----------------------------------------------------------------------------------------
@@ -108,24 +102,36 @@ public:
         struct
         {
                 /// Every houselhold constitutes a single ContactPool.
-                unsigned int pools_per_houselhold = 1U;
+                unsigned int pools_per_household = 1U;
 
                 /// Used to calculate the number of K12Schools.
                 unsigned int k12school_size      = 500U;
                 unsigned int pools_per_k12school = 25U;
+                unsigned int k12_pool_size       = 20U;
 
                 /// Used to calculate the number of Colleges.
                 unsigned int college_size      = 3000U;
                 unsigned int pools_per_college = 20U;
+                unsigned int college_pool_size = 150U;
 
-                /// Used to calculate the number of Communities.
-                unsigned int community_size      = 2000U;
-                unsigned int pools_per_community = 1U;
+                /// Used to calculate the number of PrimaryCommunities.
+                unsigned int primary_community_size      = 2000U;
+                unsigned int pools_per_primary_community = 1U;
+                unsigned int primary_community_pool_size = 2000U;
+
+                /// Used to calculate the number of SecondaryCommunities.
+                unsigned int secondary_community_size      = 2000U;
+                unsigned int pools_per_secondary_community = 1U;
+                unsigned int secondary_community_pool_size = 2000U;
 
                 /// Used to calculate the number of Workplaces.
                 unsigned int workplace_size      = 20U;
                 unsigned int pools_per_workplace = 1U;
+                unsigned int workplace_pool_size  = 20U;
         } pools;
+
+        /// Read the househould data file, parse it and set data.
+        void SetData(const std::string& householdsFileName);
 };
 
 } // namespace geopop

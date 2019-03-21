@@ -29,7 +29,7 @@ class ContactPool;
 
 namespace geopop {
 
-class Household;
+class HouseholdCenter;
 
 /**
  * Retrieves the reference Household profiles from file.
@@ -45,9 +45,8 @@ public:
         virtual ~HouseholdReader() = default;
 
         /// Add the info on reference households to the GeoGridConfig.
-        virtual void SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>&            ref_households,
-                                            stride::util::SegmentedVector<stride::Person>&      ref_persons,
-                                            stride::util::SegmentedVector<stride::ContactPool>& ref_pools) = 0;
+        virtual void SetReferenceHouseholds(unsigned int&                           ref_person_count,
+                                            std::vector<std::vector<unsigned int>>& ref_ages) = 0;
 };
 
 } // namespace geopop

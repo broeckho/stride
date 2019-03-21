@@ -20,9 +20,13 @@
 
 #pragma once
 
-#include "StringUtils.h"
+#include "RnInfo.h"
 
-//#include <trng/lcg64.hpp>
+#include <trng/discrete_dist.hpp>
+#include <trng/lcg64.hpp>
+#include <trng/uniform01_dist.hpp>
+#include <trng/uniform_int_dist.hpp>
+#include <functional>
 #include <pcg/pcg_random.hpp>
 #include <randutils/randutils.hpp>
 #include <string>
@@ -42,29 +46,16 @@ public:
         using RnType        = randutils::random_generator<E, randutils::seed_seq_fe128>;
         using ContainerType = std::vector<randutils::random_generator<E, randutils::seed_seq_fe128>>;
 
-public:
-        /// POD representation of the RNManager's state. If no state is available, i.e. state
-        /// is an empty string, the initial state corresponding to the seed sequence is implied.
-        /// If a state is available, the seed sequence is disregarded.
-        struct Info
-        {
-                explicit Info(std::string seed_seq_init = "1,2,3,4", std::string state = "",
-                              unsigned int stream_count = 1U)
-                    : m_seed_seq_init(std::move(seed_seq_init)), m_state(std::move(state)),
-                      m_stream_count(stream_count){};
-
-                std::string  m_seed_seq_init; ///< Seed for the engine.
-                std::string  m_state;         ///< Long string representing current state.
-                unsigned int m_stream_count;  ///< Number of streams set up with the engine.
-        };
-
-public:
         using ContainerType::operator[];
         using ContainerType::at;
         using ContainerType::size;
 
+public:
+        /// Default constructor build empty manager.
+        Rn() : ContainerType(), m_seed_seq_init(""), m_stream_count(0U) {}
+
         /// Initializes.
-        explicit Rn(const Info& info = Info())
+        explicit Rn(const RnInfo& info)
             : ContainerType(info.m_stream_count), m_seed_seq_init(info.m_seed_seq_init),
               m_stream_count(info.m_stream_count)
         {
@@ -81,10 +72,37 @@ public:
         bool operator==(const Rn& other);
 
         /// Return the state of the random engines.
-        Info GetInfo() const;
+        RnInfo GetInfo() const;
+
+        /// Return a generator for uniform doubles in [0, 1[ using i-th random engine.
+        std::function<double()> GetUniform01Generator(unsigned int i = 0U)
+        {
+                return ContainerType::at(i).variate_generator(trng::uniform01_dist<double>());
+        }
+
+        /// Return a generator for uniform ints in [a, b[ (a < b) using i-th random engine.
+        std::function<int()> GetUniformIntGenerator(int a, int b, unsigned int i = 0U)
+        {
+                return ContainerType::at(i).variate_generator(trng::uniform_int_dist(a, b));
+        }
+
+        /// Return generator for integers [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random engine.
+        std::function<int()> GetDiscreteGenerator(const std::vector<double>& weights, unsigned int i = 0U)
+        {
+                return ContainerType::at(i).variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        }
 
         /// Initalize with data in Info.
-        void Initialize(const Info& info = Info());
+        void Initialize(const RnInfo& info);
+
+        /// Is this een empty (i.e. non-initialized Rn)?
+        bool IsEmpty() const { return ContainerType::empty() || (m_stream_count == 0U); }
+
+        /// Random shuffle of vector of unsigned int indices using i-th engine.
+        void Shuffle(std::vector<unsigned int>& indices, unsigned int i)
+        {
+                ContainerType::at(i).shuffle(indices.begin(), indices.end());
+        }
 
 private:
         /// Actual first-time seeding. Procedure varies according to engine type, see specialisations.
@@ -99,7 +117,7 @@ template <>
 void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq);
 
 extern template class Rn<pcg64>;
-// extern template class Rn<trng::lcg64>;
+extern template class Rn<trng::lcg64>;
 
 } // namespace util
 } // namespace stride

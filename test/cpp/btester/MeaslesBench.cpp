@@ -40,9 +40,9 @@ void MeaslesBench()
                         return Test([n, configPt]() {
                                 configPt->put("run.num_threads", n);
                                 RnMan rn_manager;
-                                rn_manager.Initialize(RnMan::Info(configPt->get<std::string>("run.rng_seed", "1,2,3,4"),
-                                                                  configPt->get<string>("run.rng_state", ""),
-                                                                  configPt->get<unsigned int>("run.num_threads")));
+                                rn_manager.Initialize(RnInfo(configPt->get<std::string>("run.rng_seed", "1,2,3,4"),
+                                                             configPt->get<string>("run.rng_state", ""),
+                                                             configPt->get<unsigned int>("run.num_threads")));
                         });
                 };
         };

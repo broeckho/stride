@@ -24,8 +24,8 @@
 #include "util/RunConfigManager.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <gtest/gtest.h>
 #include <array>
+#include <gtest/gtest.h>
 #include <list>
 
 using namespace std;

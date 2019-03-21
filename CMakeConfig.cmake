@@ -51,12 +51,14 @@ endif()
 #============================================================================
 set(STRIDE_INCLUDE_DOC	FALSE
 	CACHE BOOL "Exclude doc directory from build and install.")
+set(STRIDE_FORCE_NO_BOOST FALSE
+	CACHE BOOL "Do NOT use installed Boost even if available.")
 set(STRIDE_FORCE_NO_OPENMP	FALSE
 	CACHE BOOL "Do NOT use OpenMP even if available.")
 set(STRIDE_FORCE_NO_PYTHON FALSE
 	CACHE BOOL "Force CMake to act as if Python or SWIG had not been found.")
-set(STRIDE_FORCE_NO_BOOST FALSE
-    CACHE BOOL "Do NOT use installed Boost even if available.")
+set(STRIDE_FORCE_NO_PROTOC FALSE
+	CACHE BOOL "Do NOT use installed protobuf compiler even if available.")
 
 #============================================================================
 # Additional CMake modules:

@@ -21,10 +21,11 @@
 #include "SurveySeeder.h"
 
 #include "pop/Population.h"
+#include "util/Exception.h"
 #include "util/RnMan.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <trng/uniform_int_dist.hpp>
+#include <cassert>
 
 using namespace boost::property_tree;
 using namespace stride::util;
@@ -33,64 +34,52 @@ using namespace std;
 
 namespace stride {
 
-SurveySeeder::SurveySeeder(const ptree& configPt, RnMan& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager) {}
+SurveySeeder::SurveySeeder(const ptree& config, RnMan& rnMan) : m_config(config), m_rn_man(rnMan) {}
 
 shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
 {
-        const string log_level = m_config_pt.get<string>("run.contact_log_level", "None");
-        if (log_level != "None") {
-                Population& population   = *pop;
-                auto&       poolSys      = population.GetContactPoolSys();
-                auto&       logger       = population.GetContactLogger();
-                const auto  max_index    = static_cast<unsigned int>(population.size() - 1);
-                auto        generator    = m_rn_manager[0].variate_generator(trng::uniform_int_dist(0, max_index));
-                const auto  participants = m_config_pt.get<unsigned int>("run.num_participants_survey");
+        const string logLevel = m_config.get<string>("run.contact_log_level", "None");
+        if (logLevel != "None") {
+                Population& population  = *pop;
+                auto&       poolSys     = population.CRefPoolSys();
+                auto&       logger      = population.RefContactLogger();
+                const auto  popCount    = static_cast<unsigned int>(population.size() - 1);
+                const auto  numSurveyed = m_config.get<unsigned int>("run.num_participants_survey");
+
+                assert((popCount >= 1U) && "SurveySeeder> Population count zero unacceptable.");
+                assert((popCount >= numSurveyed) && "SurveySeeder> Pop count has to exceeed number of surveyed.");
 
                 // Use while-loop to get 'participants' unique participants (default sampling is with replacement).
                 // A for loop will not do because we might draw the same person twice.
-                auto num_samples = 0U;
-                while (num_samples < participants) {
+                auto numSamples = 0U;
+                auto generator  = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(popCount), 0U);
+
+                while (numSamples < numSurveyed) {
                         Person& p = population[generator()];
-                        if (!p.IsSurveyParticipant()) {
-                                p.ParticipateInSurvey();
-
-                                // TODO: create a more elegant solution
-                                // - gengeopop population ==>> unique pool id over all pool types, so ID != index in
-                                // poolType-vector
-                                // - default population   ==>> unique pool id per pool type, so ID == index in
-                                // poolType-vector
-                                if (p.GetPoolId(Id::SecondaryCommunity) < poolSys[Id::SecondaryCommunity].size()) {
-                                        logger->info(
-                                            "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
-                                            p.GetId(), p.GetAge(), p.GetGender(), p.GetPoolId(Id::Household),
-                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
-                                            p.GetPoolId(Id::Workplace), p.GetHealth().IsSusceptible(),
-                                            p.GetHealth().IsInfected(), p.GetHealth().IsInfectious(),
-                                            p.GetHealth().IsRecovered(), p.GetHealth().IsImmune(),
-                                            p.GetHealth().GetStartInfectiousness(), p.GetHealth().GetStartSymptomatic(),
-                                            p.GetHealth().GetEndInfectiousness(), p.GetHealth().GetEndSymptomatic(),
-                                            poolSys[Id::Household][p.GetPoolId(Id::Household)].GetSize(),
-                                            poolSys[Id::K12School][p.GetPoolId(Id::K12School)].GetSize(),
-                                            poolSys[Id::College][p.GetPoolId(Id::College)].GetSize(),
-                                            poolSys[Id::Workplace][p.GetPoolId(Id::Workplace)].GetSize(),
-                                            poolSys[Id::PrimaryCommunity][p.GetPoolId(Id::PrimaryCommunity)].GetSize(),
-                                            poolSys[Id::SecondaryCommunity][p.GetPoolId(Id::SecondaryCommunity)]
-                                                .GetSize());
-                                } else {
-                                        logger->info(
-                                            "[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}",
-                                            p.GetId(), p.GetAge(), p.GetGender(), p.GetPoolId(Id::Household),
-                                            p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
-                                            p.GetPoolId(Id::Workplace), p.GetHealth().IsSusceptible(),
-                                            p.GetHealth().IsInfected(), p.GetHealth().IsInfectious(),
-                                            p.GetHealth().IsRecovered(), p.GetHealth().IsImmune(),
-                                            p.GetHealth().GetStartInfectiousness(), p.GetHealth().GetStartSymptomatic(),
-                                            p.GetHealth().GetEndInfectiousness(), p.GetHealth().GetEndSymptomatic(), -1,
-                                            -1, -1, -1, -1, -1, -1);
-                                }
-
-                                num_samples++;
+                        if (p.IsSurveyParticipant()) {
+                                continue;
                         }
+                        p.ParticipateInSurvey();
+
+                        const auto h    = p.GetHealth();
+                        const auto pHH  = p.GetPoolId(Id::Household);
+                        const auto pK12 = p.GetPoolId(Id::K12School);
+                        const auto pC   = p.GetPoolId(Id::College);
+                        const auto pW   = p.GetPoolId(Id::Workplace);
+                        const auto pPC  = p.GetPoolId(Id::PrimaryCommunity);
+                        const auto pSC  = p.GetPoolId(Id::SecondaryCommunity);
+                        logger->info("[PART] {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}", p.GetId(),
+                                     p.GetAge(), pHH, pK12, pC, pW, h.IsSusceptible(), h.IsInfected(), h.IsInfectious(),
+                                     h.IsRecovered(), h.IsImmune(), h.GetStartInfectiousness(), h.GetStartSymptomatic(),
+                                     h.GetEndInfectiousness(), h.GetEndSymptomatic(),
+                                     poolSys.CRefPools<Id::Household>()[pHH].GetPool().size(),
+                                     poolSys.CRefPools<Id::K12School>()[pK12].GetPool().size(),
+                                     poolSys.CRefPools<Id::College>()[pC].GetPool().size(),
+                                     poolSys.CRefPools<Id::Workplace>()[pW].GetPool().size(),
+                                     poolSys.CRefPools<Id::PrimaryCommunity>()[pPC].GetPool().size(),
+                                     poolSys.CRefPools<Id::SecondaryCommunity>()[pSC].GetPool().size());
+
+                        numSamples++;
                 }
         }
         return pop;

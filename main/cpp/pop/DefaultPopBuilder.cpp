@@ -46,38 +46,43 @@ shared_ptr<Population> DefaultPopBuilder::MakePersons(shared_ptr<Population> pop
         //------------------------------------------------
         // Read persons from file.
         //------------------------------------------------
-        const auto file_name        = m_config_pt.get<string>("run.population_file");
-        const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-        const auto file_path = (use_install_dirs) ? FileSys::GetDataDir() /= file_name : filesys::path(file_name);
-        if (!is_regular_file(file_path)) {
-                throw runtime_error(string(__func__) + "> Population file " + file_path.string() + " not present.");
+        const auto fileName = m_config.get<string>("run.population_file");
+        m_stride_logger->info("Building default population from file {}.", fileName);
+
+        const auto use_install_dirs = m_config.get<bool>("run.use_install_dirs");
+        const auto filePath         = (use_install_dirs) ? FileSys::GetDataDir() /= fileName : filesys::path(fileName);
+        if (!is_regular_file(filePath)) {
+                throw runtime_error(string(__func__) + "> Population file " + filePath.string() + " not present.");
         }
 
-        ifstream pop_file;
-        pop_file.open(file_path.string());
-        if (!pop_file.is_open()) {
-                throw runtime_error(string(__func__) + "> Error opening population file " + file_path.string());
+        ifstream popFile;
+        popFile.open(filePath.string());
+        if (!popFile.is_open()) {
+                throw runtime_error(string(__func__) + "> Error opening population file " + filePath.string());
         }
 
         string line;
-        getline(pop_file, line); // step over file header
+        getline(popFile, line); // step over file header
         unsigned int person_id = 0U;
 
-        while (getline(pop_file, line)) {
-                const auto values                 = Split(line, ",");
-                const auto age                    = FromString<unsigned int>(values[0]);
-                const auto household_id           = FromString<unsigned int>(values[1]);
-                const auto school_id              = FromString<unsigned int>(values[2]);
-                const auto work_id                = FromString<unsigned int>(values[3]);
-                const auto primary_community_id   = FromString<unsigned int>(values[4]);
-                const auto secondary_community_id = FromString<unsigned int>(values[5]);
+        while (getline(popFile, line)) {
+                const auto values               = Split(line, ",");
+                const auto age                  = FromString<unsigned int>(values[0]);
+                const auto householdId          = FromString<unsigned int>(values[1]);
+                const auto schoolId             = FromString<unsigned int>(values[2]);
+                const auto workId               = FromString<unsigned int>(values[3]);
+                const auto primaryCommunityId   = FromString<unsigned int>(values[4]);
+                const auto secondaryCommunityId = FromString<unsigned int>(values[5]);
 
-                pop->CreatePerson(person_id, age, household_id, school_id, 0, work_id, primary_community_id,
-                                  secondary_community_id);
+                pop->CreatePerson(person_id, age, householdId, schoolId, 0, workId, primaryCommunityId,
+                                  secondaryCommunityId);
                 ++person_id;
         }
 
-        pop_file.close();
+        popFile.close();
+
+        m_stride_logger->trace("Done building default population.");
+
         return pop;
 }
 
@@ -86,8 +91,8 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         //------------------------------------------------
         // Check validity of input data.
         //------------------------------------------------
-        const auto seeding_rate = m_config_pt.get<double>("run.seeding_rate");
-        if (seeding_rate > 1.0) {
+        const auto seedingRate = m_config.get<double>("run.seeding_rate");
+        if (seedingRate > 1.0) {
                 throw runtime_error(string(__func__) + "> Bad input data for seeding_rate.");
         }
 
@@ -99,18 +104,18 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Determine maximum pool ids in population.
         // --------------------------------------------------------------
-        IdSubscriptArray<size_t> max_ids{0U};
+        IdSubscriptArray<unsigned int> maxIds{0U};
         for (const auto& p : *pop) {
                 for (Id typ : IdList) {
-                        max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));
+                        maxIds[typ] = max(maxIds[typ], p.GetPoolId(typ));
                 }
         }
         // --------------------------------------------------------------
         // Initialize poolSys with empty ContactPools (even for Id=0).
         // --------------------------------------------------------------
         for (Id typ : IdList) {
-                for (size_t i = 0; i < max_ids[typ] + 1; i++) {
-                        pop->m_pool_sys[typ].emplace_back(ContactPool(i, typ));
+                for (unsigned int i = 1; i < maxIds[typ] + 1; i++) {
+                        pop->RefPoolSys().CreateContactPool(typ);
                 }
         }
 
@@ -127,7 +132,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
                 for (Id typ : IdList) {
                         const auto poolId = p.GetPoolId(typ);
                         if (poolId > 0) {
-                                pop->m_pool_sys[typ][poolId].AddMember(&p);
+                                pop->RefPoolSys().RefPools(typ)[poolId].AddMember(&p);
                         }
                 }
         }

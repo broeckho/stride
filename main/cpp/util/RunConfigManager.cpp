@@ -42,7 +42,7 @@ void RunConfigManager::CleanConfigFile(ptree pt)
         pt.sort();
         const string sha1  = RunConfigManager::ToShortSha1(pt);
         const string fName = sha1 + ".xml";
-        cerr << "Rewriting config to file " << fName << " in current directory." << endl;
+        cout << "Rewriting config to file " << fName << " in current directory." << endl;
         FileSys::WritePtreeFile(fName, pt);
 }
 
@@ -59,9 +59,9 @@ ptree RunConfigManager::Create(const std::string& configName)
         return FromString(creators.at(configName)());
 }
 
-void RunConfigManager::ConvertToGenGeoPop(ptree& pt)
+void RunConfigManager::AddGeoPopConfig(ptree& pt)
 {
-        std::string gengeopop_str   = R"###(
+        const string geopop_str   = R"###(
 <run>
         <population_file>gengeopop.proto</population_file>
         <population_type>generate</geopopulation_type>
@@ -77,10 +77,10 @@ void RunConfigManager::ConvertToGenGeoPop(ptree& pt)
     </geopop_gen>
 </run>
         )###";
-        ptree       gengeopop_ptree = FromString(gengeopop_str);
-        pt.put_child("run.population_file", gengeopop_ptree.get_child("run.population_file"));
-        pt.put_child("run.population_type", gengeopop_ptree.get_child("run.population_type"));
-        pt.put_child("run.geopop_gen", gengeopop_ptree.get_child("run.geopop_gen"));
+        ptree        geopop_ptree = FromString(geopop_str);
+        pt.put_child("run.population_file", geopop_ptree.get_child("run.population_file"));
+        pt.put_child("run.population_type", geopop_ptree.get_child("run.population_type"));
+        pt.put_child("run.geopop_gen", geopop_ptree.get_child("run.geopop_gen"));
 }
 
 string RunConfigManager::CreateBenchInfluenza()
@@ -96,11 +96,11 @@ string RunConfigManager::CreateBenchInfluenza()
         <immunity_link_probability>0</immunity_link_probability>
         <immunity_profile>Random</immunity_profile>
         <immunity_rate>0</immunity_rate>
-        <num_days>14</num_days>
+        <num_days>10</num_days>
         <num_participants_survey>10</num_participants_survey>
         <num_threads>1</num_threads>
         <output_prefix>BenchRuns</output_prefix>
-        <population_file>pop_flanders1600.csv</population_file>
+        <population_file>pop_flanders600.csv</population_file>
         <population_type>default</geopopulation_type>
         <rng_seed>343869</rng_seed>
         <rng_type>mrg2</rng_type>
@@ -113,6 +113,41 @@ string RunConfigManager::CreateBenchInfluenza()
         <track_index_case>false</track_index_case>
         <use_install_dirs>true</use_install_dirs>
         <vaccine_profile>None</vaccine_profile>
+</run>
+        )###";
+}
+
+string RunConfigManager::CreateBenchMeasles()
+{
+        return R"###(
+<?xml version="1.0" encoding="utf-8"?>
+<run>
+        <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
+        <contact_log_level>None</contact_log_level>
+        <contact_output_file>false</contact_output_file>
+        <disease_config_file>disease_measles.xml</disease_config_file>
+        <holidays_file>holidays_none.json</holidays_file>
+        <immunity_profile>None</immunity_profile>
+        <immunity_rate>0.01</immunity_rate>
+        <num_days>30</num_days>
+        <num_participants_survey>10</num_participants_survey>
+        <num_threads>1</num_threads>
+        <output_prefix>bench</output_prefix>
+        <population_file>pop_flanders600.csv</population_file>
+        <population_type>default</geopopulation_type>
+        <rng_seed>1</rng_seed>
+        <rng_type>mrg2</rng_type>
+        <r0>16</r0>
+        <seeding_age_max>99</seeding_age_max>
+        <seeding_age_min>1</seeding_age_min>
+        <seeding_rate>0.05</seeding_rate>
+        <start_date>2017-01-01</start_date>
+        <stride_log_level>critical</stride_log_level>
+        <track_index_case>false</track_index_case>
+        <use_install_dirs>true</use_install_dirs>
+        <vaccine_link_probability>0</vaccine_link_probability>
+        <vaccine_profile>Random</vaccine_profile>
+        <vaccine_rate>0</vaccine_rate>
 </run>
         )###";
 }
@@ -157,60 +192,33 @@ string RunConfigManager::CreateDefault()
         )###";
 }
 
-string RunConfigManager::CreateBenchMeasles()
+vector<unsigned int> RunConfigManager::CreateNumThreads(unsigned int maxNum)
 {
-        return R"###(
-<?xml version="1.0" encoding="utf-8"?>
-<run>
-        <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
-        <contact_log_level>None</contact_log_level>
-        <contact_output_file>false</contact_output_file>
-        <disease_config_file>disease_measles.xml</disease_config_file>
-        <holidays_file>holidays_none.json</holidays_file>
-        <immunity_profile>None</immunity_profile>
-        <immunity_rate>0.01</immunity_rate>
-        <num_days>30</num_days>
-        <num_participants_survey>10</num_participants_survey>
-        <num_threads>1</num_threads>
-        <output_prefix>bench</output_prefix>
-        <population_file>pop_flanders600.csv</population_file>
-        <population_type>default</geopopulation_type>
-        <rng_seed>1</rng_seed>
-        <rng_type>mrg2</rng_type>
-        <r0>12</r0>
-        <seeding_age_max>99</seeding_age_max>
-        <seeding_age_min>1</seeding_age_min>
-        <seeding_rate>0.02</seeding_rate>
-        <start_date>2017-01-01</start_date>
-        <stride_log_level>critical</stride_log_level>
-        <track_index_case>false</track_index_case>
-        <use_install_dirs>true</use_install_dirs>
-        <vaccine_link_probability>0</vaccine_link_probability>
-        <vaccine_profile>Random</vaccine_profile>
-        <vaccine_rate>0</vaccine_rate>
-</run>
-        )###";
-}
+        maxNum = max(maxNum, ConfigInfo::NumberAvailableThreads());
+        vector<unsigned int> num{1U};
 
-vector<unsigned int> RunConfigManager::CreateNumThreads(unsigned int max)
-{
-        max = std::max(max, ConfigInfo::NumberAvailableThreads());
-        initializer_list<unsigned int> num{1U};
-
-        if (max >= 2) {
-                num = {1U, 2U};
+        if (4 > maxNum && maxNum >= 2) {
+                num.push_back(2U);
         }
-        if (max >= 4) {
-                num = {1U, 2U, 3U, 4U};
+        if (8 > maxNum && maxNum >= 4) {
+                num.push_back(2U);
+                num.push_back(4U);
         }
-        if (max >= 8) {
-                num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U};
+        if (12 > maxNum && maxNum >= 8) {
+                num.push_back(2U);
+                num.push_back(4U);
+                num.push_back(8U);
         }
-        if (max >= 12) {
-                num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 10U, 12U};
+        if (16 > maxNum && maxNum >= 12) {
+                num.push_back(4U);
+                num.push_back(8U);
+                num.push_back(12U);
         }
-        if (max >= 16) {
-                num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 10U, 12U, 16U};
+        if (maxNum >= 16) {
+                num.push_back(4U);
+                num.push_back(8U);
+                num.push_back(12U);
+                num.push_back(16U);
         }
 
         return num;

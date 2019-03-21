@@ -15,21 +15,20 @@
 
 #include "WorkplaceGenerator.h"
 
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/Workplace.h"
+#include "pop/Population.h"
 #include "util/Assert.h"
 #include "util/RnMan.h"
-
-#include <trng/discrete_dist.hpp>
 
 namespace geopop {
 
 using namespace std;
+using namespace stride::ContactType;
 
-void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig,
-                               unsigned int& contactCenterCounter)
+void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
 {
         // 1. active people count and the commuting people count are given
         // 2. count the workplaces, each workplace has an average of 20 employees
@@ -43,11 +42,11 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
 
         // = for each location #residents + #incoming commuting people - #outgoing commuting people
         vector<double> weights;
-        for (const auto& loc : *geoGrid) {
+        for (const auto& loc : geoGrid) {
                 const double ActivePeopleCount =
                     (loc->GetPopCount() +
-                     loc->GetIncomingCommuterCount(geoGridConfig.input.fraction_workplace_commuters) -
-                     loc->GetOutgoingCommuterCount(geoGridConfig.input.fraction_workplace_commuters) *
+                     loc->GetIncomingCommuteCount(geoGridConfig.input.fraction_workplace_commuters) -
+                     loc->GetOutgoingCommuteCount(geoGridConfig.input.fraction_workplace_commuters) *
                          geoGridConfig.input.particpation_workplace);
 
                 const double weight = ActivePeopleCount / EmployeeCount;
@@ -61,14 +60,34 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                 return;
         }
 
-        const auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
+        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
-                const auto loc = (*geoGrid)[dist()];
-                const auto w   = make_shared<Workplace>(contactCenterCounter++);
-                w->Fill(geoGridConfig, geoGrid);
-                loc->AddContactCenter(w);
+                const auto loc = geoGrid[dist()];
+                const auto w   = make_shared<ContactCenter>(ccCounter++, Id::Workplace);
+
+                // TODO CheckThisAlgorithm
+                // for (std::size_t j = 0; j < geoGridConfig.pools.pools_per_workplace; ++j) {
+                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
+                w->RegisterPool(p);
+                loc->RegisterPool<Id::Workplace>(p);
+                //}
+
+                loc->AddCenter(w);
         }
+}
+
+void WorkplaceGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig&, stride::Population* pop)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        // TODO CheckThisAlgorithm
+        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
+        const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
+        center.RegisterPool(p);
+        loc.RegisterPool<Id::Workplace>(p);
+        //}
 }
 
 } // namespace geopop

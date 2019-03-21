@@ -20,21 +20,56 @@
 
 #pragma once
 
-#include "Rn.h"
+#include "RnInfo.h"
+
+#include <functional>
+#include <memory>
+#include <vector>
 
 namespace stride {
 namespace util {
 
-using RnPcg64 = Rn<pcg64>;
-// using RnLcg64 = Rn<trng::lcg64>;
+class RnEngine;
 
 /*
- * A using statement here, would bar having RnMan in forward class declarations.
+ * RnMan manages random engines and distribution to produce random generators.
+ * Can be used with (up to 32) parallel streams out of the engine.
  */
-class RnMan : public RnPcg64
+class RnMan
 {
 public:
-        using RnPcg64::RnPcg64; // make constructors accessible.
+        /// Default constructor builds empty (uninitialized) manager.
+        RnMan();
+
+        /// Initializing Constructor.
+        explicit RnMan(const RnInfo& info);
+
+        /// Equality of states
+        bool operator==(const RnMan& other);
+
+        /// Return the state of the random engines.
+        RnInfo GetInfo() const;
+
+        /// Return a generator for uniform doubles in [0, 1[ using i-th random stream.
+        std::function<double()> GetUniform01Generator(unsigned int i = 0U);
+
+        /// Return a generator for uniform ints in [a, b[ (a < b) using i-th random stream.
+        std::function<int()> GetUniformIntGenerator(int a, int b, unsigned int i = 0U);
+
+        /// Return generator for ints [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random stream.
+        std::function<int()> GetDiscreteGenerator(const std::vector<double>& weights, unsigned int i = 0U);
+
+        /// Initalize with data in Info.
+        void Initialize(const RnInfo& info);
+
+        /// Is this een empty (i.e. non-initialized Rn)?
+        bool IsEmpty() const;
+
+        /// Random shuffle of vector of int indices using i-th random stream.
+        void Shuffle(std::vector<unsigned int>& indices, unsigned int i);
+
+private:
+        std::shared_ptr<RnEngine> m_rn;
 };
 
 } // namespace util

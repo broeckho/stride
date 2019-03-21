@@ -26,6 +26,11 @@
 
 #include <memory>
 
+namespace geopop {
+class GeoGrid;
+class GeoGridConfig;
+} // namespace geopop
+
 namespace stride {
 
 class Population;
@@ -37,10 +42,28 @@ class GeoPopBuilder : public AbstractPopBuilder
 {
 public:
         /// Use constructor of base.
-        using AbstractPopBuilder::AbstractPopBuilder;
+        // using AbstractPopBuilder::AbstractPopBuilder;
+
+        /// Initializing constructor.
+        /// \param config        Property_tree with general configuration settings.
+        /// \param rnMan         Random number manager for pop build process.
+        /// \param strideLogger  Logging.
+        GeoPopBuilder(const boost::property_tree::ptree& config, util::RnMan& rnMan,
+                      std::shared_ptr<spdlog::logger> strideLogger = nullptr);
 
         /// Generates a synthetic population.
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) override;
+
+private:
+        /// Reads the data files.
+        void MakeLocations(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig,
+                           const std::string& citiesFileName, const std::string& commutingFileName);
+
+        /// Build and store the Geo part of the GeoGrid.
+        void MakeCenters(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
+
+        /// Build and store the Pop part of the GeoGrid.
+        void MakePersons(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
 };
 
 } // namespace stride

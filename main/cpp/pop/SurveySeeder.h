@@ -38,17 +38,17 @@ class SurveySeeder
 {
 public:
         /// Initialize Seeder.
-        /// \param configPt         Configuration parameters.
-        /// \param rnManager         Random number manager.
-        SurveySeeder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
+        /// \param config         Configuration parameters.
+        /// \param rnMan         Random number manager.
+        SurveySeeder(const boost::property_tree::ptree& config, util::RnMan& rnMan);
 
         /// Seeds the population with survey participants.
         /// \param pop               Population.
         std::shared_ptr<Population> Seed(std::shared_ptr<Population> pop);
 
 private:
-        const boost::property_tree::ptree& m_config_pt;  ///< Run config.
-        util::RnMan&                       m_rn_manager; ///< Random number manager.
+        const boost::property_tree::ptree& m_config; ///< Run config.
+        util::RnMan&                       m_rn_man; ///< Random number manager.
 };
 
 } // namespace stride

@@ -31,7 +31,7 @@ public:
         explicit CommutesCSVReader(std::unique_ptr<std::istream> istream);
 
         /// Add the found Commutes to the provided GeoGrid
-        void FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
+        void FillGeoGrid(GeoGrid& geoGrid) const override;
 };
 
 } // namespace geopop

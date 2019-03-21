@@ -20,6 +20,7 @@
 
 #include "myhayai/BenchmarkRunner.h"
 #include "pop/Population.h"
+#include "sim/Sim.h"
 #include "sim/SimRunner.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
@@ -35,21 +36,22 @@ using boost::property_tree::ptree;
 void InfluenzaBench()
 {
         auto builder = [](string s) {
-                auto configPt = make_shared<ptree>(RunConfigManager::Create("BenchInfluenza"));
-                return [s, configPt]() {
-                        return Test([s, configPt]() {
-                                RnMan rn_manager;
-                                rn_manager.Initialize(RnMan::Info(configPt->get<std::string>("run.rng_seed", "1,2,3,4"),
-                                                                  configPt->get<string>("run.rng_state", ""),
-                                                                  configPt->get<unsigned int>("run.num_threads")));
-                                SimRunner(*configPt, Population::Create(*configPt, rn_manager), rn_manager).Run();
+                auto config = make_shared<ptree>(RunConfigManager::Create("BenchInfluenza"));
+                return [s, config]() {
+                        return Test([s, config]() {
+                                RnMan rnMan;
+                                rnMan.Initialize(RnInfo(config->get<std::string>("run.rng_seed", "1,2,3,4"),
+                                                        config->get<string>("run.rng_state", ""),
+                                                        config->get<unsigned int>("run.num_threads")));
+                                auto sim = Sim::Create(*config, Population::Create(*config, rnMan), rnMan);
+                                SimRunner(*config, sim).Run();
                         });
                 };
         };
 
-        const vector<string> levels{"None", "Transmissions", "Susceptibles"};
+        const vector<string> levels{"None", "Transmissions"};
         for (const auto& s : levels) {
                 auto info = [s]() { return ptree().put("contact_log_level", s); };
-                BenchmarkRunner::RegisterTest("Influenza", "ContactLog." + s, 7, builder(s), info);
+                BenchmarkRunner::RegisterTest("Influenza", "ContactLog." + s, 5, builder(s), info);
         }
 }

@@ -19,11 +19,9 @@
 #include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/Household.h"
 #include "geopop/Location.h"
-#include "geopop/Workplace.h"
 #include "util/Assert.h"
-#include <trng/uniform_int_dist.hpp>
+
 #include <utility>
 
 namespace geopop {
@@ -33,45 +31,38 @@ using namespace stride;
 using namespace stride::ContactType;
 using namespace util;
 
-WorkplacePopulator::WorkplacePopulator(RnMan& rn_manager, shared_ptr<spdlog::logger> logger)
-    : Populator(rn_manager, move(logger)), m_currentLoc(nullptr), m_geoGrid(nullptr), m_geoGridConfig(),
-      m_workplacesInCity(), m_fractionCommutingStudents(0), m_nearByWorkplaces(), m_distNonCommuting(),
-      m_commutingLocations(), m_disCommuting()
+WorkplacePopulator::WorkplacePopulator(RnMan& rnMan, shared_ptr<spdlog::logger> logger)
+    : Populator(rnMan, move(logger)), m_geogrid_config(), m_wp_at_location(), m_nearby_wp(), m_gen_non_commute(),
+    m_commuting_locations(), m_gen_commute()
 {
 }
 
-void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig& geoGridConfig)
+void WorkplacePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
-        m_logger->info("Starting to populate Workplaces");
+        m_logger->trace("Starting to populate Workplaces");
 
-        m_geoGrid                   = geoGrid;
-        m_geoGridConfig             = geoGridConfig;
-        m_fractionCommutingStudents = 0;
-        m_workplacesInCity.clear();
-        m_currentLoc           = nullptr;
-        m_assignedTo0          = 0;
-        m_assignedCommuting    = 0;
-        m_assignedNotCommuting = 0;
-        m_distNonCommuting     = DiscreteDistType();
-        m_nearByWorkplaces.clear();
-        m_disCommuting = DiscreteDistType();
-        m_commutingLocations.clear();
+        m_geogrid_config  = geoGridConfig;
+        m_gen_commute     = function<int()>();
+        m_gen_non_commute = function<int()>();
 
-        CalculateFractionCommutingStudents();
-        CalculateWorkplacesInCity();
+        m_wp_at_location.clear();
+        m_nearby_wp.clear();
+        m_commuting_locations.clear();
+
+        const auto fractionCommutingStudents = FractionCommutingStudents();
+        WorkplacePoolsAtLocation(geoGrid);
 
         // for every location
-        for (const auto& loc : *geoGrid) {
+        for (const auto& loc : geoGrid) {
                 if (loc->GetPopCount() == 0) {
                         continue;
                 }
-                m_currentLoc = loc;
-                CalculateCommutingLocations();
-                CalculateNearbyWorkspaces();
+                CommutingLocations(loc, fractionCommutingStudents);
+                NearbyWorkspacePools(geoGrid, loc);
 
                 // 2. for everyone of working age: decide between work or college (iff of College age)
-                for (const auto& household : loc->GetContactCentersOfType<Household>()) {
-                        auto contactPool = household->GetPools()[0];
+                for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
+                        auto contactPool = (*hhCenter)[0];
                         for (auto p : *contactPool) {
                                 if (AgeBrackets::Workplace::HasAge((p->GetAge()))) {
                                         bool isStudent      = MakeChoice(geoGridConfig.input.participation_college);
@@ -83,74 +74,44 @@ void WorkplacePopulator::Apply(shared_ptr<GeoGrid> geoGrid, const GeoGridConfig&
                                         } else {
                                                 // this person has no employment
                                                 p->SetPoolId(Id::Workplace, 0);
-                                                m_assignedTo0++;
                                         }
                                 }
                         }
                 }
         }
 
-        m_logger->info("Populated workplaces, assigned to 0 {}, assigned (commuting) {} assigned (not commuting) {} ",
-                       m_assignedTo0, m_assignedCommuting, m_assignedNotCommuting);
-}
-
-void WorkplacePopulator::CalculateFractionCommutingStudents()
-{
-        m_fractionCommutingStudents = 0;
-        if (static_cast<bool>(m_geoGridConfig.input.fraction_workplace_commuters) &&
-            m_geoGridConfig.popInfo.popcount_workplace) {
-                m_fractionCommutingStudents =
-                    (m_geoGridConfig.popInfo.popcount_college * m_geoGridConfig.input.fraction_college_commuters) /
-                    (m_geoGridConfig.popInfo.popcount_workplace * m_geoGridConfig.input.fraction_workplace_commuters);
-        }
-}
-
-void WorkplacePopulator::CalculateWorkplacesInCity()
-{
-        for (const shared_ptr<Location>& loc : *m_geoGrid) {
-                vector<ContactPool*> contactPools;
-                for (const auto& wp : loc->GetContactCentersOfType<Workplace>()) {
-                        contactPools.insert(contactPools.end(), wp->begin(), wp->end());
-                }
-
-                auto disPools = m_rnManager[0].variate_generator(
-                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(contactPools.size())));
-
-                m_workplacesInCity[loc.get()] = {contactPools, disPools};
-        }
+        m_logger->trace("Done populating Workplaces");
 }
 
 void WorkplacePopulator::AssignActive(Person* person)
 {
         // this person is (student and active) or active
-        if (!m_commutingLocations.empty() && MakeChoice(m_geoGridConfig.input.fraction_workplace_commuters)) {
-                // this person is commuting
-                const auto& info = m_workplacesInCity[m_commutingLocations[m_disCommuting()]];
+        if (!m_commuting_locations.empty() && MakeChoice(m_geogrid_config.input.fraction_workplace_commuters)) {
+                // this person commutes
+                const auto& info = m_wp_at_location[m_commuting_locations[m_gen_commute()]];
                 const auto  id   = info.second(); // id of the location this person is commuting to
                 info.first[id]->AddMember(person);
                 person->SetPoolId(Id::Workplace, info.first[id]->GetId());
-                m_assignedCommuting++;
         } else {
-                // this person is not commuting
-                const auto id = m_distNonCommuting();
-                m_nearByWorkplaces[id]->AddMember(person);
-                person->SetPoolId(Id::Workplace, m_nearByWorkplaces[id]->GetId());
-                m_assignedNotCommuting++;
+                // this person does not
+                const auto idraw = m_gen_non_commute();
+                m_nearby_wp[idraw]->AddMember(person);
+                person->SetPoolId(Id::Workplace, m_nearby_wp[idraw]->GetId());
         }
 }
 
-void WorkplacePopulator::CalculateCommutingLocations()
+void WorkplacePopulator::CommutingLocations(const std::shared_ptr<Location> &loc, double fractionCommuteStudents)
 {
         // find all Workplaces were employees from this location commute to
-        m_commutingLocations.clear();
-        m_disCommuting = DiscreteDistType();
+        m_commuting_locations.clear();
+        m_gen_commute = function<int()>();
 
         vector<double> commutingWeights;
-        for (const pair<Location*, double>& commute : m_currentLoc->GetOutgoingCommutingCities()) {
-                const auto& workplaces = commute.first->GetContactCentersOfType<Workplace>();
+        for (const pair<Location*, double>& commute : loc->CRefOutgoingCommutes()) {
+                const auto& workplaces = commute.first->RefCenters(Id::Workplace);
                 if (!workplaces.empty()) {
-                        m_commutingLocations.push_back(commute.first);
-                        const auto weight = commute.second - (commute.second * m_fractionCommutingStudents);
+                        m_commuting_locations.push_back(commute.first);
+                        const auto weight = commute.second - (commute.second * fractionCommuteStudents);
                         commutingWeights.push_back(weight);
                         AssertThrow(weight >= 0.0 && weight <= 1.0 && !isnan(weight),
                                     "Invalid weight: " + to_string(weight), m_logger);
@@ -158,16 +119,40 @@ void WorkplacePopulator::CalculateCommutingLocations()
         }
 
         if (!commutingWeights.empty()) {
-                m_disCommuting = m_rnManager[0].variate_generator(
-                    trng::discrete_dist(commutingWeights.begin(), commutingWeights.end()));
+                m_gen_commute = m_rn_man.GetDiscreteGenerator(commutingWeights, 0U);
         }
 }
 
-void WorkplacePopulator::CalculateNearbyWorkspaces()
+double WorkplacePopulator::FractionCommutingStudents()
 {
-        m_nearByWorkplaces = GetNearbyPools<Workplace>(m_geoGrid, m_currentLoc);
-        m_distNonCommuting = m_rnManager[0].variate_generator(
-            trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(m_nearByWorkplaces.size())));
+        double fraction = 0.0;
+        if (static_cast<bool>(m_geogrid_config.input.fraction_workplace_commuters) &&
+            m_geogrid_config.popInfo.popcount_workplace) {
+                fraction =
+                    (m_geogrid_config.popInfo.popcount_college * m_geogrid_config.input.fraction_college_commuters) /
+                    (m_geogrid_config.popInfo.popcount_workplace * m_geogrid_config.input.fraction_workplace_commuters);
+        }
+        return fraction;
+}
+
+void WorkplacePopulator::NearbyWorkspacePools(GeoGrid &geoGrid, std::shared_ptr<Location> loc)
+{
+        m_nearby_wp = GetNearbyPools(Id::Workplace, geoGrid, *loc);
+        m_gen_non_commute = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(m_nearby_wp.size()), 0U);
+}
+
+void WorkplacePopulator::WorkplacePoolsAtLocation(GeoGrid &geoGrid)
+{
+        for (const auto& loc : geoGrid) {
+                vector<ContactPool*> contactPools;
+                for (const auto& wp : loc->RefCenters(Id::Workplace)) {
+                        contactPools.insert(contactPools.end(), wp->begin(), wp->end());
+                }
+
+                auto disPools = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(contactPools.size()), 0U);
+
+                m_wp_at_location[loc.get()] = {contactPools, disPools};
+        }
 }
 
 } // namespace geopop

@@ -24,14 +24,14 @@ GeoGridReader::GeoGridReader(std::unique_ptr<std::istream> inputStream, stride::
     : m_people(), m_commutes(), m_inputStream(std::move(inputStream)), m_population(pop)
 {
 }
-void GeoGridReader::AddCommutes(std::shared_ptr<GeoGrid> geoGrid)
+void GeoGridReader::AddCommutes(GeoGrid& geoGrid)
 {
         for (const auto& commute_tuple : m_commutes) {
-                const auto a      = geoGrid->GetById(std::get<0>(commute_tuple));
-                const auto b      = geoGrid->GetById(std::get<1>(commute_tuple));
+                const auto a      = geoGrid.GetById(std::get<0>(commute_tuple));
+                const auto b      = geoGrid.GetById(std::get<1>(commute_tuple));
                 const auto amount = std::get<2>(commute_tuple);
-                a->AddOutgoingCommutingLocation(b, amount);
-                b->AddIncomingCommutingLocation(a, amount);
+                a->AddOutgoingCommute(b, amount);
+                b->AddIncomingCommute(a, amount);
         }
 }
 

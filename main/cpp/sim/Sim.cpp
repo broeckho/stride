@@ -36,36 +36,22 @@ using namespace std;
 using namespace util;
 using namespace ContactLogMode;
 
-Sim::Sim(util::RnMan& rnMan)
+Sim::Sim()
     : m_config(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false),
       m_adaptive_symptomatic_behavior(false), m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(),
-      m_population(nullptr), m_rn_manager(rnMan), m_transmission_profile(), m_public_health_agency()
+      m_population(nullptr), m_rn_man(), m_transmission_profile(), m_public_health_agency()
 {
 }
 
-Sim::Sim(std::shared_ptr<util::RnMan> rnMan) : Sim(*rnMan.get()) { m_rn_manager_ptr = rnMan; }
-
-std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop,
-                                 util::RnMan& rnManager)
+std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& config, shared_ptr<Population> pop,
+                                 util::RnMan rnMan)
 {
         struct make_shared_enabler : public Sim
         {
-                explicit make_shared_enabler(util::RnMan& rnManager) : Sim(rnManager) {}
+                explicit make_shared_enabler() : Sim() {}
         };
-        shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnManager);
-        SimBuilder(configPt).Build(sim, std::move(pop));
-        return sim;
-}
-
-std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop,
-                                 std::shared_ptr<util::RnMan> rnManager)
-{
-        struct make_shared_enabler : public Sim
-        {
-                explicit make_shared_enabler(std::shared_ptr<util::RnMan> rnManager) : Sim(std::move(rnManager)) {}
-        };
-        shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnManager);
-        SimBuilder(configPt).Build(sim, std::move(pop));
+        shared_ptr<Sim> sim = make_shared<make_shared_enabler>();
+        SimBuilder(config).Build(sim, std::move(pop), std::move(rnMan));
         return sim;
 }
 
@@ -79,8 +65,8 @@ void Sim::TimeStep()
 
         // To be used in update of population & contact pools.
         Population& population    = *m_population;
-        auto&       poolSys       = population.GetContactPoolSys();
-        auto        contactLogger = population.GetContactLogger();
+        auto&       poolSys       = population.RefPoolSys();
+        auto        contactLogger = population.RefContactLogger();
         const auto  simDay        = m_calendar->GetSimulationDay();
         const auto& infector      = *m_infector;
 
@@ -95,7 +81,7 @@ void Sim::TimeStep()
                 }
 
                 // after the health update, let the public health agency perform their work
-                m_public_health_agency.Exec(m_population, m_rn_manager, simDay);
+                m_public_health_agency.Exec(m_population, m_rn_man, simDay);
 
                 // Infector updates individuals for contacts & transmission within each pool.
                 // Skip pools with id = 0, because it means Not Applicable.
@@ -107,14 +93,14 @@ void Sim::TimeStep()
                                 continue;
                         }
 #pragma omp for schedule(static)
-                        for (size_t i = 1; i < poolSys[typ].size(); i++) { // NOLINT
-                                infector(poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile,
+                        for (size_t i = 1; i < poolSys.RefPools(typ).size(); i++) { // NOLINT
+                                infector(poolSys.RefPools(typ)[i], m_contact_profiles[typ], m_transmission_profile,
                                          m_handlers[thread_num], simDay, contactLogger);
                         }
                 }
         }
 
-        m_population->GetContactLogger()->flush();
+        m_population->RefContactLogger()->flush();
         m_calendar->AdvanceDay();
 }
 

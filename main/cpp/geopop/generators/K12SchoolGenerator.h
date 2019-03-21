@@ -20,15 +20,19 @@
 namespace geopop {
 
 /**
- * Generate K12Schools.
+ * Generates ContactCenters and pools for ContactType K12School.
  */
 class K12SchoolGenerator : public Generator
 {
 public:
         using Generator::Generator;
 
-        void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig,
-                   unsigned int& contactCenterCounter) override;
+        /// See @Generator::Apply.
+        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) override;
+
+        /// see @Generator::SetupPools.
+        void SetupPools(Location& loc,
+                        ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop) override;
 };
 
 } // namespace geopop

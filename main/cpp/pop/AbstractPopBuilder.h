@@ -39,22 +39,22 @@ class AbstractPopBuilder
 {
 public:
         /// Initializing constructor.
-        /// \param configPt    Property_tree with general configuration settings.
-        /// \param rnManager   Random number manager for pop build process.
-        AbstractPopBuilder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
-                           std::shared_ptr<spdlog::logger> stride_logger = nullptr)
-            : m_config_pt(configPt), m_rn_manager(rnManager), m_stride_logger(std::move(stride_logger))
-        {
-        }
+        /// \param config        Property_tree with general configuration settings.
+        /// \param rnMan         Random number manager for pop build process.
+        /// \param strideLogger  Logging.
+        AbstractPopBuilder(const boost::property_tree::ptree& config, util::RnMan& rnMan,
+                           std::shared_ptr<spdlog::logger> strideLogger = nullptr);
+
+        /// Has to be virtual.
+        virtual ~AbstractPopBuilder() = default;
 
         /// Build Population and return it afterwards.
         virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) = 0;
 
-        virtual ~AbstractPopBuilder() = default;
 
 protected:
-        const boost::property_tree::ptree& m_config_pt;     ///< Configuration property tree.
-        util::RnMan&                       m_rn_manager;    ///< Random number generation management.
+        const boost::property_tree::ptree& m_config;        ///< Configuration property tree.
+        util::RnMan&                       m_rn_man;        ///< Random number generation management.
         std::shared_ptr<spdlog::logger>    m_stride_logger; /// Logger for build process.
 };
 

@@ -15,9 +15,12 @@
 
 #pragma once
 
+#include "util/RnMan.h"
+
 #include <spdlog/logger.h>
 
 namespace stride {
+class Population;
 namespace util {
 class RnMan;
 }
@@ -27,6 +30,8 @@ namespace geopop {
 
 class GeoGrid;
 class GeoGridConfig;
+class ContactCenter;
+class Location;
 
 /**
  * An interface base class for generators that provide geo data and apply it onto the GeoGrid.
@@ -35,21 +40,21 @@ class Generator
 {
 public:
         /// Constructor with random number manager and logger.
-        explicit Generator(stride::util::RnMan& rnManager, std::shared_ptr<spdlog::logger> logger)
-            : m_rnManager(rnManager), m_logger(std::move(logger))
-        {
-        }
-
-        /// Generate the contact centers for a pool type (fixed in implementation) to the geogrid.
-        virtual void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig,
-                           unsigned int& contactCenterCounter) = 0;
+        explicit Generator(stride::util::RnMan rnMan, std::shared_ptr<spdlog::logger> logger = nullptr);
 
         /// Virtual destructor for inheritance
         virtual ~Generator() = default;
 
+        /// Generate the contact centers for a pool type (fixed in implementation) to the geogrid.
+        virtual void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) = 0;
+
+        /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
+        virtual void SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+                                stride::Population* pop) = 0;
+
 protected:
-        stride::util::RnMan&            m_rnManager; ///< RnManager used by generators.
-        std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by generators.
+        stride::util::RnMan             m_rn_man; ///< RnManager used by generators.
+        std::shared_ptr<spdlog::logger> m_logger; ///< Logger used by generators.
 };
 
 } // namespace geopop

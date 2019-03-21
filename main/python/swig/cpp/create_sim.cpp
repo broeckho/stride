@@ -23,16 +23,20 @@
 #include "util/RnMan.h"
 #include "util/RunConfigManager.h"
 
-std::shared_ptr<stride::Sim> CreateSim(const std::string& configString)
+using namespace std;
+using namespace stride;
+using namespace stride::util;
+
+shared_ptr<Sim> CreateSim(const string& configString)
 {
-        const auto config_pt = stride::util::RunConfigManager::FromString(configString);
+        const auto config = RunConfigManager::FromString(configString);
 
-        auto rnMan = std::make_shared<stride::util::RnMan>();
+        RnInfo info{config.get<string>("pop.rng_seed", "1,2,3,4"), "", config.get<unsigned int>("run.num_threads")};
+        RnMan  rnMan(info);
 
-        rnMan->Initialize(stride::util::RnMan::Info{config_pt.get<std::string>("pop.rng_seed", "1,2,3,4"), "",
-                                                    config_pt.get<unsigned int>("run.num_threads")});
+        auto population = Population::Create(config, rnMan);
 
-        auto population = stride::Population::Create(config_pt, *rnMan.get());
+        auto sim = Sim::Create(config, population, rnMan);
 
-        return stride::Sim::Create(config_pt, population, rnMan);
+        return sim;
 }

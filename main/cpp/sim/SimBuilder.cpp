@@ -27,8 +27,7 @@
 #include "pop/SurveySeeder.h"
 #include "sim/Sim.h"
 #include "util/FileSys.h"
-
-#include <trng/uniform01_dist.hpp>
+#include "util/RnMan.h"
 
 namespace stride {
 
@@ -37,29 +36,28 @@ using namespace std;
 using namespace util;
 using namespace ContactType;
 
-SimBuilder::SimBuilder(const ptree& configPt) : m_config(configPt) {}
+SimBuilder::SimBuilder(const ptree& config) : m_config(config) {}
 
-shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> pop)
+shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> pop, RnMan rnMan)
 {
         // --------------------------------------------------------------
         // Read config info and setup random number manager
         // --------------------------------------------------------------
-        sim->m_config                     = m_config;
+        sim->m_config                        = m_config;
         sim->m_population                    = std::move(pop);
         sim->m_track_index_case              = m_config.get<bool>("run.track_index_case");
         sim->m_adaptive_symptomatic_behavior = m_config.get<bool>("run.adaptive_symptomatic_behavior", true);
         sim->m_num_threads                   = m_config.get<unsigned int>("run.num_threads");
         sim->m_calendar                      = make_shared<Calendar>(m_config);
         sim->m_contact_log_mode = ContactLogMode::ToMode(m_config.get<string>("run.contact_log_level", "None"));
-        sim->m_rn_manager.Initialize(
-            RnMan::Info{m_config.get<string>("run.rng_seed", "1,2,3,4"), "", sim->m_num_threads});
+        sim->m_rn_man           = std::move(rnMan);
 
         // --------------------------------------------------------------
         // Contact handlers, each with generator bound to different
         // random engine stream) and infector.
         // --------------------------------------------------------------
-        for (size_t i = 0; i < sim->m_num_threads; i++) {
-                auto gen = sim->m_rn_manager[i].variate_generator(trng::uniform01_dist<double>());
+        for (unsigned int i = 0; i < sim->m_num_threads; i++) {
+                auto gen = sim->m_rn_man.GetUniform01Generator(i);
                 sim->m_handlers.emplace_back(ContactHandler(gen));
         }
         const auto& select = make_tuple(sim->m_contact_log_mode, sim->m_track_index_case);
@@ -93,12 +91,12 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // --------------------------------------------------------------
         // Seed population with immunity/vaccination/infection.
         // --------------------------------------------------------------
-        DiseaseSeeder(m_config, sim->m_rn_manager).Seed(sim->m_population);
+        DiseaseSeeder(m_config, sim->m_rn_man).Seed(sim->m_population);
 
         // --------------------------------------------------------------
         // Seed population with survey participants.
         // --------------------------------------------------------------
-        SurveySeeder(m_config, sim->m_rn_manager).Seed(sim->m_population);
+        SurveySeeder(m_config, sim->m_rn_man).Seed(sim->m_population);
 
         // --------------------------------------------------------------
         // Done.
