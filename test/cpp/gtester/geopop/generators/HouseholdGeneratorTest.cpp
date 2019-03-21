@@ -31,22 +31,32 @@ using namespace stride::util;
 
 namespace {
 
+class HouseholdGeneratorTest : public testing::Test {
+public:
+        HouseholdGeneratorTest()
+                : m_rn_man(RnInfo()), m_household_generator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+                  m_geo_grid(m_pop.get())
+        {
+        }
+
+protected:
+        RnMan                        m_rn_man;
+        HouseholdGenerator           m_household_generator;
+        GeoGridConfig                m_geogrid_config;
+        shared_ptr<Population>       m_pop;
+        GeoGrid                      m_geo_grid;
+};
+
 // Check that generator can handle situation with a single Location.
-TEST(HouseholdGeneratorTest, OneLocationTest)
+TEST_F(HouseholdGeneratorTest, OneLocationTest)
 {
-        RnMan              rnMan{RnInfo()}; // Default random number manager.
-        HouseholdGenerator householdGenerator(rnMan);
-        unsigned int       ccCounter{1U};
+        m_geogrid_config.popInfo.count_households = 4;
 
-        GeoGridConfig      config{};
-        config.popInfo.count_households = 4;
-
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-        geoGrid.AddLocation(loc1);
+        m_geo_grid.AddLocation(loc1);
 
-        householdGenerator.Apply(geoGrid, config, ccCounter);
+        unsigned int       ccCounter{1U};
+        m_household_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
 
         const auto& centersOfLoc1 = loc1->RefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc1.size(), 4);
@@ -56,52 +66,44 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
 }
 
 // Check that generator can handle "no Locations" situation.
-TEST(HouseholdGeneratorTest, ZeroLocationTest)
+TEST_F(HouseholdGeneratorTest, ZeroLocationTest)
 {
-        RnMan              rnMan{RnInfo()};
-        HouseholdGenerator householdGenerator(rnMan);
-        unsigned int       ccCounter{1U};
-        GeoGridConfig      config{};
-        config.popInfo.count_households = 4;
+        m_geogrid_config.popInfo.count_households = 4;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
 
-        householdGenerator.Apply(geoGrid, config, ccCounter);
+        unsigned int       ccCounter{1U};
+        m_household_generator.Apply(geoGrid, m_geogrid_config, ccCounter);
 
         EXPECT_EQ(geoGrid.size(), 0);
 }
 
 // check that generator can handle five Locations.
-TEST(HouseholdGeneratorTest, FiveLocationsTest)
+TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
 {
-        RnMan              rnMan{RnInfo()};
-        HouseholdGenerator householdGenerator(rnMan);
-        unsigned int       ccCounter{1U};
-        GeoGridConfig      config{};
-        config.popInfo.count_households = 4000;
-        config.input.pop_size           = 37542 * 100;
+        m_geogrid_config.popInfo.count_households = 4000;
+        m_geogrid_config.input.pop_size           = 37542 * 100;
 
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
         auto loc2    = make_shared<Location>(2, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
         auto loc3    = make_shared<Location>(3, 4, Coordinate(0, 0), "Henegouwen", 7460 * 100);
         auto loc4    = make_shared<Location>(4, 4, Coordinate(0, 0), "Limburg", 3269 * 100);
         auto loc5    = make_shared<Location>(5, 4, Coordinate(0, 0), "Luxemburg", 4123 * 100);
 
-        geoGrid.AddLocation(loc1);
-        geoGrid.AddLocation(loc2);
-        geoGrid.AddLocation(loc3);
-        geoGrid.AddLocation(loc4);
-        geoGrid.AddLocation(loc5);
+        m_geo_grid.AddLocation(loc1);
+        m_geo_grid.AddLocation(loc2);
+        m_geo_grid.AddLocation(loc3);
+        m_geo_grid.AddLocation(loc4);
+        m_geo_grid.AddLocation(loc5);
 
-        for (const shared_ptr<Location>& loc : geoGrid) {
+        for (const shared_ptr<Location>& loc : m_geo_grid) {
                 loc->SetPopFraction(static_cast<double>(loc->GetPopCount()) /
-                                    static_cast<double>(config.input.pop_size));
+                                    static_cast<double>(m_geogrid_config.input.pop_size));
         }
 
-        householdGenerator.Apply(geoGrid, config, ccCounter);
+        unsigned int       ccCounter{1U};
+        m_household_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
 
         const auto& centersOfLoc1 = loc1->CRefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc1.size(), 1179);

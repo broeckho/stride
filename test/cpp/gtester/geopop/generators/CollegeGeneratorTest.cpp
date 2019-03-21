@@ -41,10 +41,6 @@ public:
                 }
 
 protected:
-        void SetUp() override
-        {
-        }
-
         RnMan                        m_rn_man;
         CollegeGenerator             m_college_generator;
         GeoGridConfig                m_geogrid_config;
