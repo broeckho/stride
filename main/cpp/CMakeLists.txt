@@ -39,6 +39,20 @@ set_property(SOURCE ${PROTO_HEADER} ${PROTO_SRC}
     PROPERTY
     COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic")
 
+
+#============================================================================
+# HDF5.
+#============================================================================
+#set(STRIDE_FORCE_NO_HDF5 TRUE)
+if(${STRIDE_FORCE_NO_HDF5})
+    message("NOT USING PREINSTALLED")
+else()
+    find_package(HDF5 1.10.5 COMPONENTS CXX)
+    if(${HDF5_FOUND})
+        include_directories(${HDF5_INCLUDE_DIR})
+        message(${HDF5_VERSION})
+    endif()
+endif()
 #============================================================================
 # Sources.
 #============================================================================
