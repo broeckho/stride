@@ -77,6 +77,7 @@ endif()
 #============================================================================
 add_subdirectory(main)
 add_subdirectory(test)
+add_subdirectory(gui)
 if(STRIDE_INCLUDE_DOC)
 	add_subdirectory(doc)
 endif()
