@@ -12,7 +12,7 @@ set(CMAKE_AUTOUIC ON)
 find_package( Qt5Core REQUIRED)
 find_package( Qt5Widgets REQUIRED)
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES src/main.cpp)
 
 add_executable(gui ${SOURCE_FILES})
 target_link_libraries(gui Qt5::Widgets Qt5::Core )
