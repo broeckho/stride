@@ -94,6 +94,13 @@ TEST_F(CollegePopulatorTest, NoStudents)
         for (const auto& person : *m_geo_grid.GetPopulation()) {
                 EXPECT_EQ(0, person.GetPoolId(Id::College));
         }
+
+        for (auto& loc: m_geo_grid) {
+                for (auto& pool : loc->RefPools(Id::College)) {
+                        ASSERT_EQ(pool->size(), 0);
+                }
+
+        }
 }
 
 TEST_F(CollegePopulatorTest, NotCommuting)
