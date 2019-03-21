@@ -31,11 +31,13 @@ using namespace stride::util;
 
 namespace {
 
+// Check that generator can handle situation with a single Location.
 TEST(HouseholdGeneratorTest, OneLocationTest)
 {
         RnMan              rnMan{RnInfo()}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnMan);
         unsigned int       ccCounter{1U};
+
         GeoGridConfig      config{};
         config.popInfo.count_households = 4;
 
@@ -48,8 +50,12 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
 
         const auto& centersOfLoc1 = loc1->RefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc1.size(), 4);
+
+        const auto& poolsOfLoc1 = loc1->CRefPools<Id::Household>();
+        EXPECT_EQ(poolsOfLoc1.size(), 4);
 }
 
+// Check that generator can handle "no Locations" situation.
 TEST(HouseholdGeneratorTest, ZeroLocationTest)
 {
         RnMan              rnMan{RnInfo()};
@@ -66,6 +72,7 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
         EXPECT_EQ(geoGrid.size(), 0);
 }
 
+// check that generator can handle five Locations.
 TEST(HouseholdGeneratorTest, FiveLocationsTest)
 {
         RnMan              rnMan{RnInfo()};
@@ -96,20 +103,35 @@ TEST(HouseholdGeneratorTest, FiveLocationsTest)
 
         householdGenerator.Apply(geoGrid, config, ccCounter);
 
-        const auto& centersOfLoc1 = loc1->RefCenters(Id::Household);
+        const auto& centersOfLoc1 = loc1->CRefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc1.size(), 1179);
 
-        const auto& centersOfLoc2 = loc2->RefCenters(Id::Household);
+        const auto& centersOfLoc2 = loc2->CRefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc2.size(), 1137);
 
-        const auto& centersOfLoc3 = loc3->RefCenters(Id::Household);
+        const auto& centersOfLoc3 = loc3->CRefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc3.size(), 868);
 
-        const auto& centersOfLoc4 = loc4->RefCenters(Id::Household);
+        const auto& centersOfLoc4 = loc4->CRefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc4.size(), 358);
 
-        const auto& centersOfLoc5 = loc5->RefCenters(Id::Household);
+        const auto& centersOfLoc5 = loc5->CRefCenters(Id::Household);
         EXPECT_EQ(centersOfLoc5.size(), 458);
+
+        const auto& poolsOfLoc1 = loc1->CRefPools(Id::Household);
+        EXPECT_EQ(poolsOfLoc1.size(), 1179);
+
+        const auto& poolsOfLoc2 = loc2->CRefPools(Id::Household);
+        EXPECT_EQ(poolsOfLoc2.size(), 1137);
+
+        const auto& poolsOfLoc3 = loc3->CRefPools(Id::Household);
+        EXPECT_EQ(poolsOfLoc3.size(), 868);
+
+        const auto& poolsOfLoc4 = loc4->CRefPools(Id::Household);
+        EXPECT_EQ(poolsOfLoc4.size(), 358);
+
+        const auto& poolsOfLoc5 = loc5->CRefPools(Id::Household);
+        EXPECT_EQ(poolsOfLoc5.size(), 458);
 }
 
 } // namespace

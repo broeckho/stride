@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2019, Jan Broeckhove.
  */
 
 #include "PrimaryCommunityGenerator.h"
@@ -39,9 +39,9 @@ void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geo
         // 2. assign communities to a location using a discrete distribution reflecting the relative number of
         //    people at that location
 
-        const auto popCount = geoGridConfig.input.pop_size;
-        const auto communityCount =
-            static_cast<unsigned int>(ceil(popCount / static_cast<double>(geoGridConfig.pools.community_size)));
+        const auto popCount       = geoGridConfig.input.pop_size;
+        const auto communitySize  = geoGridConfig.pools.primary_community_size;
+        const auto communityCount = static_cast<unsigned int>(ceil(popCount / static_cast<double>(communitySize)));
 
         vector<double> weights;
         for (const auto& loc : geoGrid) {
@@ -68,8 +68,9 @@ void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geo
                 if (pc->size() == 0) {
                         const auto p = poolSys.CreateContactPool(Id::PrimaryCommunity);
                         pc->RegisterPool(p);
+                        loc->RegisterPool<Id::PrimaryCommunity>(p);
                 }
-                
+
                 loc->AddCenter(pc);
         }
 }

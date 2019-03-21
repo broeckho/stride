@@ -71,6 +71,7 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
                 // for (std::size_t j = 0; j < geoGridConfig.pools.pools_per_workplace; ++j) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
                 w->RegisterPool(p);
+                loc->RegisterPool<Id::Workplace>(p);
                 //}
 
                 loc->AddCenter(w);

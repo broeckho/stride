@@ -10,10 +10,9 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "geopop/generators/PrimaryCommunityGenerator.h"
 #include "geopop/generators/SecondaryCommunityGenerator.h"
 
 #include "geopop/ContactCenter.h"
@@ -33,13 +32,12 @@ using namespace stride::util;
 
 namespace {
 
-TEST(CommunityGeneratorTest, OneLocationTest)
+TEST(SecondaryCommunityGeneratorTest, OneLocationTest)
 {
         RnMan                       rnMan{RnInfo()};
-        PrimaryCommunityGenerator   pcGenerator(rnMan);
-        unsigned int                pcCounter{1U};
         SecondaryCommunityGenerator scGenerator(rnMan);
         unsigned int                scCounter{1U};
+
         GeoGridConfig               config{};
         config.input.pop_size = 10000;
 
@@ -48,26 +46,22 @@ TEST(CommunityGeneratorTest, OneLocationTest)
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         geoGrid.AddLocation(loc1);
 
-        const auto& c1 = loc1->RefCenters(Id::PrimaryCommunity);
-        const auto& c2 = loc1->RefCenters(Id::SecondaryCommunity);
+        const auto& c1 = loc1->CRefCenters(Id::SecondaryCommunity);
         EXPECT_EQ(c1.size(), 0);
-        EXPECT_EQ(c2.size(), 0);
 
-        pcGenerator.Apply(geoGrid, config, pcCounter);
-        EXPECT_EQ(c1.size(), 5);
-        EXPECT_EQ(c2.size(), 0);
+        const auto& p1 = loc1->CRefPools(Id::SecondaryCommunity);
+        EXPECT_EQ(p1.size(), 0);
 
         scGenerator.Apply(geoGrid, config, scCounter);
         EXPECT_EQ(c1.size(), 5);
-        EXPECT_EQ(c2.size(), 5);
+        EXPECT_EQ(p1.size(), 5 * config.pools.pools_per_secondary_community);
 }
 
-TEST(CommunityGeneratorTest, EqualLocationTest)
+TEST(SecondaryCommunityGeneratorTest, EqualLocationTest)
 {
         RnMan                       rnMan{RnInfo()};
-        PrimaryCommunityGenerator   pcGenerator(rnMan);
-        unsigned int                pcCounter{1U};
         SecondaryCommunityGenerator scGenerator(rnMan);
+
         unsigned int                scCounter{1U};
         GeoGridConfig               config{};
         config.input.pop_size = 100 * 100 * 1000;
@@ -79,47 +73,39 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
                     make_shared<Location>(1, 4, Coordinate(0, 0), "Location " + to_string(i), 10 * 1000 * 1000));
         }
 
-        pcGenerator.Apply(geoGrid, config, pcCounter);
         scGenerator.Apply(geoGrid, config, scCounter);
 
-        vector<int> expectedCount{1041, 1013, 940, 1004, 929, 1023, 959, 1077, 1005, 1009};
+        vector<int> expectedCount{546, 495, 475, 500, 463, 533, 472, 539, 496, 481};
         for (int i = 0; i < 10; i++) {
-                const auto& c1 = geoGrid[i]->RefCenters(Id::PrimaryCommunity);
                 const auto& c2 = geoGrid[i]->RefCenters(Id::SecondaryCommunity);
-                EXPECT_EQ(expectedCount[i], c1.size() + c2.size());
+                EXPECT_EQ(expectedCount[i], c2.size());
         }
 }
 
-TEST(CommunityGeneratorTest, ZeroLocationTest)
+TEST(SecondaryCommunityGeneratorTest, ZeroLocationTest)
 {
         RnMan                       rnMan{RnInfo()};
-        PrimaryCommunityGenerator   pcGenerator(rnMan);
-        unsigned int                pcCounter{1U};
         SecondaryCommunityGenerator scGenerator(rnMan);
         unsigned int                scCounter{1U};
+
         GeoGridConfig               config{};
         config.input.pop_size = 10000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
 
-        pcGenerator.Apply(geoGrid, config, pcCounter);
         scGenerator.Apply(geoGrid, config, scCounter);
 
         EXPECT_EQ(geoGrid.size(), 0);
 }
 
-TEST(CommunityGeneratorTest, FiveLocationsTest)
+TEST(SecondaryCommunityGeneratorTest, FiveLocationsTest)
 {
         RnMan                       rnMan{RnInfo()};
-        PrimaryCommunityGenerator   pcGenerator(rnMan);
-        unsigned int                pcCounter{1U};
         SecondaryCommunityGenerator scGenerator(rnMan);
         unsigned int                scCounter{1U};
+
         GeoGridConfig               config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.input.pop_size             = 37542 * 100;
         config.popInfo.popcount_k12school = 750840;
 
@@ -136,32 +122,15 @@ TEST(CommunityGeneratorTest, FiveLocationsTest)
         geoGrid.AddLocation(loc3);
         geoGrid.AddLocation(loc4);
         geoGrid.AddLocation(loc5);
-        pcGenerator.Apply(geoGrid, config, pcCounter);
+
         scGenerator.Apply(geoGrid, config, scCounter);
-        {
-                const auto& c1 = loc1->CRefCenters(Id::PrimaryCommunity);
-                const auto& c2 = loc1->CRefCenters(Id::SecondaryCommunity);
-                EXPECT_EQ(c1.size() + c2.size(), 1101);
-        }
-        {
-                const auto& c1 = loc2->CRefCenters(Id::PrimaryCommunity);
-                const auto& c2 = loc2->CRefCenters(Id::SecondaryCommunity);
-                EXPECT_EQ(c1.size() + c2.size(), 1067);
-        }
-        {
-                const auto& c1 = loc3->CRefCenters(Id::PrimaryCommunity);
-                const auto& c2 = loc3->CRefCenters(Id::SecondaryCommunity);
-                EXPECT_EQ(c1.size() + c2.size(), 815);
-        }
-        {
-                const auto& c1 = loc4->CRefCenters(Id::PrimaryCommunity);
-                const auto& c2 = loc4->CRefCenters(Id::SecondaryCommunity);
-                EXPECT_EQ(c1.size() + c2.size(), 340);
-        }
-        {
-                const auto& c1 = loc5->CRefCenters(Id::PrimaryCommunity);
-                const auto& c2 = loc5->CRefCenters(Id::SecondaryCommunity);
-                EXPECT_EQ(c1.size() + c2.size(), 433);
+        vector<int> expectedCount{553, 518, 410, 173, 224};
+        for (int i = 0; i < 5; i++) {
+                const auto& cc = geoGrid[i]->CRefCenters(Id::SecondaryCommunity);
+                EXPECT_EQ(expectedCount[i], cc.size());
+
+                const auto& cp = geoGrid[i]->CRefPools(Id::SecondaryCommunity);
+                EXPECT_EQ(expectedCount[i] * config.pools.pools_per_secondary_community, cp.size());
         }
 }
 

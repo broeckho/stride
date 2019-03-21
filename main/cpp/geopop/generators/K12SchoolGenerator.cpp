@@ -59,6 +59,7 @@ void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
                 for (auto j = 0U; j < geoGridConfig.pools.pools_per_k12school; ++j) {
                         const auto p = poolSys.CreateContactPool(Id::K12School);
                         k12->RegisterPool(p);
+                        loc->RegisterPool<Id::K12School>(p);
                 }
 
                 loc->AddCenter(k12);

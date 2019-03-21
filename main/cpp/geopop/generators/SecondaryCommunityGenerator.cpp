@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2019, Jan Broeckhove.
  */
 
 #include "SecondaryCommunityGenerator.h"
@@ -39,9 +39,9 @@ void SecondaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& g
         // 2. assign communities to a location using a discrete distribution reflecting the relative number of
         //    people at that location
 
-        const auto popCount = geoGridConfig.input.pop_size;
-        const auto communityCount =
-            static_cast<unsigned int>(ceil(popCount / static_cast<double>(geoGridConfig.pools.community_size)));
+        const auto popCount       = geoGridConfig.input.pop_size;
+        const auto communitySize  = geoGridConfig.pools.secondary_community_size;
+        const auto communityCount = static_cast<unsigned int>(ceil(popCount / static_cast<double>(communitySize)));
 
         vector<double> weights;
         for (const auto& loc : geoGrid) {
@@ -60,7 +60,7 @@ void SecondaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& g
         auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
 
         for (auto i = 0U; i < communityCount; i++) {
-                const auto l = geoGrid[dist()];
+                const auto loc = geoGrid[dist()];
                 const auto c = make_shared<ContactCenter>(ccCounter++, Id::SecondaryCommunity);
 
                 // TODO CheckThisAlgorithm
@@ -68,9 +68,10 @@ void SecondaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& g
                 if (c->size() == 0) {
                         const auto p = poolSys.CreateContactPool(stride::ContactType::Id::SecondaryCommunity);
                         c->RegisterPool(p);
+                        loc->RegisterPool<Id::SecondaryCommunity>(p);
                 }
 
-                l->AddCenter(c);
+                loc->AddCenter(c);
         }
 }
 

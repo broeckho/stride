@@ -32,32 +32,33 @@ using namespace stride::util;
 
 namespace {
 
+// Check that generator can handle empty GeoGrid.
 TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 {
         RnMan              rnMan{RnInfo()};
         WorkplaceGenerator workplaceGenerator(rnMan);
         unsigned int       ccCounter{1U};
+
         GeoGridConfig      config{};
-
-        IdSubscriptArray<unsigned int> contactCenterCounter(1U);
-
         config.input.pop_size           = 10000;
         config.popInfo.popcount_college = 20000;
 
         auto pop     = Population::Create();
         auto geoGrid = GeoGrid(pop.get());
+
         workplaceGenerator.Apply(geoGrid, config, ccCounter);
 
         EXPECT_EQ(geoGrid.size(), 0);
 }
 
+// Check that situation without commutes is OK.
 TEST(WorkplaceGeneratorTest, NoCommuting)
 {
         RnMan              rnMan{RnInfo()};
         WorkplaceGenerator workplaceGenerator(rnMan);
         unsigned int       ccCounter{1U};
-        GeoGridConfig      config{};
 
+        GeoGridConfig      config{};
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.input.particpation_workplace       = 0.20;
@@ -77,23 +78,26 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
 
         workplaceGenerator.Apply(geoGrid, config, ccCounter);
 
-        vector<int> expectedWorkplaceCount{1342, 512,  1948, 1801, 1919, 1087, 1304, 6,    1133, 1728, 646,  441,  450,
-                                           1643, 1897, 1410, 810,  382,  1192, 1688, 1691, 161,  204,  1433, 1796, 1187,
-                                           1449, 201,  1540, 923,  452,  1756, 1167, 261,  1197, 1455, 1058, 594,  796,
-                                           868,  1355, 594,  104,  1298, 136,  94,   140,  500,  588,  1663};
+        vector<int> workplaceCount{1342, 512,  1948, 1801, 1919, 1087, 1304, 6,    1133, 1728, 646,  441,  450,
+                                   1643, 1897, 1410, 810,  382,  1192, 1688, 1691, 161,  204,  1433, 1796, 1187,
+                                   1449, 201,  1540, 923,  452,  1756, 1167, 261,  1197, 1455, 1058, 594,  796,
+                                   868,  1355, 594,  104,  1298, 136,  94,   140,  500,  588,  1663};
 
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid[i]->RefCenters(Id::Workplace).size());
+                EXPECT_EQ(workplaceCount[i], geoGrid[i]->CRefCenters(Id::Workplace).size());
+                EXPECT_EQ(workplaceCount[i] * config.pools.pools_per_workplace,
+                                                        geoGrid[i]->CRefPools(Id::Workplace).size() );
         }
 }
 
-TEST(WorkplaceGeneratorTest, AbsNullCommuting)
+// As many commutes from A to B as from B to A.
+TEST(WorkplaceGeneratorTest, NullCommuting)
 {
         RnMan              rnMan{RnInfo()};
         WorkplaceGenerator workplaceGenerator(rnMan);
         unsigned int       ccCounter{1U};
-        GeoGridConfig      config{};
 
+        GeoGridConfig      config{};
         config.input.pop_size                     = 5 * 1000 * 1000;
         config.popInfo.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
         config.input.particpation_workplace       = 0.20;
@@ -124,16 +128,16 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
         EXPECT_EQ(1283, geoGrid[1]->GetIncomingCommuteCount(config.input.fraction_workplace_commuters));
         EXPECT_EQ(1283, geoGrid[1]->GetOutgoingCommuteCount(config.input.fraction_workplace_commuters));
 
-        // -> shouldn't change the test outcome in comparision with the previous test
-
         workplaceGenerator.Apply(geoGrid, config, ccCounter);
 
-        vector<int> expectedWorkplaceCount{1351, 521,  1960, 1798, 1907, 1088, 1301, 5,    1134, 1739, 644,  431,  447,
-                                           1650, 1894, 1409, 809,  377,  1198, 1685, 1692, 155,  210,  1430, 1793, 1191,
-                                           1449, 203,  1536, 928,  446,  1754, 1169, 263,  1194, 1456, 1058, 594,  793,
-                                           869,  1356, 591,  105,  1297, 136,  95,   139,  499,  588,  1663};
+        vector<int> workplaceCount{1351, 521,  1960, 1798, 1907, 1088, 1301, 5,    1134, 1739, 644,  431,  447,
+                                   1650, 1894, 1409, 809,  377,  1198, 1685, 1692, 155,  210,  1430, 1793, 1191,
+                                   1449, 203,  1536, 928,  446,  1754, 1169, 263,  1194, 1456, 1058, 594,  793,
+                                   869,  1356, 591,  105,  1297, 136,  95,   139,  499,  588,  1663};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid[i]->CRefCenters(Id::Workplace).size());
+                EXPECT_EQ(workplaceCount[i], geoGrid[i]->CRefCenters(Id::Workplace).size());
+                EXPECT_EQ(workplaceCount[i] * config.pools.pools_per_workplace,
+                          geoGrid[i]->CRefPools(Id::Workplace).size() );
         }
 }
 
@@ -210,16 +214,16 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
 
         workplaceGenerator.Apply(geoGrid, config, ccCounter);
 
-        vector<int> expectedWorkplaceCount{1328, 516,  1941, 1850, 1906, 1087, 1297, 6,    1132, 1727, 671,  428,  447,
-                                           1647, 1896, 1394, 810,  464,  1220, 1682, 1672, 149,  211,  1423, 1802, 1185,
-                                           1429, 213,  1530, 917,  446,  1760, 1155, 274,  1190, 1458, 1046, 593,  772,
-                                           873,  1355, 589,  101,  1291, 142,  93,   132,  507,  584,  1659};
-        ;
-        for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedWorkplaceCount[i], geoGrid[i]->CRefCenters(Id::Workplace).size());
-        }
+        vector<int> workplaceCount{1328, 516,  1941, 1850, 1906, 1087, 1297, 6,    1132, 1727, 671,  428,  447,
+                                   1647, 1896, 1394, 810,  464,  1220, 1682, 1672, 149,  211,  1423, 1802, 1185,
+                                   1429, 213,  1530, 917,  446,  1760, 1155, 274,  1190, 1458, 1046, 593,  772,
+                                   873,  1355, 589,  101,  1291, 142,  93,   132,  507,  584,  1659};
 
-        cout << endl;
+        for (size_t i = 0; i < sizes.size(); i++) {
+                EXPECT_EQ(workplaceCount[i], geoGrid[i]->CRefCenters(Id::Workplace).size());
+                EXPECT_EQ(workplaceCount[i] * config.pools.pools_per_workplace,
+                          geoGrid[i]->CRefPools(Id::Workplace).size() );
+        }
 }
 
 } // namespace

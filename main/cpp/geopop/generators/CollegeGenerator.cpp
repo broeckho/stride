@@ -66,8 +66,9 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
                 for (auto j = 0U; j < geoGridConfig.pools.pools_per_college; ++j) {
                         const auto p = poolSys.CreateContactPool(Id::College);
                         college->RegisterPool(p);
+                        loc->RegisterPool<Id::College>(p);
                 }
-                
+
                 loc->AddCenter(college);
         }
 }

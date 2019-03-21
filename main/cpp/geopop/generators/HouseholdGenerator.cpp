@@ -49,6 +49,7 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
                 for (auto j = 0U; j < geoGridConfig.pools.pools_per_houselhold; ++j) {
                         const auto p = poolSys.CreateContactPool(Id::Household);
                         h->RegisterPool(p);
+                        loc->RegisterPool<Id::Household>(p);
                 }
 
                 loc->AddCenter(h);

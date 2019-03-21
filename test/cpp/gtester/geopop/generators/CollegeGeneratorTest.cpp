@@ -32,6 +32,7 @@ using namespace stride::util;
 
 namespace {
 
+// Checks whther generator can handle a single location.
 TEST(CollegeGeneratorTest, OneLocationTest)
 {
         RnMan            rnMan{RnInfo()};
@@ -50,8 +51,12 @@ TEST(CollegeGeneratorTest, OneLocationTest)
 
         const auto& centersOfLoc1 = loc1->CRefCenters(Id::College);
         EXPECT_EQ(centersOfLoc1.size(), 3);
+
+        const auto& poolsOfLoc1 = loc1->CRefPools<Id::College>();
+        EXPECT_EQ(poolsOfLoc1.size(), 3 * config.pools.pools_per_college);
 }
 
+// Checks whether Generator can handle zero locations in GeoGrid.
 TEST(CollegeGeneratorTest, ZeroLocationTest)
 {
         RnMan            rnMan{RnInfo()};
@@ -68,7 +73,8 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
         EXPECT_EQ(geoGrid.size(), 0);
 }
 
-TEST(CollegeGeneratorTest, FiveLocationsTest)
+// Checks whether generator can handle multiple locations.
+TEST(CollegeGeneratorTest, MultipleLocationsTest)
 {
         RnMan            rnMan{RnInfo()};
         CollegeGenerator collegeGenerator(rnMan);
@@ -91,7 +97,11 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         vector<int> expectedCount{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
         for (size_t i = 0; i < sizes.size(); i++) {
                 EXPECT_EQ(expectedCount[i], geoGrid[i]->CRefCenters(Id::College).size());
+                EXPECT_EQ(expectedCount[i] * config.pools.pools_per_college,
+                                          geoGrid[i]->CRefPools<Id::College>().size());
         }
+
+
 }
 
 } // namespace

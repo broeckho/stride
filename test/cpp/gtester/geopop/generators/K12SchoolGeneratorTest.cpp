@@ -32,11 +32,13 @@ using namespace stride::util;
 
 namespace {
 
+// Check that generator can handle one Location.
 TEST(SchoolGeneratorTest, OneLocationTest)
 {
         RnMan              rnMan{RnInfo()};
         K12SchoolGenerator schoolGenerator(rnMan);
         unsigned int       ccCounter{1U};
+
         GeoGridConfig      config{};
         config.input.pop_size             = 10000;
         config.popInfo.popcount_k12school = 2000;
@@ -50,13 +52,18 @@ TEST(SchoolGeneratorTest, OneLocationTest)
 
         const auto& centersOfLoc1 = loc1->CRefCenters(Id::K12School);
         EXPECT_EQ(centersOfLoc1.size(), 4);
+
+        const auto& poolsOfLoc1 = loc1->CRefPools(Id::K12School);
+        EXPECT_EQ(poolsOfLoc1.size(), 4 * config.pools.pools_per_k12school);
 }
 
+// Check that generator can handle empty GeoGrid.
 TEST(SchoolGeneratorTest, ZeroLocationTest)
 {
         RnMan              rnMan{RnInfo()};
         K12SchoolGenerator schoolGenerator(rnMan);
         unsigned int       ccCounter{1U};
+
         GeoGridConfig      config{};
         config.input.pop_size             = 10000;
         config.popInfo.popcount_k12school = 2000;
@@ -68,6 +75,7 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
         EXPECT_EQ(geoGrid.size(), 0);
 }
 
+// Check that generator can handle five Locations.
 TEST(SchoolGeneratorTest, FiveLocationsTest)
 {
         RnMan              rnMan{RnInfo()};
@@ -112,6 +120,21 @@ TEST(SchoolGeneratorTest, FiveLocationsTest)
 
         const auto& centersOfLoc5 = loc5->CRefCenters(Id::K12School);
         EXPECT_EQ(centersOfLoc5.size(), 179);
+
+        const auto& poolsOfLoc1 = loc1->CRefPools(Id::K12School);
+        EXPECT_EQ(poolsOfLoc1.size(), 444 * config.pools.pools_per_k12school);
+
+        const auto& poolsOfLoc2 = loc2->CRefPools(Id::K12School);
+        EXPECT_EQ(poolsOfLoc2.size(), 416 * config.pools.pools_per_k12school);
+
+        const auto& poolsOfLoc3 = loc3->CRefPools(Id::K12School);
+        EXPECT_EQ(poolsOfLoc3.size(), 330 * config.pools.pools_per_k12school);
+
+        const auto& poolsOfLoc4 = loc4->CRefPools(Id::K12School);
+        EXPECT_EQ(poolsOfLoc4.size(), 133 * config.pools.pools_per_k12school);
+
+        const auto& poolsOfLoc5 = loc5->CRefPools(Id::K12School);
+        EXPECT_EQ(poolsOfLoc5.size(), 179 * config.pools.pools_per_k12school);
 }
 
 } // namespace
