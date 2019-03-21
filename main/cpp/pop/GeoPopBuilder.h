@@ -21,7 +21,6 @@
 #pragma once
 
 #include "AbstractPopBuilder.h"
-#include "contact/IdSubscriptArray.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 
@@ -43,7 +42,7 @@ class GeoPopBuilder : public AbstractPopBuilder
 {
 public:
         /// Use constructor of base.
-        //using AbstractPopBuilder::AbstractPopBuilder;
+        // using AbstractPopBuilder::AbstractPopBuilder;
 
         /// Initializing constructor.
         /// \param config        Property_tree with general configuration settings.
@@ -65,11 +64,6 @@ private:
 
         /// Build and store the Pop part of the GeoGrid.
         void MakePersons(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
-
-private:
-        /// The current number of ContactCenters, used to obtain an Id for a new contactCenter.
-        /// ! 0 has special meaning (not assigned)!
-        ContactType::IdSubscriptArray<unsigned int> m_cc_counters;
 };
 
 } // namespace stride

@@ -15,9 +15,9 @@
 
 #pragma once
 
-#include "CitiesReader.h"
 #include "CommutesReader.h"
 #include "HouseholdReader.h"
+#include "LocationsReader.h"
 
 #include <istream>
 #include <memory>
@@ -43,10 +43,10 @@ class ReaderFactory
 {
 public:
         /// Create a CitiesReader based on the filename relative to the data directory.
-        static std::shared_ptr<CitiesReader> CreateCitiesReader(const std::string& filename);
+        static std::shared_ptr<LocationsReader> CreateCitiesReader(const std::string& filename);
 
         /// Create a CitiesReader based on an absolute filesystem path for the input file.
-        static std::shared_ptr<CitiesReader> CreateCitiesReader(const filesys::path& path);
+        static std::shared_ptr<LocationsReader> CreateCitiesReader(const filesys::path& path);
 
         /// Create a CommutesReader based on the filename relative to the data directory.
         static std::shared_ptr<CommutesReader> CreateCommutesReader(const std::string& filename);

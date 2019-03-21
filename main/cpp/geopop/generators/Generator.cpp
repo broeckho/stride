@@ -10,17 +10,20 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#pragma once
+#include "Generator.h"
 
 #include "util/LogUtils.h"
 
-#include <spdlog/logger.h>
+namespace geopop {
 
-inline std::shared_ptr<spdlog::logger> CreateTestLogger()
+Generator::Generator(stride::util::RnMan rnMan, std::shared_ptr<spdlog::logger> logger)
+    : m_rn_man(std::move(rnMan)), m_logger(std::move(logger))
 {
-        std::shared_ptr<spdlog::logger> logger = stride::util::LogUtils::CreateNullLogger("test_logger");
-        return logger;
+        if (!m_logger)
+                m_logger = stride::util::LogUtils::CreateNullLogger();
 }
+
+} // namespace geopop

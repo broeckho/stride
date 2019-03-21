@@ -10,31 +10,29 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2019, Jan Broeckhove.
  */
 
 #pragma once
 
-#include "ContactCenter.h"
+#include "Generator.h"
 
 namespace geopop {
 
-class GeoGrid;
-
 /**
- * Models a K12School as ContactCenter.
+ * Generates ContactCenters and pools for ContactType PrimaryCommunity.
  */
-class K12SchoolCenter : public ContactCenter
+class SecondaryCommunityGenerator : public Generator
 {
 public:
-        /// Construct K12school with assigned ID.
-        explicit K12SchoolCenter(unsigned int id) : ContactCenter(id) {}
+        using Generator::Generator;
 
-        /// See ContactCenter::Fill.
-        void SetupPools(const GeoGridConfig& geoGridConfig, stride::Population* pop) override;
+        /// See @Generator::Apply.
+        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) override;
 
-        /// See ContactCenter::GetContactPoolType.
-        stride::ContactType::Id GetContactPoolType() const override { return stride::ContactType::Id::K12School; }
+        /// see @Generator::SetupPools.
+        void SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+                        stride::Population* pop) override;
 };
 
 } // namespace geopop

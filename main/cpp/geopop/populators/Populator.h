@@ -16,7 +16,6 @@
 #pragma once
 
 #include "contact/ContactType.h"
-
 #include "util/RnMan.h"
 
 #include <spdlog/logger.h>
@@ -30,13 +29,6 @@ namespace geopop {
 class GeoGrid;
 class GeoGridConfig;
 class Location;
-
-class CollegeCenter;
-class HouseholdCenter;
-class K12SchoolCenter;
-class PrimaryCommunityCenter;
-class SecondaryCommunityCenter;
-class WorkplaceCenter;
 
 /**
  * Interface for populators. They generate some data and apply it to the GeoGrid.
@@ -60,7 +52,7 @@ protected:
         std::vector<stride::ContactPool*> GetNearbyPools(stride::ContactType::Id id, const GeoGrid& geoGrid,
                                                          const Location& start, double startRadius = 10.0) const;
 
-        /// Convenience wrapper around m_rnManager
+        /// Binary selection corresponding to fraction% true en (1-fraction)% false.
         bool MakeChoice(double fraction);
 
 protected:

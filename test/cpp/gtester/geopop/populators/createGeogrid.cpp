@@ -15,13 +15,17 @@
 
 #include "createGeogrid.h"
 
-#include "geopop/HouseholdCenter.h"
-#include "geopop/K12SchoolCenter.h"
+#include "geopop/ContactCenter.h"
 #include "geopop/Location.h"
+#include "geopop/generators/HouseholdGenerator.h"
+#include "geopop/generators/K12SchoolGenerator.h"
 #include "pop/Population.h"
+#include "util/RnMan.h"
 
 using namespace std;
 using namespace stride;
+using namespace stride::util;
+using namespace stride::ContactType;
 using namespace geopop;
 
 void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount, Population* pop)
@@ -40,9 +44,12 @@ void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount,
             76, 73, 9,  27, 5,  68, 25, 16, 29, 58, 78, 75, 40, 8,  37, 63, 63, 76, 55, 47, 18, 4,  21, 39, 45,
             42, 20, 41, 40, 37, 38, 30, 48, 9,  40, 23, 68, 77, 21, 50, 18, 27, 54, 1,  32, 67, 27, 14, 4,  78};
 
-        const auto    populationSize{populationSample.size()};
-        GeoGridConfig config{};
-        auto&         geoGrid = pop->RefGeoGrid();
+        const auto                     populationSize{populationSample.size()};
+        GeoGridConfig                  config{};
+        auto&                          geoGrid = pop->RefGeoGrid();
+        RnMan                          rnMan(RnInfo{});
+        K12SchoolGenerator             k12Gen(rnMan);
+        HouseholdGenerator             hhGen(rnMan);
 
         size_t sampleId = 0;
         auto   personId = 0U;
@@ -50,14 +57,15 @@ void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount,
                 auto loc = make_shared<Location>(locI, 1, Coordinate(0.0, 0.0), "", locPop);
 
                 for (int schI = 0; schI < schoolCount; schI++) {
-                        auto k12School = make_shared<K12SchoolCenter>(stoi(to_string(locI) + to_string(schI)));
-                        k12School->SetupPools(config, pop);
+                        auto k12School =
+                            make_shared<ContactCenter>(stoi(to_string(locI) + to_string(schI)), Id::K12School);
+                        k12Gen.SetupPools(*loc, *k12School, config, pop);
                         loc->AddCenter(k12School);
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {
-                        auto hCenter = make_shared<HouseholdCenter>(stoi(to_string(locI) + to_string(hI)));
-                        hCenter->SetupPools(config, pop);
+                        auto hCenter = make_shared<ContactCenter>(stoi(to_string(locI) + to_string(hI)), Id::Household);
+                        hhGen.SetupPools(*loc, *hCenter, config, pop);
                         auto contactPool = (*hCenter)[0];
 
                         for (int i = 0; i < personCount; i++) {

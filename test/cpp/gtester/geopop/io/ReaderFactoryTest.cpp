@@ -15,9 +15,9 @@
 
 #include "geopop/io/ReaderFactory.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/io/CitiesCSVReader.h"
 #include "geopop/io/CommutesCSVReader.h"
 #include "geopop/io/HouseholdCSVReader.h"
+#include "geopop/io/LocationsCSVReader.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
 
@@ -62,9 +62,9 @@ TEST(ReaderFactoryTest, TestCommutesFromFile)
 
 TEST(ReaderFactoryTest, TestCities)
 {
-        const shared_ptr<CitiesReader>& res1 = ReaderFactory::CreateCitiesReader(string("flanders_cities.csv"));
+        const shared_ptr<LocationsReader>& res1 = ReaderFactory::CreateCitiesReader(string("flanders_cities.csv"));
 
-        EXPECT_NE(dynamic_pointer_cast<CitiesCSVReader>(res1), nullptr);
+        EXPECT_NE(dynamic_pointer_cast<LocationsCSVReader>(res1), nullptr);
 
         EXPECT_THROW(ReaderFactory::CreateCitiesReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"),
                      runtime_error);

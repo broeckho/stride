@@ -18,8 +18,6 @@
 #include "contact/AgeBrackets.h"
 #include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/HouseholdCenter.h"
-#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
 #include "pop/Person.h"
 
@@ -33,10 +31,6 @@ void K12SchoolPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 {
         m_logger->trace("Starting to populate Schools");
 
-        set<ContactPool*> found;
-        unsigned int      pupils = 0;
-
-        // for every location
         for (const auto& loc : geoGrid) {
                 if (loc->GetPopCount() == 0) {
                         continue;
@@ -50,20 +44,16 @@ void K12SchoolPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                 // 2. for every student assign a class
                 for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
                         ContactPool* const contactPool = (*hhCenter)[0];
-                        found.insert(contactPool);
                         for (Person* p : *contactPool) {
                                 if (AgeBrackets::K12School::HasAge(p->GetAge())) {
                                         auto& c = classes[dist()];
                                         c->AddMember(p);
                                         p->SetPoolId(Id::K12School, c->GetId());
-                                        pupils++;
                                 }
                         }
                 }
         }
 
-        m_logger->debug("Number of pupils in schools: {}", pupils);
-        m_logger->debug("Number of different classes: {}", found.size());
         m_logger->trace("Done populating K12Schools");
 }
 

@@ -15,12 +15,8 @@
 
 #include "GeoGridIOUtils.h"
 
-#include "geopop/CollegeCenter.h"
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/HouseholdCenter.h"
-#include "geopop/K12SchoolCenter.h"
-#include "geopop/PrimaryCommunityCenter.h"
-#include "geopop/WorkplaceCenter.h"
 #include "geopop/io/GeoGridJSONWriter.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
@@ -34,6 +30,7 @@
 using namespace std;
 using namespace geopop;
 using namespace stride;
+using namespace stride::ContactType;
 using namespace stride::util;
 using boost::property_tree::ptree;
 
@@ -96,11 +93,11 @@ TEST(GeoGridJSONWriterTest, contactCentersTest)
         auto pop      = Population::Create();
         auto geoGrid  = GeoGrid(pop.get());
         auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
-        location->AddCenter(make_shared<K12SchoolCenter>(0));
-        location->AddCenter(make_shared<PrimaryCommunityCenter>(1));
-        location->AddCenter(make_shared<CollegeCenter>(2));
-        location->AddCenter(make_shared<HouseholdCenter>(3));
-        location->AddCenter(make_shared<WorkplaceCenter>(4));
+        location->AddCenter(make_shared<ContactCenter>(0, Id::K12School));
+        location->AddCenter(make_shared<ContactCenter>(1, Id::PrimaryCommunity));
+        location->AddCenter(make_shared<ContactCenter>(2, Id::College));
+        location->AddCenter(make_shared<ContactCenter>(3, Id::Household));
+        location->AddCenter(make_shared<ContactCenter>(4, Id::Workplace));
         geoGrid.AddLocation(location);
 
         EXPECT_TRUE(compareGeoGrid(geoGrid, "test1.json"));

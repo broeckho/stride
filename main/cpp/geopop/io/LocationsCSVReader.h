@@ -15,18 +15,22 @@
 
 #pragma once
 
-#include "CitiesReader.h"
+#include "LocationsReader.h"
 
 namespace geopop {
 
 /**
- * Create a Reader that fills a GeoGrid with the cities found in a CSV input stream.
+ * Create a Reader that fills a GeoGrid with the Location data found in a CSV input stream.
+ * Data are expected in format:
+ * id, province, population, x_coord, y_coord, latitude, longitude, name
+ * The population here is the actual population. It is converted to a population fraction
+ * that later gets rescaled with the (fictitious) total population count used during simulation.
  */
-class CitiesCSVReader : public CitiesReader
+class LocationsCSVReader : public LocationsReader
 {
 public:
         /// Construct the CitiesCSVReader that reads istream CSV data.
-        explicit CitiesCSVReader(std::unique_ptr<std::istream> inputStream);
+        explicit LocationsCSVReader(std::unique_ptr<std::istream> inputStream);
 
         /// Add the locations read to the GeoGrid.
         void FillGeoGrid(GeoGrid& geoGrid) const override;
