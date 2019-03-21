@@ -171,8 +171,8 @@ TEST_F(CollegePopulatorTest, NotCommuting)
         const auto ppc = GeoGridConfig().pools.pools_per_college;
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
-        for (const auto& hCenter : schoten->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : schoten->RefPools(Id::Household)) {
+                for (auto p : *hPool) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= 2 * ppc);
                         } else {
@@ -182,8 +182,8 @@ TEST_F(CollegePopulatorTest, NotCommuting)
         }
 
         // Assert that persons of Brasschaat only go to Schoten or Brasschaat
-        for (const auto& hCenter : brasschaat->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : brasschaat->RefPools(Id::Household)) {
+                for (auto p : *hPool) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= 2 * ppc);
                         } else {
@@ -193,8 +193,8 @@ TEST_F(CollegePopulatorTest, NotCommuting)
         }
 
         // Assert that persons of Kortrijk only go to Kortijk
-        for (const auto& hCenter : kortrijk->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : kortrijk->RefPools(Id::Household)) {
+                for (auto p : *hPool) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) > 2 * ppc &&
                                             p->GetPoolId(Id::College) <= 3 * ppc);
@@ -235,8 +235,8 @@ TEST_F(CollegePopulatorTest, OnlyCommuting)
         const auto ppc = GeoGridConfig().pools.pools_per_college;
 
         // Assert that persons of Schoten only go to Kortrijk
-        for (const auto& hCenter : schoten->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : schoten->RefPools(Id::Household)) {
+                for (auto p : *hPool) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) > ppc && p->GetPoolId(Id::College) <= 2 * ppc);
                         } else {
@@ -246,8 +246,8 @@ TEST_F(CollegePopulatorTest, OnlyCommuting)
         }
 
         // Assert that persons of Kortrijk only go to Schoten
-        for (const auto& hCenter : kortrijk->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : kortrijk->RefPools(Id::Household)) {
+                for (auto p : *hPool) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= ppc);
                         } else {
@@ -294,8 +294,8 @@ TEST_F(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         const auto ppc = GeoGridConfig().pools.pools_per_college;
 
         // Assert that persons of Schoten only commute to Kortrijk
-        for (const auto& hCenter : schoten->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : schoten->RefPools(Id::Household)) {
+                for (auto p : *hPool) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) > 2 * ppc &&
                                             p->GetPoolId(Id::College) <= 3 * ppc);
@@ -306,8 +306,8 @@ TEST_F(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         }
 
         // Assert that persons of Brasschaat only commute to Brasschaat or Schoten
-        for (const auto& hCenter : brasschaat->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : brasschaat->RefPools(Id::Household)) {
+                for (auto p : *hPool) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= 2 * ppc);
                         } else {
@@ -317,8 +317,8 @@ TEST_F(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         }
 
         // Assert that persons of Kortrijk only commute to Schoten
-        for (const auto& hCenter : kortrijk->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : kortrijk->RefPools(Id::Household)) {
+                for (auto p : *hPool) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(p->GetPoolId(Id::College) > ppc && p->GetPoolId(Id::College) <= 2 * ppc);
                         } else {

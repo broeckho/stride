@@ -74,7 +74,7 @@ void K12SchoolGenerator::SetupPools(Location& loc, ContactCenter& center, const 
         for (auto i = 0U; i < geoGridConfig.pools.pools_per_k12school; ++i) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::K12School);
                 center.RegisterPool(p);
-                loc.RegisterPool<Id::College>(p);
+                loc.RegisterPool<Id::K12School>(p);
         }
 }
 

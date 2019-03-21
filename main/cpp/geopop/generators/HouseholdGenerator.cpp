@@ -64,7 +64,7 @@ void HouseholdGenerator::SetupPools(Location& loc, ContactCenter& center, const 
         for (auto i = 0U; i < geoGridConfig.pools.pools_per_household; ++i) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Household);
                 center.RegisterPool(p);
-                loc.RegisterPool<Id::College>(p);
+                loc.RegisterPool<Id::Household>(p);
         }
 }
 

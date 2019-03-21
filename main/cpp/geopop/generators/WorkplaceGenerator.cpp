@@ -86,7 +86,7 @@ void WorkplaceGenerator::SetupPools(Location& loc, ContactCenter& center, const 
         // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
         const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
         center.RegisterPool(p);
-        loc.RegisterPool<Id::College>(p);
+        loc.RegisterPool<Id::Workplace>(p);
         //}
 }
 

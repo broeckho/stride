@@ -84,7 +84,7 @@ void PrimaryCommunityGenerator::SetupPools(Location& loc, ContactCenter& center,
         if (center.size() == 0) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::PrimaryCommunity);
                 center.RegisterPool(p);
-                loc.RegisterPool<Id::College>(p);
+                loc.RegisterPool<Id::PrimaryCommunity>(p);
         }
 }
 

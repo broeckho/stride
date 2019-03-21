@@ -100,8 +100,6 @@ TEST_F(CollegeGeneratorTest, MultipleLocationsTest)
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_college,
                                             m_geo_grid[i]->CRefPools<Id::College>().size());
         }
-
-
 }
 
 } // namespace
