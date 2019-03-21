@@ -19,6 +19,7 @@
  */
 
 #include "ScenarioData.h"
+#include "geopop/Location.h"
 #include "pop/Population.h"
 #include "sim/Sim.h"
 #include "sim/SimRunner.h"
@@ -104,6 +105,20 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsign
         logger->flush();
         EXPECT_NEAR(res, target, target * margin)
             << "Failure at scenario: " << testTag << " with number of threads: " << numThreads << endl;
+
+        // -----------------------------------------------------------------------------------------
+        // For geopop runs: check infected count summed over locations equals that from population.
+        // -----------------------------------------------------------------------------------------
+        bool geopop = testTag.size() > string("geopop").size() &&
+                testTag.substr(testTag.size() - string("geopop").size(), testTag.size() - 1) == "geopop";
+        if (geopop) {
+                auto& geoGrid = pop->RefGeoGrid();
+                auto infectedCount = 0U;
+                for (const auto& loc : geoGrid) {
+                       infectedCount += loc->GetInfectedCount();
+                }
+                EXPECT_EQ(res, infectedCount);
+        }
 }
 
 TEST_P(RunsDefault, SingleThread)

@@ -105,6 +105,14 @@ std::shared_ptr<Population> Population::Create()
         return r;
 }
 
+Person* Population::CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,
+                                 unsigned int college, unsigned int workId, unsigned int primaryCommunityId,
+                                 unsigned int secondaryCommunityId)
+{
+        return emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId,
+                            secondaryCommunityId);
+}
+
 unsigned int Population::GetInfectedCount() const
 {
         unsigned int total{0U};
@@ -113,14 +121,6 @@ unsigned int Population::GetInfectedCount() const
                 total += h.IsInfected() || h.IsRecovered();
         }
         return total;
-}
-
-Person* Population::CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,
-                                 unsigned int college, unsigned int workId, unsigned int primaryCommunityId,
-                                 unsigned int secondaryCommunityId)
-{
-        return emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId,
-                            secondaryCommunityId);
 }
 
 } // namespace stride
