@@ -67,7 +67,7 @@ set(SRC
     #---
     geopop/kdtree.cpp
     #---
-    geopop/populators/createGeogrid.cpp
+    geopop/populators/MakeGeoGrid.cpp
     geopop/populators/CollegePopulatorTest.cpp
     geopop/populators/HouseholdPopulatorTest.cpp
     geopop/populators/K12SchoolPopulatorTest.cpp

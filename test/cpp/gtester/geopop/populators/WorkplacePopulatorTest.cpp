@@ -16,7 +16,7 @@
 #include "geopop/populators/WorkplacePopulator.h"
 
 #include "contact/AgeBrackets.h"
-#include "createGeogrid.h"
+#include "MakeGeoGrid.h"
 #include "geopop/Location.h"
 #include "geopop/generators/WorkplaceGenerator.h"
 #include "pop/Population.h"
@@ -50,7 +50,7 @@ TEST(WorkplacePopulatorTest, NoPopulation)
 TEST(WorkplacePopulatorTest, NoActive)
 {
         auto pop = Population::Create();
-        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        MakeGeoGrid(3, 100, 3, 33, 3, pop.get());
         auto& geoGrid = pop->RefGeoGrid();
         RnMan rnMan{RnInfo{}};
 
@@ -81,7 +81,7 @@ TEST(WorkplacePopulatorTest, NoActive)
 TEST(WorkplacePopulatorTest, NoCommuting)
 {
         auto pop = Population::Create();
-        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        MakeGeoGrid(3, 100, 3, 33, 3, pop.get());
         auto& geoGrid = pop->RefGeoGrid();
 
         RnMan              rnMan{RnInfo{}};
@@ -176,7 +176,7 @@ TEST(WorkplacePopulatorTest, NoCommuting)
 TEST(WorkplacePopulatorTest, OnlyCommuting)
 {
         auto pop = Population::Create();
-        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        MakeGeoGrid(3, 100, 3, 33, 3, pop.get());
         auto& geoGrid = pop->RefGeoGrid();
 
         auto               rnMan = RnMan(RnInfo{});
@@ -254,7 +254,7 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
 
         auto pop = Population::Create();
-        SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
+        MakeGeoGrid(3, 100, 3, 33, 3, pop.get());
         auto& geoGrid = pop->RefGeoGrid();
 
         auto               rnMan = RnMan{RnInfo{}};

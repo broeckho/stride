@@ -19,5 +19,5 @@
 #include "geopop/GeoGridConfig.h"
 
 /// Setup of the GeoGrid in the population.
-void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount,
-                  stride::Population* pop);
+void MakeGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount,
+                 stride::Population* pop);

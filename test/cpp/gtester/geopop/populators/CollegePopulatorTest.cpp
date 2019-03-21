@@ -16,7 +16,7 @@
 #include "geopop/populators/CollegePopulator.h"
 
 #include "contact/AgeBrackets.h"
-#include "createGeogrid.h"
+#include "MakeGeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
 #include "geopop/generators/CollegeGenerator.h"
@@ -62,7 +62,7 @@ TEST_F(CollegePopulatorTest, NoPopulation)
 
 TEST_F(CollegePopulatorTest, NoStudents)
 {
-        SetupGeoGrid(3, 100, 3, 33, 3, m_pop.get());
+        MakeGeoGrid(3, 100, 3, 33, 3, m_pop.get());
         m_geogrid_config.input.fraction_college_commuters = 0;
         m_geogrid_config.input.participation_college      = 0;
         unsigned int     contactCenterCounter   = 1;
@@ -105,7 +105,7 @@ TEST_F(CollegePopulatorTest, NoStudents)
 
 TEST_F(CollegePopulatorTest, NotCommuting)
 {
-        SetupGeoGrid(3, 100, 3, 33, 3, m_pop.get());
+        MakeGeoGrid(3, 100, 3, 33, 3, m_pop.get());
         m_geogrid_config.input.fraction_college_commuters = 0;
         m_geogrid_config.input.participation_college      = 1;
         unsigned int     contactCenterCounter   = 1;
@@ -214,7 +214,7 @@ TEST_F(CollegePopulatorTest, NotCommuting)
 
 TEST_F(CollegePopulatorTest, OnlyCommuting)
 {
-        SetupGeoGrid(2, 100, 3, 50, 3, m_pop.get());
+        MakeGeoGrid(2, 100, 3, 50, 3, m_pop.get());
         m_geogrid_config.input.fraction_college_commuters = 1;
         m_geogrid_config.input.participation_college      = 1;
         unsigned int     contactCenterCounter   = 1;
@@ -266,7 +266,7 @@ TEST_F(CollegePopulatorTest, OnlyCommuting)
 
 TEST_F(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        SetupGeoGrid(3, 100, 3, 33, 3, m_pop.get());
+        MakeGeoGrid(3, 100, 3, 33, 3, m_pop.get());
         m_geogrid_config.input.fraction_college_commuters = 1;
         m_geogrid_config.input.participation_college      = 1;
         unsigned int     contactCenterCounter   = 1;

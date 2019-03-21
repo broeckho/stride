@@ -13,7 +13,7 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "createGeogrid.h"
+#include "MakeGeoGrid.h"
 
 #include "geopop/ContactCenter.h"
 #include "geopop/Location.h"
@@ -28,7 +28,7 @@ using namespace stride::util;
 using namespace stride::ContactType;
 using namespace geopop;
 
-void SetupGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount, Population* pop)
+void MakeGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount, Population *pop)
 {
         vector<unsigned int> populationSample = {
             17, 27, 65, 40, 29, 76, 27, 50, 28, 62, 50, 14, 30, 36, 12, 31, 25, 72, 62, 4,  40, 52, 55, 50, 62,
