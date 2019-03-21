@@ -32,7 +32,6 @@ using namespace stride;
 using namespace stride::ContactType;
 using namespace stride::util;
 
-
 class PrimaryCommunityPopulatorTest : public testing::Test
 {
 public:

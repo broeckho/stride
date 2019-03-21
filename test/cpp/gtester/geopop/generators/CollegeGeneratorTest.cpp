@@ -32,73 +32,77 @@ using namespace stride::util;
 
 namespace {
 
+class CollegeGeneratorTest : public testing::Test {
+public:
+        CollegeGeneratorTest()
+                : m_rn_man(RnInfo()), m_college_generator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+                  m_geo_grid(m_pop.get())
+                {
+                }
+
+protected:
+        void SetUp() override
+        {
+        }
+
+        RnMan                        m_rn_man;
+        CollegeGenerator             m_college_generator;
+        GeoGridConfig                m_geogrid_config;
+        shared_ptr<Population>       m_pop;
+        GeoGrid                      m_geo_grid;
+};
+
 // Checks whther generator can handle a single location.
-TEST(CollegeGeneratorTest, OneLocationTest)
+TEST_F(CollegeGeneratorTest, OneLocationTest)
 {
-        RnMan            rnMan{RnInfo()};
-        CollegeGenerator collegeGenerator(rnMan);
+        m_geogrid_config.input.pop_size           = 45000;
+        m_geogrid_config.popInfo.popcount_college = 9000;
+
+        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", m_geogrid_config.input.pop_size);
+        m_geo_grid.AddLocation(loc1);
+
         unsigned int     ccCounter{1U};
-        GeoGridConfig    config{};
-        config.input.pop_size           = 45000;
-        config.popInfo.popcount_college = 9000;
-
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
-        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", config.input.pop_size);
-
-        geoGrid.AddLocation(loc1);
-        collegeGenerator.Apply(geoGrid, config, ccCounter);
+        m_college_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
 
         const auto& centersOfLoc1 = loc1->CRefCenters(Id::College);
         EXPECT_EQ(centersOfLoc1.size(), 3);
 
         const auto& poolsOfLoc1 = loc1->CRefPools<Id::College>();
-        EXPECT_EQ(poolsOfLoc1.size(), 3 * config.pools.pools_per_college);
+        EXPECT_EQ(poolsOfLoc1.size(), 3 * m_geogrid_config.pools.pools_per_college);
 }
 
 // Checks whether Generator can handle zero locations in GeoGrid.
-TEST(CollegeGeneratorTest, ZeroLocationTest)
+TEST_F(CollegeGeneratorTest, ZeroLocationTest)
 {
-        RnMan            rnMan{RnInfo()};
-        CollegeGenerator collegeGenerator(rnMan);
+        m_geogrid_config.input.pop_size           = 10000;
+        m_geogrid_config.popInfo.popcount_college = 2000;
+
         unsigned int     ccCounter{1U};
-        GeoGridConfig    config{};
-        config.input.pop_size           = 10000;
-        config.popInfo.popcount_college = 2000;
+        m_college_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
 
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
-        collegeGenerator.Apply(geoGrid, config, ccCounter);
-
-        EXPECT_EQ(geoGrid.size(), 0);
+        EXPECT_EQ(m_geo_grid.size(), 0);
 }
 
 // Checks whether generator can handle multiple locations.
-TEST(CollegeGeneratorTest, MultipleLocationsTest)
+TEST_F(CollegeGeneratorTest, MultipleLocationsTest)
 {
-        RnMan            rnMan{RnInfo()};
-        CollegeGenerator collegeGenerator(rnMan);
-        unsigned int     ccCounter{1U};
-        GeoGridConfig    config{};
-        config.input.pop_size           = 399992;
-        config.popInfo.popcount_college = 79998;
-
-        auto        pop     = Population::Create();
-        auto        geoGrid = GeoGrid(pop.get());
+        m_geogrid_config.input.pop_size           = 399992;
+        m_geogrid_config.popInfo.popcount_college = 79998;
 
         vector<int> sizes{28559, 33319, 39323, 37755, 35050, 10060, 13468, 8384,
                           9033,  31426, 33860, 4110,  50412, 25098, 40135};
         for (int size : sizes) {
                 const auto loc = make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size);
-                geoGrid.AddLocation(loc);
+                m_geo_grid.AddLocation(loc);
         }
-        collegeGenerator.Apply(geoGrid, config, ccCounter);
+        unsigned int     ccCounter{1U};
+        m_college_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
 
-        vector<int> expectedCount{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
+        vector<int> expected{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedCount[i], geoGrid[i]->CRefCenters(Id::College).size());
-                EXPECT_EQ(expectedCount[i] * config.pools.pools_per_college,
-                                          geoGrid[i]->CRefPools<Id::College>().size());
+                EXPECT_EQ(expected[i], m_geo_grid[i]->CRefCenters(Id::College).size());
+                EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_college,
+                                            m_geo_grid[i]->CRefPools<Id::College>().size());
         }
 
 
