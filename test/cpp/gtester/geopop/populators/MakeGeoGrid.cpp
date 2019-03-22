@@ -15,7 +15,6 @@
 
 #include "MakeGeoGrid.h"
 
-#include "geopop/ContactCenter.h"
 #include "geopop/Location.h"
 #include "geopop/generators/HouseholdGenerator.h"
 #include "geopop/generators/K12SchoolGenerator.h"
@@ -34,12 +33,13 @@ using namespace geopop;
  * each having the same number of persons.
  * @param locCount          The number of Locations.
  * @param locPop            The population count at each Location.
- * @param schoolCount       The number of K!2Schools at each Location.
+ * @param schoolCount       The number of K12Schools at each Location.
  * @param houseHoldCount    The number of households at each Location.
  * @param personCount       The number of persons per Household.
  * @param pop               The population carrying this GeoGrid.
  */
-void MakeGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount, Population *pop)
+void MakeGeoGrid(const GeoGridConfig& ggConfig, int locCount, int locPop, int schoolCount, int houseHoldCount,
+                int personCount, Population* pop)
 {
         vector<unsigned int> populationSample = {
             17, 27, 65, 40, 29, 76, 27, 50, 28, 62, 50, 14, 30, 36, 12, 31, 25, 72, 62, 4,  40, 52, 55, 50, 62,
@@ -61,6 +61,8 @@ void MakeGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, 
         RnMan                          rnMan(RnInfo{});
         K12SchoolGenerator             k12Gen(rnMan);
         HouseholdGenerator             hhGen(rnMan);
+        const unsigned int             pph   = ggConfig.pools.pools_per_household;
+        const unsigned int             ppk12 = ggConfig.pools.pools_per_k12school;
 
         size_t sampleId = 0;
         auto   personId = 0U;
@@ -68,25 +70,20 @@ void MakeGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, 
                 auto loc = make_shared<Location>(locI, 1, Coordinate(0.0, 0.0), "", locPop);
 
                 for (int schI = 0; schI < schoolCount; schI++) {
-                        auto k12School =
-                            make_shared<ContactCenter>(stoi(to_string(locI) + to_string(schI)), Id::K12School);
-                        k12Gen.SetupPools(*loc, *k12School, config, pop);
-                        loc->AddCenter(k12School);
+                        k12Gen.AddPools(*loc, pop, ppk12);
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {
-                        auto hCenter = make_shared<ContactCenter>(stoi(to_string(locI) + to_string(hI)), Id::Household);
-                        hhGen.SetupPools(*loc, *hCenter, config, pop);
-                        auto contactPool = (*hCenter)[0];
+                        hhGen.AddPools(*loc, pop, pph);
+                        auto contactPool = loc->RefPools(Id::Household).back();
 
                         for (int i = 0; i < personCount; i++) {
                                 auto sample = populationSample[sampleId % populationSize];
-                                auto p      = pop->CreatePerson(personId, sample, hCenter->GetId(), 0, 0, 0, 0, 0);
+                                auto p      = pop->CreatePerson(personId, sample, contactPool->GetId(), 0, 0, 0, 0, 0);
                                 contactPool->AddMember(p);
                                 sampleId++;
                                 personId++;
                         }
-                        loc->AddCenter(hCenter);
                 }
                 geoGrid.AddLocation(loc);
         }

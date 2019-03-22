@@ -20,7 +20,6 @@
 #include "geopop/Location.h"
 #include "geopop/generators/WorkplaceGenerator.h"
 #include "pop/Population.h"
-#include "util/LogUtils.h"
 #include "util/RnMan.h"
 
 #include <gtest/gtest.h>
@@ -48,6 +47,7 @@ protected:
         shared_ptr<Population>       m_pop;
         GeoGrid&                     m_geo_grid;
         WorkplaceGenerator           m_workplace_generator;
+        const unsigned int           m_ppwp = GeoGridConfig{}.pools.pools_per_workplace;
 };
 
 
@@ -61,7 +61,7 @@ TEST_F(WorkplacePopulatorTest, NoPopulation)
 
 TEST_F(WorkplacePopulatorTest, NoActive)
 {
-        MakeGeoGrid(3, 100, 3, 33, 3, m_pop.get());
+        MakeGeoGrid(m_geogrid_config, 3, 100, 3, 33, 3, m_pop.get());
 
         m_geogrid_config.input.particpation_workplace = 0;
         m_geogrid_config.input.participation_college  = 1;
@@ -88,7 +88,7 @@ TEST_F(WorkplacePopulatorTest, NoActive)
 
 TEST_F(WorkplacePopulatorTest, NoCommuting)
 {
-        MakeGeoGrid(3, 100, 3, 33, 3, m_pop.get());
+        MakeGeoGrid(m_geogrid_config, 3, 100, 3, 33, 3, m_pop.get());
 
         m_geogrid_config.input.fraction_workplace_commuters = 0;
         m_geogrid_config.input.particpation_workplace       = 1;
@@ -97,34 +97,21 @@ TEST_F(WorkplacePopulatorTest, NoCommuting)
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
         // Kortrijk will only receive students from Kortrijik
-        unsigned int       contactCenterCounter   = 1;
 
         auto brasschaat = *m_geo_grid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto workBra1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*brasschaat, *workBra1, m_geogrid_config, m_pop.get());
-        brasschaat->AddCenter(workBra1);
-        auto workBra2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*brasschaat, *workBra2, m_geogrid_config, m_pop.get());
-        brasschaat->AddCenter(workBra2);
+        m_workplace_generator.AddPools(*brasschaat, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*brasschaat, m_pop.get(), m_ppwp);
 
         auto schoten = *(m_geo_grid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto workScho1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*schoten, *workScho1, m_geogrid_config, m_pop.get());
-        schoten->AddCenter(workScho1);
-        auto workScho2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*schoten, *workScho2, m_geogrid_config, m_pop.get());
-        schoten->AddCenter(workScho2);
+        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
 
         auto kortrijk = *(m_geo_grid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto workKor1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*kortrijk, *workKor1, m_geogrid_config, m_pop.get());
-        kortrijk->AddCenter(workKor1);
-        auto workKor2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*kortrijk, *workKor2, m_geogrid_config, m_pop.get());
-        kortrijk->AddCenter(workKor2);
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
 
         m_geo_grid.Finalize();
         m_workplace_populator.Apply(m_geo_grid, m_geogrid_config);
@@ -132,8 +119,8 @@ TEST_F(WorkplacePopulatorTest, NoCommuting)
         const auto pwc = GeoGridConfig().pools.pools_per_workplace;
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
-        for (const auto& hCenter : schoten->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : schoten->RefPools(Id::Household)) {
+                for (auto p : hPool[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 1 && workId <= 4 * pwc);
@@ -146,8 +133,8 @@ TEST_F(WorkplacePopulatorTest, NoCommuting)
         }
 
         // Assert that persons of Brasschaat only go to Schoten or Brasschaat
-        for (const auto& hCenter : brasschaat->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : brasschaat->RefPools(Id::Household)) {
+                for (auto p : hPool[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 1 && workId <= 4 * pwc);
@@ -160,8 +147,8 @@ TEST_F(WorkplacePopulatorTest, NoCommuting)
         }
 
         // Assert that persons of Kortrijk only go to Kortijk
-        for (const auto& hCenter : kortrijk->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : kortrijk->RefPools(Id::Household)) {
+                for (auto p : hPool[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId > 4 * pwc && workId <= 6 * pwc);
@@ -176,7 +163,7 @@ TEST_F(WorkplacePopulatorTest, NoCommuting)
 
 TEST_F(WorkplacePopulatorTest, OnlyCommuting)
 {
-        MakeGeoGrid(3, 100, 3, 33, 3, m_pop.get());
+        MakeGeoGrid(m_geogrid_config, 3, 100, 3, 33, 3, m_pop.get());
 
         m_geogrid_config.input.fraction_workplace_commuters = 0;
         m_geogrid_config.input.fraction_workplace_commuters = 1;
@@ -186,25 +173,16 @@ TEST_F(WorkplacePopulatorTest, OnlyCommuting)
         m_geogrid_config.input.participation_college        = 0.5;
 
         // only commuting
-        unsigned int       contactCenterCounter   = 1;
 
         auto schoten = *(m_geo_grid.begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto workScho1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*schoten, *workScho1, m_geogrid_config, m_pop.get());
-        schoten->AddCenter(workScho1);
-        auto workScho2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*schoten, *workScho2, m_geogrid_config, m_pop.get());
-        schoten->AddCenter(workScho2);
+        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
 
         auto kortrijk = *(m_geo_grid.begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto workKor1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*kortrijk, *workKor1, m_geogrid_config, m_pop.get());
-        kortrijk->AddCenter(workKor1);
-        auto workKor2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*kortrijk, *workKor2, m_geogrid_config, m_pop.get());
-        kortrijk->AddCenter(workKor2);
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
 
         schoten->AddOutgoingCommute(kortrijk, 0.5);
         kortrijk->AddIncomingCommute(schoten, 0.5);
@@ -217,8 +195,8 @@ TEST_F(WorkplacePopulatorTest, OnlyCommuting)
         const auto pwc = GeoGridConfig().pools.pools_per_workplace;
 
         // Assert that persons of Schoten only go to Kortrijk
-        for (const auto& hCenter : schoten->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : schoten->RefPools(Id::Household)) {
+                for (auto p : hPool[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId > 2 * pwc && workId <= 4 * pwc);
@@ -231,8 +209,8 @@ TEST_F(WorkplacePopulatorTest, OnlyCommuting)
         }
 
         // Assert that persons of Kortrijk only go to Schoten
-        for (const auto& hCenter : kortrijk->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : kortrijk->RefPools(Id::Household)) {
+                for (auto p : hPool[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 1 && workId <= 2 * pwc);
@@ -247,7 +225,7 @@ TEST_F(WorkplacePopulatorTest, OnlyCommuting)
 
 TEST_F(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        MakeGeoGrid(3, 100, 3, 33, 3, m_pop.get());
+        MakeGeoGrid(m_geogrid_config, 3, 100, 3, 33, 3, m_pop.get());
 
         m_geogrid_config.input.fraction_workplace_commuters = 0;
         m_geogrid_config.input.fraction_workplace_commuters = 1;
@@ -256,34 +234,20 @@ TEST_F(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         m_geogrid_config.input.particpation_workplace       = 1;
         m_geogrid_config.input.participation_college        = 0.5;
 
-        unsigned int       contactCenterCounter   = 1;
-
         auto brasschaat = *m_geo_grid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto workBra1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*brasschaat, *workBra1, m_geogrid_config, m_pop.get());
-        brasschaat->AddCenter(workBra1);
-        auto workBra2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*brasschaat, *workBra2, m_geogrid_config, m_pop.get());
-        brasschaat->AddCenter(workBra2);
+        m_workplace_generator.AddPools(*brasschaat, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*brasschaat, m_pop.get(), m_ppwp);
 
         auto schoten = *(m_geo_grid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto workScho1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*schoten, *workScho1, m_geogrid_config, m_pop.get());
-        schoten->AddCenter(workScho1);
-        auto workScho2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*schoten, *workScho2, m_geogrid_config, m_pop.get());
-        schoten->AddCenter(workScho2);
+        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
 
         auto kortrijk = *(m_geo_grid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto workKor1 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*kortrijk, *workKor1, m_geogrid_config, m_pop.get());
-        kortrijk->AddCenter(workKor1);
-        auto workKor2 = make_shared<ContactCenter>(contactCenterCounter++, Id::Workplace);
-        m_workplace_generator.SetupPools(*kortrijk, *workKor2, m_geogrid_config, m_pop.get());
-        kortrijk->AddCenter(workKor2);
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat
         schoten->AddOutgoingCommute(kortrijk, 0.5);
@@ -297,8 +261,8 @@ TEST_F(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         const auto pwc = GeoGridConfig().pools.pools_per_workplace;
 
         // Assert that persons of Schoten only go to Kortrijk
-        for (const auto& hCenter : schoten->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : schoten->RefPools(Id::Household)) {
+                for (auto p : hPool[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId > 4 * pwc && workId <= 6 * pwc);
@@ -311,8 +275,8 @@ TEST_F(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         }
 
         // Assert that persons of Brasschaat only go to Brasschaat or Schoten
-        for (const auto& hCenter : brasschaat->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : brasschaat->RefPools(Id::Household)) {
+                for (auto p : hPool[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId >= 1 && workId <= 4 * pwc);
@@ -325,8 +289,8 @@ TEST_F(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         }
 
         // Assert that persons of Kortrijk only go to Schoten
-        for (const auto& hCenter : kortrijk->RefCenters(Id::Household)) {
-                for (auto p : *(*hCenter)[0]) {
+        for (const auto& hPool : kortrijk->RefPools(Id::Household)) {
+                for (auto p : hPool[0]) {
                         const auto workId = p->GetPoolId(Id::Workplace);
                         if (AgeBrackets::Workplace::HasAge(p->GetAge()) && !AgeBrackets::College::HasAge(p->GetAge())) {
                                 EXPECT_TRUE(workId > 2 * pwc && workId <= 4 * pwc);

@@ -51,6 +51,7 @@ protected:
         shared_ptr<Population>       m_pop;
         GeoGrid&                     m_geo_grid;
         K12SchoolGenerator           m_k212school_generator;
+        const unsigned int           m_ppk12 = GeoGridConfig{}.pools.pools_per_k12school;
 };
 
 TEST_F(K12SchoolPopulatorTest, NoPopulation)
@@ -63,15 +64,9 @@ TEST_F(K12SchoolPopulatorTest, NoPopulation)
 
 TEST_F(K12SchoolPopulatorTest, OneLocationTest)
 {
-        MakeGeoGrid(1, 300, 5, 100, 3, m_pop.get());
+        MakeGeoGrid(m_geogrid_config, 1, 300, 5, 100, 3, m_pop.get());
         m_geo_grid.Finalize();
-
         m_k12school_populator.Apply(m_geo_grid, m_geogrid_config);
-
-        auto location   = *m_geo_grid.begin();
-        auto k12Schools = location->RefCenters(Id::K12School);
-
-        EXPECT_EQ(5, k12Schools.size());
 
         map<int, int> usedCapacity{
             {1, 1},   {2, 1},   {3, 0},   {4, 0},   {5, 0},   {6, 0},   {7, 1},   {8, 1},   {9, 2},   {10, 1},
@@ -88,20 +83,11 @@ TEST_F(K12SchoolPopulatorTest, OneLocationTest)
             {111, 1}, {112, 0}, {113, 1}, {114, 0}, {115, 0}, {116, 0}, {117, 0}, {118, 0}, {119, 0}, {120, 1},
             {121, 0}, {122, 1}, {123, 0}, {124, 0}, {125, 0}};
 
-        for (auto& k12Center : k12Schools) {
-                EXPECT_EQ(25, k12Center->size());
-                for (auto& pool : *k12Center) {
-                        EXPECT_EQ(usedCapacity[pool->GetId()], pool->size());
-                        for (Person* person : *pool) {
-                                EXPECT_LE(person->GetAge(), 18);
-                                EXPECT_GE(person->GetAge(), 6);
-                        }
-                }
-        }
+        auto location   = *m_geo_grid.begin();
+        auto& k12Pools  = location->RefPools(Id::K12School);
 
-        auto& pools = location->RefPools(Id::K12School);
-        ASSERT_EQ(pools.size(), 5 * m_geogrid_config.pools.pools_per_k12school);
-        for (auto& pool : pools) {
+        ASSERT_EQ(k12Pools.size(), 5 * m_geogrid_config.pools.pools_per_k12school);
+        for (auto& pool : k12Pools) {
                 EXPECT_EQ(usedCapacity[pool->GetId()], pool->size());
                 for (Person* person : *pool) {
                         EXPECT_LE(person->GetAge(), 18);
@@ -152,7 +138,7 @@ TEST_F(K12SchoolPopulatorTest, OneLocationTest)
 
 TEST_F(K12SchoolPopulatorTest, TwoLocationTest)
 {
-        MakeGeoGrid(3, 100, 3, 33, 3, m_pop.get());
+        MakeGeoGrid(m_geogrid_config, 3, 100, 3, 33, 3, m_pop.get());
 
         // Brasschaat and Schoten are close to each oter and will both have students from both.
         // Kortrijk will only have students going to Kortrijk.
@@ -160,21 +146,13 @@ TEST_F(K12SchoolPopulatorTest, TwoLocationTest)
         auto brasschaat = *m_geo_grid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
         auto schoten = *(m_geo_grid.begin() + 1);
+
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
         auto kortrijk = *(m_geo_grid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
 
         m_geo_grid.Finalize();
         m_k12school_populator.Apply(m_geo_grid, m_geogrid_config);
-
-        auto k12Schools1 = brasschaat->RefCenters(Id::K12School);
-        auto k12Schools2 = schoten->RefCenters(Id::K12School);
-        auto k12Schools3 = kortrijk->RefCenters(Id::K12School);
-
-        // Check 3 K12Schools per location.
-        EXPECT_EQ(3, k12Schools1.size());
-        EXPECT_EQ(3, k12Schools2.size());
-        EXPECT_EQ(3, k12Schools3.size());
 
         auto& k12Pools1 = brasschaat->RefPools(Id::K12School);
         auto& k12Pools2 = schoten->RefPools(Id::K12School);
@@ -222,17 +200,6 @@ TEST_F(K12SchoolPopulatorTest, TwoLocationTest)
 
         for (const auto& person : *m_pop) {
                 EXPECT_EQ(persons[person.GetId()], person.GetPoolId(Id::K12School));
-        }
-
-        for (const auto& hCenter : kortrijk->RefCenters(Id::Household)) {
-                for (const auto& p : *(*hCenter)[0]) {
-                        const auto k12Id = p->GetPoolId(Id::K12School);
-                        if (AgeBrackets::K12School::HasAge(p->GetAge())) {
-                                EXPECT_NE(0, k12Id);
-                        } else {
-                                EXPECT_EQ(0, k12Id);
-                        }
-                }
         }
 
         for (const auto& pool : k12Pools1) {
