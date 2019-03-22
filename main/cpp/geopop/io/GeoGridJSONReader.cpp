@@ -15,7 +15,6 @@
 
 #include "GeoGridJSONReader.h"
 
-#include "ThreadException.h"
 #include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "pop/Population.h"
@@ -24,7 +23,6 @@
 #include <boost/lexical_cast.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <memory>
-#include <omp.h>
 
 namespace geopop {
 
@@ -51,24 +49,18 @@ void GeoGridJSONReader::Read()
         auto  people  = root.get_child("persons");
 
         for (auto it = people.begin(); it != people.end(); it++) {
-                {
-                        {
-                                auto person               = ParsePerson(it->second.get_child(""));
-                                m_people[person->GetId()] = person;
-                        }
-                }
+                auto person               = ParsePerson(it->second.get_child(""));
+                m_people[person->GetId()] = person;
+
         }
         auto locations = root.get_child("locations");
-        auto e         = make_shared<ThreadException>();
 
         for (auto it = locations.begin(); it != locations.end(); it++) {
                 shared_ptr<Location> loc;
-                e->Run([&loc, this, &it] { loc = ParseLocation(it->second.get_child("")); });
-                if (!e->HasError())
-                        geoGrid.AddLocation(move(loc));
+                loc = ParseLocation(it->second.get_child(""));
+                geoGrid.AddLocation(move(loc));
         }
 
-        e->Rethrow();
         AddCommutes(geoGrid);
         m_commutes.clear();
         m_people.clear();
@@ -84,15 +76,11 @@ shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree::ptre
 
         auto result         = make_shared<Location>(id, province, coordinate, name, population);
         auto contactCenters = location.get_child("contactCenters");
-        auto e              = make_shared<ThreadException>();
 
         for (auto it = contactCenters.begin(); it != contactCenters.end(); it++) {
-                shared_ptr<ContactCenter> center;
-                e->Run([&it, this, &center] { center = ParseContactCenter(it->second.get_child("")); });
-                if (!e->HasError())
-                        result->AddCenter(center);
+                const auto center = ParseContactCenter(it->second.get_child(""));
+                result->AddCenter(center);
         }
-        e->Rethrow();
 
         if (location.count("commutes")) {
                 boost::property_tree::ptree commutes = location.get_child("commutes");
@@ -135,21 +123,13 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
                 throw Exception("No such ContactCenter type: " + type);
         }
         auto result = make_shared<ContactCenter>(id, typeId);
-
         auto contactPools = contactCenter.get_child("pools");
-        auto e            = make_shared<ThreadException>();
 
         for (auto it = contactPools.begin(); it != contactPools.end(); it++) {
-                ContactPool* pool = nullptr;
-                e->Run([&it, &pool, this, typeId] {
-                        pool = ParseContactPool(it->second.get_child(""), typeId);
-                });
-                if (!e->HasError()) {
-                        result->RegisterPool(pool);
-                }
+                const auto pool = ParseContactPool(it->second.get_child(""), typeId);
+                result->RegisterPool(pool);
         }
 
-        e->Rethrow();
         return result;
 }
 

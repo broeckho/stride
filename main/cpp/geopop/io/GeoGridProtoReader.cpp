@@ -15,7 +15,6 @@
 
 #include "GeoGridProtoReader.h"
 
-#include "ThreadException.h"
 #include "geogrid.pb.h"
 #include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
@@ -23,7 +22,6 @@
 #include "pop/Population.h"
 
 #include <iostream>
-#include <omp.h>
 #include <stdexcept>
 
 namespace geopop {
@@ -46,22 +44,16 @@ void GeoGridProtoReader::Read()
 
         for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
                 const proto::GeoGrid_Person& protoPerson = protoGrid.persons(idx);
-                stride::Person* person    = ParsePerson(protoPerson);
+                const auto person    = ParsePerson(protoPerson);
                 m_people[person->GetId()] = person;
         }
 
-        auto e = make_shared<ThreadException>();
-
         for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
-                        shared_ptr<Location>           loc;
                         const proto::GeoGrid_Location& protoLocation = protoGrid.locations(idx);
-                        e->Run([&loc, this, &protoLocation] { loc = ParseLocation(protoLocation); });
-                        if (!e->HasError()) {
-                                        geoGrid.AddLocation(move(loc));
-                        }
+                        auto loc = ParseLocation(protoLocation);
+                        geoGrid.AddLocation(move(loc));
         }
 
-        e->Rethrow();
         AddCommutes(geoGrid);
         m_people.clear();
         m_commutes.clear();
@@ -71,8 +63,6 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
     const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
         const auto type = protoContactCenter.type();
-        const auto id   = protoContactCenter.id();
-
         Id typeId;
         switch (type) {
                 case proto::GeoGrid_Location_ContactCenter_Type_K12School:
@@ -96,22 +86,15 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
                 default:
                         throw runtime_error("No such ContactCenter type");
         }
-        auto result = make_shared<ContactCenter>(id, typeId);
-        auto e = make_shared<ThreadException>();
+
+        auto result = make_shared<ContactCenter>(protoContactCenter.id(), typeId);
 
         for (int idx = 0; idx < protoContactCenter.pools_size(); idx++) {
                 const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool =
                             protoContactCenter.pools(idx);
-                stride::ContactPool* pool = nullptr;
-                e->Run([&protoContactPool, &pool, this, &typeId] {
-                        pool = ParseContactPool(protoContactPool, typeId);
-                });
-                if (!e->HasError()) {
-                        result->RegisterPool(pool);
-                }
+                const auto pool = ParseContactPool(protoContactPool, typeId);
+                result->RegisterPool(pool);
         }
-
-        e->Rethrow();
 
         return result;
 }
@@ -125,8 +108,7 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
     const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool, Id type)
 {
         // Don't use the id of the ContactPool but the let the Population create an id
-        stride::ContactPool* result;
-        result = m_population->RefPoolSys().CreateContactPool(type);
+        auto result = m_population->RefPoolSys().CreateContactPool(type);
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 const auto person_id = static_cast<unsigned int>(protoContactPool.people(idx));
@@ -149,17 +131,11 @@ shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Loca
 
         auto result = make_shared<Location>(id, province, coordinate, name, population);
 
-        auto e = make_shared<ThreadException>();
-
         for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
-                shared_ptr<ContactCenter>                    center;
                 const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
-                e->Run([&protoCenter, this, &center] { center = ParseContactCenter(protoCenter); });
-                if (!e->HasError())
-                                result->AddCenter(center);
+                const auto center = ParseContactCenter(protoCenter);
+                result->AddCenter(center);
         }
-
-        e->Rethrow();
 
         for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
                 const proto::GeoGrid_Location_Commute& commute = protoLocation.commutes(idx);
