@@ -16,8 +16,8 @@
 #include "geopop/populators/K12SchoolPopulator.h"
 #include "geopop/generators/K12SchoolGenerator.h"
 
-#include "contact/AgeBrackets.h"
 #include "MakeGeoGrid.h"
+#include "contact/AgeBrackets.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -40,18 +40,19 @@ class K12SchoolPopulatorTest : public testing::Test
 {
 public:
         K12SchoolPopulatorTest()
-                : m_rn_man(RnInfo()), m_k12school_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
-                  m_geo_grid(m_pop->RefGeoGrid()), m_k212school_generator(m_rn_man)
-        {}
+            : m_rn_man(RnInfo()), m_k12school_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+              m_geo_grid(m_pop->RefGeoGrid()), m_k212school_generator(m_rn_man)
+        {
+        }
 
 protected:
-        RnMan                        m_rn_man;
-        K12SchoolPopulator           m_k12school_populator;
-        GeoGridConfig                m_geogrid_config;
-        shared_ptr<Population>       m_pop;
-        GeoGrid&                     m_geo_grid;
-        K12SchoolGenerator           m_k212school_generator;
-        const unsigned int           m_ppk12 = GeoGridConfig{}.pools.pools_per_k12school;
+        RnMan                  m_rn_man;
+        K12SchoolPopulator     m_k12school_populator;
+        GeoGridConfig          m_geogrid_config;
+        shared_ptr<Population> m_pop;
+        GeoGrid&               m_geo_grid;
+        K12SchoolGenerator     m_k212school_generator;
+        const unsigned int     m_ppk12 = GeoGridConfig{}.pools.pools_per_k12school;
 };
 
 TEST_F(K12SchoolPopulatorTest, NoPopulation)
@@ -83,8 +84,8 @@ TEST_F(K12SchoolPopulatorTest, OneLocationTest)
             {111, 1}, {112, 0}, {113, 1}, {114, 0}, {115, 0}, {116, 0}, {117, 0}, {118, 0}, {119, 0}, {120, 1},
             {121, 0}, {122, 1}, {123, 0}, {124, 0}, {125, 0}};
 
-        auto location   = *m_geo_grid.begin();
-        auto& k12Pools  = location->RefPools(Id::K12School);
+        auto  location = *m_geo_grid.begin();
+        auto& k12Pools = location->RefPools(Id::K12School);
 
         ASSERT_EQ(k12Pools.size(), 5 * m_geogrid_config.pools.pools_per_k12school);
         for (auto& pool : k12Pools) {

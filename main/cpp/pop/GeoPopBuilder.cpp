@@ -43,8 +43,8 @@
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <spdlog/logger.h>
 #include <contact/ContactType.h>
+#include <spdlog/logger.h>
 
 namespace stride {
 

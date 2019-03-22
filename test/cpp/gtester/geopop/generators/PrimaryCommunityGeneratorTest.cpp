@@ -31,27 +31,28 @@ using namespace stride::util;
 
 namespace {
 
-class PrimaryCommunityGeneratorTest : public testing::Test {
+class PrimaryCommunityGeneratorTest : public testing::Test
+{
 public:
         PrimaryCommunityGeneratorTest()
-                : m_rn_man(RnInfo()), m_primary_community_generator(m_rn_man), m_geogrid_config(),
-                  m_pop(Population::Create()), m_geo_grid(m_pop.get())
+            : m_rn_man(RnInfo()), m_primary_community_generator(m_rn_man), m_geogrid_config(),
+              m_pop(Population::Create()), m_geo_grid(m_pop.get())
         {
         }
 
 protected:
-        RnMan                        m_rn_man;
-        PrimaryCommunityGenerator    m_primary_community_generator;
-        GeoGridConfig                m_geogrid_config;
-        shared_ptr<Population>       m_pop;
-        GeoGrid                      m_geo_grid;
+        RnMan                     m_rn_man;
+        PrimaryCommunityGenerator m_primary_community_generator;
+        GeoGridConfig             m_geogrid_config;
+        shared_ptr<Population>    m_pop;
+        GeoGrid                   m_geo_grid;
 };
 
 TEST_F(PrimaryCommunityGeneratorTest, OneLocationTest)
 {
         m_geogrid_config.input.pop_size = 10000;
 
-        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
+        auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         m_geo_grid.AddLocation(loc1);
 
         const auto& p1 = loc1->CRefPools(Id::PrimaryCommunity);
@@ -96,11 +97,11 @@ TEST_F(PrimaryCommunityGeneratorTest, FiveLocationsTest)
         m_geogrid_config.input.pop_size             = 37542 * 100;
         m_geogrid_config.popInfo.popcount_k12school = 750840;
 
-        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
-        auto loc2    = make_shared<Location>(1, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
-        auto loc3    = make_shared<Location>(1, 4, Coordinate(0, 0), "Henegouwen", 7460 * 100);
-        auto loc4    = make_shared<Location>(1, 4, Coordinate(0, 0), "Limburg", 3269 * 100);
-        auto loc5    = make_shared<Location>(1, 4, Coordinate(0, 0), "Luxemburg", 4123 * 100);
+        auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
+        auto loc2 = make_shared<Location>(1, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
+        auto loc3 = make_shared<Location>(1, 4, Coordinate(0, 0), "Henegouwen", 7460 * 100);
+        auto loc4 = make_shared<Location>(1, 4, Coordinate(0, 0), "Limburg", 3269 * 100);
+        auto loc5 = make_shared<Location>(1, 4, Coordinate(0, 0), "Luxemburg", 4123 * 100);
 
         m_geo_grid.AddLocation(loc1);
         m_geo_grid.AddLocation(loc2);

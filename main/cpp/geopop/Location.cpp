@@ -15,8 +15,8 @@
 
 #include "Location.h"
 #include "ContactCenter.h"
-#include "contact/ContactType.h"
 #include "contact/ContactPool.h"
+#include "contact/ContactType.h"
 #include "disease/Health.h"
 #include "pop/Person.h"
 #include "util/Exception.h"

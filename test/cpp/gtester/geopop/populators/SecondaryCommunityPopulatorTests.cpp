@@ -13,9 +13,9 @@
  *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "geopop/populators/SecondaryCommunityPopulator.h"
-#include "geopop/generators/SecondaryCommunityGenerator.h"
 #include "geopop/generators/HouseholdGenerator.h"
+#include "geopop/generators/SecondaryCommunityGenerator.h"
+#include "geopop/populators/SecondaryCommunityPopulator.h"
 
 #include "geopop/Coordinate.h"
 #include "geopop/GeoGrid.h"
@@ -37,10 +37,10 @@ class SecondaryCommunityPopulatorTest : public testing::Test
 {
 public:
         SecondaryCommunityPopulatorTest()
-                : m_rn_man(RnInfo{}), m_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
-                  m_location(make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500)),
-                  m_geo_grid(m_pop->RefGeoGrid()), m_person(), m_community_generator(m_rn_man),
-                  m_household_generator(m_rn_man)
+            : m_rn_man(RnInfo{}), m_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+              m_location(make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500)),
+              m_geo_grid(m_pop->RefGeoGrid()), m_person(), m_community_generator(m_rn_man),
+              m_household_generator(m_rn_man)
         {
         }
 
@@ -52,7 +52,7 @@ protected:
         {
                 m_household_generator.AddPools(*m_location, m_pop.get(), m_pphh);
 
-                m_person         = make_shared<Person>();
+                m_person = make_shared<Person>();
                 m_person->SetId(42);
                 m_location->RefPools(Id::Household)[0]->AddMember(m_person.get());
 
@@ -119,7 +119,7 @@ TEST_F(SecondaryCommunityPopulatorTest, HouseholdTest)
 // and that person gets assigned to the SecondaryCommunity at the first Location.
 TEST_F(SecondaryCommunityPopulatorTest, TwoLocationsTest)
 {
-        auto location2  = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
+        auto location2 = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
         m_community_generator.AddPools(*location2, m_pop.get(), m_ppsc);
 
         m_geo_grid.AddLocation(location2);

@@ -55,10 +55,10 @@ void GeoGridProtoWriter::Write(GeoGrid& geoGrid, ostream& stream)
         stream.flush();
 }
 
-void GeoGridProtoWriter::WriteContactPools(Id typeId, SegmentedVector<stride::ContactPool*>&   contactPools,
-                                            proto::GeoGrid_Location_ContactPools* protoContactPools)
+void GeoGridProtoWriter::WriteContactPools(Id typeId, SegmentedVector<stride::ContactPool*>& contactPools,
+                                           proto::GeoGrid_Location_ContactPools* protoContactPools)
 {
-        map<Id, proto::GeoGrid_Location_ContactPools_Type> types = {
+        static const map<Id, proto::GeoGrid_Location_ContactPools_Type> types = {
             {Id::K12School, proto::GeoGrid_Location_ContactPools_Type_K12School},
             {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactPools_Type_PrimaryCommunity},
             {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactPools_Type_SecondaryCommunity},
@@ -66,13 +66,13 @@ void GeoGridProtoWriter::WriteContactPools(Id typeId, SegmentedVector<stride::Co
             {Id::Household, proto::GeoGrid_Location_ContactPools_Type_Household},
             {Id::Workplace, proto::GeoGrid_Location_ContactPools_Type_Workplace}};
 
-        protoContactPools->set_type(types[typeId]);
+        protoContactPools->set_type(types.at(typeId));
         for (stride::ContactPool* pool : contactPools) {
                 WriteContactPool(pool, protoContactPools->add_pools());
         }
 }
 
-void GeoGridProtoWriter::WriteContactPool(stride::ContactPool*                               contactPool,
+void GeoGridProtoWriter::WriteContactPool(stride::ContactPool*                              contactPool,
                                           proto::GeoGrid_Location_ContactPools_ContactPool* protoContactPool)
 {
         protoContactPool->set_id(static_cast<google::protobuf::int64>(contactPool->GetId()));

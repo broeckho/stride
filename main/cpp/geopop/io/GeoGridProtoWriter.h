@@ -50,12 +50,12 @@ public:
 
 private:
         /// Create a ProtoBuf ContactPools structure.
-        void WriteContactPools(stride::ContactType::Id typeId,
-                stride::util::SegmentedVector<stride::ContactPool*>&        contactPools,
-                                proto::GeoGrid_Location_ContactPools* protoContactPools);
+        void WriteContactPools(stride::ContactType::Id                              typeId,
+                               stride::util::SegmentedVector<stride::ContactPool*>& contactPools,
+                               proto::GeoGrid_Location_ContactPools*                protoContactPools);
 
         /// Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool.
-        void WriteContactPool(stride::ContactPool*                               contactPool,
+        void WriteContactPool(stride::ContactPool*                              contactPool,
                               proto::GeoGrid_Location_ContactPools_ContactPool* protoContactPool);
 
         /// Create a ProtoBuf Coordinate containing all the info needed to reconstruct a Coordinate..

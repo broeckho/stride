@@ -51,7 +51,6 @@ void GeoGridJSONReader::Read()
         for (auto it = people.begin(); it != people.end(); it++) {
                 auto person               = ParsePerson(it->second.get_child(""));
                 m_people[person->GetId()] = person;
-
         }
         auto locations = root.get_child("locations");
 
@@ -122,7 +121,7 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
         } else {
                 throw Exception("No such ContactCenter type: " + type);
         }
-        auto result = make_shared<ContactCenter>(id, typeId);
+        auto result       = make_shared<ContactCenter>(id, typeId);
         auto contactPools = contactCenter.get_child("pools");
 
         for (auto it = contactPools.begin(); it != contactPools.end(); it++) {

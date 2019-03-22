@@ -110,12 +110,12 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsign
         // For geopop runs: check infected count summed over locations equals that from population.
         // -----------------------------------------------------------------------------------------
         bool geopop = testTag.size() > string("geopop").size() &&
-                testTag.substr(testTag.size() - string("geopop").size(), testTag.size() - 1) == "geopop";
+                      testTag.substr(testTag.size() - string("geopop").size(), testTag.size() - 1) == "geopop";
         if (geopop) {
-                auto& geoGrid = pop->RefGeoGrid();
-                auto infectedCount = 0U;
+                auto& geoGrid       = pop->RefGeoGrid();
+                auto  infectedCount = 0U;
                 for (const auto& loc : geoGrid) {
-                       infectedCount += loc->GetInfectedCount();
+                        infectedCount += loc->GetInfectedCount();
                 }
                 EXPECT_EQ(res, infectedCount);
         }

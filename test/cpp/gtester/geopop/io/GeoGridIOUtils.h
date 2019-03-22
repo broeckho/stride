@@ -35,11 +35,12 @@ class Population;
 
 using namespace geopop;
 
-void CompareContactPool(stride::ContactPool*                                     contactPool,
+void CompareContactPool(stride::ContactPool*                                    contactPool,
                         const proto::GeoGrid_Location_ContactPools_ContactPool& protoContactPool);
 
-void CompareContactPools(stride::ContactType::Id typeId, const stride::util::SegmentedVector<stride::ContactPool *>& contactPools,
-                         const proto::GeoGrid_Location_ContactPools& protoContactPools);
+void CompareContactPools(stride::ContactType::Id                                    typeId,
+                         const stride::util::SegmentedVector<stride::ContactPool*>& contactPools,
+                         const proto::GeoGrid_Location_ContactPools&                protoContactPools);
 
 void CompareCoordinate(const Coordinate& coordinate, const proto::GeoGrid_Location_Coordinate& protoCoordinate);
 

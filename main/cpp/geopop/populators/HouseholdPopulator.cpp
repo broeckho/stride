@@ -43,7 +43,6 @@ void HouseholdPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
                 }
         }
 
-
         m_logger->trace("Done populating Households");
 }
 

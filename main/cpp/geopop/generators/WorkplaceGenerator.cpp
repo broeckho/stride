@@ -61,7 +61,7 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
-        auto pop = geoGrid.GetPopulation();
+        auto       pop  = geoGrid.GetPopulation();
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = geoGrid[dist()];

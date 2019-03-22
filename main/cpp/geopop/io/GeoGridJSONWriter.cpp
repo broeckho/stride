@@ -66,8 +66,8 @@ ptree GeoGridJSONWriter::WriteContactCenter(shared_ptr<ContactCenter> contactCen
 
         for (const auto& pool : *contactCenter) {
                 pair<string, ptree> child;
-                        child = make_pair("", WriteContactPool(pool));
-                        pools.push_back(move(child));
+                child = make_pair("", WriteContactPool(pool));
+                pools.push_back(move(child));
         }
 
         contactCenter_root.add_child("pools", pools);
@@ -115,9 +115,9 @@ ptree GeoGridJSONWriter::WriteLocation(const Location& location)
                 location_root.add_child("commutes", commutes_root);
         }
 
-        ptree       contactCenters;
+        ptree contactCenters;
         for (Id typ : IdList) {
-                for (const auto &c : location.CRefCenters(typ)) {
+                for (const auto& c : location.CRefCenters(typ)) {
                         pair<string, ptree> child;
                         child = make_pair("", WriteContactCenter(c));
                         contactCenters.push_back(move(child));

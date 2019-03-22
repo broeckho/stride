@@ -20,8 +20,8 @@
 #include "contact/ContactType.h"
 #include "geopop/Location.h"
 
-#include <set>
 #include <memory>
+#include <set>
 
 namespace proto {
 class GeoGrid_Location;
@@ -54,13 +54,13 @@ public:
 
 private:
         /// Create ContactPools based on protobuf ContactPools info.
-        void ParseContactPools(std::shared_ptr<Location> loc,
+        void ParseContactPools(std::shared_ptr<Location>                   loc,
                                const proto::GeoGrid_Location_ContactPools& protoContactPools);
 
         /// Create a ContactPool based on the provided protobuf ContactPool.
-        void ParseContactPool(std::shared_ptr<Location> loc,
-                const proto::GeoGrid_Location_ContactPools_ContactPool& protoContactPool,
-                                              stride::ContactType::Id  typeId);
+        void ParseContactPool(std::shared_ptr<Location>                               loc,
+                              const proto::GeoGrid_Location_ContactPools_ContactPool& protoContactPool,
+                              stride::ContactType::Id                                 typeId);
 
         /// Create a Coordinate based on the provided protobuf Coordinate.
         Coordinate ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate);

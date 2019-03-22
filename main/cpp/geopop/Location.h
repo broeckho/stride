@@ -38,7 +38,6 @@ namespace geopop {
 
 class ContactCenter;
 
-
 /**
  * Location for use within the GeoGrid, contains Coordinate and ContactCenters.
  */

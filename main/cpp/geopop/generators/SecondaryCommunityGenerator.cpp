@@ -56,7 +56,7 @@ void SecondaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& g
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
-        auto pop = geoGrid.GetPopulation();
+        auto       pop  = geoGrid.GetPopulation();
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];

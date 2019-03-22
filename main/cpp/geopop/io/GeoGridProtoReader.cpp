@@ -43,14 +43,14 @@ void GeoGridProtoReader::Read()
 
         for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
                 const proto::GeoGrid_Person& protoPerson = protoGrid.persons(idx);
-                const auto person    = ParsePerson(protoPerson);
-                m_people[person->GetId()] = person;
+                const auto                   person      = ParsePerson(protoPerson);
+                m_people[person->GetId()]                = person;
         }
 
         for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
-                        const proto::GeoGrid_Location& protoLocation = protoGrid.locations(idx);
-                        auto loc = ParseLocation(protoLocation);
-                        geoGrid.AddLocation(move(loc));
+                const proto::GeoGrid_Location& protoLocation = protoGrid.locations(idx);
+                auto                           loc           = ParseLocation(protoLocation);
+                geoGrid.AddLocation(move(loc));
         }
 
         AddCommutes(geoGrid);
@@ -58,37 +58,23 @@ void GeoGridProtoReader::Read()
         m_commutes.clear();
 }
 
-void GeoGridProtoReader::ParseContactPools(shared_ptr<Location> loc,
-                                           const proto::GeoGrid_Location_ContactPools &protoContactPools)
+void GeoGridProtoReader::ParseContactPools(shared_ptr<Location>                        loc,
+                                           const proto::GeoGrid_Location_ContactPools& protoContactPools)
 {
-        const auto type = protoContactPools.type();
-        Id typeId;
-        switch (type) {
-                case proto::GeoGrid_Location_ContactPools_Type_K12School:
-                        typeId = Id::K12School;
-                        break;
-                case proto::GeoGrid_Location_ContactPools_Type_PrimaryCommunity:
-                        typeId = Id::PrimaryCommunity;
-                        break;
-                case proto::GeoGrid_Location_ContactPools_Type_SecondaryCommunity:
-                        typeId = Id::SecondaryCommunity;
-                        break;
-                case proto::GeoGrid_Location_ContactPools_Type_College:
-                        typeId = Id::College;
-                        break;
-                case proto::GeoGrid_Location_ContactPools_Type_Household:
-                        typeId = Id::Household;
-                        break;
-                case proto::GeoGrid_Location_ContactPools_Type_Workplace:
-                        typeId = Id::Workplace;
-                        break;
-                default:
-                        throw runtime_error("No such ContactPools type");
-        }
+        const auto protoType = protoContactPools.type();
+
+        static const map<proto::GeoGrid_Location_ContactPools_Type, Id> types = {
+            {proto::GeoGrid_Location_ContactPools_Type_K12School, Id::K12School},
+            {proto::GeoGrid_Location_ContactPools_Type_PrimaryCommunity, Id::PrimaryCommunity},
+            {proto::GeoGrid_Location_ContactPools_Type_SecondaryCommunity, Id::SecondaryCommunity},
+            {proto::GeoGrid_Location_ContactPools_Type_College, Id::College},
+            {proto::GeoGrid_Location_ContactPools_Type_Household, Id::Household},
+            {proto::GeoGrid_Location_ContactPools_Type_Workplace, Id::Workplace}};
+
+        const auto typeId = types.at(protoType);
 
         for (int idx = 0; idx < protoContactPools.pools_size(); idx++) {
-                const proto::GeoGrid_Location_ContactPools_ContactPool& protoContactPool =
-                            protoContactPools.pools(idx);
+                const proto::GeoGrid_Location_ContactPools_ContactPool& protoContactPool = protoContactPools.pools(idx);
                 ParseContactPool(loc, protoContactPool, typeId);
         }
 }
@@ -98,8 +84,9 @@ Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coo
         return {protoCoordinate.longitude(), protoCoordinate.latitude()};
 }
 
-void GeoGridProtoReader::ParseContactPool(shared_ptr<Location> loc,
-    const proto::GeoGrid_Location_ContactPools_ContactPool& protoContactPool, Id type)
+void GeoGridProtoReader::ParseContactPool(shared_ptr<Location>                                    loc,
+                                          const proto::GeoGrid_Location_ContactPools_ContactPool& protoContactPool,
+                                          Id                                                      type)
 {
         // Don't use the id of the ContactPool but the let the Population create an id
         auto result = m_population->RefPoolSys().CreateContactPool(type);

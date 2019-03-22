@@ -31,20 +31,21 @@ using namespace stride::util;
 
 namespace {
 
-class HouseholdGeneratorTest : public testing::Test {
+class HouseholdGeneratorTest : public testing::Test
+{
 public:
         HouseholdGeneratorTest()
-                : m_rn_man(RnInfo()), m_household_generator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
-                  m_geo_grid(m_pop.get())
+            : m_rn_man(RnInfo()), m_household_generator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+              m_geo_grid(m_pop.get())
         {
         }
 
 protected:
-        RnMan                        m_rn_man;
-        HouseholdGenerator           m_household_generator;
-        GeoGridConfig                m_geogrid_config;
-        shared_ptr<Population>       m_pop;
-        GeoGrid                      m_geo_grid;
+        RnMan                  m_rn_man;
+        HouseholdGenerator     m_household_generator;
+        GeoGridConfig          m_geogrid_config;
+        shared_ptr<Population> m_pop;
+        GeoGrid                m_geo_grid;
 };
 
 // Check that generator can handle situation with a single Location.
@@ -52,7 +53,7 @@ TEST_F(HouseholdGeneratorTest, OneLocationTest)
 {
         m_geogrid_config.popInfo.count_households = 4;
 
-        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
+        auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         m_geo_grid.AddLocation(loc1);
 
         m_household_generator.Apply(m_geo_grid, m_geogrid_config);
@@ -76,11 +77,11 @@ TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
         m_geogrid_config.popInfo.count_households = 4000;
         m_geogrid_config.input.pop_size           = 37542 * 100;
 
-        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
-        auto loc2    = make_shared<Location>(2, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
-        auto loc3    = make_shared<Location>(3, 4, Coordinate(0, 0), "Henegouwen", 7460 * 100);
-        auto loc4    = make_shared<Location>(4, 4, Coordinate(0, 0), "Limburg", 3269 * 100);
-        auto loc5    = make_shared<Location>(5, 4, Coordinate(0, 0), "Luxemburg", 4123 * 100);
+        auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
+        auto loc2 = make_shared<Location>(2, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
+        auto loc3 = make_shared<Location>(3, 4, Coordinate(0, 0), "Henegouwen", 7460 * 100);
+        auto loc4 = make_shared<Location>(4, 4, Coordinate(0, 0), "Limburg", 3269 * 100);
+        auto loc5 = make_shared<Location>(5, 4, Coordinate(0, 0), "Luxemburg", 4123 * 100);
 
         m_geo_grid.AddLocation(loc1);
         m_geo_grid.AddLocation(loc2);
@@ -98,7 +99,7 @@ TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
         vector<unsigned int> sizes{1179, 1137, 868, 358, 458};
         for (size_t i = 0; i < sizes.size(); i++) {
                 EXPECT_EQ(sizes[i] * m_geogrid_config.pools.pools_per_household,
-                          m_geo_grid[i]->CRefPools(Id::Household).size() );
+                          m_geo_grid[i]->CRefPools(Id::Household).size());
         }
 }
 

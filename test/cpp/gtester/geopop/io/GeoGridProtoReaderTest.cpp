@@ -42,7 +42,7 @@ void fillLocation(int id, unsigned int province, unsigned int population, Coordi
 
 void fillContactPools(Id typeId, proto::GeoGrid_Location_ContactPools* protoContactPools)
 {
-        map<Id, proto::GeoGrid_Location_ContactPools_Type> types = {
+        static const map<Id, proto::GeoGrid_Location_ContactPools_Type> types = {
             {Id::K12School, proto::GeoGrid_Location_ContactPools_Type_K12School},
             {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactPools_Type_PrimaryCommunity},
             {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactPools_Type_SecondaryCommunity},
@@ -50,7 +50,7 @@ void fillContactPools(Id typeId, proto::GeoGrid_Location_ContactPools* protoCont
             {Id::Household, proto::GeoGrid_Location_ContactPools_Type_Household},
             {Id::Workplace, proto::GeoGrid_Location_ContactPools_Type_Workplace}};
 
-        protoContactPools->set_type(types[typeId]);
+        protoContactPools->set_type(types.at(typeId));
 }
 
 TEST(GeoGridProtoReaderTest, locationTest)

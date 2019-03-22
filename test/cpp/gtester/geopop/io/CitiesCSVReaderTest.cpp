@@ -67,9 +67,9 @@ TEST(CitiesCSVReaderTest, test1)
 )";
 
         const auto expected = getExpectedGeoGrid();
-        auto       pop             = Population::Create();
-        auto&      geoGrid         = pop->RefGeoGrid();
-        auto       instream        = make_unique<istringstream>(csvString);
+        auto       pop      = Population::Create();
+        auto&      geoGrid  = pop->RefGeoGrid();
+        auto       instream = make_unique<istringstream>(csvString);
 
         LocationsCSVReader reader(move(instream));
         reader.FillGeoGrid(geoGrid);

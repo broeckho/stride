@@ -85,7 +85,7 @@ TEST(CommutesCSVReaderTest, test1)
         geoGrid.AddLocation(make_shared<Location>(23, 0, Coordinate(0.0, 0.0), "", 900));
         geoGrid.AddLocation(make_shared<Location>(24, 0, Coordinate(0.0, 0.0), "", 1300));
 
-        auto instream = make_unique<istringstream>(csvString);
+        auto              instream = make_unique<istringstream>(csvString);
         CommutesCSVReader reader(move(instream));
         reader.FillGeoGrid(geoGrid);
 

@@ -32,20 +32,21 @@ using namespace stride::util;
 
 namespace {
 
-class WorkplaceGeneratorTest : public testing::Test {
+class WorkplaceGeneratorTest : public testing::Test
+{
 public:
         WorkplaceGeneratorTest()
-                : m_rn_man(RnInfo()), m_workplace_generator(m_rn_man), m_geogrid_config(),
-                  m_pop(Population::Create()), m_geo_grid(m_pop.get())
+            : m_rn_man(RnInfo()), m_workplace_generator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+              m_geo_grid(m_pop.get())
         {
         }
 
 protected:
-        RnMan                        m_rn_man;
-        WorkplaceGenerator           m_workplace_generator;
-        GeoGridConfig                m_geogrid_config;
-        shared_ptr<Population>       m_pop;
-        GeoGrid                      m_geo_grid;
+        RnMan                  m_rn_man;
+        WorkplaceGenerator     m_workplace_generator;
+        GeoGridConfig          m_geogrid_config;
+        shared_ptr<Population> m_pop;
+        GeoGrid                m_geo_grid;
 };
 
 // Check that generator can handle empty GeoGrid.
@@ -83,7 +84,7 @@ TEST_F(WorkplaceGeneratorTest, NoCommuting)
 
         for (size_t i = 0; i < sizes.size(); i++) {
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
-                                                        m_geo_grid[i]->CRefPools(Id::Workplace).size() );
+                          m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
 
@@ -125,7 +126,7 @@ TEST_F(WorkplaceGeneratorTest, NullCommuting)
                              869,  1356, 591,  105,  1297, 136,  95,   139,  499,  588,  1663};
         for (size_t i = 0; i < sizes.size(); i++) {
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
-                          m_geo_grid[i]->CRefPools(Id::Workplace).size() );
+                          m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
 
@@ -201,7 +202,7 @@ TEST_F(WorkplaceGeneratorTest, TenCommuting)
 
         for (size_t i = 0; i < sizes.size(); i++) {
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
-                          m_geo_grid[i]->CRefPools(Id::Workplace).size() );
+                          m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
 

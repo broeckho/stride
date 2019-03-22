@@ -15,8 +15,8 @@
 
 #include "geopop/populators/CollegePopulator.h"
 
-#include "contact/AgeBrackets.h"
 #include "MakeGeoGrid.h"
+#include "contact/AgeBrackets.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
 #include "geopop/generators/CollegeGenerator.h"
@@ -35,22 +35,23 @@ using namespace stride::util;
 
 namespace {
 
-class CollegePopulatorTest : public testing::Test {
+class CollegePopulatorTest : public testing::Test
+{
 public:
         CollegePopulatorTest()
-                : m_rn_man(RnInfo()), m_college_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
-                  m_geo_grid(m_pop->RefGeoGrid()), m_college_generator(m_rn_man)
+            : m_rn_man(RnInfo()), m_college_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+              m_geo_grid(m_pop->RefGeoGrid()), m_college_generator(m_rn_man)
         {
         }
 
 protected:
-        RnMan                        m_rn_man;
-        CollegePopulator             m_college_populator;
-        GeoGridConfig                m_geogrid_config;
-        shared_ptr<Population>       m_pop;
-        GeoGrid&                     m_geo_grid;
-        CollegeGenerator             m_college_generator;
-        const unsigned int           m_ppc = GeoGridConfig{}.pools.pools_per_college;
+        RnMan                  m_rn_man;
+        CollegePopulator       m_college_populator;
+        GeoGridConfig          m_geogrid_config;
+        shared_ptr<Population> m_pop;
+        GeoGrid&               m_geo_grid;
+        CollegeGenerator       m_college_generator;
+        const unsigned int     m_ppc = GeoGridConfig{}.pools.pools_per_college;
 };
 
 TEST_F(CollegePopulatorTest, NoPopulation)
@@ -89,11 +90,10 @@ TEST_F(CollegePopulatorTest, NoStudents)
                 EXPECT_EQ(0, person.GetPoolId(Id::College));
         }
 
-        for (auto& loc: m_geo_grid) {
+        for (auto& loc : m_geo_grid) {
                 for (auto& pool : loc->RefPools(Id::College)) {
                         ASSERT_EQ(pool->size(), 0);
                 }
-
         }
 }
 
@@ -298,7 +298,8 @@ TEST_F(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         for (const auto& hPool : kortrijk->RefPools(Id::Household)) {
                 for (auto p : *hPool) {
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(p->GetPoolId(Id::College) > m_ppc && p->GetPoolId(Id::College) <= 2 * m_ppc);
+                                EXPECT_TRUE(p->GetPoolId(Id::College) > m_ppc &&
+                                            p->GetPoolId(Id::College) <= 2 * m_ppc);
                         } else {
                                 EXPECT_EQ(0, p->GetPoolId(Id::College));
                         }
