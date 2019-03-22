@@ -8,7 +8,7 @@ from postprocessing import OutbreakOccurrenceAndSize
 
 from postprocessing import Util
 
-def main(outputDir, plotER, R0s, numDays, extinctionThreshold, poolSize):
+def main(outputDir, plotER, R0s, numDays, extinctionThreshold, sampleSizes, poolSize):
     start = time.perf_counter()
     scenarioNames = ["UNIFORM_NOCLUSTERING", "AGEDEPENDENT_NOCLUSTERING", "AGEDEPENDENT_CLUSTERING"]
     scenarioDisplayNames = ["A", "B", "C"]
@@ -29,6 +29,8 @@ def main(outputDir, plotER, R0s, numDays, extinctionThreshold, poolSize):
                                                     stat="median")
         for R0 in R0s:
             scenarioNamesFull = [s + "_R0_" + str(R0) for s in scenarioNames]
+            for scenario in scenarioNamesFull:
+                EffectiveR.createEffectiveRTracePlot(outputDir, sampleSizes, scenario, poolSize)
             EffectiveR.createEffectiveRPlot(outputDir, R0,
                                             scenarioNamesFull,
                                             scenarioDisplayNames,
@@ -93,6 +95,7 @@ if __name__=="__main__":
     parser.add_argument("--R0s", type=int, nargs="+", default=[12, 18], help="Values of R0 to analyze")
     parser.add_argument("--numDays", type=int, default=365, help="Number of simulated days")
     parser.add_argument("--extinctionThreshold", type=int, default=0, help="Threshold for epidemic extinction")
+    parser.add_argument("--sampleSizes", type=int, nargs="+", default=[1], help="Sample sizes to test for trace plots")
     parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in pool for multiprocessing")
     args = parser.parse_args()
-    main(args.outputDir, args.plotER, args.R0s, args.numDays, args.extinctionThreshold, args.poolSize)
+    main(args.outputDir, args.plotER, args.R0s, args.numDays, args.extinctionThreshold, args.sampleSizes, args.poolSize)

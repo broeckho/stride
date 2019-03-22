@@ -2,7 +2,9 @@ import csv
 import matplotlib.pyplot as plt
 import multiprocessing
 import os
-import statistics
+
+from numpy import median, percentile
+from random import sample
 
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -37,6 +39,27 @@ def createEffectiveRPlot(outputDir, R0, scenarioNames, scenarioDisplayNames,
     plt.ylabel("Effective R")
     saveFig(outputDir, figName)
 
+def createEffectiveRTracePlot(outputDir, sampleSizes, scenarioName, poolSize):
+    allEffectiveRs = []
+    seeds = getRngSeeds(outputDir, scenarioName)
+    with multiprocessing.Pool(processes=poolSize) as pool:
+        allEffectiveRs = pool.starmap(getEffectiveR, [(outputDir, scenarioName, s) for s in seeds])
+    medians = []
+    q1s = []
+    q3s = []
+    for size in sampleSizes:
+        effectiveRs = sample(allEffectiveRs, size)
+        medians.append(median(effectiveRs))
+        q1s.append(percentile(effectiveRs, 25))
+        q3s.append(percentile(effectiveRs, 75))
+    plt.plot(sampleSizes, medians)
+    plt.plot(sampleSizes, q1s)
+    plt.plot(sampleSizes, q3s)
+    plt.xlabel("Iterations")
+    plt.ylabel("Effective R")
+    plt.legend(["Median", "Q1", "Q3"])
+    saveFig(outputDir, scenarioName + "_EffectiveRTrace")
+
 def createEffectiveROverviewPlot(outputDir, R0s, scenarioNames, scenarioDisplayNames,
     fractionSusceptibles, poolSize, xLabel, figName, stat="mean"):
     ax = plt.axes(projection="3d")
@@ -55,7 +78,7 @@ def createEffectiveROverviewPlot(outputDir, R0s, scenarioNames, scenarioDisplayN
                 if stat == "mean":
                     results.append(sum(effectiveRs) / len(effectiveRs))
                 elif stat == "median":
-                    results.append(statistics.median(effectiveRs))
+                    results.append(median(effectiveRs))
                 else:
                     print("No valid statistic supplied!")
         ax.plot(range(len(results)), [expectedR] * len(results), zs=R0, zdir="y", color=colors[z])
