@@ -25,6 +25,7 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride;
 using namespace stride::ContactType;
 
 void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
@@ -66,8 +67,18 @@ void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 }
 
+void K12SchoolGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        for (auto i = 0U; i < number; ++i) {
+                const auto p = poolSys.CreateContactPool(Id::K12School);
+                loc.RegisterPool<Id::K12School>(p);
+        }
+}
+
 void K12SchoolGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-                                    stride::Population* pop)
+                                    Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 

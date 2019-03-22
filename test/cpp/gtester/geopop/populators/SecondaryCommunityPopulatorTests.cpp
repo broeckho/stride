@@ -87,6 +87,11 @@ TEST_F(SecondaryCommunityPopulatorTest, OneCommunityTest)
         ASSERT_EQ(m_community_cc->size(), 1);
         EXPECT_EQ((*m_community_cc)[0]->size(), 1);
         EXPECT_EQ((*(*m_community_cc)[0])[0]->GetId(), 42);
+
+        auto& scPools = m_location->RefPools(Id::SecondaryCommunity);
+        ASSERT_EQ(scPools.size(), 1);
+        EXPECT_EQ(scPools[0]->size(), 1);
+        EXPECT_EQ((*scPools[0])[0]->GetId(), 42);
 }
 
 TEST_F(SecondaryCommunityPopulatorTest, ZeroCommunitiesTest)

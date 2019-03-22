@@ -63,9 +63,7 @@ void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geo
                 const auto loc = geoGrid[dist()];
                 const auto pc  = make_shared<ContactCenter>(ccCounter++, Id::PrimaryCommunity);
 
-                // TODO CheckThisAlgorithm
-                // for (std::size_t j = 0; j < geoGridConfig.pools.pools_per_community; ++j) {
-                if (pc->size() == 0) {
+                for (std::size_t j = 0; j < geoGridConfig.pools.pools_per_primary_community; ++j) {
                         const auto p = poolSys.CreateContactPool(Id::PrimaryCommunity);
                         pc->RegisterPool(p);
                         loc->RegisterPool<Id::PrimaryCommunity>(p);
@@ -75,13 +73,22 @@ void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geo
         }
 }
 
-void PrimaryCommunityGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig&, Population* pop)
+void PrimaryCommunityGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
 {
         auto& poolSys = pop->RefPoolSys();
 
-        // TODO CheckThisAlgorithm
-        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
-        if (center.size() == 0) {
+        for (auto i = 0U; i < number; ++i) {
+                const auto p = poolSys.CreateContactPool(Id::PrimaryCommunity);
+                loc.RegisterPool<Id::PrimaryCommunity>(p);
+        }
+}
+
+void PrimaryCommunityGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+                                           Population* pop)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_primary_community; ++i) {
                 const auto p = poolSys.CreateContactPool(Id::PrimaryCommunity);
                 center.RegisterPool(p);
                 loc.RegisterPool<Id::PrimaryCommunity>(p);
