@@ -58,9 +58,6 @@ TEST_F(HouseholdGeneratorTest, OneLocationTest)
         unsigned int       ccCounter{1U};
         m_household_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
 
-        const auto& centersOfLoc1 = loc1->RefCenters(Id::Household);
-        EXPECT_EQ(centersOfLoc1.size(), 4);
-
         const auto& poolsOfLoc1 = loc1->CRefPools<Id::Household>();
         EXPECT_EQ(poolsOfLoc1.size(), 4);
 }
@@ -70,13 +67,10 @@ TEST_F(HouseholdGeneratorTest, ZeroLocationTest)
 {
         m_geogrid_config.popInfo.count_households = 4;
 
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
-
         unsigned int       ccCounter{1U};
-        m_household_generator.Apply(geoGrid, m_geogrid_config, ccCounter);
+        m_household_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
 
-        EXPECT_EQ(geoGrid.size(), 0);
+        EXPECT_EQ(m_geo_grid.size(), 0);
 }
 
 // check that generator can handle five Locations.
@@ -107,7 +101,6 @@ TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
 
         vector<unsigned int> sizes{1179, 1137, 868, 358, 458};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(sizes[i], m_geo_grid[i]->CRefCenters(Id::Household).size());
                 EXPECT_EQ(sizes[i] * m_geogrid_config.pools.pools_per_household,
                           m_geo_grid[i]->CRefPools(Id::Household).size() );
         }

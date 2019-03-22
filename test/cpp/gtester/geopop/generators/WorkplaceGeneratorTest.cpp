@@ -86,7 +86,6 @@ TEST_F(WorkplaceGeneratorTest, NoCommuting)
                              868,  1355, 594,  104,  1298, 136,  94,   140,  500,  588,  1663};
 
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i], m_geo_grid[i]->CRefCenters(Id::Workplace).size());
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
                                                         m_geo_grid[i]->CRefPools(Id::Workplace).size() );
         }
@@ -130,7 +129,6 @@ TEST_F(WorkplaceGeneratorTest, NullCommuting)
                              1449, 203,  1536, 928,  446,  1754, 1169, 263,  1194, 1456, 1058, 594,  793,
                              869,  1356, 591,  105,  1297, 136,  95,   139,  499,  588,  1663};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i], m_geo_grid[i]->CRefCenters(Id::Workplace).size());
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
                           m_geo_grid[i]->CRefPools(Id::Workplace).size() );
         }
@@ -208,7 +206,6 @@ TEST_F(WorkplaceGeneratorTest, TenCommuting)
                              873,  1355, 589,  101,  1291, 142,  93,   132,  507,  584,  1659};
 
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i], m_geo_grid[i]->CRefCenters(Id::Workplace).size());
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
                           m_geo_grid[i]->CRefPools(Id::Workplace).size() );
         }
