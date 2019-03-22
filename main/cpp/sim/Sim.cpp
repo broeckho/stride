@@ -55,6 +55,11 @@ std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& config, shar
         return sim;
 }
 
+std::shared_ptr<Sim> Sim::Create(const string& configString, std::shared_ptr<Population> pop, util::RnMan rnMan)
+{
+	return Create(RunConfigManager::FromString(configString), std::move(pop), std::move(rnMan));
+}
+
 void Sim::TimeStep()
 {
         // Logic where you compute (on the basis of input/config for initial day or on the basis of
