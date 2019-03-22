@@ -67,16 +67,4 @@ void HouseholdGenerator::AddPools(Location& loc, Population* pop, unsigned int n
         }
 }
 
-void HouseholdGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-                                    Population* pop)
-{
-        auto& poolSys = pop->RefPoolSys();
-
-        for (auto i = 0U; i < geoGridConfig.pools.pools_per_household; ++i) {
-                const auto p = poolSys.CreateContactPool(Id::Household);
-                center.RegisterPool(p);
-                loc.RegisterPool<Id::Household>(p);
-        }
-}
-
 } // namespace geopop

@@ -89,16 +89,4 @@ void WorkplaceGenerator::AddPools(Location& loc, Population* pop, unsigned int n
         }
 }
 
-void WorkplaceGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-                                    Population* pop)
-{
-        auto& poolSys = pop->RefPoolSys();
-
-        for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
-                const auto p = poolSys.CreateContactPool(Id::Workplace);
-                center.RegisterPool(p);
-                loc.RegisterPool<Id::Workplace>(p);
-        }
-}
-
 } // namespace geopop

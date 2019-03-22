@@ -49,8 +49,8 @@ public:
         virtual void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) = 0;
 
         /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
-        virtual void SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-                                stride::Population* pop) = 0;
+        //virtual void SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+         //                       stride::Population* pop) = 0;
 
         /// Create ContactPools in the GeoGrid and do not register them with the ContactCenter.
         virtual void AddPools(Location& loc, stride::Population* pop, unsigned int number) = 0;

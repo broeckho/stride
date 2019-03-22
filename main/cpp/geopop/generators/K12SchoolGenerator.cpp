@@ -77,16 +77,4 @@ void K12SchoolGenerator::AddPools(Location& loc, Population* pop, unsigned int n
         }
 }
 
-void K12SchoolGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-                                    Population* pop)
-{
-        auto& poolSys = pop->RefPoolSys();
-
-        for (auto i = 0U; i < geoGridConfig.pools.pools_per_k12school; ++i) {
-                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::K12School);
-                center.RegisterPool(p);
-                loc.RegisterPool<Id::K12School>(p);
-        }
-}
-
 } // namespace geopop

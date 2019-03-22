@@ -83,16 +83,4 @@ void PrimaryCommunityGenerator::AddPools(Location& loc, Population* pop, unsigne
         }
 }
 
-void PrimaryCommunityGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-                                           Population* pop)
-{
-        auto& poolSys = pop->RefPoolSys();
-
-        for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_primary_community; ++i) {
-                const auto p = poolSys.CreateContactPool(Id::PrimaryCommunity);
-                center.RegisterPool(p);
-                loc.RegisterPool<Id::PrimaryCommunity>(p);
-        }
-}
-
 } // namespace geopop
