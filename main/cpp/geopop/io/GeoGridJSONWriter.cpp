@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
 #include "GeoGridJSONWriter.h"
@@ -37,39 +37,21 @@ void GeoGridJSONWriter::Write(GeoGrid& geoGrid, ostream& stream)
         boost::property_tree::ptree root;
         boost::property_tree::ptree locations;
 
-#pragma omp parallel
-#pragma omp single
-        {
-                for (const auto& location : geoGrid) {
-                        pair<string, boost::property_tree::ptree> child;
-#pragma omp task firstprivate(location)
-                        {
-                                child = make_pair("", WriteLocation(*location));
-#pragma omp critical
-
-                                locations.push_back(move(child));
-                        }
-                }
-#pragma omp taskwait
+        for (const auto& location : geoGrid) {
+                pair<string, boost::property_tree::ptree> child;
+                child = make_pair("", WriteLocation(*location));
+                locations.push_back(move(child));
         }
-
         root.add_child("locations", locations);
 
         boost::property_tree::ptree persons;
-#pragma omp parallel
-#pragma omp single
-        {
-                for (const auto& person : m_persons_found) {
-                        pair<string, boost::property_tree::ptree> child;
-#pragma omp task firstprivate(person)
-                        {
-                                child = make_pair("", WritePerson(person));
-#pragma omp critical
-                                persons.push_back(move(child));
-                        }
-                }
-#pragma omp taskwait
+
+        for (const auto& person : m_persons_found) {
+                pair<string, boost::property_tree::ptree> child;
+                child = make_pair("", WritePerson(person));
+                persons.push_back(move(child));
         }
+
         root.add_child("persons", persons);
 
         m_persons_found.clear();
@@ -82,20 +64,13 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteContactCenter(shared_ptr<Con
         contactCenter_root.put("id", contactCenter->GetId());
         contactCenter_root.put("type", ToString(contactCenter->GetContactPoolType()));
         boost::property_tree::ptree pools;
-#pragma omp parallel
-#pragma omp single
-        {
-                for (const auto& pool : *contactCenter) {
-                        pair<string, boost::property_tree::ptree> child;
-#pragma omp task firstprivate(pool)
-                        {
-                                child = make_pair("", WriteContactPool(pool));
-#pragma omp critical
-                                pools.push_back(move(child));
-                        }
-                }
-#pragma omp taskwait
+
+        for (const auto& pool : *contactCenter) {
+                pair<string, boost::property_tree::ptree> child;
+                        child = make_pair("", WriteContactPool(pool));
+                        pools.push_back(move(child));
         }
+
         contactCenter_root.add_child("pools", pools);
         return contactCenter_root;
 }
@@ -107,7 +82,6 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(ContactPool* con
         boost::property_tree::ptree people;
         for (auto person : *contactPool) {
                 boost::property_tree::ptree person_root;
-#pragma omp critical
                 m_persons_found.insert(person);
                 person_root.put("", person->GetId());
                 people.push_back(make_pair("", person_root));
@@ -143,14 +117,11 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(const Location& loc
         }
 
         boost::property_tree::ptree       contactCenters;
-        vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
-                for (const auto& c : location.CRefCenters(typ)) {
+                for (const auto &c : location.CRefCenters(typ)) {
                         pair<string, boost::property_tree::ptree> child;
-                        {
-                                child = make_pair("", WriteContactCenter(c));
-                                contactCenters.push_back(move(child));
-                        }
+                        child = make_pair("", WriteContactCenter(c));
+                        contactCenters.push_back(move(child));
                 }
         }
         location_root.add_child("contactCenters", contactCenters);

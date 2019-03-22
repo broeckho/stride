@@ -44,39 +44,23 @@ void GeoGridProtoReader::Read()
         }
         auto& geoGrid = m_population->RefGeoGrid();
 
-#pragma omp parallel
-#pragma omp single
-        {
-                for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
-                        const proto::GeoGrid_Person& protoPerson = protoGrid.persons(idx);
-#pragma omp task firstprivate(protoPerson)
-                        {
-#pragma omp critical
-                                {
-                                        stride::Person* person    = ParsePerson(protoPerson);
-                                        m_people[person->GetId()] = person;
-                                }
-                        }
-                }
-#pragma omp taskwait
+        for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
+                const proto::GeoGrid_Person& protoPerson = protoGrid.persons(idx);
+                stride::Person* person    = ParsePerson(protoPerson);
+                m_people[person->GetId()] = person;
         }
+
         auto e = make_shared<ThreadException>();
-#pragma omp parallel
-#pragma omp single
-        {
-                for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
+
+        for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
                         shared_ptr<Location>           loc;
                         const proto::GeoGrid_Location& protoLocation = protoGrid.locations(idx);
-#pragma omp task firstprivate(protoLocation, loc)
-                        {
-                                e->Run([&loc, this, &protoLocation] { loc = ParseLocation(protoLocation); });
-                                if (!e->HasError())
-#pragma omp critical
+                        e->Run([&loc, this, &protoLocation] { loc = ParseLocation(protoLocation); });
+                        if (!e->HasError()) {
                                         geoGrid.AddLocation(move(loc));
                         }
-                }
-#pragma omp taskwait
         }
+
         e->Rethrow();
         AddCommutes(geoGrid);
         m_people.clear();
@@ -91,37 +75,42 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 
         Id typeId;
         switch (type) {
-        case proto::GeoGrid_Location_ContactCenter_Type_K12School: typeId = Id::K12School; break;
-        case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity: typeId = Id::PrimaryCommunity; break;
-        case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity: typeId = Id::SecondaryCommunity; break;
-        case proto::GeoGrid_Location_ContactCenter_Type_College: typeId = Id::College; break;
-        case proto::GeoGrid_Location_ContactCenter_Type_Household: typeId = Id::Household; break;
-        case proto::GeoGrid_Location_ContactCenter_Type_Workplace: typeId = Id::Workplace; break;
-        default: throw runtime_error("No such ContactCenter type");
+                case proto::GeoGrid_Location_ContactCenter_Type_K12School:
+                        typeId = Id::K12School;
+                        break;
+                case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
+                        typeId = Id::PrimaryCommunity;
+                        break;
+                case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
+                        typeId = Id::SecondaryCommunity;
+                        break;
+                case proto::GeoGrid_Location_ContactCenter_Type_College:
+                        typeId = Id::College;
+                        break;
+                case proto::GeoGrid_Location_ContactCenter_Type_Household:
+                        typeId = Id::Household;
+                        break;
+                case proto::GeoGrid_Location_ContactCenter_Type_Workplace:
+                        typeId = Id::Workplace;
+                        break;
+                default:
+                        throw runtime_error("No such ContactCenter type");
         }
         auto result = make_shared<ContactCenter>(id, typeId);
-
         auto e = make_shared<ThreadException>();
-#pragma omp parallel
-#pragma omp single
-        {
-                for (int idx = 0; idx < protoContactCenter.pools_size(); idx++) {
-                        const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool =
+
+        for (int idx = 0; idx < protoContactCenter.pools_size(); idx++) {
+                const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool =
                             protoContactCenter.pools(idx);
-#pragma omp task firstprivate(protoContactPool, typeId)
-                        {
-                                stride::ContactPool* pool = nullptr;
-                                e->Run([&protoContactPool, &pool, this, &typeId] {
-                                        pool = ParseContactPool(protoContactPool, typeId);
-                                });
-                                if (!e->HasError()) {
-#pragma omp critical
-                                        result->RegisterPool(pool);
-                                }
-                        }
+                stride::ContactPool* pool = nullptr;
+                e->Run([&protoContactPool, &pool, this, &typeId] {
+                        pool = ParseContactPool(protoContactPool, typeId);
+                });
+                if (!e->HasError()) {
+                        result->RegisterPool(pool);
                 }
-#pragma omp taskwait
         }
+
         e->Rethrow();
 
         return result;
@@ -137,20 +126,14 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
 {
         // Don't use the id of the ContactPool but the let the Population create an id
         stride::ContactPool* result;
-
-#pragma omp critical
         result = m_population->RefPoolSys().CreateContactPool(type);
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
                 const auto person_id = static_cast<unsigned int>(protoContactPool.people(idx));
                 const auto person    = m_people.at(person_id);
-
-#pragma omp critical
-                {
-                        result->AddMember(person);
-                        // Update original pool id with new pool id used in the population
-                        person->SetPoolId(type, static_cast<unsigned int>(result->GetId()));
-                }
+                result->AddMember(person);
+                // Update original pool id with new pool id used in the population
+                person->SetPoolId(type, static_cast<unsigned int>(result->GetId()));
         }
 
         return result;
@@ -167,27 +150,19 @@ shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Loca
         auto result = make_shared<Location>(id, province, coordinate, name, population);
 
         auto e = make_shared<ThreadException>();
-#pragma omp parallel
-#pragma omp single
-        {
-                for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
-                        shared_ptr<ContactCenter>                    center;
-                        const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
-#pragma omp task firstprivate(protoCenter, center)
-                        {
-                                e->Run([&protoCenter, this, &center] { center = ParseContactCenter(protoCenter); });
-                                if (!e->HasError())
-#pragma omp critical
-                                        result->AddCenter(center);
-                        }
-                }
-#pragma omp taskwait
+
+        for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
+                shared_ptr<ContactCenter>                    center;
+                const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
+                e->Run([&protoCenter, this, &center] { center = ParseContactCenter(protoCenter); });
+                if (!e->HasError())
+                                result->AddCenter(center);
         }
+
         e->Rethrow();
 
         for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
                 const proto::GeoGrid_Location_Commute& commute = protoLocation.commutes(idx);
-#pragma omp critical
                 m_commutes.emplace_back(make_tuple(id, commute.to(), commute.proportion()));
         }
 

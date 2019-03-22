@@ -28,6 +28,17 @@ using namespace stride::util;
 using namespace stride::ContactType;
 using namespace geopop;
 
+/**
+ * Builds a GeoGrid in the population with all Locations at Coordinate (0.0, 0.0), all having
+ * the same population count, the same number of K12 schools, the same number of households,
+ * each having the same number of persons.
+ * @param locCount          The number of Locations.
+ * @param locPop            The population count at each Location.
+ * @param schoolCount       The number of K!2Schools at each Location.
+ * @param houseHoldCount    The number of households at each Location.
+ * @param personCount       The number of persons per Household.
+ * @param pop               The population carrying this GeoGrid.
+ */
 void MakeGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount, int personCount, Population *pop)
 {
         vector<unsigned int> populationSample = {

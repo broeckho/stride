@@ -72,7 +72,6 @@ void CompareContactPool(ContactPool*                                            
 void CompareContactCenter(const ContactCenter&                         contactCenter,
                           const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
-
         map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
             {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
@@ -142,8 +141,6 @@ void CompareLocation(const Location& location, const proto::GeoGrid_Location& pr
 
 void ComparePerson(const proto::GeoGrid_Person& protoPerson)
 {
-        using namespace ContactType;
-
         const auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::College)], person->GetPoolId(Id::College));
