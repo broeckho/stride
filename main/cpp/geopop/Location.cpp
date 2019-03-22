@@ -16,6 +16,9 @@
 #include "Location.h"
 #include "ContactCenter.h"
 #include "contact/ContactType.h"
+#include "contact/ContactPool.h"
+#include "disease/Health.h"
+#include "pop/Person.h"
 #include "util/Exception.h"
 
 #include <cmath>
@@ -27,7 +30,7 @@ using namespace stride::ContactType;
 
 Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, string name, unsigned int popCount)
     : m_coordinate(coordinate), m_id(id), m_name(move(name)), m_pop_count(popCount), m_pop_fraction(0.0),
-      m_province(province), m_inCommutes(), m_outCommutes(), m_cc()
+      m_province(province), m_inCommutes(), m_outCommutes(), m_cc(), m_pool_index()
 {
 }
 
@@ -38,6 +41,7 @@ bool Location::operator==(const Location& other) const
         auto temp = true;
         for (Id typ : IdList) {
                 temp = temp && (CRefCenters(typ) == other.CRefCenters(typ));
+                temp = temp && (CRefPools(typ) == other.CRefPools(typ));
         }
         return temp && GetID() == other.GetID() && get<0>(GetCoordinate()) == get<0>(other.GetCoordinate()) &&
                get<1>(GetCoordinate()) == get<1>(other.GetCoordinate()) && GetName() == other.GetName() &&
@@ -73,16 +77,14 @@ int Location::GetIncomingCommuteCount(double fractionCommuters) const
 
 unsigned int Location::GetInfectedCount() const
 {
-        auto infected = 0U;
-
-        for (Id typ : IdList) {
-                for (const auto& cc : CRefCenters(typ)) {
-                        const auto r = cc->GetPopulationAndInfectedCount();
-                        infected += r.second;
+        unsigned int total{0U};
+        for (const auto& pool : CRefPools<Id::Household>()) {
+                for (const auto& person : *pool) {
+                        const auto& h = person->GetHealth();
+                        total += h.IsInfected() || h.IsRecovered();
                 }
         }
-
-        return infected;
+        return total;
 }
 
 unsigned int Location::GetOutgoingCommuteCount(double fractionCommuters) const
@@ -95,12 +97,12 @@ unsigned int Location::GetOutgoingCommuteCount(double fractionCommuters) const
         return static_cast<unsigned int>(floor(totalProportion * (fractionCommuters * m_pop_count)));
 }
 
-double Location::GetRelativePop() const { return m_pop_fraction; }
+double Location::GetPopFraction() const { return m_pop_fraction; }
 
 void Location::SetPopCount(unsigned int totalPopCount)
 {
         m_pop_count = static_cast<unsigned int>(floor(m_pop_fraction * totalPopCount));
 }
-void Location::SetRelativePop(double relativePopulation) { m_pop_fraction = relativePopulation; }
+void Location::SetPopFraction(double relativePopulation) { m_pop_fraction = relativePopulation; }
 
 } // namespace geopop

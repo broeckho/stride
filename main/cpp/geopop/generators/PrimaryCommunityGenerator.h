@@ -10,30 +10,29 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "SecondaryCommunityCenter.h"
+#pragma once
 
-#include "GeoGrid.h"
-#include "GeoGridConfig.h"
-#include "pop/Population.h"
-
-using namespace stride::ContactType;
+#include "Generator.h"
 
 namespace geopop {
 
-void SecondaryCommunityCenter::SetupPools(const GeoGridConfig& /* geoGridConfig */, stride::Population* pop)
+/**
+ * Generator for PCommunity contact pools.
+ */
+class PrimaryCommunityGenerator : public Generator
 {
-        auto& poolSys = pop->RefPoolSys();
+public:
+        using Generator::Generator;
 
-        // TODO CheckThisAlgorithm
-        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
-        if (m_pools.empty()) {
+        /// See @Generator::Apply.
+        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) override;
 
-                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::SecondaryCommunity);
-                RegisterPool(p);
-        }
-}
+        /// see @Generator::SetupPools.
+        void SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+                        stride::Population* pop) override;
+};
 
 } // namespace geopop

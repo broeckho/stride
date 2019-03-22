@@ -44,7 +44,7 @@ void GeoGridJSONWriter::Write(GeoGrid& geoGrid, ostream& stream)
                         pair<string, boost::property_tree::ptree> child;
 #pragma omp task firstprivate(location)
                         {
-                                child = make_pair("", WriteLocation(location));
+                                child = make_pair("", WriteLocation(*location));
 #pragma omp critical
 
                                 locations.push_back(move(child));
@@ -124,16 +124,16 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteCoordinate(const Coordinate&
         return coordinate_root;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(shared_ptr<Location> location)
+boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(const Location& location)
 {
         boost::property_tree::ptree location_root;
-        location_root.put("id", location->GetID());
-        location_root.put("name", location->GetName());
-        location_root.put("province", location->GetProvince());
-        location_root.put("population", location->GetPopCount());
-        location_root.add_child("coordinate", WriteCoordinate(location->GetCoordinate()));
+        location_root.put("id", location.GetID());
+        location_root.put("name", location.GetName());
+        location_root.put("province", location.GetProvince());
+        location_root.put("population", location.GetPopCount());
+        location_root.add_child("coordinate", WriteCoordinate(location.GetCoordinate()));
 
-        auto commutes = location->CRefOutgoingCommutes();
+        auto commutes = location.CRefOutgoingCommutes();
         if (!commutes.empty()) {
                 boost::property_tree::ptree commutes_root;
                 for (auto commute_pair : commutes) {
@@ -145,7 +145,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(shared_ptr<Location
         boost::property_tree::ptree       contactCenters;
         vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
-                for (const auto& c : location->RefCenters(typ)) {
+                for (const auto& c : location.CRefCenters(typ)) {
                         pair<string, boost::property_tree::ptree> child;
                         {
                                 child = make_pair("", WriteContactCenter(c));

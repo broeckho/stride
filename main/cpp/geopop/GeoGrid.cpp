@@ -98,7 +98,7 @@ vector<const Location*> GeoGrid::LocationsInRadius(const Location& start, double
         CheckFinalized(__func__);
 
         geogrid_detail::KdTree2DPoint startPt(&start);
-        vector<const Location*>             result;
+        vector<const Location*>       result;
 
         auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)), make_tuple(startPt, radius));
         agg();
@@ -108,9 +108,7 @@ vector<const Location*> GeoGrid::LocationsInRadius(const Location& start, double
 
 vector<Location*> GeoGrid::TopK(size_t k) const
 {
-        auto cmp = [](Location* rhs, Location* lhs) {
-                return rhs->GetPopCount() > lhs->GetPopCount();
-        };
+        auto cmp = [](Location* rhs, Location* lhs) { return rhs->GetPopCount() > lhs->GetPopCount(); };
 
         priority_queue<Location*, vector<Location*>, decltype(cmp)> queue(cmp);
         for (const auto& loc : m_locations) {

@@ -19,8 +19,6 @@
 #include "createGeogrid.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/HouseholdCenter.h"
-#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
 #include "pop/Population.h"
 #include "util/LogUtils.h"
@@ -39,9 +37,9 @@ namespace {
 
 TEST(K12SchoolPopulatorTest, NoPopulation)
 {
-        auto rnMan   = RnMan(RnInfo{});
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
+        RnMan rnMan{RnInfo{}};
+        auto  pop     = Population::Create();
+        auto  geoGrid = GeoGrid(pop.get());
 
         geoGrid.AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
         geoGrid.Finalize();
@@ -59,7 +57,7 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
         auto& geoGrid = pop->RefGeoGrid();
         geoGrid.Finalize();
 
-        auto               rnMan = RnMan(RnInfo{});
+        RnMan              rnMan{RnInfo{}};
         K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
 
@@ -143,7 +141,7 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
         SetupGeoGrid(3, 100, 3, 33, 3, pop.get());
         auto& geoGrid = pop->RefGeoGrid();
 
-        auto               rnMan = RnMan{RnInfo{}};
+        RnMan              rnMan{RnInfo{}};
         K12SchoolPopulator k12SchoolPopulator(rnMan);
         GeoGridConfig      config{};
 

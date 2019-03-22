@@ -87,9 +87,9 @@ private:
         Population();
 
 private:
-        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
+        ContactPoolSys                  m_pool_sys;       ///< The global @ContactPoolSys.
         std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
-        geopop::GeoGrid                 m_geo_grid;       ///< Associated geoGrid may be nullptr.
+        geopop::GeoGrid                 m_geo_grid;       ///< Associated @GeoGrid may be nullptr.
 };
 
 } // namespace stride

@@ -28,14 +28,14 @@ namespace geopop {
  * Create an abstract Reader which fills a GeoGrid with the cities found in file.
  * This can be implemented using different input types. Currently CSV is implemented.
  */
-class CitiesReader
+class LocationsReader
 {
 public:
         /// Construct the CitiesReader with an istream containing the file content.
-        explicit CitiesReader(std::unique_ptr<std::istream> inputStream) : m_inputStream(std::move(inputStream)) {}
+        explicit LocationsReader(std::unique_ptr<std::istream> inputStream) : m_inputStream(std::move(inputStream)) {}
 
         /// Default destructor.
-        virtual ~CitiesReader() = default;
+        virtual ~LocationsReader() = default;
 
         /// Add the locations to the GeoGrid.
         virtual void FillGeoGrid(GeoGrid&) const = 0;

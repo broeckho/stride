@@ -16,15 +16,9 @@
 #include "Populator.h"
 
 #include "contact/ContactPool.h"
-#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/HouseholdCenter.h"
-#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
-#include "geopop/PrimaryCommunityCenter.h"
-#include "geopop/SecondaryCommunityCenter.h"
-#include "geopop/WorkplaceCenter.h"
 #include "util/LogUtils.h"
 
 namespace geopop {

@@ -17,9 +17,7 @@
 
 #include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
-#include "geopop/SecondaryCommunityCenter.h"
 #include "pop/Person.h"
 
 #include <set>
@@ -34,9 +32,6 @@ void SecondaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 {
         m_logger->trace("Starting to populate Secondary Communities");
 
-        set<stride::ContactPool*> found;
-
-        // for every location
         for (const auto& loc : geoGrid) {
                 if (loc->GetPopCount() == 0) {
                         continue;
@@ -62,14 +57,12 @@ void SecondaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                         current_hh_in_comm++;
                         auto pool = nearbyPools[current_comm];
                         for (auto p : *housePool) {
-                                found.insert(pool);
                                 pool->AddMember(p);
                                 p->SetPoolId(stride::ContactType::Id::SecondaryCommunity, pool->GetId());
                         }
                 }
         }
 
-        m_logger->debug("Used {} different Secondary communities", found.size());
         m_logger->trace("Done populating Secondary Communities");
 }
 } // namespace geopop

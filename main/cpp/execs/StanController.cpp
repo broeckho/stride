@@ -108,7 +108,6 @@ void StanController::Control()
                 m_stride_logger->info("For run with seed {} final infected count is: {}", seeds[i], results[i].back());
         }
 
-
         // -----------------------------------------------------------------------------------------
         // Stan scenario: step 6, output to file.
         // -----------------------------------------------------------------------------------------
