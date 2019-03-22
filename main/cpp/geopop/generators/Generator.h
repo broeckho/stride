@@ -30,7 +30,6 @@ namespace geopop {
 
 class GeoGrid;
 class GeoGridConfig;
-class ContactCenter;
 class Location;
 
 /**
@@ -45,14 +44,10 @@ public:
         /// Virtual destructor for inheritance
         virtual ~Generator() = default;
 
-        /// Generate the contact centers for a pool type (fixed in implementation) to the geogrid.
-        virtual void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) = 0;
+        /// Generate ContactPools as sepcified by the data in GeoGridConfig.
+        virtual void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig) = 0;
 
-        /// Create ContactPools in the GeoGrid and register them with the ContactCenter.
-        //virtual void SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-         //                       stride::Population* pop) = 0;
-
-        /// Create ContactPools in the GeoGrid and do not register them with the ContactCenter.
+        /// Create a given number ContactPools in the GeoGrid.
         virtual void AddPools(Location& loc, stride::Population* pop, unsigned int number) = 0;
 
 protected:

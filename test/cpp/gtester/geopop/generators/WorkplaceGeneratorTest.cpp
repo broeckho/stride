@@ -53,9 +53,7 @@ TEST_F(WorkplaceGeneratorTest, ZeroLocationTest)
 {
         m_geogrid_config.input.pop_size           = 10000;
         m_geogrid_config.popInfo.popcount_college = 20000;
-
-        unsigned int       ccCounter{1U};
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
         EXPECT_EQ(m_geo_grid.size(), 0);
 }
@@ -76,9 +74,7 @@ TEST_F(WorkplaceGeneratorTest, NoCommuting)
         for (int size : sizes) {
                 m_geo_grid.AddLocation(make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size));
         }
-
-        unsigned int       ccCounter{1U};
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
         vector<int> expected{1342, 512,  1948, 1801, 1919, 1087, 1304, 6,    1133, 1728, 646,  441,  450,
                              1643, 1897, 1410, 810,  382,  1192, 1688, 1691, 161,  204,  1433, 1796, 1187,
@@ -121,8 +117,7 @@ TEST_F(WorkplaceGeneratorTest, NullCommuting)
         EXPECT_EQ(1283, m_geo_grid[1]->GetIncomingCommuteCount(m_geogrid_config.input.fraction_workplace_commuters));
         EXPECT_EQ(1283, m_geo_grid[1]->GetOutgoingCommuteCount(m_geogrid_config.input.fraction_workplace_commuters));
 
-        unsigned int       ccCounter{1U};
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
         vector<int> expected{1351, 521,  1960, 1798, 1907, 1088, 1301, 5,    1134, 1739, 644,  431,  447,
                              1650, 1894, 1409, 809,  377,  1198, 1685, 1692, 155,  210,  1430, 1793, 1191,
@@ -197,8 +192,7 @@ TEST_F(WorkplaceGeneratorTest, TenCommuting)
         // = 0,10 * (0,65 * 76946 + 0,22  * 141389 + 0,47 * 20775 + 0,25* 63673) = 10680,298
         EXPECT_EQ(10680, m_geo_grid[17]->GetIncomingCommuteCount(m_geogrid_config.input.fraction_workplace_commuters));
 
-        unsigned int       ccCounter{1U};
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
         vector<int> expected{1328, 516,  1941, 1850, 1906, 1087, 1297, 6,    1132, 1727, 671,  428,  447,
                              1647, 1896, 1394, 810,  464,  1220, 1682, 1672, 149,  211,  1423, 1802, 1185,

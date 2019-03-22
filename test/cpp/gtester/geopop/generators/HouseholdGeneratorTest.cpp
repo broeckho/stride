@@ -55,8 +55,7 @@ TEST_F(HouseholdGeneratorTest, OneLocationTest)
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         m_geo_grid.AddLocation(loc1);
 
-        unsigned int       ccCounter{1U};
-        m_household_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_household_generator.Apply(m_geo_grid, m_geogrid_config);
 
         const auto& poolsOfLoc1 = loc1->CRefPools<Id::Household>();
         EXPECT_EQ(poolsOfLoc1.size(), 4);
@@ -66,9 +65,7 @@ TEST_F(HouseholdGeneratorTest, OneLocationTest)
 TEST_F(HouseholdGeneratorTest, ZeroLocationTest)
 {
         m_geogrid_config.popInfo.count_households = 4;
-
-        unsigned int       ccCounter{1U};
-        m_household_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_household_generator.Apply(m_geo_grid, m_geogrid_config);
 
         EXPECT_EQ(m_geo_grid.size(), 0);
 }
@@ -96,8 +93,7 @@ TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
                                     static_cast<double>(m_geogrid_config.input.pop_size));
         }
 
-        unsigned int       ccCounter{1U};
-        m_household_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_household_generator.Apply(m_geo_grid, m_geogrid_config);
 
         vector<unsigned int> sizes{1179, 1137, 868, 358, 458};
         for (size_t i = 0; i < sizes.size(); i++) {

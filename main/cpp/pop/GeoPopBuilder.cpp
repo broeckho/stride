@@ -136,8 +136,7 @@ void GeoPopBuilder::MakePools(GeoGrid& geoGrid, const GeoGridConfig& geoGridConf
                                                  make_shared<HouseholdGenerator>(m_rn_man, m_stride_logger)};
 
         for (const auto& g : generators) {
-                auto ccCounter = 1U;
-                g->Apply(geoGrid, geoGridConfig, ccCounter);
+                g->Apply(geoGrid, geoGridConfig);
         }
 }
 

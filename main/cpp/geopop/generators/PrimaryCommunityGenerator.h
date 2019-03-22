@@ -28,7 +28,7 @@ public:
         using Generator::Generator;
 
         /// See @Generator::Apply.
-        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) override;
+        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig) override;
 
         /// @see Generator::AddPools.
         void AddPools(Location& loc, stride::Population* pop, unsigned int number) override;

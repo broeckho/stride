@@ -57,8 +57,7 @@ TEST_F(PrimaryCommunityGeneratorTest, OneLocationTest)
         const auto& p1 = loc1->CRefPools(Id::PrimaryCommunity);
         EXPECT_EQ(p1.size(), 0);
 
-        unsigned int                pcCounter{1U};
-        m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config, pcCounter);
+        m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config);
 
         EXPECT_EQ(p1.size(), 5 * m_geogrid_config.pools.pools_per_primary_community);
 }
@@ -72,8 +71,7 @@ TEST_F(PrimaryCommunityGeneratorTest, EqualLocationTest)
                     make_shared<Location>(1, 4, Coordinate(0, 0), "Location " + to_string(i), 10 * 1000 * 1000));
         }
 
-        unsigned int                pcCounter{1U};
-        m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config, pcCounter);
+        m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config);
 
         vector<unsigned int> expected{546, 495, 475, 500, 463, 533, 472, 539, 496, 481};
         for (int i = 0; i < 10; i++) {
@@ -87,8 +85,7 @@ TEST_F(PrimaryCommunityGeneratorTest, ZeroLocationTest)
 {
         m_geogrid_config.input.pop_size = 10000;
 
-        unsigned int                pcCounter{1U};
-        m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config, pcCounter);
+        m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config);
 
         EXPECT_EQ(m_geo_grid.size(), 0);
 }
@@ -111,8 +108,7 @@ TEST_F(PrimaryCommunityGeneratorTest, FiveLocationsTest)
         m_geo_grid.AddLocation(loc4);
         m_geo_grid.AddLocation(loc5);
 
-        unsigned int                pcCounter{1U};
-        m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config, pcCounter);
+        m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config);
 
         vector<unsigned int> expected{553, 518, 410, 173, 224};
         for (int i = 0; i < 5; i++) {
