@@ -43,12 +43,11 @@ void PrimaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 
                 // 2. for every household assign a community
                 const auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearbyPools.size()), 0U);
-                for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
-                        auto contactPool = (*hhCenter)[0];
-                        for (auto p : *contactPool) {
-                                auto& pool = nearbyPools[dist()];
-                                pool->AddMember(p);
-                                p->SetPoolId(Id::PrimaryCommunity, pool->GetId());
+                for (auto& hhPool : loc->RefPools(Id::Household)) {
+                        for (auto p : *hhPool) {
+                                auto& pcPool = nearbyPools[dist()];
+                                pcPool->AddMember(p);
+                                p->SetPoolId(Id::PrimaryCommunity, pcPool->GetId());
                         }
                 }
         }

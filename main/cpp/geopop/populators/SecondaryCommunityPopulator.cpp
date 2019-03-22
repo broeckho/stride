@@ -44,15 +44,14 @@ void SecondaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                 }
 
                 // 2. find all households in this location
-                const auto& households = loc->RefCenters(Id::Household);
+                const auto& households = loc->RefPools(Id::Household);
 
                 auto hh_per_comm        = households.size() / nearbyPools.size();
                 auto remainder          = households.size() % nearbyPools.size();
                 auto current_comm       = 0U;
                 auto current_hh_in_comm = 0U;
 
-                for (const auto& hhCenter : households) {
-                        auto housePool = (*hhCenter)[0];
+                for (const auto& housePool : households) {
                         if ((current_hh_in_comm == hh_per_comm && (!remainder || current_comm >= remainder)) ||
                             (current_hh_in_comm == hh_per_comm + 1 && (remainder && current_comm < remainder))) {
                                 current_comm++;
@@ -62,7 +61,7 @@ void SecondaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                         auto pool = nearbyPools[current_comm];
                         for (auto p : *housePool) {
                                 pool->AddMember(p);
-                                p->SetPoolId(stride::ContactType::Id::SecondaryCommunity, pool->GetId());
+                                p->SetPoolId(Id::SecondaryCommunity, pool->GetId());
                         }
                 }
         }
