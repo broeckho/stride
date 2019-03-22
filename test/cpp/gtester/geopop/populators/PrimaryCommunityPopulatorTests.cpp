@@ -48,6 +48,9 @@ public:
         }
 
 protected:
+        // Set initial situation: a one-person (with Id 42) household at Location 'm_location' registered
+        // in the population/geogrid and one PrimaryCommunity 'm_community_cc' constructed but having no
+        // members and not yet registered in the GeoGrid.
         void SetUp() override
         {
                 auto householdCC = make_shared<ContactCenter>(2, Id::Household);
@@ -102,6 +105,7 @@ TEST_F(PrimaryCommunityPopulatorTest, EmptyLocationTest)
         EXPECT_NO_THROW(m_populator.Apply(m_geo_grid, m_geogrid_config));
 }
 
+// At this Location: a two-person household, each person assigned to different PrimaryCommunity.
 TEST_F(PrimaryCommunityPopulatorTest, HouseholdTest)
 {
         auto person2 = make_shared<Person>();
@@ -129,6 +133,8 @@ TEST_F(PrimaryCommunityPopulatorTest, HouseholdTest)
         EXPECT_EQ((*(*community2)[0])[0]->GetId(), 5);
 }
 
+// Two Locations each with a PrimaryCommunity, a one-person household at the first location
+// and that person gets assigned to the PrimaryCommunity at the first Location.
 TEST_F(PrimaryCommunityPopulatorTest, TwoLocationsTest)
 {
         auto location2  = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
@@ -136,7 +142,6 @@ TEST_F(PrimaryCommunityPopulatorTest, TwoLocationsTest)
         m_community_generator.SetupPools(*location2, *community2, m_geogrid_config, m_pop.get());
 
         m_location->AddCenter(m_community_cc);
-
         location2->AddCenter(community2);
         m_geo_grid.AddLocation(location2);
 
@@ -151,10 +156,12 @@ TEST_F(PrimaryCommunityPopulatorTest, TwoLocationsTest)
         EXPECT_EQ((*community2)[0]->size(), 0);
 }
 
+// Even if there is another L
 TEST_F(PrimaryCommunityPopulatorTest, OtherLocationTest)
 {
         auto location2 = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
         location2->AddCenter(m_community_cc);
+
         m_geo_grid.AddLocation(location2);
         m_geo_grid.Finalize();
 
