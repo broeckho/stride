@@ -1,7 +1,8 @@
 var a00099 =
 [
     [ "Sim", "da/d74/a00099.html#a669d30fcc9d14fc6cce7deae4e4661f2", null ],
-    [ "Create", "da/d74/a00099.html#aaedfb9603bec92d8c0f5da169ff69700", null ],
+    [ "Create", "da/d74/a00099.html#aeaff03916b4c2915a4c123a51cbe207b", null ],
+    [ "Create", "da/d74/a00099.html#abcbad19e448f9f2098b1c8bc0d71e18d", null ],
     [ "GetCalendar", "da/d74/a00099.html#afea0f1297e849966883bcc1d8e3d8e86", null ],
     [ "GetConfigValue", "da/d74/a00099.html#a1b5ec0fca8e7496868ca067afe83f560", null ],
     [ "GetPopulation", "da/d74/a00099.html#ae0d62bc95008a4974dd9227b5084e161", null ],

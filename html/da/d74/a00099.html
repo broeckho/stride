@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1f85539</span>
+   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
    </div>
   </td>
  </tr>
@@ -166,9 +166,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aaedfb9603bec92d8c0f5da169ff69700"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../da/d74/a00099.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d74/a00099.html#aaedfb9603bec92d8c0f5da169ff69700">Create</a> (const boost::property_tree::ptree &amp;config, std::shared_ptr&lt; <a class="el" href="../../d1/d84/a00097.html">Population</a> &gt; pop, <a class="el" href="../../df/d6a/a00119.html">util::RnMan</a> rnMan)</td></tr>
-<tr class="memdesc:aaedfb9603bec92d8c0f5da169ff69700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="../../da/d74/a00099.html" title="Simulator can time step and reveal some of the key data. ">Sim</a> initialized by the configuration in property tree and population.  <a href="#aaedfb9603bec92d8c0f5da169ff69700">More...</a><br /></td></tr>
-<tr class="separator:aaedfb9603bec92d8c0f5da169ff69700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaff03916b4c2915a4c123a51cbe207b"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../da/d74/a00099.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d74/a00099.html#aeaff03916b4c2915a4c123a51cbe207b">Create</a> (const boost::property_tree::ptree &amp;config, std::shared_ptr&lt; <a class="el" href="../../d1/d84/a00097.html">Population</a> &gt; pop, <a class="el" href="../../df/d6a/a00119.html">util::RnMan</a> rnMan)</td></tr>
+<tr class="memdesc:aeaff03916b4c2915a4c123a51cbe207b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="../../da/d74/a00099.html" title="Simulator can time step and reveal some of the key data. ">Sim</a> initialized by the configuration in property tree and population.  <a href="#aeaff03916b4c2915a4c123a51cbe207b">More...</a><br /></td></tr>
+<tr class="separator:aeaff03916b4c2915a4c123a51cbe207b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcbad19e448f9f2098b1c8bc0d71e18d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../da/d74/a00099.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d74/a00099.html#abcbad19e448f9f2098b1c8bc0d71e18d">Create</a> (const std::string &amp;configString, std::shared_ptr&lt; <a class="el" href="../../d1/d84/a00097.html">Population</a> &gt; pop, <a class="el" href="../../df/d6a/a00119.html">util::RnMan</a> rnMan)</td></tr>
+<tr class="memdesc:abcbad19e448f9f2098b1c8bc0d71e18d"><td class="mdescLeft">&#160;</td><td class="mdescRight">For use in python environment: create <a class="el" href="../../da/d74/a00099.html" title="Simulator can time step and reveal some of the key data. ">Sim</a> using configuration string i.o. ptree.  <a href="#abcbad19e448f9f2098b1c8bc0d71e18d">More...</a><br /></td></tr>
+<tr class="separator:abcbad19e448f9f2098b1c8bc0d71e18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -254,19 +257,14 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00039">39</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Sim.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d0/d48/a00351.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">stride::ContactLogMode::None</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00046">Create()</a>.</p>
+<p>References <a class="el" href="../../da/d74/a00099.html#aeaff03916b4c2915a4c123a51cbe207b">Create()</a>, <a class="el" href="../../d0/d48/a00351.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">stride::ContactLogMode::None</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00082">SimBuilder</a>.</p>
 
 <p><div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d74/a00099_a669d30fcc9d14fc6cce7deae4e4661f2_icgraph.gif" border="0" usemap="#da/d74/a00099_a669d30fcc9d14fc6cce7deae4e4661f2_icgraph" alt=""/></div>
-<map name="da/d74/a00099_a669d30fcc9d14fc6cce7deae4e4661f2_icgraph" id="da/d74/a00099_a669d30fcc9d14fc6cce7deae4e4661f2_icgraph">
-<area shape="rect" id="node2" href="../../da/d74/a00099.html#aaedfb9603bec92d8c0f5da169ff69700" title="Create Sim initialized by the configuration in property tree and population. " alt="" coords="177,46,320,73"/>
-<area shape="rect" id="node3" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="371,5,524,47"/>
-<area shape="rect" id="node5" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="368,71,527,112"/>
-<area shape="rect" id="node4" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="575,46,629,73"/>
+<div class="center"><img src="../../da/d74/a00099_a669d30fcc9d14fc6cce7deae4e4661f2_cgraph.gif" border="0" usemap="#da/d74/a00099_a669d30fcc9d14fc6cce7deae4e4661f2_cgraph" alt=""/></div>
+<map name="da/d74/a00099_a669d30fcc9d14fc6cce7deae4e4661f2_cgraph" id="da/d74/a00099_a669d30fcc9d14fc6cce7deae4e4661f2_cgraph">
+<area shape="rect" id="node2" href="../../da/d74/a00099.html#aeaff03916b4c2915a4c123a51cbe207b" title="Create Sim initialized by the configuration in property tree and population. " alt="" coords="177,5,320,32"/>
 </map>
 </div>
 </p>
@@ -274,7 +272,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aaedfb9603bec92d8c0f5da169ff69700"></a>
+<a class="anchor" id="aeaff03916b4c2915a4c123a51cbe207b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -282,7 +280,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../da/d74/a00099.html">Sim</a> &gt; stride::Sim::Create </td>
+          <td class="memname">static std::shared_ptr&lt;<a class="el" href="../../da/d74/a00099.html">Sim</a>&gt; stride::Sim::Create </td>
           <td>(</td>
           <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
           <td class="paramname"><em>config</em>, </td>
@@ -314,30 +312,75 @@ Here is the caller graph for this function:</div>
 
 <p>Create <a class="el" href="../../da/d74/a00099.html" title="Simulator can time step and reveal some of the key data. ">Sim</a> initialized by the configuration in property tree and population. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00046">46</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Sim.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d4/d5b/a00294_source.html#l00039">Sim()</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00079">SimBuilder</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d0d/a00298_source.html#l00037">stride::SimController::Control()</a>, and <a class="el" href="../../dc/d0f/a00303_source.html#l00048">stride::StanController::Control()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d74/a00099_aaedfb9603bec92d8c0f5da169ff69700_cgraph.gif" border="0" usemap="#da/d74/a00099_aaedfb9603bec92d8c0f5da169ff69700_cgraph" alt=""/></div>
-<map name="da/d74/a00099_aaedfb9603bec92d8c0f5da169ff69700_cgraph" id="da/d74/a00099_aaedfb9603bec92d8c0f5da169ff69700_cgraph">
-<area shape="rect" id="node2" href="../../da/d74/a00099.html#a669d30fcc9d14fc6cce7deae4e4661f2" title="Constructor for empty Simulator. " alt="" coords="196,5,320,32"/>
-</map>
-</div>
-</p>
+<p>Referenced by <a class="el" href="../../d9/d0d/a00298_source.html#l00037">stride::SimController::Control()</a>, <a class="el" href="../../dc/d0f/a00303_source.html#l00048">stride::StanController::Control()</a>, <a class="el" href="../../d4/d5b/a00294_source.html#l00058">Create()</a>, and <a class="el" href="../../d4/d5b/a00294_source.html#l00039">Sim()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d74/a00099_aaedfb9603bec92d8c0f5da169ff69700_icgraph.gif" border="0" usemap="#da/d74/a00099_aaedfb9603bec92d8c0f5da169ff69700_icgraph" alt=""/></div>
-<map name="da/d74/a00099_aaedfb9603bec92d8c0f5da169ff69700_icgraph" id="da/d74/a00099_aaedfb9603bec92d8c0f5da169ff69700_icgraph">
+<div class="center"><img src="../../da/d74/a00099_aeaff03916b4c2915a4c123a51cbe207b_icgraph.gif" border="0" usemap="#da/d74/a00099_aeaff03916b4c2915a4c123a51cbe207b_icgraph" alt=""/></div>
+<map name="da/d74/a00099_aeaff03916b4c2915a4c123a51cbe207b_icgraph" id="da/d74/a00099_aeaff03916b4c2915a4c123a51cbe207b_icgraph">
 <area shape="rect" id="node2" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="199,5,352,47"/>
 <area shape="rect" id="node4" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="196,71,355,112"/>
+<area shape="rect" id="node5" href="../../da/d74/a00099.html#abcbad19e448f9f2098b1c8bc0d71e18d" title="For use in python environment: create Sim using configuration string i.o. ptree. " alt="" coords="204,137,347,163"/>
+<area shape="rect" id="node6" href="../../da/d74/a00099.html#a669d30fcc9d14fc6cce7deae4e4661f2" title="Constructor for empty Simulator. " alt="" coords="213,187,337,214"/>
 <area shape="rect" id="node3" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="403,46,457,73"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abcbad19e448f9f2098b1c8bc0d71e18d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../da/d74/a00099.html">Sim</a> &gt; stride::Sim::Create </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>configString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d1/d84/a00097.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d6a/a00119.html">util::RnMan</a>&#160;</td>
+          <td class="paramname"><em>rnMan</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>For use in python environment: create <a class="el" href="../../da/d74/a00099.html" title="Simulator can time step and reveal some of the key data. ">Sim</a> using configuration string i.o. ptree. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00058">58</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Sim.cpp</a>.</p>
+
+<p>References <a class="el" href="../../da/d74/a00099.html#aeaff03916b4c2915a4c123a51cbe207b">Create()</a>, and <a class="el" href="../../d6/d7f/a00287_source.html#l00295">stride::util::RunConfigManager::FromString()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d74/a00099_abcbad19e448f9f2098b1c8bc0d71e18d_cgraph.gif" border="0" usemap="#da/d74/a00099_abcbad19e448f9f2098b1c8bc0d71e18d_cgraph" alt=""/></div>
+<map name="da/d74/a00099_abcbad19e448f9f2098b1c8bc0d71e18d_cgraph" id="da/d74/a00099_abcbad19e448f9f2098b1c8bc0d71e18d_cgraph">
+<area shape="rect" id="node2" href="../../da/d74/a00099.html#aeaff03916b4c2915a4c123a51cbe207b" title="Create Sim initialized by the configuration in property tree and population. " alt="" coords="231,5,373,32"/>
+<area shape="rect" id="node3" href="../../d4/d98/a00120.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb" title="Reconstitute property tree from string representation. " alt="" coords="196,57,408,98"/>
 </map>
 </div>
 </p>
@@ -368,7 +411,7 @@ Here is the caller graph for this function:</div>
 <p><a class="el" href="../../d2/db1/a00070.html" title="Class that keeps track of the &#39;state&#39; of simulated world. ">Calendar</a> for the simulated world. </p>
 <p>Initialized with the start date in the simulation world. Use <a class="el" href="../../da/d74/a00099.html#afea0f1297e849966883bcc1d8e3d8e86" title="Calendar for the simulated world. ">GetCalendar()</a>-&gt;GetSimulationDay() for the number of days simulated. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00055">55</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00058">58</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
 </div>
 </div>
@@ -396,7 +439,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the <a class="el" href="../../da/d74/a00099.html" title="Simulator can time step and reveal some of the key data. ">Sim</a> configuration for the given attribute. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00058">58</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00061">61</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
 </div>
 </div>
@@ -423,7 +466,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the population. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00061">61</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00064">64</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
 </div>
 </div>
@@ -450,7 +493,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the stored transmission rate. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00064">64</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00067">67</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
 </div>
 </div>
@@ -477,7 +520,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the random number manager. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00067">67</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00070">70</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
 </div>
 </div>
@@ -504,7 +547,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the transmission profile. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00070">70</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00073">73</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
 </div>
 </div>
@@ -523,9 +566,9 @@ Here is the caller graph for this function:</div>
 
 <p>Run one time step, computing full simulation (default) or only index case. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00058">58</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Sim.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00063">63</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Sim.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d6/d9c/a00352.html#a61a32e88a50c57e6f5c49f0996b6b462a2806259c227f694c678ec9444aec2042">stride::ContactType::College</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00034">stride::PublicHealthAgency::Exec()</a>, <a class="el" href="../../d9/d38/a00166_source.html#l00075">stride::ContactType::IdList</a>, <a class="el" href="../../d6/d9c/a00352.html#a61a32e88a50c57e6f5c49f0996b6b462ab055a361403830ea4fa7bd1c8519b38e">stride::ContactType::K12School</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00086">m_adaptive_symptomatic_behavior</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00088">m_calendar</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00089">m_contact_profiles</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00090">m_handlers</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00091">m_infector</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00092">m_population</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00096">m_public_health_agency</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00093">m_rn_man</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00095">m_transmission_profile</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00077">stride::Population::RefContactLogger()</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00080">stride::Population::RefPoolSys()</a>, <a class="el" href="../../d6/d82/a00293_source.html#l00210">stride::util::SegmentedVector&lt; T, N, Safe &gt;::size()</a>, and <a class="el" href="../../d6/d9c/a00352.html#a61a32e88a50c57e6f5c49f0996b6b462a45c6a290fcb4fad167ee4b610eeea878">stride::ContactType::Workplace</a>.</p>
+<p>References <a class="el" href="../../d6/d9c/a00352.html#a61a32e88a50c57e6f5c49f0996b6b462a2806259c227f694c678ec9444aec2042">stride::ContactType::College</a>, <a class="el" href="../../dc/d5d/a00278_source.html#l00034">stride::PublicHealthAgency::Exec()</a>, <a class="el" href="../../d9/d38/a00166_source.html#l00075">stride::ContactType::IdList</a>, <a class="el" href="../../d6/d9c/a00352.html#a61a32e88a50c57e6f5c49f0996b6b462ab055a361403830ea4fa7bd1c8519b38e">stride::ContactType::K12School</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00089">m_adaptive_symptomatic_behavior</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00091">m_calendar</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00092">m_contact_profiles</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00093">m_handlers</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00094">m_infector</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00095">m_population</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00099">m_public_health_agency</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00096">m_rn_man</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00098">m_transmission_profile</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00077">stride::Population::RefContactLogger()</a>, <a class="el" href="../../d9/d2a/a00270_source.html#l00080">stride::Population::RefPoolSys()</a>, <a class="el" href="../../d6/d82/a00293_source.html#l00210">stride::util::SegmentedVector&lt; T, N, Safe &gt;::size()</a>, and <a class="el" href="../../d6/d9c/a00352.html#a61a32e88a50c57e6f5c49f0996b6b462a45c6a290fcb4fad167ee4b610eeea878">stride::ContactType::Workplace</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -561,9 +604,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00079">79</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00082">82</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00046">Create()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00039">Sim()</a>.</p>
 
 </div>
 </div>
@@ -588,7 +631,7 @@ Here is the call graph for this function:</div>
 
 <p>Configuration property tree. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00082">82</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00085">85</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
 </div>
 </div>
@@ -612,7 +655,7 @@ Here is the call graph for this function:</div>
 
 <p>Specifies contact/transmission logging mode. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00083">83</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00086">86</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
 </div>
 </div>
@@ -636,7 +679,7 @@ Here is the call graph for this function:</div>
 
 <p>The number of (OpenMP) threads. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00084">84</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00087">87</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
 </div>
 </div>
@@ -660,7 +703,7 @@ Here is the call graph for this function:</div>
 
 <p>General simulation or tracking index case. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00085">85</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00088">88</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
 </div>
 </div>
@@ -684,9 +727,9 @@ Here is the call graph for this function:</div>
 
 <p>Should symptomatic cases stay home? </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00086">86</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00089">89</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00058">TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00063">TimeStep()</a>.</p>
 
 </div>
 </div>
@@ -710,9 +753,9 @@ Here is the call graph for this function:</div>
 
 <p>Management of calendar. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00088">88</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00091">91</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00058">TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00063">TimeStep()</a>.</p>
 
 </div>
 </div>
@@ -736,9 +779,9 @@ Here is the call graph for this function:</div>
 
 <p>Contact profiles w.r.t age. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00089">89</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00092">92</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00058">TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00063">TimeStep()</a>.</p>
 
 </div>
 </div>
@@ -762,9 +805,9 @@ Here is the call graph for this function:</div>
 
 <p>Contact handlers (rng &amp; rates). </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00090">90</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00093">93</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00058">TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00063">TimeStep()</a>.</p>
 
 </div>
 </div>
@@ -788,9 +831,9 @@ Here is the call graph for this function:</div>
 
 <p>Executes contacts/transmission loops in contact pool. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00091">91</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00094">94</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00058">TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00063">TimeStep()</a>.</p>
 
 </div>
 </div>
@@ -814,9 +857,9 @@ Here is the call graph for this function:</div>
 
 <p>Pointer to the <a class="el" href="../../d1/d84/a00097.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00092">92</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00095">95</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00058">TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00063">TimeStep()</a>.</p>
 
 </div>
 </div>
@@ -840,9 +883,9 @@ Here is the call graph for this function:</div>
 
 <p>Random number generation management. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00093">93</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00096">96</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00058">TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00063">TimeStep()</a>.</p>
 
 </div>
 </div>
@@ -866,9 +909,9 @@ Here is the call graph for this function:</div>
 
 <p>Profile of disease. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00095">95</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00098">98</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00058">TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00063">TimeStep()</a>.</p>
 
 </div>
 </div>
@@ -892,9 +935,9 @@ Here is the call graph for this function:</div>
 
 <p>Agency to implement reactive strategies. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00096">96</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00099">99</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Sim.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00058">TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00063">TimeStep()</a>.</p>
 
 </div>
 </div>
@@ -908,7 +951,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../da/d74/a00099.html">Sim</a></li>
-    <li class="footer">Generated on Thu Mar 21 2019 16:51:34 for Stride Reference Manual by
+    <li class="footer">Generated on Fri Mar 22 2019 13:37:07 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
