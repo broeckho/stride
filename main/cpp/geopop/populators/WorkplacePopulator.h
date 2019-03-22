@@ -31,45 +31,38 @@ class WorkplacePopulator : public Populator
 {
 public:
         /// Constructor
-        explicit WorkplacePopulator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger = nullptr);
+        explicit WorkplacePopulator(stride::util::RnMan& rnMan, std::shared_ptr<spdlog::logger> logger = nullptr);
 
         /// Populates the workplaces in geogrid with persons
-        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig) override;
+        void Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig) override;
 
 private:
-        /// Fills the m_workplacesInCity map
-        void CalculateWorkplacesInCity(GeoGrid& geogrid);
-
-        /// Calculates m_fractionCommutingStudents
-        void CalculateFractionCommutingStudents();
-
-        /// Calculates the workplaces which are nearby to m_currentLoc
-        void CalculateNearbyWorkspaces(GeoGrid& geogrid);
-
-        /// Calculates the workplaces to which persons from m_currentLoc may commute to
-        void CalculateCommutingLocations();
-
         /// Assign a workplace to an active person
         void AssignActive(stride::Person* person);
 
-private:
-        unsigned int m_assignedTo0          = 0; ///< Number of persons assigned to no workplace.
-        unsigned int m_assignedCommuting    = 0; ///< Number of persons assigned to workplace outside home location.
-        unsigned int m_assignedNotCommuting = 0; ///< Amount of persons assigned to workplace at the home location.
+        /// Calculates the workplaces to which persons at this Location may commute to.
+        void CommutingLocations(const std::shared_ptr<Location>& loc, double fractionCommuteStudents);
 
-        std::shared_ptr<Location> m_currentLoc; ///< The location for which the workers currently are being assigned..
-        GeoGridConfig             m_geoGridConfig; ///< The GeoGridConfig used during populating.
+        /// Calculates the fraction of student population that commutes.
+        double FractionCommutingStudents();
+
+        /// Calculates the workplaces which are nearby Location loc.
+        void NearbyWorkspacePools(GeoGrid& geoGrid, std::shared_ptr<Location> loc);
+
+        /// Determines workplace pools at each Wocation.
+        void WorkplacePoolsAtLocation(GeoGrid& geoGrid);
+
+private:
+        GeoGridConfig m_geogrid_config; ///< The GeoGridConfig used during populating.
 
         std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, std::function<int()>>>
-            m_workplacesInCity; ///< For each location store workplaces and a distribution fot random selection.
+            m_wp_at_location; ///< For each location store workplaces and a distribution fot random selection.
 
-        double m_fractionCommutingStudents; ///< Fraction of the commuting people who are a student.
+        std::vector<stride::ContactPool*> m_nearby_wp;       ///< Workplaces near current location.
+        std::function<int()>              m_gen_non_commute; ///< Genrator to select nerby workplace.
 
-        std::vector<stride::ContactPool*> m_nearByWorkplaces; ///< Workplaces which are nearby to the m_currentLoc.
-        std::function<int()>              m_distNonCommuting; ///< Distribution to choose from m_nearByWorkPlaces.
-
-        std::vector<Location*> m_commutingLocations; ///< Workplaces which persons from m_currentLoc may commute to.
-        std::function<int()>   m_disCommuting;       ///< Distribution to choose from m_commutingLocations.
+        std::vector<Location*> m_commuting_locations; ///< Workplaces one may commute to from current loaction.
+        std::function<int()>   m_gen_commute;         ///< Generator to select commuting workplace.
 };
 
 } // namespace geopop

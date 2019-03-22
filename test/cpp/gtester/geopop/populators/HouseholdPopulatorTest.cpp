@@ -10,15 +10,15 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2019, Jan Broeckhove.
  */
 
 #include "geopop/populators/HouseholdPopulator.h"
+#include "geopop/generators/HouseholdGenerator.h"
 
 #include "geopop/Coordinate.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
 #include "pop/Population.h"
 #include "util/LogUtils.h"
@@ -36,110 +36,108 @@ using namespace stride::util;
 class HouseholdPopulatorTest : public testing::Test
 {
 public:
-        HouseholdPopulatorTest() : householdPopulator(), rnManager(), config() {}
+        HouseholdPopulatorTest()
+                : m_rn_man(RnInfo()), m_household_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+                  m_geo_grid(m_pop->RefGeoGrid()), m_household_generator(m_rn_man)
+        {}
 
 protected:
-        void SetUp() override
-        {
-                rnManager   = make_shared<RnMan>(RnInfo{});
-                auto logger = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
-                logger->set_level(spdlog::level::off);
-                householdPopulator = make_shared<HouseholdPopulator>(*rnManager.get(), logger);
-        }
-
-        shared_ptr<HouseholdPopulator> householdPopulator;
-        shared_ptr<RnMan>              rnManager;
-        GeoGridConfig                  config;
+        RnMan                        m_rn_man;
+        HouseholdPopulator            m_household_populator;
+        GeoGridConfig                m_geogrid_config;
+        shared_ptr<Population>       m_pop;
+        GeoGrid&                     m_geo_grid;
+        HouseholdGenerator           m_household_generator;
 };
 
 TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 {
-        config.refHH.ages = vector<vector<unsigned int>>{{8U}};
+        m_geogrid_config.refHH.ages = vector<vector<unsigned int>>{{8U}};
 
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-        auto hCenter = make_shared<HouseholdCenter>();
-        hCenter->RegisterPool(new ContactPool(0, ContactType::Id::Household));
+        auto hCenter = make_shared<ContactCenter>(1, Id::Household);
+        m_household_generator.SetupPools(*loc1, *hCenter, m_geogrid_config, m_pop.get());
         loc1->AddCenter(hCenter);
-        geoGrid.AddLocation(loc1);
+        m_geo_grid.AddLocation(loc1);
 
-        householdPopulator->Apply(geoGrid, config);
+        m_household_populator.Apply(m_geo_grid, m_geogrid_config);
 
         ASSERT_EQ(hCenter->size(), 1);
         EXPECT_EQ((*hCenter)[0]->size(), 1);
+
+        const auto& hPools = loc1->RefPools(Id::Household);
+        const auto& pool1 = *hPools[0];
+        ASSERT_EQ(hPools.size(), 1);
+        ASSERT_EQ(pool1.size(), 1);
 }
 
 TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
 {
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
-
-        EXPECT_NO_THROW(householdPopulator->Apply(geoGrid, config));
+        EXPECT_NO_THROW(m_household_populator.Apply(m_geo_grid, m_geogrid_config));
 }
 
 TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
 {
-        config.refHH.ages = vector<vector<unsigned int>>{{18U}};
+        m_geogrid_config.refHH.ages = vector<vector<unsigned int>>{{18U}};
 
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
 
-        auto household1 = make_shared<HouseholdCenter>();
-        household1->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddCenter(household1);
-        auto household2 = make_shared<HouseholdCenter>();
-        household2->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddCenter(household2);
-        auto household3 = make_shared<HouseholdCenter>();
-        household3->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddCenter(household3);
-        auto household4 = make_shared<HouseholdCenter>();
-        household4->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddCenter(household4);
-        auto household5 = make_shared<HouseholdCenter>();
-        household5->RegisterPool(new ContactPool(0, ContactType::Id::Household));
-        loc1->AddCenter(household5);
+        for (unsigned int i = 0U; i < 5U; ++i) {
+                auto household = make_shared<ContactCenter>(i, Id::Household);
+                m_household_generator.SetupPools(*loc1, *household, m_geogrid_config, m_pop.get());
+                loc1->AddCenter(household);
+        }
 
-        geoGrid.AddLocation(loc1);
-
-        householdPopulator->Apply(geoGrid, config);
+        m_geo_grid.AddLocation(loc1);
+        m_household_populator.Apply(m_geo_grid, m_geogrid_config);
 
         for (const auto& hCenter : loc1->RefCenters(Id::Household)) {
                 ASSERT_EQ(hCenter->size(), 1);
                 ASSERT_EQ((*hCenter)[0]->size(), 1);
                 EXPECT_EQ((*(*hCenter)[0]->begin())->GetAge(), 18);
         }
+
+        for (const auto& hPool : loc1->RefPools(Id::Household)) {
+                ASSERT_EQ(hPool->size(), 1);
+                EXPECT_EQ((*hPool)[0]->GetAge(), 18);
+        }
 }
 
 TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
 {
-        config.refHH.ages = vector<vector<unsigned int>>{{18U}, {12U, 56U}};
+        m_geogrid_config.refHH.ages = vector<vector<unsigned int>>{{18U}, {12U, 56U}};
 
-        auto       pop     = Population::Create();
-        auto       geoGrid = GeoGrid(pop.get());
         const auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-        const auto hCenter = make_shared<HouseholdCenter>();
 
-        hCenter->RegisterPool(new ContactPool(0, ContactType::Id::Household));
+        const auto hCenter = make_shared<ContactCenter>(1, Id::Household);
+        m_household_generator.SetupPools(*loc1, *hCenter, m_geogrid_config, m_pop.get());
         loc1->AddCenter(hCenter);
-        geoGrid.AddLocation(loc1);
 
-        const auto hCenter2 = make_shared<HouseholdCenter>();
-        hCenter2->RegisterPool(new ContactPool(0, ContactType::Id::Household));
+
+        const auto hCenter2 = make_shared<ContactCenter>(2, Id::Household);
+        m_household_generator.SetupPools(*loc1, *hCenter2, m_geogrid_config, m_pop.get());
         loc1->AddCenter(hCenter2);
-        householdPopulator->Apply(geoGrid, config);
-        
-        {
-                ASSERT_EQ(hCenter->size(), 1);
-                EXPECT_EQ((*hCenter)[0]->size(), 1);
-                EXPECT_EQ((*(*hCenter)[0]->begin())->GetAge(), 18);
-        }
-        {
-                ASSERT_EQ(hCenter2->size(), 1);
-                EXPECT_EQ((*hCenter2)[0]->size(), 2);
-                EXPECT_EQ((*(*hCenter2)[0]->begin())->GetAge(), 12);
-                EXPECT_EQ((*(*hCenter2)[0]->begin() + 1)->GetAge(), 56);
-        }
+
+        m_geo_grid.AddLocation(loc1);
+        m_household_populator.Apply(m_geo_grid, m_geogrid_config);
+
+        ASSERT_EQ(hCenter->size(), 1);
+        EXPECT_EQ((*hCenter)[0]->size(), 1);
+        EXPECT_EQ((*(*hCenter)[0]->begin())->GetAge(), 18);
+
+        ASSERT_EQ(hCenter2->size(), 1);
+        EXPECT_EQ((*hCenter2)[0]->size(), 2);
+        EXPECT_EQ((*(*hCenter2)[0]->begin())->GetAge(), 12);
+        EXPECT_EQ((*(*hCenter2)[0]->begin() + 1)->GetAge(), 56);
+
+        const auto& hPools = loc1->RefPools(Id::Household);
+        const auto& pool1 = *hPools[0];
+        const auto& pool2 = *hPools[1];
+
+        ASSERT_EQ(hPools.size(), 2);
+        ASSERT_EQ(pool1.size(), 1);
+        EXPECT_EQ(pool1[0]->GetAge(), 18);
+        ASSERT_EQ(pool2.size(), 2);
+        EXPECT_EQ(pool2[0]->GetAge(), 12);
+        EXPECT_EQ(pool2[1]->GetAge(), 56);
 }

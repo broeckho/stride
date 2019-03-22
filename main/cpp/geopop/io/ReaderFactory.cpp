@@ -15,9 +15,9 @@
 
 #include "ReaderFactory.h"
 
-#include "CitiesCSVReader.h"
 #include "CommutesCSVReader.h"
 #include "HouseholdCSVReader.h"
+#include "LocationsCSVReader.h"
 #include "util/FileSys.h"
 
 #include <fstream>
@@ -29,14 +29,14 @@ namespace geopop {
 using namespace std;
 using namespace stride::util;
 
-shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const string& filename)
+shared_ptr<LocationsReader> ReaderFactory::CreateCitiesReader(const string& filename)
 {
         return CreateCitiesReader(FileSys::GetDataDir() / filesys::path(filename));
 }
 
-shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const filesys::path& path)
+shared_ptr<LocationsReader> ReaderFactory::CreateCitiesReader(const filesys::path& path)
 {
-        return make_shared<CitiesCSVReader>(OpenFile(path));
+        return make_shared<LocationsCSVReader>(OpenFile(path));
 }
 
 std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const std::string& filename)

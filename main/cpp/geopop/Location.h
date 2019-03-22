@@ -19,6 +19,7 @@
 #include "contact/IdSubscriptArray.h"
 #include "geopop/ContactCenter.h"
 #include "geopop/Coordinate.h"
+#include "util/SegmentedVector.h"
 
 #include <iostream>
 #include <memory>
@@ -29,9 +30,14 @@
 #include <unordered_map>
 #include <vector>
 
+namespace stride {
+class ContactPool;
+}
+
 namespace geopop {
 
 class ContactCenter;
+
 
 /**
  * Location for use within the GeoGrid, contains Coordinate and ContactCenters.
@@ -81,17 +87,66 @@ public:
         /// Gets the province.
         unsigned int GetProvince() const { return m_province; }
 
-        /// Gets the relative population.
-        double GetRelativePop() const;
+        /// Get Location's population fraction (of the total populaion count).
+        double GetPopFraction() const;
 
         /// Sets the Coordinate of this Location.
         void SetCoordinate(const Coordinate& coordinate) { m_coordinate = coordinate; }
 
-        /// Calculates this location's population count using its relative population and the total population count.
+        /// Set Location's population count using its population fraction and the total population count.
         void SetPopCount(unsigned int totalPopCount);
 
-        /// Sets the relative population, which will be later used by @see CalculatePopulation.
-        void SetRelativePop(double relativePopulation);
+        /// Set Location's population fraction (of the total populaion count).
+        void SetPopFraction(double relativePopulation);
+
+public:
+        /// Access through const reference to ContactPools of type 'id'.
+        /// \param id   ContactType::Id of pools container you want to access.
+        /// \return     The requested reference.
+        const stride::util::SegmentedVector<stride::ContactPool*>& CRefPools(stride::ContactType::Id id) const
+        {
+                return m_pool_index[id];
+        }
+
+        /// Templated version of @CRefPools for use when the type id is fixed
+        /// \tparam T   ContactType::Id of pools container you want to access.
+        /// \return     The requested reference.
+        template <stride::ContactType::Id T>
+        const stride::util::SegmentedVector<stride::ContactPool*>& CRefPools() const
+        {
+                return m_pool_index[T];
+        }
+
+        /// Access through reference to ContactPools of type 'id'.
+        /// \param id   ContactType::Id of pools container you want to access.
+        /// \return     The requested reference.
+        stride::util::SegmentedVector<stride::ContactPool*>& RefPools(stride::ContactType::Id id)
+        {
+                return m_pool_index[id];
+        }
+
+        /// Templated version of @RefPools for use when the type id is fixed
+        /// \tparam T   ContactType::Id of pools container you want to access.
+        /// \return     The requested reference.
+        template <stride::ContactType::Id T>
+        stride::util::SegmentedVector<stride::ContactPool*>& RefPools()
+        {
+                return m_pool_index[T];
+        }
+
+        /// Register a ContactPool pointer in this Location's pool system.
+        /// Prior to this the pool should have been created in Population's pool system.
+        void RegisterPool(stride::ContactPool* p, stride::ContactType::Id typeId)
+        {
+                m_pool_index[typeId].emplace_back(p);
+        }
+
+        /// Templated version of @RegisterPool
+        template <stride::ContactType::Id T>
+        void RegisterPool(stride::ContactPool* p)
+        {
+                m_pool_index[T].emplace_back(p);
+        }
 
 public:
         /// References incoming commute Locations + fraction of commutes to that Location.
@@ -125,6 +180,9 @@ private:
 
         ///< Stores the contact centers indexed by their type.
         stride::ContactType::IdSubscriptArray<std::vector<std::shared_ptr<ContactCenter>>> m_cc;
+
+        ///< The system holding pointers to the contactpools (for each type id) at this Location.
+        stride::ContactType::IdSubscriptArray<stride::util::SegmentedVector<stride::ContactPool*>> m_pool_index;
 };
 
 } // namespace geopop

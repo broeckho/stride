@@ -17,8 +17,6 @@
 
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/HouseholdCenter.h"
-#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
 #include "pop/Population.h"
 
@@ -36,7 +34,7 @@ void HouseholdPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         auto pop       = geoGrid.GetPopulation();
 
         for (const shared_ptr<Location>& loc : geoGrid) {
-                const vector<shared_ptr<ContactCenter>>& hh_centers = loc->RefCenters(Id::Household);
+                const auto& hh_centers = loc->RefCenters(Id::Household);
                 for (const auto& h : hh_centers) {
                         auto hPool = (*h)[0];
                         auto hDraw = static_cast<unsigned int>(hh_dist());
@@ -47,7 +45,19 @@ void HouseholdPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
                         }
                 }
         }
-        m_logger->debug("Number of persons in households: {}", person_id);
+
+        /* To replaced by:
+         *         for (const shared_ptr<Location>& loc : geoGrid) {
+                for (auto& pool : loc->RefPools(Id::Household)) {
+                        const auto hDraw = static_cast<unsigned int>(hh_dist());
+                        for (const auto& age : geoGridConfig.refHH.ages[hDraw]) {
+                                const auto p = pop->CreatePerson(person_id++, age, pool->GetId(), 0, 0, 0, 0, 0);
+                                pool->AddMember(p);
+                        }
+                }
+        }
+        */
+
         m_logger->trace("Done populating Households");
 }
 
