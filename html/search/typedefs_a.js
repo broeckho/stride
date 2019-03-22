@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tclock',['TClock',['../df/dc8/a00122.html#aedbb343fde64ffebcdb371dd862aae7f',1,'stride::util::Stopwatch']]],
-  ['type',['Type',['../d1/d22/a00057.html#ae78d012d29fcde168c844fe3f3ea8d82',1,'proto::GeoGrid_Location_ContactCenter::Type()'],['../d4/d51/a00017.html#af301c9d0d60f687fad02d840a4496905',1,'geopop::geogrid_detail::KdTree2DPoint::dimension_type::type()'],['../d6/d2d/a00047.html#a661d9a4b6e41c6cc6cd002d1d4dcb2e6',1,'geopop::ThreadException::RunType::type()'],['../d4/dca/a00048.html#a234c5e76c895d137fc2d0d6d0233e330',1,'geopop::ThreadException::RunType&lt; void &gt;::type()'],['../d8/d17/a00114.html#a4183f045c6086dabede526dea8e6cedb',1,'stride::util::ii_detail::make_void::type()']]]
+  ['tclock',['TClock',['../df/d6a/a00119.html#aedbb343fde64ffebcdb371dd862aae7f',1,'stride::util::Stopwatch']]],
+  ['type',['type',['../d4/d51/a00017.html#af301c9d0d60f687fad02d840a4496905',1,'geopop::geogrid_detail::KdTree2DPoint::dimension_type::type()'],['../dd/d6d/a00111.html#a4183f045c6086dabede526dea8e6cedb',1,'stride::util::ii_detail::make_void::type()'],['../d1/dea/a00054.html#ae78d012d29fcde168c844fe3f3ea8d82',1,'proto::GeoGrid_Location_ContactCenter::Type()']]]
 ];

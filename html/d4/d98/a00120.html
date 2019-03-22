@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::RunConfigManager Class Reference</title>
+<title>Stride Reference Manual: stride::util::Subject&lt; E &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -107,339 +107,188 @@ $(document).ready(function(){initNavTree('d4/d98/a00120.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
-<a href="../../df/d2f/a00991.html">List of all members</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d6/d48/a00988.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::RunConfigManager Class Reference</div>  </div>
+<div class="title">stride::util::Subject&lt; E &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Produce run config ptree.  
+<p>Template for Subject/Observer (or Publish/Subscribe).  
  <a href="../../d4/d98/a00120.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/ddc/a00288_source.html">RunConfigManager.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d0/da2/a00307_source.html">Subject.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::RunConfigManager:</div>
+Inheritance diagram for stride::util::Subject&lt; E &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d76/a00992.gif" border="0" usemap="#stride_1_1util_1_1RunConfigManager_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1RunConfigManager_coll__map" id="stride_1_1util_1_1RunConfigManager_coll__map">
+<div class="center"><img src="../../d4/d95/a00989.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" id="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map">
+<area shape="rect" id="node2" href="../../d4/d98/a00120.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="5,233,187,399"/>
+<area shape="rect" id="node3" href="../../da/d74/a00099.html" title="The simulation runner drive simulator throufgh time steps. " alt="" coords="29,448,163,643"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::util::Subject&lt; E &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/d7a/a00990.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1Subject_3_01E_01_4_coll__map" id="stride_1_1util_1_1Subject_3_01E_01_4_coll__map">
+<area shape="rect" id="node4" href="../../d9/d41/a00666.html" title="{const void\n||}" alt="" coords="5,145,92,223"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="117,145,261,223"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="285,145,417,223"/>
+<area shape="rect" id="node7" href="../../dc/df1/a00662.html" title="{CallbackType\n||}" alt="" coords="540,293,643,370"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa5fbf09277757712ae7caff8088e5db5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#aa5fbf09277757712ae7caff8088e5db5">AddGeoPopConfig</a> (boost::property_tree::ptree &amp;pt)</td></tr>
-<tr class="memdesc:aa5fbf09277757712ae7caff8088e5db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adapt the configuration by adding the gengeopop data items.  <a href="#aa5fbf09277757712ae7caff8088e5db5">More...</a><br /></td></tr>
-<tr class="separator:aa5fbf09277757712ae7caff8088e5db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2f08ab87856eaeb81a229c6553e9cc8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ac2f08ab87856eaeb81a229c6553e9cc8">CleanConfigFile</a> (boost::property_tree::ptree pt)</td></tr>
-<tr class="memdesc:ac2f08ab87856eaeb81a229c6553e9cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean (i.e. indent, sort and produde the sha1) the ptree config file.  <a href="#ac2f08ab87856eaeb81a229c6553e9cc8">More...</a><br /></td></tr>
-<tr class="separator:ac2f08ab87856eaeb81a229c6553e9cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4007f793a1924a65458824fef455208"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ab4007f793a1924a65458824fef455208">Create</a> (const std::string &amp;configName)</td></tr>
-<tr class="memdesc:ab4007f793a1924a65458824fef455208"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce property tree for config with given name.  <a href="#ab4007f793a1924a65458824fef455208">More...</a><br /></td></tr>
-<tr class="separator:ab4007f793a1924a65458824fef455208"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a606cc3b1a5f14bf625ace31eb9f2baf9"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a606cc3b1a5f14bf625ace31eb9f2baf9">CreateNumThreads</a> (unsigned int maxNum=<a class="el" href="../../df/d98/a00107.html#a6b4240ce29160e778c69f9e246e1747d">ConfigInfo::NumberAvailableThreads</a>())</td></tr>
-<tr class="memdesc:a606cc3b1a5f14bf625ace31eb9f2baf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set of threadcounts to use for tests based an nomber of available OpenMP threads.  <a href="#a606cc3b1a5f14bf625ace31eb9f2baf9">More...</a><br /></td></tr>
-<tr class="separator:a606cc3b1a5f14bf625ace31eb9f2baf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff61de3ee9dfe5b0aac9b0b1fb950ebb"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb">FromString</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:aff61de3ee9dfe5b0aac9b0b1fb950ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstitute property tree from string representation.  <a href="#aff61de3ee9dfe5b0aac9b0b1fb950ebb">More...</a><br /></td></tr>
-<tr class="separator:aff61de3ee9dfe5b0aac9b0b1fb950ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af968f949efaf2876f48a86da65faa5ca"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#af968f949efaf2876f48a86da65faa5ca">ToString</a> (const boost::property_tree::ptree &amp;pt)</td></tr>
-<tr class="memdesc:af968f949efaf2876f48a86da65faa5ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string representation of property tree.  <a href="#af968f949efaf2876f48a86da65faa5ca">More...</a><br /></td></tr>
-<tr class="separator:af968f949efaf2876f48a86da65faa5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32ec1961852a81d4873a519f6bea1e36"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a32ec1961852a81d4873a519f6bea1e36">ToSha1</a> (const boost::property_tree::ptree &amp;pt)</td></tr>
-<tr class="memdesc:a32ec1961852a81d4873a519f6bea1e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce the sha1 hash of property tree (of it's string representation).  <a href="#a32ec1961852a81d4873a519f6bea1e36">More...</a><br /></td></tr>
-<tr class="separator:a32ec1961852a81d4873a519f6bea1e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad91f6d29e307567fdb3b0a2e7c7772c0"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ad91f6d29e307567fdb3b0a2e7c7772c0">ToShortSha1</a> (const boost::property_tree::ptree &amp;pt, unsigned int n=7U)</td></tr>
-<tr class="memdesc:ad91f6d29e307567fdb3b0a2e7c7772c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce the short sha1 hash of property tree (of it's string representation).  <a href="#ad91f6d29e307567fdb3b0a2e7c7772c0">More...</a><br /></td></tr>
-<tr class="separator:ad91f6d29e307567fdb3b0a2e7c7772c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac4fa78f455203ba23ab4442d14822895"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> = E</td></tr>
+<tr class="separator:ac4fa78f455203ba23ab4442d14822895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3face8040dba107d2ddcfc5f766aa58d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> = std::function&lt; void(const <a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;)&gt;</td></tr>
+<tr class="separator:a3face8040dba107d2ddcfc5f766aa58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a7014479a2c8efe57b292b9f61435ab61"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a7014479a2c8efe57b292b9f61435ab61">CreateBenchInfluenza</a> ()</td></tr>
-<tr class="memdesc:a7014479a2c8efe57b292b9f61435ab61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce Influenza config for Benchmarking.  <a href="#a7014479a2c8efe57b292b9f61435ab61">More...</a><br /></td></tr>
-<tr class="separator:a7014479a2c8efe57b292b9f61435ab61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf62ab97dafdce994e503296fe5d9394"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#abf62ab97dafdce994e503296fe5d9394">CreateBenchMeasles</a> ()</td></tr>
-<tr class="memdesc:abf62ab97dafdce994e503296fe5d9394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce Measles config for Benchmarking.  <a href="#abf62ab97dafdce994e503296fe5d9394">More...</a><br /></td></tr>
-<tr class="separator:abf62ab97dafdce994e503296fe5d9394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93470c7c74cc217254876c704fa81a0f"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a93470c7c74cc217254876c704fa81a0f">CreateDefault</a> ()</td></tr>
-<tr class="memdesc:a93470c7c74cc217254876c704fa81a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce the deefault config.  <a href="#a93470c7c74cc217254876c704fa81a0f">More...</a><br /></td></tr>
-<tr class="separator:a93470c7c74cc217254876c704fa81a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61a9ce9ce2d50ffbafa78b2a7f757598"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a61a9ce9ce2d50ffbafa78b2a7f757598">CreateTestsInfluenza</a> ()</td></tr>
-<tr class="memdesc:a61a9ce9ce2d50ffbafa78b2a7f757598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce Influenza config for scenario tests.  <a href="#a61a9ce9ce2d50ffbafa78b2a7f757598">More...</a><br /></td></tr>
-<tr class="separator:a61a9ce9ce2d50ffbafa78b2a7f757598"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa430eb71461536d855db5725ebc59cda"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#aa430eb71461536d855db5725ebc59cda">CreateTestsMeasles</a> ()</td></tr>
-<tr class="memdesc:aa430eb71461536d855db5725ebc59cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce Measles config for scenario tests.  <a href="#aa430eb71461536d855db5725ebc59cda">More...</a><br /></td></tr>
-<tr class="separator:aa430eb71461536d855db5725ebc59cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a4853b1d31d30e83840a9ab9a01d460dd">Subject</a> ()</td></tr>
+<tr class="separator:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ade16fa2818574a0a42874b5f15b1d3ec">~Subject</a> ()</td></tr>
+<tr class="separator:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#acddc520ab930ec98e120790b91fb8021">Register</a> (const std::shared_ptr&lt; U &gt; &amp;u, <a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> f)</td></tr>
+<tr class="separator:acddc520ab930ec98e120790b91fb8021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#aaa38f379243ec0d27b47b5bd110ebe75">Unregister</a> (const std::shared_ptr&lt; U &gt; &amp;u)</td></tr>
+<tr class="separator:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a8e0f20cb6cc045cf215f5d5a0963046f">UnregisterAll</a> ()</td></tr>
+<tr class="separator:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9496d626bbde63eb55836f0af402522c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a9496d626bbde63eb55836f0af402522c">Notify</a> (const <a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;e)</td></tr>
+<tr class="separator:a9496d626bbde63eb55836f0af402522c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::weak_ptr&lt; const void &gt;, <a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt; std::weak_ptr&lt; const void &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a3d7c672aaa180fc9b0a8c272639bd821">m_observers</a></td></tr>
+<tr class="separator:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Produce run config ptree. </p>
+<div class="textblock"><h3>template&lt;typename E&gt;<br />
+class stride::util::Subject&lt; E &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../da/ddc/a00288_source.html#l00035">35</a> of file <a class="el" href="../../da/ddc/a00288_source.html">RunConfigManager.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa5fbf09277757712ae7caff8088e5db5"></a>
+<p>Template for Subject/Observer (or Publish/Subscribe). </p>
+<p>Offers flexibility in defining event types and having customized callbacks. Despite the shared_ptrs in the Register/Unregister, the <a class="el" href="../../d4/d98/a00120.html" title="Template for Subject/Observer (or Publish/Subscribe). ">Subject</a> takes no ownership of the observer object and only stores a weak_ptr. </p>
+
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00037">37</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="ac4fa78f455203ba23ab4442d14822895"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> =  E</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00040">40</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3face8040dba107d2ddcfc5f766aa58d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> =  std::function&lt;void(const <a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a>&amp;)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00041">41</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4853b1d31d30e83840a9ab9a01d460dd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::util::RunConfigManager::AddGeoPopConfig </td>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d4/d98/a00120.html">Subject</a> </td>
           <td>(</td>
-          <td class="paramtype">boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Adapt the configuration by adding the gengeopop data items. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00062">62</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d0/da2/a00307_source.html#l00049">stride::util::FromString()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d98/a00120_aa5fbf09277757712ae7caff8088e5db5_cgraph.gif" border="0" usemap="#d4/d98/a00120_aa5fbf09277757712ae7caff8088e5db5_cgraph" alt=""/></div>
-<map name="d4/d98/a00120_aa5fbf09277757712ae7caff8088e5db5_cgraph" id="d4/d98/a00120_aa5fbf09277757712ae7caff8088e5db5_cgraph">
-<area shape="rect" id="node2" href="../../d6/de1/a00356.html#ae33774027798262390fbf95fbabc3f82" title="Builds a value of type T representation from a string. " alt="" coords="265,13,428,39"/>
-</map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00044">44</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac2f08ab87856eaeb81a229c6553e9cc8"></a>
+<a class="anchor" id="ade16fa2818574a0a42874b5f15b1d3ec"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::util::RunConfigManager::CleanConfigFile </td>
+          <td class="memname">virtual <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::~<a class="el" href="../../d4/d98/a00120.html">Subject</a> </td>
           <td>(</td>
-          <td class="paramtype">boost::property_tree::ptree&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Clean (i.e. indent, sort and produde the sha1) the ptree config file. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00040">40</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00046">46</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab4007f793a1924a65458824fef455208"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="acddc520ab930ec98e120790b91fb8021"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::util::RunConfigManager::Create </td>
+          <td class="memname">void <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::Register </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>configName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Produce property tree for config with given name. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00049">49</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d0/da2/a00307_source.html#l00049">stride::util::FromString()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d98/a00120_ab4007f793a1924a65458824fef455208_cgraph.gif" border="0" usemap="#d4/d98/a00120_ab4007f793a1924a65458824fef455208_cgraph" alt=""/></div>
-<map name="d4/d98/a00120_ab4007f793a1924a65458824fef455208_cgraph" id="d4/d98/a00120_ab4007f793a1924a65458824fef455208_cgraph">
-<area shape="rect" id="node2" href="../../d6/de1/a00356.html#ae33774027798262390fbf95fbabc3f82" title="Builds a value of type T representation from a string. " alt="" coords="265,13,428,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a606cc3b1a5f14bf625ace31eb9f2baf9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt; unsigned int &gt; stride::util::RunConfigManager::CreateNumThreads </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>maxNum</em> = <code><a class="el" href="../../df/d98/a00107.html#a6b4240ce29160e778c69f9e246e1747d">ConfigInfo::NumberAvailableThreads</a>()</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set of threadcounts to use for tests based an nomber of available OpenMP threads. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00195">195</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aff61de3ee9dfe5b0aac9b0b1fb950ebb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::util::RunConfigManager::FromString </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reconstitute property tree from string representation. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00295">295</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d5b/a00294_source.html#l00058">stride::Sim::Create()</a>, and <a class="el" href="../../d5/d42/a00269_source.html#l00090">stride::Population::Create()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d98/a00120_aff61de3ee9dfe5b0aac9b0b1fb950ebb_icgraph.gif" border="0" usemap="#d4/d98/a00120_aff61de3ee9dfe5b0aac9b0b1fb950ebb_icgraph" alt=""/></div>
-<map name="d4/d98/a00120_aff61de3ee9dfe5b0aac9b0b1fb950ebb_icgraph" id="d4/d98/a00120_aff61de3ee9dfe5b0aac9b0b1fb950ebb_icgraph">
-<area shape="rect" id="node2" href="../../da/d74/a00099.html#abcbad19e448f9f2098b1c8bc0d71e18d" title="For use in python environment: create Sim using configuration string i.o. ptree. " alt="" coords="265,5,408,32"/>
-<area shape="rect" id="node3" href="../../d1/d84/a00097.html#ac2702b7b600edd1ce81bc24dac173c7e" title="For use in python environment: create Population using configuration string i.o ptree. " alt="" coords="270,57,403,98"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="af968f949efaf2876f48a86da65faa5ca"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string stride::util::RunConfigManager::ToString </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Produce string representation of property tree. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00303">303</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a32ec1961852a81d4873a519f6bea1e36"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::RunConfigManager::ToSha1 </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Produce the sha1 hash of property tree (of it's string representation). </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00310">310</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d98/a00120_a32ec1961852a81d4873a519f6bea1e36_cgraph.gif" border="0" usemap="#d4/d98/a00120_a32ec1961852a81d4873a519f6bea1e36_cgraph" alt=""/></div>
-<map name="d4/d98/a00120_a32ec1961852a81d4873a519f6bea1e36_cgraph" id="d4/d98/a00120_a32ec1961852a81d4873a519f6bea1e36_cgraph">
-<area shape="rect" id="node2" href="../../d0/d48/a00351.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="265,5,440,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ad91f6d29e307567fdb3b0a2e7c7772c0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::RunConfigManager::ToShortSha1 </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em>, </td>
+          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>n</em> = <code>7U</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -449,26 +298,56 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce the short sha1 hash of property tree (of it's string representation). </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00312">312</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00049">49</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7014479a2c8efe57b292b9f61435ab61"></a>
+<a class="anchor" id="aaa38f379243ec0d27b47b5bd110ebe75"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string stride::util::RunConfigManager::CreateBenchInfluenza </td>
+          <td class="memname">void <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::Unregister </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
+          <td class="paramname"><em>u</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00055">55</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8e0f20cb6cc045cf215f5d5a0963046f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::UnregisterAll </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -476,136 +355,92 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce Influenza config for Benchmarking. </p>
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00060">60</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00086">86</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/da2/a00307_source.html#l00046">stride::util::Subject&lt; stride::sim_event::Id &gt;::~Subject()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d98/a00120_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph.gif" border="0" usemap="#d4/d98/a00120_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph" alt=""/></div>
+<map name="d4/d98/a00120_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph" id="d4/d98/a00120_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph">
+<area shape="rect" id="node2" href="../../d4/d98/a00120.html#ade16fa2818574a0a42874b5f15b1d3ec" title="stride::util::Subject\l\&lt; stride::sim_event::\lId \&gt;::~Subject" alt="" coords="195,5,349,61"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="abf62ab97dafdce994e503296fe5d9394"></a>
+<a class="anchor" id="a9496d626bbde63eb55836f0af402522c"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string stride::util::RunConfigManager::CreateBenchMeasles </td>
+          <td class="memname">void <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::Notify </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce Measles config for Benchmarking. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00120">120</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00062">62</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a93470c7c74cc217254876c704fa81a0f"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a3d7c672aaa180fc9b0a8c272639bd821"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string stride::util::RunConfigManager::CreateDefault </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">std::map&lt;std::weak_ptr&lt;const void&gt;, <a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt;std::weak_ptr&lt;const void&gt; &gt; &gt; <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::m_observers</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce the deefault config. </p>
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00075">75</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00155">155</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a61a9ce9ce2d50ffbafa78b2a7f757598"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string stride::util::RunConfigManager::CreateTestsInfluenza </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Produce Influenza config for scenario tests. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00227">227</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/da2/a00307_source.html#l00062">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../d0/da2/a00307_source.html#l00049">stride::util::Subject&lt; stride::sim_event::Id &gt;::Register()</a>, <a class="el" href="../../d0/da2/a00307_source.html#l00055">stride::util::Subject&lt; stride::sim_event::Id &gt;::Unregister()</a>, and <a class="el" href="../../d0/da2/a00307_source.html#l00060">stride::util::Subject&lt; stride::sim_event::Id &gt;::UnregisterAll()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa430eb71461536d855db5725ebc59cda"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string stride::util::RunConfigManager::CreateTestsMeasles </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Produce Measles config for scenario tests. </p>
-
-<p>Definition at line <a class="el" href="../../d6/d7f/a00287_source.html#l00261">261</a> of file <a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../da/ddc/a00288_source.html">RunConfigManager.h</a></li>
-<li><a class="el" href="../../d6/d7f/a00287_source.html">RunConfigManager.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00356.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d98/a00120.html">RunConfigManager</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:08 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d98/a00120.html">Subject</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d6/d97/a00045.html','../../');});
+$(document).ready(function(){initNavTree('d6/d2d/a00047.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,25 +107,35 @@ $(document).ready(function(){initNavTree('d6/d97/a00045.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">geopop::SecondaryCommunityPopulator Member List</div>  </div>
+<div class="title">geopop::WorkplacePopulator Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d6/d97/a00045.html">geopop::SecondaryCommunityPopulator</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d6/d97/a00045.html#abd2d0dc4d20322520ed3e33856063412">Apply</a>(GeoGrid &amp;geogrid, const GeoGridConfig &amp;) override</td><td class="entry"><a class="el" href="../../d6/d97/a00045.html">geopop::SecondaryCommunityPopulator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d3/de7/a00039.html#a720e1d4541eb3af0b9b2bd6089e8a4ce">GetNearbyPools</a>(stride::ContactType::Id id, const GeoGrid &amp;geoGrid, const Location &amp;start, double startRadius=10.0) const </td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d3/de7/a00039.html#aeecc8afde4f92991f8140a1f3145aeda">m_logger</a></td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#a237dee7e694e3e6a693efd00afe46286">Apply</a>(GeoGrid &amp;geoGrid, const GeoGridConfig &amp;geoGridConfig) override</td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#a230e7343ac24afda7bb007f8e820da5a">AssignActive</a>(stride::Person *person)</td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#aea8fef2442d7d2911444b8424bee402f">CommutingLocations</a>(const std::shared_ptr&lt; Location &gt; &amp;loc, double fractionCommuteStudents)</td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#a003fe52d3c225edd395f365ddf287275">FractionCommutingStudents</a>()</td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d3/de7/a00039.html#a720e1d4541eb3af0b9b2bd6089e8a4ce">GetNearbyPools</a>(stride::ContactType::Id id, const GeoGrid &amp;geoGrid, const Location &amp;start, double startRadius=10.0) const </td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#aa77acd77398ff8232f8008f1add8b6d5">m_commuting_locations</a></td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#a976fc7070f6b52528a4bff0155323667">m_gen_commute</a></td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#a1407ce0c553ddf402829e2c3b4a9262a">m_gen_non_commute</a></td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#aaf823c3ec7db75560ddb7a4271f87513">m_geogrid_config</a></td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d3/de7/a00039.html#aeecc8afde4f92991f8140a1f3145aeda">m_logger</a></td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#ab4e1335920c045028d08fbda4b87c542">m_nearby_wp</a></td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../d3/de7/a00039.html#aea1433eb78a263d44fe81683ff65987e">m_rn_man</a></td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d3/de7/a00039.html#af7b9250da3bb9be0c877028a56bf5b2a">MakeChoice</a>(double fraction)</td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d3/de7/a00039.html#a555413f57e921b72913adb79172abb9d">Populator</a>(stride::util::RnMan &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger=nullptr)</td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#ae0011ab21239f9faadf566a976d7d0fb">NearbyWorkspacePools</a>(GeoGrid &amp;geoGrid, std::shared_ptr&lt; Location &gt; loc)</td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d3/de7/a00039.html#a555413f57e921b72913adb79172abb9d">Populator</a>(stride::util::RnMan &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger=nullptr)</td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d6/d2d/a00047.html#a0f46a889a7162b41220deea210ffdf76">WorkplacePopulator</a>(stride::util::RnMan &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger=nullptr)</td><td class="entry"><a class="el" href="../../d6/d2d/a00047.html">geopop::WorkplacePopulator</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d3/de7/a00039.html#ac218f00867d01c6507088582162710c9">~Populator</a>()=default</td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:07 for Stride Reference Manual by
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: LocationsCSVReader.h File Reference</title>
+<title>Stride Reference Manual: LogUtils.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -108,38 +108,35 @@ $(document).ready(function(){initNavTree('d0/def/a00256.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">LocationsCSVReader.h File Reference</div>  </div>
+<div class="title">LogUtils.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d39/a00257_source.html">LocationsReader.h</a>&quot;</code><br />
+
+<p>Logging (spdlog) utilities.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for LocationsCSVReader.h:</div>
+Include dependency graph for LogUtils.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/df9/a00554.gif" border="0" usemap="#LocationsCSVReader_8h" alt=""/></div>
-<map name="LocationsCSVReader_8h" id="LocationsCSVReader_8h">
-<area shape="rect" id="node2" href="../../d9/d39/a00257.html" title="LocationsReader.h" alt="" coords="454,80,593,107"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00192.html" title="geopop/GeoGrid.h" alt="" coords="454,155,593,181"/>
-<area shape="rect" id="node25" href="../../d7/d03/a00254.html" title="geopop/Location.h" alt="" coords="1019,155,1159,181"/>
-<area shape="rect" id="node4" href="../../d9/d38/a00166.html" title="Definition of ContactPool Id Type. " alt="" coords="1067,304,1231,331"/>
-<area shape="rect" id="node10" href="../../dd/de3/a00201.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="172,229,380,256"/>
-<area shape="rect" id="node11" href="../../de/dbc/a00249.html" title="KdTree.h" alt="" coords="327,304,403,331"/>
-<area shape="rect" id="node18" href="../../d3/d1a/a00251.html" title="KdTree2DPoint.h" alt="" coords="176,304,303,331"/>
-<area shape="rect" id="node12" href="../../d0/de8/a00133.html" title="AABBox.h" alt="" coords="277,386,362,413"/>
-<area shape="rect" id="node13" href="../../dd/dd7/a00248.html" title="KdNode.h" alt="" coords="546,386,630,413"/>
-<area shape="rect" id="node19" href="../../de/d53/a00169.html" title="geopop/Coordinate.h" alt="" coords="940,386,1096,413"/>
-<area shape="rect" id="node26" href="../../de/dc2/a00228.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1434,229,1624,256"/>
-<area shape="rect" id="node31" href="../../d1/db7/a00157.html" title="geopop/ContactCenter.h" alt="" coords="873,229,1052,256"/>
-<area shape="rect" id="node32" href="../../d6/d82/a00293.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1859,229,2031,256"/>
-<area shape="rect" id="node33" href="../../da/de0/a00317.html" title="Interface/Implementation for SVIterator. " alt="" coords="2141,304,2240,331"/>
+<div class="center"><img src="../../d8/d75/a00555.gif" border="0" usemap="#LogUtils_8h" alt=""/></div>
+<map name="LogUtils_8h" id="LogUtils_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d75/a00555.gif" border="0" usemap="#LocationsCSVReader_8hdep" alt=""/></div>
-<map name="LocationsCSVReader_8hdep" id="LocationsCSVReader_8hdep">
-<area shape="rect" id="node2" href="../../d4/d04/a00255.html" title="LocationsCSVReader.cpp" alt="" coords="5,80,185,107"/>
-<area shape="rect" id="node3" href="../../d0/dcd/a00280.html" title="ReaderFactory.cpp" alt="" coords="209,80,347,107"/>
+<div class="center"><img src="../../d6/d95/a00556.gif" border="0" usemap="#LogUtils_8hdep" alt=""/></div>
+<map name="LogUtils_8hdep" id="LogUtils_8hdep">
+<area shape="rect" id="node2" href="../../d9/d90/a00178.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="5,80,151,107"/>
+<area shape="rect" id="node3" href="../../db/ddf/a00164.html" title="Header for the command line controller. " alt="" coords="175,80,311,107"/>
+<area shape="rect" id="node4" href="../../dc/d52/a00183.html" title="Generator.cpp" alt="" coords="336,80,449,107"/>
+<area shape="rect" id="node5" href="../../db/d12/a00268.html" title="Populator.cpp" alt="" coords="474,80,583,107"/>
+<area shape="rect" id="node6" href="../../d7/d06/a00131.html" title="Initialize populations: implementation. " alt="" coords="607,80,778,107"/>
+<area shape="rect" id="node7" href="../../de/dc2/a00228.html" title="Initialize populations: implementation. " alt="" coords="803,80,961,107"/>
+<area shape="rect" id="node8" href="../../d5/d35/a00266.html" title="Core Population class. " alt="" coords="985,80,1101,107"/>
+<area shape="rect" id="node9" href="../../d4/d04/a00255.html" title="Implementation of file utils. " alt="" coords="1125,80,1225,107"/>
 </map>
 </div>
 </div>
@@ -147,23 +144,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d8c/a00036.html">geopop::LocationsCSVReader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Reader that fills a <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> with the <a class="el" href="../../d4/d8c/a00035.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. ">Location</a> data found in a CSV input stream.  <a href="../../de/d8c/a00036.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d17/a00114.html">stride::util::LogUtils</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for logging (spdlog).  <a href="../../d8/d17/a00114.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/d84/a00338"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d84/a00338.html">geopop</a></td></tr>
-<tr class="memdesc:dc/d84/a00338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">stride</a></td></tr>
+<tr class="memdesc:d9/d48/a00345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">stride::util</a></td></tr>
+<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Logging (spdlog) utilities. </p>
+
+<p>Definition in file <a class="el" href="../../d0/def/a00256_source.html">LogUtils.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d0/def/a00256.html">LocationsCSVReader.h</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d0/def/a00256.html">LogUtils.h</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

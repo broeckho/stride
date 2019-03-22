@@ -1,8 +1,8 @@
 var a00126 =
 [
-    [ "ToColonString", "d7/d12/a00126.html#ad6dcc9ca1dfee4746a739175240585ce", null ],
-    [ "ToColonString", "d7/d12/a00126.html#a4289b5e11499452e2d8257c7c4bf1393", null ],
-    [ "ToColonString", "d7/d12/a00126.html#a75cf053eac30cd061369b1b3bc8320e2", null ],
-    [ "ToColonString", "d7/d12/a00126.html#a3257445eaf8975e71bd08d8ed6d8dad8", null ],
-    [ "ToColonString", "d7/d12/a00126.html#a7bc634d3b69e570aa22d04aab7c94823", null ]
+    [ "InfectedViewer", "d7/d12/a00126.html#a772cf9c0229d31368250d437f1596ab0", null ],
+    [ "GetInfectionCounts", "d7/d12/a00126.html#a3051b3ab2155b525830220d7a4e1d3d4", null ],
+    [ "Update", "d7/d12/a00126.html#ac539c7549cc8c19530813f0bdb35a14d", null ],
+    [ "m_infected", "d7/d12/a00126.html#a613860070a4a0778c61631fc4f343028", null ],
+    [ "m_runner", "d7/d12/a00126.html#a13b27fd1d407a15fe3b542952168ba33", null ]
 ];

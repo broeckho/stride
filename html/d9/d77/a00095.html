@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::output::SummaryFile Class Reference</title>
+<title>Stride Reference Manual: stride::PublicHealthAgency Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -110,59 +110,51 @@ $(document).ready(function(){initNavTree('d9/d77/a00095.html','../../');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../db/d40/a00959.html">List of all members</a>  </div>
+<a href="../../d5/dd3/a00902.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::output::SummaryFile Class Reference</div>  </div>
+<div class="title">stride::PublicHealthAgency Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Produces a file with simulation summary output.  
- <a href="../../d9/d77/a00095.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d7/df2/a00312_source.html">SummaryFile.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/d28/a00276_source.html">PublicHealthAgency.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::output::SummaryFile:</div>
+Collaboration diagram for stride::PublicHealthAgency:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d11/a00960.gif" border="0" usemap="#stride_1_1output_1_1SummaryFile_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1output_1_1SummaryFile_coll__map" id="stride_1_1output_1_1SummaryFile_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="51,541,159,619"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="31,400,179,492"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="33,259,177,351"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="21,132,189,209"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="51,5,158,83"/>
+<div class="center"><img src="../../d4/d1c/a00903.gif" border="0" usemap="#stride_1_1PublicHealthAgency_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1PublicHealthAgency_coll__map" id="stride_1_1PublicHealthAgency_coll__map">
+<area shape="rect" id="node2" href="../../df/d73/a00358.html" title="{double\n||}" alt="" coords="69,5,134,83"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1f848c3aa92042b2fa7d399ad31b0e33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a1f848c3aa92042b2fa7d399ad31b0e33">SummaryFile</a> (const std::string &amp;output_prefix=&quot;output&quot;)</td></tr>
-<tr class="memdesc:a1f848c3aa92042b2fa7d399ad31b0e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor: initialize.  <a href="#a1f848c3aa92042b2fa7d399ad31b0e33">More...</a><br /></td></tr>
-<tr class="separator:a1f848c3aa92042b2fa7d399ad31b0e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade602b6935ee6c38f21f15b5bcc77847"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#ade602b6935ee6c38f21f15b5bcc77847">~SummaryFile</a> ()</td></tr>
-<tr class="memdesc:ade602b6935ee6c38f21f15b5bcc77847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor: close the file stream.  <a href="#ade602b6935ee6c38f21f15b5bcc77847">More...</a><br /></td></tr>
-<tr class="separator:ade602b6935ee6c38f21f15b5bcc77847"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b4fb82839ddf6a7c8d10fc119bf22fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a9b4fb82839ddf6a7c8d10fc119bf22fb">Print</a> (const boost::property_tree::ptree &amp;config_pt, unsigned int population_size, unsigned int num_cases, <a class="el" href="../../de/dd7/a00362.html">double</a> transmission_rate, unsigned int run_time, unsigned int total_time)</td></tr>
-<tr class="memdesc:a9b4fb82839ddf6a7c8d10fc119bf22fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the given output with corresponding tag.  <a href="#a9b4fb82839ddf6a7c8d10fc119bf22fb">More...</a><br /></td></tr>
-<tr class="separator:a9b4fb82839ddf6a7c8d10fc119bf22fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03ebd97271af159e0831b61b43e6e62f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a03ebd97271af159e0831b61b43e6e62f">PublicHealthAgency</a> ()</td></tr>
+<tr class="memdesc:a03ebd97271af159e0831b61b43e6e62f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs uni-initialized object.  <a href="#a03ebd97271af159e0831b61b43e6e62f">More...</a><br /></td></tr>
+<tr class="separator:a03ebd97271af159e0831b61b43e6e62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5096270693bc78b306cc236d6dcfb747"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a5096270693bc78b306cc236d6dcfb747">Exec</a> (std::shared_ptr&lt; <a class="el" href="../../dc/d54/a00094.html">Population</a> &gt; pop, <a class="el" href="../../d4/d3e/a00116.html">util::RnMan</a> &amp;rnManager, unsigned short int sim_day)</td></tr>
+<tr class="memdesc:a5096270693bc78b306cc236d6dcfb747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute.  <a href="#a5096270693bc78b306cc236d6dcfb747">More...</a><br /></td></tr>
+<tr class="separator:a5096270693bc78b306cc236d6dcfb747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96febde4c86b8e16590d782130058533"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a96febde4c86b8e16590d782130058533">Initialize</a> (<a class="el" href="../../df/d73/a00358.html">double</a> detection_probability)</td></tr>
+<tr class="memdesc:a96febde4c86b8e16590d782130058533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a96febde4c86b8e16590d782130058533">More...</a><br /></td></tr>
+<tr class="separator:a96febde4c86b8e16590d782130058533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a73334b641e8aeb7edff5cc8b6affc86c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a73334b641e8aeb7edff5cc8b6affc86c">Initialize</a> (const std::string &amp;output_dir)</td></tr>
-<tr class="memdesc:a73334b641e8aeb7edff5cc8b6affc86c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate file name and open the file stream.  <a href="#a73334b641e8aeb7edff5cc8b6affc86c">More...</a><br /></td></tr>
-<tr class="separator:a73334b641e8aeb7edff5cc8b6affc86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a009d5f79aa598d721d252c4470411237"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a009d5f79aa598d721d252c4470411237">PerformCaseFinding</a> (std::shared_ptr&lt; <a class="el" href="../../dc/d54/a00094.html">Population</a> &gt; pop, <a class="el" href="../../d4/d3e/a00116.html">util::RnMan</a> &amp;rnMan, unsigned short int simDay)</td></tr>
+<tr class="memdesc:a009d5f79aa598d721d252c4470411237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public <a class="el" href="../../d2/d1f/a00083.html" title="Holds a person&#39;s health data. ">Health</a> Strategy: look for symptomatic cases and vaccinate their household.  <a href="#a009d5f79aa598d721d252c4470411237">More...</a><br /></td></tr>
+<tr class="separator:a009d5f79aa598d721d252c4470411237"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a473d1c4d75f2e873e1b0ee256dabf73a"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a473d1c4d75f2e873e1b0ee256dabf73a">m_fstream</a></td></tr>
-<tr class="memdesc:a473d1c4d75f2e873e1b0ee256dabf73a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file stream.  <a href="#a473d1c4d75f2e873e1b0ee256dabf73a">More...</a><br /></td></tr>
-<tr class="separator:a473d1c4d75f2e873e1b0ee256dabf73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4511cc382abab53cdea308741ce59a43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d73/a00358.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a4511cc382abab53cdea308741ce59a43">m_detection_probability</a></td></tr>
+<tr class="memdesc:a4511cc382abab53cdea308741ce59a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detection probability of symptomatic cases.  <a href="#a4511cc382abab53cdea308741ce59a43">More...</a><br /></td></tr>
+<tr class="separator:a4511cc382abab53cdea308741ce59a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Produces a file with simulation summary output. </p>
-
-<p>Definition at line <a class="el" href="../../d7/df2/a00312_source.html#l00033">33</a> of file <a class="el" href="../../d7/df2/a00312_source.html">SummaryFile.h</a>.</p>
+<div class="textblock">
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00028">28</a> of file <a class="el" href="../../dc/d28/a00276_source.html">PublicHealthAgency.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1f848c3aa92042b2fa7d399ad31b0e33"></a>
+<a class="anchor" id="a03ebd97271af159e0831b61b43e6e62f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -170,101 +162,63 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::output::SummaryFile::SummaryFile </td>
+          <td class="memname">stride::PublicHealthAgency::PublicHealthAgency </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_prefix</em> = <code>&quot;output&quot;</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor: initialize. </p>
+<p>Constructs uni-initialized object. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00033">33</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SummaryFile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00032">32</a> of file <a class="el" href="../../dc/d28/a00276_source.html">PublicHealthAgency.h</a>.</p>
 
-<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00037">Initialize()</a>.</p>
+<p>References <a class="el" href="../../d3/d5e/a00275_source.html#l00034">Exec()</a>, <a class="el" href="../../d3/d5e/a00275_source.html#l00039">Initialize()</a>, and <a class="el" href="../../d3/d5e/a00275_source.html#l00041">PerformCaseFinding()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d77/a00095_a1f848c3aa92042b2fa7d399ad31b0e33_cgraph.gif" border="0" usemap="#d9/d77/a00095_a1f848c3aa92042b2fa7d399ad31b0e33_cgraph" alt=""/></div>
-<map name="d9/d77/a00095_a1f848c3aa92042b2fa7d399ad31b0e33_cgraph" id="d9/d77/a00095_a1f848c3aa92042b2fa7d399ad31b0e33_cgraph">
-<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a73334b641e8aeb7edff5cc8b6affc86c" title="Generate file name and open the file stream. " alt="" coords="252,5,451,47"/>
-<area shape="rect" id="node3" href="../../db/d57/a00112.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="499,5,635,47"/>
-<area shape="rect" id="node4" href="../../db/d57/a00112.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="683,5,819,47"/>
+<div class="center"><img src="../../d9/d77/a00095_a03ebd97271af159e0831b61b43e6e62f_cgraph.gif" border="0" usemap="#d9/d77/a00095_a03ebd97271af159e0831b61b43e6e62f_cgraph" alt=""/></div>
+<map name="d9/d77/a00095_a03ebd97271af159e0831b61b43e6e62f_cgraph" id="d9/d77/a00095_a03ebd97271af159e0831b61b43e6e62f_cgraph">
+<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a5096270693bc78b306cc236d6dcfb747" title="Execute. " alt="" coords="245,5,437,47"/>
+<area shape="rect" id="node3" href="../../d9/d77/a00095.html#a96febde4c86b8e16590d782130058533" title="Initialize. " alt="" coords="245,71,437,112"/>
+<area shape="rect" id="node4" href="../../d9/d77/a00095.html#a009d5f79aa598d721d252c4470411237" title="Public Health Strategy: look for symptomatic cases and vaccinate their household. ..." alt="" coords="245,136,437,177"/>
+<area shape="rect" id="node5" href="../../d4/d3e/a00116.html#ae70c110738d7772252e9bf96703ff2b8" title="Return a generator for uniform doubles in [0, 1[ using i&#45;th random stream. " alt="" coords="485,103,671,144"/>
+<area shape="rect" id="node6" href="../../d1/dc6/a00347.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="491,168,665,209"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ade602b6935ee6c38f21f15b5bcc77847"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::output::SummaryFile::~SummaryFile </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destructor: close the file stream. </p>
-
-<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00035">35</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SummaryFile.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/df2/a00312_source.html#l00051">m_fstream</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9b4fb82839ddf6a7c8d10fc119bf22fb"></a>
+<a class="anchor" id="a5096270693bc78b306cc236d6dcfb747"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::output::SummaryFile::Print </td>
+          <td class="memname">void stride::PublicHealthAgency::Exec </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>config_pt</em>, </td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dc/d54/a00094.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>population_size</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d4/d3e/a00116.html">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>num_cases</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../de/dd7/a00362.html">double</a>&#160;</td>
-          <td class="paramname"><em>transmission_rate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>run_time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>total_time</em>&#160;</td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>sim_day</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -274,15 +228,58 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Print the given output with corresponding tag. </p>
+<p>Execute. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00051">51</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SummaryFile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d5e/a00275_source.html#l00034">34</a> of file <a class="el" href="../../d3/d5e/a00275_source.html">PublicHealthAgency.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d7/df2/a00312_source.html#l00051">m_fstream</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d28/a00276_source.html#l00032">PublicHealthAgency()</a>, and <a class="el" href="../../da/dd4/a00291_source.html#l00063">stride::Sim::TimeStep()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/d77/a00095_a5096270693bc78b306cc236d6dcfb747_icgraph.gif" border="0" usemap="#d9/d77/a00095_a5096270693bc78b306cc236d6dcfb747_icgraph" alt=""/></div>
+<map name="d9/d77/a00095_a5096270693bc78b306cc236d6dcfb747_icgraph" id="d9/d77/a00095_a5096270693bc78b306cc236d6dcfb747_icgraph">
+<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a03ebd97271af159e0831b61b43e6e62f" title="Constructs uni&#45;initialized object. " alt="" coords="245,5,437,47"/>
+<area shape="rect" id="node3" href="../../d9/df8/a00096.html#a032911d7270c91e0a6a9c55f68800096" title="Run one time step, computing full simulation (default) or only index case. " alt="" coords="261,71,421,98"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a73334b641e8aeb7edff5cc8b6affc86c"></a>
+<a class="anchor" id="a96febde4c86b8e16590d782130058533"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::PublicHealthAgency::Initialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d73/a00358.html">double</a>&#160;</td>
+          <td class="paramname"><em>detection_probability</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize. </p>
+
+<p>Definition at line <a class="el" href="../../d3/d5e/a00275_source.html#l00039">39</a> of file <a class="el" href="../../d3/d5e/a00275_source.html">PublicHealthAgency.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d28/a00276_source.html#l00032">PublicHealthAgency()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/d77/a00095_a96febde4c86b8e16590d782130058533_icgraph.gif" border="0" usemap="#d9/d77/a00095_a96febde4c86b8e16590d782130058533_icgraph" alt=""/></div>
+<map name="d9/d77/a00095_a96febde4c86b8e16590d782130058533_icgraph" id="d9/d77/a00095_a96febde4c86b8e16590d782130058533_icgraph">
+<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a03ebd97271af159e0831b61b43e6e62f" title="Constructs uni&#45;initialized object. " alt="" coords="245,5,437,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a009d5f79aa598d721d252c4470411237"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -290,11 +287,27 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::output::SummaryFile::Initialize </td>
+          <td class="memname">void stride::PublicHealthAgency::PerformCaseFinding </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_dir</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dc/d54/a00094.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d3e/a00116.html">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnMan</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>simDay</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -304,21 +317,22 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Generate file name and open the file stream. </p>
+<p>Public <a class="el" href="../../d2/d1f/a00083.html" title="Holds a person&#39;s health data. ">Health</a> Strategy: look for symptomatic cases and vaccinate their household. </p>
+<p>To allow iteration over pool types for the <a class="el" href="../../d9/d77/a00095.html">PublicHealthAgency</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00037">37</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SummaryFile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d5e/a00275_source.html#l00041">41</a> of file <a class="el" href="../../d3/d5e/a00275_source.html">PublicHealthAgency.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d2/d94/a00184_source.html#l00052">stride::util::FileSys::BuildPath()</a>, and <a class="el" href="../../d7/df2/a00312_source.html#l00051">m_fstream</a>.</p>
+<p>References <a class="el" href="../../dc/dc9/a00282_source.html#l00071">stride::util::RnMan::GetUniform01Generator()</a>, and <a class="el" href="../../d2/d34/a00156_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d1/d5d/a00311_source.html#l00033">SummaryFile()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d28/a00276_source.html#l00032">PublicHealthAgency()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d77/a00095_a73334b641e8aeb7edff5cc8b6affc86c_cgraph.gif" border="0" usemap="#d9/d77/a00095_a73334b641e8aeb7edff5cc8b6affc86c_cgraph" alt=""/></div>
-<map name="d9/d77/a00095_a73334b641e8aeb7edff5cc8b6affc86c_cgraph" id="d9/d77/a00095_a73334b641e8aeb7edff5cc8b6affc86c_cgraph">
-<area shape="rect" id="node2" href="../../db/d57/a00112.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="252,5,388,47"/>
-<area shape="rect" id="node3" href="../../db/d57/a00112.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="436,5,572,47"/>
+<div class="center"><img src="../../d9/d77/a00095_a009d5f79aa598d721d252c4470411237_cgraph.gif" border="0" usemap="#d9/d77/a00095_a009d5f79aa598d721d252c4470411237_cgraph" alt=""/></div>
+<map name="d9/d77/a00095_a009d5f79aa598d721d252c4470411237_cgraph" id="d9/d77/a00095_a009d5f79aa598d721d252c4470411237_cgraph">
+<area shape="rect" id="node2" href="../../d4/d3e/a00116.html#ae70c110738d7772252e9bf96703ff2b8" title="Return a generator for uniform doubles in [0, 1[ using i&#45;th random stream. " alt="" coords="245,5,431,47"/>
+<area shape="rect" id="node3" href="../../d1/dc6/a00347.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="251,71,425,112"/>
 </map>
 </div>
 </p>
@@ -326,9 +340,9 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d77/a00095_a73334b641e8aeb7edff5cc8b6affc86c_icgraph.gif" border="0" usemap="#d9/d77/a00095_a73334b641e8aeb7edff5cc8b6affc86c_icgraph" alt=""/></div>
-<map name="d9/d77/a00095_a73334b641e8aeb7edff5cc8b6affc86c_icgraph" id="d9/d77/a00095_a73334b641e8aeb7edff5cc8b6affc86c_icgraph">
-<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a1f848c3aa92042b2fa7d399ad31b0e33" title="Constructor: initialize. " alt="" coords="252,5,451,47"/>
+<div class="center"><img src="../../d9/d77/a00095_a009d5f79aa598d721d252c4470411237_icgraph.gif" border="0" usemap="#d9/d77/a00095_a009d5f79aa598d721d252c4470411237_icgraph" alt=""/></div>
+<map name="d9/d77/a00095_a009d5f79aa598d721d252c4470411237_icgraph" id="d9/d77/a00095_a009d5f79aa598d721d252c4470411237_icgraph">
+<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a03ebd97271af159e0831b61b43e6e62f" title="Constructs uni&#45;initialized object. " alt="" coords="245,5,437,47"/>
 </map>
 </div>
 </p>
@@ -336,7 +350,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a473d1c4d75f2e873e1b0ee256dabf73a"></a>
+<a class="anchor" id="a4511cc382abab53cdea308741ce59a43"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -344,7 +358,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::ofstream stride::output::SummaryFile::m_fstream</td>
+          <td class="memname"><a class="el" href="../../df/d73/a00358.html">double</a> stride::PublicHealthAgency::m_detection_probability</td>
         </tr>
       </table>
   </td>
@@ -354,25 +368,23 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>The file stream. </p>
+<p>Detection probability of symptomatic cases. </p>
 
-<p>Definition at line <a class="el" href="../../d7/df2/a00312_source.html#l00051">51</a> of file <a class="el" href="../../d7/df2/a00312_source.html">SummaryFile.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/d5d/a00311_source.html#l00037">Initialize()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00051">Print()</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00035">~SummaryFile()</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d28/a00276_source.html#l00044">44</a> of file <a class="el" href="../../dc/d28/a00276_source.html">PublicHealthAgency.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d7/df2/a00312_source.html">SummaryFile.h</a></li>
-<li><a class="el" href="../../d1/d5d/a00311_source.html">SummaryFile.cpp</a></li>
+<li><a class="el" href="../../dc/d28/a00276_source.html">PublicHealthAgency.h</a></li>
+<li><a class="el" href="../../d3/d5e/a00275_source.html">PublicHealthAgency.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../db/ddc/a00353.html">output</a></li><li class="navelem"><a class="el" href="../../d9/d77/a00095.html">SummaryFile</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:08 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/d77/a00095.html">PublicHealthAgency</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

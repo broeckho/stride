@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::ConfigInfo Class Reference</title>
+<title>Stride Reference Manual: stride::util::detail::pair2data&lt; T, Ptree &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -107,295 +107,79 @@ $(document).ready(function(){initNavTree('df/d98/a00107.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../de/dad/a00963.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../d0/d28/a00997.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::ConfigInfo Class Reference</div>  </div>
+<div class="title">stride::util::detail::pair2data&lt; T, Ptree &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Config information.  
- <a href="../../df/d98/a00107.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d3/df8/a00155_source.html">ConfigInfo.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/d56/a00274_source.html">PtreeUtils.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::ConfigInfo:</div>
+Inheritance diagram for stride::util::detail::pair2data&lt; T, Ptree &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d17/a00964.gif" border="0" usemap="#stride_1_1util_1_1ConfigInfo_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1ConfigInfo_coll__map" id="stride_1_1util_1_1ConfigInfo_coll__map">
+<div class="center"><img src="../../d9/d9a/a00998.gif" border="0" usemap="#stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_inherit__map" id="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_inherit__map">
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::util::detail::pair2data&lt; T, Ptree &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../de/de2/a00999.gif" border="0" usemap="#stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_coll__map" id="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#ad6fc5f3f3e32a15f059c64b74dfea905">HaveOpenMP</a> ()</td></tr>
-<tr class="memdesc:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if OpenMP in executable, false otherwise.  <a href="#ad6fc5f3f3e32a15f059c64b74dfea905">More...</a><br /></td></tr>
-<tr class="separator:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea2c9d397f10f54b7ae47f4b0f181799"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#aea2c9d397f10f54b7ae47f4b0f181799">GitRevision</a> ()</td></tr>
-<tr class="memdesc:aea2c9d397f10f54b7ae47f4b0f181799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return git revision string.  <a href="#aea2c9d397f10f54b7ae47f4b0f181799">More...</a><br /></td></tr>
-<tr class="separator:aea2c9d397f10f54b7ae47f4b0f181799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a502bd4410a3e77792ea575f77f470d41"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a502bd4410a3e77792ea575f77f470d41">GetHostname</a> ()</td></tr>
-<tr class="memdesc:a502bd4410a3e77792ea575f77f470d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current hostname.  <a href="#a502bd4410a3e77792ea575f77f470d41">More...</a><br /></td></tr>
-<tr class="separator:a502bd4410a3e77792ea575f77f470d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b4240ce29160e778c69f9e246e1747d"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a6b4240ce29160e778c69f9e246e1747d">NumberAvailableThreads</a> ()</td></tr>
-<tr class="memdesc:a6b4240ce29160e778c69f9e246e1747d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of threads (in case of OpenMP).  <a href="#a6b4240ce29160e778c69f9e246e1747d">More...</a><br /></td></tr>
-<tr class="separator:a6b4240ce29160e778c69f9e246e1747d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b191149cb109105f73c84df61bebbb6"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a9b191149cb109105f73c84df61bebbb6">ProcessorCount</a> ()</td></tr>
-<tr class="memdesc:a9b191149cb109105f73c84df61bebbb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return processor count for system.  <a href="#a9b191149cb109105f73c84df61bebbb6">More...</a><br /></td></tr>
-<tr class="separator:a9b191149cb109105f73c84df61bebbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af75ac339034526cfb3e419d0f175bf07"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#af75ac339034526cfb3e419d0f175bf07">operator()</a> (const typename Ptree::value_type &amp;pair) const </td></tr>
+<tr class="separator:af75ac339034526cfb3e419d0f175bf07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Config information. </p>
+<div class="textblock"><h3>template&lt;class T, class Ptree&gt;<br />
+struct stride::util::detail::pair2data&lt; T, Ptree &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d3/df8/a00155_source.html#l00031">31</a> of file <a class="el" href="../../d3/df8/a00155_source.html">ConfigInfo.h</a>.</p>
+
+<p>Definition at line <a class="el" href="../../dd/d56/a00274_source.html#l00041">41</a> of file <a class="el" href="../../dd/d56/a00274_source.html">PtreeUtils.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad6fc5f3f3e32a15f059c64b74dfea905"></a>
+<a class="anchor" id="af75ac339034526cfb3e419d0f175bf07"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class Ptree &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr bool stride::util::ConfigInfo::HaveOpenMP </td>
+          <td class="memname">T <a class="el" href="../../df/d98/a00107.html">stride::util::detail::pair2data</a>&lt; T, Ptree &gt;::operator() </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const typename Ptree::value_type &amp;&#160;</td>
+          <td class="paramname"><em>pair</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>True if OpenMP in executable, false otherwise. </p>
-
-<p>Definition at line <a class="el" href="../../d3/df8/a00155_source.html#l00035">35</a> of file <a class="el" href="../../d3/df8/a00155_source.html">ConfigInfo.h</a>.</p>
-
-<p>References <a class="el" href="../../d3/d65/a00154_source.html#l00035">GetHostname()</a>, <a class="el" href="../../d3/d65/a00154_source.html#l00033">GitRevision()</a>, <a class="el" href="../../d3/d65/a00154_source.html#l00044">NumberAvailableThreads()</a>, and <a class="el" href="../../d3/d65/a00154_source.html#l00042">ProcessorCount()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d98/a00107_ad6fc5f3f3e32a15f059c64b74dfea905_cgraph.gif" border="0" usemap="#df/d98/a00107_ad6fc5f3f3e32a15f059c64b74dfea905_cgraph" alt=""/></div>
-<map name="df/d98/a00107_ad6fc5f3f3e32a15f059c64b74dfea905_cgraph" id="df/d98/a00107_ad6fc5f3f3e32a15f059c64b74dfea905_cgraph">
-<area shape="rect" id="node2" href="../../df/d98/a00107.html#a502bd4410a3e77792ea575f77f470d41" title="Return current hostname. " alt="" coords="226,5,382,47"/>
-<area shape="rect" id="node3" href="../../df/d98/a00107.html#aea2c9d397f10f54b7ae47f4b0f181799" title="Return git revision string. " alt="" coords="226,71,382,112"/>
-<area shape="rect" id="node4" href="../../df/d98/a00107.html#a6b4240ce29160e778c69f9e246e1747d" title="Return number of threads (in case of OpenMP). " alt="" coords="209,136,399,177"/>
-<area shape="rect" id="node5" href="../../df/d98/a00107.html#a9b191149cb109105f73c84df61bebbb6" title="Return processor count for system. " alt="" coords="226,201,382,243"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d98/a00107_ad6fc5f3f3e32a15f059c64b74dfea905_icgraph.gif" border="0" usemap="#df/d98/a00107_ad6fc5f3f3e32a15f059c64b74dfea905_icgraph" alt=""/></div>
-<map name="df/d98/a00107_ad6fc5f3f3e32a15f059c64b74dfea905_icgraph" id="df/d98/a00107_ad6fc5f3f3e32a15f059c64b74dfea905_icgraph">
-<area shape="rect" id="node2" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="209,71,364,112"/>
-<area shape="rect" id="node3" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="412,5,591,47"/>
-<area shape="rect" id="node5" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="425,71,578,112"/>
-<area shape="rect" id="node6" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="422,136,581,177"/>
-<area shape="rect" id="node4" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="639,78,693,105"/>
-</map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../dd/d56/a00274_source.html#l00043">43</a> of file <a class="el" href="../../dd/d56/a00274_source.html">PtreeUtils.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aea2c9d397f10f54b7ae47f4b0f181799"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::ConfigInfo::GitRevision </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return git revision string. </p>
-
-<p>Definition at line <a class="el" href="../../d3/d65/a00154_source.html#l00033">33</a> of file <a class="el" href="../../d3/d65/a00154_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d3/d65/a00154_source.html#l00028">TOSTRING</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/df8/a00155_source.html#l00035">HaveOpenMP()</a>, and <a class="el" href="../../dc/de6/a00167_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d98/a00107_aea2c9d397f10f54b7ae47f4b0f181799_icgraph.gif" border="0" usemap="#df/d98/a00107_aea2c9d397f10f54b7ae47f4b0f181799_icgraph" alt=""/></div>
-<map name="df/d98/a00107_aea2c9d397f10f54b7ae47f4b0f181799_icgraph" id="df/d98/a00107_aea2c9d397f10f54b7ae47f4b0f181799_icgraph">
-<area shape="rect" id="node2" href="../../df/d98/a00107.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="True if OpenMP in executable, false otherwise. " alt="" coords="209,41,365,83"/>
-<area shape="rect" id="node3" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="413,71,568,112"/>
-<area shape="rect" id="node4" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="616,5,795,47"/>
-<area shape="rect" id="node6" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="629,71,782,112"/>
-<area shape="rect" id="node7" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="626,136,785,177"/>
-<area shape="rect" id="node5" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="843,78,897,105"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a502bd4410a3e77792ea575f77f470d41"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::ConfigInfo::GetHostname </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return current hostname. </p>
-
-<p>Definition at line <a class="el" href="../../d3/d65/a00154_source.html#l00035">35</a> of file <a class="el" href="../../d3/d65/a00154_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/df8/a00155_source.html#l00035">HaveOpenMP()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d98/a00107_a502bd4410a3e77792ea575f77f470d41_icgraph.gif" border="0" usemap="#df/d98/a00107_a502bd4410a3e77792ea575f77f470d41_icgraph" alt=""/></div>
-<map name="df/d98/a00107_a502bd4410a3e77792ea575f77f470d41_icgraph" id="df/d98/a00107_a502bd4410a3e77792ea575f77f470d41_icgraph">
-<area shape="rect" id="node2" href="../../df/d98/a00107.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="True if OpenMP in executable, false otherwise. " alt="" coords="209,71,365,112"/>
-<area shape="rect" id="node3" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="413,71,568,112"/>
-<area shape="rect" id="node4" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="616,5,795,47"/>
-<area shape="rect" id="node6" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="629,71,782,112"/>
-<area shape="rect" id="node7" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="626,136,785,177"/>
-<area shape="rect" id="node5" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="843,78,897,105"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a6b4240ce29160e778c69f9e246e1747d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::util::ConfigInfo::NumberAvailableThreads </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return number of threads (in case of OpenMP). </p>
-
-<p>Definition at line <a class="el" href="../../d3/d65/a00154_source.html#l00044">44</a> of file <a class="el" href="../../d3/d65/a00154_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/df8/a00155_source.html#l00035">HaveOpenMP()</a>, and <a class="el" href="../../dc/de6/a00167_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d98/a00107_a6b4240ce29160e778c69f9e246e1747d_icgraph.gif" border="0" usemap="#df/d98/a00107_a6b4240ce29160e778c69f9e246e1747d_icgraph" alt=""/></div>
-<map name="df/d98/a00107_a6b4240ce29160e778c69f9e246e1747d_icgraph" id="df/d98/a00107_a6b4240ce29160e778c69f9e246e1747d_icgraph">
-<area shape="rect" id="node2" href="../../df/d98/a00107.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="True if OpenMP in executable, false otherwise. " alt="" coords="243,41,399,83"/>
-<area shape="rect" id="node3" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="447,71,601,112"/>
-<area shape="rect" id="node4" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="649,5,828,47"/>
-<area shape="rect" id="node6" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="662,71,815,112"/>
-<area shape="rect" id="node7" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="659,136,818,177"/>
-<area shape="rect" id="node5" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="876,78,931,105"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a9b191149cb109105f73c84df61bebbb6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::util::ConfigInfo::ProcessorCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return processor count for system. </p>
-
-<p>Definition at line <a class="el" href="../../d3/d65/a00154_source.html#l00042">42</a> of file <a class="el" href="../../d3/d65/a00154_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/df8/a00155_source.html#l00035">HaveOpenMP()</a>, and <a class="el" href="../../dc/de6/a00167_source.html#l00092">stride::ControlHelper::LogStartup()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d98/a00107_a9b191149cb109105f73c84df61bebbb6_icgraph.gif" border="0" usemap="#df/d98/a00107_a9b191149cb109105f73c84df61bebbb6_icgraph" alt=""/></div>
-<map name="df/d98/a00107_a9b191149cb109105f73c84df61bebbb6_icgraph" id="df/d98/a00107_a9b191149cb109105f73c84df61bebbb6_icgraph">
-<area shape="rect" id="node2" href="../../df/d98/a00107.html#ad6fc5f3f3e32a15f059c64b74dfea905" title="True if OpenMP in executable, false otherwise. " alt="" coords="209,41,365,83"/>
-<area shape="rect" id="node3" href="../../db/df8/a00076.html#adc021af008df0bf673682b81aa8d0010" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="413,71,568,112"/>
-<area shape="rect" id="node4" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="616,5,795,47"/>
-<area shape="rect" id="node6" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="629,71,782,112"/>
-<area shape="rect" id="node7" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="626,136,785,177"/>
-<area shape="rect" id="node5" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="843,78,897,105"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d3/df8/a00155_source.html">ConfigInfo.h</a></li>
-<li><a class="el" href="../../d3/d65/a00154_source.html">ConfigInfo.cpp</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../dd/d56/a00274_source.html">PtreeUtils.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00356.html">util</a></li><li class="navelem"><a class="el" href="../../df/d98/a00107.html">ConfigInfo</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:08 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">util</a></li><li class="navelem"><a class="el" href="../../db/ddc/a00353.html">detail</a></li><li class="navelem"><a class="el" href="../../df/d98/a00107.html">pair2data</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

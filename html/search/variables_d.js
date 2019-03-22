@@ -2,11 +2,11 @@ var searchData=
 [
   ['participation_5fcollege',['participation_college',['../d1/d2b/a00018.html#a079dd4c7d18c3d25e3af1509a1ec7b75',1,'geopop::GeoGridConfig']]],
   ['particpation_5fworkplace',['particpation_workplace',['../d1/d2b/a00018.html#a680f78bbf91c7a7d297a6b37dd8543c2',1,'geopop::GeoGridConfig']]],
-  ['people_5f',['people_',['../d7/df7/a00058.html#a44843691e11c3cde291f62049fe43fc6',1,'proto::GeoGrid_Location_ContactCenter_ContactPool']]],
+  ['people_5f',['people_',['../d4/d6d/a00055.html#a44843691e11c3cde291f62049fe43fc6',1,'proto::GeoGrid_Location_ContactCenter_ContactPool']]],
   ['person_5fcount',['person_count',['../d1/d2b/a00018.html#a517eacc33e89307a10ec3108996a9b67',1,'geopop::GeoGridConfig']]],
-  ['persons_5f',['persons_',['../d1/dea/a00054.html#a3b59a92801fa6e3205c99df850f08dd1',1,'proto::GeoGrid']]],
+  ['persons_5f',['persons_',['../d2/d79/a00051.html#a3b59a92801fa6e3205c99df850f08dd1',1,'proto::GeoGrid']]],
   ['pools',['pools',['../d1/d2b/a00018.html#ac2118fdaa02c6c419fe1c9b2ec7a87dd',1,'geopop::GeoGridConfig']]],
-  ['pools_5f',['pools_',['../d1/d22/a00057.html#ac39969a64388bd2631672f1363db74d0',1,'proto::GeoGrid_Location_ContactCenter']]],
+  ['pools_5f',['pools_',['../d1/dea/a00054.html#ac39969a64388bd2631672f1363db74d0',1,'proto::GeoGrid_Location_ContactCenter']]],
   ['pools_5fper_5fcollege',['pools_per_college',['../d1/d2b/a00018.html#ab05f5a133385878b4a2e1175dccda71e',1,'geopop::GeoGridConfig']]],
   ['pools_5fper_5fhousehold',['pools_per_household',['../d1/d2b/a00018.html#a33c7d4d23ff7585e3ae0213536d92962',1,'geopop::GeoGridConfig']]],
   ['pools_5fper_5fk12school',['pools_per_k12school',['../d1/d2b/a00018.html#ac8b916b0b19f075762950b20c759ab9a',1,'geopop::GeoGridConfig']]],
@@ -18,10 +18,10 @@ var searchData=
   ['popcount_5fk12school',['popcount_k12school',['../d1/d2b/a00018.html#a4aa5218a500d6f3fa7d3827495bc532d',1,'geopop::GeoGridConfig']]],
   ['popcount_5fworkplace',['popcount_workplace',['../d1/d2b/a00018.html#a0ed4fde37b92426045b2539bfeb5970d',1,'geopop::GeoGridConfig']]],
   ['popinfo',['popInfo',['../d1/d2b/a00018.html#aa7ab12667956a7a9f263bb8be8f07155',1,'geopop::GeoGridConfig']]],
-  ['population_5f',['population_',['../d4/d6d/a00055.html#a6547521bb7e4140e082542aae89d718f',1,'proto::GeoGrid_Location']]],
+  ['population_5f',['population_',['../d1/d84/a00052.html#a6547521bb7e4140e082542aae89d718f',1,'proto::GeoGrid_Location']]],
   ['primary_5fcommunity_5fpool_5fsize',['primary_community_pool_size',['../d1/d2b/a00018.html#a9edaf5388320a3b942926d1984da58f3',1,'geopop::GeoGridConfig']]],
   ['primary_5fcommunity_5fsize',['primary_community_size',['../d1/d2b/a00018.html#ae9816f2ce46b84cd0e11ab120de88144',1,'geopop::GeoGridConfig']]],
-  ['primarycommunity',['PrimaryCommunity',['../d1/d22/a00057.html#a6eb5f5b492dcee2e72db4cf85a1fddcf',1,'proto::GeoGrid_Location_ContactCenter']]],
-  ['proportion_5f',['proportion_',['../d9/d2e/a00056.html#aeae15310a0d29fd31e8c9496206301cb',1,'proto::GeoGrid_Location_Commute']]],
-  ['province_5f',['province_',['../d4/d6d/a00055.html#a3270c34b911a8e64c45fbb3f40f0a205',1,'proto::GeoGrid_Location']]]
+  ['primarycommunity',['PrimaryCommunity',['../d1/dea/a00054.html#a6eb5f5b492dcee2e72db4cf85a1fddcf',1,'proto::GeoGrid_Location_ContactCenter']]],
+  ['proportion_5f',['proportion_',['../dc/dee/a00053.html#aeae15310a0d29fd31e8c9496206301cb',1,'proto::GeoGrid_Location_Commute']]],
+  ['province_5f',['province_',['../d1/d84/a00052.html#a3270c34b911a8e64c45fbb3f40f0a205',1,'proto::GeoGrid_Location']]]
 ];

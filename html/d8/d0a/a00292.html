@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SecondaryCommunityPopulator.h File Reference</title>
+<title>Stride Reference Manual: Sim.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -108,28 +108,54 @@ $(document).ready(function(){initNavTree('d8/d0a/a00292.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SecondaryCommunityPopulator.h File Reference</div>  </div>
+<div class="title">Sim.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/dd6/a00272_source.html">Populator.h</a>&quot;</code><br />
+
+<p>Header for the Simulator class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/df5/a00137_source.html">contact/AgeContactProfiles.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/df8/a00155_source.html">contact/ContactHandler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/db7/a00157_source.html">contact/ContactLogMode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d2e/a00238_source.html">contact/InfectorExec.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/de2/a00320_source.html">contact/TransmissionProfile.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d28/a00276_source.html">disease/PublicHealthAgency.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SecondaryCommunityPopulator.h:</div>
+Include dependency graph for Sim.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d00/a00606.gif" border="0" usemap="#SecondaryCommunityPopulator_8h" alt=""/></div>
-<map name="SecondaryCommunityPopulator_8h" id="SecondaryCommunityPopulator_8h">
-<area shape="rect" id="node2" href="../../d9/dd6/a00272.html" title="Populator.h" alt="" coords="367,80,462,107"/>
-<area shape="rect" id="node3" href="../../d9/d38/a00166.html" title="Definition of ContactPool Id Type. " alt="" coords="135,155,299,181"/>
-<area shape="rect" id="node9" href="../../d5/d7b/a00286.html" title="Interface of RnMan. " alt="" coords="365,155,465,181"/>
-<area shape="rect" id="node10" href="../../db/dc3/a00284.html" title="Interface of RnPcg. " alt="" coords="378,229,451,256"/>
+<div class="center"><img src="../../d9/d07/a00607.gif" border="0" usemap="#Sim_8h" alt=""/></div>
+<map name="Sim_8h" id="Sim_8h">
+<area shape="rect" id="node2" href="../../d2/df5/a00137.html" title="Contact profiles stored in simulator. " alt="" coords="398,80,605,107"/>
+<area shape="rect" id="node17" href="../../d3/df8/a00155.html" title="Header for the ContactHandler class. " alt="" coords="790,80,975,107"/>
+<area shape="rect" id="node20" href="../../d1/db7/a00157.html" title="Header for the ContactLogMode class. " alt="" coords="1757,80,1952,107"/>
+<area shape="rect" id="node21" href="../../da/d2e/a00238.html" title="Header for the InfectorExec class. " alt="" coords="1286,80,1450,107"/>
+<area shape="rect" id="node23" href="../../dd/de2/a00320.html" title="Header for the TransmissionProfile class. " alt="" coords="1526,80,1733,107"/>
+<area shape="rect" id="node25" href="../../dc/d28/a00276.html" title="Header for the PublicHealthAgency class. " alt="" coords="1000,80,1211,107"/>
+<area shape="rect" id="node3" href="../../dd/dae/a00163.html" title="Definition of ContactPool Id Type. " alt="" coords="369,251,481,278"/>
+<area shape="rect" id="node9" href="../../dc/d98/a00225.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="486,162,623,189"/>
+<area shape="rect" id="node14" href="../../d0/d5e/a00136.html" title="Contact profile. " alt="" coords="211,162,411,189"/>
+<area shape="rect" id="node15" href="../../d0/de8/a00133.html" title="Helpers for age. " alt="" coords="179,251,266,278"/>
+<area shape="rect" id="node26" href="../../dd/dfe/a00283.html" title="Interface of RnMan. " alt="" coords="1023,162,1123,189"/>
+<area shape="rect" id="node27" href="../../d2/d04/a00281.html" title="Interface of RnPcg. " alt="" coords="1037,251,1110,278"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d07/a00607.gif" border="0" usemap="#SecondaryCommunityPopulator_8hdep" alt=""/></div>
-<map name="SecondaryCommunityPopulator_8hdep" id="SecondaryCommunityPopulator_8hdep">
-<area shape="rect" id="node2" href="../../da/dd4/a00291.html" title="SecondaryCommunityPopulator.cpp" alt="" coords="5,80,256,107"/>
-<area shape="rect" id="node3" href="../../d1/de1/a00213.html" title="Initialize populations: implementation. " alt="" coords="281,80,423,107"/>
+<div class="center"><img src="../../d4/d14/a00608.gif" border="0" usemap="#Sim_8hdep" alt=""/></div>
+<map name="Sim_8hdep" id="Sim_8hdep">
+<area shape="rect" id="node2" href="../../d9/d5e/a00295.html" title="Header for the command line controller. " alt="" coords="5,80,140,107"/>
+<area shape="rect" id="node3" href="../../db/da2/a00300.html" title="Header for the command line controller. " alt="" coords="164,80,304,107"/>
+<area shape="rect" id="node4" href="../../da/dd4/a00291.html" title="Implementation for the Simulator class. " alt="" coords="329,80,403,107"/>
+<area shape="rect" id="node5" href="../../d6/d82/a00293.html" title="Implementation for the SimBuilder class. " alt="" coords="427,80,545,107"/>
+<area shape="rect" id="node6" href="../../d3/d4a/a00297.html" title="Implementation for SimRunner. " alt="" coords="569,80,686,107"/>
+<area shape="rect" id="node7" href="../../d2/d82/a00142.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="709,80,815,107"/>
+<area shape="rect" id="node8" href="../../d0/d53/a00232.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="839,80,1000,107"/>
+<area shape="rect" id="node9" href="../../da/d31/a00234.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1025,80,1166,107"/>
+<area shape="rect" id="node10" href="../../d3/dcc/a00264.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1191,80,1352,107"/>
+<area shape="rect" id="node11" href="../../d1/d67/a00310.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1377,80,1550,107"/>
 </map>
 </div>
 </div>
@@ -137,23 +163,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html">geopop::SecondaryCommunityPopulator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the secondary communities.  <a href="../../d6/d97/a00045.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html">stride::Sim</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulator can time step and reveal some of the key data.  <a href="../../d9/df8/a00096.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/d84/a00338"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d84/a00338.html">geopop</a></td></tr>
-<tr class="memdesc:dc/d84/a00338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">stride</a></td></tr>
+<tr class="memdesc:d9/d48/a00345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">stride::util</a></td></tr>
+<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header for the Simulator class. </p>
+
+<p>Definition in file <a class="el" href="../../d8/d0a/a00292_source.html">Sim.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_e7e2007abe30c6c76c8a673fdd5d8158.html">populators</a></li><li class="navelem"><a class="el" href="../../d8/d0a/a00292.html">SecondaryCommunityPopulator.h</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d8/d0a/a00292.html">Sim.h</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

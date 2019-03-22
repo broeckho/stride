@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::viewers::InfectedFileViewer Class Reference</title>
+<title>Stride Reference Manual: stride::viewers::SummaryFileViewer Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -109,55 +109,52 @@ $(document).ready(function(){initNavTree('d1/d88/a00128.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/def/a01016.html">List of all members</a>  </div>
+<a href="../../d0/d2b/a01010.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::viewers::InfectedFileViewer Class Reference</div>  </div>
+<div class="title">stride::viewers::SummaryFileViewer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Viewer of Simulator for cases output.  
  <a href="../../d1/d88/a00128.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d7/d40/a00236_source.html">InfectedFileViewer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d1/d5d/a00311_source.html">SummaryFileViewer.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::viewers::InfectedFileViewer:</div>
+Collaboration diagram for stride::viewers::SummaryFileViewer:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/ded/a01017.gif" border="0" usemap="#stride_1_1viewers_1_1InfectedFileViewer_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1viewers_1_1InfectedFileViewer_coll__map" id="stride_1_1viewers_1_1InfectedFileViewer_coll__map">
-<area shape="rect" id="node2" href="../../d4/d7d/a00093.html" title="Produces a file with daily count of infected persons. " alt="" coords="5,695,192,801"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="45,555,153,632"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="25,400,173,492"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="27,259,171,351"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="15,132,183,209"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="45,5,152,83"/>
-<area shape="rect" id="node10" title="STL class. " alt="" coords="335,555,462,632"/>
+<div class="center"><img src="../../d6/d36/a01011.gif" border="0" usemap="#stride_1_1viewers_1_1SummaryFileViewer_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1viewers_1_1SummaryFileViewer_coll__map" id="stride_1_1viewers_1_1SummaryFileViewer_coll__map">
+<area shape="rect" id="node2" href="../../d1/dc1/a00092.html" title="Produces a file with simulation summary output. " alt="" coords="5,681,204,803"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="51,541,159,619"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="31,400,179,492"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="33,259,177,351"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="21,132,189,209"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="51,5,158,83"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aca10d70842e06a7a00cd633c4071d0ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#aca10d70842e06a7a00cd633c4071d0ac">InfectedFileViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">SimRunner</a> &gt; runner, const std::string &amp;output_prefix)</td></tr>
-<tr class="memdesc:aca10d70842e06a7a00cd633c4071d0ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cases viewer.  <a href="#aca10d70842e06a7a00cd633c4071d0ac">More...</a><br /></td></tr>
-<tr class="separator:aca10d70842e06a7a00cd633c4071d0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8128b6620992860cad456275e2173b16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a8128b6620992860cad456275e2173b16">Update</a> (<a class="el" href="../../d3/dc9/a00355.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
-<tr class="memdesc:a8128b6620992860cad456275e2173b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a8128b6620992860cad456275e2173b16">More...</a><br /></td></tr>
-<tr class="separator:a8128b6620992860cad456275e2173b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae32a48e518b0393ca96921802278ecaf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#ae32a48e518b0393ca96921802278ecaf">SummaryFileViewer</a> (std::shared_ptr&lt; <a class="el" href="../../da/d74/a00099.html">SimRunner</a> &gt; runner, const std::string &amp;output_prefix)</td></tr>
+<tr class="memdesc:ae32a48e518b0393ca96921802278ecaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cases viewer.  <a href="#ae32a48e518b0393ca96921802278ecaf">More...</a><br /></td></tr>
+<tr class="separator:ae32a48e518b0393ca96921802278ecaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e54b49cad6f7b645668551b08762e28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a1e54b49cad6f7b645668551b08762e28">Update</a> (<a class="el" href="../../d0/d48/a00351.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
+<tr class="memdesc:a1e54b49cad6f7b645668551b08762e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a1e54b49cad6f7b645668551b08762e28">More...</a><br /></td></tr>
+<tr class="separator:a1e54b49cad6f7b645668551b08762e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a29f6d1abe2d4b71535a0c0134a48a5a0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a29f6d1abe2d4b71535a0c0134a48a5a0">m_infected</a></td></tr>
-<tr class="separator:a29f6d1abe2d4b71535a0c0134a48a5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3711a48a4aba215ee7c45893c18532c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d7d/a00093.html">output::InfectedFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#ae3711a48a4aba215ee7c45893c18532c">m_infected_file</a></td></tr>
-<tr class="separator:ae3711a48a4aba215ee7c45893c18532c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4ffa40d65229dcd9ae06ad592809c1c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#af4ffa40d65229dcd9ae06ad592809c1c">m_runner</a></td></tr>
-<tr class="separator:af4ffa40d65229dcd9ae06ad592809c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad78a0b86893d6f5ef0acb1937482bd06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dc1/a00092.html">output::SummaryFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#ad78a0b86893d6f5ef0acb1937482bd06">m_summary_file</a></td></tr>
+<tr class="separator:ad78a0b86893d6f5ef0acb1937482bd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6728d6ca9828f1f405d8c6eeb3793c2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../da/d74/a00099.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#ad6728d6ca9828f1f405d8c6eeb3793c2">m_runner</a></td></tr>
+<tr class="separator:ad6728d6ca9828f1f405d8c6eeb3793c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Viewer of Simulator for cases output. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00035">35</a> of file <a class="el" href="../../d7/d40/a00236_source.html">InfectedFileViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00033">33</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SummaryFileViewer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aca10d70842e06a7a00cd633c4071d0ac"></a>
+<a class="anchor" id="ae32a48e518b0393ca96921802278ecaf"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -165,9 +162,9 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::viewers::InfectedFileViewer::InfectedFileViewer </td>
+          <td class="memname">stride::viewers::SummaryFileViewer::SummaryFileViewer </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">SimRunner</a> &gt;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../da/d74/a00099.html">SimRunner</a> &gt;&#160;</td>
           <td class="paramname"><em>runner</em>, </td>
         </tr>
         <tr>
@@ -191,16 +188,16 @@ Private Attributes</h2></td></tr>
 
 <p>Instantiate cases viewer. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00039">39</a> of file <a class="el" href="../../d7/d40/a00236_source.html">InfectedFileViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00037">37</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SummaryFileViewer.h</a>.</p>
 
-<p>References <a class="el" href="../../d3/d42/a00235_source.html#l00033">Update()</a>.</p>
+<p>References <a class="el" href="../../d1/d67/a00310_source.html#l00034">Update()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d88/a00128_aca10d70842e06a7a00cd633c4071d0ac_cgraph.gif" border="0" usemap="#d1/d88/a00128_aca10d70842e06a7a00cd633c4071d0ac_cgraph" alt=""/></div>
-<map name="d1/d88/a00128_aca10d70842e06a7a00cd633c4071d0ac_cgraph" id="d1/d88/a00128_aca10d70842e06a7a00cd633c4071d0ac_cgraph">
-<area shape="rect" id="node2" href="../../d1/d88/a00128.html#a8128b6620992860cad456275e2173b16" title="Let viewer perform update. " alt="" coords="259,5,431,47"/>
+<div class="center"><img src="../../d1/d88/a00128_ae32a48e518b0393ca96921802278ecaf_cgraph.gif" border="0" usemap="#d1/d88/a00128_ae32a48e518b0393ca96921802278ecaf_cgraph" alt=""/></div>
+<map name="d1/d88/a00128_ae32a48e518b0393ca96921802278ecaf_cgraph" id="d1/d88/a00128_ae32a48e518b0393ca96921802278ecaf_cgraph">
+<area shape="rect" id="node2" href="../../d1/d88/a00128.html#a1e54b49cad6f7b645668551b08762e28" title="Let viewer perform update. " alt="" coords="271,5,455,47"/>
 </map>
 </div>
 </p>
@@ -208,14 +205,14 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a8128b6620992860cad456275e2173b16"></a>
+<a class="anchor" id="a1e54b49cad6f7b645668551b08762e28"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::viewers::InfectedFileViewer::Update </td>
+          <td class="memname">void stride::viewers::SummaryFileViewer::Update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/dc9/a00355.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d0/d48/a00351.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
@@ -224,19 +221,19 @@ Here is the call graph for this function:</div>
 
 <p>Let viewer perform update. </p>
 
-<p>Definition at line <a class="el" href="../../d3/d42/a00235_source.html#l00033">33</a> of file <a class="el" href="../../d3/d42/a00235_source.html">InfectedFileViewer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d67/a00310_source.html#l00034">34</a> of file <a class="el" href="../../d1/d67/a00310_source.html">SummaryFileViewer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d40/a00236_source.html#l00039">InfectedFileViewer()</a>, and <a class="el" href="../../dc/de6/a00167_source.html#l00115">stride::ControlHelper::RegisterViewers()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/ddf/a00164_source.html#l00115">stride::ControlHelper::RegisterViewers()</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00037">SummaryFileViewer()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d88/a00128_a8128b6620992860cad456275e2173b16_icgraph.gif" border="0" usemap="#d1/d88/a00128_a8128b6620992860cad456275e2173b16_icgraph" alt=""/></div>
-<map name="d1/d88/a00128_a8128b6620992860cad456275e2173b16_icgraph" id="d1/d88/a00128_a8128b6620992860cad456275e2173b16_icgraph">
-<area shape="rect" id="node2" href="../../d1/d88/a00128.html#aca10d70842e06a7a00cd633c4071d0ac" title="Instantiate cases viewer. " alt="" coords="225,5,431,47"/>
-<area shape="rect" id="node3" href="../../db/df8/a00076.html#af0131365a6c658898bf3dd49eead3ed7" title="Register the viewers of the SimRunner. " alt="" coords="251,71,405,112"/>
-<area shape="rect" id="node4" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="479,71,632,112"/>
-<area shape="rect" id="node5" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="680,78,735,105"/>
+<div class="center"><img src="../../d1/d88/a00128_a1e54b49cad6f7b645668551b08762e28_icgraph.gif" border="0" usemap="#d1/d88/a00128_a1e54b49cad6f7b645668551b08762e28_icgraph" alt=""/></div>
+<map name="d1/d88/a00128_a1e54b49cad6f7b645668551b08762e28_icgraph" id="d1/d88/a00128_a1e54b49cad6f7b645668551b08762e28_icgraph">
+<area shape="rect" id="node2" href="../../d1/d6e/a00073.html#af0131365a6c658898bf3dd49eead3ed7" title="Register the viewers of the SimRunner. " alt="" coords="269,5,423,47"/>
+<area shape="rect" id="node5" href="../../d1/d88/a00128.html#ae32a48e518b0393ca96921802278ecaf" title="Instantiate cases viewer. " alt="" coords="237,71,455,112"/>
+<area shape="rect" id="node3" href="../../d1/d44/a00098.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="503,5,656,47"/>
+<area shape="rect" id="node4" href="../../dc/d0f/a00303.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="704,13,759,39"/>
 </map>
 </div>
 </p>
@@ -244,7 +241,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a29f6d1abe2d4b71535a0c0134a48a5a0"></a>
+<a class="anchor" id="ad78a0b86893d6f5ef0acb1937482bd06"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -252,7 +249,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;unsigned int&gt; stride::viewers::InfectedFileViewer::m_infected</td>
+          <td class="memname"><a class="el" href="../../d1/dc1/a00092.html">output::SummaryFile</a> stride::viewers::SummaryFileViewer::m_summary_file</td>
         </tr>
       </table>
   </td>
@@ -262,11 +259,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00048">48</a> of file <a class="el" href="../../d7/d40/a00236_source.html">InfectedFileViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00046">46</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SummaryFileViewer.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae3711a48a4aba215ee7c45893c18532c"></a>
+<a class="anchor" id="ad6728d6ca9828f1f405d8c6eeb3793c2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -274,7 +271,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d7d/a00093.html">output::InfectedFile</a> stride::viewers::InfectedFileViewer::m_infected_file</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../da/d74/a00099.html">SimRunner</a>&gt; stride::viewers::SummaryFileViewer::m_runner</td>
         </tr>
       </table>
   </td>
@@ -284,43 +281,21 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00049">49</a> of file <a class="el" href="../../d7/d40/a00236_source.html">InfectedFileViewer.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af4ffa40d65229dcd9ae06ad592809c1c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d9/dcc/a00102.html">SimRunner</a>&gt; stride::viewers::InfectedFileViewer::m_runner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00050">50</a> of file <a class="el" href="../../d7/d40/a00236_source.html">InfectedFileViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00047">47</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SummaryFileViewer.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d7/d40/a00236_source.html">InfectedFileViewer.h</a></li>
-<li><a class="el" href="../../d3/d42/a00235_source.html">InfectedFileViewer.cpp</a></li>
+<li><a class="el" href="../../d1/d5d/a00311_source.html">SummaryFileViewer.h</a></li>
+<li><a class="el" href="../../d1/d67/a00310_source.html">SummaryFileViewer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/def/a00359.html">viewers</a></li><li class="navelem"><a class="el" href="../../d1/d88/a00128.html">InfectedFileViewer</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:08 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/dc9/a00355.html">viewers</a></li><li class="navelem"><a class="el" href="../../d1/d88/a00128.html">SummaryFileViewer</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

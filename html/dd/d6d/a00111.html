@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::Exception Class Reference</title>
+<title>Stride Reference Manual: stride::util::ii_detail::make_void&lt; Ts &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -107,199 +107,60 @@ $(document).ready(function(){initNavTree('dd/d6d/a00111.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d0/daf/a00970.html">List of all members</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="../../d7/df2/a01000.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::Exception Class Reference</div>  </div>
+<div class="title">stride::util::ii_detail::make_void&lt; Ts &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Basic exception class: needed to prevent clang-tidy warning "thrown exception type is not nothrow copy constructible".  
- <a href="../../dd/d6d/a00111.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../dc/d52/a00183_source.html">Exception.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/d21/a00240_source.html">is_iterator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::util::Exception:</div>
+Collaboration diagram for stride::util::ii_detail::make_void&lt; Ts &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d4e/a00972.gif" border="0" usemap="#stride_1_1util_1_1Exception_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1Exception_inherit__map" id="stride_1_1util_1_1Exception_inherit__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="27,5,139,83"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::util::Exception:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/da5/a00973.gif" border="0" usemap="#stride_1_1util_1_1Exception_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1Exception_coll__map" id="stride_1_1util_1_1Exception_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="5,147,117,224"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="142,147,229,224"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="117,5,254,97"/>
+<div class="center"><img src="../../df/d59/a01001.gif" border="0" usemap="#stride_1_1util_1_1ii__detail_1_1make__void_3_01Ts_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1ii__detail_1_1make__void_3_01Ts_01_4_coll__map" id="stride_1_1util_1_1ii__detail_1_1make__void_3_01Ts_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ada9a96369897608bd84b0fdb33c23a7f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#ada9a96369897608bd84b0fdb33c23a7f">Exception</a> (std::string msg)</td></tr>
-<tr class="memdesc:ada9a96369897608bd84b0fdb33c23a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straightforward constructor.  <a href="#ada9a96369897608bd84b0fdb33c23a7f">More...</a><br /></td></tr>
-<tr class="separator:ada9a96369897608bd84b0fdb33c23a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad933b798ce411d1acfe2ff86f178f219"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#ad933b798ce411d1acfe2ff86f178f219">what</a> () const noexceptoverride</td></tr>
-<tr class="memdesc:ad933b798ce411d1acfe2ff86f178f219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the message.  <a href="#ad933b798ce411d1acfe2ff86f178f219">More...</a><br /></td></tr>
-<tr class="separator:ad933b798ce411d1acfe2ff86f178f219"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c14e1f62d8cf7c69a4c6c08ec296a83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a1c14e1f62d8cf7c69a4c6c08ec296a83">~Exception</a> () noexceptoverride=default</td></tr>
-<tr class="memdesc:a1c14e1f62d8cf7c69a4c6c08ec296a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a1c14e1f62d8cf7c69a4c6c08ec296a83">More...</a><br /></td></tr>
-<tr class="separator:a1c14e1f62d8cf7c69a4c6c08ec296a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a5f5e43370eb477d14fe94f0e1b452629"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a5f5e43370eb477d14fe94f0e1b452629">m_msg</a></td></tr>
-<tr class="separator:a5f5e43370eb477d14fe94f0e1b452629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a4183f045c6086dabede526dea8e6cedb"><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6d/a00111.html#a4183f045c6086dabede526dea8e6cedb">type</a></td></tr>
+<tr class="separator:a4183f045c6086dabede526dea8e6cedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Basic exception class: needed to prevent clang-tidy warning "thrown exception type is not nothrow copy constructible". </p>
+<div class="textblock"><h3>template&lt;typename... Ts&gt;<br />
+struct stride::util::ii_detail::make_void&lt; Ts &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00028">28</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Exception.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ada9a96369897608bd84b0fdb33c23a7f"></a>
+
+<p>Definition at line <a class="el" href="../../d9/d21/a00240_source.html#l00033">33</a> of file <a class="el" href="../../d9/d21/a00240_source.html">is_iterator.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a4183f045c6086dabede526dea8e6cedb"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename... Ts&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::Exception::Exception </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
-          <td></td>
+          <td class="memname">typedef void <a class="el" href="../../dd/d6d/a00111.html">stride::util::ii_detail::make_void</a>&lt; Ts &gt;::<a class="el" href="../../dd/d6d/a00111.html#a4183f045c6086dabede526dea8e6cedb">type</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Straightforward constructor. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00032">32</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Exception.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d21/a00240_source.html#l00035">35</a> of file <a class="el" href="../../d9/d21/a00240_source.html">is_iterator.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1c14e1f62d8cf7c69a4c6c08ec296a83"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::Exception::~Exception </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default constructor. </p>
-
-<p>Referenced by <a class="el" href="../../dc/d52/a00183_source.html#l00035">what()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dd/d6d/a00111_a1c14e1f62d8cf7c69a4c6c08ec296a83_icgraph.gif" border="0" usemap="#dd/d6d/a00111_a1c14e1f62d8cf7c69a4c6c08ec296a83_icgraph" alt=""/></div>
-<map name="dd/d6d/a00111_a1c14e1f62d8cf7c69a4c6c08ec296a83_icgraph" id="dd/d6d/a00111_a1c14e1f62d8cf7c69a4c6c08ec296a83_icgraph">
-<area shape="rect" id="node2" href="../../dd/d6d/a00111.html#ad933b798ce411d1acfe2ff86f178f219" title="Return the message. " alt="" coords="208,5,363,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad933b798ce411d1acfe2ff86f178f219"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* stride::util::Exception::what </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return the message. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00035">35</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Exception.h</a>.</p>
-
-<p>References <a class="el" href="../../dc/d52/a00183_source.html#l00041">m_msg</a>, and <a class="el" href="../../dd/d6d/a00111.html#a1c14e1f62d8cf7c69a4c6c08ec296a83">~Exception()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dd/d6d/a00111_ad933b798ce411d1acfe2ff86f178f219_cgraph.gif" border="0" usemap="#dd/d6d/a00111_ad933b798ce411d1acfe2ff86f178f219_cgraph" alt=""/></div>
-<map name="dd/d6d/a00111_ad933b798ce411d1acfe2ff86f178f219_cgraph" id="dd/d6d/a00111_ad933b798ce411d1acfe2ff86f178f219_cgraph">
-<area shape="rect" id="node2" href="../../dd/d6d/a00111.html#a1c14e1f62d8cf7c69a4c6c08ec296a83" title="Default constructor. " alt="" coords="208,5,363,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a5f5e43370eb477d14fe94f0e1b452629"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::Exception::m_msg</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00041">41</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Exception.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d52/a00183_source.html#l00035">what()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../dc/d52/a00183_source.html">Exception.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../d9/d21/a00240_source.html">is_iterator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00356.html">util</a></li><li class="navelem"><a class="el" href="../../dd/d6d/a00111.html">Exception</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:08 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">util</a></li><li class="navelem"><a class="el" href="../../d0/dc3/a00354.html">ii_detail</a></li><li class="navelem"><a class="el" href="../../dd/d6d/a00111.html">make_void</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

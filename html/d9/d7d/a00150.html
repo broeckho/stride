@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CollegePopulator.h File Reference</title>
+<title>Stride Reference Manual: CommutesReader.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -108,28 +108,29 @@ $(document).ready(function(){initNavTree('d9/d7d/a00150.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CollegePopulator.h File Reference</div>  </div>
+<div class="title">CommutesReader.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/dd6/a00272_source.html">Populator.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;istream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CollegePopulator.h:</div>
+Include dependency graph for CommutesReader.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/dc9/a00389.gif" border="0" usemap="#CollegePopulator_8h" alt=""/></div>
-<map name="CollegePopulator_8h" id="CollegePopulator_8h">
-<area shape="rect" id="node2" href="../../d9/dd6/a00272.html" title="Populator.h" alt="" coords="367,80,462,107"/>
-<area shape="rect" id="node3" href="../../d9/d38/a00166.html" title="Definition of ContactPool Id Type. " alt="" coords="135,155,299,181"/>
-<area shape="rect" id="node9" href="../../d5/d7b/a00286.html" title="Interface of RnMan. " alt="" coords="365,155,465,181"/>
-<area shape="rect" id="node10" href="../../db/dc3/a00284.html" title="Interface of RnPcg. " alt="" coords="378,229,451,256"/>
+<div class="center"><img src="../../d9/d0a/a00390.gif" border="0" usemap="#CommutesReader_8h" alt=""/></div>
+<map name="CommutesReader_8h" id="CommutesReader_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d0a/a00390.gif" border="0" usemap="#CollegePopulator_8hdep" alt=""/></div>
-<map name="CollegePopulator_8hdep" id="CollegePopulator_8hdep">
-<area shape="rect" id="node2" href="../../da/d1e/a00149.html" title="CollegePopulator.cpp" alt="" coords="5,80,161,107"/>
-<area shape="rect" id="node3" href="../../d1/de1/a00213.html" title="Initialize populations: implementation. " alt="" coords="185,80,328,107"/>
+<div class="center"><img src="../../db/d95/a00391.gif" border="0" usemap="#CommutesReader_8hdep" alt=""/></div>
+<map name="CommutesReader_8hdep" id="CommutesReader_8hdep">
+<area shape="rect" id="node2" href="../../da/d1e/a00149.html" title="CommutesCSVReader.h" alt="" coords="192,80,367,107"/>
+<area shape="rect" id="node5" href="../../dc/d5d/a00278.html" title="ReaderFactory.h" alt="" coords="391,80,514,107"/>
+<area shape="rect" id="node3" href="../../db/d48/a00148.html" title="CommutesCSVReader.cpp" alt="" coords="5,155,196,181"/>
+<area shape="rect" id="node4" href="../../d6/d4b/a00277.html" title="ReaderFactory.cpp" alt="" coords="220,155,357,181"/>
+<area shape="rect" id="node6" href="../../d9/dd0/a00191.html" title="GeoGridConfig.cpp" alt="" coords="382,155,523,181"/>
+<area shape="rect" id="node7" href="../../da/de7/a00210.html" title="Initialize populations: implementation. " alt="" coords="547,155,689,181"/>
 </map>
 </div>
 </div>
@@ -137,14 +138,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html">geopop::CollegePopulator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the colleges.  <a href="../../de/d5e/a00007.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html">geopop::CommutesReader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an abstract Reader that fills a <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> with the commute info from file.  <a href="../../da/da0/a00009.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/d84/a00338"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d84/a00338.html">geopop</a></td></tr>
-<tr class="memdesc:dc/d84/a00338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:da/d75/a00334"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d75/a00334.html">geopop</a></td></tr>
+<tr class="memdesc:da/d75/a00334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -152,8 +153,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_e7e2007abe30c6c76c8a673fdd5d8158.html">populators</a></li><li class="navelem"><a class="el" href="../../d9/d7d/a00150.html">CollegePopulator.h</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d9/d7d/a00150.html">CommutesReader.h</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

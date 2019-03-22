@@ -1,5 +1,5 @@
 var a00302 =
 [
-    [ "SliceIndexer", "d8/dfa/a00121.html", "d8/dfa/a00121" ],
-    [ "make_slice_indexer", "d0/d61/a00302.html#adc11e43e4e7ef5743ad66f7b2e884782", null ]
+    [ "Stopwatch", "df/d6a/a00119.html", "df/d6a/a00119" ],
+    [ "operator<<", "d0/d61/a00302.html#a1c487ec7202a72d7aa33bc6b5767b287", null ]
 ];

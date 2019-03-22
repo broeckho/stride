@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CommutesCSVReader.h File Reference</title>
+<title>Stride Reference Manual: ConfigInfo.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -108,26 +108,33 @@ $(document).ready(function(){initNavTree('d7/d9a/a00152.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CommutesCSVReader.h File Reference</div>  </div>
+<div class="title">ConfigInfo.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d01/a00153_source.html">CommutesReader.h</a>&quot;</code><br />
-<code>#include &lt;memory&gt;</code><br />
+
+<p>Info on configuration.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CommutesCSVReader.h:</div>
+Include dependency graph for ConfigInfo.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d27/a00392.gif" border="0" usemap="#CommutesCSVReader_8h" alt=""/></div>
-<map name="CommutesCSVReader_8h" id="CommutesCSVReader_8h">
-<area shape="rect" id="node2" href="../../da/d01/a00153.html" title="CommutesReader.h" alt="" coords="5,80,153,107"/>
+<div class="center"><img src="../../da/dbf/a00393.gif" border="0" usemap="#ConfigInfo_8h" alt=""/></div>
+<map name="ConfigInfo_8h" id="ConfigInfo_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/dbf/a00393.gif" border="0" usemap="#CommutesCSVReader_8hdep" alt=""/></div>
-<map name="CommutesCSVReader_8hdep" id="CommutesCSVReader_8hdep">
-<area shape="rect" id="node2" href="../../dd/db2/a00151.html" title="CommutesCSVReader.cpp" alt="" coords="5,80,196,107"/>
-<area shape="rect" id="node3" href="../../d0/dcd/a00280.html" title="ReaderFactory.cpp" alt="" coords="220,80,357,107"/>
+<div class="center"><img src="../../d9/dad/a00394.gif" border="0" usemap="#ConfigInfo_8hdep" alt=""/></div>
+<map name="ConfigInfo_8hdep" id="ConfigInfo_8hdep">
+<area shape="rect" id="node2" href="../../db/ddf/a00164.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../db/da2/a00300.html" title="Header for the command line controller. " alt="" coords="166,80,306,107"/>
+<area shape="rect" id="node4" href="../../dd/db2/a00151.html" title="Info on configuration. " alt="" coords="331,80,443,107"/>
+<area shape="rect" id="node5" href="../../d3/d58/a00285.html" title="Produce run config ptree. " alt="" coords="467,80,619,107"/>
+<area shape="rect" id="node9" href="../../db/dc3/a00284.html" title="Implementation of ptree utils. " alt="" coords="603,155,770,181"/>
+<area shape="rect" id="node6" href="../../dc/d0f/a00303.html" title="Main program: command line handling. " alt="" coords="255,155,340,181"/>
+<area shape="rect" id="node7" href="../../d5/d35/a00266.html" title="Core Population class. " alt="" coords="365,155,481,181"/>
+<area shape="rect" id="node8" href="../../da/dd4/a00291.html" title="Implementation for the Simulator class. " alt="" coords="505,155,580,181"/>
 </map>
 </div>
 </div>
@@ -135,23 +142,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html">geopop::CommutesCSVReader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Reader that fills a <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. ">GeoGrid</a> with the commute info from CSV file.  <a href="../../d4/dee/a00008.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html">stride::util::ConfigInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Config information.  <a href="../../d0/dc2/a00104.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/d84/a00338"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d84/a00338.html">geopop</a></td></tr>
-<tr class="memdesc:dc/d84/a00338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">stride</a></td></tr>
+<tr class="memdesc:d9/d48/a00345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">stride::util</a></td></tr>
+<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Info on configuration. </p>
+
+<p>Definition in file <a class="el" href="../../d7/d9a/a00152_source.html">ConfigInfo.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d7/d9a/a00152.html">CommutesCSVReader.h</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d7/d9a/a00152.html">ConfigInfo.h</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

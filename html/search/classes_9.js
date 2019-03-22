@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['k12school',['K12School',['../d9/db3/a00066.html',1,'stride::AgeBrackets']]],
+  ['k12school',['K12School',['../d1/d6f/a00063.html',1,'stride::AgeBrackets']]],
   ['k12schoolgenerator',['K12SchoolGenerator',['../df/d61/a00031.html',1,'geopop']]],
   ['k12schoolpopulator',['K12SchoolPopulator',['../dc/d87/a00032.html',1,'geopop']]],
   ['kdtree',['KdTree',['../db/df3/a00034.html',1,'geopop']]],

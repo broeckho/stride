@@ -1,11 +1,14 @@
 var a00106 =
 [
-    [ "BoxPlotData", "d7/d70/a00106.html#add3e678e6738fbd9b3f1949f8059388f", null ],
-    [ "Calculate", "d7/d70/a00106.html#a25162798845f45f11620427e4c7baf6b", null ],
-    [ "m_total", "d7/d70/a00106.html#a777b86b3f8efb046dc4de8830c720e45", null ],
-    [ "m_min", "d7/d70/a00106.html#a7087ab4e72c5c9a6606d76996bfac882", null ],
-    [ "m_max", "d7/d70/a00106.html#a41acae191d30af298e9bac71d430cc41", null ],
-    [ "m_median", "d7/d70/a00106.html#a9433b5584a47b7cba8c8090f081a2e5c", null ],
-    [ "m_quartile1", "d7/d70/a00106.html#a6a1a8baaa4280bc35b5e58b5185b8471", null ],
-    [ "m_quartile3", "d7/d70/a00106.html#a2ca894900d4879cf4841408c85deaf92", null ]
+    [ "CSVRow", "d7/d70/a00106.html#ab60a313ff2e75d0ae07bc7624c27a861", null ],
+    [ "CSVRow", "d7/d70/a00106.html#a63cf8ebc530e40cda52b9f15fb751a6f", null ],
+    [ "operator=", "d7/d70/a00106.html#ae4c1879e5f84f6b0e07dbda48be67589", null ],
+    [ "GetValue", "d7/d70/a00106.html#a6462fb781526ce386453ea4ee8e353e5", null ],
+    [ "GetValue", "d7/d70/a00106.html#a70dfc26893fa920410a7e4a049a1578a", null ],
+    [ "operator==", "d7/d70/a00106.html#a8bec120b3295f500c637c4219ec5f873", null ],
+    [ "GetValue", "d7/d70/a00106.html#a65777e0c58ce4632c96009ce1180250a", null ],
+    [ "GetValue", "d7/d70/a00106.html#a03e8149406514c601f7095c55460977d", null ],
+    [ "operator<<", "d7/d70/a00106.html#a0ec2f92503adc2a968a848d3fddf087d", null ],
+    [ "m_parent", "d7/d70/a00106.html#aa89bb5ef10f89f4eae23cc0536bf01c1", null ],
+    [ "m_values", "d7/d70/a00106.html#a6e59d67d64bb1bf8681d7718be92d74f", null ]
 ];

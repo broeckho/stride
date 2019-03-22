@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Subject.h File Reference</title>
+<title>Stride Reference Manual: SummaryFile.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -105,64 +105,65 @@ $(document).ready(function(){initNavTree('d2/d71/a00309.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">sim/event/Subject.h File Reference</div>  </div>
+<div class="title">SummaryFile.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Definition of Subject/Observer for SimEvents.  
+<p>Header for the SummaryFile class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d01/a00227_source.html">Id.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d1/d67/a00310_source.html">util/Subject.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sim/event/Subject.h:</div>
+Include dependency graph for SummaryFile.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d2a/a00632.gif" border="0" usemap="#Subject_8h" alt=""/></div>
-<map name="Subject_8h" id="Subject_8h">
-<area shape="rect" id="node2" href="../../d9/d01/a00227.html" title="Definition of EventId. " alt="" coords="105,80,151,107"/>
-<area shape="rect" id="node5" href="../../d1/d67/a00310.html" title="Interface/Implementation of Subject. " alt="" coords="219,80,325,107"/>
+<div class="center"><img src="../../d9/d1d/a00633.gif" border="0" usemap="#SummaryFile_8h" alt=""/></div>
+<map name="SummaryFile_8h" id="SummaryFile_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d1d/a00633.gif" border="0" usemap="#Subject_8hdep" alt=""/></div>
-<map name="Subject_8hdep" id="Subject_8hdep">
-<area shape="rect" id="node2" href="../../d5/d0f/a00308.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="448,80,546,107"/>
-<area shape="rect" id="node3" href="../../da/d50/a00301.html" title="Header for the SimRunner class. " alt="" coords="570,80,672,107"/>
-<area shape="rect" id="node4" href="../../dc/de6/a00167.html" title="Header for the command line controller. " alt="" coords="454,229,590,256"/>
-<area shape="rect" id="node5" href="../../d9/d0d/a00298.html" title="Header for the command line controller. " alt="" coords="26,155,160,181"/>
-<area shape="rect" id="node6" href="../../dc/d0f/a00303.html" title="Header for the command line controller. " alt="" coords="184,155,324,181"/>
-<area shape="rect" id="node7" href="../../db/da2/a00300.html" title="Implementation for SimRunner. " alt="" coords="349,155,466,181"/>
-<area shape="rect" id="node8" href="../../da/ddb/a00145.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="490,155,595,181"/>
-<area shape="rect" id="node9" href="../../d3/d42/a00235.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="619,155,780,181"/>
-<area shape="rect" id="node10" href="../../d4/d08/a00237.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="805,155,946,181"/>
-<area shape="rect" id="node11" href="../../d1/dd4/a00267.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="971,155,1132,181"/>
-<area shape="rect" id="node12" href="../../d0/d39/a00314.html" title="Observer for Persons output. " alt="" coords="1156,155,1315,181"/>
-<area shape="rect" id="node13" href="../../dd/db3/a00313.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1208,229,1381,256"/>
+<div class="center"><img src="../../d7/de4/a00634.gif" border="0" usemap="#SummaryFile_8hdep" alt=""/></div>
+<map name="SummaryFile_8hdep" id="SummaryFile_8hdep">
+<area shape="rect" id="node2" href="../../d5/d0f/a00308.html" title="Implementation of the SummaryFile class. " alt="" coords="5,80,137,107"/>
+<area shape="rect" id="node3" href="../../d1/d5d/a00311.html" title="Observer for Persons output. " alt="" coords="161,80,320,107"/>
+<area shape="rect" id="node4" href="../../db/ddf/a00164.html" title="Header for the command line controller. " alt="" coords="83,155,219,181"/>
+<area shape="rect" id="node5" href="../../d1/d67/a00310.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="243,155,417,181"/>
 </map>
 </div>
 </div>
 <p><a href="../../d2/d71/a00309_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc1/a00092.html">stride::output::SummaryFile</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with simulation summary output.  <a href="../../d1/dc1/a00092.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
-<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">stride</a></td></tr>
+<tr class="memdesc:d9/d48/a00345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride::output</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definition of Subject/Observer for SimEvents. </p>
+<div class="textblock"><p>Header for the SummaryFile class. </p>
 
-<p>Definition in file <a class="el" href="../../d2/d71/a00309_source.html">sim/event/Subject.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d2/d71/a00309_source.html">SummaryFile.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../d2/d71/a00309.html">Subject.h</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d2/d71/a00309.html">SummaryFile.h</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

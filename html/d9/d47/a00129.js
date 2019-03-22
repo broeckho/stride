@@ -1,8 +1,9 @@
 var a00129 =
 [
-    [ "InfectedViewer", "d9/d47/a00129.html#a772cf9c0229d31368250d437f1596ab0", null ],
-    [ "GetInfectionCounts", "d9/d47/a00129.html#a3051b3ab2155b525830220d7a4e1d3d4", null ],
-    [ "Update", "d9/d47/a00129.html#ac539c7549cc8c19530813f0bdb35a14d", null ],
-    [ "m_infected", "d9/d47/a00129.html#a613860070a4a0778c61631fc4f343028", null ],
-    [ "m_runner", "d9/d47/a00129.html#a13b27fd1d407a15fe3b542952168ba33", null ]
+    [ "PROTOBUF_SECTION_VARIABLE", "d9/d47/a00129.html#adb95088fb677be84100b82414b6c460d", null ],
+    [ "PROTOBUF_SECTION_VARIABLE", "d9/d47/a00129.html#ac48357e89549fe4cce91a7cda00a1535", null ],
+    [ "PROTOBUF_SECTION_VARIABLE", "d9/d47/a00129.html#a601dfa94bfbe18955d33f8b660985720", null ],
+    [ "field_metadata", "d9/d47/a00129.html#a9a8e9e93c507543eb7899332656b706d", null ],
+    [ "serialization_table", "d9/d47/a00129.html#a5bd363cc6c43ac962af44d0a3a51f8cc", null ],
+    [ "offsets", "d9/d47/a00129.html#a98f3abc503157caec7b549c1fc4e2633", null ]
 ];

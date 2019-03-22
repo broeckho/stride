@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::Immunizer Class Reference</title>
+<title>Stride Reference Manual: stride::Infector&lt; LL, TIC, true &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -107,115 +107,89 @@ $(document).ready(function(){initNavTree('db/ddf/a00088.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/d01/a00897.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../d0/de2/a00892.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Immunizer Class Reference</div>  </div>
+<div class="title">stride::Infector&lt; LL, TIC, true &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Deals with immunization strategies.  
+<p>Time-optimized version (For NoLocalInformation &amp;&amp; (None || Transmission logging)).  
  <a href="../../db/ddf/a00088.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/da8/a00230_source.html">Immunizer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d4/d08/a00237_source.html">Infector.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Immunizer:</div>
+Collaboration diagram for stride::Infector&lt; LL, TIC, true &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d79/a00898.gif" border="0" usemap="#stride_1_1Immunizer_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Immunizer_coll__map" id="stride_1_1Immunizer_coll__map">
-<area shape="rect" id="node2" href="../../df/d6a/a00119.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="5,145,208,355"/>
+<div class="center"><img src="../../dc/d2c/a00893.gif" border="0" usemap="#stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map" id="stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a9cf69f9df2b2b2e357fab3d3ed48b64a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a9cf69f9df2b2b2e357fab3d3ed48b64a">Immunizer</a> (<a class="el" href="../../df/d6a/a00119.html">util::RnMan</a> &amp;rnManager)</td></tr>
-<tr class="separator:a9cf69f9df2b2b2e357fab3d3ed48b64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac187b34c18ec3cd1efccaf8f197766fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#ac187b34c18ec3cd1efccaf8f197766fc">Random</a> (const <a class="el" href="../../df/d03/a00062.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d6/d2c/a00072.html">ContactPool</a> &gt; &amp;pools, std::vector&lt; <a class="el" href="../../de/dd7/a00362.html">double</a> &gt; &amp;immunityDistribution, <a class="el" href="../../de/dd7/a00362.html">double</a> immunityLinkProbability)</td></tr>
-<tr class="memdesc:ac187b34c18ec3cd1efccaf8f197766fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random immunization.  <a href="#ac187b34c18ec3cd1efccaf8f197766fc">More...</a><br /></td></tr>
-<tr class="separator:ac187b34c18ec3cd1efccaf8f197766fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b4435f990b9a24bc0ededbd9af4877b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a9b4435f990b9a24bc0ededbd9af4877b">Cocoon</a> (const <a class="el" href="../../df/d03/a00062.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d6/d2c/a00072.html">ContactPool</a> &gt; &amp;, std::vector&lt; <a class="el" href="../../de/dd7/a00362.html">double</a> &gt; &amp;, <a class="el" href="../../de/dd7/a00362.html">double</a>)</td></tr>
-<tr class="memdesc:a9b4435f990b9a24bc0ededbd9af4877b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cocoon immunization.  <a href="#a9b4435f990b9a24bc0ededbd9af4877b">More...</a><br /></td></tr>
-<tr class="separator:a9b4435f990b9a24bc0ededbd9af4877b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:aea5b1b7d720384302b740a11d0ec484b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d6a/a00119.html">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#aea5b1b7d720384302b740a11d0ec484b">m_rn_man</a></td></tr>
-<tr class="memdesc:aea5b1b7d720384302b740a11d0ec484b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#aea5b1b7d720384302b740a11d0ec484b">More...</a><br /></td></tr>
-<tr class="separator:aea5b1b7d720384302b740a11d0ec484b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aa27dad30b434e742e80300d88854b36d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#aa27dad30b434e742e80300d88854b36d">Exec</a> (<a class="el" href="../../d4/d31/a00069.html">ContactPool</a> &amp;pool, const <a class="el" href="../../d9/db3/a00066.html">AgeContactProfile</a> &amp;profile, const <a class="el" href="../../d9/dcc/a00102.html">TransmissionProfile</a> &amp;transProfile, <a class="el" href="../../da/d24/a00068.html">ContactHandler</a> &amp;cHandler, unsigned short int simDay, std::shared_ptr&lt; spdlog::logger &gt; cLogger)</td></tr>
+<tr class="separator:aa27dad30b434e742e80300d88854b36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Deals with immunization strategies. </p>
+<div class="textblock"><h3>template&lt;ContactLogMode::Id LL, bool TIC&gt;<br />
+class stride::Infector&lt; LL, TIC, true &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d1/da8/a00230_source.html#l00032">32</a> of file <a class="el" href="../../d1/da8/a00230_source.html">Immunizer.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9cf69f9df2b2b2e357fab3d3ed48b64a"></a>
+<p>Time-optimized version (For NoLocalInformation &amp;&amp; (None || Transmission logging)). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">LL</td><td>LogLevel </td></tr>
+    <tr><td class="paramname">TIC</td><td>TrackIndexCase </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d4/d08/a00237_source.html#l00081">81</a> of file <a class="el" href="../../d4/d08/a00237_source.html">Infector.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa27dad30b434e742e80300d88854b36d"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;ContactLogMode::Id LL, bool TIC&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::Immunizer::Immunizer </td>
+          <td class="memname">void <a class="el" href="../../d1/d1e/a00087.html">stride::Infector</a>&lt; LL, TIC, true &gt;::Exec </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../df/d6a/a00119.html">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/da8/a00230_source.html#l00036">36</a> of file <a class="el" href="../../d1/da8/a00230_source.html">Immunizer.h</a>.</p>
-
-<p>References <a class="el" href="../../dd/d2d/a00229_source.html#l00034">Cocoon()</a>, and <a class="el" href="../../dd/d2d/a00229_source.html#l00066">Random()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/ddf/a00088_a9cf69f9df2b2b2e357fab3d3ed48b64a_cgraph.gif" border="0" usemap="#db/ddf/a00088_a9cf69f9df2b2b2e357fab3d3ed48b64a_cgraph" alt=""/></div>
-<map name="db/ddf/a00088_a9cf69f9df2b2b2e357fab3d3ed48b64a_cgraph" id="db/ddf/a00088_a9cf69f9df2b2b2e357fab3d3ed48b64a_cgraph">
-<area shape="rect" id="node2" href="../../db/ddf/a00088.html#a9b4435f990b9a24bc0ededbd9af4877b" title="Cocoon immunization. " alt="" coords="196,49,339,91"/>
-<area shape="rect" id="node3" href="../../db/ddf/a00088.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="196,115,339,156"/>
-<area shape="rect" id="node4" href="../../d6/d2c/a00072.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="421,5,564,47"/>
-<area shape="rect" id="node5" href="../../d9/df8/a00096.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="401,71,584,98"/>
-<area shape="rect" id="node6" href="../../da/d2a/a00086.html#a7c9caae07db1dd15732f726cec514dc2" title="Is this person immune? " alt="" coords="403,122,582,149"/>
-<area shape="rect" id="node7" href="../../d9/df8/a00096.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="409,173,576,199"/>
-<area shape="rect" id="node8" href="../../da/d2a/a00086.html#a8edeec79c050faabe2c09a1bc4860261" title="Set health state to susceptible. " alt="" coords="387,223,599,250"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac187b34c18ec3cd1efccaf8f197766fc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Immunizer::Random </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../df/d03/a00062.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d6/d2c/a00072.html">ContactPool</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pools</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d4/d31/a00069.html">ContactPool</a> &amp;&#160;</td>
+          <td class="paramname"><em>pool</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../de/dd7/a00362.html">double</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>immunityDistribution</em>, </td>
+          <td class="paramtype">const <a class="el" href="../../d9/db3/a00066.html">AgeContactProfile</a> &amp;&#160;</td>
+          <td class="paramname"><em>profile</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../de/dd7/a00362.html">double</a>&#160;</td>
-          <td class="paramname"><em>immunityLinkProbability</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dcc/a00102.html">TransmissionProfile</a> &amp;&#160;</td>
+          <td class="paramname"><em>transProfile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d24/a00068.html">ContactHandler</a> &amp;&#160;</td>
+          <td class="paramname"><em>cHandler</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>simDay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>cLogger</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -223,132 +197,48 @@ Here is the call graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-<p>Random immunization. </p>
-
-<p>Definition at line <a class="el" href="../../dd/d2d/a00229_source.html#l00066">66</a> of file <a class="el" href="../../dd/d2d/a00229_source.html">Immunizer.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d3/dcc/a00264_source.html#l00053">stride::Person::GetAge()</a>, <a class="el" href="../../d3/dcc/a00264_source.html#l00056">stride::Person::GetHealth()</a>, <a class="el" href="../../db/d44/a00162_source.html#l00057">stride::ContactPool::GetPool()</a>, <a class="el" href="../../d6/d43/a00216_source.html#l00058">stride::Health::IsImmune()</a>, and <a class="el" href="../../d6/d43/a00216_source.html#l00092">stride::Health::SetSusceptible()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/da8/a00230_source.html#l00036">Immunizer()</a>, and <a class="el" href="../../d8/d64/a00181_source.html#l00076">stride::DiseaseSeeder::Vaccinate()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/ddf/a00088_ac187b34c18ec3cd1efccaf8f197766fc_cgraph.gif" border="0" usemap="#db/ddf/a00088_ac187b34c18ec3cd1efccaf8f197766fc_cgraph" alt=""/></div>
-<map name="db/ddf/a00088_ac187b34c18ec3cd1efccaf8f197766fc_cgraph" id="db/ddf/a00088_ac187b34c18ec3cd1efccaf8f197766fc_cgraph">
-<area shape="rect" id="node2" href="../../d9/df8/a00096.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="219,5,385,32"/>
-<area shape="rect" id="node3" href="../../d9/df8/a00096.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="211,56,393,83"/>
-<area shape="rect" id="node4" href="../../d6/d2c/a00072.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="231,107,373,149"/>
-<area shape="rect" id="node5" href="../../da/d2a/a00086.html#a7c9caae07db1dd15732f726cec514dc2" title="Is this person immune? " alt="" coords="213,173,391,200"/>
-<area shape="rect" id="node6" href="../../da/d2a/a00086.html#a8edeec79c050faabe2c09a1bc4860261" title="Set health state to susceptible. " alt="" coords="196,224,408,251"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/ddf/a00088_ac187b34c18ec3cd1efccaf8f197766fc_icgraph.gif" border="0" usemap="#db/ddf/a00088_ac187b34c18ec3cd1efccaf8f197766fc_icgraph" alt=""/></div>
-<map name="db/ddf/a00088_ac187b34c18ec3cd1efccaf8f197766fc_icgraph" id="db/ddf/a00088_ac187b34c18ec3cd1efccaf8f197766fc_icgraph">
-<area shape="rect" id="node2" href="../../db/ddf/a00088.html#a9cf69f9df2b2b2e357fab3d3ed48b64a" title="stride::Immunizer::\lImmunizer" alt="" coords="206,5,349,47"/>
-<area shape="rect" id="node3" href="../../d2/d1f/a00083.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="196,71,359,112"/>
-<area shape="rect" id="node4" href="../../d2/d1f/a00083.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="407,71,569,112"/>
-<area shape="rect" id="node5" href="../../d0/d61/a00100.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="617,71,752,112"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a9b4435f990b9a24bc0ededbd9af4877b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Immunizer::Cocoon </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../df/d03/a00062.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d6/d2c/a00072.html">ContactPool</a> &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../de/dd7/a00362.html">double</a> &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../de/dd7/a00362.html">double</a>&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Cocoon immunization. </p>
-
-<p>Definition at line <a class="el" href="../../dd/d2d/a00229_source.html#l00034">34</a> of file <a class="el" href="../../dd/d2d/a00229_source.html">Immunizer.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/da8/a00230_source.html#l00036">Immunizer()</a>, and <a class="el" href="../../d8/d64/a00181_source.html#l00076">stride::DiseaseSeeder::Vaccinate()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/ddf/a00088_a9b4435f990b9a24bc0ededbd9af4877b_icgraph.gif" border="0" usemap="#db/ddf/a00088_a9b4435f990b9a24bc0ededbd9af4877b_icgraph" alt=""/></div>
-<map name="db/ddf/a00088_a9b4435f990b9a24bc0ededbd9af4877b_icgraph" id="db/ddf/a00088_a9b4435f990b9a24bc0ededbd9af4877b_icgraph">
-<area shape="rect" id="node2" href="../../db/ddf/a00088.html#a9cf69f9df2b2b2e357fab3d3ed48b64a" title="stride::Immunizer::\lImmunizer" alt="" coords="206,5,349,47"/>
-<area shape="rect" id="node3" href="../../d2/d1f/a00083.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="196,71,359,112"/>
-<area shape="rect" id="node4" href="../../d2/d1f/a00083.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="407,71,569,112"/>
-<area shape="rect" id="node5" href="../../d0/d61/a00100.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="617,71,752,112"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="aea5b1b7d720384302b740a11d0ec484b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d6a/a00119.html">util::RnMan</a>&amp; stride::Immunizer::m_rn_man</td>
-        </tr>
-      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Random number manager. </p>
+<p>Definition at line <a class="el" href="../../d7/d40/a00236_source.html#l00211">211</a> of file <a class="el" href="../../d7/d40/a00236_source.html">Infector.cpp</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d1/da8/a00230_source.html#l00047">47</a> of file <a class="el" href="../../d1/da8/a00230_source.html">Immunizer.h</a>.</p>
+<p>References <a class="el" href="../../dc/d6a/a00261_source.html#l00056">stride::Person::GetHealth()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00037">stride::TransmissionProfile::GetRate()</a>, <a class="el" href="../../d3/df8/a00155_source.html#l00041">stride::ContactHandler::HasContactAndTransmission()</a>, <a class="el" href="../../dc/d6a/a00261_source.html#l00068">stride::Person::IsInPool()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00087">stride::ContactPool::m_index_immune</a>, <a class="el" href="../../de/db9/a00159_source.html#l00090">stride::ContactPool::m_members</a>, <a class="el" href="../../de/db9/a00159_source.html#l00089">stride::ContactPool::m_pool_type</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00055">stride::ContactPool::SortMembers()</a>, and <a class="el" href="../../dd/dc1/a00212_source.html#l00035">stride::Health::StartInfection()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/ddf/a00088_aa27dad30b434e742e80300d88854b36d_cgraph.gif" border="0" usemap="#db/ddf/a00088_aa27dad30b434e742e80300d88854b36d_cgraph" alt=""/></div>
+<map name="db/ddf/a00088_aa27dad30b434e742e80300d88854b36d_cgraph" id="db/ddf/a00088_aa27dad30b434e742e80300d88854b36d_cgraph">
+<area shape="rect" id="node2" href="../../d4/d7d/a00093.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="215,5,397,32"/>
+<area shape="rect" id="node3" href="../../d9/dcc/a00102.html#a51ffe104253ffd5bcf12ab299fa6f2e2" title="Return transmission rate. " alt="" coords="213,57,399,98"/>
+<area shape="rect" id="node5" href="../../da/d24/a00068.html#a65ae0c571176ea267cf980ce31408f35" title="Check if two individuals have contact and transmission. " alt="" coords="200,122,412,163"/>
+<area shape="rect" id="node7" href="../../d4/d7d/a00093.html#afc181c9b642346133f4667c08c72d3f8" title="Check if a person is present today in a given contact pool. " alt="" coords="223,188,389,215"/>
+<area shape="rect" id="node8" href="../../d4/d31/a00069.html#a38adafed84fa1801c5f1f6420158a7f3" title="Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. " alt="" coords="235,239,377,281"/>
+<area shape="rect" id="node9" href="../../d2/d1f/a00083.html#a5d85541b8e22aeaa75b364a454f59088" title="Start the infection. " alt="" coords="205,305,407,332"/>
+<area shape="rect" id="node4" href="../../d9/dcc/a00102.html#a5e67e9eab813de18fff32722ee6f1437" title="Initialize. " alt="" coords="468,57,655,98"/>
+<area shape="rect" id="node6" href="../../da/d24/a00068.html#a51fd44b433163a1bd2a9fb424a003344" title="Convert rate into probability. " alt="" coords="478,122,645,163"/>
+<area shape="rect" id="node10" href="../../d2/d1f/a00083.html#a468c554771acc883799456c14373e9db" title="Reset the disease counter. " alt="" coords="460,298,663,339"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d1/da8/a00230_source.html">Immunizer.h</a></li>
-<li><a class="el" href="../../dd/d2d/a00229_source.html">Immunizer.cpp</a></li>
+<li><a class="el" href="../../d4/d08/a00237_source.html">Infector.h</a></li>
+<li><a class="el" href="../../d7/d40/a00236_source.html">Infector.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../db/ddf/a00088.html">Immunizer</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../db/ddf/a00088.html">Infector&lt; LL, TIC, true &gt;</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::viewers::SummaryFileViewer Class Reference</title>
+<title>Stride Reference Manual: AbstractPopBuilder.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,10 +70,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
+      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -107,195 +105,47 @@ $(document).ready(function(){initNavTree('d7/d06/a00131.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d1/dd8/a01022.html">List of all members</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">stride::viewers::SummaryFileViewer Class Reference</div>  </div>
+<div class="title">AbstractPopBuilder.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Viewer of Simulator for cases output.  
- <a href="../../d7/d06/a00131.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d0/d39/a00314_source.html">SummaryFileViewer.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for stride::viewers::SummaryFileViewer:</div>
+<p>Initialize populations: implementation.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/deb/a00132_source.html">AbstractPopBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/def/a00256_source.html">util/LogUtils.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;spdlog/common.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for AbstractPopBuilder.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/dcd/a01023.gif" border="0" usemap="#stride_1_1viewers_1_1SummaryFileViewer_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1viewers_1_1SummaryFileViewer_coll__map" id="stride_1_1viewers_1_1SummaryFileViewer_coll__map">
-<area shape="rect" id="node2" href="../../d9/d77/a00095.html" title="Produces a file with simulation summary output. " alt="" coords="5,681,204,803"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="51,541,159,619"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="31,400,179,492"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="33,259,177,351"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="21,132,189,209"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="51,5,158,83"/>
+<div class="center"><img src="../../d7/ddb/a00361.gif" border="0" usemap="#AbstractPopBuilder_8cpp" alt=""/></div>
+<map name="AbstractPopBuilder_8cpp" id="AbstractPopBuilder_8cpp">
+<area shape="rect" id="node2" href="../../d5/deb/a00132.html" title="Base Class for PopBuilders. " alt="" coords="183,87,337,114"/>
+<area shape="rect" id="node6" href="../../d0/def/a00256.html" title="Logging (spdlog) utilities. " alt="" coords="406,87,514,114"/>
 </map>
 </div>
+</div>
+<p><a href="../../d7/d06/a00131_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ae32a48e518b0393ca96921802278ecaf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d06/a00131.html#ae32a48e518b0393ca96921802278ecaf">SummaryFileViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">SimRunner</a> &gt; runner, const std::string &amp;output_prefix)</td></tr>
-<tr class="memdesc:ae32a48e518b0393ca96921802278ecaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cases viewer.  <a href="#ae32a48e518b0393ca96921802278ecaf">More...</a><br /></td></tr>
-<tr class="separator:ae32a48e518b0393ca96921802278ecaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e54b49cad6f7b645668551b08762e28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d06/a00131.html#a1e54b49cad6f7b645668551b08762e28">Update</a> (<a class="el" href="../../d3/dc9/a00355.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
-<tr class="memdesc:a1e54b49cad6f7b645668551b08762e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a1e54b49cad6f7b645668551b08762e28">More...</a><br /></td></tr>
-<tr class="separator:a1e54b49cad6f7b645668551b08762e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ad78a0b86893d6f5ef0acb1937482bd06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d77/a00095.html">output::SummaryFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d06/a00131.html#ad78a0b86893d6f5ef0acb1937482bd06">m_summary_file</a></td></tr>
-<tr class="separator:ad78a0b86893d6f5ef0acb1937482bd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6728d6ca9828f1f405d8c6eeb3793c2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d06/a00131.html#ad6728d6ca9828f1f405d8c6eeb3793c2">m_runner</a></td></tr>
-<tr class="separator:ad6728d6ca9828f1f405d8c6eeb3793c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">stride</a></td></tr>
+<tr class="memdesc:d9/d48/a00345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Viewer of Simulator for cases output. </p>
+<div class="textblock"><p>Initialize populations: implementation. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d39/a00314_source.html#l00033">33</a> of file <a class="el" href="../../d0/d39/a00314_source.html">SummaryFileViewer.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae32a48e518b0393ca96921802278ecaf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::viewers::SummaryFileViewer::SummaryFileViewer </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/dcc/a00102.html">SimRunner</a> &gt;&#160;</td>
-          <td class="paramname"><em>runner</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_prefix</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Instantiate cases viewer. </p>
-
-<p>Definition at line <a class="el" href="../../d0/d39/a00314_source.html#l00037">37</a> of file <a class="el" href="../../d0/d39/a00314_source.html">SummaryFileViewer.h</a>.</p>
-
-<p>References <a class="el" href="../../dd/db3/a00313_source.html#l00034">Update()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d06/a00131_ae32a48e518b0393ca96921802278ecaf_cgraph.gif" border="0" usemap="#d7/d06/a00131_ae32a48e518b0393ca96921802278ecaf_cgraph" alt=""/></div>
-<map name="d7/d06/a00131_ae32a48e518b0393ca96921802278ecaf_cgraph" id="d7/d06/a00131_ae32a48e518b0393ca96921802278ecaf_cgraph">
-<area shape="rect" id="node2" href="../../d7/d06/a00131.html#a1e54b49cad6f7b645668551b08762e28" title="Let viewer perform update. " alt="" coords="271,5,455,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a1e54b49cad6f7b645668551b08762e28"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::viewers::SummaryFileViewer::Update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/dc9/a00355.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Let viewer perform update. </p>
-
-<p>Definition at line <a class="el" href="../../dd/db3/a00313_source.html#l00034">34</a> of file <a class="el" href="../../dd/db3/a00313_source.html">SummaryFileViewer.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00115">stride::ControlHelper::RegisterViewers()</a>, and <a class="el" href="../../d0/d39/a00314_source.html#l00037">SummaryFileViewer()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d06/a00131_a1e54b49cad6f7b645668551b08762e28_icgraph.gif" border="0" usemap="#d7/d06/a00131_a1e54b49cad6f7b645668551b08762e28_icgraph" alt=""/></div>
-<map name="d7/d06/a00131_a1e54b49cad6f7b645668551b08762e28_icgraph" id="d7/d06/a00131_a1e54b49cad6f7b645668551b08762e28_icgraph">
-<area shape="rect" id="node2" href="../../db/df8/a00076.html#af0131365a6c658898bf3dd49eead3ed7" title="Register the viewers of the SimRunner. " alt="" coords="269,5,423,47"/>
-<area shape="rect" id="node5" href="../../d7/d06/a00131.html#ae32a48e518b0393ca96921802278ecaf" title="Instantiate cases viewer. " alt="" coords="237,71,455,112"/>
-<area shape="rect" id="node3" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="503,5,656,47"/>
-<area shape="rect" id="node4" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="704,13,759,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad78a0b86893d6f5ef0acb1937482bd06"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/d77/a00095.html">output::SummaryFile</a> stride::viewers::SummaryFileViewer::m_summary_file</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/d39/a00314_source.html#l00046">46</a> of file <a class="el" href="../../d0/d39/a00314_source.html">SummaryFileViewer.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad6728d6ca9828f1f405d8c6eeb3793c2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d9/dcc/a00102.html">SimRunner</a>&gt; stride::viewers::SummaryFileViewer::m_runner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/d39/a00314_source.html#l00047">47</a> of file <a class="el" href="../../d0/d39/a00314_source.html">SummaryFileViewer.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d0/d39/a00314_source.html">SummaryFileViewer.h</a></li>
-<li><a class="el" href="../../dd/db3/a00313_source.html">SummaryFileViewer.cpp</a></li>
-</ul>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../d7/d06/a00131_source.html">AbstractPopBuilder.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/def/a00359.html">viewers</a></li><li class="navelem"><a class="el" href="../../d7/d06/a00131.html">SummaryFileViewer</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:08 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d7/d06/a00131.html">AbstractPopBuilder.cpp</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

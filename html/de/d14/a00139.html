@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: AgeContactProfile.h File Reference</title>
+<title>Stride Reference Manual: BoxPlotData.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -108,46 +108,30 @@ $(document).ready(function(){initNavTree('de/d14/a00139.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">AgeContactProfile.h File Reference</div>  </div>
+<div class="title">BoxPlotData.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contact profile.  
+<p>Header file for BoxPlotData.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d38/a00166_source.html">ContactType.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/d5e/a00136_source.html">pop/Age.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
-<code>#include &lt;array&gt;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for AgeContactProfile.h:</div>
+Include dependency graph for BoxPlotData.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d80/a00371.gif" border="0" usemap="#AgeContactProfile_8h" alt=""/></div>
-<map name="AgeContactProfile_8h" id="AgeContactProfile_8h">
-<area shape="rect" id="node2" href="../../d9/d38/a00166.html" title="Definition of ContactPool Id Type. " alt="" coords="177,87,289,114"/>
-<area shape="rect" id="node8" href="../../d0/d5e/a00136.html" title="Helpers for age. " alt="" coords="313,87,400,114"/>
+<div class="center"><img src="../../dc/de3/a00373.gif" border="0" usemap="#BoxPlotData_8h" alt=""/></div>
+<map name="BoxPlotData_8h" id="BoxPlotData_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d7e/a00372.gif" border="0" usemap="#AgeContactProfile_8hdep" alt=""/></div>
-<map name="AgeContactProfile_8hdep" id="AgeContactProfile_8hdep">
-<area shape="rect" id="node2" href="../../d4/ddd/a00138.html" title="Contact profile. " alt="" coords="625,80,787,107"/>
-<area shape="rect" id="node3" href="../../d5/db1/a00140.html" title="Contact profiles stored in simulator. " alt="" coords="811,80,966,107"/>
-<area shape="rect" id="node15" href="../../d9/d21/a00240.html" title="Header for the Infector class. " alt="" coords="1212,80,1293,107"/>
-<area shape="rect" id="node4" href="../../d9/d5e/a00295.html" title="Header for the Simulator class. " alt="" coords="749,155,807,181"/>
-<area shape="rect" id="node5" href="../../d9/d0d/a00298.html" title="Header for the command line controller. " alt="" coords="5,229,140,256"/>
-<area shape="rect" id="node6" href="../../dc/d0f/a00303.html" title="Header for the command line controller. " alt="" coords="164,229,304,256"/>
-<area shape="rect" id="node7" href="../../d4/d5b/a00294.html" title="Implementation for the Simulator class. " alt="" coords="329,229,403,256"/>
-<area shape="rect" id="node8" href="../../db/d7b/a00296.html" title="Implementation for the SimBuilder class. " alt="" coords="1433,229,1550,256"/>
-<area shape="rect" id="node9" href="../../db/da2/a00300.html" title="Implementation for SimRunner. " alt="" coords="427,229,545,256"/>
-<area shape="rect" id="node10" href="../../da/ddb/a00145.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="568,229,673,256"/>
-<area shape="rect" id="node11" href="../../d3/d42/a00235.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="697,229,859,256"/>
-<area shape="rect" id="node12" href="../../d4/d08/a00237.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="883,229,1025,256"/>
-<area shape="rect" id="node13" href="../../d1/dd4/a00267.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1049,229,1211,256"/>
-<area shape="rect" id="node14" href="../../dd/db3/a00313.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1235,229,1409,256"/>
-<area shape="rect" id="node16" href="../../d0/d27/a00239.html" title="Implementation of Infector algorithms. " alt="" coords="1205,155,1301,181"/>
-<area shape="rect" id="node17" href="../../d2/dc8/a00242.html" title="Header for the InfectorMap. " alt="" coords="1381,155,1490,181"/>
+<div class="center"><img src="../../d5/db5/a00374.gif" border="0" usemap="#BoxPlotData_8hdep" alt=""/></div>
+<map name="BoxPlotData_8hdep" id="BoxPlotData_8hdep">
+<area shape="rect" id="node2" href="../../db/da2/a00300.html" title="Header for the command line controller. " alt="" coords="5,80,145,107"/>
 </map>
 </div>
 </div>
@@ -155,27 +139,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html">stride::AgeContactProfile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contact rates as a function of age.  <a href="../../d4/d31/a00069.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d1e/a00103.html">stride::util::BoxPlotData&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d5/d1e/a00103.html" title="BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...">BoxPlotData</a> calculates total, minimum, maximum, median, lower and upper quartile of the values in the vector.  <a href="../../d5/d1e/a00103.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride</a></td></tr>
-<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">stride</a></td></tr>
+<tr class="memdesc:d9/d48/a00345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">stride::util</a></td></tr>
+<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contact profile. </p>
+<div class="textblock"><p>Header file for BoxPlotData. </p>
 
-<p>Definition in file <a class="el" href="../../de/d14/a00139_source.html">AgeContactProfile.h</a>.</p>
+<p>Definition in file <a class="el" href="../../de/d14/a00139_source.html">BoxPlotData.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../de/d14/a00139.html">AgeContactProfile.h</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/d14/a00139.html">BoxPlotData.h</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

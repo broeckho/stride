@@ -1,4 +1,5 @@
 var a00089 =
 [
-    [ "Build", "db/dab/a00089.html#a78076cb42a88b90e4183bfb805d8361f", null ]
+    [ "InfectorMap", "db/dab/a00089.html#a389bcbbddf547f27cb2e60feadca12af", null ],
+    [ "Add", "db/dab/a00089.html#ae0e244621d901cb06ae8ec8d7dc82161", null ]
 ];

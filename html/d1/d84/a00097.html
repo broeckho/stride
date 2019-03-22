@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::Population Class Reference</title>
+<title>Stride Reference Manual: stride::SimBuilder Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -108,240 +108,66 @@ $(document).ready(function(){initNavTree('d1/d84/a00097.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d7/d12/a00911.html">List of all members</a>  </div>
+<a href="../../da/dd8/a00906.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Population Class Reference</div>  </div>
+<div class="title">stride::SimBuilder Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Key Data structure: container for (a) all individuals in the population (b) the <a class="el" href="../../d1/d6e/a00073.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> wchich is used to loop over ContactPools of each type (c) (if present) the GeoGrid of Locations with ContactCenters at that location.  
+<p>Builds a simulator based a configuration property tree.  
  <a href="../../d1/d84/a00097.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d4/d5b/a00294_source.html">SimBuilder.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::Population:</div>
+Collaboration diagram for stride::SimBuilder:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/da5/a00912.gif" border="0" usemap="#stride_1_1Population_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1Population_inherit__map" id="stride_1_1Population_inherit__map">
-<area shape="rect" id="node2" href="../../df/d03/a00062.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n|&#45; m_blocks\l&#45; m_size\l|+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="5,336,215,604"/>
-<area shape="rect" id="node3" href="../../df/d03/a00062.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="5,5,215,273"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::Population:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/dfb/a00913.gif" border="0" usemap="#stride_1_1Population_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Population_coll__map" id="stride_1_1Population_coll__map">
-<area shape="rect" id="node17" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contains ContactCenters. " alt="" coords="958,2740,1119,2979"/>
-<area shape="rect" id="node2" href="../../df/d03/a00062.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="699,1821,909,2075"/>
-<area shape="rect" id="node3" href="../../dc/d2f/a00425.html" title="{size_t\n||}" alt="" coords="1121,1141,1180,1219"/>
-<area shape="rect" id="node8" href="../../df/d03/a00062.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="699,1505,909,1759"/>
-<area shape="rect" id="node18" href="../../db/df3/a00034.html" title="{geopop::KdTree\&lt; geogrid\l_detail::KdTree2DPoint \&gt;\n||+ KdTree()\l+ Apply()\l+ Apply()\l+ Contains()\l+ Empty()\l+ GetHeight()\l+ Insert()\l+ Query()\l+ Size()\l+ Build()\l&#45; Construct()\l}" alt="" coords="1146,2439,1329,2677"/>
-<area shape="rect" id="node23" href="../../d7/d7a/a00016.html" title="KdTree for some more information on methods. " alt="" coords="1275,1520,1443,1744"/>
-<area shape="rect" id="node40" href="../../db/df3/a00034.html" title="A k&#45;d tree: a k&#45;dimensional generalization of binary search trees This data structure allows for effi..." alt="" coords="1430,2137,1589,2361"/>
-<area shape="rect" id="node5" href="../../d1/d97/a00670.html" title="{Chunk *\n||}" alt="" coords="529,818,602,895"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="602,509,729,587"/>
-<area shape="rect" id="node12" title="STL class. " alt="" coords="43,313,199,405"/>
-<area shape="rect" id="node14" title="STL class. " alt="" coords="439,167,654,245"/>
-<area shape="rect" id="node16" title="STL class. " alt="" coords="215,145,393,267"/>
-<area shape="rect" id="node28" title="STL class. " alt="" coords="783,291,980,427"/>
-<area shape="rect" id="node35" title="STL class. " alt="" coords="1085,305,1347,412"/>
-<area shape="rect" id="node39" title="STL class. " alt="" coords="2015,509,2169,587"/>
-<area shape="rect" id="node45" title="STL class. " alt="" coords="2749,811,2901,903"/>
-<area shape="rect" id="node10" href="../../d1/d6e/a00073.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al..." alt="" coords="193,1105,359,1255"/>
-<area shape="rect" id="node11" href="../../dc/dee/a00053.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="5,752,157,961"/>
-<area shape="rect" id="node13" href="../../dc/dee/a00053.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="406,451,578,645"/>
-<area shape="rect" id="node15" href="../../dc/dee/a00053.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l util::stride::util::\lSegmentedVector\&lt; stride\l::ContactPool \&gt; \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="181,737,371,976"/>
-<area shape="rect" id="node27" href="../../dc/dee/a00053.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l stride::util::stride\l::util::SegmentedVector\l\&lt; stride::stride::ContactPool * \&gt; \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="971,737,1213,976"/>
-<area shape="rect" id="node34" href="../../dc/dee/a00053.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l std::vector\&lt; std::shared\l_ptr\&lt; geopop::ContactCenter \&gt; \&gt; \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="1328,745,1584,969"/>
-<area shape="rect" id="node20" href="../../d0/dc0/a00033.html" title="{geopop::kd::Node\&lt; geogrid\l_detail::KdTree2DPoint, 0 \&gt;\n||+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="1669,1865,1867,2031"/>
-<area shape="rect" id="node21" href="../../d7/d46/a00002.html" title="{geopop::kd::BaseNode\l\&lt; geogrid_detail::KdTree2DPoint \&gt;\n||+ ~BaseNode()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="1647,1316,1889,1481"/>
-<area shape="rect" id="node22" href="../../d7/d46/a00002.html" title="A base class for all instantiations of a Node with D. " alt="" coords="1957,781,2163,932"/>
-<area shape="rect" id="node37" href="../../d0/dc0/a00033.html" title="A node in the KdTree (parameter P: the type of point, parameter D: dimension this node splits on)..." alt="" coords="2127,1105,2318,1255"/>
-<area shape="rect" id="node42" href="../../d0/dc0/a00033.html" title="{geopop::kd::Node\&lt; P, 0 \&gt;\n||+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="2321,1557,2511,1707"/>
-<area shape="rect" id="node24" href="../../d4/d8c/a00035.html" title="Location for use within the GeoGrid, contains Coordinate and ContactCenters. " alt="" coords="1295,1068,1526,1292"/>
-<area shape="rect" id="node25" href="../../de/dd7/a00362.html" title="{double\n||}" alt="" coords="1238,818,1303,895"/>
-<area shape="rect" id="node30" title="STL class. " alt="" coords="1609,818,1695,895"/>
-<area shape="rect" id="node31" title="STL class. " alt="" coords="1574,502,1711,594"/>
+<div class="center"><img src="../../d5/d89/a00907.gif" border="0" usemap="#stride_1_1SimBuilder_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1SimBuilder_coll__map" id="stride_1_1SimBuilder_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5680667e8da5d16b5f9b2c4d9a0207fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html">Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a5680667e8da5d16b5f9b2c4d9a0207fa">CreatePerson</a> (unsigned int id, <a class="el" href="../../de/dd7/a00362.html">double</a> age, unsigned int householdId, unsigned int k12SchoolId, unsigned int college, unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)</td></tr>
-<tr class="memdesc:a5680667e8da5d16b5f9b2c4d9a0207fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="../../d9/df8/a00096.html" title="Store and handle person data. ">Person</a> in the population.  <a href="#a5680667e8da5d16b5f9b2c4d9a0207fa">More...</a><br /></td></tr>
-<tr class="separator:a5680667e8da5d16b5f9b2c4d9a0207fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ffab38c3407832dcc0f1ecbf4e11cbd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a5ffab38c3407832dcc0f1ecbf4e11cbd">GetInfectedCount</a> () const </td></tr>
-<tr class="memdesc:a5ffab38c3407832dcc0f1ecbf4e11cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the cumulative number of cases.  <a href="#a5ffab38c3407832dcc0f1ecbf4e11cbd">More...</a><br /></td></tr>
-<tr class="separator:a5ffab38c3407832dcc0f1ecbf4e11cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b16fe667a40360d247e32c9422ad44"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d1/d6e/a00073.html">ContactPoolSys</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a70b16fe667a40360d247e32c9422ad44">CRefPoolSys</a> () const </td></tr>
-<tr class="memdesc:a70b16fe667a40360d247e32c9422ad44"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d1/d6e/a00073.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> of the simulator.  <a href="#a70b16fe667a40360d247e32c9422ad44">More...</a><br /></td></tr>
-<tr class="separator:a70b16fe667a40360d247e32c9422ad44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3eeacceb199c4b26b7c7687fe5cdcfb0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGrid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a3eeacceb199c4b26b7c7687fe5cdcfb0">CRefGeoGrid</a> () const </td></tr>
-<tr class="memdesc:a3eeacceb199c4b26b7c7687fe5cdcfb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the GeoGrid associated with this population (may be a nullptr).  <a href="#a3eeacceb199c4b26b7c7687fe5cdcfb0">More...</a><br /></td></tr>
-<tr class="separator:a3eeacceb199c4b26b7c7687fe5cdcfb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4db3f0bf4c302b0f5d4b2bb1e8cc24fc"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a4db3f0bf4c302b0f5d4b2bb1e8cc24fc">RefContactLogger</a> ()</td></tr>
-<tr class="memdesc:a4db3f0bf4c302b0f5d4b2bb1e8cc24fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the contactlogger.  <a href="#a4db3f0bf4c302b0f5d4b2bb1e8cc24fc">More...</a><br /></td></tr>
-<tr class="separator:a4db3f0bf4c302b0f5d4b2bb1e8cc24fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3cce01ca781a43bc67620e798c3b484"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d6e/a00073.html">ContactPoolSys</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#aa3cce01ca781a43bc67620e798c3b484">RefPoolSys</a> ()</td></tr>
-<tr class="memdesc:aa3cce01ca781a43bc67620e798c3b484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference the <a class="el" href="../../d1/d6e/a00073.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> of the <a class="el" href="../../d1/d84/a00097.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>.  <a href="#aa3cce01ca781a43bc67620e798c3b484">More...</a><br /></td></tr>
-<tr class="separator:aa3cce01ca781a43bc67620e798c3b484"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed61b0a0c312dba5b64733e21be7a1b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGrid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#aed61b0a0c312dba5b64733e21be7a1b2">RefGeoGrid</a> ()</td></tr>
-<tr class="memdesc:aed61b0a0c312dba5b64733e21be7a1b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference the GeoGrid associated with this population (may be a nullptr).  <a href="#aed61b0a0c312dba5b64733e21be7a1b2">More...</a><br /></td></tr>
-<tr class="separator:aed61b0a0c312dba5b64733e21be7a1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00062"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00062')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../df/d03/a00062.html">stride::util::SegmentedVector&lt; Person &gt;</a></td></tr>
-<tr class="memitem:ada0935b74686a1ab1a513c310ffbe90c inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ada0935b74686a1ab1a513c310ffbe90c">SegmentedVector</a> ()</td></tr>
-<tr class="memdesc:ada0935b74686a1ab1a513c310ffbe90c inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct empty SegmentedVector.  <a href="#ada0935b74686a1ab1a513c310ffbe90c">More...</a><br /></td></tr>
-<tr class="separator:ada0935b74686a1ab1a513c310ffbe90c inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe518edf461ce52cc405357f1a074673 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#abe518edf461ce52cc405357f1a074673">SegmentedVector</a> (<a class="el" href="../../df/d03/a00062.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> i)</td></tr>
-<tr class="memdesc:abe518edf461ce52cc405357f1a074673 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with given number of elements but DO NOT INITIALIZE them.  <a href="#abe518edf461ce52cc405357f1a074673">More...</a><br /></td></tr>
-<tr class="separator:abe518edf461ce52cc405357f1a074673 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9dc137bd2fc3f337a106e8bffcecf4a inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ab9dc137bd2fc3f337a106e8bffcecf4a">SegmentedVector</a> (<a class="el" href="../../df/d03/a00062.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> i, const <a class="el" href="../../df/d03/a00062.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> &amp;value)</td></tr>
-<tr class="memdesc:ab9dc137bd2fc3f337a106e8bffcecf4a inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with given number of elements and INITIALIZE them with value.  <a href="#ab9dc137bd2fc3f337a106e8bffcecf4a">More...</a><br /></td></tr>
-<tr class="separator:ab9dc137bd2fc3f337a106e8bffcecf4a inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4f9b0a0e5d4dace47647217f084242c inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ae4f9b0a0e5d4dace47647217f084242c">SegmentedVector</a> (const <a class="el" href="../../df/d03/a00062.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;other)</td></tr>
-<tr class="memdesc:ae4f9b0a0e5d4dace47647217f084242c inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#ae4f9b0a0e5d4dace47647217f084242c">More...</a><br /></td></tr>
-<tr class="separator:ae4f9b0a0e5d4dace47647217f084242c inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c2307e98e036cab31da16a478b4227d inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a7c2307e98e036cab31da16a478b4227d">SegmentedVector</a> (<a class="el" href="../../df/d03/a00062.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:a7c2307e98e036cab31da16a478b4227d inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="#a7c2307e98e036cab31da16a478b4227d">More...</a><br /></td></tr>
-<tr class="separator:a7c2307e98e036cab31da16a478b4227d inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a492bbd496ed8cfb17473b0c0d384648a inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00062.html">SegmentedVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a492bbd496ed8cfb17473b0c0d384648a">operator=</a> (const <a class="el" href="../../df/d03/a00062.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;other)</td></tr>
-<tr class="memdesc:a492bbd496ed8cfb17473b0c0d384648a inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment.  <a href="#a492bbd496ed8cfb17473b0c0d384648a">More...</a><br /></td></tr>
-<tr class="separator:a492bbd496ed8cfb17473b0c0d384648a inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6e3a92686eeec3498a14e797b05b3b8 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00062.html">SegmentedVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ad6e3a92686eeec3498a14e797b05b3b8">operator=</a> (<a class="el" href="../../df/d03/a00062.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:ad6e3a92686eeec3498a14e797b05b3b8 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment.  <a href="#ad6e3a92686eeec3498a14e797b05b3b8">More...</a><br /></td></tr>
-<tr class="separator:ad6e3a92686eeec3498a14e797b05b3b8 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8631db1786767b0e083f002f2a284757 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a8631db1786767b0e083f002f2a284757">~SegmentedVector</a> ()</td></tr>
-<tr class="memdesc:a8631db1786767b0e083f002f2a284757 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a8631db1786767b0e083f002f2a284757">More...</a><br /></td></tr>
-<tr class="separator:a8631db1786767b0e083f002f2a284757 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31c61443835e8d73449d0304bbe5b5bc inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html">Person</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a31c61443835e8d73449d0304bbe5b5bc">at</a> (std::size_t pos)</td></tr>
-<tr class="memdesc:a31c61443835e8d73449d0304bbe5b5bc inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element with bounds checking.  <a href="#a31c61443835e8d73449d0304bbe5b5bc">More...</a><br /></td></tr>
-<tr class="separator:a31c61443835e8d73449d0304bbe5b5bc inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d24e651eb0ed32e7103ed81d863ef06 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d9/df8/a00096.html">Person</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a0d24e651eb0ed32e7103ed81d863ef06">at</a> (std::size_t pos) const</td></tr>
-<tr class="memdesc:a0d24e651eb0ed32e7103ed81d863ef06 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element with bounds checking.  <a href="#a0d24e651eb0ed32e7103ed81d863ef06">More...</a><br /></td></tr>
-<tr class="separator:a0d24e651eb0ed32e7103ed81d863ef06 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea25c3c1ac7a825c74601087fc91ee97 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html">Person</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#aea25c3c1ac7a825c74601087fc91ee97">back</a> ()</td></tr>
-<tr class="memdesc:aea25c3c1ac7a825c74601087fc91ee97 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#aea25c3c1ac7a825c74601087fc91ee97">More...</a><br /></td></tr>
-<tr class="separator:aea25c3c1ac7a825c74601087fc91ee97 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2bdeb712ab515db9dc7fbe900233eb4 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d9/df8/a00096.html">Person</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#aa2bdeb712ab515db9dc7fbe900233eb4">back</a> () const</td></tr>
-<tr class="memdesc:aa2bdeb712ab515db9dc7fbe900233eb4 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#aa2bdeb712ab515db9dc7fbe900233eb4">More...</a><br /></td></tr>
-<tr class="separator:aa2bdeb712ab515db9dc7fbe900233eb4 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfcd7fc57ae5801b4d29c97fe7cdc377 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html">Person</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#adfcd7fc57ae5801b4d29c97fe7cdc377">operator[]</a> (<a class="el" href="../../dc/d2f/a00425.html">size_t</a> pos)</td></tr>
-<tr class="memdesc:adfcd7fc57ae5801b4d29c97fe7cdc377 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element (no bounds checking).  <a href="#adfcd7fc57ae5801b4d29c97fe7cdc377">More...</a><br /></td></tr>
-<tr class="separator:adfcd7fc57ae5801b4d29c97fe7cdc377 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5feb7685e4ff8e46ec5b4ec2af93483 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d9/df8/a00096.html">Person</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ac5feb7685e4ff8e46ec5b4ec2af93483">operator[]</a> (<a class="el" href="../../dc/d2f/a00425.html">size_t</a> pos) const</td></tr>
-<tr class="memdesc:ac5feb7685e4ff8e46ec5b4ec2af93483 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element (no bounds checking).  <a href="#ac5feb7685e4ff8e46ec5b4ec2af93483">More...</a><br /></td></tr>
-<tr class="separator:ac5feb7685e4ff8e46ec5b4ec2af93483 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0178098bae26c74f6d0d48cf77d057f7 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00062.html#ac336ef543eb696055a43b39bbe70499f">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a0178098bae26c74f6d0d48cf77d057f7">begin</a> ()</td></tr>
-<tr class="memdesc:a0178098bae26c74f6d0d48cf77d057f7 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the beginning of the container.  <a href="#a0178098bae26c74f6d0d48cf77d057f7">More...</a><br /></td></tr>
-<tr class="separator:a0178098bae26c74f6d0d48cf77d057f7 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2342f7a0b6cea1bbc7a7fecf8a864fa0 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00062.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a2342f7a0b6cea1bbc7a7fecf8a864fa0">begin</a> () const</td></tr>
-<tr class="memdesc:a2342f7a0b6cea1bbc7a7fecf8a864fa0 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the beginning of the container.  <a href="#a2342f7a0b6cea1bbc7a7fecf8a864fa0">More...</a><br /></td></tr>
-<tr class="separator:a2342f7a0b6cea1bbc7a7fecf8a864fa0 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace914c758677123e4a8d391cd711a5f8 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00062.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ace914c758677123e4a8d391cd711a5f8">cbegin</a> () const</td></tr>
-<tr class="memdesc:ace914c758677123e4a8d391cd711a5f8 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the beginning of the container.  <a href="#ace914c758677123e4a8d391cd711a5f8">More...</a><br /></td></tr>
-<tr class="separator:ace914c758677123e4a8d391cd711a5f8 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a904ec0aae93c8dbd345607378f141898 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00062.html#ac336ef543eb696055a43b39bbe70499f">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a904ec0aae93c8dbd345607378f141898">end</a> ()</td></tr>
-<tr class="memdesc:a904ec0aae93c8dbd345607378f141898 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the end of the container.  <a href="#a904ec0aae93c8dbd345607378f141898">More...</a><br /></td></tr>
-<tr class="separator:a904ec0aae93c8dbd345607378f141898 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaabbc431baae7fff1f1aaa7489578519 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00062.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#aaabbc431baae7fff1f1aaa7489578519">end</a> () const</td></tr>
-<tr class="memdesc:aaabbc431baae7fff1f1aaa7489578519 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the end of the container.  <a href="#aaabbc431baae7fff1f1aaa7489578519">More...</a><br /></td></tr>
-<tr class="separator:aaabbc431baae7fff1f1aaa7489578519 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a661e877760bdf6cd246e4038b677434a inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00062.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a661e877760bdf6cd246e4038b677434a">cend</a> () const</td></tr>
-<tr class="memdesc:a661e877760bdf6cd246e4038b677434a inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the end.  <a href="#a661e877760bdf6cd246e4038b677434a">More...</a><br /></td></tr>
-<tr class="separator:a661e877760bdf6cd246e4038b677434a inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6e77c3d0e64d983ee26e44336291604 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ae6e77c3d0e64d983ee26e44336291604">capacity</a> () const</td></tr>
-<tr class="memdesc:ae6e77c3d0e64d983ee26e44336291604 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of elements that can be stored without allocating additional blocks.  <a href="#ae6e77c3d0e64d983ee26e44336291604">More...</a><br /></td></tr>
-<tr class="separator:ae6e77c3d0e64d983ee26e44336291604 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66676df2d3b52bf0eb5896f2d48837af inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a66676df2d3b52bf0eb5896f2d48837af">empty</a> () const</td></tr>
-<tr class="memdesc:a66676df2d3b52bf0eb5896f2d48837af inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether container is empty.  <a href="#a66676df2d3b52bf0eb5896f2d48837af">More...</a><br /></td></tr>
-<tr class="separator:a66676df2d3b52bf0eb5896f2d48837af inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87837cab9ccde57c5179dc7f9245f9fc inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a87837cab9ccde57c5179dc7f9245f9fc">get_block_count</a> () const</td></tr>
-<tr class="memdesc:a87837cab9ccde57c5179dc7f9245f9fc inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of currently allocated blocks.  <a href="#a87837cab9ccde57c5179dc7f9245f9fc">More...</a><br /></td></tr>
-<tr class="separator:a87837cab9ccde57c5179dc7f9245f9fc inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa93e6b50e8a1f177829b52d8a41ce979 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#aa93e6b50e8a1f177829b52d8a41ce979">get_elements_per_block</a> () const</td></tr>
-<tr class="memdesc:aa93e6b50e8a1f177829b52d8a41ce979 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of elements block (template parameter 'N').  <a href="#aa93e6b50e8a1f177829b52d8a41ce979">More...</a><br /></td></tr>
-<tr class="separator:aa93e6b50e8a1f177829b52d8a41ce979 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e279c31f261b01f7798355e27401bfe inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a0e279c31f261b01f7798355e27401bfe">size</a> () const</td></tr>
-<tr class="memdesc:a0e279c31f261b01f7798355e27401bfe inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of elements.  <a href="#a0e279c31f261b01f7798355e27401bfe">More...</a><br /></td></tr>
-<tr class="separator:a0e279c31f261b01f7798355e27401bfe inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9ed4e4bbfdbff03a55d378cdf7f5707 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#aa9ed4e4bbfdbff03a55d378cdf7f5707">resize</a> (<a class="el" href="../../df/d03/a00062.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> new_size)</td></tr>
-<tr class="memdesc:aa9ed4e4bbfdbff03a55d378cdf7f5707 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases the number of elements (but DOES NOT INITIALIZE the additional elements) or pops elements (and DOES RUN those element's destructor).  <a href="#aa9ed4e4bbfdbff03a55d378cdf7f5707">More...</a><br /></td></tr>
-<tr class="separator:aa9ed4e4bbfdbff03a55d378cdf7f5707 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61b8157733abf6be32ed20fe0fc5e57b inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a61b8157733abf6be32ed20fe0fc5e57b">resize</a> (<a class="el" href="../../df/d03/a00062.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> new_size, const <a class="el" href="../../df/d03/a00062.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> &amp;value)</td></tr>
-<tr class="separator:a61b8157733abf6be32ed20fe0fc5e57b inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3c204c505c4c4e2e0ef23dd7e29d5de inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ac3c204c505c4c4e2e0ef23dd7e29d5de">clear</a> ()</td></tr>
-<tr class="memdesc:ac3c204c505c4c4e2e0ef23dd7e29d5de inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the content.  <a href="#ac3c204c505c4c4e2e0ef23dd7e29d5de">More...</a><br /></td></tr>
-<tr class="separator:ac3c204c505c4c4e2e0ef23dd7e29d5de inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadda0fa9cba3c25598d83fc335dab5e4 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html">Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#aadda0fa9cba3c25598d83fc335dab5e4">emplace</a> (<a class="el" href="../../df/d03/a00062.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> pos, Args &amp;&amp;...args)</td></tr>
-<tr class="memdesc:aadda0fa9cba3c25598d83fc335dab5e4 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs element in-place at position pos.  <a href="#aadda0fa9cba3c25598d83fc335dab5e4">More...</a><br /></td></tr>
-<tr class="separator:aadda0fa9cba3c25598d83fc335dab5e4 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cd11f9b95b20b69378fc9268c380096 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html">Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a2cd11f9b95b20b69378fc9268c380096">emplace_back</a> (Args &amp;&amp;...args)</td></tr>
-<tr class="memdesc:a2cd11f9b95b20b69378fc9268c380096 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs element in-place at the end.  <a href="#a2cd11f9b95b20b69378fc9268c380096">More...</a><br /></td></tr>
-<tr class="separator:a2cd11f9b95b20b69378fc9268c380096 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e0b15a5f6a72420feedc9a006d17fa7 inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a4e0b15a5f6a72420feedc9a006d17fa7">pop_back</a> ()</td></tr>
-<tr class="memdesc:a4e0b15a5f6a72420feedc9a006d17fa7 inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the last element.  <a href="#a4e0b15a5f6a72420feedc9a006d17fa7">More...</a><br /></td></tr>
-<tr class="separator:a4e0b15a5f6a72420feedc9a006d17fa7 inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74bf9839c2e38750216689f965a647de inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html">Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a74bf9839c2e38750216689f965a647de">push_back</a> (const <a class="el" href="../../d9/df8/a00096.html">Person</a> &amp;obj)</td></tr>
-<tr class="memdesc:a74bf9839c2e38750216689f965a647de inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds element to end.  <a href="#a74bf9839c2e38750216689f965a647de">More...</a><br /></td></tr>
-<tr class="separator:a74bf9839c2e38750216689f965a647de inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63f248bcd2fc8b5f6f9fb2f75266c81c inherit pub_methods_a00062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html">Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a63f248bcd2fc8b5f6f9fb2f75266c81c">push_back</a> (<a class="el" href="../../d9/df8/a00096.html">Person</a> &amp;&amp;obj)</td></tr>
-<tr class="memdesc:a63f248bcd2fc8b5f6f9fb2f75266c81c inherit pub_methods_a00062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds element to end.  <a href="#a63f248bcd2fc8b5f6f9fb2f75266c81c">More...</a><br /></td></tr>
-<tr class="separator:a63f248bcd2fc8b5f6f9fb2f75266c81c inherit pub_methods_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a56ed209c60c77e0080a0a653b09b26ce"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../d1/d84/a00097.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a56ed209c60c77e0080a0a653b09b26ce">Create</a> (const boost::property_tree::ptree &amp;config, <a class="el" href="../../df/d6a/a00119.html">util::RnMan</a> rnMan, std::shared_ptr&lt; spdlog::logger &gt; strideLogger=nullptr)</td></tr>
-<tr class="memdesc:a56ed209c60c77e0080a0a653b09b26ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d1/d84/a00097.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> initialized by the configuration in property tree.  <a href="#a56ed209c60c77e0080a0a653b09b26ce">More...</a><br /></td></tr>
-<tr class="separator:a56ed209c60c77e0080a0a653b09b26ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2702b7b600edd1ce81bc24dac173c7e"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../d1/d84/a00097.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#ac2702b7b600edd1ce81bc24dac173c7e">Create</a> (const std::string &amp;configString, <a class="el" href="../../df/d6a/a00119.html">util::RnMan</a> rnMan, std::shared_ptr&lt; spdlog::logger &gt; stride_logger=nullptr)</td></tr>
-<tr class="memdesc:ac2702b7b600edd1ce81bc24dac173c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">For use in python environment: create <a class="el" href="../../d1/d84/a00097.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> using configuration string i.o ptree.  <a href="#ac2702b7b600edd1ce81bc24dac173c7e">More...</a><br /></td></tr>
-<tr class="separator:ac2702b7b600edd1ce81bc24dac173c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cfcedae698db0dc471770044de4834d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../d1/d84/a00097.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a7cfcedae698db0dc471770044de4834d">Create</a> ()</td></tr>
-<tr class="memdesc:a7cfcedae698db0dc471770044de4834d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an empty <a class="el" href="../../d1/d84/a00097.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>, used in gengeopop.  <a href="#a7cfcedae698db0dc471770044de4834d">More...</a><br /></td></tr>
-<tr class="separator:a7cfcedae698db0dc471770044de4834d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ec762745a42a867aa755791f21dab12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a8ec762745a42a867aa755791f21dab12">SimBuilder</a> (const boost::property_tree::ptree &amp;config)</td></tr>
+<tr class="memdesc:a8ec762745a42a867aa755791f21dab12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing <a class="el" href="../../d1/d84/a00097.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>.  <a href="#a8ec762745a42a867aa755791f21dab12">More...</a><br /></td></tr>
+<tr class="separator:a8ec762745a42a867aa755791f21dab12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f32dd929e6e21eabd41f7f7246a7aa1"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d9/df8/a00096.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a1f32dd929e6e21eabd41f7f7246a7aa1">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d9/df8/a00096.html">Sim</a> &gt; sim, std::shared_ptr&lt; <a class="el" href="../../dc/d54/a00094.html">Population</a> &gt; pop, <a class="el" href="../../d4/d3e/a00116.html">util::RnMan</a> rnMan)</td></tr>
+<tr class="memdesc:a1f32dd929e6e21eabd41f7f7246a7aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the simulator and return it afterwards.  <a href="#a1f32dd929e6e21eabd41f7f7246a7aa1">More...</a><br /></td></tr>
+<tr class="separator:a1f32dd929e6e21eabd41f7f7246a7aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a23ca2c3c5ef45fe26a11e0bc47cbe8ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a23ca2c3c5ef45fe26a11e0bc47cbe8ca">Population</a> ()</td></tr>
-<tr class="memdesc:a23ca2c3c5ef45fe26a11e0bc47cbe8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-trivial default constructor.  <a href="#a23ca2c3c5ef45fe26a11e0bc47cbe8ca">More...</a><br /></td></tr>
-<tr class="separator:a23ca2c3c5ef45fe26a11e0bc47cbe8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad551b02c507948570f07af10d85d29ce"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#ad551b02c507948570f07af10d85d29ce">ReadAgeContactPtree</a> ()</td></tr>
+<tr class="memdesc:ad551b02c507948570f07af10d85d29ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the contact configuration data.  <a href="#ad551b02c507948570f07af10d85d29ce">More...</a><br /></td></tr>
+<tr class="separator:ad551b02c507948570f07af10d85d29ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adffa42c6b8b171616fcdfb4805260c92"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#adffa42c6b8b171616fcdfb4805260c92">ReadDiseasePtree</a> ()</td></tr>
+<tr class="memdesc:adffa42c6b8b171616fcdfb4805260c92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the disease configuration data.  <a href="#adffa42c6b8b171616fcdfb4805260c92">More...</a><br /></td></tr>
+<tr class="separator:adffa42c6b8b171616fcdfb4805260c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ac21ecf3db6ee91694eec6b13ffef5144"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d6e/a00073.html">ContactPoolSys</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#ac21ecf3db6ee91694eec6b13ffef5144">m_pool_sys</a></td></tr>
-<tr class="memdesc:ac21ecf3db6ee91694eec6b13ffef5144"><td class="mdescLeft">&#160;</td><td class="mdescRight">The global .  <a href="#ac21ecf3db6ee91694eec6b13ffef5144">More...</a><br /></td></tr>
-<tr class="separator:ac21ecf3db6ee91694eec6b13ffef5144"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa24a679c5885bb18710a77700bbaeeca"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#aa24a679c5885bb18710a77700bbaeeca">m_contact_logger</a></td></tr>
-<tr class="memdesc:aa24a679c5885bb18710a77700bbaeeca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger for contact/transmission.  <a href="#aa24a679c5885bb18710a77700bbaeeca">More...</a><br /></td></tr>
-<tr class="separator:aa24a679c5885bb18710a77700bbaeeca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94db0ae08c7091b0aba6db69d9fbf67b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGrid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#a94db0ae08c7091b0aba6db69d9fbf67b">m_geo_grid</a></td></tr>
-<tr class="memdesc:a94db0ae08c7091b0aba6db69d9fbf67b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associated  may be nullptr.  <a href="#a94db0ae08c7091b0aba6db69d9fbf67b">More...</a><br /></td></tr>
-<tr class="separator:a94db0ae08c7091b0aba6db69d9fbf67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_a00062"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00062')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../df/d03/a00062.html">stride::util::SegmentedVector&lt; Person &gt;</a></td></tr>
-<tr class="memitem:a7882e74f6cb8dd40fe7f359daf0376c3 inherit pub_types_a00062"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> = <a class="el" href="../../d9/df8/a00096.html">Person</a></td></tr>
-<tr class="separator:a7882e74f6cb8dd40fe7f359daf0376c3 inherit pub_types_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4344636a6d7dea3aff481c178b5ff008 inherit pub_types_a00062"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> = std::size_t</td></tr>
-<tr class="separator:a4344636a6d7dea3aff481c178b5ff008 inherit pub_types_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa72e1f8f1437134e2ead160ca23c35bd inherit pub_types_a00062"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> = <a class="el" href="../../df/d03/a00062.html">SegmentedVector</a>&lt; <a class="el" href="../../d9/df8/a00096.html">Person</a>, 512 &gt;</td></tr>
-<tr class="separator:aa72e1f8f1437134e2ead160ca23c35bd inherit pub_types_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac336ef543eb696055a43b39bbe70499f inherit pub_types_a00062"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ac336ef543eb696055a43b39bbe70499f">iterator</a> = <a class="el" href="../../da/d72/a00124.html">SVIterator</a>&lt; <a class="el" href="../../d9/df8/a00096.html">Person</a>, 512, true, <a class="el" href="../../d9/df8/a00096.html">Person</a> *, <a class="el" href="../../d9/df8/a00096.html">Person</a> &amp;, false &gt;</td></tr>
-<tr class="separator:ac336ef543eb696055a43b39bbe70499f inherit pub_types_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aba42e9e68bd96c3e7e07b089c648c1 inherit pub_types_a00062"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> = <a class="el" href="../../da/d72/a00124.html">SVIterator</a>&lt; <a class="el" href="../../d9/df8/a00096.html">Person</a>, 512, true &gt;</td></tr>
-<tr class="separator:a1aba42e9e68bd96c3e7e07b089c648c1 inherit pub_types_a00062"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbb3153c81c97a062f8351ec8ab1db0b"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html#acbb3153c81c97a062f8351ec8ab1db0b">m_config</a></td></tr>
+<tr class="memdesc:acbb3153c81c97a062f8351ec8ab1db0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config in ptree.  <a href="#acbb3153c81c97a062f8351ec8ab1db0b">More...</a><br /></td></tr>
+<tr class="separator:acbb3153c81c97a062f8351ec8ab1db0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Key Data structure: container for (a) all individuals in the population (b) the <a class="el" href="../../d1/d6e/a00073.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> wchich is used to loop over ContactPools of each type (c) (if present) the GeoGrid of Locations with ContactCenters at that location. </p>
+<div class="textblock"><p>Builds a simulator based a configuration property tree. </p>
+<p>It </p><ul>
+<li>reads any additional configuration files (disease, contact, ...) </li>
+<li>initializes calendar and random number manager for the simulator </li>
+<li>builds a population and contact pool system (<dl class="section see"><dt>See also</dt><dd>PopulationBuilder) </dd></dl>
+</li>
+<li>deals with health and immunity (<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d5d/a00084.html" title="Seeds the population with Health data. ">HealthSeeder</a>, </dd>
+<dd>
+DiseaseBuilder) </dd></dl>
+</li>
+</ul>
 
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00047">47</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00041">41</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">SimBuilder.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a23ca2c3c5ef45fe26a11e0bc47cbe8ca"></a>
+<a class="anchor" id="a8ec762745a42a867aa755791f21dab12"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -349,7 +175,115 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::Population::Population </td>
+          <td class="memname">stride::SimBuilder::SimBuilder </td>
+          <td>(</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializing <a class="el" href="../../d1/d84/a00097.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d82/a00293_source.html#l00039">39</a> of file <a class="el" href="../../d6/d82/a00293_source.html">SimBuilder.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1f32dd929e6e21eabd41f7f7246a7aa1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../d9/df8/a00096.html">Sim</a> &gt; stride::SimBuilder::Build </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d9/df8/a00096.html">Sim</a> &gt;&#160;</td>
+          <td class="paramname"><em>sim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dc/d54/a00094.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d3e/a00116.html">util::RnMan</a>&#160;</td>
+          <td class="paramname"><em>rnMan</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build the simulator and return it afterwards. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d82/a00293_source.html#l00041">41</a> of file <a class="el" href="../../d6/d82/a00293_source.html">SimBuilder.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dd/dae/a00163_source.html#l00075">stride::ContactType::IdList</a>, <a class="el" href="../../d4/d5b/a00294_source.html#l00058">m_config</a>, <a class="el" href="../../d6/d82/a00293_source.html#l00107">ReadAgeContactPtree()</a>, <a class="el" href="../../d6/d82/a00293_source.html#l00114">ReadDiseasePtree()</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00070">stride::HealthSeeder::Seed()</a>, <a class="el" href="../../d9/d90/a00178_source.html#l00040">stride::DiseaseSeeder::Seed()</a>, <a class="el" href="../../d7/df2/a00312_source.html#l00039">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../d2/d34/a00156_source.html#l00039">stride::ContactLogMode::ToMode()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d84/a00097_a1f32dd929e6e21eabd41f7f7246a7aa1_cgraph.gif" border="0" usemap="#d1/d84/a00097_a1f32dd929e6e21eabd41f7f7246a7aa1_cgraph" alt=""/></div>
+<map name="d1/d84/a00097_a1f32dd929e6e21eabd41f7f7246a7aa1_cgraph" id="d1/d84/a00097_a1f32dd929e6e21eabd41f7f7246a7aa1_cgraph">
+<area shape="rect" id="node2" href="../../d1/d84/a00097.html#ad551b02c507948570f07af10d85d29ce" title="Get the contact configuration data. " alt="" coords="190,57,361,99"/>
+<area shape="rect" id="node6" href="../../d1/d84/a00097.html#adffa42c6b8b171616fcdfb4805260c92" title="Get the disease configuration data. " alt="" coords="202,123,349,164"/>
+<area shape="rect" id="node7" href="../../df/d5d/a00084.html#ad6a9061857cee5335745fe5501bcb73d" title="Seeds the population with Health data. " alt="" coords="198,731,353,772"/>
+<area shape="rect" id="node9" href="../../da/dec/a00080.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="194,384,357,425"/>
+<area shape="rect" id="node24" href="../../d4/d3a/a00101.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="197,665,353,707"/>
+<area shape="rect" id="node33" href="../../d1/dc6/a00347.html#a12707c23b43baa1a0f5bed51db72756d" title="Converts a string with name to LogMode value. " alt="" coords="188,796,363,837"/>
+<area shape="rect" id="node3" href="../../dd/d42/a00109.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="447,5,583,47"/>
+<area shape="rect" id="node5" href="../../dd/d42/a00109.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="701,64,837,105"/>
+<area shape="rect" id="node4" href="../../dd/d42/a00109.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="686,13,853,39"/>
+<area shape="rect" id="node8" href="../../df/d5d/a00084.html#a562b022d2c7f2836b4400e7d19e1b040" title="Sample for each of the health data item individually. " alt="" coords="438,1067,593,1108"/>
+<area shape="rect" id="node10" href="../../d4/d7d/a00093.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="941,378,1108,405"/>
+<area shape="rect" id="node11" href="../../d4/d7d/a00093.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="933,479,1116,506"/>
+<area shape="rect" id="node12" href="../../d4/d7d/a00093.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="439,534,591,561"/>
+<area shape="rect" id="node13" href="../../d4/d3e/a00116.html#a1afc757c92ddad702ce35677297ed15f" title="Return a generator for uniform ints in [a, b[ (a &lt; b) using i&#45;th random stream. " alt="" coords="423,468,608,509"/>
+<area shape="rect" id="node14" href="../../d2/d1f/a00083.html#ae2a3b14e79e08a261ca7122afba9b95c" title="Is this person susceptible? " alt="" coords="415,366,615,393"/>
+<area shape="rect" id="node15" href="../../d2/d1f/a00083.html#a5d85541b8e22aeaa75b364a454f59088" title="Start the infection. " alt="" coords="414,183,617,210"/>
+<area shape="rect" id="node17" href="../../da/dec/a00080.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="434,249,597,291"/>
+<area shape="rect" id="node16" href="../../d2/d1f/a00083.html#a468c554771acc883799456c14373e9db" title="Reset the disease counter. " alt="" coords="668,129,871,171"/>
+<area shape="rect" id="node18" href="../../df/d13/a00085.html#a9b4435f990b9a24bc0ededbd9af4877b" title="Cocoon immunization. " alt="" coords="698,312,841,353"/>
+<area shape="rect" id="node19" href="../../df/d13/a00085.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="698,195,841,236"/>
+<area shape="rect" id="node23" href="../../d6/d9c/a00352.html#aa45ab4a5a30f65dcd1bf25c3d095825b" title="Builds a string with lower case characters only. " alt="" coords="698,261,841,287"/>
+<area shape="rect" id="node20" href="../../d4/d31/a00069.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="953,136,1096,177"/>
+<area shape="rect" id="node21" href="../../d2/d1f/a00083.html#a7c9caae07db1dd15732f726cec514dc2" title="Is this person immune? " alt="" coords="935,202,1114,229"/>
+<area shape="rect" id="node22" href="../../d2/d1f/a00083.html#a8edeec79c050faabe2c09a1bc4860261" title="Set health state to susceptible. " alt="" coords="919,253,1131,279"/>
+<area shape="rect" id="node25" href="../../dc/d54/a00094.html#a70b16fe667a40360d247e32c9422ad44" title="The ContactPoolSys of the simulator. " alt="" coords="449,753,582,795"/>
+<area shape="rect" id="node26" href="../../dc/d54/a00094.html#a4db3f0bf4c302b0f5d4b2bb1e8cc24fc" title="Return the contactlogger. " alt="" coords="444,819,587,860"/>
+<area shape="rect" id="node27" href="../../d3/d8b/a00059.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="411,884,620,925"/>
+<area shape="rect" id="node28" href="../../d4/d7d/a00093.html#a5942b9a4f5226e8810dc8b63fb250f3e" title="Does this person participates in the social contact study? " alt="" coords="429,636,601,677"/>
+<area shape="rect" id="node29" href="../../d4/d7d/a00093.html#a6c27c93e351ca63aa6e3a055cd9110b2" title="Participate in social contact study and log person details. " alt="" coords="423,1001,608,1043"/>
+<area shape="rect" id="node32" href="../../d4/d7d/a00093.html#aebd3f273ac67e7db18d2db9aa0bdda2d" title="Get ID of contactpool_type. " alt="" coords="426,702,605,729"/>
+<area shape="rect" id="node30" href="../../d4/d7d/a00093.html#abeed34b336b17866bb881b77237c76c4" title="Update the health status and presence in contact pools. " alt="" coords="687,1009,852,1035"/>
+<area shape="rect" id="node31" href="../../d9/d48/a00345.html#a2b354a18a7f6986d363385ff46c9a473" title="Maximum age for Person&#39;s. " alt="" coords="951,1009,1098,1035"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad551b02c507948570f07af10d85d29ce"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptree stride::SimBuilder::ReadAgeContactPtree </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -362,90 +296,39 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-trivial default constructor. </p>
+<p>Get the contact configuration data. </p>
 
-<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00045">45</a> of file <a class="el" href="../../d5/d42/a00269_source.html">Population.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d82/a00293_source.html#l00107">107</a> of file <a class="el" href="../../d6/d82/a00293_source.html">SimBuilder.cpp</a>.</p>
 
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a56ed209c60c77e0080a0a653b09b26ce"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d1/d84/a00097.html">Population</a> &gt; stride::Population::Create </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>config</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d6a/a00119.html">util::RnMan</a>&#160;</td>
-          <td class="paramname"><em>rnMan</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>strideLogger</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>References <a class="el" href="../../d7/d25/a00182_source.html#l00088">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d4/d5b/a00294_source.html#l00058">m_config</a>, and <a class="el" href="../../d8/d64/a00181_source.html#l00208">stride::util::FileSys::ReadPtreeFile()</a>.</p>
 
-<p>Create a <a class="el" href="../../d1/d84/a00097.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> initialized by the configuration in property tree. </p>
-
-<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00047">47</a> of file <a class="el" href="../../d5/d42/a00269_source.html">Population.cpp</a>.</p>
-
-<p>References <a class="el" href="../../df/d17/a00231_source.html#l00038">stride::ImportPopBuilder::Build()</a>, <a class="el" href="../../db/dd9/a00179_source.html#l00089">stride::DefaultPopBuilder::Build()</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00062">stride::GeoPopBuilder::Build()</a>, <a class="el" href="../../d2/d94/a00184_source.html#l00052">stride::util::FileSys::BuildPath()</a>, <a class="el" href="../../d5/d42/a00269_source.html#l00096">Create()</a>, <a class="el" href="../../d7/d2f/a00258_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00088">stride::util::LogUtils::CreateRotatingLogger()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d82/a00293_source.html#l00041">Build()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d84/a00097_a56ed209c60c77e0080a0a653b09b26ce_cgraph.gif" border="0" usemap="#d1/d84/a00097_a56ed209c60c77e0080a0a653b09b26ce_cgraph" alt=""/></div>
-<map name="d1/d84/a00097_a56ed209c60c77e0080a0a653b09b26ce_cgraph" id="d1/d84/a00097_a56ed209c60c77e0080a0a653b09b26ce_cgraph">
-<area shape="rect" id="node2" href="../../db/dab/a00089.html#a78076cb42a88b90e4183bfb805d8361f" title="Creates a population by importing it. " alt="" coords="189,37,365,79"/>
-<area shape="rect" id="node4" href="../../d4/d63/a00082.html#a8c1071f808ade6b38dd14a74024e64d4" title="Build Population and return it afterwards. " alt="" coords="187,119,367,160"/>
-<area shape="rect" id="node5" href="../../df/d13/a00085.html#a23493e205a9a22922b1511b80e64bc1e" title="Generates a synthetic population. " alt="" coords="197,184,357,225"/>
-<area shape="rect" id="node18" href="../../db/d57/a00112.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="209,249,345,291"/>
-<area shape="rect" id="node20" href="../../d1/d84/a00097.html#a7cfcedae698db0dc471770044de4834d" title="Create an empty Population, used in gengeopop. " alt="" coords="210,315,343,356"/>
-<area shape="rect" id="node21" href="../../d9/d4b/a00117.html#af8edb0cd2ef9049e0347f06e73ae57c2" title="Return a (not&#45;yet&#45;registered) null logger, without registering it. " alt="" coords="205,380,349,421"/>
-<area shape="rect" id="node22" href="../../d9/d4b/a00117.html#a137e01100d0d79b122f731bb1292179d" title="Return a (not&#45;yet&#45;registered) rotating logger, without registering it. " alt="" coords="192,445,361,487"/>
-<area shape="rect" id="node3" href="../../dc/de2/a00024.html#afd9d54966d5a7c5d19308cc53d48f6e7" title="Create a GeoGridReader based on the provided extension in the filename. " alt="" coords="415,5,635,47"/>
-<area shape="rect" id="node6" href="../../df/d13/a00085.html#a93529cc4e8a5e4de31bb2663777971cb" title="Build and store the Geo part of the GeoGrid. " alt="" coords="445,71,605,112"/>
-<area shape="rect" id="node7" href="../../df/d13/a00085.html#a0a67e3e8c4d250509a6f76acb076824e" title="Reads the data files. " alt="" coords="445,136,605,177"/>
-<area shape="rect" id="node12" href="../../df/d13/a00085.html#a22327526a0de14f648b2375065527fda" title="Build and store the Pop part of the GeoGrid. " alt="" coords="445,201,605,243"/>
-<area shape="rect" id="node13" href="../../d1/d2b/a00018.html#aea2742355e7e5bd756a3204fa0dfb160" title="Read the househould data file, parse it and set data. " alt="" coords="439,267,610,308"/>
-<area shape="rect" id="node8" href="../../d6/d42/a00043.html#a6d2ed9033fa50940b6fcb601a18d127c" title="Create a CitiesReader based on the filename relative to the data directory. " alt="" coords="693,71,861,112"/>
-<area shape="rect" id="node11" href="../../d6/d42/a00043.html#abb99b826e135cac651269f27058c9e81" title="Create a CommutesReader based on the filename relative to the data directory. " alt="" coords="683,136,871,177"/>
-<area shape="rect" id="node9" href="../../db/d57/a00112.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="919,136,1055,177"/>
-<area shape="rect" id="node10" href="../../db/d57/a00112.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="1103,143,1269,170"/>
-<area shape="rect" id="node14" href="../../d6/d42/a00043.html#af8f94fd8f5a9cafc1eff4399e2b3e093" title="Create a HouseholdReader based on the filename relative to the data directory. " alt="" coords="684,201,869,243"/>
-<area shape="rect" id="node15" href="../../d9/db3/a00066.html#ab773fa6a11ca2ab240ce27295561f2eb" title="stride::AgeBrackets\l::K12School::HasAge" alt="" coords="699,267,854,308"/>
-<area shape="rect" id="node16" href="../../df/d5f/a00064.html#a9da586fa49f908053a05ce521e904d27" title="stride::AgeBrackets\l::College::HasAge" alt="" coords="703,332,850,373"/>
-<area shape="rect" id="node17" href="../../da/d24/a00068.html#ae65edbaf591c0475af30028e30ff6005" title="stride::AgeBrackets\l::Workplace::HasAge" alt="" coords="701,397,853,439"/>
-<area shape="rect" id="node19" href="../../db/d57/a00112.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="457,332,593,373"/>
+<div class="center"><img src="../../d1/d84/a00097_ad551b02c507948570f07af10d85d29ce_cgraph.gif" border="0" usemap="#d1/d84/a00097_ad551b02c507948570f07af10d85d29ce_cgraph" alt=""/></div>
+<map name="d1/d84/a00097_ad551b02c507948570f07af10d85d29ce_cgraph" id="d1/d84/a00097_ad551b02c507948570f07af10d85d29ce_cgraph">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="224,5,360,47"/>
+<area shape="rect" id="node4" href="../../dd/d42/a00109.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="224,71,360,112"/>
+<area shape="rect" id="node3" href="../../dd/d42/a00109.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="408,13,575,39"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/d84/a00097_ad551b02c507948570f07af10d85d29ce_icgraph.gif" border="0" usemap="#d1/d84/a00097_ad551b02c507948570f07af10d85d29ce_icgraph" alt=""/></div>
+<map name="d1/d84/a00097_ad551b02c507948570f07af10d85d29ce_icgraph" id="d1/d84/a00097_ad551b02c507948570f07af10d85d29ce_icgraph">
+<area shape="rect" id="node2" href="../../d1/d84/a00097.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="224,5,359,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ac2702b7b600edd1ce81bc24dac173c7e"></a>
+<a class="anchor" id="adffa42c6b8b171616fcdfb4805260c92"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -453,173 +336,35 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d1/d84/a00097.html">Population</a> &gt; stride::Population::Create </td>
+          <td class="memname">ptree stride::SimBuilder::ReadDiseasePtree </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>configString</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d6a/a00119.html">util::RnMan</a>&#160;</td>
-          <td class="paramname"><em>rnMan</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>stride_logger</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>For use in python environment: create <a class="el" href="../../d1/d84/a00097.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> using configuration string i.o ptree. </p>
+<p>Get the disease configuration data. </p>
 
-<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00090">90</a> of file <a class="el" href="../../d5/d42/a00269_source.html">Population.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d82/a00293_source.html#l00114">114</a> of file <a class="el" href="../../d6/d82/a00293_source.html">SimBuilder.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d5/d42/a00269_source.html#l00096">Create()</a>, and <a class="el" href="../../d6/d7f/a00287_source.html#l00295">stride::util::RunConfigManager::FromString()</a>.</p>
+<p>References <a class="el" href="../../d7/d25/a00182_source.html#l00088">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d4/d5b/a00294_source.html#l00058">m_config</a>, and <a class="el" href="../../d8/d64/a00181_source.html#l00208">stride::util::FileSys::ReadPtreeFile()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d82/a00293_source.html#l00041">Build()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d84/a00097_ac2702b7b600edd1ce81bc24dac173c7e_cgraph.gif" border="0" usemap="#d1/d84/a00097_ac2702b7b600edd1ce81bc24dac173c7e_cgraph" alt=""/></div>
-<map name="d1/d84/a00097_ac2702b7b600edd1ce81bc24dac173c7e_cgraph" id="d1/d84/a00097_ac2702b7b600edd1ce81bc24dac173c7e_cgraph">
-<area shape="rect" id="node2" href="../../d1/d84/a00097.html#a7cfcedae698db0dc471770044de4834d" title="Create an empty Population, used in gengeopop. " alt="" coords="226,5,359,47"/>
-<area shape="rect" id="node3" href="../../d4/d98/a00120.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb" title="Reconstitute property tree from string representation. " alt="" coords="187,71,399,112"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a7cfcedae698db0dc471770044de4834d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d1/d84/a00097.html">Population</a> &gt; stride::Population::Create </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create an empty <a class="el" href="../../d1/d84/a00097.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>, used in gengeopop. </p>
-
-<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00096">96</a> of file <a class="el" href="../../d5/d42/a00269_source.html">Population.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d15/a00188_source.html#l00054">stride::GenPopController::Control()</a>, <a class="el" href="../../d9/d0d/a00298_source.html#l00037">stride::SimController::Control()</a>, <a class="el" href="../../dc/d0f/a00303_source.html#l00048">stride::StanController::Control()</a>, and <a class="el" href="../../d5/d42/a00269_source.html#l00047">Create()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d84/a00097_a7cfcedae698db0dc471770044de4834d_icgraph.gif" border="0" usemap="#d1/d84/a00097_a7cfcedae698db0dc471770044de4834d_icgraph" alt=""/></div>
-<map name="d1/d84/a00097_a7cfcedae698db0dc471770044de4834d_icgraph" id="d1/d84/a00097_a7cfcedae698db0dc471770044de4834d_icgraph">
-<area shape="rect" id="node2" href="../../df/d5d/a00084.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="187,5,365,47"/>
-<area shape="rect" id="node4" href="../../d4/d3a/a00101.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="199,71,353,112"/>
-<area shape="rect" id="node5" href="../../d5/d1e/a00103.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="197,136,355,177"/>
-<area shape="rect" id="node6" href="../../d1/d84/a00097.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="209,201,343,243"/>
-<area shape="rect" id="node3" href="../../d1/de3/a00306.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="413,78,468,105"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a5680667e8da5d16b5f9b2c4d9a0207fa"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/df8/a00096.html">Person</a> * stride::Population::CreatePerson </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../de/dd7/a00362.html">double</a>&#160;</td>
-          <td class="paramname"><em>age</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>householdId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>k12SchoolId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>college</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>workId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>primaryCommunityId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>secondaryCommunityId</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create <a class="el" href="../../d9/df8/a00096.html" title="Store and handle person data. ">Person</a> in the population. </p>
-
-<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00108">108</a> of file <a class="el" href="../../d5/d42/a00269_source.html">Population.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d6/d82/a00293_source.html#l00293">stride::util::SegmentedVector&lt; Person &gt;::emplace_back()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d28/a00223_source.html#l00028">geopop::HouseholdPopulator::Apply()</a>, <a class="el" href="../../d7/ded/a00196_source.html#l00206">geopop::GeoGridJSONReader::ParsePerson()</a>, and <a class="el" href="../../db/d53/a00202_source.html#l00197">geopop::GeoGridProtoReader::ParsePerson()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d84/a00097_a5680667e8da5d16b5f9b2c4d9a0207fa_cgraph.gif" border="0" usemap="#d1/d84/a00097_a5680667e8da5d16b5f9b2c4d9a0207fa_cgraph" alt=""/></div>
-<map name="d1/d84/a00097_a5680667e8da5d16b5f9b2c4d9a0207fa_cgraph" id="d1/d84/a00097_a5680667e8da5d16b5f9b2c4d9a0207fa_cgraph">
-<area shape="rect" id="node2" href="../../df/d03/a00062.html#a2cd11f9b95b20b69378fc9268c380096" title="Constructs element in&#45;place at the end. " alt="" coords="187,5,396,47"/>
-<area shape="rect" id="node3" href="../../df/d03/a00062.html#a4f98e9e54da37bbf7c6ed0c2b40361d9" title="Get next available chunk for element construction with placement new. " alt="" coords="444,5,653,47"/>
+<div class="center"><img src="../../d1/d84/a00097_adffa42c6b8b171616fcdfb4805260c92_cgraph.gif" border="0" usemap="#d1/d84/a00097_adffa42c6b8b171616fcdfb4805260c92_cgraph" alt=""/></div>
+<map name="d1/d84/a00097_adffa42c6b8b171616fcdfb4805260c92_cgraph" id="d1/d84/a00097_adffa42c6b8b171616fcdfb4805260c92_cgraph">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="200,5,336,47"/>
+<area shape="rect" id="node4" href="../../dd/d42/a00109.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="200,71,336,112"/>
+<area shape="rect" id="node3" href="../../dd/d42/a00109.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="384,13,551,39"/>
 </map>
 </div>
 </p>
@@ -627,234 +372,9 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d84/a00097_a5680667e8da5d16b5f9b2c4d9a0207fa_icgraph.gif" border="0" usemap="#d1/d84/a00097_a5680667e8da5d16b5f9b2c4d9a0207fa_icgraph" alt=""/></div>
-<map name="d1/d84/a00097_a5680667e8da5d16b5f9b2c4d9a0207fa_icgraph" id="d1/d84/a00097_a5680667e8da5d16b5f9b2c4d9a0207fa_icgraph">
-<area shape="rect" id="node2" href="../../d5/d16/a00029.html#a293016dc3e336298ee8ee5dd5396df09" title="Core method implementation. " alt="" coords="187,5,394,47"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00019.html#ad0a3616bc2e064fee78d65dc172a3d81" title="Create a Person based on the information stored in the provided boost property tree. " alt="" coords="187,71,394,112"/>
-<area shape="rect" id="node5" href="../../de/d11/a00021.html#af379f9881c0626dd1efbb969798ab38e" title="Create a Person based on protobuf Person info. " alt="" coords="187,136,395,177"/>
-<area shape="rect" id="node4" href="../../dd/da2/a00019.html#a0b6a6032beee9c1bdb5536e8aa3d87f7" title="Actually perform the read and return the GeoGrid. " alt="" coords="443,71,650,112"/>
-<area shape="rect" id="node6" href="../../de/d11/a00021.html#a6f156064f4af6a0905e1959605ac9826" title="Actually perform the read and return the GeoGrid. " alt="" coords="443,136,651,177"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a5ffab38c3407832dcc0f1ecbf4e11cbd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Population::GetInfectedCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the cumulative number of cases. </p>
-
-<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00116">116</a> of file <a class="el" href="../../d5/d42/a00269_source.html">Population.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a70b16fe667a40360d247e32c9422ad44"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="../../d1/d6e/a00073.html">ContactPoolSys</a>&amp; stride::Population::CRefPoolSys </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The <a class="el" href="../../d1/d6e/a00073.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> of the simulator. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00071">71</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d6f/a00315_source.html#l00039">stride::SurveySeeder::Seed()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d84/a00097_a70b16fe667a40360d247e32c9422ad44_icgraph.gif" border="0" usemap="#d1/d84/a00097_a70b16fe667a40360d247e32c9422ad44_icgraph" alt=""/></div>
-<map name="d1/d84/a00097_a70b16fe667a40360d247e32c9422ad44_icgraph" id="d1/d84/a00097_a70b16fe667a40360d247e32c9422ad44_icgraph">
-<area shape="rect" id="node2" href="../../d0/dc2/a00104.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="187,5,343,47"/>
-<area shape="rect" id="node3" href="../../d0/d61/a00100.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="391,5,525,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a3eeacceb199c4b26b7c7687fe5cdcfb0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGrid</a>&amp; stride::Population::CRefGeoGrid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the GeoGrid associated with this population (may be a nullptr). </p>
-
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00074">74</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4db3f0bf4c302b0f5d4b2bb1e8cc24fc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt;&amp; stride::Population::RefContactLogger </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return the contactlogger. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00077">77</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d6f/a00315_source.html#l00039">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../d4/d5b/a00294_source.html#l00063">stride::Sim::TimeStep()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d84/a00097_a4db3f0bf4c302b0f5d4b2bb1e8cc24fc_icgraph.gif" border="0" usemap="#d1/d84/a00097_a4db3f0bf4c302b0f5d4b2bb1e8cc24fc_icgraph" alt=""/></div>
-<map name="d1/d84/a00097_a4db3f0bf4c302b0f5d4b2bb1e8cc24fc_icgraph" id="d1/d84/a00097_a4db3f0bf4c302b0f5d4b2bb1e8cc24fc_icgraph">
-<area shape="rect" id="node2" href="../../d0/dc2/a00104.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="198,5,354,47"/>
-<area shape="rect" id="node4" href="../../da/d74/a00099.html#a032911d7270c91e0a6a9c55f68800096" title="Run one time step, computing full simulation (default) or only index case. " alt="" coords="196,71,356,98"/>
-<area shape="rect" id="node3" href="../../d0/d61/a00100.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="404,5,539,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="aa3cce01ca781a43bc67620e798c3b484"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d1/d6e/a00073.html">ContactPoolSys</a>&amp; stride::Population::RefPoolSys </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reference the <a class="el" href="../../d1/d6e/a00073.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> of the <a class="el" href="../../d1/d84/a00097.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00080">80</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d4a/a00147_source.html#l00032">geopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d7/ded/a00196_source.html#l00188">geopop::GeoGridJSONReader::ParseContactPool()</a>, <a class="el" href="../../db/d53/a00202_source.html#l00135">geopop::GeoGridProtoReader::ParseContactPool()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00076">geopop::CollegeGenerator::SetupPools()</a>, <a class="el" href="../../d0/d19/a00273_source.html#l00078">geopop::PrimaryCommunityGenerator::SetupPools()</a>, <a class="el" href="../../d6/d08/a00244_source.html#l00069">geopop::K12SchoolGenerator::SetupPools()</a>, <a class="el" href="../../dd/d52/a00221_source.html#l00059">geopop::HouseholdGenerator::SetupPools()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00078">geopop::SecondaryCommunityGenerator::SetupPools()</a>, <a class="el" href="../../de/dc8/a00325_source.html#l00081">geopop::WorkplaceGenerator::SetupPools()</a>, and <a class="el" href="../../d4/d5b/a00294_source.html#l00063">stride::Sim::TimeStep()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d84/a00097_aa3cce01ca781a43bc67620e798c3b484_icgraph.gif" border="0" usemap="#d1/d84/a00097_aa3cce01ca781a43bc67620e798c3b484_icgraph" alt=""/></div>
-<map name="d1/d84/a00097_aa3cce01ca781a43bc67620e798c3b484_icgraph" id="d1/d84/a00097_aa3cce01ca781a43bc67620e798c3b484_icgraph">
-<area shape="rect" id="node2" href="../../de/d21/a00006.html#aa306ef342d4d07a99397c59da57704af" title="see ::Apply " alt="" coords="201,5,392,47"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00019.html#a54f28880557331abe18038f0627738c3" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="193,71,400,112"/>
-<area shape="rect" id="node7" href="../../de/d11/a00021.html#aa6dbedaf2a8098e075607c358066a849" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="193,136,401,177"/>
-<area shape="rect" id="node11" href="../../de/d21/a00006.html#a6363da09a79f4550f9d80a036d12e86e" title="see ::SetupPools. " alt="" coords="201,201,392,243"/>
-<area shape="rect" id="node12" href="../../db/d3a/a00040.html#ae4639c732828278ba482ca026b282627" title="see ::SetupPools. " alt="" coords="196,267,397,308"/>
-<area shape="rect" id="node13" href="../../df/d61/a00031.html#ad7d459e716548a61b3d2a617830af25e" title="see ::SetupPools. " alt="" coords="191,332,402,373"/>
-<area shape="rect" id="node14" href="../../dc/d3c/a00028.html#aba893f2e0086a3865839587e380e0821" title="see ::SetupPools. " alt="" coords="191,397,402,439"/>
-<area shape="rect" id="node15" href="../../d5/df9/a00044.html#a3cdaab457109c7ee8d5b7ddfc796c7d3" title="see ::SetupPools. " alt="" coords="187,463,407,504"/>
-<area shape="rect" id="node16" href="../../d2/dee/a00049.html#acd8549659c2f3e671d12fd328676405f" title="see ::SetupPools. " alt="" coords="193,528,400,569"/>
-<area shape="rect" id="node17" href="../../da/d74/a00099.html#a032911d7270c91e0a6a9c55f68800096" title="Run one time step, computing full simulation (default) or only index case. " alt="" coords="217,594,377,621"/>
-<area shape="rect" id="node4" href="../../dd/da2/a00019.html#abaeef4e66bbc02c415a8c9235a2eb908" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="455,71,662,112"/>
-<area shape="rect" id="node5" href="../../dd/da2/a00019.html#a6d75cabadab49fcffe00d193dc7da4a6" title="Create a Location based on the information stored in the provided boost property tree. " alt="" coords="711,71,918,112"/>
-<area shape="rect" id="node6" href="../../dd/da2/a00019.html#a0b6a6032beee9c1bdb5536e8aa3d87f7" title="Actually perform the read and return the GeoGrid. " alt="" coords="967,71,1174,112"/>
-<area shape="rect" id="node8" href="../../de/d11/a00021.html#a913aee104b2c1982d1cb4164f7ad0e65" title="Create a ContactCenter based on protobuf ContactCenter info. " alt="" coords="455,136,663,177"/>
-<area shape="rect" id="node9" href="../../de/d11/a00021.html#a2d7e93b8c38a12f8c662d18973e14a79" title="Create a Location based on protobuf Location info. " alt="" coords="711,136,919,177"/>
-<area shape="rect" id="node10" href="../../de/d11/a00021.html#a6f156064f4af6a0905e1959605ac9826" title="Actually perform the read and return the GeoGrid. " alt="" coords="967,136,1175,177"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="aed61b0a0c312dba5b64733e21be7a1b2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGrid</a>&amp; stride::Population::RefGeoGrid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reference the GeoGrid associated with this population (may be a nullptr). </p>
-
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00083">83</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/ded/a00196_source.html#l00041">geopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../db/d53/a00202_source.html#l00039">geopop::GeoGridProtoReader::Read()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d84/a00097_aed61b0a0c312dba5b64733e21be7a1b2_icgraph.gif" border="0" usemap="#d1/d84/a00097_aed61b0a0c312dba5b64733e21be7a1b2_icgraph" alt=""/></div>
-<map name="d1/d84/a00097_aed61b0a0c312dba5b64733e21be7a1b2_icgraph" id="d1/d84/a00097_aed61b0a0c312dba5b64733e21be7a1b2_icgraph">
-<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a0b6a6032beee9c1bdb5536e8aa3d87f7" title="Actually perform the read and return the GeoGrid. " alt="" coords="187,5,394,47"/>
-<area shape="rect" id="node3" href="../../de/d11/a00021.html#a6f156064f4af6a0905e1959605ac9826" title="Actually perform the read and return the GeoGrid. " alt="" coords="187,71,395,112"/>
+<div class="center"><img src="../../d1/d84/a00097_adffa42c6b8b171616fcdfb4805260c92_icgraph.gif" border="0" usemap="#d1/d84/a00097_adffa42c6b8b171616fcdfb4805260c92_icgraph" alt=""/></div>
+<map name="d1/d84/a00097_adffa42c6b8b171616fcdfb4805260c92_icgraph" id="d1/d84/a00097_adffa42c6b8b171616fcdfb4805260c92_icgraph">
+<area shape="rect" id="node2" href="../../d1/d84/a00097.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="200,5,335,47"/>
 </map>
 </div>
 </p>
@@ -862,7 +382,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ac21ecf3db6ee91694eec6b13ffef5144"></a>
+<a class="anchor" id="acbb3153c81c97a062f8351ec8ab1db0b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -870,7 +390,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d1/d6e/a00073.html">ContactPoolSys</a> stride::Population::m_pool_sys</td>
+          <td class="memname">boost::property_tree::ptree stride::SimBuilder::m_config</td>
         </tr>
       </table>
   </td>
@@ -880,71 +400,25 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>The global . </p>
+<p>Run config in ptree. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00090">90</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00058">58</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">SimBuilder.h</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="aa24a679c5885bb18710a77700bbaeeca"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::Population::m_contact_logger</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Logger for contact/transmission. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00091">91</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a94db0ae08c7091b0aba6db69d9fbf67b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGrid</a> stride::Population::m_geo_grid</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Associated  may be nullptr. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00092">92</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d82/a00293_source.html#l00041">Build()</a>, <a class="el" href="../../d6/d82/a00293_source.html#l00107">ReadAgeContactPtree()</a>, and <a class="el" href="../../d6/d82/a00293_source.html#l00114">ReadDiseasePtree()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d2a/a00270_source.html">Population.h</a></li>
-<li><a class="el" href="../../d5/d42/a00269_source.html">Population.cpp</a></li>
+<li><a class="el" href="../../d4/d5b/a00294_source.html">SimBuilder.h</a></li>
+<li><a class="el" href="../../d6/d82/a00293_source.html">SimBuilder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d1/d84/a00097.html">Population</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../d1/d84/a00097.html">SimBuilder</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

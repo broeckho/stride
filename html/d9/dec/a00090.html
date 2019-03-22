@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::Infector&lt; LL, TIC, TO &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::output::InfectedFile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 11e13d9</span>
+   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
    </div>
   </td>
  </tr>
@@ -107,137 +107,177 @@ $(document).ready(function(){initNavTree('d9/dec/a00090.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d5/dd3/a00902.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d7/db6/a00940.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Infector&lt; LL, TIC, TO &gt; Class Template Reference</div>  </div>
+<div class="title">stride::output::InfectedFile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Actual contacts and transmission in contactpool (primary template).  
+<p>Produces a file with daily count of infected persons.  
  <a href="../../d9/dec/a00090.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d21/a00240_source.html">Infector.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../df/d17/a00231_source.html">InfectedFile.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Infector&lt; LL, TIC, TO &gt;:</div>
+Collaboration diagram for stride::output::InfectedFile:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d1c/a00903.gif" border="0" usemap="#stride_1_1Infector_3_01LL_00_01TIC_00_01TO_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Infector_3_01LL_00_01TIC_00_01TO_01_4_coll__map" id="stride_1_1Infector_3_01LL_00_01TIC_00_01TO_01_4_coll__map">
+<div class="center"><img src="../../d9/dce/a00944.gif" border="0" usemap="#stride_1_1output_1_1InfectedFile_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1output_1_1InfectedFile_coll__map" id="stride_1_1output_1_1InfectedFile_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="45,541,153,619"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="25,400,173,492"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="27,259,171,351"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="15,132,183,209"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="45,5,152,83"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7a04fe600bfbb5b09330163fd2d49409"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dec/a00090.html#a7a04fe600bfbb5b09330163fd2d49409">Exec</a> (<a class="el" href="../../d6/d2c/a00072.html">ContactPool</a> &amp;pool, const <a class="el" href="../../d4/d31/a00069.html">AgeContactProfile</a> &amp;profile, const <a class="el" href="../../d3/d32/a00105.html">TransmissionProfile</a> &amp;transProfile, <a class="el" href="../../d0/d89/a00071.html">ContactHandler</a> &amp;cHandler, unsigned short int simDay, std::shared_ptr&lt; spdlog::logger &gt; cLogger)</td></tr>
-<tr class="separator:a7a04fe600bfbb5b09330163fd2d49409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1f9b3fab4125e26c2eebd32ee27dd977"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dec/a00090.html#a1f9b3fab4125e26c2eebd32ee27dd977">InfectedFile</a> (const std::string &amp;output_dir=&quot;output&quot;)</td></tr>
+<tr class="memdesc:a1f9b3fab4125e26c2eebd32ee27dd977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor: initialize.  <a href="#a1f9b3fab4125e26c2eebd32ee27dd977">More...</a><br /></td></tr>
+<tr class="separator:a1f9b3fab4125e26c2eebd32ee27dd977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab67bfb80c8ca94162f3c33d2c7be3f89"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dec/a00090.html#ab67bfb80c8ca94162f3c33d2c7be3f89">~InfectedFile</a> ()</td></tr>
+<tr class="memdesc:ab67bfb80c8ca94162f3c33d2c7be3f89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor: close the file stream.  <a href="#ab67bfb80c8ca94162f3c33d2c7be3f89">More...</a><br /></td></tr>
+<tr class="separator:ab67bfb80c8ca94162f3c33d2c7be3f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae42038f7696374e29aef434de61d386d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dec/a00090.html#ae42038f7696374e29aef434de61d386d">Print</a> (const std::vector&lt; unsigned int &gt; &amp;infectionCounts)</td></tr>
+<tr class="memdesc:ae42038f7696374e29aef434de61d386d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the given cases with corresponding tag.  <a href="#ae42038f7696374e29aef434de61d386d">More...</a><br /></td></tr>
+<tr class="separator:ae42038f7696374e29aef434de61d386d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ab499185c218c6a1ef08779d8e0ece660"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dec/a00090.html#ab499185c218c6a1ef08779d8e0ece660">m_fstream</a></td></tr>
+<tr class="memdesc:ab499185c218c6a1ef08779d8e0ece660"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file stream.  <a href="#ab499185c218c6a1ef08779d8e0ece660">More...</a><br /></td></tr>
+<tr class="separator:ab499185c218c6a1ef08779d8e0ece660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;ContactLogMode::Id LL, bool TIC, bool TO = UseOptimizedInfector&lt;LL&gt;::value&gt;<br />
-class stride::Infector&lt; LL, TIC, TO &gt;</h3>
+<div class="textblock"><p>Produces a file with daily count of infected persons. </p>
 
-<p>Actual contacts and transmission in contactpool (primary template). </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">LL</td><td>LogLevel </td></tr>
-    <tr><td class="paramname">TIC</td><td>TrackIndexCase </td></tr>
-    <tr><td class="paramname">LIP</td><td>LocalInformationPolicy </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d9/d21/a00240_source.html#l00069">69</a> of file <a class="el" href="../../d9/d21/a00240_source.html">Infector.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a7a04fe600bfbb5b09330163fd2d49409"></a>
+<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00033">33</a> of file <a class="el" href="../../df/d17/a00231_source.html">InfectedFile.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a1f9b3fab4125e26c2eebd32ee27dd977"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;ContactLogMode::Id LL, bool TIC, bool TO = UseOptimizedInfector&lt;LL&gt;::value&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d9/dec/a00090.html">stride::Infector</a>&lt; LL, TIC, TO &gt;::Exec </td>
+          <td class="memname">stride::output::InfectedFile::InfectedFile </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d6/d2c/a00072.html">ContactPool</a> &amp;&#160;</td>
-          <td class="paramname"><em>pool</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>output_dir</em> = <code>&quot;output&quot;</code></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d4/d31/a00069.html">AgeContactProfile</a> &amp;&#160;</td>
-          <td class="paramname"><em>profile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d3/d32/a00105.html">TransmissionProfile</a> &amp;&#160;</td>
-          <td class="paramname"><em>transProfile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/d89/a00071.html">ContactHandler</a> &amp;&#160;</td>
-          <td class="paramname"><em>cHandler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned short int&#160;</td>
-          <td class="paramname"><em>simDay</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>cLogger</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d27/a00239_source.html#l00146">146</a> of file <a class="el" href="../../d0/d27/a00239_source.html">Infector.cpp</a>.</p>
+<p>Constructor: initialize. </p>
 
-<p>References <a class="el" href="../../d3/dcc/a00264_source.html#l00056">stride::Person::GetHealth()</a>, <a class="el" href="../../d4/d8f/a00324_source.html#l00037">stride::TransmissionProfile::GetRate()</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00047">stride::ContactHandler::HasContact()</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00050">stride::ContactHandler::HasTransmission()</a>, <a class="el" href="../../d3/dcc/a00264_source.html#l00068">stride::Person::IsInPool()</a>, <a class="el" href="../../db/d44/a00162_source.html#l00090">stride::ContactPool::m_members</a>, and <a class="el" href="../../db/d44/a00162_source.html#l00089">stride::ContactPool::m_pool_type</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/da8/a00230_source.html#l00030">30</a> of file <a class="el" href="../../d1/da8/a00230_source.html">InfectedFile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d8/d64/a00181_source.html#l00052">stride::util::FileSys::BuildPath()</a>, and <a class="el" href="../../df/d17/a00231_source.html#l00046">m_fstream</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dec/a00090_a7a04fe600bfbb5b09330163fd2d49409_cgraph.gif" border="0" usemap="#d9/dec/a00090_a7a04fe600bfbb5b09330163fd2d49409_cgraph" alt=""/></div>
-<map name="d9/dec/a00090_a7a04fe600bfbb5b09330163fd2d49409_cgraph" id="d9/dec/a00090_a7a04fe600bfbb5b09330163fd2d49409_cgraph">
-<area shape="rect" id="node2" href="../../d9/df8/a00096.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="207,5,390,32"/>
-<area shape="rect" id="node3" href="../../d3/d32/a00105.html#a51ffe104253ffd5bcf12ab299fa6f2e2" title="Return transmission rate. " alt="" coords="205,57,392,98"/>
-<area shape="rect" id="node5" href="../../d0/d89/a00071.html#a4a6ef10cff06328c9bc5b7f6337339ad" title="Check if two individuals have contact. " alt="" coords="215,122,382,163"/>
-<area shape="rect" id="node7" href="../../d0/d89/a00071.html#a94d8f2bdeff1e99b1e6380060e8fb622" title="Check whether transmission occurs. " alt="" coords="215,187,382,229"/>
-<area shape="rect" id="node8" href="../../d9/df8/a00096.html#afc181c9b642346133f4667c08c72d3f8" title="Check if a person is present today in a given contact pool. " alt="" coords="215,253,382,280"/>
-<area shape="rect" id="node4" href="../../d3/d32/a00105.html#a5e67e9eab813de18fff32722ee6f1437" title="Initialize. " alt="" coords="440,57,627,98"/>
-<area shape="rect" id="node6" href="../../d0/d89/a00071.html#a51fd44b433163a1bd2a9fb424a003344" title="Convert rate into probability. " alt="" coords="450,154,617,195"/>
+<div class="center"><img src="../../d9/dec/a00090_a1f9b3fab4125e26c2eebd32ee27dd977_cgraph.gif" border="0" usemap="#d9/dec/a00090_a1f9b3fab4125e26c2eebd32ee27dd977_cgraph" alt=""/></div>
+<map name="d9/dec/a00090_a1f9b3fab4125e26c2eebd32ee27dd977_cgraph" id="d9/dec/a00090_a1f9b3fab4125e26c2eebd32ee27dd977_cgraph">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="220,5,356,47"/>
+<area shape="rect" id="node3" href="../../dd/d42/a00109.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="404,5,540,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
+<a class="anchor" id="ab67bfb80c8ca94162f3c33d2c7be3f89"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::output::InfectedFile::~InfectedFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor: close the file stream. </p>
+
+<p>Definition at line <a class="el" href="../../d1/da8/a00230_source.html#l00036">36</a> of file <a class="el" href="../../d1/da8/a00230_source.html">InfectedFile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../df/d17/a00231_source.html#l00046">m_fstream</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae42038f7696374e29aef434de61d386d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::output::InfectedFile::Print </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>infectionCounts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print the given cases with corresponding tag. </p>
+
+<p>Definition at line <a class="el" href="../../d1/da8/a00230_source.html#l00038">38</a> of file <a class="el" href="../../d1/da8/a00230_source.html">InfectedFile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../df/d17/a00231_source.html#l00046">m_fstream</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ab499185c218c6a1ef08779d8e0ece660"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ofstream stride::output::InfectedFile::m_fstream</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The file stream. </p>
+
+<p>Definition at line <a class="el" href="../../df/d17/a00231_source.html#l00046">46</a> of file <a class="el" href="../../df/d17/a00231_source.html">InfectedFile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/da8/a00230_source.html#l00030">InfectedFile()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00038">Print()</a>, and <a class="el" href="../../d1/da8/a00230_source.html#l00036">~InfectedFile()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d21/a00240_source.html">Infector.h</a></li>
-<li><a class="el" href="../../d0/d27/a00239_source.html">Infector.cpp</a></li>
+<li><a class="el" href="../../df/d17/a00231_source.html">InfectedFile.h</a></li>
+<li><a class="el" href="../../d1/da8/a00230_source.html">InfectedFile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/dec/a00090.html">Infector</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 13:37:07 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">output</a></li><li class="navelem"><a class="el" href="../../d9/dec/a00090.html">InfectedFile</a></li>
+    <li class="footer">Generated on Fri Mar 22 2019 18:33:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
