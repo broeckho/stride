@@ -19,12 +19,14 @@
 #include "geopop/GeoGridConfig.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
+#include "util/SegmentedVector.h"
 
 #include <gtest/gtest.h>
 
 using namespace std;
 using namespace geopop;
 using namespace stride;
+using namespace stride::util;
 using namespace stride::ContactType;
 
 namespace {

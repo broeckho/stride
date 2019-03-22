@@ -28,8 +28,8 @@ class Person;
 namespace proto {
 class GeoGrid_Location;
 class GeoGrid_Location_Coordinate;
-class GeoGrid_Location_ContactCenter;
-class GeoGrid_Location_ContactCenter_ContactPool;
+class GeoGrid_Location_ContactPools;
+class GeoGrid_Location_ContactPools_ContactPool;
 class GeoGrid_Person;
 } // namespace proto
 
@@ -52,18 +52,19 @@ public:
 
 private:
         /// Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter.
-        void WriteContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
-                                proto::GeoGrid_Location_ContactCenter* protoContactCenter);
+        void WriteContactCenter(stride::ContactType::Id typeId,
+                stride::util::SegmentedVector<stride::ContactPool*>&        contactCenter,
+                                proto::GeoGrid_Location_ContactPools* protoContactCenter);
 
         /// Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool.
         void WriteContactPool(stride::ContactPool*                               contactPool,
-                              proto::GeoGrid_Location_ContactCenter_ContactPool* protoContactPool);
+                              proto::GeoGrid_Location_ContactPools_ContactPool* protoContactPool);
 
         /// Create a ProtoBuf Coordinate containing all the info needed to reconstruct a Coordinate..
         void WriteCoordinate(const Coordinate& coordinate, proto::GeoGrid_Location_Coordinate* protoCoordinate);
 
         /// Create a ProtoBuf Location containing all the info needed to reconstruct a Location.
-        void WriteLocation(const Location& location, proto::GeoGrid_Location* protoLocation);
+        void WriteLocation(Location& location, proto::GeoGrid_Location* protoLocation);
 
         /// Create a ProtoBuf Person containing all the info needed to reconstruct a Person.
         void WritePerson(stride::Person* person, proto::GeoGrid_Person* protoPerson);
