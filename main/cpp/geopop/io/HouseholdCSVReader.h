@@ -28,8 +28,6 @@ class Person;
 
 namespace geopop {
 
-class HouseholdCenter;
-
 /**
  * Creates a Reader that retrieves the different Household profiles from a given CSV file.
  */
