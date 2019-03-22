@@ -35,8 +35,6 @@ class GeoGrid_Person;
 
 namespace geopop {
 
-class ContactCenter;
-
 /**
  * An implementation of the GeoGridWriter using Protocol Buffers
  * This class is used to write a GeoGrid to a Proto file
@@ -51,10 +49,10 @@ public:
         void Write(GeoGrid& geoGrid, std::ostream& stream) override;
 
 private:
-        /// Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter.
-        void WriteContactCenter(stride::ContactType::Id typeId,
-                stride::util::SegmentedVector<stride::ContactPool*>&        contactCenter,
-                                proto::GeoGrid_Location_ContactPools* protoContactCenter);
+        /// Create a ProtoBuf ContactPools structure.
+        void WriteContactPools(stride::ContactType::Id typeId,
+                stride::util::SegmentedVector<stride::ContactPool*>&        contactPools,
+                                proto::GeoGrid_Location_ContactPools* protoContactPools);
 
         /// Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool.
         void WriteContactPool(stride::ContactPool*                               contactPool,

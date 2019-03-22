@@ -18,7 +18,6 @@
 #include "contact/ContactPool.h"
 #include "contact/ContactType.h"
 #include "geogrid.pb.h"
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "pop/Person.h"
 #include "util/Exception.h"
@@ -56,8 +55,8 @@ void GeoGridProtoWriter::Write(GeoGrid& geoGrid, ostream& stream)
         stream.flush();
 }
 
-void GeoGridProtoWriter::WriteContactCenter(Id typeId, SegmentedVector<stride::ContactPool*>&   contactCenter,
-                                            proto::GeoGrid_Location_ContactPools* protoContactCenter)
+void GeoGridProtoWriter::WriteContactPools(Id typeId, SegmentedVector<stride::ContactPool*>&   contactPools,
+                                            proto::GeoGrid_Location_ContactPools* protoContactPools)
 {
         map<Id, proto::GeoGrid_Location_ContactPools_Type> types = {
             {Id::K12School, proto::GeoGrid_Location_ContactPools_Type_K12School},
@@ -67,9 +66,9 @@ void GeoGridProtoWriter::WriteContactCenter(Id typeId, SegmentedVector<stride::C
             {Id::Household, proto::GeoGrid_Location_ContactPools_Type_Household},
             {Id::Workplace, proto::GeoGrid_Location_ContactPools_Type_Workplace}};
 
-        protoContactCenter->set_type(types[typeId]);
-        for (stride::ContactPool* pool : contactCenter) {
-                WriteContactPool(pool, protoContactCenter->add_pools());
+        protoContactPools->set_type(types[typeId]);
+        for (stride::ContactPool* pool : contactPools) {
+                WriteContactPool(pool, protoContactPools->add_pools());
         }
 }
 
@@ -108,7 +107,7 @@ void GeoGridProtoWriter::WriteLocation(Location& location, proto::GeoGrid_Locati
         }
 
         for (Id typ : IdList) {
-                        WriteContactCenter(typ, location.RefPools(typ), protoLocation->add_contactpools());
+                WriteContactPools(typ, location.RefPools(typ), protoLocation->add_contactpools());
         }
 }
 

@@ -16,7 +16,6 @@
 #include "GeoGridProtoReader.h"
 
 #include "geogrid.pb.h"
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "pop/Person.h"
 #include "pop/Population.h"
@@ -59,10 +58,10 @@ void GeoGridProtoReader::Read()
         m_commutes.clear();
 }
 
-void GeoGridProtoReader::ParseContactCenter(shared_ptr<Location> loc,
-                const proto::GeoGrid_Location_ContactPools& protoContactCenter)
+void GeoGridProtoReader::ParseContactPools(shared_ptr<Location> loc,
+                                           const proto::GeoGrid_Location_ContactPools &protoContactPools)
 {
-        const auto type = protoContactCenter.type();
+        const auto type = protoContactPools.type();
         Id typeId;
         switch (type) {
                 case proto::GeoGrid_Location_ContactPools_Type_K12School:
@@ -84,12 +83,12 @@ void GeoGridProtoReader::ParseContactCenter(shared_ptr<Location> loc,
                         typeId = Id::Workplace;
                         break;
                 default:
-                        throw runtime_error("No such ContactCenter type");
+                        throw runtime_error("No such ContactPools type");
         }
 
-        for (int idx = 0; idx < protoContactCenter.pools_size(); idx++) {
+        for (int idx = 0; idx < protoContactPools.pools_size(); idx++) {
                 const proto::GeoGrid_Location_ContactPools_ContactPool& protoContactPool =
-                            protoContactCenter.pools(idx);
+                            protoContactPools.pools(idx);
                 ParseContactPool(loc, protoContactPool, typeId);
         }
 }
@@ -126,8 +125,8 @@ shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Loca
         auto loc = make_shared<Location>(id, province, coordinate, name, population);
 
         for (int idx = 0; idx < protoLocation.contactpools_size(); idx++) {
-                const proto::GeoGrid_Location_ContactPools& protoCenter = protoLocation.contactpools(idx);
-                ParseContactCenter(loc, protoCenter);
+                const proto::GeoGrid_Location_ContactPools& protoPools = protoLocation.contactpools(idx);
+                ParseContactPools(loc, protoPools);
         }
 
         for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {

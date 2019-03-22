@@ -15,7 +15,6 @@
 
 #include "GeoGridIOUtils.h"
 
-#include "contact/ContactType.h"
 #include "geogrid.pb.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/io/GeoGridProtoReader.h"
@@ -168,46 +167,35 @@ void CompareGeoGrid(proto::GeoGrid& protoGrid)
 shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
 {
         const auto geoGrid  = make_shared<GeoGrid>(pop);
-        const auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
+        const auto loc = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
 
-        const auto school = make_shared<ContactCenter>(0, Id::K12School);
-        location->AddCenter(school);
-        const auto schoolPool = new ContactPool(2, Id::K12School);
-        school->RegisterPool(schoolPool);
+        auto k12Pool = pop->RefPoolSys().CreateContactPool(Id::K12School);
+        loc->RefPools(Id::K12School).emplace_back(k12Pool);
 
-        const auto community = make_shared<ContactCenter>(1, Id::PrimaryCommunity);
-        location->AddCenter(community);
-        const auto communityPool = new ContactPool(3, Id::PrimaryCommunity);
-        community->RegisterPool(communityPool);
+        auto pcPool = pop->RefPoolSys().CreateContactPool(Id::PrimaryCommunity);
+        loc->RefPools(Id::PrimaryCommunity).emplace_back(pcPool);
 
-        const auto secondaryCommunity = make_shared<ContactCenter>(2, Id::SecondaryCommunity);
-        location->AddCenter(secondaryCommunity);
-        const auto secondaryCommunityPool = new ContactPool(7, Id::SecondaryCommunity);
-        secondaryCommunity->RegisterPool(secondaryCommunityPool);
+        auto scPool = pop->RefPoolSys().CreateContactPool(Id::SecondaryCommunity);
+        loc->RefPools(Id::SecondaryCommunity).emplace_back(scPool);
 
-        const auto college = make_shared<ContactCenter>(3, Id::College);
-        location->AddCenter(college);
-        const auto collegePool = new ContactPool(4, Id::College);
-        college->RegisterPool(collegePool);
+        auto cPool =pop->RefPoolSys().CreateContactPool(Id::College);
+        loc->RefPools(Id::College).emplace_back(cPool);
 
-        const auto household = make_shared<ContactCenter>(4, Id::Household);
-        location->AddCenter(household);
-        const auto householdPool = new ContactPool(5, Id::Household);
-        household->RegisterPool(householdPool);
+        auto hPool =pop->RefPoolSys().CreateContactPool(Id::Household);
+        loc->RefPools(Id::Household).emplace_back(hPool);
 
-        const auto workplace = make_shared<ContactCenter>(5, Id::Workplace);
-        location->AddCenter(workplace);
-        const auto workplacePool = new ContactPool(6, Id::Workplace);
-        workplace->RegisterPool(workplacePool);
+        auto wPool =pop->RefPoolSys().CreateContactPool(Id::Workplace);
+        loc->RefPools(Id::Workplace).emplace_back(wPool);
 
-        geoGrid->AddLocation(location);
-        const auto person = geoGrid->GetPopulation()->CreatePerson(0, 18, 5, 2, 4, 6, 3, 7);
-        communityPool->AddMember(person);
-        schoolPool->AddMember(person);
-        secondaryCommunityPool->AddMember(person);
-        collegePool->AddMember(person);
-        householdPool->AddMember(person);
-        workplacePool->AddMember(person);
+        geoGrid->AddLocation(loc);
+        const auto person = geoGrid->GetPopulation()->CreatePerson(0, 18, hPool->GetId(), k12Pool->GetId(),
+                cPool->GetId(), wPool->GetId(), pcPool->GetId(), scPool->GetId());
+        k12Pool->AddMember(person);
+        pcPool->AddMember(person);
+        scPool->AddMember(person);
+        cPool->AddMember(person);
+        hPool->AddMember(person);
+        wPool->AddMember(person);
         return geoGrid;
 }
 
