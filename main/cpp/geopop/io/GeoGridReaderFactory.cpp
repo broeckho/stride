@@ -15,7 +15,7 @@
 
 #include "GeoGridReaderFactory.h"
 
-#include "GeoGridJSONReader.h"
+//#include "GeoGridJSONReader.h"
 #include "GeoGridProtoReader.h"
 #include "GeoGridReader.h"
 #include "util/Exception.h"
