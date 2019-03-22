@@ -33,6 +33,9 @@ public:
         /// see @Generator::SetupPools.
         void SetupPools(Location& loc,
                         ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop) override;
+
+        /// @see Generator::AddPools.
+        virtual void AddPools(Location& loc, stride::Population* pop, unsigned int number);
 };
 
 } // namespace geopop

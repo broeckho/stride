@@ -42,7 +42,7 @@ class RnMan;
  * Key Data structure: container for
  * (a) all individuals in the population
  * (b) the ContactPoolSys wchich is used to loop over ContactPools of each type
- * (c) (if present) the GeoGrid of Locations with ContactCenters at that location.
+ * (c) (if present) GeoGrid of Locations, each having an index of ContactPools at that location.
  */
 class Population : public util::SegmentedVector<Person>
 {

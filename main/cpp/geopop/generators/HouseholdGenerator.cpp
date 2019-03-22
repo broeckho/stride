@@ -23,6 +23,7 @@
 #include "util/RnMan.h"
 
 using namespace std;
+using namespace stride;
 using namespace stride::ContactType;
 
 namespace geopop {
@@ -56,13 +57,23 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 }
 
+void HouseholdGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        for (auto i = 0U; i < number; ++i) {
+                const auto p = poolSys.CreateContactPool(Id::Household);
+                loc.RegisterPool<Id::Household>(p);
+        }
+}
+
 void HouseholdGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-                                    stride::Population* pop)
+                                    Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 
         for (auto i = 0U; i < geoGridConfig.pools.pools_per_household; ++i) {
-                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Household);
+                const auto p = poolSys.CreateContactPool(Id::Household);
                 center.RegisterPool(p);
                 loc.RegisterPool<Id::Household>(p);
         }

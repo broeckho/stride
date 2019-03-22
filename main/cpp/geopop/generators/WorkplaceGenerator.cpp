@@ -26,6 +26,7 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride;
 using namespace stride::ContactType;
 
 void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
@@ -78,16 +79,26 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 }
 
-void WorkplaceGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig&, stride::Population* pop)
+void WorkplaceGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
 {
         auto& poolSys = pop->RefPoolSys();
 
-        // TODO CheckThisAlgorithm
-        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
-        const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
-        center.RegisterPool(p);
-        loc.RegisterPool<Id::Workplace>(p);
-        //}
+        for (auto i = 0U; i < number; ++i) {
+                const auto p = poolSys.CreateContactPool(Id::Workplace);
+                loc.RegisterPool<Id::Workplace>(p);
+        }
+}
+
+void WorkplaceGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
+                                    Population* pop)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
+                const auto p = poolSys.CreateContactPool(Id::Workplace);
+                center.RegisterPool(p);
+                loc.RegisterPool<Id::Workplace>(p);
+        }
 }
 
 } // namespace geopop

@@ -75,14 +75,22 @@ void SecondaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& g
         }
 }
 
-void SecondaryCommunityGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig&,
+void SecondaryCommunityGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
+{
+        auto& poolSys = pop->RefPoolSys();
+
+        for (auto i = 0U; i < number; ++i) {
+                const auto p = poolSys.CreateContactPool(Id::SecondaryCommunity);
+                loc.RegisterPool<Id::SecondaryCommunity>(p);
+        }
+}
+
+void SecondaryCommunityGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
                                              Population* pop)
 {
         auto& poolSys = pop->RefPoolSys();
 
-        // TODO CheckThisAlgorithm
-        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
-        if (center.size() == 0) {
+        for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_secondary_community; ++i) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::SecondaryCommunity);
                 center.RegisterPool(p);
                 loc.RegisterPool<Id::SecondaryCommunity>(p);

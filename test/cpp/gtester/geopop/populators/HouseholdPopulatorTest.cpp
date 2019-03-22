@@ -21,7 +21,6 @@
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
 #include "pop/Population.h"
-#include "util/LogUtils.h"
 #include "util/RnMan.h"
 
 #include <gtest/gtest.h>
@@ -43,11 +42,12 @@ public:
 
 protected:
         RnMan                        m_rn_man;
-        HouseholdPopulator            m_household_populator;
+        HouseholdPopulator           m_household_populator;
         GeoGridConfig                m_geogrid_config;
         shared_ptr<Population>       m_pop;
         GeoGrid&                     m_geo_grid;
         HouseholdGenerator           m_household_generator;
+        const unsigned int           m_pph = GeoGridConfig{}.pools.pools_per_household;
 };
 
 TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
@@ -55,20 +55,14 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
         m_geogrid_config.refHH.ages = vector<vector<unsigned int>>{{8U}};
 
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-        auto hCenter = make_shared<ContactCenter>(1, Id::Household);
-        m_household_generator.SetupPools(*loc1, *hCenter, m_geogrid_config, m_pop.get());
-        loc1->AddCenter(hCenter);
-        m_geo_grid.AddLocation(loc1);
+        m_household_generator.AddPools(*loc1, m_pop.get(), m_pph);
 
+        m_geo_grid.AddLocation(loc1);
         m_household_populator.Apply(m_geo_grid, m_geogrid_config);
 
-        ASSERT_EQ(hCenter->size(), 1);
-        EXPECT_EQ((*hCenter)[0]->size(), 1);
-
         const auto& hPools = loc1->RefPools(Id::Household);
-        const auto& pool1 = *hPools[0];
         ASSERT_EQ(hPools.size(), 1);
-        ASSERT_EQ(pool1.size(), 1);
+        ASSERT_EQ(hPools[0]->size(), 1);
 }
 
 TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
@@ -83,19 +77,11 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
 
         for (unsigned int i = 0U; i < 5U; ++i) {
-                auto household = make_shared<ContactCenter>(i, Id::Household);
-                m_household_generator.SetupPools(*loc1, *household, m_geogrid_config, m_pop.get());
-                loc1->AddCenter(household);
+                m_household_generator.AddPools(*loc1, m_pop.get(), m_pph);
         }
 
         m_geo_grid.AddLocation(loc1);
         m_household_populator.Apply(m_geo_grid, m_geogrid_config);
-
-        for (const auto& hCenter : loc1->RefCenters(Id::Household)) {
-                ASSERT_EQ(hCenter->size(), 1);
-                ASSERT_EQ((*hCenter)[0]->size(), 1);
-                EXPECT_EQ((*(*hCenter)[0]->begin())->GetAge(), 18);
-        }
 
         for (const auto& hPool : loc1->RefPools(Id::Household)) {
                 ASSERT_EQ(hPool->size(), 1);
@@ -108,27 +94,11 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
         m_geogrid_config.refHH.ages = vector<vector<unsigned int>>{{18U}, {12U, 56U}};
 
         const auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
-
-        const auto hCenter = make_shared<ContactCenter>(1, Id::Household);
-        m_household_generator.SetupPools(*loc1, *hCenter, m_geogrid_config, m_pop.get());
-        loc1->AddCenter(hCenter);
-
-
-        const auto hCenter2 = make_shared<ContactCenter>(2, Id::Household);
-        m_household_generator.SetupPools(*loc1, *hCenter2, m_geogrid_config, m_pop.get());
-        loc1->AddCenter(hCenter2);
+        m_household_generator.AddPools(*loc1, m_pop.get(), m_pph);
+        m_household_generator.AddPools(*loc1, m_pop.get(), m_pph);
 
         m_geo_grid.AddLocation(loc1);
         m_household_populator.Apply(m_geo_grid, m_geogrid_config);
-
-        ASSERT_EQ(hCenter->size(), 1);
-        EXPECT_EQ((*hCenter)[0]->size(), 1);
-        EXPECT_EQ((*(*hCenter)[0]->begin())->GetAge(), 18);
-
-        ASSERT_EQ(hCenter2->size(), 1);
-        EXPECT_EQ((*hCenter2)[0]->size(), 2);
-        EXPECT_EQ((*(*hCenter2)[0]->begin())->GetAge(), 12);
-        EXPECT_EQ((*(*hCenter2)[0]->begin() + 1)->GetAge(), 56);
 
         const auto& hPools = loc1->RefPools(Id::Household);
         const auto& pool1 = *hPools[0];

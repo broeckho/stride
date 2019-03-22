@@ -15,7 +15,6 @@
 
 #include "geopop/generators/SecondaryCommunityGenerator.h"
 
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -55,16 +54,12 @@ TEST_F(SecondaryCommunityGeneratorTest, OneLocationTest)
         auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         m_geo_grid.AddLocation(loc1);
 
-        const auto& c1 = loc1->CRefCenters(Id::SecondaryCommunity);
-        EXPECT_EQ(c1.size(), 0);
-
         const auto& p1 = loc1->CRefPools(Id::SecondaryCommunity);
         EXPECT_EQ(p1.size(), 0);
 
         unsigned int                scCounter{1U};
         m_secondary_community_generator.Apply(m_geo_grid, m_geogrid_config, scCounter);
-        
-        EXPECT_EQ(c1.size(), 5);
+
         EXPECT_EQ(p1.size(), 5 * m_geogrid_config.pools.pools_per_secondary_community);
 }
 
@@ -82,8 +77,8 @@ TEST_F(SecondaryCommunityGeneratorTest, EqualLocationTest)
 
         vector<unsigned int> expected{546, 495, 475, 500, 463, 533, 472, 539, 496, 481};
         for (int i = 0; i < 10; i++) {
-                const auto& c2 = m_geo_grid[i]->RefCenters(Id::SecondaryCommunity);
-                EXPECT_EQ(expected[i], c2.size());
+                const auto& p = m_geo_grid[i]->RefPools(Id::SecondaryCommunity);
+                EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_secondary_community, p.size());
         }
 }
 
@@ -119,9 +114,6 @@ TEST_F(SecondaryCommunityGeneratorTest, FiveLocationsTest)
 
         vector<int> expectedCount{553, 518, 410, 173, 224};
         for (int i = 0; i < 5; i++) {
-                const auto& cc = m_geo_grid[i]->CRefCenters(Id::SecondaryCommunity);
-                EXPECT_EQ(expectedCount[i], cc.size());
-
                 const auto& cp = m_geo_grid[i]->CRefPools(Id::SecondaryCommunity);
                 EXPECT_EQ(expectedCount[i] * m_geogrid_config.pools.pools_per_secondary_community, cp.size());
         }

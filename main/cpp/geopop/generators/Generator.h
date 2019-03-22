@@ -52,6 +52,9 @@ public:
         virtual void SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
                                 stride::Population* pop) = 0;
 
+        /// Create ContactPools in the GeoGrid and do not register them with the ContactCenter.
+        virtual void AddPools(Location& loc, stride::Population* pop, unsigned int number) = 0;
+
 protected:
         stride::util::RnMan             m_rn_man; ///< RnManager used by generators.
         std::shared_ptr<spdlog::logger> m_logger; ///< Logger used by generators.
