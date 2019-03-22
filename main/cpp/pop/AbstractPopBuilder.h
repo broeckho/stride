@@ -51,7 +51,6 @@ public:
         /// Build Population and return it afterwards.
         virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) = 0;
 
-
 protected:
         const boost::property_tree::ptree& m_config;        ///< Configuration property tree.
         util::RnMan&                       m_rn_man;        ///< Random number generation management.

@@ -20,7 +20,6 @@
 #include "geopop/GeoGridConfig.h"
 #include "pop/Person.h"
 
-
 namespace geopop {
 
 /**
@@ -50,7 +49,7 @@ private:
         void NearbyWorkspacePools(GeoGrid& geoGrid, std::shared_ptr<Location> loc);
 
         /// Determines workplace pools at each Wocation.
-        //void WorkplacePoolsAtLocation(GeoGrid& geoGrid);
+        // void WorkplacePoolsAtLocation(GeoGrid& geoGrid);
 
 private:
         GeoGridConfig                     m_geogrid_config;  ///< The GeoGridConfig used during populating.

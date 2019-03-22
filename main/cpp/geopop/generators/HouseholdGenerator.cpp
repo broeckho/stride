@@ -15,7 +15,6 @@
 
 #include "HouseholdGenerator.h"
 
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -28,7 +27,7 @@ using namespace stride::ContactType;
 
 namespace geopop {
 
-void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
+void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         vector<double> weights;
         for (const auto& loc : geoGrid) {
@@ -41,40 +40,19 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
-        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
+        auto       pop  = geoGrid.GetPopulation();
 
         for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto h   = make_shared<ContactCenter>(ccCounter++, Id::Household);
-
-                for (auto j = 0U; j < geoGridConfig.pools.pools_per_household; ++j) {
-                        const auto p = poolSys.CreateContactPool(Id::Household);
-                        h->RegisterPool(p);
-                        loc->RegisterPool<Id::Household>(p);
-                }
-
-                loc->AddCenter(h);
+                AddPools(*loc, pop, geoGridConfig.pools.pools_per_household);
         }
 }
 
 void HouseholdGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
 {
         auto& poolSys = pop->RefPoolSys();
-
         for (auto i = 0U; i < number; ++i) {
                 const auto p = poolSys.CreateContactPool(Id::Household);
-                loc.RegisterPool<Id::Household>(p);
-        }
-}
-
-void HouseholdGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-                                    Population* pop)
-{
-        auto& poolSys = pop->RefPoolSys();
-
-        for (auto i = 0U; i < geoGridConfig.pools.pools_per_household; ++i) {
-                const auto p = poolSys.CreateContactPool(Id::Household);
-                center.RegisterPool(p);
                 loc.RegisterPool<Id::Household>(p);
         }
 }

@@ -13,9 +13,9 @@
  *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "geopop/populators/PrimaryCommunityPopulator.h"
-#include "geopop/generators/PrimaryCommunityGenerator.h"
 #include "geopop/generators/HouseholdGenerator.h"
+#include "geopop/generators/PrimaryCommunityGenerator.h"
+#include "geopop/populators/PrimaryCommunityPopulator.h"
 
 #include "geopop/Coordinate.h"
 #include "geopop/GeoGrid.h"
@@ -32,7 +32,6 @@ using namespace geopop;
 using namespace stride;
 using namespace stride::ContactType;
 using namespace stride::util;
-
 
 class PrimaryCommunityPopulatorTest : public testing::Test
 {
@@ -53,7 +52,7 @@ protected:
         {
                 m_household_generator.AddPools(*m_location, m_pop.get(), m_pppc);
 
-                m_person         = make_shared<Person>();
+                m_person = make_shared<Person>();
                 m_person->SetId(42);
                 m_location->RefPools(Id::Household)[0]->AddMember(m_person.get());
 
@@ -62,17 +61,17 @@ protected:
                 m_community_generator.AddPools(*m_location, m_pop.get(), m_pppc);
         }
 
-        RnMan                       m_rn_man;
-        PrimaryCommunityPopulator   m_populator;
-        GeoGridConfig               m_geogrid_config;
-        shared_ptr<Population>      m_pop;
-        shared_ptr<Location>        m_location;
-        GeoGrid&                    m_geo_grid;
-        shared_ptr<Person>          m_person;
-        PrimaryCommunityGenerator   m_community_generator;
-        HouseholdGenerator          m_household_generator;
-        const unsigned int          m_pphh = GeoGridConfig{}.pools.pools_per_household;
-        const unsigned int          m_pppc = GeoGridConfig{}.pools.pools_per_primary_community;
+        RnMan                     m_rn_man;
+        PrimaryCommunityPopulator m_populator;
+        GeoGridConfig             m_geogrid_config;
+        shared_ptr<Population>    m_pop;
+        shared_ptr<Location>      m_location;
+        GeoGrid&                  m_geo_grid;
+        shared_ptr<Person>        m_person;
+        PrimaryCommunityGenerator m_community_generator;
+        HouseholdGenerator        m_household_generator;
+        const unsigned int        m_pphh = GeoGridConfig{}.pools.pools_per_household;
+        const unsigned int        m_pppc = GeoGridConfig{}.pools.pools_per_primary_community;
 };
 
 TEST_F(PrimaryCommunityPopulatorTest, OneCommunityTest)
@@ -121,7 +120,7 @@ TEST_F(PrimaryCommunityPopulatorTest, HouseholdTest)
 // and that person gets assigned to the PrimaryCommunity at the first Location.
 TEST_F(PrimaryCommunityPopulatorTest, TwoLocationsTest)
 {
-        auto location2  = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
+        auto location2 = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
         m_community_generator.AddPools(*location2, m_pop.get(), m_pppc);
 
         m_geo_grid.AddLocation(location2);

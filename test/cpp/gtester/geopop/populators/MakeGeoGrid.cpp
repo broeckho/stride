@@ -39,7 +39,7 @@ using namespace geopop;
  * @param pop               The population carrying this GeoGrid.
  */
 void MakeGeoGrid(const GeoGridConfig& ggConfig, int locCount, int locPop, int schoolCount, int houseHoldCount,
-                int personCount, Population* pop)
+                 int personCount, Population* pop)
 {
         vector<unsigned int> populationSample = {
             17, 27, 65, 40, 29, 76, 27, 50, 28, 62, 50, 14, 30, 36, 12, 31, 25, 72, 62, 4,  40, 52, 55, 50, 62,
@@ -55,14 +55,14 @@ void MakeGeoGrid(const GeoGridConfig& ggConfig, int locCount, int locPop, int sc
             76, 73, 9,  27, 5,  68, 25, 16, 29, 58, 78, 75, 40, 8,  37, 63, 63, 76, 55, 47, 18, 4,  21, 39, 45,
             42, 20, 41, 40, 37, 38, 30, 48, 9,  40, 23, 68, 77, 21, 50, 18, 27, 54, 1,  32, 67, 27, 14, 4,  78};
 
-        const auto                     populationSize{populationSample.size()};
-        GeoGridConfig                  config{};
-        auto&                          geoGrid = pop->RefGeoGrid();
-        RnMan                          rnMan(RnInfo{});
-        K12SchoolGenerator             k12Gen(rnMan);
-        HouseholdGenerator             hhGen(rnMan);
-        const unsigned int             pph   = ggConfig.pools.pools_per_household;
-        const unsigned int             ppk12 = ggConfig.pools.pools_per_k12school;
+        const auto         populationSize{populationSample.size()};
+        GeoGridConfig      config{};
+        auto&              geoGrid = pop->RefGeoGrid();
+        RnMan              rnMan(RnInfo{});
+        K12SchoolGenerator k12Gen(rnMan);
+        HouseholdGenerator hhGen(rnMan);
+        const unsigned int pph   = ggConfig.pools.pools_per_household;
+        const unsigned int ppk12 = ggConfig.pools.pools_per_k12school;
 
         size_t sampleId = 0;
         auto   personId = 0U;

@@ -15,8 +15,8 @@
 
 #include "geopop/populators/WorkplacePopulator.h"
 
-#include "contact/AgeBrackets.h"
 #include "MakeGeoGrid.h"
+#include "contact/AgeBrackets.h"
 #include "geopop/Location.h"
 #include "geopop/generators/WorkplaceGenerator.h"
 #include "pop/Population.h"
@@ -32,24 +32,24 @@ using namespace stride::util;
 
 namespace {
 
-class WorkplacePopulatorTest : public testing::Test {
+class WorkplacePopulatorTest : public testing::Test
+{
 public:
         WorkplacePopulatorTest()
-                : m_rn_man(RnInfo()), m_workplace_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
-                  m_geo_grid(m_pop->RefGeoGrid()), m_workplace_generator(m_rn_man)
+            : m_rn_man(RnInfo()), m_workplace_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+              m_geo_grid(m_pop->RefGeoGrid()), m_workplace_generator(m_rn_man)
         {
         }
 
 protected:
-        RnMan                        m_rn_man;
-        WorkplacePopulator           m_workplace_populator;
-        GeoGridConfig                m_geogrid_config;
-        shared_ptr<Population>       m_pop;
-        GeoGrid&                     m_geo_grid;
-        WorkplaceGenerator           m_workplace_generator;
-        const unsigned int           m_ppwp = GeoGridConfig{}.pools.pools_per_workplace;
+        RnMan                  m_rn_man;
+        WorkplacePopulator     m_workplace_populator;
+        GeoGridConfig          m_geogrid_config;
+        shared_ptr<Population> m_pop;
+        GeoGrid&               m_geo_grid;
+        WorkplaceGenerator     m_workplace_generator;
+        const unsigned int     m_ppwp = GeoGridConfig{}.pools.pools_per_workplace;
 };
-
 
 TEST_F(WorkplacePopulatorTest, NoPopulation)
 {

@@ -15,10 +15,8 @@
 
 #include "geopop/io/GeoGridProtoWriter.h"
 #include "GeoGridIOUtils.h"
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGridConfig.h"
 #include "pop/Population.h"
-#include "util/FileSys.h"
 
 #include <gtest/gtest.h>
 
@@ -39,17 +37,19 @@ TEST(GeoGridProtoWriterTest, locationTest)
 
         CompareGeoGrid(geoGrid);
 }
-TEST(GeoGridProtoWriterTest, contactCentersTest)
+
+TEST(GeoGridProtoWriterTest, contactPoolsTest)
 {
-        const auto pop      = Population::Create();
-        auto&      geoGrid  = pop->RefGeoGrid();
-        const auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
-        location->AddCenter(make_shared<ContactCenter>(0, Id::K12School));
-        location->AddCenter(make_shared<ContactCenter>(1, Id::PrimaryCommunity));
-        location->AddCenter(make_shared<ContactCenter>(2, Id::College));
-        location->AddCenter(make_shared<ContactCenter>(3, Id::Household));
-        location->AddCenter(make_shared<ContactCenter>(4, Id::Workplace));
-        geoGrid.AddLocation(location);
+        const auto pop     = Population::Create();
+        auto&      geoGrid = pop->RefGeoGrid();
+        const auto loc     = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
+
+        loc->RefPools(Id::K12School).emplace_back(pop->RefPoolSys().CreateContactPool(Id::K12School));
+        loc->RefPools(Id::PrimaryCommunity).emplace_back(pop->RefPoolSys().CreateContactPool(Id::PrimaryCommunity));
+        loc->RefPools(Id::College).emplace_back(pop->RefPoolSys().CreateContactPool(Id::College));
+        loc->RefPools(Id::Household).emplace_back(pop->RefPoolSys().CreateContactPool(Id::Household));
+        loc->RefPools(Id::Workplace).emplace_back(pop->RefPoolSys().CreateContactPool(Id::Workplace));
+        geoGrid.AddLocation(loc);
 
         CompareGeoGrid(geoGrid);
 }
