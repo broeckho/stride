@@ -17,7 +17,6 @@
 
 #include "contact/ContactType.h"
 #include "contact/IdSubscriptArray.h"
-#include "geopop/ContactCenter.h"
 #include "geopop/Coordinate.h"
 #include "util/SegmentedVector.h"
 
@@ -36,10 +35,8 @@ class ContactPool;
 
 namespace geopop {
 
-class ContactCenter;
-
 /**
- * Location for use within the GeoGrid, contains Coordinate and ContactCenters.
+ * Location for use within the GeoGrid, contains Coordinate and index to ContactPools.
  */
 class Location
 {
@@ -50,9 +47,6 @@ public:
 
         /// Perform a full comparison with the other location.
         bool operator==(const Location& other) const;
-
-        /// Add a ContactCenter.
-        void AddCenter(const std::shared_ptr<ContactCenter>& contactCenter);
 
         /// Adds a Location and a proportion to the incoming commute vector.
         /// I.e. fraction of commuting population at otherLocation commuting to this Location.
@@ -154,15 +148,6 @@ public:
         /// References outgoing commute Locations + fraction of commutes to that Location.
         const std::vector<std::pair<Location*, double>>& CRefOutgoingCommutes() const { return m_outCommutes; }
 
-        /// Reference the Contact Centers of a specific type id (Household, Workplace, ...).
-        const std::vector<std::shared_ptr<ContactCenter>>& CRefCenters(stride::ContactType::Id id) const
-        {
-                return m_cc[id];
-        }
-
-        /// Reference the Contact Centers of a specific type id (Household, Workplace, ...).
-        std::vector<std::shared_ptr<ContactCenter>>& RefCenters(stride::ContactType::Id id) { return m_cc[id]; }
-
 private:
         Coordinate   m_coordinate;   ///< Coordinate of the Location.
         unsigned int m_id = 0U;      ///< Id.
@@ -176,9 +161,6 @@ private:
 
         ///< Outgoing commutes stored as pair of Location and fraction of population to this this Location.
         std::vector<std::pair<Location*, double>> m_outCommutes;
-
-        ///< Stores the contact centers indexed by their type.
-        stride::ContactType::IdSubscriptArray<std::vector<std::shared_ptr<ContactCenter>>> m_cc;
 
         ///< The system holding pointers to the contactpools (for each type id) at this Location.
         stride::ContactType::IdSubscriptArray<stride::util::SegmentedVector<stride::ContactPool*>> m_pool_index;

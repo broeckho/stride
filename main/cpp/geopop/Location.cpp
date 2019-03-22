@@ -14,7 +14,6 @@
  */
 
 #include "Location.h"
-#include "ContactCenter.h"
 #include "contact/ContactPool.h"
 #include "contact/ContactType.h"
 #include "disease/Health.h"
@@ -30,7 +29,7 @@ using namespace stride::ContactType;
 
 Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, string name, unsigned int popCount)
     : m_coordinate(coordinate), m_id(id), m_name(move(name)), m_pop_count(popCount), m_pop_fraction(0.0),
-      m_province(province), m_inCommutes(), m_outCommutes(), m_cc(), m_pool_index()
+      m_province(province), m_inCommutes(), m_outCommutes(),/* m_cc(),*/ m_pool_index()
 {
 }
 
@@ -40,7 +39,6 @@ bool Location::operator==(const Location& other) const
 
         auto temp = true;
         for (Id typ : IdList) {
-                temp = temp && (CRefCenters(typ) == other.CRefCenters(typ));
                 temp = temp && (CRefPools(typ) == other.CRefPools(typ));
         }
         return temp && GetID() == other.GetID() && get<0>(GetCoordinate()) == get<0>(other.GetCoordinate()) &&
@@ -48,11 +46,6 @@ bool Location::operator==(const Location& other) const
                GetProvince() == other.GetProvince() && GetPopCount() == other.GetPopCount() &&
                CRefIncomingCommutes() == other.CRefIncomingCommutes() &&
                CRefOutgoingCommutes() == other.CRefOutgoingCommutes();
-}
-
-void Location::AddCenter(const std::shared_ptr<ContactCenter>& contactCenter)
-{
-        m_cc[contactCenter->GetContactPoolType()].push_back(contactCenter);
 }
 
 void Location::AddIncomingCommute(shared_ptr<Location> otherLocation, double fraction)
