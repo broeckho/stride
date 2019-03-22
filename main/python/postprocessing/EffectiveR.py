@@ -39,7 +39,7 @@ def createEffectiveRPlot(outputDir, R0, scenarioNames, scenarioDisplayNames,
     plt.ylabel("Effective R")
     saveFig(outputDir, figName)
 
-def createEffectiveRTracePlot(outputDir, sampleSizes, scenarioName, poolSize):
+def createEffectiveRTracePlot(outputDir, sampleSizesRange, scenarioName, poolSize):
     allEffectiveRs = []
     seeds = getRngSeeds(outputDir, scenarioName)
     with multiprocessing.Pool(processes=poolSize) as pool:
@@ -47,6 +47,7 @@ def createEffectiveRTracePlot(outputDir, sampleSizes, scenarioName, poolSize):
     medians = []
     q1s = []
     q3s = []
+    sampleSizes = range(sampleSizesRange[0], sampleSizesRange[1], sampleSizesRange[2])
     for size in sampleSizes:
         effectiveRs = sample(allEffectiveRs, size)
         medians.append(median(effectiveRs))

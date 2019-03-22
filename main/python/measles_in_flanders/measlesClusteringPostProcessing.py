@@ -95,7 +95,7 @@ if __name__=="__main__":
     parser.add_argument("--R0s", type=int, nargs="+", default=[12, 18], help="Values of R0 to analyze")
     parser.add_argument("--numDays", type=int, default=365, help="Number of simulated days")
     parser.add_argument("--extinctionThreshold", type=int, default=0, help="Threshold for epidemic extinction")
-    parser.add_argument("--sampleSizes", type=int, nargs="+", default=[1], help="Sample sizes to test for trace plots")
+    parser.add_argument("--sampleSizes", type=int, nargs="+", default=[1, 500, 1], help="Sample size range to test for trace plots")
     parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in pool for multiprocessing")
     args = parser.parse_args()
     main(args.outputDir, args.plotER, args.R0s, args.numDays, args.extinctionThreshold, args.sampleSizes, args.poolSize)
