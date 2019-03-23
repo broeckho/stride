@@ -15,7 +15,7 @@
 
 #include "GeoGridWriterFactory.h"
 
-#include "GeoGridJSONWriter.h"
+//#include "GeoGridJSONWriter.h"
 #include "GeoGridProtoWriter.h"
 #include "GeoGridWriter.h"
 #include "util/Exception.h"
