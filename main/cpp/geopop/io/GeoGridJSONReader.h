@@ -20,6 +20,8 @@
 #include "contact/ContactType.h"
 #include "geopop/Location.h"
 
+#include "json.hpp"
+
 #include <boost/property_tree/ptree_fwd.hpp>
 
 namespace geopop {
@@ -47,19 +49,19 @@ public:
 
 private:
         /// Create a ContactCenter based on the information stored in the provided boost property tree.
-        std::shared_ptr<ContactCenter> ParseContactCenter(boost::property_tree::ptree& contactCenter);
+        std::shared_ptr<ContactCenter> ParseContactCenter(nlohmann::json& contactCenter);
 
         /// Create a ContactCenter based on the information stored in the provided boost property tree.
-        stride::ContactPool* ParseContactPool(boost::property_tree::ptree& contactPool, stride::ContactType::Id typeId);
+        stride::ContactPool* ParseContactPool(nlohmann::json& contactPool, stride::ContactType::Id typeId);
 
         /// Create a Coordinate based on the information stored in the provided boost property tree.
-        Coordinate ParseCoordinate(boost::property_tree::ptree& coordinate);
+        Coordinate ParseCoordinate(nlohmann::json& coordinate);
 
         /// Create a Location based on the information stored in the provided boost property tree.
-        std::shared_ptr<Location> ParseLocation(boost::property_tree::ptree& location);
+        std::shared_ptr<Location> ParseLocation(nlohmann::json& location);
 
         /// Create a Person based on the information stored in the provided boost property tree.
-        stride::Person* ParsePerson(boost::property_tree::ptree& person);
+        stride::Person* ParsePerson(nlohmann::json& person);
 };
 
 } // namespace geopop

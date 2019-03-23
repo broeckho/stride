@@ -24,6 +24,8 @@
 #include <iostream>
 #include <omp.h>
 
+using json = nlohmann::json;
+
 namespace geopop {
 
 using namespace std;
@@ -34,144 +36,129 @@ GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 
 void GeoGridJSONWriter::Write(GeoGrid& geoGrid, ostream& stream)
 {
-        boost::property_tree::ptree root;
-        boost::property_tree::ptree locations;
+        std::cout << "<<<<<<<<<<<< IN WRITE >>>>>>>>>>>>>>" << std::endl;
+        json jsonfile = json::object();
 
-#pragma omp parallel
-#pragma omp single
-        {
-                for (const auto& location : geoGrid) {
-                        pair<string, boost::property_tree::ptree> child;
-#pragma omp task firstprivate(location)
-                        {
-                                child = make_pair("", WriteLocation(*location));
-#pragma omp critical
+        json locations_array = json::array();
 
-                                locations.push_back(move(child));
-                        }
-                }
-#pragma omp taskwait
+        for (const auto& location : geoGrid) {
+                json location_json = json::object();
+                location_json = WriteLocation(location);
+                locations_array.push_back(location_json);
         }
 
-        root.add_child("locations", locations);
+        jsonfile["locations"] = locations_array;
 
-        boost::property_tree::ptree persons;
-#pragma omp parallel
-#pragma omp single
-        {
-                for (const auto& person : m_persons_found) {
-                        pair<string, boost::property_tree::ptree> child;
-#pragma omp task firstprivate(person)
-                        {
-                                child = make_pair("", WritePerson(person));
-#pragma omp critical
-                                persons.push_back(move(child));
-                        }
-                }
-#pragma omp taskwait
+        json persons_array = json::array();
+
+        for (const auto& person : m_persons_found) {
+                json person_json = json::object();
+                person_json = WritePerson(person);
+                persons_array.push_back(person_json);
         }
-        root.add_child("persons", persons);
+
+        jsonfile["persons"] = persons_array;
 
         m_persons_found.clear();
-        boost::property_tree::write_json(stream, root);
+        stream << jsonfile;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::WriteContactCenter(shared_ptr<ContactCenter> contactCenter)
+json GeoGridJSONWriter::WriteContactCenter(shared_ptr<ContactCenter> contactCenter)
 {
-        boost::property_tree::ptree contactCenter_root;
-        contactCenter_root.put("id", contactCenter->GetId());
-        contactCenter_root.put("type", ToString(contactCenter->GetContactPoolType()));
-        boost::property_tree::ptree pools;
-#pragma omp parallel
-#pragma omp single
-        {
-                for (const auto& pool : *contactCenter) {
-                        pair<string, boost::property_tree::ptree> child;
-#pragma omp task firstprivate(pool)
-                        {
-                                child = make_pair("", WriteContactPool(pool));
-#pragma omp critical
-                                pools.push_back(move(child));
-                        }
-                }
-#pragma omp taskwait
+        json contactCenter_json = json::object();
+        contactCenter_json["id"] = contactCenter->GetId();
+        contactCenter_json["class"] = ToString(contactCenter->GetContactPoolType());
+
+        json pools_array = json::array();
+        for (const auto& pool : *contactCenter) {
+                json temp_pool;
+                temp_pool = WriteContactPool(pool);
+                pools_array.push_back(temp_pool);
         }
-        contactCenter_root.add_child("pools", pools);
-        return contactCenter_root;
+
+        contactCenter_json["pools"] = pools_array;
+        return contactCenter_json;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(ContactPool* contactPool)
+json GeoGridJSONWriter::WriteContactPool(ContactPool* contactPool)
 {
-        boost::property_tree::ptree contactPool_root;
-        contactPool_root.put("id", contactPool->GetId());
-        boost::property_tree::ptree people;
+        json pool = json::object();
+        pool["id"] = contactPool->GetId();
+
+        json people_array = json::array();
         for (auto person : *contactPool) {
-                boost::property_tree::ptree person_root;
-#pragma omp critical
                 m_persons_found.insert(person);
-                person_root.put("", person->GetId());
-                people.push_back(make_pair("", person_root));
+                people_array.push_back(person->GetId());
         }
-        contactPool_root.add_child("people", people);
-        return contactPool_root;
+        pool["people"] = people_array;
+
+        return pool;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::WriteCoordinate(const Coordinate& coordinate)
+json GeoGridJSONWriter::WriteCoordinate(const Coordinate& coordinate)
 {
-        boost::property_tree::ptree coordinate_root;
-        coordinate_root.put("longitude", boost::geometry::get<0>(coordinate));
-        coordinate_root.put("latitude", boost::geometry::get<1>(coordinate));
-        return coordinate_root;
+        json coordinate_object = json::object();
+
+        coordinate_object["longitude"] = boost::geometry::get<0>(coordinate);
+        coordinate_object["latitude"] = boost::geometry::get<1>(coordinate);
+
+        return coordinate_object;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(const Location& location)
+json GeoGridJSONWriter::WriteLocation(shared_ptr<Location> location)
 {
-        boost::property_tree::ptree location_root;
-        location_root.put("id", location.GetID());
-        location_root.put("name", location.GetName());
-        location_root.put("province", location.GetProvince());
-        location_root.put("population", location.GetPopCount());
-        location_root.add_child("coordinate", WriteCoordinate(location.GetCoordinate()));
+        json location_object = json::object();
 
-        auto commutes = location.CRefOutgoingCommutes();
+        location_object["id"] = location->GetID();
+        location_object["name"] = location->GetName();
+        location_object["province"] = location->GetProvince();
+        location_object["population"] = location->GetPopCount();
+        location_object["coordinate"] = WriteCoordinate(location->GetCoordinate());
+
+
+        auto commutes = location->CRefOutgoingCommutes();
         if (!commutes.empty()) {
-                boost::property_tree::ptree commutes_root;
+                json commutes_list = json::array();
                 for (auto commute_pair : commutes) {
-                        commutes_root.put(to_string(commute_pair.first->GetID()), commute_pair.second);
+                        json com_obj = json::object();
+                        com_obj["to"] = commute_pair.first->GetID();
+                        com_obj["proportion"] = commute_pair.second;
+                        commutes_list.push_back(com_obj);
                 }
-                location_root.add_child("commutes", commutes_root);
+                location_object["commute"] = commutes_list;
         }
+        json contactCenters_array = json::array();
 
-        boost::property_tree::ptree       contactCenters;
         vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
-                for (const auto& c : location.CRefCenters(typ)) {
-                        pair<string, boost::property_tree::ptree> child;
+                for (const auto& c : location->RefCenters(typ)) {
                         {
-                                child = make_pair("", WriteContactCenter(c));
-                                contactCenters.push_back(move(child));
+                                contactCenters_array.push_back(WriteContactCenter(c));
                         }
                 }
         }
-        location_root.add_child("contactCenters", contactCenters);
 
-        return location_root;
+        location_object["contactCenters"] = contactCenters_array;
+
+        return location_object;
 }
 
-boost::property_tree::ptree GeoGridJSONWriter::WritePerson(Person* person)
+json GeoGridJSONWriter::WritePerson(Person* person)
 {
         using namespace ContactType;
 
-        boost::property_tree::ptree person_root;
-        person_root.put("id", person->GetId());
-        person_root.put("age", person->GetAge());
-        person_root.put("K12School", person->GetPoolId(Id::K12School));
-        person_root.put("College", person->GetPoolId(Id::College));
-        person_root.put("Household", person->GetPoolId(Id::Household));
-        person_root.put("Workplace", person->GetPoolId(Id::Workplace));
-        person_root.put("PrimaryCommunity", person->GetPoolId(Id::PrimaryCommunity));
-        person_root.put("SecondaryCommunity", person->GetPoolId(Id::SecondaryCommunity));
-        return person_root;
+        json person_json = json::object();
+
+        person_json["id"] = person->GetId();
+        person_json["age"] = person->GetAge();
+        person_json["k12School"] = person->GetPoolId(Id::K12School);
+        person_json["college"] = person->GetPoolId(Id::College);
+        person_json["household"] = person->GetPoolId(Id::Household);
+        person_json["workplace"] = person->GetPoolId(Id::Workplace);
+        person_json["primaryCommunity"] = person->GetPoolId(Id::PrimaryCommunity);
+        person_json["secondaryCommunity"] = person->GetPoolId(Id::SecondaryCommunity);
+
+        return person_json;
 }
 
 } // namespace geopop

@@ -18,6 +18,8 @@
 #include "GeoGridWriter.h"
 #include "geopop/Location.h"
 
+#include "json.hpp"
+
 #include <boost/property_tree/ptree.hpp>
 #include <set>
 
@@ -44,19 +46,19 @@ public:
 
 private:
         /// Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter.
-        boost::property_tree::ptree WriteContactCenter(std::shared_ptr<ContactCenter> contactCenter);
+        nlohmann::json WriteContactCenter(std::shared_ptr<ContactCenter> contactCenter);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a ContactPool.
-        boost::property_tree::ptree WriteContactPool(stride::ContactPool* contactPool);
+        nlohmann::json WriteContactPool(stride::ContactPool* contactPool);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a Coordinate.
-        boost::property_tree::ptree WriteCoordinate(const Coordinate& coordinate);
+        nlohmann::json WriteCoordinate(const Coordinate& coordinate);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a Location.
-        boost::property_tree::ptree WriteLocation(const Location& location);
+        nlohmann::json WriteLocation(std::shared_ptr<Location> location);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a Person.
-        boost::property_tree::ptree WritePerson(stride::Person* person);
+        nlohmann::json WritePerson(stride::Person* person);
 
 private:
         std::set<stride::Person*> m_persons_found; ///< The persons found when looping over the ContactPools.
