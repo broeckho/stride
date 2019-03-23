@@ -22,6 +22,7 @@
 #include "util/RnMan.h"
 
 #include <gtest/gtest.h>
+#include <array>
 
 using namespace std;
 using namespace geopop;
@@ -80,16 +81,16 @@ TEST_F(CollegeGeneratorTest, MultipleLocationsTest)
         m_geogrid_config.input.pop_size           = 399992;
         m_geogrid_config.popInfo.popcount_college = 79998;
 
-        vector<int> sizes{28559, 33319, 39323, 37755, 35050, 10060, 13468, 8384,
-                          9033,  31426, 33860, 4110,  50412, 25098, 40135};
-        for (int size : sizes) {
+        array<unsigned int, 15> sizes{28559, 33319, 39323, 37755, 35050, 10060, 13468, 8384,
+                                      9033,  31426, 33860, 4110,  50412, 25098, 40135};
+        for (const auto size : sizes) {
                 const auto loc = make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size);
                 m_geo_grid.AddLocation(loc);
         }
         m_college_generator.Apply(m_geo_grid, m_geogrid_config);
 
-        vector<int> expected{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
-        for (size_t i = 0; i < sizes.size(); i++) {
+        array<unsigned int, sizes.size()> expected{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
+        for (auto i = 0U; i < sizes.size(); i++) {
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_college,
                           m_geo_grid[i]->CRefPools<Id::College>().size());
         }

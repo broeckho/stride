@@ -67,22 +67,23 @@ TEST_F(WorkplaceGeneratorTest, NoCommuting)
         m_geogrid_config.input.particpation_workplace       = 0.20;
         m_geogrid_config.input.fraction_workplace_commuters = 0;
 
-        vector<int> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
-                          63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
-                          172937, 15581,  22891,  143505, 178516, 116959, 144659, 20775, 156009, 91951,
-                          49823,  181594, 119075, 27700,  116959, 146583, 102531, 58864, 76946,  91951,
-                          134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
-        for (int size : sizes) {
+        array<unsigned int, 50> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
+                                      63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
+                                      172937, 15581,  22891,  143505, 178516, 116959, 144659, 20775, 156009, 91951,
+                                      49823,  181594, 119075, 27700,  116959, 146583, 102531, 58864, 76946,  91951,
+                                      134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
+        for (const auto size : sizes) {
                 m_geo_grid.AddLocation(make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size));
         }
         m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
-        vector<int> expected{1342, 512,  1948, 1801, 1919, 1087, 1304, 6,    1133, 1728, 646,  441,  450,
-                             1643, 1897, 1410, 810,  382,  1192, 1688, 1691, 161,  204,  1433, 1796, 1187,
-                             1449, 201,  1540, 923,  452,  1756, 1167, 261,  1197, 1455, 1058, 594,  796,
-                             868,  1355, 594,  104,  1298, 136,  94,   140,  500,  588,  1663};
+        array<unsigned int, sizes.size()> expected{1342, 512,  1948, 1801, 1919, 1087, 1304, 6,    1133, 1728,
+                                                   646,  441,  450,  1643, 1897, 1410, 810,  382,  1192, 1688,
+                                                   1691, 161,  204,  1433, 1796, 1187, 1449, 201,  1540, 923,
+                                                   452,  1756, 1167, 261,  1197, 1455, 1058, 594,  796,  868,
+                                                   1355, 594,  104,  1298, 136,  94,   140,  500,  588,  1663};
 
-        for (size_t i = 0; i < sizes.size(); i++) {
+        for (auto i = 0U; i < sizes.size(); i++) {
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
                           m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
@@ -96,12 +97,12 @@ TEST_F(WorkplaceGeneratorTest, NullCommuting)
         m_geogrid_config.input.particpation_workplace       = 0.20;
         m_geogrid_config.input.fraction_workplace_commuters = 0.10;
 
-        vector<int> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
-                          63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
-                          172937, 15581,  22891,  143505, 178516, 116959, 144659, 20775, 156009, 91951,
-                          49823,  181594, 119075, 27700,  116959, 146583, 102531, 58864, 76946,  91951,
-                          134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
-        for (int size : sizes) {
+        array<unsigned int, 50> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
+                                      63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
+                                      172937, 15581,  22891,  143505, 178516, 116959, 144659, 20775, 156009, 91951,
+                                      49823,  181594, 119075, 27700,  116959, 146583, 102531, 58864, 76946,  91951,
+                                      134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
+        for (const auto size : sizes) {
                 m_geo_grid.AddLocation(make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size));
         }
 
@@ -120,11 +121,12 @@ TEST_F(WorkplaceGeneratorTest, NullCommuting)
 
         m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
-        vector<int> expected{1351, 521,  1960, 1798, 1907, 1088, 1301, 5,    1134, 1739, 644,  431,  447,
-                             1650, 1894, 1409, 809,  377,  1198, 1685, 1692, 155,  210,  1430, 1793, 1191,
-                             1449, 203,  1536, 928,  446,  1754, 1169, 263,  1194, 1456, 1058, 594,  793,
-                             869,  1356, 591,  105,  1297, 136,  95,   139,  499,  588,  1663};
-        for (size_t i = 0; i < sizes.size(); i++) {
+        array<unsigned int, sizes.size()> expected{1351, 521,  1960, 1798, 1907, 1088, 1301, 5,    1134, 1739,
+                                                   644,  431,  447,  1650, 1894, 1409, 809,  377,  1198, 1685,
+                                                   1692, 155,  210,  1430, 1793, 1191, 1449, 203,  1536, 928,
+                                                   446,  1754, 1169, 263,  1194, 1456, 1058, 594,  793,  869,
+                                                   1356, 591,  105,  1297, 136,  95,   139,  499,  588,  1663};
+        for (auto i = 0U; i < sizes.size(); i++) {
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
                           m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
@@ -137,24 +139,20 @@ TEST_F(WorkplaceGeneratorTest, TenCommuting)
         m_geogrid_config.input.particpation_workplace       = 0.20;
         m_geogrid_config.input.fraction_workplace_commuters = 0.10;
 
-        vector<int> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
-                          63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
-                          172937, 15581,  22891,  143505, 178516, 116959, 144659, 20775, 156009, 91951,
-                          49823,  181594, 119075, 27700,  116959, 146583, 102531, 58864, 76946,  91951,
-                          134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
-        for (int size : sizes) {
+        array<unsigned int, 50> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
+                                      63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
+                                      172937, 15581,  22891,  143505, 178516, 116959, 144659, 20775, 156009, 91951,
+                                      49823,  181594, 119075, 27700,  116959, 146583, 102531, 58864, 76946,  91951,
+                                      134464, 59248,  10003,  125423, 15004,  8656,   13658,  50784, 61749,  165243};
+        for (const auto size : sizes) {
                 m_geo_grid.AddLocation(make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size));
         }
 
-        vector<tuple<size_t, size_t, double>> commuting;
-        commuting.emplace_back(make_tuple(0, 10, 0.23));
-        commuting.emplace_back(make_tuple(25, 3, 0.43));
-        commuting.emplace_back(make_tuple(38, 17, 0.65));
-        commuting.emplace_back(make_tuple(10, 17, 0.25));
-        commuting.emplace_back(make_tuple(15, 17, 0.22));
-        commuting.emplace_back(make_tuple(27, 17, 0.47));
+        array<tuple<size_t, size_t, double>, 6> commuting {make_tuple(0, 10, 0.23),  make_tuple(25, 3, 0.43),
+                                                           make_tuple(38, 17, 0.65), make_tuple(10, 17, 0.25),
+                                                           make_tuple(15, 17, 0.22), make_tuple(27, 17, 0.47)};
 
-        for (const tuple<size_t, size_t, double>& info : commuting) {
+        for (const auto& info : commuting) {
                 m_geo_grid[get<0>(info)]->AddOutgoingCommute(m_geo_grid[get<1>(info)], get<2>(info));
                 m_geo_grid[get<1>(info)]->AddIncomingCommute(m_geo_grid[get<0>(info)], get<2>(info));
         }
@@ -195,12 +193,13 @@ TEST_F(WorkplaceGeneratorTest, TenCommuting)
 
         m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
-        vector<int> expected{1328, 516,  1941, 1850, 1906, 1087, 1297, 6,    1132, 1727, 671,  428,  447,
-                             1647, 1896, 1394, 810,  464,  1220, 1682, 1672, 149,  211,  1423, 1802, 1185,
-                             1429, 213,  1530, 917,  446,  1760, 1155, 274,  1190, 1458, 1046, 593,  772,
-                             873,  1355, 589,  101,  1291, 142,  93,   132,  507,  584,  1659};
+        array<unsigned int, sizes.size()> expected{1328,  516, 1941, 1850, 1906, 1087, 1297,   6, 1132, 1727,
+                                                    671,  428,  447, 1647, 1896, 1394,  810, 464, 1220, 1682,
+                                                   1672,  149,  211, 1423, 1802, 1185, 1429, 213, 1530,  917,
+                                                    446, 1760, 1155,  274, 1190, 1458, 1046, 593,  772,  873,
+                                                   1355,  589,  101, 1291,  142,   93,  132, 507,  584, 1659};
 
-        for (size_t i = 0; i < sizes.size(); i++) {
+        for (auto i = 0U; i < sizes.size(); i++) {
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
                           m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
