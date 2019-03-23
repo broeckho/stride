@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
 #include "GeoGridJSONWriter.h"
@@ -31,6 +31,7 @@ namespace geopop {
 using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
+using namespace boost::property_tree;
 
 GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 
@@ -132,9 +133,7 @@ json GeoGridJSONWriter::WriteLocation(shared_ptr<Location> location)
         vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
                 for (const auto& c : location->RefCenters(typ)) {
-                        {
-                                contactCenters_array.push_back(WriteContactCenter(c));
-                        }
+                        contactCenters_array.push_back(WriteContactCenter(c));
                 }
         }
 
@@ -159,6 +158,5 @@ json GeoGridJSONWriter::WritePerson(Person* person)
         person_json["secondaryCommunity"] = person->GetPoolId(Id::SecondaryCommunity);
 
         return person_json;
-}
 
 } // namespace geopop

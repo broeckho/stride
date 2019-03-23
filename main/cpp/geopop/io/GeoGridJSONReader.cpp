@@ -15,14 +15,12 @@
 
 #include "GeoGridJSONReader.h"
 
-#include "ThreadException.h"
-#include "geopop/GeoGrid.h"
 #include "geopop/ContactCenter.h"
+#include "geopop/GeoGrid.h"
 #include "pop/Population.h"
 #include "util/Exception.h"
 
 #include <memory>
-#include <omp.h>
 
 using json = nlohmann::json;
 
@@ -85,18 +83,12 @@ shared_ptr<Location> GeoGridJSONReader::ParseLocation(json& location)
 
         auto result         = make_shared<Location>(id, province, coordinate, name, population);
         auto contactCenters = location["contactCenters"];
-        auto e              = make_shared<ThreadException>();
         {
                 for (auto it = contactCenters.begin(); it != contactCenters.end(); it++) {
-                        shared_ptr<ContactCenter> center;
-                        {
-                                e->Run([&it, this, &center] { center = ParseContactCenter(*it); });
-                                if (!e->HasError())
-                                        result->AddCenter(center);
-                        }
+                        const auto center = ParseContactCenter(*it);
+                        result->AddCenter(center):
                 }
         }
-        e->Rethrow();
 
         if (location.find("commutes") != location.end()) {
                 auto commutes = location["commutes"];
@@ -149,8 +141,8 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(json& contactCen
         }
 
         auto result = make_shared<ContactCenter>(id, typeId);
-
         auto contactPools = contactCenter["pools"];
+
         for (auto it = contactPools.begin(); it != contactPools.end(); it++) {
                 const auto pool = ParseContactPool(*it, typeId);
                 result->RegisterPool(pool);
