@@ -36,10 +36,10 @@ namespace geopop {
 std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateGeoGridWriter(const std::string& filename)
 {
         filesys::path path(filename);
-
+        /*
         if (path.extension().string() == ".json") {
                 return std::make_shared<GeoGridJSONWriter>();
-        }
+        }*/
          if (path.extension().string() == ".proto") {
                 return std::make_shared<GeoGridProtoWriter>();
         } else {
