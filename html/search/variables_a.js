@@ -8,7 +8,6 @@ var searchData=
   ['m_5fblocks',['m_blocks',['../d3/d8b/a00059.html#a1511fa16b228094d921eff996c589a3c',1,'stride::util::SegmentedVector']]],
   ['m_5fc',['m_c',['../d8/dfa/a00121.html#af1f935137c5ee56139e6f9648e84c73c',1,'stride::util::SVIterator']]],
   ['m_5fcalendar',['m_calendar',['../d1/d09/a00077.html#a5ac5b045ac4db6ae397d91d7dd663784',1,'stride::DaysOffSchool::m_calendar()'],['../d9/da4/a00078.html#a2ee41292bda3236f6c3fb77fddcdf882',1,'stride::DaysOffStandard::m_calendar()'],['../d9/df8/a00096.html#af238badc880ea1db8dba6be4272f957c',1,'stride::Sim::m_calendar()']]],
-  ['m_5fcc',['m_cc',['../d4/d8c/a00035.html#a92505cf59d25e8b2d40c0dbc84f8e77e',1,'geopop::Location']]],
   ['m_5fcenter',['m_center',['../d5/db6/a00042.html#a6812dfb6d144028b7224a5422c762f49',1,'geopop::RadiusPolicy']]],
   ['m_5fclock',['m_clock',['../da/d74/a00099.html#ae2de72162f806fe5b7008e81854bdc2d',1,'stride::SimRunner']]],
   ['m_5fcolumn_5fcount',['m_column_count',['../d3/d32/a00105.html#a46f209713ecbcb6b2aeb52974b098b86',1,'stride::util::CSV']]],

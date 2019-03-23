@@ -1,6 +1,5 @@
 var a00031 =
 [
-    [ "Apply", "df/d61/a00031.html#aaa57ee46db6b5a0a56038f3349b6c670", null ],
-    [ "SetupPools", "df/d61/a00031.html#ad7d459e716548a61b3d2a617830af25e", null ],
-    [ "AddPools", "df/d61/a00031.html#a67001ecefa9cfcdba0d0c9da959612e7", null ]
+    [ "Apply", "df/d61/a00031.html#a2680aab8fbdbd51f3657b317a70b25c3", null ],
+    [ "AddPools", "df/d61/a00031.html#a4d47c12ded22f0f6c94a8fb5dcbee452", null ]
 ];

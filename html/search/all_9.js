@@ -15,7 +15,7 @@ var searchData=
   ['healthseeder_2ecpp',['HealthSeeder.cpp',['../d3/dd1/a00214.html',1,'']]],
   ['healthseeder_2eh',['HealthSeeder.h',['../d3/dd5/a00215.html',1,'']]],
   ['healthstatus',['HealthStatus',['../d9/d48/a00345.html#a738f5251821f53315d2aebf214fbd070',1,'stride']]],
-  ['household',['Household',['../d1/dea/a00054.html#abfd1efa85ba256725f505933f164bc4d',1,'proto::GeoGrid_Location_ContactCenter::Household()'],['../df/d03/a00348.html#a61a32e88a50c57e6f5c49f0996b6b462aea4be67641b70cfa3fec0f86ea7f239b',1,'stride::ContactType::Household()']]],
+  ['household',['Household',['../d1/dea/a00054.html#a28a801cc35dd1270e1d0dfb3d9f00662',1,'proto::GeoGrid_Location_ContactPools::Household()'],['../df/d03/a00348.html#a61a32e88a50c57e6f5c49f0996b6b462aea4be67641b70cfa3fec0f86ea7f239b',1,'stride::ContactType::Household()']]],
   ['householdcsvreader',['HouseholdCSVReader',['../d0/d33/a00027.html',1,'geopop']]],
   ['householdcsvreader',['HouseholdCSVReader',['../d0/d33/a00027.html#aa83f488af915c290a9d6ffb03712d244',1,'geopop::HouseholdCSVReader']]],
   ['householdcsvreader_2ecpp',['HouseholdCSVReader.cpp',['../d6/d43/a00216.html',1,'']]],

@@ -63,8 +63,8 @@ var hierarchy =
       [ "proto::GeoGrid", "d2/d79/a00051.html", null ],
       [ "proto::GeoGrid_Location", "d1/d84/a00052.html", null ],
       [ "proto::GeoGrid_Location_Commute", "dc/dee/a00053.html", null ],
-      [ "proto::GeoGrid_Location_ContactCenter", "d1/dea/a00054.html", null ],
-      [ "proto::GeoGrid_Location_ContactCenter_ContactPool", "d4/d6d/a00055.html", null ],
+      [ "proto::GeoGrid_Location_ContactPools", "d1/dea/a00054.html", null ],
+      [ "proto::GeoGrid_Location_ContactPools_ContactPool", "d4/d6d/a00055.html", null ],
       [ "proto::GeoGrid_Location_Coordinate", "d9/d2e/a00056.html", null ],
       [ "proto::GeoGrid_Person", "d1/d22/a00057.html", null ]
     ] ],
@@ -74,7 +74,6 @@ var hierarchy =
     ] ],
     [ "std::array< T >", null, [
       [ "stride::ContactType::IdSubscriptArray< AgeContactProfile >", "d5/de0/a00050.html", null ],
-      [ "stride::ContactType::IdSubscriptArray< std::vector< std::shared_ptr< geopop::ContactCenter > > >", "d5/de0/a00050.html", null ],
       [ "stride::ContactType::IdSubscriptArray< stride::util::stride::util::SegmentedVector< stride::stride::ContactPool * > >", "d5/de0/a00050.html", null ],
       [ "stride::ContactType::IdSubscriptArray< unsigned int >", "d5/de0/a00050.html", null ],
       [ "stride::ContactType::IdSubscriptArray< util::stride::util::SegmentedVector< stride::ContactPool > >", "d5/de0/a00050.html", null ],
@@ -94,7 +93,7 @@ var hierarchy =
       [ "stride::InfectorMap", "db/dab/a00089.html", null ]
     ] ],
     [ "true_type", null, [
-      [ "google::protobuf::is_proto_enum< ::proto::GeoGrid_Location_ContactCenter_Type >", "d4/dca/a00048.html", null ],
+      [ "google::protobuf::is_proto_enum< ::proto::GeoGrid_Location_ContactPools_Type >", "d4/dca/a00048.html", null ],
       [ "stride::util::is_iterator< T, ii_detail::void_t< typename std::iterator_traits< T >::iterator_category > >", "d3/d00/a00113.html", null ]
     ] ],
     [ "unary_function", null, [

@@ -4,7 +4,7 @@ var a00094 =
     [ "Create", "dc/d54/a00094.html#a56ed209c60c77e0080a0a653b09b26ce", null ],
     [ "Create", "dc/d54/a00094.html#ac2702b7b600edd1ce81bc24dac173c7e", null ],
     [ "Create", "dc/d54/a00094.html#a7cfcedae698db0dc471770044de4834d", null ],
-    [ "CreatePerson", "dc/d54/a00094.html#a5680667e8da5d16b5f9b2c4d9a0207fa", null ],
+    [ "CreatePerson", "dc/d54/a00094.html#a04a055ac18fa585bec4a8b32be5d5fbd", null ],
     [ "GetInfectedCount", "dc/d54/a00094.html#a5ffab38c3407832dcc0f1ecbf4e11cbd", null ],
     [ "CRefPoolSys", "dc/d54/a00094.html#a70b16fe667a40360d247e32c9422ad44", null ],
     [ "CRefGeoGrid", "dc/d54/a00094.html#a3eeacceb199c4b26b7c7687fe5cdcfb0", null ],

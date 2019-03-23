@@ -9,7 +9,6 @@ var searchData=
   ['readdiseaseptree',['ReadDiseasePtree',['../d1/d84/a00097.html#adffa42c6b8b171616fcdfb4805260c92',1,'stride::SimBuilder']]],
   ['readfromstream',['ReadFromStream',['../d3/d32/a00105.html#a2f3c33a76164f6cbc6e31aab6f8b560d',1,'stride::util::CSV']]],
   ['readptreefile',['ReadPtreeFile',['../dd/d42/a00109.html#a5d54b4b545adf557c65c238ad2fb7801',1,'stride::util::FileSys::ReadPtreeFile(const filesys::path &amp;f_p)'],['../dd/d42/a00109.html#ad397ab1440ed0fb182ed9afc7ea6fa10',1,'stride::util::FileSys::ReadPtreeFile(const std::string &amp;f_n)']]],
-  ['refcenters',['RefCenters',['../d4/d8c/a00035.html#a43d86d6a219e8f7abf0e152d428ee861',1,'geopop::Location']]],
   ['refcontactlogger',['RefContactLogger',['../dc/d54/a00094.html#a4db3f0bf4c302b0f5d4b2bb1e8cc24fc',1,'stride::Population']]],
   ['refgeogrid',['RefGeoGrid',['../dc/d54/a00094.html#aed61b0a0c312dba5b64733e21be7a1b2',1,'stride::Population']]],
   ['refpools',['RefPools',['../d2/db1/a00070.html#ad484960db6d8795971580e635f6da030',1,'stride::ContactPoolSys::RefPools()'],['../d4/d8c/a00035.html#af5d17516db20d693a8c8f3395e869659',1,'geopop::Location::RefPools(stride::ContactType::Id id)'],['../d4/d8c/a00035.html#a5a66fd09e3bf4d78b61c9dc70852e41e',1,'geopop::Location::RefPools()']]],

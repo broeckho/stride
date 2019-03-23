@@ -2,7 +2,6 @@ var a00035 =
 [
     [ "Location", "d4/d8c/a00035.html#a9836a46f8135be0d446bff0dd102a4b6", null ],
     [ "operator==", "d4/d8c/a00035.html#a2303a7a10dd49e03ac0c527f1a16c754", null ],
-    [ "AddCenter", "d4/d8c/a00035.html#a9c5795997966e7ae86180456b32b092a", null ],
     [ "AddIncomingCommute", "d4/d8c/a00035.html#a89410f6b3f9215c5b3ee45f059377cc6", null ],
     [ "AddOutgoingCommute", "d4/d8c/a00035.html#a18bcffa0e1e714061db4a324b17d73e2", null ],
     [ "GetCoordinate", "d4/d8c/a00035.html#a01914e7628a0b84613e155fcaa7155dd", null ],
@@ -25,8 +24,6 @@ var a00035 =
     [ "RegisterPool", "d4/d8c/a00035.html#a22e8aa84fda03dbba1592ef5ab5bc503", null ],
     [ "CRefIncomingCommutes", "d4/d8c/a00035.html#a9fda11ee6cf2f1d55ca52af0537bd875", null ],
     [ "CRefOutgoingCommutes", "d4/d8c/a00035.html#a470e42db21a7417ce4ecf8167eb1bb05", null ],
-    [ "CRefCenters", "d4/d8c/a00035.html#a2beb3f84b1a6fc3def9299a086b7b073", null ],
-    [ "RefCenters", "d4/d8c/a00035.html#a43d86d6a219e8f7abf0e152d428ee861", null ],
     [ "m_coordinate", "d4/d8c/a00035.html#a3f421c0a19cdc30fc6248779d7b2f655", null ],
     [ "m_id", "d4/d8c/a00035.html#aa4a34f7edb5f94f80bbd7952209409fd", null ],
     [ "m_name", "d4/d8c/a00035.html#ad7466c729b9e64162cc6d350f6f91466", null ],
@@ -35,6 +32,5 @@ var a00035 =
     [ "m_province", "d4/d8c/a00035.html#adc3b4aba4295de3c877827f5f0f7d936", null ],
     [ "m_inCommutes", "d4/d8c/a00035.html#a268052bde24a256c5827c54afe0da076", null ],
     [ "m_outCommutes", "d4/d8c/a00035.html#a28541461cedeb9b0458c94c73e5dca64", null ],
-    [ "m_cc", "d4/d8c/a00035.html#a92505cf59d25e8b2d40c0dbc84f8e77e", null ],
     [ "m_pool_index", "d4/d8c/a00035.html#ad0f81bd1ab2b99eb3799c99981b71bd2", null ]
 ];

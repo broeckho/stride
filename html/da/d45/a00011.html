@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
+   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
    </div>
   </td>
  </tr>
@@ -124,12 +124,12 @@ Inheritance diagram for geopop::Generator:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d8/d86/a00703.gif" border="0" usemap="#geopop_1_1Generator_inherit__map" alt="Inheritance graph"/></div>
 <map name="geopop_1_1Generator_inherit__map" id="geopop_1_1Generator_inherit__map">
-<area shape="rect" id="node2" href="../../de/d21/a00006.html" title="Generates ContactCenters and pools for ContactType College. " alt="" coords="5,211,196,318"/>
-<area shape="rect" id="node3" href="../../dc/d3c/a00028.html" title="Generates ContactCenters and pools for ContactType Household. " alt="" coords="221,211,431,318"/>
-<area shape="rect" id="node4" href="../../df/d61/a00031.html" title="Generates ContactCenters and pools for ContactType K12School. " alt="" coords="455,211,666,318"/>
-<area shape="rect" id="node5" href="../../db/d3a/a00040.html" title="Generator for PCommunity contact pools. " alt="" coords="691,204,892,325"/>
-<area shape="rect" id="node6" href="../../d5/df9/a00044.html" title="Generates ContactCenters and pools for ContactType PrimaryCommunity. " alt="" coords="916,204,1136,325"/>
-<area shape="rect" id="node7" href="../../d3/dea/a00046.html" title="Generates ContactCenters and pools for ContactType Workplace. " alt="" coords="1160,211,1367,318"/>
+<area shape="rect" id="node2" href="../../de/d21/a00006.html" title="Generates ContactPools for ContactType College. " alt="" coords="5,197,196,289"/>
+<area shape="rect" id="node3" href="../../dc/d3c/a00028.html" title="Generates ContactPools for ContactType Household. " alt="" coords="221,197,431,289"/>
+<area shape="rect" id="node4" href="../../df/d61/a00031.html" title="Generates ContactPools for ContactType K12School. " alt="" coords="455,197,666,289"/>
+<area shape="rect" id="node5" href="../../db/d3a/a00040.html" title="Generator for PCommunity contact pools. " alt="" coords="691,189,892,296"/>
+<area shape="rect" id="node6" href="../../d5/df9/a00044.html" title="Generates ContactPools for ContactType PrimaryCommunity. " alt="" coords="916,189,1136,296"/>
+<area shape="rect" id="node7" href="../../d3/dea/a00046.html" title="Generates ContactPools for ContactType Workplace. " alt="" coords="1160,197,1367,289"/>
 </map>
 </div>
 <div class="dynheader">
@@ -149,14 +149,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abf1362cb66b511c7c7fba7feb4fc70f1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#abf1362cb66b511c7c7fba7feb4fc70f1">~Generator</a> ()=default</td></tr>
 <tr class="memdesc:abf1362cb66b511c7c7fba7feb4fc70f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#abf1362cb66b511c7c7fba7feb4fc70f1">More...</a><br /></td></tr>
 <tr class="separator:abf1362cb66b511c7c7fba7feb4fc70f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae430e942261483c78fe9ec27cbb8875a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#ae430e942261483c78fe9ec27cbb8875a">Apply</a> (<a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;geogrid, const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;geoGridConfig, unsigned int &amp;ccCounter)=0</td></tr>
-<tr class="memdesc:ae430e942261483c78fe9ec27cbb8875a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the contact centers for a pool type (fixed in implementation) to the geogrid.  <a href="#ae430e942261483c78fe9ec27cbb8875a">More...</a><br /></td></tr>
-<tr class="separator:ae430e942261483c78fe9ec27cbb8875a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ba3c0cb4d85f84389bff48ec069b37c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a7ba3c0cb4d85f84389bff48ec069b37c">SetupPools</a> (<a class="el" href="../../d4/d8c/a00035.html">Location</a> &amp;loc, <a class="el" href="../../d7/dec/a00010.html">ContactCenter</a> &amp;center, const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;geoGridConfig, <a class="el" href="../../dc/d54/a00094.html">stride::Population</a> *pop)=0</td></tr>
-<tr class="memdesc:a7ba3c0cb4d85f84389bff48ec069b37c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create ContactPools in the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> and register them with the <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a>.  <a href="#a7ba3c0cb4d85f84389bff48ec069b37c">More...</a><br /></td></tr>
-<tr class="separator:a7ba3c0cb4d85f84389bff48ec069b37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bebac8186b3c6fb9ea50d17b0562b37"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a7bebac8186b3c6fb9ea50d17b0562b37">Apply</a> (<a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;geogrid, const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;geoGridConfig)=0</td></tr>
+<tr class="memdesc:a7bebac8186b3c6fb9ea50d17b0562b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate ContactPools as sepcified by the data in <a class="el" href="../../d1/d2b/a00018.html" title="Configuration data mostly for generating a population, but also for computing the required number of ...">GeoGridConfig</a>.  <a href="#a7bebac8186b3c6fb9ea50d17b0562b37">More...</a><br /></td></tr>
+<tr class="separator:a7bebac8186b3c6fb9ea50d17b0562b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ee98f26392fc3f649e6d7bcd77a69f1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a7ee98f26392fc3f649e6d7bcd77a69f1">AddPools</a> (<a class="el" href="../../d4/d8c/a00035.html">Location</a> &amp;loc, <a class="el" href="../../dc/d54/a00094.html">stride::Population</a> *pop, unsigned int number)=0</td></tr>
-<tr class="memdesc:a7ee98f26392fc3f649e6d7bcd77a69f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create ContactPools in the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> and do not register them with the <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a>.  <a href="#a7ee98f26392fc3f649e6d7bcd77a69f1">More...</a><br /></td></tr>
+<tr class="memdesc:a7ee98f26392fc3f649e6d7bcd77a69f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a given number ContactPools in the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>.  <a href="#a7ee98f26392fc3f649e6d7bcd77a69f1">More...</a><br /></td></tr>
 <tr class="separator:a7ee98f26392fc3f649e6d7bcd77a69f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -171,7 +168,7 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An interface base class for generators that provide geo data and apply it onto the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00039">39</a> of file <a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00038">38</a> of file <a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac9372a526b3a7672b5dca424b3743fd5"></a>
 <div class="memitem">
@@ -209,7 +206,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00022">22</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Generator.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d4/d04/a00255_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, and <a class="el" href="../../d2/d94/a00184_source.html#l00060">m_logger</a>.</p>
+<p>References <a class="el" href="../../d4/d04/a00255_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, and <a class="el" href="../../d2/d94/a00184_source.html#l00055">m_logger</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -249,7 +246,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae430e942261483c78fe9ec27cbb8875a"></a>
+<a class="anchor" id="a7bebac8186b3c6fb9ea50d17b0562b37"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -266,13 +263,7 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>ccCounter</em>&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -287,59 +278,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Generate the contact centers for a pool type (fixed in implementation) to the geogrid. </p>
+<p>Generate ContactPools as sepcified by the data in <a class="el" href="../../d1/d2b/a00018.html" title="Configuration data mostly for generating a population, but also for computing the required number of ...">GeoGridConfig</a>. </p>
 
-<p>Implemented in <a class="el" href="../../de/d21/a00006.html#aa306ef342d4d07a99397c59da57704af">geopop::CollegeGenerator</a>, <a class="el" href="../../dc/d3c/a00028.html#abe06efbe0c2393a456277bd4d62edb7e">geopop::HouseholdGenerator</a>, <a class="el" href="../../df/d61/a00031.html#aaa57ee46db6b5a0a56038f3349b6c670">geopop::K12SchoolGenerator</a>, <a class="el" href="../../db/d3a/a00040.html#ade437a64ac23564152af7e5f0c98ce9a">geopop::PrimaryCommunityGenerator</a>, <a class="el" href="../../d5/df9/a00044.html#aaeb2993b23971ed05acb27abf74566a5">geopop::SecondaryCommunityGenerator</a>, and <a class="el" href="../../d3/dea/a00046.html#a501c9a987a3f010e5deb3c14ea21adb4">geopop::WorkplaceGenerator</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7ba3c0cb4d85f84389bff48ec069b37c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void geopop::Generator::SetupPools </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d8c/a00035.html">Location</a> &amp;&#160;</td>
-          <td class="paramname"><em>loc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/dec/a00010.html">ContactCenter</a> &amp;&#160;</td>
-          <td class="paramname"><em>center</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/d54/a00094.html">stride::Population</a> *&#160;</td>
-          <td class="paramname"><em>pop</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create ContactPools in the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> and register them with the <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a>. </p>
-
-<p>Implemented in <a class="el" href="../../de/d21/a00006.html#a6363da09a79f4550f9d80a036d12e86e">geopop::CollegeGenerator</a>, <a class="el" href="../../dc/d3c/a00028.html#aba893f2e0086a3865839587e380e0821">geopop::HouseholdGenerator</a>, <a class="el" href="../../df/d61/a00031.html#ad7d459e716548a61b3d2a617830af25e">geopop::K12SchoolGenerator</a>, <a class="el" href="../../db/d3a/a00040.html#ae4639c732828278ba482ca026b282627">geopop::PrimaryCommunityGenerator</a>, <a class="el" href="../../d5/df9/a00044.html#a3cdaab457109c7ee8d5b7ddfc796c7d3">geopop::SecondaryCommunityGenerator</a>, and <a class="el" href="../../d3/dea/a00046.html#acd8549659c2f3e671d12fd328676405f">geopop::WorkplaceGenerator</a>.</p>
+<p>Implemented in <a class="el" href="../../de/d21/a00006.html#a0ae4016fc7225ecb4f2ce8f5319b4917">geopop::CollegeGenerator</a>, <a class="el" href="../../dc/d3c/a00028.html#a6331c0c9b3c62931305cbe8c11b0c781">geopop::HouseholdGenerator</a>, <a class="el" href="../../df/d61/a00031.html#a2680aab8fbdbd51f3657b317a70b25c3">geopop::K12SchoolGenerator</a>, <a class="el" href="../../db/d3a/a00040.html#adb7003e2d40127bcf9bc4a0576815e5a">geopop::PrimaryCommunityGenerator</a>, <a class="el" href="../../d5/df9/a00044.html#adcde607963b6be5ee44c1b65b39e054f">geopop::SecondaryCommunityGenerator</a>, and <a class="el" href="../../d3/dea/a00046.html#afee876de43bafdc378a264305bd0f231">geopop::WorkplaceGenerator</a>.</p>
 
 </div>
 </div>
@@ -381,9 +322,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Create ContactPools in the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> and do not register them with the <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a>. </p>
+<p>Create a given number ContactPools in the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>. </p>
 
-<p>Implemented in <a class="el" href="../../de/d21/a00006.html#acbab25545d8b956f0ff0f8d271b1bd8b">geopop::CollegeGenerator</a>, <a class="el" href="../../dc/d3c/a00028.html#a27ed9589fae129805be3b71523a3e471">geopop::HouseholdGenerator</a>, <a class="el" href="../../df/d61/a00031.html#a67001ecefa9cfcdba0d0c9da959612e7">geopop::K12SchoolGenerator</a>, <a class="el" href="../../db/d3a/a00040.html#afb9c3cac2425f1f8d4b8662748e280a8">geopop::PrimaryCommunityGenerator</a>, <a class="el" href="../../d5/df9/a00044.html#a220f9feb6b72337472d0972a5e387ebc">geopop::SecondaryCommunityGenerator</a>, and <a class="el" href="../../d3/dea/a00046.html#a316151bbfa93d0896f0e065aaa425401">geopop::WorkplaceGenerator</a>.</p>
+<p>Implemented in <a class="el" href="../../de/d21/a00006.html#a4709b9f9a3690f5aeb1a0c82962c500f">geopop::CollegeGenerator</a>, <a class="el" href="../../dc/d3c/a00028.html#a411d099ecd5b5a295b3f055b097e65df">geopop::HouseholdGenerator</a>, <a class="el" href="../../df/d61/a00031.html#a4d47c12ded22f0f6c94a8fb5dcbee452">geopop::K12SchoolGenerator</a>, <a class="el" href="../../db/d3a/a00040.html#a9c1eddc731f4fc27d04e474aa560aab4">geopop::PrimaryCommunityGenerator</a>, <a class="el" href="../../d5/df9/a00044.html#a1e63a9295f1d315ec69f895655e9eea6">geopop::SecondaryCommunityGenerator</a>, and <a class="el" href="../../d3/dea/a00046.html#a55c16a3aa5962b6b57f668b76dfff5a9">geopop::WorkplaceGenerator</a>.</p>
 
 </div>
 </div>
@@ -408,7 +349,7 @@ Here is the call graph for this function:</div>
 
 <p>RnManager used by generators. </p>
 
-<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00059">59</a> of file <a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00054">54</a> of file <a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a>.</p>
 
 </div>
 </div>
@@ -432,7 +373,7 @@ Here is the call graph for this function:</div>
 
 <p>Logger used by generators. </p>
 
-<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00060">60</a> of file <a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00055">55</a> of file <a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../dc/d52/a00183_source.html#l00022">Generator()</a>.</p>
 
@@ -448,7 +389,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d75/a00334.html">geopop</a></li><li class="navelem"><a class="el" href="../../da/d45/a00011.html">Generator</a></li>
-    <li class="footer">Generated on Fri Mar 22 2019 18:33:21 for Stride Reference Manual by
+    <li class="footer">Generated on Sat Mar 23 2019 00:11:09 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

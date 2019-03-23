@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit e426fb4</span>
+   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
    </div>
   </td>
  </tr>
@@ -124,8 +124,8 @@ $(document).ready(function(){initNavTree('de/d11/a00021.html','../../');});
   <tr class="even"><td class="entry"><a class="el" href="../../d3/d52/a00023.html#abd64ac3a2023dc806ce9e4bb218b4121">m_population</a></td><td class="entry"><a class="el" href="../../d3/d52/a00023.html">geopop::GeoGridReader</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../de/d11/a00021.html#aacca4ced44b0fc60e24767f1bbc93b78">operator=</a>(const GeoGridProtoReader &amp;)=delete</td><td class="entry"><a class="el" href="../../de/d11/a00021.html">geopop::GeoGridProtoReader</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d3/d52/a00023.html#ac951eb7110732c82081e872eb7b4493d">geopop::GeoGridReader::operator=</a>(const GeoGridReader &amp;)=delete</td><td class="entry"><a class="el" href="../../d3/d52/a00023.html">geopop::GeoGridReader</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../de/d11/a00021.html#a913aee104b2c1982d1cb4164f7ad0e65">ParseContactCenter</a>(const proto::GeoGrid_Location_ContactCenter &amp;protoContactCenter)</td><td class="entry"><a class="el" href="../../de/d11/a00021.html">geopop::GeoGridProtoReader</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../de/d11/a00021.html#aa6dbedaf2a8098e075607c358066a849">ParseContactPool</a>(const proto::GeoGrid_Location_ContactCenter_ContactPool &amp;protoContactPool, stride::ContactType::Id typeId)</td><td class="entry"><a class="el" href="../../de/d11/a00021.html">geopop::GeoGridProtoReader</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../de/d11/a00021.html#a05d394baeec496b54b49fdb203220222">ParseContactPool</a>(std::shared_ptr&lt; Location &gt; loc, const proto::GeoGrid_Location_ContactPools_ContactPool &amp;protoContactPool, stride::ContactType::Id typeId)</td><td class="entry"><a class="el" href="../../de/d11/a00021.html">geopop::GeoGridProtoReader</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../de/d11/a00021.html#ae1fb8c70e0d2c9bb7652aabef954d115">ParseContactPools</a>(std::shared_ptr&lt; Location &gt; loc, const proto::GeoGrid_Location_ContactPools &amp;protoContactPools)</td><td class="entry"><a class="el" href="../../de/d11/a00021.html">geopop::GeoGridProtoReader</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../de/d11/a00021.html#a25bb12687d13e26a40d0d15d44220744">ParseCoordinate</a>(const proto::GeoGrid_Location_Coordinate &amp;protoCoordinate)</td><td class="entry"><a class="el" href="../../de/d11/a00021.html">geopop::GeoGridProtoReader</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../de/d11/a00021.html#a2d7e93b8c38a12f8c662d18973e14a79">ParseLocation</a>(const proto::GeoGrid_Location &amp;protoLocation)</td><td class="entry"><a class="el" href="../../de/d11/a00021.html">geopop::GeoGridProtoReader</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../de/d11/a00021.html#af379f9881c0626dd1efbb969798ab38e">ParsePerson</a>(const proto::GeoGrid_Person &amp;person)</td><td class="entry"><a class="el" href="../../de/d11/a00021.html">geopop::GeoGridProtoReader</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('de/d11/a00021.html','../../');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Mar 22 2019 18:33:21 for Stride Reference Manual by
+    <li class="footer">Generated on Sat Mar 23 2019 00:11:09 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

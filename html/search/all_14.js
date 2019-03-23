@@ -36,13 +36,13 @@ var searchData=
   ['trim',['Trim',['../d6/d9c/a00352.html#a01882a252a5e262d442f9a8b8f64e3ef',1,'stride::util']]],
   ['trimleft',['TrimLeft',['../d6/d9c/a00352.html#a2c5aacbb4d606af3e43a96e8aad692cf',1,'stride::util']]],
   ['trimright',['TrimRight',['../d6/d9c/a00352.html#a9fa614ccd671679a0e1feff6e0f6da33',1,'stride::util']]],
-  ['type',['type',['../d4/d51/a00017.html#af301c9d0d60f687fad02d840a4496905',1,'geopop::geogrid_detail::KdTree2DPoint::dimension_type::type()'],['../dd/d6d/a00111.html#a4183f045c6086dabede526dea8e6cedb',1,'stride::util::ii_detail::make_void::type()'],['../d1/dea/a00054.html#a527127a37e7e5f5735eb829bf959da9d',1,'proto::GeoGrid_Location_ContactCenter::type() const '],['../d1/dea/a00054.html#ae78d012d29fcde168c844fe3f3ea8d82',1,'proto::GeoGrid_Location_ContactCenter::Type()']]],
-  ['type_5f',['type_',['../d1/dea/a00054.html#a8efb2d309755ff51149ff38ddf5ef43b',1,'proto::GeoGrid_Location_ContactCenter']]],
-  ['type_5farraysize',['Type_ARRAYSIZE',['../d1/dea/a00054.html#a14ebda34bcb095890ae888f395d6262d',1,'proto::GeoGrid_Location_ContactCenter']]],
-  ['type_5fdescriptor',['Type_descriptor',['../d1/dea/a00054.html#a39108debe7a77ebcc8cf05d582f3fa8b',1,'proto::GeoGrid_Location_ContactCenter']]],
-  ['type_5fisvalid',['Type_IsValid',['../d1/dea/a00054.html#a657eb7c27f0b425ba0222cefd3b227ee',1,'proto::GeoGrid_Location_ContactCenter']]],
-  ['type_5fmax',['Type_MAX',['../d1/dea/a00054.html#a3b689a238dfbae47c5e5ed41c4e0fef1',1,'proto::GeoGrid_Location_ContactCenter']]],
-  ['type_5fmin',['Type_MIN',['../d1/dea/a00054.html#a4d73fc83d9846df325311644e1fd414e',1,'proto::GeoGrid_Location_ContactCenter']]],
-  ['type_5fname',['Type_Name',['../d1/dea/a00054.html#a5f627174480f9108921d82066c90aa19',1,'proto::GeoGrid_Location_ContactCenter']]],
-  ['type_5fparse',['Type_Parse',['../d1/dea/a00054.html#ad8c18cb521a8b5aa3cb14b41ceb933bb',1,'proto::GeoGrid_Location_ContactCenter']]]
+  ['type',['type',['../d4/d51/a00017.html#af301c9d0d60f687fad02d840a4496905',1,'geopop::geogrid_detail::KdTree2DPoint::dimension_type::type()'],['../dd/d6d/a00111.html#a4183f045c6086dabede526dea8e6cedb',1,'stride::util::ii_detail::make_void::type()'],['../d1/dea/a00054.html#ac786167b16440fe165ab8d2b64655102',1,'proto::GeoGrid_Location_ContactPools::type() const '],['../d1/dea/a00054.html#a4aaf8c000b5dee2ed0f32eadae9406d0',1,'proto::GeoGrid_Location_ContactPools::Type()']]],
+  ['type_5f',['type_',['../d1/dea/a00054.html#a9706394dcae6b609e5069a0702e9e364',1,'proto::GeoGrid_Location_ContactPools']]],
+  ['type_5farraysize',['Type_ARRAYSIZE',['../d1/dea/a00054.html#abc70748e21d50886b56d88af484d8bdc',1,'proto::GeoGrid_Location_ContactPools']]],
+  ['type_5fdescriptor',['Type_descriptor',['../d1/dea/a00054.html#ab32456cb2b7a3e95c216a615c4814d34',1,'proto::GeoGrid_Location_ContactPools']]],
+  ['type_5fisvalid',['Type_IsValid',['../d1/dea/a00054.html#adb9a8b7e296bd15b75169de8d9712db8',1,'proto::GeoGrid_Location_ContactPools']]],
+  ['type_5fmax',['Type_MAX',['../d1/dea/a00054.html#ae6f7a7999ee4f7eb476aa64243231320',1,'proto::GeoGrid_Location_ContactPools']]],
+  ['type_5fmin',['Type_MIN',['../d1/dea/a00054.html#a22cd252cff0d5127d855929937341f73',1,'proto::GeoGrid_Location_ContactPools']]],
+  ['type_5fname',['Type_Name',['../d1/dea/a00054.html#a61ef85879e1a8954a8c3b1ae4e5a3a68',1,'proto::GeoGrid_Location_ContactPools']]],
+  ['type_5fparse',['Type_Parse',['../d1/dea/a00054.html#ab1f06e44843344daef59ff1278247251',1,'proto::GeoGrid_Location_ContactPools']]]
 ];
