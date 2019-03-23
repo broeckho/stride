@@ -19,7 +19,6 @@
 
 #include "geopop/GeoGridConfig.h"
 #include "pop/Person.h"
-#include "util/LogUtils.h"
 
 namespace geopop {
 
@@ -50,14 +49,10 @@ private:
         void NearbyWorkspacePools(GeoGrid& geoGrid, std::shared_ptr<Location> loc);
 
         /// Determines workplace pools at each Wocation.
-        void WorkplacePoolsAtLocation(GeoGrid& geoGrid);
+        // void WorkplacePoolsAtLocation(GeoGrid& geoGrid);
 
 private:
-        GeoGridConfig m_geogrid_config; ///< The GeoGridConfig used during populating.
-
-        std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, std::function<int()>>>
-            m_wp_at_location; ///< For each location store workplaces and a distribution fot random selection.
-
+        GeoGridConfig                     m_geogrid_config;  ///< The GeoGridConfig used during populating.
         std::vector<stride::ContactPool*> m_nearby_wp;       ///< Workplaces near current location.
         std::function<int()>              m_gen_non_commute; ///< Genrator to select nerby workplace.
 

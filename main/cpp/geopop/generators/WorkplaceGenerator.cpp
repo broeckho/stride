@@ -15,7 +15,6 @@
 
 #include "WorkplaceGenerator.h"
 
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -26,9 +25,10 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride;
 using namespace stride::ContactType;
 
-void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
+void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         // 1. active people count and the commuting people count are given
         // 2. count the workplaces, each workplace has an average of 20 employees
@@ -61,33 +61,21 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
-        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
+        auto       pop  = geoGrid.GetPopulation();
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto w   = make_shared<ContactCenter>(ccCounter++, Id::Workplace);
-
-                // TODO CheckThisAlgorithm
-                // for (std::size_t j = 0; j < geoGridConfig.pools.pools_per_workplace; ++j) {
-                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
-                w->RegisterPool(p);
-                loc->RegisterPool<Id::Workplace>(p);
-                //}
-
-                loc->AddCenter(w);
+                AddPools(*loc, pop, geoGridConfig.pools.pools_per_workplace);
         }
 }
 
-void WorkplaceGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig&, stride::Population* pop)
+void WorkplaceGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
 {
         auto& poolSys = pop->RefPoolSys();
-
-        // TODO CheckThisAlgorithm
-        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_workplace; ++i) {
-        const auto p = poolSys.CreateContactPool(stride::ContactType::Id::Workplace);
-        center.RegisterPool(p);
-        loc.RegisterPool<Id::Workplace>(p);
-        //}
+        for (auto i = 0U; i < number; ++i) {
+                const auto p = poolSys.CreateContactPool(Id::Workplace);
+                loc.RegisterPool<Id::Workplace>(p);
+        }
 }
 
 } // namespace geopop

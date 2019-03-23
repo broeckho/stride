@@ -35,7 +35,8 @@ template <typename Policy, typename... F>
 class GeoAggregator;
 
 /**
- * A Geographic grid of simulation region contains Locations that in turn contains ContactCenters.
+ * A Geographic grid of simulation region contains Locations that in turn contain
+ * an index to the ContactPools situated at that Location.
  */
 class GeoGrid
 {

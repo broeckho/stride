@@ -15,7 +15,6 @@
 
 #include "CollegeGenerator.h"
 
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -29,7 +28,7 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
+void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         const auto studentCount = geoGridConfig.popInfo.popcount_college;
         const auto collegeCount =
@@ -57,30 +56,19 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
-        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
+        auto       pop  = geoGrid.GetPopulation();
 
         for (auto i = 0U; i < collegeCount; i++) {
-                auto loc     = cities[dist()];
-                auto college = make_shared<ContactCenter>(ccCounter++, Id::College);
-
-                for (auto j = 0U; j < geoGridConfig.pools.pools_per_college; ++j) {
-                        const auto p = poolSys.CreateContactPool(Id::College);
-                        college->RegisterPool(p);
-                        loc->RegisterPool<Id::College>(p);
-                }
-
-                loc->AddCenter(college);
+                auto loc = cities[dist()];
+                AddPools(*loc, pop, geoGridConfig.pools.pools_per_college);
         }
 }
 
-void CollegeGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-                                  Population* pop)
+void CollegeGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
 {
         auto& poolSys = pop->RefPoolSys();
-
-        for (auto i = 0U; i < geoGridConfig.pools.pools_per_college; ++i) {
+        for (auto i = 0U; i < number; ++i) {
                 const auto p = poolSys.CreateContactPool(stride::ContactType::Id::College);
-                center.RegisterPool(p);
                 loc.RegisterPool<Id::College>(p);
         }
 }

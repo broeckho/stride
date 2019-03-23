@@ -50,8 +50,8 @@ void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
                 vector<Location*> commutingCollege;
                 vector<double>    commutingWeights;
                 for (const auto& commute : loc->CRefOutgoingCommutes()) {
-                        const auto& college = commute.first->CRefCenters(Id::College);
-                        if (!college.empty()) {
+                        const auto& cpools = commute.first->CRefPools(Id::College);
+                        if (!cpools.empty()) {
                                 commutingCollege.push_back(commute.first);
                                 commutingWeights.push_back(commute.second);
                         }
@@ -64,33 +64,24 @@ void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
                 }
 
                 // 2. for every student assign a class
-                for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
-                        ContactPool* const contactPool = (*hhCenter)[0];
-
-                        for (Person* p : *contactPool) {
+                for (const auto& hhPool : loc->RefPools(Id::Household)) {
+                        for (Person* p : *hhPool) {
                                 if (AgeBrackets::College::HasAge(p->GetAge()) &&
                                     MakeChoice(geoGridConfig.input.participation_college)) {
                                         // this person is a student
                                         if (!commutingCollege.empty() &&
                                             MakeChoice(geoGridConfig.input.fraction_college_commuters)) {
                                                 // this person is commuting
-                                                // id of the location this person is commuting to
-                                                auto locationId = disCommuting();
-                                                // create list of classes for each highschool at this location
-                                                const auto& colleges =
-                                                    commutingCollege[locationId]->CRefCenters(Id::College);
 
-                                                vector<ContactPool*> contactPools;
-                                                for (const auto& c : colleges) {
-                                                        contactPools.insert(contactPools.end(), c->begin(), c->end());
-                                                }
+                                                // pools to commute to
+                                                const auto& collegePools =
+                                                    commutingCollege[disCommuting()]->CRefPools(Id::College);
 
                                                 auto disPools = m_rn_man.GetUniformIntGenerator(
-                                                    0, static_cast<int>(contactPools.size()), 0U);
-
+                                                    0, static_cast<int>(collegePools.size()), 0U);
                                                 auto idraw = disPools();
-                                                contactPools[idraw]->AddMember(p);
-                                                p->SetPoolId(Id::College, contactPools[idraw]->GetId());
+                                                collegePools[idraw]->AddMember(p);
+                                                p->SetPoolId(Id::College, collegePools[idraw]->GetId());
                                         } else {
                                                 auto idraw = distNonCommuting();
                                                 nearByCollegePools[idraw]->AddMember(p);

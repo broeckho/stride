@@ -15,7 +15,6 @@
 
 #include "GeoGridIOUtils.h"
 
-#include "contact/ContactType.h"
 #include "geogrid.pb.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/io/GeoGridProtoReader.h"
@@ -56,8 +55,8 @@ void compareGeoGrid(const GeoGrid& geoGrid, proto::GeoGrid& protoGrid)
 
 } // namespace
 
-void CompareContactPool(ContactPool*                                             contactPool,
-                        const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool)
+void CompareContactPool(ContactPool*                                            contactPool,
+                        const proto::GeoGrid_Location_ContactPools_ContactPool& protoContactPool)
 {
         ASSERT_EQ(protoContactPool.people_size(), (contactPool->end() - contactPool->begin()));
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
@@ -69,26 +68,24 @@ void CompareContactPool(ContactPool*                                            
         }
 }
 
-void CompareContactCenter(const ContactCenter&                         contactCenter,
-                          const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
+void CompareContactPools(Id typeId, const stride::util::SegmentedVector<stride::ContactPool*>& contactPools,
+                         const proto::GeoGrid_Location_ContactPools& protoContactPools)
 {
+        static const map<Id, proto::GeoGrid_Location_ContactPools_Type> types = {
+            {Id::K12School, proto::GeoGrid_Location_ContactPools_Type_K12School},
+            {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactPools_Type_PrimaryCommunity},
+            {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactPools_Type_SecondaryCommunity},
+            {Id::College, proto::GeoGrid_Location_ContactPools_Type_College},
+            {Id::Household, proto::GeoGrid_Location_ContactPools_Type_Household},
+            {Id::Workplace, proto::GeoGrid_Location_ContactPools_Type_Workplace}};
 
-        map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
-            {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
-            {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-            {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-            {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
-            {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
-            {Id::Workplace, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
-
-        EXPECT_EQ(contactCenter.GetId(), protoContactCenter.id());
-        EXPECT_EQ(types[contactCenter.GetContactPoolType()], protoContactCenter.type());
-        ASSERT_EQ(protoContactCenter.pools_size(), contactCenter.size());
+        EXPECT_EQ(types.at(typeId), protoContactPools.type());
+        ASSERT_EQ(protoContactPools.pools_size(), contactPools.size());
 
         // Currently no tests with more than one contactpool
-        if (contactCenter.size() == 1) {
-                const auto& protoContactPool = protoContactCenter.pools(0);
-                auto        contactPool      = contactCenter[0];
+        if (contactPools.size() == 1) {
+                const auto& protoContactPool = protoContactPools.pools(0);
+                auto        contactPool      = contactPools[0];
                 CompareContactPool(contactPool, protoContactPool);
         }
 }
@@ -108,27 +105,19 @@ void CompareLocation(const Location& location, const proto::GeoGrid_Location& pr
         EXPECT_EQ(location.GetPopCount(), protoLocation.population());
         CompareCoordinate(location.GetCoordinate(), protoLocation.coordinate());
 
-        // ASSERT_EQ(protoLocation.contactcenters_size(), location->GetContactCenters().size());
+        static const map<proto::GeoGrid_Location_ContactPools_Type, Id> types = {
+            {proto::GeoGrid_Location_ContactPools_Type_K12School, Id::K12School},
+            {proto::GeoGrid_Location_ContactPools_Type_PrimaryCommunity, Id::PrimaryCommunity},
+            {proto::GeoGrid_Location_ContactPools_Type_SecondaryCommunity, Id::SecondaryCommunity},
+            {proto::GeoGrid_Location_ContactPools_Type_College, Id::College},
+            {proto::GeoGrid_Location_ContactPools_Type_Household, Id::Household},
+            {proto::GeoGrid_Location_ContactPools_Type_Workplace, Id::Workplace}};
 
-        map<int, ContactCenter*>                        idToCenter;
-        map<int, proto::GeoGrid_Location_ContactCenter> idToProtoCenter;
-
-        vector<ContactCenter*> centers;
-        for (Id typ : IdList) {
-                for (const auto& p : location.CRefCenters(typ)) {
-                        centers.emplace_back(p.get());
-                }
-        }
-
-        for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
-                auto protoContactCenter                  = protoLocation.contactcenters(idx);
-                auto contactCenter                       = centers[idx];
-                idToCenter[contactCenter->GetId()]       = contactCenter;
-                idToProtoCenter[protoContactCenter.id()] = move(protoContactCenter);
-        }
-
-        for (auto& contactCenterPair : idToCenter) {
-                CompareContactCenter(*contactCenterPair.second, idToProtoCenter[contactCenterPair.first]);
+        for (int idx = 0; idx < protoLocation.contactpools_size(); idx++) {
+                const auto& protoContactPools     = protoLocation.contactpools(idx);
+                auto        protoContactPoolsType = protoContactPools.type();
+                auto        typeId                = types.at(protoContactPoolsType);
+                CompareContactPools(typeId, location.CRefPools(typeId), protoContactPools);
         }
 
         ASSERT_EQ(protoLocation.commutes_size(), location.CRefOutgoingCommutes().size());
@@ -142,8 +131,6 @@ void CompareLocation(const Location& location, const proto::GeoGrid_Location& pr
 
 void ComparePerson(const proto::GeoGrid_Person& protoPerson)
 {
-        using namespace ContactType;
-
         const auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), Id::College)], person->GetPoolId(Id::College));
@@ -179,47 +166,31 @@ void CompareGeoGrid(proto::GeoGrid& protoGrid)
 
 shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
 {
-        const auto geoGrid  = make_shared<GeoGrid>(pop);
-        const auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
+        const auto geoGrid = make_shared<GeoGrid>(pop);
+        const auto loc     = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
 
-        const auto school = make_shared<ContactCenter>(0, Id::K12School);
-        location->AddCenter(school);
-        const auto schoolPool = new ContactPool(2, Id::K12School);
-        school->RegisterPool(schoolPool);
+        auto k12Pool = pop->RefPoolSys().CreateContactPool(Id::K12School);
+        loc->RefPools(Id::K12School).emplace_back(k12Pool);
+        auto pcPool = pop->RefPoolSys().CreateContactPool(Id::PrimaryCommunity);
+        loc->RefPools(Id::PrimaryCommunity).emplace_back(pcPool);
+        auto scPool = pop->RefPoolSys().CreateContactPool(Id::SecondaryCommunity);
+        loc->RefPools(Id::SecondaryCommunity).emplace_back(scPool);
+        auto cPool = pop->RefPoolSys().CreateContactPool(Id::College);
+        loc->RefPools(Id::College).emplace_back(cPool);
+        auto hPool = pop->RefPoolSys().CreateContactPool(Id::Household);
+        loc->RefPools(Id::Household).emplace_back(hPool);
+        auto wPool = pop->RefPoolSys().CreateContactPool(Id::Workplace);
+        loc->RefPools(Id::Workplace).emplace_back(wPool);
 
-        const auto community = make_shared<ContactCenter>(1, Id::PrimaryCommunity);
-        location->AddCenter(community);
-        const auto communityPool = new ContactPool(3, Id::PrimaryCommunity);
-        community->RegisterPool(communityPool);
-
-        const auto secondaryCommunity = make_shared<ContactCenter>(2, Id::SecondaryCommunity);
-        location->AddCenter(secondaryCommunity);
-        const auto secondaryCommunityPool = new ContactPool(7, Id::SecondaryCommunity);
-        secondaryCommunity->RegisterPool(secondaryCommunityPool);
-
-        const auto college = make_shared<ContactCenter>(3, Id::College);
-        location->AddCenter(college);
-        const auto collegePool = new ContactPool(4, Id::College);
-        college->RegisterPool(collegePool);
-
-        const auto household = make_shared<ContactCenter>(4, Id::Household);
-        location->AddCenter(household);
-        const auto householdPool = new ContactPool(5, Id::Household);
-        household->RegisterPool(householdPool);
-
-        const auto workplace = make_shared<ContactCenter>(5, Id::Workplace);
-        location->AddCenter(workplace);
-        const auto workplacePool = new ContactPool(6, Id::Workplace);
-        workplace->RegisterPool(workplacePool);
-
-        geoGrid->AddLocation(location);
-        const auto person = geoGrid->GetPopulation()->CreatePerson(0, 18, 5, 2, 4, 6, 3, 7);
-        communityPool->AddMember(person);
-        schoolPool->AddMember(person);
-        secondaryCommunityPool->AddMember(person);
-        collegePool->AddMember(person);
-        householdPool->AddMember(person);
-        workplacePool->AddMember(person);
+        geoGrid->AddLocation(loc);
+        const auto person = geoGrid->GetPopulation()->CreatePerson(
+            0, 18, hPool->GetId(), k12Pool->GetId(), cPool->GetId(), wPool->GetId(), pcPool->GetId(), scPool->GetId());
+        k12Pool->AddMember(person);
+        pcPool->AddMember(person);
+        scPool->AddMember(person);
+        cPool->AddMember(person);
+        hPool->AddMember(person);
+        wPool->AddMember(person);
         return geoGrid;
 }
 

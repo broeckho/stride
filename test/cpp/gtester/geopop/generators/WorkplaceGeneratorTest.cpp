@@ -32,20 +32,21 @@ using namespace stride::util;
 
 namespace {
 
-class WorkplaceGeneratorTest : public testing::Test {
+class WorkplaceGeneratorTest : public testing::Test
+{
 public:
         WorkplaceGeneratorTest()
-                : m_rn_man(RnInfo()), m_workplace_generator(m_rn_man), m_geogrid_config(),
-                  m_pop(Population::Create()), m_geo_grid(m_pop.get())
+            : m_rn_man(RnInfo()), m_workplace_generator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+              m_geo_grid(m_pop.get())
         {
         }
 
 protected:
-        RnMan                        m_rn_man;
-        WorkplaceGenerator           m_workplace_generator;
-        GeoGridConfig                m_geogrid_config;
-        shared_ptr<Population>       m_pop;
-        GeoGrid                      m_geo_grid;
+        RnMan                  m_rn_man;
+        WorkplaceGenerator     m_workplace_generator;
+        GeoGridConfig          m_geogrid_config;
+        shared_ptr<Population> m_pop;
+        GeoGrid                m_geo_grid;
 };
 
 // Check that generator can handle empty GeoGrid.
@@ -53,9 +54,7 @@ TEST_F(WorkplaceGeneratorTest, ZeroLocationTest)
 {
         m_geogrid_config.input.pop_size           = 10000;
         m_geogrid_config.popInfo.popcount_college = 20000;
-
-        unsigned int       ccCounter{1U};
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
         EXPECT_EQ(m_geo_grid.size(), 0);
 }
@@ -76,9 +75,7 @@ TEST_F(WorkplaceGeneratorTest, NoCommuting)
         for (int size : sizes) {
                 m_geo_grid.AddLocation(make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size));
         }
-
-        unsigned int       ccCounter{1U};
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
         vector<int> expected{1342, 512,  1948, 1801, 1919, 1087, 1304, 6,    1133, 1728, 646,  441,  450,
                              1643, 1897, 1410, 810,  382,  1192, 1688, 1691, 161,  204,  1433, 1796, 1187,
@@ -86,9 +83,8 @@ TEST_F(WorkplaceGeneratorTest, NoCommuting)
                              868,  1355, 594,  104,  1298, 136,  94,   140,  500,  588,  1663};
 
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i], m_geo_grid[i]->CRefCenters(Id::Workplace).size());
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
-                                                        m_geo_grid[i]->CRefPools(Id::Workplace).size() );
+                          m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
 
@@ -122,17 +118,15 @@ TEST_F(WorkplaceGeneratorTest, NullCommuting)
         EXPECT_EQ(1283, m_geo_grid[1]->GetIncomingCommuteCount(m_geogrid_config.input.fraction_workplace_commuters));
         EXPECT_EQ(1283, m_geo_grid[1]->GetOutgoingCommuteCount(m_geogrid_config.input.fraction_workplace_commuters));
 
-        unsigned int       ccCounter{1U};
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
         vector<int> expected{1351, 521,  1960, 1798, 1907, 1088, 1301, 5,    1134, 1739, 644,  431,  447,
                              1650, 1894, 1409, 809,  377,  1198, 1685, 1692, 155,  210,  1430, 1793, 1191,
                              1449, 203,  1536, 928,  446,  1754, 1169, 263,  1194, 1456, 1058, 594,  793,
                              869,  1356, 591,  105,  1297, 136,  95,   139,  499,  588,  1663};
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i], m_geo_grid[i]->CRefCenters(Id::Workplace).size());
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
-                          m_geo_grid[i]->CRefPools(Id::Workplace).size() );
+                          m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
 
@@ -199,8 +193,7 @@ TEST_F(WorkplaceGeneratorTest, TenCommuting)
         // = 0,10 * (0,65 * 76946 + 0,22  * 141389 + 0,47 * 20775 + 0,25* 63673) = 10680,298
         EXPECT_EQ(10680, m_geo_grid[17]->GetIncomingCommuteCount(m_geogrid_config.input.fraction_workplace_commuters));
 
-        unsigned int       ccCounter{1U};
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config, ccCounter);
+        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
 
         vector<int> expected{1328, 516,  1941, 1850, 1906, 1087, 1297, 6,    1132, 1727, 671,  428,  447,
                              1647, 1896, 1394, 810,  464,  1220, 1682, 1672, 149,  211,  1423, 1802, 1185,
@@ -208,9 +201,8 @@ TEST_F(WorkplaceGeneratorTest, TenCommuting)
                              873,  1355, 589,  101,  1291, 142,  93,   132,  507,  584,  1659};
 
         for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i], m_geo_grid[i]->CRefCenters(Id::Workplace).size());
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
-                          m_geo_grid[i]->CRefPools(Id::Workplace).size() );
+                          m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
 

@@ -35,8 +35,8 @@ message GeoGrid {
         }
         Coordinate coordinate = 5;
 
-        // ContactCenter with UUID, type ID amd multiple ContactPools.
-        message ContactCenter {
+        // ContactPool Index: ContactPools with UUID, type ID.
+        message ContactPools {
 
             int64 id = 1;
 
@@ -57,7 +57,7 @@ message GeoGrid {
             }
             repeated ContactPool pools = 3;
         }
-        repeated ContactCenter contactCenters = 6;
+        repeated ContactPools contactPools = 6;
 
         message Commute {
             int64 to = 1;

@@ -15,7 +15,6 @@
 
 #include "PrimaryCommunityGenerator.h"
 
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -33,7 +32,7 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
+void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         // 1. calculate number of communities, each community has average 2000 persons
         // 2. assign communities to a location using a discrete distribution reflecting the relative number of
@@ -57,33 +56,19 @@ void PrimaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geo
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
-        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
+        auto       pop  = geoGrid.GetPopulation();
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto pc  = make_shared<ContactCenter>(ccCounter++, Id::PrimaryCommunity);
-
-                // TODO CheckThisAlgorithm
-                // for (std::size_t j = 0; j < geoGridConfig.pools.pools_per_community; ++j) {
-                if (pc->size() == 0) {
-                        const auto p = poolSys.CreateContactPool(Id::PrimaryCommunity);
-                        pc->RegisterPool(p);
-                        loc->RegisterPool<Id::PrimaryCommunity>(p);
-                }
-
-                loc->AddCenter(pc);
+                AddPools(*loc, pop, geoGridConfig.pools.pools_per_primary_community);
         }
 }
 
-void PrimaryCommunityGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig&, Population* pop)
+void PrimaryCommunityGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
 {
         auto& poolSys = pop->RefPoolSys();
-
-        // TODO CheckThisAlgorithm
-        // for (std::size_t i = 0; i < geoGridConfig.pools.pools_per_community; ++i) {
-        if (center.size() == 0) {
-                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::PrimaryCommunity);
-                center.RegisterPool(p);
+        for (auto i = 0U; i < number; ++i) {
+                const auto p = poolSys.CreateContactPool(Id::PrimaryCommunity);
                 loc.RegisterPool<Id::PrimaryCommunity>(p);
         }
 }

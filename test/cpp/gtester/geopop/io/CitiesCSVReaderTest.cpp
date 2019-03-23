@@ -66,17 +66,17 @@ TEST(CitiesCSVReaderTest, test1)
 73109,7,2583,251986.4171,160699.7771,50.74921941,5.806343076,VOEREN-'S GRAVENVOEREN
 )";
 
-        const auto expectedGeoGrid = getExpectedGeoGrid();
-        auto       pop             = Population::Create();
-        auto&      geoGrid         = pop->RefGeoGrid();
-        auto       instream        = make_unique<istringstream>(csvString);
+        const auto expected = getExpectedGeoGrid();
+        auto       pop      = Population::Create();
+        auto&      geoGrid  = pop->RefGeoGrid();
+        auto       instream = make_unique<istringstream>(csvString);
 
         LocationsCSVReader reader(move(instream));
         reader.FillGeoGrid(geoGrid);
 
         for (const auto& loc : geoGrid) {
-                EXPECT_EQ(*loc, *(expectedGeoGrid->GetById(loc->GetID())));
-                EXPECT_DOUBLE_EQ(loc->GetPopFraction(), (expectedGeoGrid->GetById(loc->GetID()))->GetPopFraction());
+                EXPECT_EQ(*loc, *(expected->GetById(loc->GetID())));
+                EXPECT_DOUBLE_EQ(loc->GetPopFraction(), (expected->GetById(loc->GetID()))->GetPopFraction());
         }
 }
 

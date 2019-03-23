@@ -15,7 +15,6 @@
 
 #include "K12SchoolGenerator.h"
 
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
@@ -25,9 +24,10 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride;
 using namespace stride::ContactType;
 
-void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter)
+void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         // 1. given the number of persons of school age, calculate number of schools; schools
         //    have 500 pupils on average
@@ -50,30 +50,19 @@ void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
-        auto& poolSys = geoGrid.GetPopulation()->RefPoolSys();
+        auto       pop  = geoGrid.GetPopulation();
 
         for (auto i = 0U; i < schoolCount; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto k12 = make_shared<ContactCenter>(ccCounter++, Id::K12School);
-
-                for (auto j = 0U; j < geoGridConfig.pools.pools_per_k12school; ++j) {
-                        const auto p = poolSys.CreateContactPool(Id::K12School);
-                        k12->RegisterPool(p);
-                        loc->RegisterPool<Id::K12School>(p);
-                }
-
-                loc->AddCenter(k12);
+                AddPools(*loc, pop, geoGridConfig.pools.pools_per_k12school);
         }
 }
 
-void K12SchoolGenerator::SetupPools(Location& loc, ContactCenter& center, const GeoGridConfig& geoGridConfig,
-                                    stride::Population* pop)
+void K12SchoolGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
 {
         auto& poolSys = pop->RefPoolSys();
-
-        for (auto i = 0U; i < geoGridConfig.pools.pools_per_k12school; ++i) {
-                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::K12School);
-                center.RegisterPool(p);
+        for (auto i = 0U; i < number; ++i) {
+                const auto p = poolSys.CreateContactPool(Id::K12School);
                 loc.RegisterPool<Id::K12School>(p);
         }
 }

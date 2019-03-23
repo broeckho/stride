@@ -15,12 +15,12 @@
 
 #include "GeoGridIOUtils.h"
 #include "geogrid.pb.h"
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGridConfig.h"
 
 #include <gtest/gtest.h>
 
 using namespace std;
+using namespace stride;
 using namespace stride::ContactType;
 using namespace geopop;
 using boost::geometry::get;
@@ -40,19 +40,17 @@ void fillLocation(int id, unsigned int province, unsigned int population, Coordi
         location->set_allocated_coordinate(protoCoordinate);
 }
 
-void fillContactCenter(const shared_ptr<ContactCenter>&       contactCenter,
-                       proto::GeoGrid_Location_ContactCenter* protoContactCenter)
+void fillContactPools(Id typeId, proto::GeoGrid_Location_ContactPools* protoContactPools)
 {
-        map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
-            {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
-            {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-            {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-            {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
-            {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
-            {Id::Workplace, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+        static const map<Id, proto::GeoGrid_Location_ContactPools_Type> types = {
+            {Id::K12School, proto::GeoGrid_Location_ContactPools_Type_K12School},
+            {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactPools_Type_PrimaryCommunity},
+            {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactPools_Type_SecondaryCommunity},
+            {Id::College, proto::GeoGrid_Location_ContactPools_Type_College},
+            {Id::Household, proto::GeoGrid_Location_ContactPools_Type_Household},
+            {Id::Workplace, proto::GeoGrid_Location_ContactPools_Type_Workplace}};
 
-        protoContactCenter->set_type(types[contactCenter->GetContactPoolType()]);
-        protoContactCenter->set_id(contactCenter->GetId());
+        protoContactPools->set_type(types.at(typeId));
 }
 
 TEST(GeoGridProtoReaderTest, locationTest)
@@ -63,19 +61,22 @@ TEST(GeoGridProtoReaderTest, locationTest)
         fillLocation(3, 2, 2500, Coordinate(0, 0), "Mons", geoGrid.add_locations());
         CompareGeoGrid(geoGrid);
 }
-TEST(GeoGridProtoReaderTest, contactCentersTest)
+
+TEST(GeoGridProtoReaderTest, contactPoolsTest)
 {
         proto::GeoGrid geoGrid;
         auto           location = geoGrid.add_locations();
         fillLocation(1, 4, 2500, Coordinate(0, 0), "Bavikhove", location);
-        fillContactCenter(make_shared<ContactCenter>(0, Id::K12School), location->add_contactcenters());
-        fillContactCenter(make_shared<ContactCenter>(1, Id::PrimaryCommunity), location->add_contactcenters());
-        fillContactCenter(make_shared<ContactCenter>(2, Id::College), location->add_contactcenters());
-        fillContactCenter(make_shared<ContactCenter>(3, Id::Household), location->add_contactcenters());
-        fillContactCenter(make_shared<ContactCenter>(4, Id::Workplace), location->add_contactcenters());
+
+        fillContactPools(Id::K12School, location->add_contactpools());
+        fillContactPools(Id::PrimaryCommunity, location->add_contactpools());
+        fillContactPools(Id::College, location->add_contactpools());
+        fillContactPools(Id::Household, location->add_contactpools());
+        fillContactPools(Id::Workplace, location->add_contactpools());
 
         CompareGeoGrid(geoGrid);
 }
+
 TEST(GeoGridProtoReaderTest, peopleTest)
 {
         proto::GeoGrid geoGrid;
@@ -83,44 +84,44 @@ TEST(GeoGridProtoReaderTest, peopleTest)
         fillLocation(1, 4, 2500, Coordinate(0, 0), "Bavikhove", location);
 
         {
-                auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<ContactCenter>(0, Id::K12School), contactCenter);
-                auto pool = contactCenter->add_pools();
+                auto contactPools = location->add_contactpools();
+                fillContactPools(Id::K12School, contactPools);
+                auto pool = contactPools->add_pools();
                 pool->set_id(2);
                 pool->add_people(0);
         }
         {
-                auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<ContactCenter>(1, Id::PrimaryCommunity), contactCenter);
-                auto pool = contactCenter->add_pools();
+                auto contactPools = location->add_contactpools();
+                fillContactPools(Id::PrimaryCommunity, contactPools);
+                auto pool = contactPools->add_pools();
                 pool->set_id(3);
                 pool->add_people(0);
         }
         {
-                auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<ContactCenter>(2, Id::SecondaryCommunity), contactCenter);
-                auto pool = contactCenter->add_pools();
+                auto contactPools = location->add_contactpools();
+                fillContactPools(Id::SecondaryCommunity, contactPools);
+                auto pool = contactPools->add_pools();
                 pool->set_id(7);
                 pool->add_people(0);
         }
         {
-                auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<ContactCenter>(3, Id::College), contactCenter);
-                auto pool = contactCenter->add_pools();
+                auto contactPools = location->add_contactpools();
+                fillContactPools(Id::College, contactPools);
+                auto pool = contactPools->add_pools();
                 pool->set_id(4);
                 pool->add_people(0);
         }
         {
-                auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<ContactCenter>(4, Id::Household), contactCenter);
-                auto pool = contactCenter->add_pools();
+                auto contactPools = location->add_contactpools();
+                fillContactPools(Id::Household, contactPools);
+                auto pool = contactPools->add_pools();
                 pool->set_id(5);
                 pool->add_people(0);
         }
         {
-                auto contactCenter = location->add_contactcenters();
-                fillContactCenter(make_shared<ContactCenter>(5, Id::Workplace), contactCenter);
-                auto pool = contactCenter->add_pools();
+                auto contactPools = location->add_contactpools();
+                fillContactPools(Id::Workplace, contactPools);
+                auto pool = contactPools->add_pools();
                 pool->set_id(6);
                 pool->add_people(0);
         }

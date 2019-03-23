@@ -8,10 +8,11 @@ class Config:
         else:
             self._etree = ET.Element(root)
 
-    def getParameter(self, name: str):
+    def getParameter(self, name: str, default=None):
         if self._etree.find(name) != None:
             if self._etree.find(name).text != None:
                 return self._etree.find(name).text
+        return default
 
     def setParameter(self, name: str, value):
         if self._etree.find(name) != None:

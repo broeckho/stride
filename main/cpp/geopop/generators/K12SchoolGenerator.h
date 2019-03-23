@@ -20,7 +20,7 @@
 namespace geopop {
 
 /**
- * Generates ContactCenters and pools for ContactType K12School.
+ * Generates ContactPools for ContactType K12School.
  */
 class K12SchoolGenerator : public Generator
 {
@@ -28,11 +28,10 @@ public:
         using Generator::Generator;
 
         /// See @Generator::Apply.
-        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig, unsigned int& ccCounter) override;
+        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig) override;
 
-        /// see @Generator::SetupPools.
-        void SetupPools(Location& loc,
-                        ContactCenter& center, const GeoGridConfig& geoGridConfig, stride::Population* pop) override;
+        /// @see Generator::AddPools.
+        void AddPools(Location& loc, stride::Population* pop, unsigned int number) override;
 };
 
 } // namespace geopop

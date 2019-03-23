@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include "geopop/ContactCenter.h"
+#include "contact/ContactType.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/Location.h"
 
@@ -23,8 +23,8 @@ namespace proto {
 class GeoGrid;
 class GeoGrid_Location;
 class GeoGrid_Location_Coordinate;
-class GeoGrid_Location_ContactCenter;
-class GeoGrid_Location_ContactCenter_ContactPool;
+class GeoGrid_Location_ContactPools;
+class GeoGrid_Location_ContactPools_ContactPool;
 class GeoGrid_Person;
 } // namespace proto
 
@@ -35,11 +35,12 @@ class Population;
 
 using namespace geopop;
 
-void CompareContactPool(stride::ContactPool*                                     contactPool,
-                        const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool);
+void CompareContactPool(stride::ContactPool*                                    contactPool,
+                        const proto::GeoGrid_Location_ContactPools_ContactPool& protoContactPool);
 
-void CompareContactCenter(const ContactCenter&                         contactCenter,
-                          const proto::GeoGrid_Location_ContactCenter& protoContactCenter);
+void CompareContactPools(stride::ContactType::Id                                    typeId,
+                         const stride::util::SegmentedVector<stride::ContactPool*>& contactPools,
+                         const proto::GeoGrid_Location_ContactPools&                protoContactPools);
 
 void CompareCoordinate(const Coordinate& coordinate, const proto::GeoGrid_Location_Coordinate& protoCoordinate);
 

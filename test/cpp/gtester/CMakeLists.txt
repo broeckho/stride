@@ -58,8 +58,8 @@ set(SRC
     geopop/io/CitiesCSVReaderTest.cpp
     geopop/io/CommutesCSVReaderTest.cpp
     geopop/io/GeoGridIOUtils.cpp
-    geopop/io/GeoGridJSONReaderTest.cpp
-    geopop/io/GeoGridJSONWriterTest.cpp
+    #geopop/io/GeoGridJSONReaderTest.cpp
+    #geopop/io/GeoGridJSONWriterTest.cpp
     geopop/io/GeoGridProtoReaderTest.cpp
     geopop/io/GeoGridProtoWriterTest.cpp
     geopop/io/HouseholdCSVReaderTest.cpp
@@ -67,7 +67,7 @@ set(SRC
     #---
     geopop/kdtree.cpp
     #---
-    geopop/populators/createGeogrid.cpp
+    geopop/populators/MakeGeoGrid.cpp
     geopop/populators/CollegePopulatorTest.cpp
     geopop/populators/HouseholdPopulatorTest.cpp
     geopop/populators/K12SchoolPopulatorTest.cpp

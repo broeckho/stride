@@ -43,8 +43,8 @@
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <spdlog/logger.h>
 #include <contact/ContactType.h>
+#include <spdlog/logger.h>
 
 namespace stride {
 
@@ -90,9 +90,9 @@ shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Generate Geo.
         // --------------------------------------------------------------
-        m_stride_logger->trace("Starting MakeCenters");
-        MakeCenters(geoGrid, ggConfig);
-        m_stride_logger->trace("Finished MakeCenters");
+        m_stride_logger->trace("Starting MakePools");
+        MakePools(geoGrid, ggConfig);
+        m_stride_logger->trace("Finished MakePools");
 
         // --------------------------------------------------------------
         // Generate Pop.
@@ -126,7 +126,7 @@ void GeoPopBuilder::MakeLocations(GeoGrid& geoGrid, const GeoGridConfig& geoGrid
         geoGrid.Finalize();
 }
 
-void GeoPopBuilder::MakeCenters(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+void GeoPopBuilder::MakePools(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         vector<shared_ptr<Generator>> generators{make_shared<K12SchoolGenerator>(m_rn_man, m_stride_logger),
                                                  make_shared<CollegeGenerator>(m_rn_man, m_stride_logger),
@@ -136,8 +136,7 @@ void GeoPopBuilder::MakeCenters(GeoGrid& geoGrid, const GeoGridConfig& geoGridCo
                                                  make_shared<HouseholdGenerator>(m_rn_man, m_stride_logger)};
 
         for (const auto& g : generators) {
-                auto ccCounter = 1U;
-                g->Apply(geoGrid, geoGridConfig, ccCounter);
+                g->Apply(geoGrid, geoGridConfig);
         }
 }
 
