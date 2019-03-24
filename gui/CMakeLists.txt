@@ -3,9 +3,6 @@ cmake_minimum_required(VERSION 3.12)
 project(gui)
 
 set(CMAKE_CXX_STANDARD 17)
-
-# Find includes in corresponding build directories
-# CHANGE PATH!!!!
 set(CMAKE_AUTOMOC  ON)
 set(CMAKE_AUTOUIC ON)
 
