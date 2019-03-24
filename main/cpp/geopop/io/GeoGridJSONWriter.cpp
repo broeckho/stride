@@ -16,7 +16,6 @@
 #include "GeoGridJSONWriter.h"
 
 #include "contact/ContactPool.h"
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "pop/Person.h"
 
@@ -60,28 +59,37 @@ void GeoGridJSONWriter::Write(GeoGrid& geoGrid, ostream& stream)
 
         jsonfile["persons"] = persons_array;
 
+        std::cout << jsonfile["persons"][0] << std::endl;
+
         m_persons_found.clear();
-        stream << jsonfile;
+        stream << std::setw(4) << jsonfile << std::endl;
+        stream.flush();
+
+        std::cout << stream.tellp() << std::endl;
 }
 
-json GeoGridJSONWriter::WriteContactCenter(shared_ptr<ContactCenter> contactCenter)
+json GeoGridJSONWriter::WriteContactPools(stride::ContactType::Id typeId,
+                                          stride::util::SegmentedVector<stride::ContactPool *>& pools)
 {
-        json contactCenter_json = json::object();
-        contactCenter_json["id"] = contactCenter->GetId();
-        contactCenter_json["class"] = ToString(contactCenter->GetContactPoolType());
+        json contactPool_json = json::object();
+        contactPool_json["class"] = ToString(typeId);
 
         json pools_array = json::array();
-        for (const auto& pool : *contactCenter) {
+        for (const auto& pool : pools) {
                 json temp_pool;
                 temp_pool = WriteContactPool(pool);
+                if(temp_pool["people"].empty()){
+                        continue;
+                }
+                std::cout << temp_pool["people"] << std::endl;
                 pools_array.push_back(temp_pool);
         }
 
-        contactCenter_json["pools"] = pools_array;
-        return contactCenter_json;
+        contactPool_json["pools"] = pools_array;
+        return contactPool_json;
 }
 
-json GeoGridJSONWriter::WriteContactPool(ContactPool* contactPool)
+json GeoGridJSONWriter::WriteContactPool(stride::ContactPool* contactPool)
 {
         json pool = json::object();
         pool["id"] = contactPool->GetId();
@@ -118,32 +126,32 @@ json GeoGridJSONWriter::WriteLocation(shared_ptr<Location> location)
 
 
         auto commutes = location->CRefOutgoingCommutes();
+
         if (!commutes.empty()) {
-                json commutes_list = json::array();
-                for (auto commute_pair : commutes) {
-                        json com_obj = json::object();
-                        com_obj["to"] = commute_pair.first->GetID();
-                        com_obj["proportion"] = commute_pair.second;
-                        commutes_list.push_back(com_obj);
-                }
-                location_object["commute"] = commutes_list;
+            json commutes_list = json::array();
+            for (auto commute_pair : commutes) {
+                json com_obj = json::object();
+                com_obj["to"] = commute_pair.first->GetID();
+                com_obj["proportion"] = commute_pair.second;
+                commutes_list.push_back(com_obj);
+            }
+            location_object["commute"] = commutes_list;
         }
         json contactCenters_array = json::array();
 
-        vector<shared_ptr<ContactCenter>> centers;
         for (Id typ : IdList) {
-                for (const auto& c : location->RefCenters(typ)) {
-                        contactCenters_array.push_back(WriteContactCenter(c));
-                }
+            json temp_obj = WriteContactPools(typ, location->RefPools(typ));
+            if (!temp_obj["pools"].empty()){
+                contactCenters_array.push_back(temp_obj);
+            }
         }
 
-        location_object["contactCenters"] = contactCenters_array;
+        location_object["contactPools"] = contactCenters_array;
 
         return location_object;
 }
 
-json GeoGridJSONWriter::WritePerson(Person* person)
-{
+json GeoGridJSONWriter::WritePerson(Person* person) {
         using namespace ContactType;
 
         json person_json = json::object();
@@ -158,5 +166,5 @@ json GeoGridJSONWriter::WritePerson(Person* person)
         person_json["secondaryCommunity"] = person->GetPoolId(Id::SecondaryCommunity);
 
         return person_json;
-
+}
 } // namespace geopop

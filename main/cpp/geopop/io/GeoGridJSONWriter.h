@@ -30,7 +30,7 @@ class Person;
 
 namespace geopop {
 
-class ContactCenter;
+class ContactPool;
 
 /**
  * Writes a GeoGrid to a JSON file.
@@ -46,7 +46,8 @@ public:
 
 private:
         /// Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter.
-        nlohmann::json WriteContactCenter(std::shared_ptr<ContactCenter> contactCenter);
+        nlohmann::json WriteContactPools(stride::ContactType::Id typeId,
+                stride::util::SegmentedVector<stride::ContactPool*>& pools);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a ContactPool.
         nlohmann::json WriteContactPool(stride::ContactPool* contactPool);

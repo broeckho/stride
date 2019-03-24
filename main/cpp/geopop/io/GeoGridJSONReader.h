@@ -48,11 +48,12 @@ public:
         void Read() override;
 
 private:
-        /// Create a ContactCenter based on the information stored in the provided boost property tree.
-        std::shared_ptr<ContactCenter> ParseContactCenter(nlohmann::json& contactCenter);
+        /// Create a ContactPools based on the information stored in the provided boost property tree.
+        void ParseContactPools(std::shared_ptr<Location> loc, nlohmann::json& contactCenter);
 
         /// Create a ContactCenter based on the information stored in the provided boost property tree.
-        stride::ContactPool* ParseContactPool(nlohmann::json& contactPool, stride::ContactType::Id typeId);
+        void ParseContactPool(std::shared_ptr<Location> loc,
+                nlohmann::json& contactPool, stride::ContactType::Id typeId);
 
         /// Create a Coordinate based on the information stored in the provided boost property tree.
         Coordinate ParseCoordinate(nlohmann::json& coordinate);

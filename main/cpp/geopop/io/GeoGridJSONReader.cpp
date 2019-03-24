@@ -52,6 +52,7 @@ void GeoGridJSONReader::Read()
         auto people = json_file["persons"];
 
         for (auto it = people.begin(); it != people.end(); it++) {
+                std::cout << *it << std::endl;
                 auto person = ParsePerson(*it);
                 m_people[person->GetId()] = person;
         }
@@ -75,19 +76,22 @@ shared_ptr<Location> GeoGridJSONReader::ParseLocation(json& location)
 {
         std::cout << "<<<<<<<<<<< In ParseLocation  >>>>>>>>>>>>" << std::endl;
 
+        std::cout << "blub" << std::endl;
         const auto id         = location["id"].get<unsigned int>();
+        std::cout << "blub" << std::endl;
         const auto name       = location["name"].get<string>();
+        std::cout << "blub" << std::endl;
         const auto province   = location["province"].get<unsigned int>();
+        std::cout << "blub" << std::endl;
         const auto population = location["population"].get<unsigned int>();
+        std::cout << "blub" << std::endl;
         const auto coordinate = ParseCoordinate(location["coordinate"]);
+        std::cout << "blub" << std::endl;
 
         auto result         = make_shared<Location>(id, province, coordinate, name, population);
         auto contactCenters = location["contactCenters"];
-        {
-                for (auto it = contactCenters.begin(); it != contactCenters.end(); it++) {
-                        const auto center = ParseContactCenter(*it);
-                        result->AddCenter(center):
-                }
+        for (auto it = contactCenters.begin(); it != contactCenters.end(); it++) {
+                ParseContactPools(result, *it);
         }
 
         if (location.find("commutes") != location.end()) {
@@ -115,14 +119,10 @@ Coordinate GeoGridJSONReader::ParseCoordinate(json& coordinate)
         return {longitude, latitude};
 }
 
-shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(json& contactCenter)
-{
-        std::cout << "<<<<<<<<<<< In ParseContactCenter >>>>>>>>>>>>" << std::endl;
-
+void GeoGridJSONReader::ParseContactPools(std::shared_ptr<geopop::Location> loc, nlohmann::json &contactCenter) {
         const auto type = contactCenter["class"].get<string>();
-        const auto id   = contactCenter["id"].get<unsigned int>();
 
-        ContactType::Id           typeId;
+        ContactType::Id typeId;
 
         if (type == ToString(Id::K12School)) {
                 typeId = Id::K12School;
@@ -137,39 +137,31 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(json& contactCen
         } else if (type == ToString(Id::Workplace)) {
                 typeId = Id::Workplace;
         } else {
-                throw Exception("No such ContactCenter type: " + type);
+                throw Exception("No such ContactPool type: " + type);
         }
 
-        auto result = make_shared<ContactCenter>(id, typeId);
         auto contactPools = contactCenter["pools"];
 
-        for (auto it = contactPools.begin(); it != contactPools.end(); it++) {
-                const auto pool = ParseContactPool(*it, typeId);
-                result->RegisterPool(pool);
+        for(auto it = contactPools.begin(); it != contactPools.end(); it++){
+                ParseContactPool(loc, *it, typeId);
         }
-        std::cout << "<<<<<<<<<<< Out ParseContactCenter >>>>>>>>>>>>" << std::endl;
-
-        return result;
 }
 
-ContactPool* GeoGridJSONReader::ParseContactPool(json& contactPool, ContactType::Id typeId)
+void GeoGridJSONReader::ParseContactPool(std::shared_ptr<Location> loc, json& contactPool, ContactType::Id typeId)
 {
         std::cout << "<<<<<<<<<<< In ParseContactPool >>>>>>>>>>>>" << std::endl;
 
         // Don't use the id of the ContactPool but the let the Population create an id.
         auto result = m_population->RefPoolSys().CreateContactPool(typeId);
+        loc->RefPools(typeId).emplace_back(result);
         auto people = contactPool["people"];
 
         for (auto it = people.begin(); it != people.end(); it++) {
                 auto person_id = *it;
-                if (m_people.count(person_id) == 0) {
-                        throw Exception("No such person: " );//+ to_string(person_id));
-                }
                 result->AddMember(m_people[person_id]);
+                m_people[person_id]->SetPoolId(typeId, static_cast<unsigned int>(result->GetId()));
         }
         std::cout << "<<<<<<<<<<< Out ParseContactPool >>>>>>>>>>>>" << std::endl;
-
-        return result;
 }
 
 Person* GeoGridJSONReader::ParsePerson(json& person)
@@ -184,6 +176,7 @@ Person* GeoGridJSONReader::ParsePerson(json& person)
         const auto wpId = person["workplace"].get<unsigned int>();
         const auto pcId = person["primaryCommunity"].get<unsigned int>();
         const auto scId = person["secondaryCommunity"].get<unsigned int>();
+        
         std::cout << "<<<<<<<<<<< Out ParsePerson >>>>>>>>>>>>" << std::endl;
 
         return m_population->CreatePerson(id, age, hhId, ksId, coId, wpId, pcId, scId);
