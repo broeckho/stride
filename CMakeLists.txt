@@ -73,11 +73,23 @@ if(STRIDE_INCLUDE_DOC)
 endif()
 
 #============================================================================
+# Configuration for QT.
+#============================================================================
+if(NOT STRIDE_FORCE_NO_QT)
+    set(QT_FOUND TRUE)
+    find_package(Qt5 COMPONENTS Widgets Qml Quick Core)
+else()
+    set(QT_FOUND FALSE)
+endif()
+
+#============================================================================
 # Add subdirs
 #============================================================================
 add_subdirectory(main)
 add_subdirectory(test)
-add_subdirectory(gui)
+if(NOT STRIDE_FORCE_NO_QT)
+    add_subdirectory(gui)
+endif()
 if(STRIDE_INCLUDE_DOC)
 	add_subdirectory(doc)
 endif()

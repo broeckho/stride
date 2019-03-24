@@ -37,6 +37,8 @@ set(CMAKE_BUILD_TYPE          "Release"
         CACHE STRING "Build type: None Debug Release RelWithDebInfo MinSizeRel.")
 set(CMAKE_PROGRAM_PATH  "/opt/local/bin;/usr/local/bin;/usr/bin"
 		CACHE PATH "Where to look with find_program." )
+set(CMAKE_PREFIX_PATH "$ENV{HOME}/Qt/5.12.2/gcc_64/"
+        CACHE PATH "Where to look to find QT." )
 
 #============================================================================
 # Using CCache if available.
@@ -57,6 +59,8 @@ set(STRIDE_FORCE_NO_OPENMP	FALSE
 	CACHE BOOL "Do NOT use OpenMP even if available.")
 set(STRIDE_FORCE_NO_PYTHON FALSE
 	CACHE BOOL "Force CMake to act as if Python or SWIG had not been found.")
+set(STRIDE_FORCE_NO_QT FALSE
+    CACHE BOOL "Force CMake to act as if QT had not been found.")
 set(STRIDE_FORCE_NO_PROTOC FALSE
 	CACHE BOOL "Do NOT use installed protobuf compiler even if available.")
 
