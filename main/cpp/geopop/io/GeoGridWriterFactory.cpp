@@ -37,8 +37,6 @@ std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateGeoGridWriter(const s
 {
         filesys::path path(filename);
 
-        std::cout << path.extension().string() << std::endl;
-
         if (path.extension().string() == ".json") {
                 return std::make_shared<GeoGridJSONWriter>();
         }

@@ -36,7 +36,6 @@ GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 
 void GeoGridJSONWriter::Write(GeoGrid& geoGrid, ostream& stream)
 {
-        std::cout << "<<<<<<<<<<<< IN WRITE >>>>>>>>>>>>>>" << std::endl;
         json jsonfile = json::object();
 
         json locations_array = json::array();
@@ -59,13 +58,9 @@ void GeoGridJSONWriter::Write(GeoGrid& geoGrid, ostream& stream)
 
         jsonfile["persons"] = persons_array;
 
-        std::cout << jsonfile["persons"][0] << std::endl;
-
         m_persons_found.clear();
         stream << std::setw(4) << jsonfile << std::endl;
         stream.flush();
-
-        std::cout << stream.tellp() << std::endl;
 }
 
 json GeoGridJSONWriter::WriteContactPools(stride::ContactType::Id typeId,
@@ -81,7 +76,6 @@ json GeoGridJSONWriter::WriteContactPools(stride::ContactType::Id typeId,
                 if(temp_pool["people"].empty()){
                         continue;
                 }
-                std::cout << temp_pool["people"] << std::endl;
                 pools_array.push_back(temp_pool);
         }
 
