@@ -38,7 +38,6 @@ GeoGridJSONReader::GeoGridJSONReader(unique_ptr<istream> inputStream, Population
 
 void GeoGridJSONReader::Read()
 {
-        std::cout << "<<<<<<<<<<< In GeoGridJSONReader >>>>>>>>>>>>" << std::endl;
         json json_file;
 
         try {
@@ -52,7 +51,6 @@ void GeoGridJSONReader::Read()
         auto people = json_file["persons"];
 
         for (auto it = people.begin(); it != people.end(); it++) {
-                std::cout << *it << std::endl;
                 auto person = ParsePerson(*it);
                 m_people[person->GetId()] = person;
         }
@@ -68,25 +66,16 @@ void GeoGridJSONReader::Read()
         AddCommutes(geoGrid);
         m_commutes.clear();
         m_people.clear();
-        std::cout << "<<<<<<<<<<< Out GeoGridJSONReader >>>>>>>>>>>>" << std::endl;
 
 }
 
 shared_ptr<Location> GeoGridJSONReader::ParseLocation(json& location)
 {
-        std::cout << "<<<<<<<<<<< In ParseLocation  >>>>>>>>>>>>" << std::endl;
-
-        std::cout << "blub" << std::endl;
         const auto id         = location["id"].get<unsigned int>();
-        std::cout << "blub" << std::endl;
         const auto name       = location["name"].get<string>();
-        std::cout << "blub" << std::endl;
         const auto province   = location["province"].get<unsigned int>();
-        std::cout << "blub" << std::endl;
         const auto population = location["population"].get<unsigned int>();
-        std::cout << "blub" << std::endl;
         const auto coordinate = ParseCoordinate(location["coordinate"]);
-        std::cout << "blub" << std::endl;
 
         auto result         = make_shared<Location>(id, province, coordinate, name, population);
         auto contactCenters = location["contactCenters"];
@@ -103,18 +92,15 @@ shared_ptr<Location> GeoGridJSONReader::ParseLocation(json& location)
                         m_commutes.emplace_back(id, to, amount);
                 }
         }
-        std::cout << "<<<<<<<<<<< Out ParseLocation  >>>>>>>>>>>>" << std::endl;
 
         return result;
 }
 
 Coordinate GeoGridJSONReader::ParseCoordinate(json& coordinate)
 {
-        std::cout << "<<<<<<<<<<< In ParseCoordinate >>>>>>>>>>>>" << std::endl;
 
         const auto longitude = coordinate["longitude"].get<double>();
         const auto latitude  = coordinate["latitude"].get<double>();
-        std::cout << "<<<<<<<<<<< Out ParseCoordinate >>>>>>>>>>>>" << std::endl;
 
         return {longitude, latitude};
 }
@@ -149,7 +135,6 @@ void GeoGridJSONReader::ParseContactPools(std::shared_ptr<geopop::Location> loc,
 
 void GeoGridJSONReader::ParseContactPool(std::shared_ptr<Location> loc, json& contactPool, ContactType::Id typeId)
 {
-        std::cout << "<<<<<<<<<<< In ParseContactPool >>>>>>>>>>>>" << std::endl;
 
         // Don't use the id of the ContactPool but the let the Population create an id.
         auto result = m_population->RefPoolSys().CreateContactPool(typeId);
@@ -161,12 +146,10 @@ void GeoGridJSONReader::ParseContactPool(std::shared_ptr<Location> loc, json& co
                 result->AddMember(m_people[person_id]);
                 m_people[person_id]->SetPoolId(typeId, static_cast<unsigned int>(result->GetId()));
         }
-        std::cout << "<<<<<<<<<<< Out ParseContactPool >>>>>>>>>>>>" << std::endl;
 }
 
 Person* GeoGridJSONReader::ParsePerson(json& person)
 {
-        std::cout << "<<<<<<<<<<< In ParsePerson >>>>>>>>>>>>" << std::endl;
 
         const auto id = person["id"].get<unsigned int>();
         const auto age = person["age"].get<double>();
@@ -176,8 +159,7 @@ Person* GeoGridJSONReader::ParsePerson(json& person)
         const auto wpId = person["workplace"].get<unsigned int>();
         const auto pcId = person["primaryCommunity"].get<unsigned int>();
         const auto scId = person["secondaryCommunity"].get<unsigned int>();
-        
-        std::cout << "<<<<<<<<<<< Out ParsePerson >>>>>>>>>>>>" << std::endl;
+
 
         return m_population->CreatePerson(id, age, hhId, ksId, coId, wpId, pcId, scId);
 }
