@@ -13,16 +13,16 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#pragma once
-
 #include "Populator.h"
+
+#pragma 1
 
 namespace geopop {
 
 /**
- * Populate the daycares.
- */
-class DaycarePopulator : public Populator
+ * populate the preschools
+ * */
+class PreSchoolPopulator : Populator
 {
 public:
     /// Using base class constructors.
@@ -33,3 +33,5 @@ public:
 };
 
 } // namespace geopop
+
+

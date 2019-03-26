@@ -121,6 +121,7 @@ set(STRIDE_SRC
     geopop/io/HouseholdCSVReader.cpp
     geopop/io/ReaderFactory.cpp
     geopop/populators/DaycarePopulator.cpp
+    geopop/populators/PreSchoolPopulator.cpp
     geopop/populators/CollegePopulator.cpp
     geopop/populators/HouseholdPopulator.cpp
     geopop/populators/K12SchoolPopulator.cpp
