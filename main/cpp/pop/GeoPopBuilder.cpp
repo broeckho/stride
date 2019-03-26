@@ -29,6 +29,8 @@
 #include "geopop/generators/SecondaryCommunityGenerator.h"
 #include "geopop/generators/WorkplaceGenerator.h"
 #include "geopop/io/ReaderFactory.h"
+#include "geopop/populators/PreSchoolPopulator.h"
+#include "geopop/populators/DaycarePopulator.h"
 #include "geopop/populators/CollegePopulator.h"
 #include "geopop/populators/HouseholdPopulator.h"
 #include "geopop/populators/K12SchoolPopulator.h"
@@ -143,6 +145,8 @@ void GeoPopBuilder::MakePools(GeoGrid& geoGrid, const GeoGridConfig& geoGridConf
 void GeoPopBuilder::MakePersons(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         vector<shared_ptr<Populator>> populators{make_shared<HouseholdPopulator>(m_rn_man, m_stride_logger),
+                                                 make_shared<DaycarePopulator>(m_rn_man, m_stride_logger),
+                                                 make_shared<PreSchoolPopulator>(m_rn_man, m_stride_logger),
                                                  make_shared<K12SchoolPopulator>(m_rn_man, m_stride_logger),
                                                  make_shared<CollegePopulator>(m_rn_man, m_stride_logger),
                                                  make_shared<PrimaryCommunityPopulator>(m_rn_man, m_stride_logger),

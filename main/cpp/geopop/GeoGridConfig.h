@@ -45,11 +45,17 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
+                /// Participation of daycare (fraction of people of daycare age going to daycare).
+                double participation_daycare = 0.45;
+
+                /// Participation of preschool (fraction of people of preschool age going to preschool).
+                double participation_preschool = 0.99;
+
                 /// Participation of college (fraction of people of college age going to college).
                 double participation_college;
 
                 /// Participation of workplace (fraction of people of work age and not going to
-                /// college having emplayment).
+                /// college having employment).
                 double particpation_workplace;
 
                 /// Fraction of college students that commute.
@@ -82,6 +88,12 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
+                ///Numbers of individuals in Daycare.
+                unsigned int popcount_daycare;
+
+                ///Numbers of individuals in PreSchool.
+                unsigned int popcount_preschool;
+
                 /// Numbers of individuals in K12School.
                 unsigned int popcount_k12school;
 
