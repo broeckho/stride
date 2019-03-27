@@ -97,6 +97,7 @@ set(STRIDE_SRC
     geopop/geo/GeoGridKdTree.cpp
     geopop/geo/KdTree2DPoint.cpp
     #---
+    geopop/generators/DaycareGenerator.cpp
     geopop/generators/CollegeGenerator.cpp
     geopop/generators/Generator.cpp
     geopop/generators/HouseholdGenerator.cpp
