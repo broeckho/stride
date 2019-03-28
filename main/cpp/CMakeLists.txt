@@ -119,6 +119,8 @@ set(STRIDE_SRC
     geopop/io/GeoGridWriterFactory.cpp
     geopop/io/GeoGridWriterFactory.h
     geopop/io/HouseholdCSVReader.cpp
+	geopop/io/HouseholdJSONReader.h
+	geopop/io/HouseholdJSONReader.cpp
     geopop/io/ReaderFactory.cpp
     geopop/populators/CollegePopulator.cpp
     geopop/populators/HouseholdPopulator.cpp
@@ -165,7 +167,7 @@ set(STRIDE_SRC
     viewers/InfectedViewer.cpp
     viewers/PersonsFileViewer.cpp
     viewers/SummaryFileViewer.cpp
-)
+    )
 
 #============================================================================
 # Build the Stride library.
