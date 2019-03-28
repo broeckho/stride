@@ -83,6 +83,8 @@ TEST(GeoGridJSONReaderTest, locationsTest)
 
 TEST(GeoGridJSONReaderTest, commutesTest)
 {
+
+
         auto pop = Population::Create();
         getGeoGridFromFile("test7.json", pop.get());
         auto& geoGrid = pop->RefGeoGrid();
@@ -152,9 +154,9 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
         auto& geoGrid  = pop->RefGeoGrid();
         auto  location = geoGrid[0];
 
-        vector<shared_ptr<ContactCenter>> centers;
+        vector<ContactPool*> centers;
         for (Id typ : IdList) {
-                for (const auto& p : location->RefCenters(typ)) {
+                for (const auto& p : location->RefPools(typ)) {
                         centers.emplace_back(p);
                 }
         }
@@ -166,9 +168,10 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
                                {Id::Workplace, false}};
 
         for (unsigned int i = 0; i < 5; i++) {
-                EXPECT_FALSE(found[centers[i]->GetContactPoolType()]);
-                found[centers[i]->GetContactPoolType()] = true;
+                EXPECT_FALSE(found[centers[i]->GetType()]);
+                found[centers[i]->GetType()] = true;
         }
+
         for (auto& type : found) {
                 EXPECT_TRUE(type.second);
         }
@@ -191,17 +194,17 @@ void runPeopleTest(const string& filename)
         EXPECT_EQ(get<0>(location->GetCoordinate()), 0);
         EXPECT_EQ(get<1>(location->GetCoordinate()), 0);
 
-        vector<shared_ptr<ContactCenter>> centers;
+        vector<ContactPool*> centers;
         for (Id typ : IdList) {
-                for (const auto& p : location->RefCenters(typ)) {
+                for (const auto& p : location->RefPools(typ)) {
                         centers.emplace_back(p);
                 }
         }
 
         for (const auto& center : centers) {
-                auto pool   = (*center)[0];
-                auto person = *(pool->begin());
-                EXPECT_EQ(ids[center->GetId()], ToString(center->GetContactPoolType()));
+                auto person   = (*center)[0];
+//                auto person = *(pool->begin());
+//                EXPECT_EQ(ids[center->GetId()], ToString(center->GetType()));
                 EXPECT_EQ(person->GetId(), 0);
                 EXPECT_EQ(person->GetAge(), 18);
                 EXPECT_EQ(person->GetPoolId(Id::K12School), 2);
