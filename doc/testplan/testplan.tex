@@ -69,35 +69,35 @@ This test will check whether a given demographic profile for the distribution of
 We will achieve this by generating a population using a demographic profile for the different central cities versus other cities. We can check if the profile was used by comparing the generated population with the expected percentages.
 \subsection{Workplace contactpools}
 
-\subsubsection{WorkplaceCSVReader.test1}
+\subsubsection{WorkplaceCSVReader.Test1}
 \textbf{What will it test?}
 This test will check whether we are able to read Workplace distribution csv's.\\
 \newline
 \textbf{How will we achieve this?}
 We will achieve this by passing a possible csv configuration to the reader. The returned format can then be checked in order to ensure that the configuration is read correctly.
 
-\subsubsection{WorkPlaceSizePopulatorTest.NoPopulationTest}
+\subsubsection{WorkplaceSizePopulatorTest.NoPopulationTest}
 \textbf{What will it test?}
 The test will check whether the workplace size populator still works when there is no population available.\\
 \newline
 \textbf{How will we achieve this?}
 We can easily check this by passing a geogrid to the populator who has a population size of 0. If there are no exception thrown we now that the function did finish correctly.
 
-\subsubsection{WorkPlaceSizePopulatorTest.OneWorkplaceTypeTest}
+\subsubsection{WorkplaceSizePopulatorTest.OneWorkplaceTypeTest}
 \textbf{What will it test?}
 The test will check whether the workplace size populator can handle one single workplace type.\\
 \newline
 \textbf{How will we achieve this?}
 We can achieve this by passing a single workplace size to populator. We can check if this process was successful by analyzing the altered object.
 
-\subsubsection{WorkPlaceSizePopulatorTest.TwoWorkplaceTypesTest}
+\subsubsection{WorkplaceSizePopulatorTest.TwoWorkplaceTypesTest}
 \textbf{What will it test?}
 The test will check whether the workplace size populator can handle two workplace types.\\
 \newline
 \textbf{How will we achieve this?} 
 We can achieve this by passing two workplace sizes to the populator. In order to check if this was successful we can analyze the altered object by checking whether there are two different pools.
 
-\subsubsection{WorkplaceSizePopulatorTest.multipleWorkplaceTypesTest}
+\subsubsection{WorkplaceSizePopulatorTest.MultipleWorkplaceTypesTest}
 \textbf{What will it test?}
 This test will check whether the workplace size populator can handle multiple types and sizes. \\
 \newline
