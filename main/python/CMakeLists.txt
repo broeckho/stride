@@ -25,6 +25,7 @@ add_subdirectory(examples)
 #============================================================================
 add_subdirectory(measles_in_flanders)
 add_subdirectory(age_immunity_shift)
+add_subdirectory(r0)
 
 #================================================================================================
 # Create the library that performs as a wrapper for some C++ code that is incompatible with SWIG.
