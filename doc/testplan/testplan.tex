@@ -45,15 +45,15 @@
 \newpage
 
 \section{Introduction}
-For the rest of this document we will give a short summary of every newly created test that will check if the new features work as we intend them to. These new additions include the two new contact types, being Daycare and PreSchool, new data formats, being JSON and HDF5 as well as global schemes that will be used by all students, a visual output for the data via QT and an improvement to the generation of the population by factoring in new parameters that will make the generation of the population more diverse, so that we can check even more parameters for their influence on the spread of diseases.
+For the rest of this document we will give a short summary of every newly created test that will check if the new features work as we expected. These new additions include the two new contact types, being Daycare and PreSchool, new data formats, being JSON and HDF5 as well as global schemes that will be used by all students. There will also be a visual output for the data via QT and an improvement to the generation of the population by factoring in new parameters that will make the generation of the population more diverse, so that we can check even more parameters for their influence on the spread of diseases.
 
 \section{Daycare and PreSchool}
 \section{Data formats}
 \subsection{JSON}
 \subsection{HDF5}
 \section{QT}
-\section{improved population generation}
-\subsection{demographic profile}
+\section{Improved population generation}
+\subsection{Demographic profile}
 \subsubsection{DemographicProfile.age} 
 \textbf{What will it test?} 
 This test will check whether a given demographic profile for the young/old ratio is used. \\
@@ -71,17 +71,17 @@ We will achieve this by generating a population using a demographic profile for 
 
 \subsubsection{WorkplaceCSVReader.Test1}
 \textbf{What will it test?}
-This test will check whether we are able to read Workplace distribution csv's.\\
+This test will check whether we are able to read Workplace distribution CSV's.\\
 \newline
 \textbf{How will we achieve this?}
-We will achieve this by passing a possible csv configuration to the reader. The returned format can then be checked in order to ensure that the configuration is read correctly.
+We will achieve this by passing a possible CSV configuration to the reader. The returned format can then be checked in order to ensure that the configuration is read correctly.
 
 \subsubsection{WorkplaceSizePopulatorTest.NoPopulationTest}
 \textbf{What will it test?}
 The test will check whether the workplace size populator still works when there is no population available.\\
 \newline
 \textbf{How will we achieve this?}
-We can easily check this by passing a geogrid to the populator who has a population size of 0. If there are no exception thrown we now that the function did finish correctly.
+We can easily check this by passing a geogrid to the populator who has a population size of 0. If there are no exception thrown we know that the function did finish correctly.
 
 \subsubsection{WorkplaceSizePopulatorTest.OneWorkplaceTypeTest}
 \textbf{What will it test?}
@@ -102,7 +102,7 @@ We can achieve this by passing two workplace sizes to the populator. In order to
 This test will check whether the workplace size populator can handle multiple types and sizes. \\
 \newline
 \textbf{How will we achieve this?}
-We will achieve this by altering the configuration of the workplace sizes so that there are multiple. We can check if this was successful by analyzing the new populations' data.
+We will achieve this by altering the configuration of the workplace sizes in such way that there are multiple. We can check if this was successful by analyzing the new populations data.
 
 \subsubsection{WorkplaceSizeGeneratorTest.OneWorkplaceTypeTest}
 \textbf{What will it test?}
