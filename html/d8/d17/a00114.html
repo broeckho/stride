@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::LogUtils Class Reference</title>
+<title>Stride Reference Manual: stride::util::RnInfo Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -107,46 +107,51 @@ $(document).ready(function(){initNavTree('d8/d17/a00114.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d0/daf/a00970.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d4/d94/a00967.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::LogUtils Class Reference</div>  </div>
+<div class="title">stride::util::RnInfo Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities for logging (spdlog).  
+<p>Information on random number management state.  
  <a href="../../d8/d17/a00114.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/def/a00256_source.html">LogUtils.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/d5d/a00278_source.html">RnInfo.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::LogUtils:</div>
+Collaboration diagram for stride::util::RnInfo:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d3c/a00971.gif" border="0" usemap="#stride_1_1util_1_1LogUtils_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1LogUtils_coll__map" id="stride_1_1util_1_1LogUtils_coll__map">
+<div class="center"><img src="../../d7/dd4/a00968.gif" border="0" usemap="#stride_1_1util_1_1RnInfo_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1RnInfo_coll__map" id="stride_1_1util_1_1RnInfo_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="31,147,117,224"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="5,5,143,97"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d17/a00114.html#a106af93dd3f814adf8b87ffaaf3ef3bb">CreateCliLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) commandline and file logger, without registering it.  <a href="#a106af93dd3f814adf8b87ffaaf3ef3bb">More...</a><br /></td></tr>
-<tr class="separator:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52920faed22a1733b580a42ea065ed0d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d17/a00114.html#a52920faed22a1733b580a42ea065ed0d">CreateFileLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a52920faed22a1733b580a42ea065ed0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) file logger, without registering it.  <a href="#a52920faed22a1733b580a42ea065ed0d">More...</a><br /></td></tr>
-<tr class="separator:a52920faed22a1733b580a42ea065ed0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8edb0cd2ef9049e0347f06e73ae57c2"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d17/a00114.html#af8edb0cd2ef9049e0347f06e73ae57c2">CreateNullLogger</a> (const std::string &amp;logger_name=&quot;null_logger&quot;)</td></tr>
-<tr class="memdesc:af8edb0cd2ef9049e0347f06e73ae57c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) null logger, without registering it.  <a href="#af8edb0cd2ef9049e0347f06e73ae57c2">More...</a><br /></td></tr>
-<tr class="separator:af8edb0cd2ef9049e0347f06e73ae57c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a137e01100d0d79b122f731bb1292179d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d17/a00114.html#a137e01100d0d79b122f731bb1292179d">CreateRotatingLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a137e01100d0d79b122f731bb1292179d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) rotating logger, without registering it.  <a href="#a137e01100d0d79b122f731bb1292179d">More...</a><br /></td></tr>
-<tr class="separator:a137e01100d0d79b122f731bb1292179d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a6ac1617ee5c2de2c334ea8ea830d40df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d17/a00114.html#a6ac1617ee5c2de2c334ea8ea830d40df">RnInfo</a> (std::string seed_seq_init=&quot;1,2,3,4&quot;, std::string state=&quot;&quot;, unsigned int stream_count=1U)</td></tr>
+<tr class="separator:a6ac1617ee5c2de2c334ea8ea830d40df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a334598325775ca657f4c8406a4aee71b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d17/a00114.html#a334598325775ca657f4c8406a4aee71b">m_seed_seq_init</a></td></tr>
+<tr class="memdesc:a334598325775ca657f4c8406a4aee71b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for the engine.  <a href="#a334598325775ca657f4c8406a4aee71b">More...</a><br /></td></tr>
+<tr class="separator:a334598325775ca657f4c8406a4aee71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c366e03a8697e8d23fbc0166c1d6a91"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d17/a00114.html#a7c366e03a8697e8d23fbc0166c1d6a91">m_state</a></td></tr>
+<tr class="memdesc:a7c366e03a8697e8d23fbc0166c1d6a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long string representing current state.  <a href="#a7c366e03a8697e8d23fbc0166c1d6a91">More...</a><br /></td></tr>
+<tr class="separator:a7c366e03a8697e8d23fbc0166c1d6a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6a2c4349ae8202a0668b43982afb80f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d17/a00114.html#ac6a2c4349ae8202a0668b43982afb80f">m_stream_count</a></td></tr>
+<tr class="memdesc:ac6a2c4349ae8202a0668b43982afb80f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of streams set up with the engine.  <a href="#ac6a2c4349ae8202a0668b43982afb80f">More...</a><br /></td></tr>
+<tr class="separator:ac6a2c4349ae8202a0668b43982afb80f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities for logging (spdlog). </p>
+<div class="textblock"><p>Information on random number management state. </p>
 
-<p>Definition at line <a class="el" href="../../d0/def/a00256_source.html#l00033">33</a> of file <a class="el" href="../../d0/def/a00256_source.html">LogUtils.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a106af93dd3f814adf8b87ffaaf3ef3bb"></a>
+<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00032">32</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">RnInfo.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a6ac1617ee5c2de2c334ea8ea830d40df"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -154,16 +159,22 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; spdlog::logger &gt; stride::util::LogUtils::CreateCliLogger </td>
+          <td class="memname">stride::util::RnInfo::RnInfo </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em>, </td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>seed_seq_init</em> = <code>&quot;1,2,3,4&quot;</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_name</em>&#160;</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>state</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>stream_count</em> = <code>1U</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -173,179 +184,80 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) commandline and file logger, without registering it. </p>
-<p>The file, if it already exits is truncated when opened. Throws iff logger already registered or if spdlog throws. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00032">32</a> of file <a class="el" href="../../d4/d04/a00255_source.html">LogUtils.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/ddf/a00164_source.html#l00075">stride::ControlHelper::InstallLogger()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d8/d17/a00114_a106af93dd3f814adf8b87ffaaf3ef3bb_icgraph.gif" border="0" usemap="#d8/d17/a00114_a106af93dd3f814adf8b87ffaaf3ef3bb_icgraph" alt=""/></div>
-<map name="d8/d17/a00114_a106af93dd3f814adf8b87ffaaf3ef3bb_icgraph" id="d8/d17/a00114_a106af93dd3f814adf8b87ffaaf3ef3bb_icgraph">
-<area shape="rect" id="node2" href="../../d1/d6e/a00073.html#a49b3d3980626e92e16758d63bd6240a7" title="Make the appropriate logger for cli environment and register as stride_logger. " alt="" coords="197,71,352,112"/>
-<area shape="rect" id="node3" href="../../d8/d53/a00081.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="400,5,579,47"/>
-<area shape="rect" id="node5" href="../../d1/d44/a00098.html#acddfa3cafcea42db5c8b18af0410179f" title="Actual run of the simulator. " alt="" coords="413,71,566,112"/>
-<area shape="rect" id="node6" href="../../d0/d61/a00100.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="410,136,569,177"/>
-<area shape="rect" id="node4" href="../../dc/d0f/a00303.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="627,78,681,105"/>
-</map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00034">34</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">RnInfo.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a52920faed22a1733b580a42ea065ed0d"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a334598325775ca657f4c8406a4aee71b"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; spdlog::logger &gt; stride::util::LogUtils::CreateFileLogger </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">std::string stride::util::RnInfo::m_seed_seq_init</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) file logger, without registering it. </p>
-<p>The file, if it already exits is truncated when opened. Throws iff logger already registered or if spdlog throws. </p>
+<p>Seed for the engine. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00053">53</a> of file <a class="el" href="../../d4/d04/a00255_source.html">LogUtils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00035">35</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">RnInfo.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d28/a00276_source.html#l00048">stride::util::Rn&lt; E &gt;::GetInfo()</a>, <a class="el" href="../../dc/d28/a00276_source.html#l00062">stride::util::Rn&lt; E &gt;::Initialize()</a>, and <a class="el" href="../../dc/d5d/a00278_source.html#l00042">stride::util::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af8edb0cd2ef9049e0347f06e73ae57c2"></a>
+<a class="anchor" id="a7c366e03a8697e8d23fbc0166c1d6a91"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; logger &gt; stride::util::LogUtils::CreateNullLogger </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em> = <code>&quot;null_logger&quot;</code></td><td>)</td>
-          <td></td>
+          <td class="memname">std::string stride::util::RnInfo::m_state</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) null logger, without registering it. </p>
-<p>Throws iff logger already registered or if spdlog throws. </p>
+<p>Long string representing current state. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00071">71</a> of file <a class="el" href="../../d4/d04/a00255_source.html">LogUtils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00038">38</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">RnInfo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d06/a00131_source.html#l00033">stride::AbstractPopBuilder::AbstractPopBuilder()</a>, <a class="el" href="../../d5/d35/a00266_source.html#l00047">stride::Population::Create()</a>, <a class="el" href="../../dc/d52/a00183_source.html#l00022">geopop::Generator::Generator()</a>, and <a class="el" href="../../db/d12/a00268_source.html#l00030">geopop::Populator::Populator()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d8/d17/a00114_af8edb0cd2ef9049e0347f06e73ae57c2_icgraph.gif" border="0" usemap="#d8/d17/a00114_af8edb0cd2ef9049e0347f06e73ae57c2_icgraph" alt=""/></div>
-<map name="d8/d17/a00114_af8edb0cd2ef9049e0347f06e73ae57c2_icgraph" id="d8/d17/a00114_af8edb0cd2ef9049e0347f06e73ae57c2_icgraph">
-<area shape="rect" id="node2" href="../../d9/d73/a00060.html#a0dc3493a948b42c70cd879d83c879526" title="Initializing constructor. " alt="" coords="197,5,385,47"/>
-<area shape="rect" id="node3" href="../../dc/d54/a00094.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="225,71,358,112"/>
-<area shape="rect" id="node4" href="../../da/d45/a00011.html#ac9372a526b3a7672b5dca424b3743fd5" title="Constructor with random number manager and logger. " alt="" coords="216,136,367,177"/>
-<area shape="rect" id="node5" href="../../d3/de7/a00039.html#a555413f57e921b72913adb79172abb9d" title="Construct with a RnMan and a logger. " alt="" coords="218,201,365,243"/>
-</map>
-</div>
-</p>
+<p>Referenced by <a class="el" href="../../dc/d28/a00276_source.html#l00048">stride::util::Rn&lt; E &gt;::GetInfo()</a>, <a class="el" href="../../dc/d28/a00276_source.html#l00062">stride::util::Rn&lt; E &gt;::Initialize()</a>, and <a class="el" href="../../dc/d5d/a00278_source.html#l00042">stride::util::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a137e01100d0d79b122f731bb1292179d"></a>
+<a class="anchor" id="ac6a2c4349ae8202a0668b43982afb80f"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; logger &gt; stride::util::LogUtils::CreateRotatingLogger </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">unsigned int stride::util::RnInfo::m_stream_count</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) rotating logger, without registering it. </p>
-<p>Throws iff logger already registered or if spdlog throws. </p>
+<p>Number of streams set up with the engine. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d04/a00255_source.html#l00088">88</a> of file <a class="el" href="../../d4/d04/a00255_source.html">LogUtils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00039">39</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">RnInfo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d35/a00266_source.html#l00047">stride::Population::Create()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d8/d17/a00114_a137e01100d0d79b122f731bb1292179d_icgraph.gif" border="0" usemap="#d8/d17/a00114_a137e01100d0d79b122f731bb1292179d_icgraph" alt=""/></div>
-<map name="d8/d17/a00114_a137e01100d0d79b122f731bb1292179d_icgraph" id="d8/d17/a00114_a137e01100d0d79b122f731bb1292179d_icgraph">
-<area shape="rect" id="node2" href="../../dc/d54/a00094.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="223,5,356,47"/>
-</map>
-</div>
-</p>
+<p>Referenced by <a class="el" href="../../dc/d28/a00276_source.html#l00048">stride::util::Rn&lt; E &gt;::GetInfo()</a>, <a class="el" href="../../dc/d28/a00276_source.html#l00062">stride::util::Rn&lt; E &gt;::Initialize()</a>, and <a class="el" href="../../dc/d5d/a00278_source.html#l00042">stride::util::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d0/def/a00256_source.html">LogUtils.h</a></li>
-<li><a class="el" href="../../d4/d04/a00255_source.html">LogUtils.cpp</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../dc/d5d/a00278_source.html">RnInfo.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">util</a></li><li class="navelem"><a class="el" href="../../d8/d17/a00114.html">LogUtils</a></li>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d2/d45/a00342.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">util</a></li><li class="navelem"><a class="el" href="../../d8/d17/a00114.html">RnInfo</a></li>
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

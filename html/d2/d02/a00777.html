@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d8/d41/a00038.html','../../');});
+$(document).ready(function(){initNavTree('db/d3a/a00040.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,23 +107,25 @@ $(document).ready(function(){initNavTree('d8/d41/a00038.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">geopop::PolygonPolicy Member List</div>  </div>
+<div class="title">geopop::PrimaryCommunityPopulator Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d8/d41/a00038.html">geopop::PolygonPolicy</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../db/d3a/a00040.html">geopop::PrimaryCommunityPopulator</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/a00038.html#a5468ac31eae54f8b993ffd14a62927d7">Args</a> typedef</td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::PolygonPolicy</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d8/d41/a00038.html#aa76a2a2617b5fd1ae1ff45891adf65b5">Contains</a>(const geogrid_detail::KdTree2DPoint &amp;pt) const </td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::PolygonPolicy</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/a00038.html#a37ead64e0fc7096f4d71ee2c2b5ce8d0">GetBoundingBox</a>() const </td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::PolygonPolicy</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d8/d41/a00038.html#a69ddb55e11e6fa42222646a21432bfb1">m_poly</a></td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::PolygonPolicy</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/a00038.html#a9f6a7862371bdb5991a62af32bfc44fe">PolygonPolicy</a>(boost::geometry::model::polygon&lt; Coordinate, true &gt; args)</td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::PolygonPolicy</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../db/d3a/a00040.html#a2a635a2a7b1754d2dfe25c69de0aa356">Apply</a>(GeoGrid &amp;geogrid, const GeoGridConfig &amp;) override</td><td class="entry"><a class="el" href="../../db/d3a/a00040.html">geopop::PrimaryCommunityPopulator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d8/d41/a00038.html#a720e1d4541eb3af0b9b2bd6089e8a4ce">GetNearbyPools</a>(stride::ContactType::Id id, const GeoGrid &amp;geoGrid, const Location &amp;start, double startRadius=10.0) const </td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/a00038.html#aeecc8afde4f92991f8140a1f3145aeda">m_logger</a></td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d8/d41/a00038.html#aea1433eb78a263d44fe81683ff65987e">m_rn_man</a></td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/a00038.html#af7b9250da3bb9be0c877028a56bf5b2a">MakeChoice</a>(double fraction)</td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d8/d41/a00038.html#a555413f57e921b72913adb79172abb9d">Populator</a>(stride::util::RnMan &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger=nullptr)</td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d41/a00038.html#ac218f00867d01c6507088582162710c9">~Populator</a>()=default</td><td class="entry"><a class="el" href="../../d8/d41/a00038.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:09 for Stride Reference Manual by
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

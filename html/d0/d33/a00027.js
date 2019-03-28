@@ -1,6 +1,5 @@
 var a00027 =
 [
-    [ "HouseholdCSVReader", "d0/d33/a00027.html#aa83f488af915c290a9d6ffb03712d244", null ],
-    [ "SetReferenceHouseholds", "d0/d33/a00027.html#ae1f12dfb634ec54d84b096e57c3effad", null ],
-    [ "m_input_stream", "d0/d33/a00027.html#a5571f6cc645370732f5c00f78e5821a1", null ]
+    [ "Apply", "d0/d33/a00027.html#a6331c0c9b3c62931305cbe8c11b0c781", null ],
+    [ "AddPools", "d0/d33/a00027.html#a411d099ecd5b5a295b3f055b097e65df", null ]
 ];

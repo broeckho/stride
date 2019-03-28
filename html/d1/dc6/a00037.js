@@ -1,7 +1,8 @@
 var a00037 =
 [
-    [ "LocationsReader", "d1/dc6/a00037.html#a08a0a0bee6983e75de99b46132e26eaa", null ],
-    [ "~LocationsReader", "d1/dc6/a00037.html#adf7cb185f3d39194f4065707da23e0d6", null ],
-    [ "FillGeoGrid", "d1/dc6/a00037.html#ad94de2ea05242ef43ac6ea9723fbc591", null ],
-    [ "m_inputStream", "d1/dc6/a00037.html#ad1bd8f33fd74070b9b606734e6c8d2de", null ]
+    [ "Args", "d1/dc6/a00037.html#a5468ac31eae54f8b993ffd14a62927d7", null ],
+    [ "PolygonPolicy", "d1/dc6/a00037.html#a9f6a7862371bdb5991a62af32bfc44fe", null ],
+    [ "GetBoundingBox", "d1/dc6/a00037.html#a37ead64e0fc7096f4d71ee2c2b5ce8d0", null ],
+    [ "Contains", "d1/dc6/a00037.html#aa76a2a2617b5fd1ae1ff45891adf65b5", null ],
+    [ "m_poly", "d1/dc6/a00037.html#a69ddb55e11e6fa42222646a21432bfb1", null ]
 ];

@@ -1,9 +1,6 @@
 var a00060 =
 [
-    [ "AbstractPopBuilder", "d9/d73/a00060.html#a0dc3493a948b42c70cd879d83c879526", null ],
-    [ "~AbstractPopBuilder", "d9/d73/a00060.html#a938da421d2a2d203e7cb90ead7b91807", null ],
-    [ "Build", "d9/d73/a00060.html#a864865f7e88c7b737ad91a245f49f466", null ],
-    [ "m_config", "d9/d73/a00060.html#a34a81e371e1bf73c2a75fd9d2df21353", null ],
-    [ "m_rn_man", "d9/d73/a00060.html#a2a438798c37f82817665369d725a3a34", null ],
-    [ "m_stride_logger", "d9/d73/a00060.html#a6aa42972b4d340a04b0366af0a889b5e", null ]
+    [ "HasAge", "d9/d73/a00060.html#a9da586fa49f908053a05ce521e904d27", null ],
+    [ "m_lower", "d9/d73/a00060.html#a029109d3a8bf8ca7e5d7ad04800c5daf", null ],
+    [ "m_upper", "d9/d73/a00060.html#a7ff124dd1641223d7e51a4c6b8c6356b", null ]
 ];

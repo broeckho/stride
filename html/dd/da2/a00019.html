@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::GeoGridJSONReader Class Reference</title>
+<title>Stride Reference Manual: geopop::GeoGridJSONWriter Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -109,229 +109,120 @@ $(document).ready(function(){initNavTree('dd/da2/a00019.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="../../d0/d72/a00724.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../dc/d14/a00720.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::GeoGridJSONReader Class Reference</div>  </div>
+<div class="title">geopop::GeoGridJSONWriter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>An implementation of the <a class="el" href="../../d3/d52/a00023.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> using JSON.  
+<p>Writes a <a class="el" href="../../d2/de7/a00014.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> to a JSON file.  
  <a href="../../dd/da2/a00019.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d57/a00194_source.html">GeoGridJSONReader.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONWriter.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for geopop::GeoGridJSONReader:</div>
+Inheritance diagram for geopop::GeoGridJSONWriter:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/db9/a00725.gif" border="0" usemap="#geopop_1_1GeoGridJSONReader_inherit__map" alt="Inheritance graph"/></div>
-<map name="geopop_1_1GeoGridJSONReader_inherit__map" id="geopop_1_1GeoGridJSONReader_inherit__map">
-<area shape="rect" id="node2" href="../../d3/d52/a00023.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul..." alt="" coords="21,5,196,200"/>
+<div class="center"><img src="../../dd/dc1/a00721.gif" border="0" usemap="#geopop_1_1GeoGridJSONWriter_inherit__map" alt="Inheritance graph"/></div>
+<map name="geopop_1_1GeoGridJSONWriter_inherit__map" id="geopop_1_1GeoGridJSONWriter_inherit__map">
+<area shape="rect" id="node2" href="../../dc/de2/a00024.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types..." alt="" coords="21,5,188,97"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for geopop::GeoGridJSONReader:</div>
+Collaboration diagram for geopop::GeoGridJSONWriter:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/ddc/a00727.gif" border="0" usemap="#geopop_1_1GeoGridJSONReader_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1GeoGridJSONReader_coll__map" id="geopop_1_1GeoGridJSONReader_coll__map">
-<area shape="rect" id="node2" href="../../d3/d52/a00023.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul..." alt="" coords="1047,2968,1222,3119"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="543,2461,641,2538"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="475,2152,613,2244"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="428,1851,596,1928"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="529,1549,636,1627"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="1169,153,1324,230"/>
-<area shape="rect" id="node13" title="STL class. " alt="" coords="217,153,349,230"/>
-<area shape="rect" id="node20" title="STL class. " alt="" coords="2199,465,2326,543"/>
-<area shape="rect" id="node25" title="STL class. " alt="" coords="2582,276,2738,368"/>
-<area shape="rect" id="node27" title="STL class. " alt="" coords="2622,153,2837,230"/>
-<area shape="rect" id="node29" title="STL class. " alt="" coords="2838,261,3015,383"/>
-<area shape="rect" id="node46" title="STL class. " alt="" coords="436,145,588,237"/>
-<area shape="rect" id="node15" href="../../dc/d54/a00094.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich..." alt="" coords="1815,2681,1975,2905"/>
-<area shape="rect" id="node30" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac..." alt="" coords="1766,2380,1927,2619"/>
-<area shape="rect" id="node16" href="../../d3/d8b/a00059.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="2042,1461,2251,1715"/>
-<area shape="rect" id="node17" href="../../d2/de1/a00421.html" title="{size_t\n||}" alt="" coords="1903,774,1961,851"/>
-<area shape="rect" id="node21" href="../../d3/d8b/a00059.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="2062,1145,2271,1399"/>
-<area shape="rect" id="node31" href="../../db/df3/a00034.html" title="{geopop::KdTree\&lt; geogrid\l_detail::KdTree2DPoint \&gt;\n||+ KdTree()\l+ Apply()\l+ Apply()\l+ Contains()\l+ Empty()\l+ GetHeight()\l+ Insert()\l+ Query()\l+ Size()\l+ Build()\l&#45; Construct()\l}" alt="" coords="1755,2079,1938,2317"/>
-<area shape="rect" id="node36" href="../../d7/d7a/a00016.html" title="KdTree for some more information on methods. " alt="" coords="927,1160,1095,1384"/>
-<area shape="rect" id="node41" href="../../db/df3/a00034.html" title="A k&#45;d tree: a k&#45;dimensional generalization of binary search trees This data structure allows for effi..." alt="" coords="1605,1777,1763,2001"/>
-<area shape="rect" id="node19" href="../../df/d46/a00664.html" title="{Chunk *\n||}" alt="" coords="1950,465,2023,543"/>
-<area shape="rect" id="node23" href="../../d2/db1/a00070.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al..." alt="" coords="2610,1197,2777,1347"/>
-<area shape="rect" id="node24" href="../../d5/de0/a00050.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="2617,708,2769,917"/>
-<area shape="rect" id="node26" href="../../d5/de0/a00050.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="2731,407,2903,601"/>
-<area shape="rect" id="node28" href="../../d5/de0/a00050.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l util::stride::util::\lSegmentedVector\&lt; stride\l::ContactPool \&gt; \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="2793,693,2983,932"/>
-<area shape="rect" id="node33" href="../../d0/dc0/a00033.html" title="{geopop::kd::Node\&lt; geogrid\l_detail::KdTree2DPoint, 0 \&gt;\n||+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="1063,1505,1262,1671"/>
-<area shape="rect" id="node34" href="../../d7/d46/a00002.html" title="{geopop::kd::BaseNode\l\&lt; geogrid_detail::KdTree2DPoint \&gt;\n||+ ~BaseNode()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="1477,956,1720,1121"/>
-<area shape="rect" id="node35" href="../../d7/d46/a00002.html" title="A base class for all instantiations of a Node with D. " alt="" coords="1399,429,1604,579"/>
-<area shape="rect" id="node40" href="../../d0/dc0/a00033.html" title="A node in the KdTree (parameter P: the type of point, parameter D: dimension this node splits on)..." alt="" coords="1170,737,1361,888"/>
-<area shape="rect" id="node43" href="../../d0/dc0/a00033.html" title="{geopop::kd::Node\&lt; P, 0 \&gt;\n||+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="1385,1197,1575,1347"/>
-<area shape="rect" id="node37" href="../../d4/d8c/a00035.html" title="Location for use within the GeoGrid, contains Coordinate and index to ContactPools. " alt="" coords="773,701,1003,925"/>
+<div class="center"><img src="../../de/de6/a00723.gif" border="0" usemap="#geopop_1_1GeoGridJSONWriter_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1GeoGridJSONWriter_coll__map" id="geopop_1_1GeoGridJSONWriter_coll__map">
+<area shape="rect" id="node2" href="../../dc/de2/a00024.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types..." alt="" coords="5,285,172,377"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="295,145,403,223"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af1a416909c5768271bc0c33c452b38a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#af1a416909c5768271bc0c33c452b38a0">GeoGridJSONReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream, <a class="el" href="../../dc/d54/a00094.html">stride::Population</a> *pop)</td></tr>
-<tr class="memdesc:af1a416909c5768271bc0c33c452b38a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../dd/da2/a00019.html" title="An implementation of the GeoGridReader using JSON. ">GeoGridJSONReader</a> with the istream which contains the JSON.  <a href="#af1a416909c5768271bc0c33c452b38a0">More...</a><br /></td></tr>
-<tr class="separator:af1a416909c5768271bc0c33c452b38a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabf14c2a5629bc0d8e797256bdc67e43"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#aabf14c2a5629bc0d8e797256bdc67e43">GeoGridJSONReader</a> (const <a class="el" href="../../dd/da2/a00019.html">GeoGridJSONReader</a> &amp;)=delete</td></tr>
-<tr class="memdesc:aabf14c2a5629bc0d8e797256bdc67e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy constructor.  <a href="#aabf14c2a5629bc0d8e797256bdc67e43">More...</a><br /></td></tr>
-<tr class="separator:aabf14c2a5629bc0d8e797256bdc67e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a457112a2f1c4ae1feb9218b4c3176980"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/da2/a00019.html">GeoGridJSONReader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a457112a2f1c4ae1feb9218b4c3176980">operator=</a> (const <a class="el" href="../../dd/da2/a00019.html">GeoGridJSONReader</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a457112a2f1c4ae1feb9218b4c3176980"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy assignement.  <a href="#a457112a2f1c4ae1feb9218b4c3176980">More...</a><br /></td></tr>
-<tr class="separator:a457112a2f1c4ae1feb9218b4c3176980"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b6a6032beee9c1bdb5536e8aa3d87f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a0b6a6032beee9c1bdb5536e8aa3d87f7">Read</a> () override</td></tr>
-<tr class="memdesc:a0b6a6032beee9c1bdb5536e8aa3d87f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actually perform the read and return the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>.  <a href="#a0b6a6032beee9c1bdb5536e8aa3d87f7">More...</a><br /></td></tr>
-<tr class="separator:a0b6a6032beee9c1bdb5536e8aa3d87f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00023"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00023')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d3/d52/a00023.html">geopop::GeoGridReader</a></td></tr>
-<tr class="memitem:adc1015b5fbff85ded8432cf9a930593b inherit pub_methods_a00023"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#adc1015b5fbff85ded8432cf9a930593b">GeoGridReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream, <a class="el" href="../../dc/d54/a00094.html">stride::Population</a> *pop)</td></tr>
-<tr class="memdesc:adc1015b5fbff85ded8432cf9a930593b inherit pub_methods_a00023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parametrized constructor.  <a href="#adc1015b5fbff85ded8432cf9a930593b">More...</a><br /></td></tr>
-<tr class="separator:adc1015b5fbff85ded8432cf9a930593b inherit pub_methods_a00023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a671a251cdd0577d381cfd1f031915f4e inherit pub_methods_a00023"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a671a251cdd0577d381cfd1f031915f4e">GeoGridReader</a> (const <a class="el" href="../../d3/d52/a00023.html">GeoGridReader</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a671a251cdd0577d381cfd1f031915f4e inherit pub_methods_a00023"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy constructor.  <a href="#a671a251cdd0577d381cfd1f031915f4e">More...</a><br /></td></tr>
-<tr class="separator:a671a251cdd0577d381cfd1f031915f4e inherit pub_methods_a00023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac951eb7110732c82081e872eb7b4493d inherit pub_methods_a00023"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d52/a00023.html">GeoGridReader</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#ac951eb7110732c82081e872eb7b4493d">operator=</a> (const <a class="el" href="../../d3/d52/a00023.html">GeoGridReader</a> &amp;)=delete</td></tr>
-<tr class="memdesc:ac951eb7110732c82081e872eb7b4493d inherit pub_methods_a00023"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy assignment.  <a href="#ac951eb7110732c82081e872eb7b4493d">More...</a><br /></td></tr>
-<tr class="separator:ac951eb7110732c82081e872eb7b4493d inherit pub_methods_a00023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7874b9c1d2e2c878a8e8b8d3bb4ced34 inherit pub_methods_a00023"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a7874b9c1d2e2c878a8e8b8d3bb4ced34">~GeoGridReader</a> ()=default</td></tr>
-<tr class="memdesc:a7874b9c1d2e2c878a8e8b8d3bb4ced34 inherit pub_methods_a00023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a7874b9c1d2e2c878a8e8b8d3bb4ced34">More...</a><br /></td></tr>
-<tr class="separator:a7874b9c1d2e2c878a8e8b8d3bb4ced34 inherit pub_methods_a00023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca20d55403ce337b69d147540459f917"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#aca20d55403ce337b69d147540459f917">GeoGridJSONWriter</a> ()</td></tr>
+<tr class="memdesc:aca20d55403ce337b69d147540459f917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../dd/da2/a00019.html" title="Writes a GeoGrid to a JSON file. ">GeoGridJSONWriter</a>.  <a href="#aca20d55403ce337b69d147540459f917">More...</a><br /></td></tr>
+<tr class="separator:aca20d55403ce337b69d147540459f917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad29ac72b56a116252620d06921f0365e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#ad29ac72b56a116252620d06921f0365e">Write</a> (<a class="el" href="../../d2/de7/a00014.html">GeoGrid</a> &amp;geoGrid, std::ostream &amp;stream) override</td></tr>
+<tr class="memdesc:ad29ac72b56a116252620d06921f0365e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the provided <a class="el" href="../../d2/de7/a00014.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> to the proved ostream in JSON format.  <a href="#ad29ac72b56a116252620d06921f0365e">More...</a><br /></td></tr>
+<tr class="separator:ad29ac72b56a116252620d06921f0365e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00024"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00024')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../dc/de2/a00024.html">geopop::GeoGridWriter</a></td></tr>
+<tr class="memitem:ac39b3553fa52b22d47cd5972d5e1c4b8 inherit pub_methods_a00024"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#ac39b3553fa52b22d47cd5972d5e1c4b8">~GeoGridWriter</a> ()=default</td></tr>
+<tr class="memdesc:ac39b3553fa52b22d47cd5972d5e1c4b8 inherit pub_methods_a00024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the Writer.  <a href="#ac39b3553fa52b22d47cd5972d5e1c4b8">More...</a><br /></td></tr>
+<tr class="separator:ac39b3553fa52b22d47cd5972d5e1c4b8 inherit pub_methods_a00024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:abaeef4e66bbc02c415a8c9235a2eb908"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d7/dec/a00010.html">ContactCenter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#abaeef4e66bbc02c415a8c9235a2eb908">ParseContactCenter</a> (boost::property_tree::ptree &amp;contactCenter)</td></tr>
-<tr class="memdesc:abaeef4e66bbc02c415a8c9235a2eb908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a> based on the information stored in the provided boost property tree.  <a href="#abaeef4e66bbc02c415a8c9235a2eb908">More...</a><br /></td></tr>
-<tr class="separator:abaeef4e66bbc02c415a8c9235a2eb908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54f28880557331abe18038f0627738c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html">stride::ContactPool</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a54f28880557331abe18038f0627738c3">ParseContactPool</a> (boost::property_tree::ptree &amp;contactPool, <a class="el" href="../../df/d03/a00348.html#a61a32e88a50c57e6f5c49f0996b6b462">stride::ContactType::Id</a> typeId)</td></tr>
-<tr class="memdesc:a54f28880557331abe18038f0627738c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a> based on the information stored in the provided boost property tree.  <a href="#a54f28880557331abe18038f0627738c3">More...</a><br /></td></tr>
-<tr class="separator:a54f28880557331abe18038f0627738c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad72dfb7c01de362ee7ba10324ad76ac5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d75/a00334.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#ad72dfb7c01de362ee7ba10324ad76ac5">ParseCoordinate</a> (boost::property_tree::ptree &amp;coordinate)</td></tr>
-<tr class="memdesc:ad72dfb7c01de362ee7ba10324ad76ac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Coordinate based on the information stored in the provided boost property tree.  <a href="#ad72dfb7c01de362ee7ba10324ad76ac5">More...</a><br /></td></tr>
-<tr class="separator:ad72dfb7c01de362ee7ba10324ad76ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d75cabadab49fcffe00d193dc7da4a6"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/d8c/a00035.html">Location</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a6d75cabadab49fcffe00d193dc7da4a6">ParseLocation</a> (boost::property_tree::ptree &amp;location)</td></tr>
-<tr class="memdesc:a6d75cabadab49fcffe00d193dc7da4a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d4/d8c/a00035.html" title="Location for use within the GeoGrid, contains Coordinate and index to ContactPools. ">Location</a> based on the information stored in the provided boost property tree.  <a href="#a6d75cabadab49fcffe00d193dc7da4a6">More...</a><br /></td></tr>
-<tr class="separator:a6d75cabadab49fcffe00d193dc7da4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0a3616bc2e064fee78d65dc172a3d81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d7d/a00093.html">stride::Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#ad0a3616bc2e064fee78d65dc172a3d81">ParsePerson</a> (boost::property_tree::ptree &amp;person)</td></tr>
-<tr class="memdesc:ad0a3616bc2e064fee78d65dc172a3d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Person based on the information stored in the provided boost property tree.  <a href="#ad0a3616bc2e064fee78d65dc172a3d81">More...</a><br /></td></tr>
-<tr class="separator:ad0a3616bc2e064fee78d65dc172a3d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af23f2e79fd864befd4a86231786d2090"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#af23f2e79fd864befd4a86231786d2090">WriteContactCenter</a> (std::shared_ptr&lt; ContactCenter &gt; contactCenter)</td></tr>
+<tr class="memdesc:af23f2e79fd864befd4a86231786d2090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter.  <a href="#af23f2e79fd864befd4a86231786d2090">More...</a><br /></td></tr>
+<tr class="separator:af23f2e79fd864befd4a86231786d2090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53289ee143d7c429f1f35d6622f14134"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a53289ee143d7c429f1f35d6622f14134">WriteContactPool</a> (<a class="el" href="../../da/d24/a00068.html">stride::ContactPool</a> *contactPool)</td></tr>
+<tr class="memdesc:a53289ee143d7c429f1f35d6622f14134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Boost Property Tree containing all info needed to reconstruct a ContactPool.  <a href="#a53289ee143d7c429f1f35d6622f14134">More...</a><br /></td></tr>
+<tr class="separator:a53289ee143d7c429f1f35d6622f14134"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbf3bc3d25250dae7a8abd21a89a8e1b"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#abbf3bc3d25250dae7a8abd21a89a8e1b">WriteCoordinate</a> (const <a class="el" href="../../d8/df7/a00331.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a> &amp;coordinate)</td></tr>
+<tr class="memdesc:abbf3bc3d25250dae7a8abd21a89a8e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Boost Property Tree containing all info needed to reconstruct a Coordinate.  <a href="#abbf3bc3d25250dae7a8abd21a89a8e1b">More...</a><br /></td></tr>
+<tr class="separator:abbf3bc3d25250dae7a8abd21a89a8e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6896def26cc869e0657b37361cbc2af1"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a6896def26cc869e0657b37361cbc2af1">WriteLocation</a> (const <a class="el" href="../../db/df3/a00034.html">Location</a> &amp;location)</td></tr>
+<tr class="memdesc:a6896def26cc869e0657b37361cbc2af1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Boost Property Tree containing all info needed to reconstruct a <a class="el" href="../../db/df3/a00034.html" title="Location for use within the GeoGrid, contains Coordinate and index to ContactPools. ">Location</a>.  <a href="#a6896def26cc869e0657b37361cbc2af1">More...</a><br /></td></tr>
+<tr class="separator:a6896def26cc869e0657b37361cbc2af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4c51dda89bebe52a62460630ef10c49"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#aa4c51dda89bebe52a62460630ef10c49">WritePerson</a> (<a class="el" href="../../d1/dc1/a00092.html">stride::Person</a> *person)</td></tr>
+<tr class="memdesc:aa4c51dda89bebe52a62460630ef10c49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Boost Property Tree containing all info needed to reconstruct a Person.  <a href="#aa4c51dda89bebe52a62460630ef10c49">More...</a><br /></td></tr>
+<tr class="separator:aa4c51dda89bebe52a62460630ef10c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_a00023"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00023')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d3/d52/a00023.html">geopop::GeoGridReader</a></td></tr>
-<tr class="memitem:a72ea40450cdeb7fef66501752d12bbb2 inherit pro_methods_a00023"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a72ea40450cdeb7fef66501752d12bbb2">AddCommutes</a> (<a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;geoGrid)</td></tr>
-<tr class="memdesc:a72ea40450cdeb7fef66501752d12bbb2 inherit pro_methods_a00023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the commutes that were found to their respective Locations symmetrically.  <a href="#a72ea40450cdeb7fef66501752d12bbb2">More...</a><br /></td></tr>
-<tr class="separator:a72ea40450cdeb7fef66501752d12bbb2 inherit pro_methods_a00023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00023"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00023')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d3/d52/a00023.html">geopop::GeoGridReader</a></td></tr>
-<tr class="memitem:af138fc7cc754b1b9e2740a7796f3e57c inherit pro_attribs_a00023"><td class="memItemLeft" align="right" valign="top">std::map&lt; unsigned int, <a class="el" href="../../d4/d7d/a00093.html">stride::Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#af138fc7cc754b1b9e2740a7796f3e57c">m_people</a></td></tr>
-<tr class="memdesc:af138fc7cc754b1b9e2740a7796f3e57c inherit pro_attribs_a00023"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Store the persons (id-&gt;person) that were found while loping over the ContactPools.  <a href="#af138fc7cc754b1b9e2740a7796f3e57c">More...</a><br /></td></tr>
-<tr class="separator:af138fc7cc754b1b9e2740a7796f3e57c inherit pro_attribs_a00023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9193775a55084c5ff26b581a07e3ef01 inherit pro_attribs_a00023"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::tuple&lt; unsigned int, unsigned int, <a class="el" href="../../df/d73/a00358.html">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#a9193775a55084c5ff26b581a07e3ef01">m_commutes</a></td></tr>
-<tr class="separator:a9193775a55084c5ff26b581a07e3ef01 inherit pro_attribs_a00023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb9bbe5addf30fbc5e82d8cbffb164de inherit pro_attribs_a00023"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#aeb9bbe5addf30fbc5e82d8cbffb164de">m_inputStream</a></td></tr>
-<tr class="memdesc:aeb9bbe5addf30fbc5e82d8cbffb164de inherit pro_attribs_a00023"><td class="mdescLeft">&#160;</td><td class="mdescRight">File to read.  <a href="#aeb9bbe5addf30fbc5e82d8cbffb164de">More...</a><br /></td></tr>
-<tr class="separator:aeb9bbe5addf30fbc5e82d8cbffb164de inherit pro_attribs_a00023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd64ac3a2023dc806ce9e4bb218b4121 inherit pro_attribs_a00023"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d54/a00094.html">stride::Population</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html#abd64ac3a2023dc806ce9e4bb218b4121">m_population</a></td></tr>
-<tr class="memdesc:abd64ac3a2023dc806ce9e4bb218b4121 inherit pro_attribs_a00023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Population to use in the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> may be nullptr.  <a href="#abd64ac3a2023dc806ce9e4bb218b4121">More...</a><br /></td></tr>
-<tr class="separator:abd64ac3a2023dc806ce9e4bb218b4121 inherit pro_attribs_a00023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5863ac0a15fdacd33ebbadc0af6ba77a"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="../../d1/dc1/a00092.html">stride::Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html#a5863ac0a15fdacd33ebbadc0af6ba77a">m_persons_found</a></td></tr>
+<tr class="memdesc:a5863ac0a15fdacd33ebbadc0af6ba77a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The persons found when looping over the ContactPools.  <a href="#a5863ac0a15fdacd33ebbadc0af6ba77a">More...</a><br /></td></tr>
+<tr class="separator:a5863ac0a15fdacd33ebbadc0af6ba77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An implementation of the <a class="el" href="../../d3/d52/a00023.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> using JSON. </p>
-<p>This class is used to read a <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> from a JSON file. </p>
+<div class="textblock"><p>Writes a <a class="el" href="../../d2/de7/a00014.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> to a JSON file. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00033">33</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeoGridJSONReader.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00036">36</a> of file <a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONWriter.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af1a416909c5768271bc0c33c452b38a0"></a>
+<a class="anchor" id="aca20d55403ce337b69d147540459f917"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">geopop::GeoGridJSONReader::GeoGridJSONReader </td>
+          <td class="memname">geopop::GeoGridJSONWriter::GeoGridJSONWriter </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
-          <td class="paramname"><em>inputStream</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct the <a class="el" href="../../dd/da2/a00019.html" title="Writes a GeoGrid to a JSON file. ">GeoGridJSONWriter</a>. </p>
+
+<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00034">34</a> of file <a class="el" href="../../dd/da2/a00192_source.html">GeoGridJSONWriter.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad29ac72b56a116252620d06921f0365e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void geopop::GeoGridJSONWriter::Write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/de7/a00014.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/d54/a00094.html">stride::Population</a> *&#160;</td>
-          <td class="paramname"><em>pop</em>&#160;</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct the <a class="el" href="../../dd/da2/a00019.html" title="An implementation of the GeoGridReader using JSON. ">GeoGridJSONReader</a> with the istream which contains the JSON. </p>
-
-<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00034">34</a> of file <a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONReader.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aabf14c2a5629bc0d8e797256bdc67e43"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">geopop::GeoGridJSONReader::GeoGridJSONReader </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/da2/a00019.html">GeoGridJSONReader</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>No copy constructor. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a457112a2f1c4ae1feb9218b4c3176980"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/da2/a00019.html">GeoGridJSONReader</a> geopop::GeoGridJSONReader::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/da2/a00019.html">GeoGridJSONReader</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>No copy assignement. </p>
-
-</div>
-</div>
-<a class="anchor" id="a0b6a6032beee9c1bdb5536e8aa3d87f7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void geopop::GeoGridJSONReader::Read </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
         </tr>
       </table>
   </td>
@@ -341,40 +232,47 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Actually perform the read and return the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>. </p>
+<p>Write the provided <a class="el" href="../../d2/de7/a00014.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> to the proved ostream in JSON format. </p>
 
-<p>Implements <a class="el" href="../../d3/d52/a00023.html#a5acaf132416850a433e1f41565c35e87">geopop::GeoGridReader</a>.</p>
+<p>Implements <a class="el" href="../../dc/de2/a00024.html#a2a4c494a6bbe1776e71706a1c3a7ff9a">geopop::GeoGridWriter</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00039">39</a> of file <a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONReader.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00036">36</a> of file <a class="el" href="../../dd/da2/a00192_source.html">GeoGridJSONWriter.cpp</a>.</p>
 
-<p>References <a class="el" href="../../de/d79/a00203_source.html#l00027">geopop::GeoGridReader::AddCommutes()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00064">geopop::GeoGridReader::m_commutes</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00066">geopop::GeoGridReader::m_inputStream</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00061">geopop::GeoGridReader::m_people</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00067">geopop::GeoGridReader::m_population</a>, <a class="el" href="../../dd/df4/a00193_source.html#l00068">ParseLocation()</a>, <a class="el" href="../../dd/df4/a00193_source.html#l00152">ParsePerson()</a>, and <a class="el" href="../../d1/dd4/a00267_source.html#l00083">stride::Population::RefGeoGrid()</a>.</p>
+<p>References <a class="el" href="../../dd/df4/a00193_source.html#l00062">m_persons_found</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00100">WriteLocation()</a>, and <a class="el" href="../../dd/da2/a00192_source.html#l00131">WritePerson()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/da2/a00019_a0b6a6032beee9c1bdb5536e8aa3d87f7_cgraph.gif" border="0" usemap="#dd/da2/a00019_a0b6a6032beee9c1bdb5536e8aa3d87f7_cgraph" alt=""/></div>
-<map name="dd/da2/a00019_a0b6a6032beee9c1bdb5536e8aa3d87f7_cgraph" id="dd/da2/a00019_a0b6a6032beee9c1bdb5536e8aa3d87f7_cgraph">
-<area shape="rect" id="node2" href="../../d3/d52/a00023.html#a72ea40450cdeb7fef66501752d12bbb2" title="Add the commutes that were found to their respective Locations symmetrically. " alt="" coords="276,13,451,54"/>
-<area shape="rect" id="node4" href="../../dd/da2/a00019.html#a6d75cabadab49fcffe00d193dc7da4a6" title="Create a Location based on the information stored in the provided boost property tree. " alt="" coords="260,107,467,149"/>
-<area shape="rect" id="node11" href="../../dd/da2/a00019.html#ad0a3616bc2e064fee78d65dc172a3d81" title="Create a Person based on the information stored in the provided boost property tree. " alt="" coords="260,173,467,214"/>
-<area shape="rect" id="node15" href="../../dc/d54/a00094.html#aed61b0a0c312dba5b64733e21be7a1b2" title="Reference the GeoGrid associated with this population (may be a nullptr). " alt="" coords="297,238,430,279"/>
-<area shape="rect" id="node3" href="../../dd/d1b/a00015.html#a53d0f06d0142edf9b2abe5fc89dd3f28" title="Gets a Location by Id and check if the Id exists. " alt="" coords="524,5,712,32"/>
-<area shape="rect" id="node5" href="../../dd/da2/a00019.html#ad72dfb7c01de362ee7ba10324ad76ac5" title="Create a Coordinate based on the information stored in the provided boost property tree..." alt="" coords="515,57,721,98"/>
-<area shape="rect" id="node6" href="../../dd/da2/a00019.html#abaeef4e66bbc02c415a8c9235a2eb908" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="515,122,721,163"/>
-<area shape="rect" id="node7" href="../../d1/dc6/a00347.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="787,57,961,98"/>
-<area shape="rect" id="node8" href="../../dd/da2/a00019.html#a54f28880557331abe18038f0627738c3" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="771,122,977,163"/>
-<area shape="rect" id="node9" href="../../dc/d54/a00094.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="1065,57,1198,98"/>
-<area shape="rect" id="node10" href="../../d2/db1/a00070.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="1048,122,1215,163"/>
-<area shape="rect" id="node12" href="../../dc/d54/a00094.html#a04a055ac18fa585bec4a8b32be5d5fbd" title="Create Person in the population. " alt="" coords="551,187,685,229"/>
-<area shape="rect" id="node13" href="../../d3/d8b/a00059.html#a2cd11f9b95b20b69378fc9268c380096" title="Constructs element in&#45;place at the end. " alt="" coords="769,187,979,229"/>
-<area shape="rect" id="node14" href="../../d3/d8b/a00059.html#a4f98e9e54da37bbf7c6ed0c2b40361d9" title="Get next available chunk for element construction with placement new. " alt="" coords="1027,187,1236,229"/>
+<div class="center"><img src="../../dd/da2/a00019_ad29ac72b56a116252620d06921f0365e_cgraph.gif" border="0" usemap="#dd/da2/a00019_ad29ac72b56a116252620d06921f0365e_cgraph" alt=""/></div>
+<map name="dd/da2/a00019_ad29ac72b56a116252620d06921f0365e_cgraph" id="dd/da2/a00019_ad29ac72b56a116252620d06921f0365e_cgraph">
+<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a6896def26cc869e0657b37361cbc2af1" title="Create a Boost Property Tree containing all info needed to reconstruct a Location. " alt="" coords="252,311,451,352"/>
+<area shape="rect" id="node19" href="../../dd/da2/a00019.html#aa4c51dda89bebe52a62460630ef10c49" title="Create a Boost Property Tree containing all info needed to reconstruct a Person. " alt="" coords="252,577,451,619"/>
+<area shape="rect" id="node3" href="../../db/df3/a00034.html#aff45be35ed8e0f7e3c0951ee70057f63" title="Gets ID of this Location. " alt="" coords="527,78,703,105"/>
+<area shape="rect" id="node6" href="../../db/df3/a00034.html#a03bce2c9b91adf113d2f1f9611ae73da" title="Gets the name. " alt="" coords="514,143,717,170"/>
+<area shape="rect" id="node8" href="../../db/df3/a00034.html#a3921cf045293c04cddcd32920121b870" title="Gets the province. " alt="" coords="507,194,724,221"/>
+<area shape="rect" id="node10" href="../../db/df3/a00034.html#a7fde850960f5c783ed650ea2de16a24f" title="Gets the absolute population. " alt="" coords="522,245,709,287"/>
+<area shape="rect" id="node11" href="../../dd/da2/a00019.html#abbf3bc3d25250dae7a8abd21a89a8e1b" title="Create a Boost Property Tree containing all info needed to reconstruct a Coordinate. " alt="" coords="516,311,715,352"/>
+<area shape="rect" id="node12" href="../../db/df3/a00034.html#a01914e7628a0b84613e155fcaa7155dd" title="Gets the Coordinate of this Location. " alt="" coords="499,377,732,403"/>
+<area shape="rect" id="node13" href="../../db/df3/a00034.html#a470e42db21a7417ce4ecf8167eb1bb05" title="References outgoing commute Locations + fraction of commutes to that Location. " alt="" coords="502,428,729,469"/>
+<area shape="rect" id="node14" href="../../dd/da2/a00019.html#af23f2e79fd864befd4a86231786d2090" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter. " alt="" coords="516,493,715,535"/>
+<area shape="rect" id="node4" href="../../db/df3/a00034.html#ad4f791dc4b7209db83b7c30079b903ff" title="Calculates number of incomming commuters, given the fraction of the population that commutes..." alt="" coords="780,5,1001,47"/>
+<area shape="rect" id="node5" href="../../db/df3/a00034.html#a05ebaf47b892c8dca868ab48bc262e23" title="Gets the number of people infected in the contactpools at this location. " alt="" coords="783,71,998,112"/>
+<area shape="rect" id="node7" href="../../db/df3/a00034.html#a0a5e86820deb8f0aa8e409e870be96fa" title="Calculates number of outgoing commuters, given the fraction of the population that commutes..." alt="" coords="780,136,1001,177"/>
+<area shape="rect" id="node9" href="../../db/df3/a00034.html#a4117d7579640419c0985113b170e493f" title="Get Location&#39;s population fraction (of the total populaion count). " alt="" coords="797,201,984,243"/>
+<area shape="rect" id="node15" href="../../d8/d8e/a00344.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="803,460,978,501"/>
+<area shape="rect" id="node16" href="../../dd/da2/a00019.html#a53289ee143d7c429f1f35d6622f14134" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactPool. " alt="" coords="791,525,990,567"/>
+<area shape="rect" id="node17" href="../../da/d24/a00068.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="1049,525,1192,567"/>
+<area shape="rect" id="node18" href="../../da/d24/a00068.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="1240,525,1383,567"/>
+<area shape="rect" id="node20" href="../../d1/dc1/a00092.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="539,559,691,586"/>
+<area shape="rect" id="node21" href="../../d1/dc1/a00092.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="532,610,699,637"/>
+<area shape="rect" id="node22" href="../../d1/dc1/a00092.html#aebd3f273ac67e7db18d2db9aa0bdda2d" title="Get ID of contactpool_type. " alt="" coords="526,661,705,687"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="abaeef4e66bbc02c415a8c9235a2eb908"></a>
+<a class="anchor" id="af23f2e79fd864befd4a86231786d2090"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -382,9 +280,9 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d7/dec/a00010.html">ContactCenter</a> &gt; geopop::GeoGridJSONReader::ParseContactCenter </td>
+          <td class="memname">ptree geopop::GeoGridJSONWriter::WriteContactCenter </td>
           <td>(</td>
-          <td class="paramtype">boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; ContactCenter &gt;&#160;</td>
           <td class="paramname"><em>contactCenter</em></td><td>)</td>
           <td></td>
         </tr>
@@ -396,23 +294,23 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Create a <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a> based on the information stored in the provided boost property tree. </p>
+<p>Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter. </p>
 
-<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00103">103</a> of file <a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONReader.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00060">60</a> of file <a class="el" href="../../dd/da2/a00192_source.html">GeoGridJSONWriter.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/df4/a00193_source.html#l00135">ParseContactPool()</a>, and <a class="el" href="../../d2/d34/a00156_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
+<p>References <a class="el" href="../../da/d01/a00153_source.html#l00032">stride::ContactLogMode::ToString()</a>, and <a class="el" href="../../dd/da2/a00192_source.html#l00077">WriteContactPool()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/df4/a00193_source.html#l00068">ParseLocation()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/da2/a00192_source.html#l00100">WriteLocation()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/da2/a00019_abaeef4e66bbc02c415a8c9235a2eb908_cgraph.gif" border="0" usemap="#dd/da2/a00019_abaeef4e66bbc02c415a8c9235a2eb908_cgraph" alt=""/></div>
-<map name="dd/da2/a00019_abaeef4e66bbc02c415a8c9235a2eb908_cgraph" id="dd/da2/a00019_abaeef4e66bbc02c415a8c9235a2eb908_cgraph">
-<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a54f28880557331abe18038f0627738c3" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="260,37,467,79"/>
-<area shape="rect" id="node5" href="../../d1/dc6/a00347.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="276,103,451,144"/>
-<area shape="rect" id="node3" href="../../dc/d54/a00094.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="531,5,665,47"/>
-<area shape="rect" id="node4" href="../../d2/db1/a00070.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="515,71,681,112"/>
+<div class="center"><img src="../../dd/da2/a00019_af23f2e79fd864befd4a86231786d2090_cgraph.gif" border="0" usemap="#dd/da2/a00019_af23f2e79fd864befd4a86231786d2090_cgraph" alt=""/></div>
+<map name="dd/da2/a00019_af23f2e79fd864befd4a86231786d2090_cgraph" id="dd/da2/a00019_af23f2e79fd864befd4a86231786d2090_cgraph">
+<area shape="rect" id="node2" href="../../d8/d8e/a00344.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="264,5,439,47"/>
+<area shape="rect" id="node3" href="../../dd/da2/a00019.html#a53289ee143d7c429f1f35d6622f14134" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactPool. " alt="" coords="252,71,451,112"/>
+<area shape="rect" id="node4" href="../../da/d24/a00068.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="499,71,641,112"/>
+<area shape="rect" id="node5" href="../../da/d24/a00068.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="689,71,832,112"/>
 </map>
 </div>
 </p>
@@ -420,17 +318,17 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/da2/a00019_abaeef4e66bbc02c415a8c9235a2eb908_icgraph.gif" border="0" usemap="#dd/da2/a00019_abaeef4e66bbc02c415a8c9235a2eb908_icgraph" alt=""/></div>
-<map name="dd/da2/a00019_abaeef4e66bbc02c415a8c9235a2eb908_icgraph" id="dd/da2/a00019_abaeef4e66bbc02c415a8c9235a2eb908_icgraph">
-<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a6d75cabadab49fcffe00d193dc7da4a6" title="Create a Location based on the information stored in the provided boost property tree. " alt="" coords="260,5,467,47"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00019.html#a0b6a6032beee9c1bdb5536e8aa3d87f7" title="Actually perform the read and return the GeoGrid. " alt="" coords="515,5,721,47"/>
+<div class="center"><img src="../../dd/da2/a00019_af23f2e79fd864befd4a86231786d2090_icgraph.gif" border="0" usemap="#dd/da2/a00019_af23f2e79fd864befd4a86231786d2090_icgraph" alt=""/></div>
+<map name="dd/da2/a00019_af23f2e79fd864befd4a86231786d2090_icgraph" id="dd/da2/a00019_af23f2e79fd864befd4a86231786d2090_icgraph">
+<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a6896def26cc869e0657b37361cbc2af1" title="Create a Boost Property Tree containing all info needed to reconstruct a Location. " alt="" coords="252,5,451,47"/>
+<area shape="rect" id="node3" href="../../dd/da2/a00019.html#ad29ac72b56a116252620d06921f0365e" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="499,5,697,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a54f28880557331abe18038f0627738c3"></a>
+<a class="anchor" id="a53289ee143d7c429f1f35d6622f14134"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -438,21 +336,11 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">ContactPool</a> * geopop::GeoGridJSONReader::ParseContactPool </td>
+          <td class="memname">ptree geopop::GeoGridJSONWriter::WriteContactPool </td>
           <td>(</td>
-          <td class="paramtype">boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>contactPool</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="../../da/d24/a00068.html">stride::ContactPool</a> *&#160;</td>
+          <td class="paramname"><em>contactPool</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d03/a00348.html#a61a32e88a50c57e6f5c49f0996b6b462">stride::ContactType::Id</a>&#160;</td>
-          <td class="paramname"><em>typeId</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -462,21 +350,21 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Create a <a class="el" href="../../d7/dec/a00010.html" title="A ContactCenter represents a number of ContactPools of same ContactType::Id that are related...">ContactCenter</a> based on the information stored in the provided boost property tree. </p>
+<p>Create a Boost Property Tree containing all info needed to reconstruct a ContactPool. </p>
 
-<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00135">135</a> of file <a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONReader.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00077">77</a> of file <a class="el" href="../../dd/da2/a00192_source.html">GeoGridJSONWriter.cpp</a>.</p>
 
-<p>References <a class="el" href="../../de/d38/a00160_source.html#l00036">stride::ContactPoolSys::CreateContactPool()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00061">geopop::GeoGridReader::m_people</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00067">geopop::GeoGridReader::m_population</a>, and <a class="el" href="../../d1/dd4/a00267_source.html#l00080">stride::Population::RefPoolSys()</a>.</p>
+<p>References <a class="el" href="../../d2/d34/a00156_source.html#l00051">stride::ContactPool::GetId()</a>, and <a class="el" href="../../dd/df4/a00193_source.html#l00062">m_persons_found</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/df4/a00193_source.html#l00103">ParseContactCenter()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/da2/a00192_source.html#l00060">WriteContactCenter()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/da2/a00019_a54f28880557331abe18038f0627738c3_cgraph.gif" border="0" usemap="#dd/da2/a00019_a54f28880557331abe18038f0627738c3_cgraph" alt=""/></div>
-<map name="dd/da2/a00019_a54f28880557331abe18038f0627738c3_cgraph" id="dd/da2/a00019_a54f28880557331abe18038f0627738c3_cgraph">
-<area shape="rect" id="node2" href="../../d2/db1/a00070.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="260,5,427,47"/>
-<area shape="rect" id="node3" href="../../dc/d54/a00094.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="277,71,410,112"/>
+<div class="center"><img src="../../dd/da2/a00019_a53289ee143d7c429f1f35d6622f14134_cgraph.gif" border="0" usemap="#dd/da2/a00019_a53289ee143d7c429f1f35d6622f14134_cgraph" alt=""/></div>
+<map name="dd/da2/a00019_a53289ee143d7c429f1f35d6622f14134_cgraph" id="dd/da2/a00019_a53289ee143d7c429f1f35d6622f14134_cgraph">
+<area shape="rect" id="node2" href="../../da/d24/a00068.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="252,5,395,47"/>
+<area shape="rect" id="node3" href="../../da/d24/a00068.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="443,5,585,47"/>
 </map>
 </div>
 </p>
@@ -484,18 +372,18 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/da2/a00019_a54f28880557331abe18038f0627738c3_icgraph.gif" border="0" usemap="#dd/da2/a00019_a54f28880557331abe18038f0627738c3_icgraph" alt=""/></div>
-<map name="dd/da2/a00019_a54f28880557331abe18038f0627738c3_icgraph" id="dd/da2/a00019_a54f28880557331abe18038f0627738c3_icgraph">
-<area shape="rect" id="node2" href="../../dd/da2/a00019.html#abaeef4e66bbc02c415a8c9235a2eb908" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="260,5,467,47"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00019.html#a6d75cabadab49fcffe00d193dc7da4a6" title="Create a Location based on the information stored in the provided boost property tree. " alt="" coords="515,5,721,47"/>
-<area shape="rect" id="node4" href="../../dd/da2/a00019.html#a0b6a6032beee9c1bdb5536e8aa3d87f7" title="Actually perform the read and return the GeoGrid. " alt="" coords="769,5,976,47"/>
+<div class="center"><img src="../../dd/da2/a00019_a53289ee143d7c429f1f35d6622f14134_icgraph.gif" border="0" usemap="#dd/da2/a00019_a53289ee143d7c429f1f35d6622f14134_icgraph" alt=""/></div>
+<map name="dd/da2/a00019_a53289ee143d7c429f1f35d6622f14134_icgraph" id="dd/da2/a00019_a53289ee143d7c429f1f35d6622f14134_icgraph">
+<area shape="rect" id="node2" href="../../dd/da2/a00019.html#af23f2e79fd864befd4a86231786d2090" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter. " alt="" coords="252,5,451,47"/>
+<area shape="rect" id="node3" href="../../dd/da2/a00019.html#a6896def26cc869e0657b37361cbc2af1" title="Create a Boost Property Tree containing all info needed to reconstruct a Location. " alt="" coords="499,5,697,47"/>
+<area shape="rect" id="node4" href="../../dd/da2/a00019.html#ad29ac72b56a116252620d06921f0365e" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="745,5,944,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ad72dfb7c01de362ee7ba10324ad76ac5"></a>
+<a class="anchor" id="abbf3bc3d25250dae7a8abd21a89a8e1b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -503,9 +391,9 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d75/a00334.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a> geopop::GeoGridJSONReader::ParseCoordinate </td>
+          <td class="memname">ptree geopop::GeoGridJSONWriter::WriteCoordinate </td>
           <td>(</td>
-          <td class="paramtype">boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d8/df7/a00331.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a> &amp;&#160;</td>
           <td class="paramname"><em>coordinate</em></td><td>)</td>
           <td></td>
         </tr>
@@ -517,26 +405,26 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Create a Coordinate based on the information stored in the provided boost property tree. </p>
+<p>Create a Boost Property Tree containing all info needed to reconstruct a Coordinate. </p>
 
-<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00096">96</a> of file <a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONReader.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00092">92</a> of file <a class="el" href="../../dd/da2/a00192_source.html">GeoGridJSONWriter.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/df4/a00193_source.html#l00068">ParseLocation()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/da2/a00192_source.html#l00100">WriteLocation()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/da2/a00019_ad72dfb7c01de362ee7ba10324ad76ac5_icgraph.gif" border="0" usemap="#dd/da2/a00019_ad72dfb7c01de362ee7ba10324ad76ac5_icgraph" alt=""/></div>
-<map name="dd/da2/a00019_ad72dfb7c01de362ee7ba10324ad76ac5_icgraph" id="dd/da2/a00019_ad72dfb7c01de362ee7ba10324ad76ac5_icgraph">
-<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a6d75cabadab49fcffe00d193dc7da4a6" title="Create a Location based on the information stored in the provided boost property tree. " alt="" coords="260,5,467,47"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00019.html#a0b6a6032beee9c1bdb5536e8aa3d87f7" title="Actually perform the read and return the GeoGrid. " alt="" coords="515,5,721,47"/>
+<div class="center"><img src="../../dd/da2/a00019_abbf3bc3d25250dae7a8abd21a89a8e1b_icgraph.gif" border="0" usemap="#dd/da2/a00019_abbf3bc3d25250dae7a8abd21a89a8e1b_icgraph" alt=""/></div>
+<map name="dd/da2/a00019_abbf3bc3d25250dae7a8abd21a89a8e1b_icgraph" id="dd/da2/a00019_abbf3bc3d25250dae7a8abd21a89a8e1b_icgraph">
+<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a6896def26cc869e0657b37361cbc2af1" title="Create a Boost Property Tree containing all info needed to reconstruct a Location. " alt="" coords="252,5,451,47"/>
+<area shape="rect" id="node3" href="../../dd/da2/a00019.html#ad29ac72b56a116252620d06921f0365e" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="499,5,697,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a6d75cabadab49fcffe00d193dc7da4a6"></a>
+<a class="anchor" id="a6896def26cc869e0657b37361cbc2af1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -544,9 +432,9 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d4/d8c/a00035.html">Location</a> &gt; geopop::GeoGridJSONReader::ParseLocation </td>
+          <td class="memname">ptree geopop::GeoGridJSONWriter::WriteLocation </td>
           <td>(</td>
-          <td class="paramtype">boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../db/df3/a00034.html">Location</a> &amp;&#160;</td>
           <td class="paramname"><em>location</em></td><td>)</td>
           <td></td>
         </tr>
@@ -558,25 +446,35 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Create a <a class="el" href="../../d4/d8c/a00035.html" title="Location for use within the GeoGrid, contains Coordinate and index to ContactPools. ">Location</a> based on the information stored in the provided boost property tree. </p>
+<p>Create a Boost Property Tree containing all info needed to reconstruct a <a class="el" href="../../db/df3/a00034.html" title="Location for use within the GeoGrid, contains Coordinate and index to ContactPools. ">Location</a>. </p>
 
-<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00068">68</a> of file <a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONReader.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00100">100</a> of file <a class="el" href="../../dd/da2/a00192_source.html">GeoGridJSONWriter.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d1/d72/a00204_source.html#l00064">geopop::GeoGridReader::m_commutes</a>, <a class="el" href="../../dd/df4/a00193_source.html#l00103">ParseContactCenter()</a>, and <a class="el" href="../../dd/df4/a00193_source.html#l00096">ParseCoordinate()</a>.</p>
+<p>References <a class="el" href="../../dd/dd7/a00248_source.html#l00149">geopop::Location::CRefOutgoingCommutes()</a>, <a class="el" href="../../dd/dd7/a00248_source.html#l00060">geopop::Location::GetCoordinate()</a>, <a class="el" href="../../dd/dd7/a00248_source.html#l00063">geopop::Location::GetID()</a>, <a class="el" href="../../dd/dd7/a00248_source.html#l00072">geopop::Location::GetName()</a>, <a class="el" href="../../dd/dd7/a00248_source.html#l00078">geopop::Location::GetPopCount()</a>, <a class="el" href="../../dd/dd7/a00248_source.html#l00081">geopop::Location::GetProvince()</a>, <a class="el" href="../../de/d38/a00160_source.html#l00075">stride::ContactType::IdList</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00060">WriteContactCenter()</a>, and <a class="el" href="../../dd/da2/a00192_source.html#l00092">WriteCoordinate()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/df4/a00193_source.html#l00039">Read()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/da2/a00192_source.html#l00036">Write()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/da2/a00019_a6d75cabadab49fcffe00d193dc7da4a6_cgraph.gif" border="0" usemap="#dd/da2/a00019_a6d75cabadab49fcffe00d193dc7da4a6_cgraph" alt=""/></div>
-<map name="dd/da2/a00019_a6d75cabadab49fcffe00d193dc7da4a6_cgraph" id="dd/da2/a00019_a6d75cabadab49fcffe00d193dc7da4a6_cgraph">
-<area shape="rect" id="node2" href="../../dd/da2/a00019.html#abaeef4e66bbc02c415a8c9235a2eb908" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="260,69,467,111"/>
-<area shape="rect" id="node7" href="../../dd/da2/a00019.html#ad72dfb7c01de362ee7ba10324ad76ac5" title="Create a Coordinate based on the information stored in the provided boost property tree..." alt="" coords="260,135,467,176"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00019.html#a54f28880557331abe18038f0627738c3" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="515,37,721,79"/>
-<area shape="rect" id="node6" href="../../d1/dc6/a00347.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="531,103,705,144"/>
-<area shape="rect" id="node4" href="../../d2/db1/a00070.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="769,5,936,47"/>
-<area shape="rect" id="node5" href="../../dc/d54/a00094.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="786,71,919,112"/>
+<div class="center"><img src="../../dd/da2/a00019_a6896def26cc869e0657b37361cbc2af1_cgraph.gif" border="0" usemap="#dd/da2/a00019_a6896def26cc869e0657b37361cbc2af1_cgraph" alt=""/></div>
+<map name="dd/da2/a00019_a6896def26cc869e0657b37361cbc2af1_cgraph" id="dd/da2/a00019_a6896def26cc869e0657b37361cbc2af1_cgraph">
+<area shape="rect" id="node2" href="../../db/df3/a00034.html#a470e42db21a7417ce4ecf8167eb1bb05" title="References outgoing commute Locations + fraction of commutes to that Location. " alt="" coords="255,5,482,47"/>
+<area shape="rect" id="node3" href="../../db/df3/a00034.html#a01914e7628a0b84613e155fcaa7155dd" title="Gets the Coordinate of this Location. " alt="" coords="252,71,485,98"/>
+<area shape="rect" id="node4" href="../../db/df3/a00034.html#aff45be35ed8e0f7e3c0951ee70057f63" title="Gets ID of this Location. " alt="" coords="281,122,457,149"/>
+<area shape="rect" id="node7" href="../../db/df3/a00034.html#a03bce2c9b91adf113d2f1f9611ae73da" title="Gets the name. " alt="" coords="267,173,470,199"/>
+<area shape="rect" id="node9" href="../../db/df3/a00034.html#a7fde850960f5c783ed650ea2de16a24f" title="Gets the absolute population. " alt="" coords="275,224,462,265"/>
+<area shape="rect" id="node10" href="../../db/df3/a00034.html#a3921cf045293c04cddcd32920121b870" title="Gets the province. " alt="" coords="260,290,477,317"/>
+<area shape="rect" id="node12" href="../../dd/da2/a00019.html#af23f2e79fd864befd4a86231786d2090" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter. " alt="" coords="269,341,468,383"/>
+<area shape="rect" id="node17" href="../../dd/da2/a00019.html#abbf3bc3d25250dae7a8abd21a89a8e1b" title="Create a Boost Property Tree containing all info needed to reconstruct a Coordinate. " alt="" coords="269,407,468,448"/>
+<area shape="rect" id="node5" href="../../db/df3/a00034.html#ad4f791dc4b7209db83b7c30079b903ff" title="Calculates number of incomming commuters, given the fraction of the population that commutes..." alt="" coords="533,49,755,91"/>
+<area shape="rect" id="node6" href="../../db/df3/a00034.html#a05ebaf47b892c8dca868ab48bc262e23" title="Gets the number of people infected in the contactpools at this location. " alt="" coords="537,115,751,156"/>
+<area shape="rect" id="node8" href="../../db/df3/a00034.html#a0a5e86820deb8f0aa8e409e870be96fa" title="Calculates number of outgoing commuters, given the fraction of the population that commutes..." alt="" coords="533,180,755,221"/>
+<area shape="rect" id="node11" href="../../db/df3/a00034.html#a4117d7579640419c0985113b170e493f" title="Get Location&#39;s population fraction (of the total populaion count). " alt="" coords="551,276,737,317"/>
+<area shape="rect" id="node13" href="../../d8/d8e/a00344.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="557,341,731,383"/>
+<area shape="rect" id="node14" href="../../dd/da2/a00019.html#a53289ee143d7c429f1f35d6622f14134" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactPool. " alt="" coords="545,407,743,448"/>
+<area shape="rect" id="node15" href="../../da/d24/a00068.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="803,407,945,448"/>
+<area shape="rect" id="node16" href="../../da/d24/a00068.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="993,407,1136,448"/>
 </map>
 </div>
 </p>
@@ -584,16 +482,16 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/da2/a00019_a6d75cabadab49fcffe00d193dc7da4a6_icgraph.gif" border="0" usemap="#dd/da2/a00019_a6d75cabadab49fcffe00d193dc7da4a6_icgraph" alt=""/></div>
-<map name="dd/da2/a00019_a6d75cabadab49fcffe00d193dc7da4a6_icgraph" id="dd/da2/a00019_a6d75cabadab49fcffe00d193dc7da4a6_icgraph">
-<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a0b6a6032beee9c1bdb5536e8aa3d87f7" title="Actually perform the read and return the GeoGrid. " alt="" coords="260,5,467,47"/>
+<div class="center"><img src="../../dd/da2/a00019_a6896def26cc869e0657b37361cbc2af1_icgraph.gif" border="0" usemap="#dd/da2/a00019_a6896def26cc869e0657b37361cbc2af1_icgraph" alt=""/></div>
+<map name="dd/da2/a00019_a6896def26cc869e0657b37361cbc2af1_icgraph" id="dd/da2/a00019_a6896def26cc869e0657b37361cbc2af1_icgraph">
+<area shape="rect" id="node2" href="../../dd/da2/a00019.html#ad29ac72b56a116252620d06921f0365e" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="252,5,451,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ad0a3616bc2e064fee78d65dc172a3d81"></a>
+<a class="anchor" id="aa4c51dda89bebe52a62460630ef10c49"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -601,9 +499,9 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d7d/a00093.html">Person</a> * geopop::GeoGridJSONReader::ParsePerson </td>
+          <td class="memname">ptree geopop::GeoGridJSONWriter::WritePerson </td>
           <td>(</td>
-          <td class="paramtype">boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d1/dc1/a00092.html">stride::Person</a> *&#160;</td>
           <td class="paramname"><em>person</em></td><td>)</td>
           <td></td>
         </tr>
@@ -615,22 +513,22 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Create a Person based on the information stored in the provided boost property tree. </p>
+<p>Create a Boost Property Tree containing all info needed to reconstruct a Person. </p>
 
-<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00152">152</a> of file <a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONReader.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/da2/a00192_source.html#l00131">131</a> of file <a class="el" href="../../dd/da2/a00192_source.html">GeoGridJSONWriter.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00108">stride::Population::CreatePerson()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l00067">geopop::GeoGridReader::m_population</a>.</p>
+<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00053">stride::Person::GetAge()</a>, <a class="el" href="../../d7/d2f/a00258_source.html#l00062">stride::Person::GetId()</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00065">stride::Person::GetPoolId()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/df4/a00193_source.html#l00039">Read()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/da2/a00192_source.html#l00036">Write()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/da2/a00019_ad0a3616bc2e064fee78d65dc172a3d81_cgraph.gif" border="0" usemap="#dd/da2/a00019_ad0a3616bc2e064fee78d65dc172a3d81_cgraph" alt=""/></div>
-<map name="dd/da2/a00019_ad0a3616bc2e064fee78d65dc172a3d81_cgraph" id="dd/da2/a00019_ad0a3616bc2e064fee78d65dc172a3d81_cgraph">
-<area shape="rect" id="node2" href="../../dc/d54/a00094.html#a04a055ac18fa585bec4a8b32be5d5fbd" title="Create Person in the population. " alt="" coords="260,5,393,47"/>
-<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a2cd11f9b95b20b69378fc9268c380096" title="Constructs element in&#45;place at the end. " alt="" coords="441,5,651,47"/>
-<area shape="rect" id="node4" href="../../d3/d8b/a00059.html#a4f98e9e54da37bbf7c6ed0c2b40361d9" title="Get next available chunk for element construction with placement new. " alt="" coords="699,5,908,47"/>
+<div class="center"><img src="../../dd/da2/a00019_aa4c51dda89bebe52a62460630ef10c49_cgraph.gif" border="0" usemap="#dd/da2/a00019_aa4c51dda89bebe52a62460630ef10c49_cgraph" alt=""/></div>
+<map name="dd/da2/a00019_aa4c51dda89bebe52a62460630ef10c49_cgraph" id="dd/da2/a00019_aa4c51dda89bebe52a62460630ef10c49_cgraph">
+<area shape="rect" id="node2" href="../../d1/dc1/a00092.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="258,5,425,32"/>
+<area shape="rect" id="node3" href="../../d1/dc1/a00092.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="265,56,417,83"/>
+<area shape="rect" id="node4" href="../../d1/dc1/a00092.html#aebd3f273ac67e7db18d2db9aa0bdda2d" title="Get ID of contactpool_type. " alt="" coords="252,107,431,133"/>
 </map>
 </div>
 </p>
@@ -638,26 +536,53 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/da2/a00019_ad0a3616bc2e064fee78d65dc172a3d81_icgraph.gif" border="0" usemap="#dd/da2/a00019_ad0a3616bc2e064fee78d65dc172a3d81_icgraph" alt=""/></div>
-<map name="dd/da2/a00019_ad0a3616bc2e064fee78d65dc172a3d81_icgraph" id="dd/da2/a00019_ad0a3616bc2e064fee78d65dc172a3d81_icgraph">
-<area shape="rect" id="node2" href="../../dd/da2/a00019.html#a0b6a6032beee9c1bdb5536e8aa3d87f7" title="Actually perform the read and return the GeoGrid. " alt="" coords="260,5,467,47"/>
+<div class="center"><img src="../../dd/da2/a00019_aa4c51dda89bebe52a62460630ef10c49_icgraph.gif" border="0" usemap="#dd/da2/a00019_aa4c51dda89bebe52a62460630ef10c49_icgraph" alt=""/></div>
+<map name="dd/da2/a00019_aa4c51dda89bebe52a62460630ef10c49_icgraph" id="dd/da2/a00019_aa4c51dda89bebe52a62460630ef10c49_icgraph">
+<area shape="rect" id="node2" href="../../dd/da2/a00019.html#ad29ac72b56a116252620d06921f0365e" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="252,5,451,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a5863ac0a15fdacd33ebbadc0af6ba77a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt;<a class="el" href="../../d1/dc1/a00092.html">stride::Person</a>*&gt; geopop::GeoGridJSONWriter::m_persons_found</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The persons found when looping over the ContactPools. </p>
+
+<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00062">62</a> of file <a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONWriter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/da2/a00192_source.html#l00036">Write()</a>, and <a class="el" href="../../dd/da2/a00192_source.html#l00077">WriteContactPool()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dc/d57/a00194_source.html">GeoGridJSONReader.h</a></li>
-<li><a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONReader.cpp</a></li>
+<li><a class="el" href="../../dd/df4/a00193_source.html">GeoGridJSONWriter.h</a></li>
+<li><a class="el" href="../../dd/da2/a00192_source.html">GeoGridJSONWriter.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">geopop</a></li><li class="navelem"><a class="el" href="../../dd/da2/a00019.html">GeoGridJSONReader</a></li>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:09 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d8/df7/a00331.html">geopop</a></li><li class="navelem"><a class="el" href="../../dd/da2/a00019.html">GeoGridJSONWriter</a></li>
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

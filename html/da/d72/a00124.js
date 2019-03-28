@@ -1,7 +1,8 @@
 var a00124 =
 [
-    [ "CliViewer", "da/d72/a00124.html#a4ddb15ac567fd751c2be3a9d973d1666", null ],
-    [ "Update", "da/d72/a00124.html#a9f3a2f9efda499fa6a80f3871c7298d7", null ],
-    [ "m_logger", "da/d72/a00124.html#acc77dad91899a0d4183493023e082e9f", null ],
-    [ "m_runner", "da/d72/a00124.html#af789850b449fdadcc8572def4a0eb4af", null ]
+    [ "InfectedFileViewer", "da/d72/a00124.html#aca10d70842e06a7a00cd633c4071d0ac", null ],
+    [ "Update", "da/d72/a00124.html#a8128b6620992860cad456275e2173b16", null ],
+    [ "m_infected", "da/d72/a00124.html#a29f6d1abe2d4b71535a0c0134a48a5a0", null ],
+    [ "m_infected_file", "da/d72/a00124.html#ae3711a48a4aba215ee7c45893c18532c", null ],
+    [ "m_runner", "da/d72/a00124.html#af4ffa40d65229dcd9ae06ad592809c1c", null ]
 ];

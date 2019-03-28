@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: LogUtils.cpp File Reference</title>
+<title>Stride Reference Manual: Median.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -105,23 +105,31 @@ $(document).ready(function(){initNavTree('d4/d04/a00255.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">LogUtils.cpp File Reference</div>  </div>
+<div class="title">Median.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Implementation of file utils.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/def/a00256_source.html">LogUtils.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;spdlog/sinks/null_sink.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for LogUtils.cpp:</div>
+Include dependency graph for Median.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/df9/a00554.gif" border="0" usemap="#LogUtils_8cpp" alt=""/></div>
-<map name="LogUtils_8cpp" id="LogUtils_8cpp">
-<area shape="rect" id="node2" href="../../d0/def/a00256.html" title="Logging (spdlog) utilities. " alt="" coords="125,80,210,107"/>
+<div class="center"><img src="../../d9/d87/a00551.gif" border="0" usemap="#Median_8h" alt=""/></div>
+<map name="Median_8h" id="Median_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/de9/a00552.gif" border="0" usemap="#Median_8hdep" alt=""/></div>
+<map name="Median_8hdep" id="Median_8hdep">
+<area shape="rect" id="node2" href="../../d4/d9a/a00246.html" title="KdTree_def.h" alt="" coords="25,80,128,107"/>
+<area shape="rect" id="node3" href="../../dc/d57/a00194.html" title="GeoGridKdTree.cpp" alt="" coords="5,155,148,181"/>
 </map>
 </div>
 </div>
@@ -129,24 +137,25 @@ Include dependency graph for LogUtils.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">stride</a></td></tr>
-<tr class="memdesc:d9/d48/a00345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d8/df7/a00331"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df7/a00331.html">geopop</a></td></tr>
+<tr class="memdesc:d8/df7/a00331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">stride::util</a></td></tr>
-<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:d2/d0a/a00333"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d0a/a00333.html">geopop::kd</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6134a8bd4b14689b5d2d4385e3eebae2"><td class="memTemplParams" colspan="2">template&lt;typename P , std::size_t D&gt; </td></tr>
+<tr class="memitem:a6134a8bd4b14689b5d2d4385e3eebae2"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d0a/a00333.html#a6134a8bd4b14689b5d2d4385e3eebae2">geopop::kd::Median</a> (const std::vector&lt; P &gt; &amp;points)</td></tr>
+<tr class="separator:a6134a8bd4b14689b5d2d4385e3eebae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of file utils. </p>
-
-<p>Definition in file <a class="el" href="../../d4/d04/a00255_source.html">LogUtils.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d04/a00255.html">LogUtils.cpp</a></li>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:08 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_1fafd3a38d53c2ca250f450f6134d22a.html">geo</a></li><li class="navelem"><a class="el" href="../../d4/d04/a00255.html">Median.h</a></li>
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:50 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::Subject&lt; E &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -109,313 +109,250 @@ $(document).ready(function(){initNavTree('d4/d98/a00120.html','../../');});
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d6/d48/a00988.html">List of all members</a>  </div>
+<a href="#friends">Friends</a> &#124;
+<a href="../../d7/d98/a00983.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::Subject&lt; E &gt; Class Template Reference</div>  </div>
+<div class="title">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Template for Subject/Observer (or Publish/Subscribe).  
+<p>Implementation of iterator for <a class="el" href="../../d7/df7/a00058.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a>.  
  <a href="../../d4/d98/a00120.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/da2/a00307_source.html">Subject.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::util::Subject&lt; E &gt;:</div>
+Collaboration diagram for stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d95/a00989.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" id="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map">
-<area shape="rect" id="node2" href="../../d4/d98/a00120.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="5,233,187,399"/>
-<area shape="rect" id="node3" href="../../da/d74/a00099.html" title="The simulation runner drive simulator throufgh time steps. " alt="" coords="29,448,163,643"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::util::Subject&lt; E &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dd/d7a/a00990.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1Subject_3_01E_01_4_coll__map" id="stride_1_1util_1_1Subject_3_01E_01_4_coll__map">
-<area shape="rect" id="node4" href="../../d9/d41/a00666.html" title="{const void\n||}" alt="" coords="5,145,92,223"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="117,145,261,223"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="285,145,417,223"/>
-<area shape="rect" id="node7" href="../../dc/df1/a00662.html" title="{CallbackType\n||}" alt="" coords="540,293,643,370"/>
+<div class="center"><img src="../../d2/d4c/a00984.gif" border="0" usemap="#stride_1_1util_1_1SVIterator_3_01T_00_01N_00_01Safe_00_01P_00_01R_00_01is__const__iterator_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1SVIterator_3_01T_00_01N_00_01Safe_00_01P_00_01R_00_01is__const__iterator_01_4_coll__map" id="stride_1_1util_1_1SVIterator_3_01T_00_01N_00_01Safe_00_01P_00_01R_00_01is__const__iterator_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ac4fa78f455203ba23ab4442d14822895"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> = E</td></tr>
-<tr class="separator:ac4fa78f455203ba23ab4442d14822895"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3face8040dba107d2ddcfc5f766aa58d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> = std::function&lt; void(const <a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;)&gt;</td></tr>
-<tr class="separator:a3face8040dba107d2ddcfc5f766aa58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e365110b87125c54ae5d58948f656d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a85e365110b87125c54ae5d58948f656d">iterator_category</a> = std::random_access_iterator_tag</td></tr>
+<tr class="separator:a85e365110b87125c54ae5d58948f656d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19491e9889942ecc009a6bf9cddcbf11"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a19491e9889942ecc009a6bf9cddcbf11">value_type</a> = T</td></tr>
+<tr class="separator:a19491e9889942ecc009a6bf9cddcbf11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc24bf45648d866a3d8ec87f5700b821"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#acc24bf45648d866a3d8ec87f5700b821">difference_type</a> = std::ptrdiff_t</td></tr>
+<tr class="separator:acc24bf45648d866a3d8ec87f5700b821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53edbe0a7ae756f95ea7a3916bde783e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a53edbe0a7ae756f95ea7a3916bde783e">pointer</a> = P</td></tr>
+<tr class="separator:a53edbe0a7ae756f95ea7a3916bde783e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6269050ef800b2827028000efab4759"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ad6269050ef800b2827028000efab4759">reference</a> = R</td></tr>
+<tr class="separator:ad6269050ef800b2827028000efab4759"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4391226c3334af2ab02fdbfcbe81c8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> = <a class="el" href="../../d4/d98/a00120.html">SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;</td></tr>
+<tr class="separator:acf4391226c3334af2ab02fdbfcbe81c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a4853b1d31d30e83840a9ab9a01d460dd">Subject</a> ()</td></tr>
-<tr class="separator:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ade16fa2818574a0a42874b5f15b1d3ec">~Subject</a> ()</td></tr>
-<tr class="separator:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#acddc520ab930ec98e120790b91fb8021">Register</a> (const std::shared_ptr&lt; U &gt; &amp;u, <a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> f)</td></tr>
-<tr class="separator:acddc520ab930ec98e120790b91fb8021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#aaa38f379243ec0d27b47b5bd110ebe75">Unregister</a> (const std::shared_ptr&lt; U &gt; &amp;u)</td></tr>
-<tr class="separator:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a8e0f20cb6cc045cf215f5d5a0963046f">UnregisterAll</a> ()</td></tr>
-<tr class="separator:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9496d626bbde63eb55836f0af402522c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a9496d626bbde63eb55836f0af402522c">Notify</a> (const <a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;e)</td></tr>
-<tr class="separator:a9496d626bbde63eb55836f0af402522c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a314396936e46da86a1da0cc811225e27"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a314396936e46da86a1da0cc811225e27">SVIterator</a> ()</td></tr>
+<tr class="memdesc:a314396936e46da86a1da0cc811225e27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a314396936e46da86a1da0cc811225e27">More...</a><br /></td></tr>
+<tr class="separator:a314396936e46da86a1da0cc811225e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab481d9aa2bf4f1dd132a36fe2554be28"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ab481d9aa2bf4f1dd132a36fe2554be28">SVIterator</a> (const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;other)</td></tr>
+<tr class="memdesc:ab481d9aa2bf4f1dd132a36fe2554be28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#ab481d9aa2bf4f1dd132a36fe2554be28">More...</a><br /></td></tr>
+<tr class="separator:ab481d9aa2bf4f1dd132a36fe2554be28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e3d418c40d965c28ed4b8370a9967e9"><td class="memItemLeft" align="right" valign="top">R&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a7e3d418c40d965c28ed4b8370a9967e9">operator*</a> () const </td></tr>
+<tr class="memdesc:a7e3d418c40d965c28ed4b8370a9967e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element access.  <a href="#a7e3d418c40d965c28ed4b8370a9967e9">More...</a><br /></td></tr>
+<tr class="separator:a7e3d418c40d965c28ed4b8370a9967e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa10e3ead890dc5f0dda7bd7d53474927"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#aa10e3ead890dc5f0dda7bd7d53474927">operator-&gt;</a> () const </td></tr>
+<tr class="memdesc:aa10e3ead890dc5f0dda7bd7d53474927"><td class="mdescLeft">&#160;</td><td class="mdescRight">Member of element access.  <a href="#aa10e3ead890dc5f0dda7bd7d53474927">More...</a><br /></td></tr>
+<tr class="separator:aa10e3ead890dc5f0dda7bd7d53474927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a764a61e4157323eeca43fa49de3a9e1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a764a61e4157323eeca43fa49de3a9e1a">operator++</a> ()</td></tr>
+<tr class="memdesc:a764a61e4157323eeca43fa49de3a9e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-increment (returns position after increment)  <a href="#a764a61e4157323eeca43fa49de3a9e1a">More...</a><br /></td></tr>
+<tr class="separator:a764a61e4157323eeca43fa49de3a9e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d723c151c2ea9c4366875ecf4a90cc9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a0d723c151c2ea9c4366875ecf4a90cc9">operator++</a> (int)</td></tr>
+<tr class="memdesc:a0d723c151c2ea9c4366875ecf4a90cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Post-increment (returns position prior to increment)  <a href="#a0d723c151c2ea9c4366875ecf4a90cc9">More...</a><br /></td></tr>
+<tr class="separator:a0d723c151c2ea9c4366875ecf4a90cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee9c16d0cf1e70f153e2e74cec5f4c13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#aee9c16d0cf1e70f153e2e74cec5f4c13">operator--</a> ()</td></tr>
+<tr class="memdesc:aee9c16d0cf1e70f153e2e74cec5f4c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-decrement (returns position after decrement)  <a href="#aee9c16d0cf1e70f153e2e74cec5f4c13">More...</a><br /></td></tr>
+<tr class="separator:aee9c16d0cf1e70f153e2e74cec5f4c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae03ac9839333631874a218227eeb6ec9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ae03ac9839333631874a218227eeb6ec9">operator--</a> (int)</td></tr>
+<tr class="memdesc:ae03ac9839333631874a218227eeb6ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-increment (returns position after decrement)  <a href="#ae03ac9839333631874a218227eeb6ec9">More...</a><br /></td></tr>
+<tr class="separator:ae03ac9839333631874a218227eeb6ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af73d0024aef3eeb58f338806fb46d4b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#af73d0024aef3eeb58f338806fb46d4b1">operator==</a> (const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;other) const </td></tr>
+<tr class="memdesc:af73d0024aef3eeb58f338806fb46d4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator equality.  <a href="#af73d0024aef3eeb58f338806fb46d4b1">More...</a><br /></td></tr>
+<tr class="separator:af73d0024aef3eeb58f338806fb46d4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1105a1f1358d5e88868a49bf4c2e34b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ad1105a1f1358d5e88868a49bf4c2e34b">operator!=</a> (const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;other) const </td></tr>
+<tr class="memdesc:ad1105a1f1358d5e88868a49bf4c2e34b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator inequality.  <a href="#ad1105a1f1358d5e88868a49bf4c2e34b">More...</a><br /></td></tr>
+<tr class="separator:ad1105a1f1358d5e88868a49bf4c2e34b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff1e03017e7838d8a81dded9ee3f5da2"><td class="memItemLeft" align="right" valign="top">R&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#aff1e03017e7838d8a81dded9ee3f5da2">operator[]</a> (std::size_t n) const </td></tr>
+<tr class="memdesc:aff1e03017e7838d8a81dded9ee3f5da2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to n-th element.  <a href="#aff1e03017e7838d8a81dded9ee3f5da2">More...</a><br /></td></tr>
+<tr class="separator:aff1e03017e7838d8a81dded9ee3f5da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb314b1a13eb4e1e574d6185ce6dde2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#aeb314b1a13eb4e1e574d6185ce6dde2c">operator+=</a> (std::ptrdiff_t n)</td></tr>
+<tr class="memdesc:aeb314b1a13eb4e1e574d6185ce6dde2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set iterator to n-th next element.  <a href="#aeb314b1a13eb4e1e574d6185ce6dde2c">More...</a><br /></td></tr>
+<tr class="separator:aeb314b1a13eb4e1e574d6185ce6dde2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b77f04ccd9592100840b2c6a9ecc641"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a9b77f04ccd9592100840b2c6a9ecc641">operator-=</a> (std::ptrdiff_t n)</td></tr>
+<tr class="memdesc:a9b77f04ccd9592100840b2c6a9ecc641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set iterator to n-th previous element.  <a href="#a9b77f04ccd9592100840b2c6a9ecc641">More...</a><br /></td></tr>
+<tr class="separator:a9b77f04ccd9592100840b2c6a9ecc641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f3df14d67957c4d81353fba23692038"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a8f3df14d67957c4d81353fba23692038">operator+</a> (std::ptrdiff_t n)</td></tr>
+<tr class="memdesc:a8f3df14d67957c4d81353fba23692038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return iterator pointing to n-th next element.  <a href="#a8f3df14d67957c4d81353fba23692038">More...</a><br /></td></tr>
+<tr class="separator:a8f3df14d67957c4d81353fba23692038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b53d69869080a593d50d81ad0595d89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a3b53d69869080a593d50d81ad0595d89">operator-</a> (std::ptrdiff_t n)</td></tr>
+<tr class="memdesc:a3b53d69869080a593d50d81ad0595d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return iterator pointing to n-th previous element.  <a href="#a3b53d69869080a593d50d81ad0595d89">More...</a><br /></td></tr>
+<tr class="separator:a3b53d69869080a593d50d81ad0595d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fc4c835552eb9b6e5d1f82001acd76e"><td class="memItemLeft" align="right" valign="top">long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a6fc4c835552eb9b6e5d1f82001acd76e">operator-</a> (const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;other) const </td></tr>
+<tr class="memdesc:a6fc4c835552eb9b6e5d1f82001acd76e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return distance between iterators.  <a href="#a6fc4c835552eb9b6e5d1f82001acd76e">More...</a><br /></td></tr>
+<tr class="separator:a6fc4c835552eb9b6e5d1f82001acd76e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a796aa7fced54362df28ce61f4454d1c8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a796aa7fced54362df28ce61f4454d1c8">operator&lt;</a> (const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;other) const </td></tr>
+<tr class="memdesc:a796aa7fced54362df28ce61f4454d1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether iterator is before other.  <a href="#a796aa7fced54362df28ce61f4454d1c8">More...</a><br /></td></tr>
+<tr class="separator:a796aa7fced54362df28ce61f4454d1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc348d4847a4b0c0dc97ac3fb1cd3099"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#acc348d4847a4b0c0dc97ac3fb1cd3099">operator&lt;=</a> (const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;other) const </td></tr>
+<tr class="memdesc:acc348d4847a4b0c0dc97ac3fb1cd3099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether iterator is not after other.  <a href="#acc348d4847a4b0c0dc97ac3fb1cd3099">More...</a><br /></td></tr>
+<tr class="separator:acc348d4847a4b0c0dc97ac3fb1cd3099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd426a3e0883264570f3f94c3ac46d0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#afd426a3e0883264570f3f94c3ac46d0a">operator&gt;</a> (const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;other) const </td></tr>
+<tr class="memdesc:afd426a3e0883264570f3f94c3ac46d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether iterator is after other.  <a href="#afd426a3e0883264570f3f94c3ac46d0a">More...</a><br /></td></tr>
+<tr class="separator:afd426a3e0883264570f3f94c3ac46d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28dcd0465b2e6ccfb619d59a07d931b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a28dcd0465b2e6ccfb619d59a07d931b9">operator&gt;=</a> (const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;other) const </td></tr>
+<tr class="memdesc:a28dcd0465b2e6ccfb619d59a07d931b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether iterator is not after other.  <a href="#a28dcd0465b2e6ccfb619d59a07d931b9">More...</a><br /></td></tr>
+<tr class="separator:a28dcd0465b2e6ccfb619d59a07d931b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a385306acf359ed5cfa28a7e2921d417d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a385306acf359ed5cfa28a7e2921d417d">container_pointer_type</a> = typename std::conditional&lt; is_const_iterator, const <a class="el" href="../../d7/df7/a00058.html">SegmentedVector</a>&lt; T, N, Safe &gt; *, <a class="el" href="../../d7/df7/a00058.html">SegmentedVector</a>&lt; T, N, Safe &gt; * &gt;::type</td></tr>
+<tr class="memdesc:a385306acf359ed5cfa28a7e2921d417d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of pointer-to-container (i.e. its const qualification).  <a href="#a385306acf359ed5cfa28a7e2921d417d">More...</a><br /></td></tr>
+<tr class="separator:a385306acf359ed5cfa28a7e2921d417d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ac34d8cbf117630096864be24e5f3bca0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#ac34d8cbf117630096864be24e5f3bca0">SVIterator</a> (std::size_t p, <a class="el" href="../../d4/d98/a00120.html#a385306acf359ed5cfa28a7e2921d417d">container_pointer_type</a> c)</td></tr>
+<tr class="memdesc:ac34d8cbf117630096864be24e5f3bca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private constructor, currently only container itself can create iterators.  <a href="#ac34d8cbf117630096864be24e5f3bca0">More...</a><br /></td></tr>
+<tr class="separator:ac34d8cbf117630096864be24e5f3bca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::weak_ptr&lt; const void &gt;, <a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt; std::weak_ptr&lt; const void &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a3d7c672aaa180fc9b0a8c272639bd821">m_observers</a></td></tr>
-<tr class="separator:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7628f423353b90ced7f27cba20b71dbc"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a7628f423353b90ced7f27cba20b71dbc">m_p</a></td></tr>
+<tr class="memdesc:a7628f423353b90ced7f27cba20b71dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current iterator position in the container.  <a href="#a7628f423353b90ced7f27cba20b71dbc">More...</a><br /></td></tr>
+<tr class="separator:a7628f423353b90ced7f27cba20b71dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1f935137c5ee56139e6f9648e84c73c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d98/a00120.html#a385306acf359ed5cfa28a7e2921d417d">container_pointer_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#af1f935137c5ee56139e6f9648e84c73c">m_c</a></td></tr>
+<tr class="memdesc:af1f935137c5ee56139e6f9648e84c73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container that the iterator points into.  <a href="#af1f935137c5ee56139e6f9648e84c73c">More...</a><br /></td></tr>
+<tr class="separator:af1f935137c5ee56139e6f9648e84c73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a6e4dbcb9e54e5e90a020a9ff70ab8027"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/a00120.html#a6e4dbcb9e54e5e90a020a9ff70ab8027">SegmentedVector&lt; T, N, Safe &gt;</a></td></tr>
+<tr class="separator:a6e4dbcb9e54e5e90a020a9ff70ab8027"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename E&gt;<br />
-class stride::util::Subject&lt; E &gt;</h3>
+<div class="textblock"><h3>template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt;<br />
+class stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;</h3>
 
-<p>Template for Subject/Observer (or Publish/Subscribe). </p>
-<p>Offers flexibility in defining event types and having customized callbacks. Despite the shared_ptrs in the Register/Unregister, the <a class="el" href="../../d4/d98/a00120.html" title="Template for Subject/Observer (or Publish/Subscribe). ">Subject</a> takes no ownership of the observer object and only stores a weak_ptr. </p>
+<p>Implementation of iterator for <a class="el" href="../../d7/df7/a00058.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a>. </p>
+<p>It will provide both const and non-const iterators.</p>
+<p>Possible states for the iterator are: (a) Default constructed: m_c == nullptr &amp;&amp; m_p == 0. This is the singular state in which the iterator can be assigned, but not incremented or compared. (b) Past-the-end: m_c != nullptr &amp;&amp; m_p == m_c-&gt;size(). The iterator cannot be dereferenced. (c) Dereferencable: m_c != nullptr &amp;&amp; m_p &lt; mc-&gt;size(). Notice that m_p is of type size_t and hence always non-negative. Thus the above reuires !m_c-&gt;empty().</p>
+<p>Template parameters: T value type of iterator and of its container. N block size of its container P pointer-to-T type (can be const qualified). R reference-to-T type (can be const qualified). is_const_iterator to make it a const_iterator </p>
 
-<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00037">37</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00057">57</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="ac4fa78f455203ba23ab4442d14822895"></a>
+<a class="anchor" id="a85e365110b87125c54ae5d58948f656d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename E&gt; </div>
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> =  E</td>
+          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::<a class="el" href="../../d4/d98/a00120.html#a85e365110b87125c54ae5d58948f656d">iterator_category</a> =  std::random_access_iterator_tag</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00040">40</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00061">61</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3face8040dba107d2ddcfc5f766aa58d"></a>
+<a class="anchor" id="a19491e9889942ecc009a6bf9cddcbf11"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename E&gt; </div>
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> =  std::function&lt;void(const <a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a>&amp;)&gt;</td>
+          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::<a class="el" href="../../d4/d98/a00120.html#a19491e9889942ecc009a6bf9cddcbf11">value_type</a> =  T</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00041">41</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00062">62</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4853b1d31d30e83840a9ab9a01d460dd"></a>
+<a class="anchor" id="acc24bf45648d866a3d8ec87f5700b821"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename E&gt; </div>
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::<a class="el" href="../../d4/d98/a00120.html#acc24bf45648d866a3d8ec87f5700b821">difference_type</a> =  std::ptrdiff_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00063">63</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53edbe0a7ae756f95ea7a3916bde783e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::<a class="el" href="../../d4/d98/a00120.html#a53edbe0a7ae756f95ea7a3916bde783e">pointer</a> =  P</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00064">64</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6269050ef800b2827028000efab4759"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::<a class="el" href="../../d4/d98/a00120.html#ad6269050ef800b2827028000efab4759">reference</a> =  R</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00065">65</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acf4391226c3334af2ab02fdbfcbe81c8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::<a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> =  <a class="el" href="../../d4/d98/a00120.html">SVIterator</a>&lt;T, N, Safe, P, R, is_const_iterator&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00073">73</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a385306acf359ed5cfa28a7e2921d417d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d4/d98/a00120.html">Subject</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00044">44</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ade16fa2818574a0a42874b5f15b1d3ec"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::~<a class="el" href="../../d4/d98/a00120.html">Subject</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00046">46</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="acddc520ab930ec98e120790b91fb8021"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::Register </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
-          <td class="paramname"><em>u</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>&#160;</td>
-          <td class="paramname"><em>f</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00049">49</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aaa38f379243ec0d27b47b5bd110ebe75"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::Unregister </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
-          <td class="paramname"><em>u</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00055">55</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8e0f20cb6cc045cf215f5d5a0963046f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::UnregisterAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00060">60</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/da2/a00307_source.html#l00046">stride::util::Subject&lt; stride::sim_event::Id &gt;::~Subject()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d98/a00120_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph.gif" border="0" usemap="#d4/d98/a00120_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph" alt=""/></div>
-<map name="d4/d98/a00120_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph" id="d4/d98/a00120_a8e0f20cb6cc045cf215f5d5a0963046f_icgraph">
-<area shape="rect" id="node2" href="../../d4/d98/a00120.html#ade16fa2818574a0a42874b5f15b1d3ec" title="stride::util::Subject\l\&lt; stride::sim_event::\lId \&gt;::~Subject" alt="" coords="195,5,349,61"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a9496d626bbde63eb55836f0af402522c"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::Notify </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d98/a00120.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00062">62</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a3d7c672aaa180fc9b0a8c272639bd821"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;std::weak_ptr&lt;const void&gt;, <a class="el" href="../../d4/d98/a00120.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt;std::weak_ptr&lt;const void&gt; &gt; &gt; <a class="el" href="../../d4/d98/a00120.html">stride::util::Subject</a>&lt; E &gt;::m_observers</td>
+          <td class="memname">using <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::<a class="el" href="../../d4/d98/a00120.html#a385306acf359ed5cfa28a7e2921d417d">container_pointer_type</a> =  typename std::conditional&lt;is_const_iterator, const <a class="el" href="../../d7/df7/a00058.html">SegmentedVector</a>&lt;T, N, Safe&gt;*, <a class="el" href="../../d7/df7/a00058.html">SegmentedVector</a>&lt;T, N, Safe&gt;*&gt;::type</td>
         </tr>
       </table>
   </td>
@@ -425,22 +362,821 @@ template&lt;typename E&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00075">75</a> of file <a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a>.</p>
+<p>Type of pointer-to-container (i.e. its const qualification). </p>
 
-<p>Referenced by <a class="el" href="../../d0/da2/a00307_source.html#l00062">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../d0/da2/a00307_source.html#l00049">stride::util::Subject&lt; stride::sim_event::Id &gt;::Register()</a>, <a class="el" href="../../d0/da2/a00307_source.html#l00055">stride::util::Subject&lt; stride::sim_event::Id &gt;::Unregister()</a>, and <a class="el" href="../../d0/da2/a00307_source.html#l00060">stride::util::Subject&lt; stride::sim_event::Id &gt;::UnregisterAll()</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00237">237</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a314396936e46da86a1da0cc811225e27"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::<a class="el" href="../../d4/d98/a00120.html">SVIterator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00079">79</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab481d9aa2bf4f1dd132a36fe2554be28"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::<a class="el" href="../../d4/d98/a00120.html">SVIterator</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy constructor. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00082">82</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac34d8cbf117630096864be24e5f3bca0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::<a class="el" href="../../d4/d98/a00120.html">SVIterator</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d98/a00120.html#a385306acf359ed5cfa28a7e2921d417d">container_pointer_type</a>&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Private constructor, currently only container itself can create iterators. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00241">241</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a7e3d418c40d965c28ed4b8370a9967e9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">R <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Element access. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00089">89</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa10e3ead890dc5f0dda7bd7d53474927"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">P <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Member of element access. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00097">97</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a764a61e4157323eeca43fa49de3a9e1a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a>&amp; <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pre-increment (returns position after increment) </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00104">104</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d5d/a00311_source.html#l00114">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d98/a00120_a764a61e4157323eeca43fa49de3a9e1a_icgraph.gif" border="0" usemap="#d4/d98/a00120_a764a61e4157323eeca43fa49de3a9e1a_icgraph" alt=""/></div>
+<map name="d4/d98/a00120_a764a61e4157323eeca43fa49de3a9e1a_icgraph" id="d4/d98/a00120_a764a61e4157323eeca43fa49de3a9e1a_icgraph">
+<area shape="rect" id="node2" href="../../d4/d98/a00120.html#a0d723c151c2ea9c4366875ecf4a90cc9" title="Post&#45;increment (returns position prior to increment) " alt="" coords="212,5,371,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d723c151c2ea9c4366875ecf4a90cc9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Post-increment (returns position prior to increment) </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00114">114</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00104">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d98/a00120_a0d723c151c2ea9c4366875ecf4a90cc9_cgraph.gif" border="0" usemap="#d4/d98/a00120_a0d723c151c2ea9c4366875ecf4a90cc9_cgraph" alt=""/></div>
+<map name="d4/d98/a00120_a0d723c151c2ea9c4366875ecf4a90cc9_cgraph" id="d4/d98/a00120_a0d723c151c2ea9c4366875ecf4a90cc9_cgraph">
+<area shape="rect" id="node2" href="../../d4/d98/a00120.html#a764a61e4157323eeca43fa49de3a9e1a" title="Pre&#45;increment (returns position after increment) " alt="" coords="212,5,371,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aee9c16d0cf1e70f153e2e74cec5f4c13"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a>&amp; <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-- </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pre-decrement (returns position after decrement) </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00122">122</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d5d/a00311_source.html#l00132">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d98/a00120_aee9c16d0cf1e70f153e2e74cec5f4c13_icgraph.gif" border="0" usemap="#d4/d98/a00120_aee9c16d0cf1e70f153e2e74cec5f4c13_icgraph" alt=""/></div>
+<map name="d4/d98/a00120_aee9c16d0cf1e70f153e2e74cec5f4c13_icgraph" id="d4/d98/a00120_aee9c16d0cf1e70f153e2e74cec5f4c13_icgraph">
+<area shape="rect" id="node2" href="../../d4/d98/a00120.html#ae03ac9839333631874a218227eeb6ec9" title="Pre&#45;increment (returns position after decrement) " alt="" coords="212,5,371,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae03ac9839333631874a218227eeb6ec9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-- </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pre-increment (returns position after decrement) </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00132">132</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00122">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d98/a00120_ae03ac9839333631874a218227eeb6ec9_cgraph.gif" border="0" usemap="#d4/d98/a00120_ae03ac9839333631874a218227eeb6ec9_cgraph" alt=""/></div>
+<map name="d4/d98/a00120_ae03ac9839333631874a218227eeb6ec9_cgraph" id="d4/d98/a00120_ae03ac9839333631874a218227eeb6ec9_cgraph">
+<area shape="rect" id="node2" href="../../d4/d98/a00120.html#aee9c16d0cf1e70f153e2e74cec5f4c13" title="Pre&#45;decrement (returns position after decrement) " alt="" coords="212,5,371,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af73d0024aef3eeb58f338806fb46d4b1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Iterator equality. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00140">140</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1105a1f1358d5e88868a49bf4c2e34b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Iterator inequality. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00143">143</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aff1e03017e7838d8a81dded9ee3f5da2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">R <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Direct access to n-th element. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00150">150</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb314b1a13eb4e1e574d6185ce6dde2c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a>&amp; <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">std::ptrdiff_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set iterator to n-th next element. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00157">157</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9b77f04ccd9592100840b2c6a9ecc641"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a>&amp; <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">std::ptrdiff_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set iterator to n-th previous element. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00166">166</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f3df14d67957c4d81353fba23692038"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">std::ptrdiff_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return iterator pointing to n-th next element. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00176">176</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b53d69869080a593d50d81ad0595d89"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramtype">std::ptrdiff_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return iterator pointing to n-th previous element. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00184">184</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6fc4c835552eb9b6e5d1f82001acd76e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long int <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return distance between iterators. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00192">192</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a796aa7fced54362df28ce61f4454d1c8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether iterator is before other. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00200">200</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc348d4847a4b0c0dc97ac3fb1cd3099"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether iterator is not after other. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00208">208</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afd426a3e0883264570f3f94c3ac46d0a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether iterator is after other. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00216">216</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a28dcd0465b2e6ccfb619d59a07d931b9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d98/a00120.html#acf4391226c3334af2ab02fdbfcbe81c8">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether iterator is not after other. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00224">224</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>References <a class="el" href="../../d1/d5d/a00311_source.html#l00245">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00244">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a6e4dbcb9e54e5e90a020a9ff70ab8027"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d7/df7/a00058.html">SegmentedVector</a>&lt; T, N, Safe &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00232">232</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a7628f423353b90ced7f27cba20b71dbc"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_p</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Current iterator position in the container. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00244">244</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d5d/a00311_source.html#l00143">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator!=()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00089">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator*()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00176">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00104">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00157">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+=()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00184">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00122">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00166">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-=()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00097">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-&gt;()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00200">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00208">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;=()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00140">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator==()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00216">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00224">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;=()</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00150">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator[]()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af1f935137c5ee56139e6f9648e84c73c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html#a385306acf359ed5cfa28a7e2921d417d">container_pointer_type</a> <a class="el" href="../../d4/d98/a00120.html">stride::util::SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt;::m_c</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Container that the iterator points into. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d5d/a00311_source.html#l00245">245</a> of file <a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d1/d5d/a00311_source.html#l00143">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator!=()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00089">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator*()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00176">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00104">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator++()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00157">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator+=()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00184">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00122">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator--()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00166">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-=()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00097">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator-&gt;()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00200">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00208">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&lt;=()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00140">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator==()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00216">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;()</a>, <a class="el" href="../../d1/d5d/a00311_source.html#l00224">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator&gt;=()</a>, and <a class="el" href="../../d1/d5d/a00311_source.html#l00150">stride::util::SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;::operator[]()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d0/da2/a00307_source.html">util/Subject.h</a></li>
+<li><a class="el" href="../../d1/d5d/a00311_source.html">SVIterator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/d9c/a00352.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d98/a00120.html">Subject</a></li>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d2/d45/a00342.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/dfc/a00349.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d98/a00120.html">SVIterator</a></li>
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

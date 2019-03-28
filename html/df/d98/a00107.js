@@ -1,4 +1,7 @@
 var a00107 =
 [
-    [ "operator()", "df/d98/a00107.html#af75ac339034526cfb3e419d0f175bf07", null ]
+    [ "Exception", "df/d98/a00107.html#ada9a96369897608bd84b0fdb33c23a7f", null ],
+    [ "~Exception", "df/d98/a00107.html#a1c14e1f62d8cf7c69a4c6c08ec296a83", null ],
+    [ "what", "df/d98/a00107.html#ad933b798ce411d1acfe2ff86f178f219", null ],
+    [ "m_msg", "df/d98/a00107.html#a5f5e43370eb477d14fe94f0e1b452629", null ]
 ];

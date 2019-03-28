@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('dc/d87/a00032.html','../../');});
+$(document).ready(function(){initNavTree('d4/d8c/a00035.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,25 +107,23 @@ $(document).ready(function(){initNavTree('dc/d87/a00032.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">geopop::K12SchoolPopulator Member List</div>  </div>
+<div class="title">geopop::LocationsCSVReader Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../dc/d87/a00032.html">geopop::K12SchoolPopulator</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d4/d8c/a00035.html">geopop::LocationsCSVReader</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../dc/d87/a00032.html#aab3d28774bc024e8f48949fffc05f8f4">Apply</a>(GeoGrid &amp;geogrid, const GeoGridConfig &amp;) override</td><td class="entry"><a class="el" href="../../dc/d87/a00032.html">geopop::K12SchoolPopulator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d3/de7/a00039.html#a720e1d4541eb3af0b9b2bd6089e8a4ce">GetNearbyPools</a>(stride::ContactType::Id id, const GeoGrid &amp;geoGrid, const Location &amp;start, double startRadius=10.0) const </td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d3/de7/a00039.html#aeecc8afde4f92991f8140a1f3145aeda">m_logger</a></td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d3/de7/a00039.html#aea1433eb78a263d44fe81683ff65987e">m_rn_man</a></td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d3/de7/a00039.html#af7b9250da3bb9be0c877028a56bf5b2a">MakeChoice</a>(double fraction)</td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d3/de7/a00039.html#a555413f57e921b72913adb79172abb9d">Populator</a>(stride::util::RnMan &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger=nullptr)</td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d3/de7/a00039.html#ac218f00867d01c6507088582162710c9">~Populator</a>()=default</td><td class="entry"><a class="el" href="../../d3/de7/a00039.html">geopop::Populator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d8c/a00035.html#a37d5fefcf5e36a282e471d46fd082ad2">FillGeoGrid</a>(GeoGrid &amp;geoGrid) const override</td><td class="entry"><a class="el" href="../../d4/d8c/a00035.html">geopop::LocationsCSVReader</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/d8c/a00035.html#a03d6126b7e3450a5a5660d65acd4e5d2">LocationsCSVReader</a>(std::unique_ptr&lt; std::istream &gt; inputStream)</td><td class="entry"><a class="el" href="../../d4/d8c/a00035.html">geopop::LocationsCSVReader</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../de/d8c/a00036.html#a08a0a0bee6983e75de99b46132e26eaa">LocationsReader</a>(std::unique_ptr&lt; std::istream &gt; inputStream)</td><td class="entry"><a class="el" href="../../de/d8c/a00036.html">geopop::LocationsReader</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../de/d8c/a00036.html#ad1bd8f33fd74070b9b606734e6c8d2de">m_inputStream</a></td><td class="entry"><a class="el" href="../../de/d8c/a00036.html">geopop::LocationsReader</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../de/d8c/a00036.html#adf7cb185f3d39194f4065707da23e0d6">~LocationsReader</a>()=default</td><td class="entry"><a class="el" href="../../de/d8c/a00036.html">geopop::LocationsReader</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:09 for Stride Reference Manual by
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

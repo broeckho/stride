@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: HouseholdPopulator.cpp File Reference</title>
+<title>Stride Reference Manual: Id.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -105,43 +105,24 @@ $(document).ready(function(){initNavTree('d5/d0b/a00220.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">HouseholdPopulator.cpp File Reference</div>  </div>
+<div class="title">Id.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d52/a00221_source.html">HouseholdPopulator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/deb/a00189_source.html">geopop/GeoGrid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/da2/a00192_source.html">geopop/GeoGridConfig.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/d1a/a00251_source.html">geopop/Location.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d1/dd4/a00267_source.html">pop/Population.h</a>&quot;</code><br />
+
+<p>Implementation of EventId.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d52/a00221_source.html">Id.h</a>&quot;</code><br />
+<code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for HouseholdPopulator.cpp:</div>
+Include dependency graph for Id.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d1e/a00497.gif" border="0" usemap="#HouseholdPopulator_8cpp" alt=""/></div>
-<map name="HouseholdPopulator_8cpp" id="HouseholdPopulator_8cpp">
-<area shape="rect" id="node2" href="../../dd/d52/a00221.html" title="HouseholdPopulator.h" alt="" coords="1033,80,1195,107"/>
-<area shape="rect" id="node15" href="../../da/deb/a00189.html" title="geopop/GeoGrid.h" alt="" coords="1341,162,1479,189"/>
-<area shape="rect" id="node27" href="../../dd/da2/a00192.html" title="geopop/GeoGridConfig.h" alt="" coords="2049,80,2227,107"/>
-<area shape="rect" id="node45" href="../../d3/d1a/a00251.html" title="geopop/Location.h" alt="" coords="1125,162,1265,189"/>
-<area shape="rect" id="node48" href="../../d1/dd4/a00267.html" title="Header file for the core Population class. " alt="" coords="1551,80,1680,107"/>
-<area shape="rect" id="node3" href="../../d5/d42/a00269.html" title="Populator.h" alt="" coords="920,162,1015,189"/>
-<area shape="rect" id="node4" href="../../dd/dae/a00163.html" title="Definition of ContactPool Id Type. " alt="" coords="1632,319,1796,345"/>
-<area shape="rect" id="node10" href="../../dd/dfe/a00283.html" title="Interface of RnMan. " alt="" coords="905,244,1005,271"/>
-<area shape="rect" id="node11" href="../../d2/d04/a00281.html" title="Interface of RnPcg. " alt="" coords="932,319,1005,345"/>
-<area shape="rect" id="node16" href="../../d7/da0/a00198.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="673,244,881,271"/>
-<area shape="rect" id="node17" href="../../d4/d9a/a00246.html" title="KdTree.h" alt="" coords="832,319,908,345"/>
-<area shape="rect" id="node21" href="../../dd/dd7/a00248.html" title="KdTree2DPoint.h" alt="" coords="495,319,621,345"/>
-<area shape="rect" id="node18" href="../../d6/db3/a00130.html" title="AABBox.h" alt="" coords="617,393,702,420"/>
-<area shape="rect" id="node22" href="../../d9/d38/a00166.html" title="geopop/Coordinate.h" alt="" coords="107,393,263,420"/>
-<area shape="rect" id="node28" href="../../de/db9/a00159.html" title="Header for the core ContactPool class. " alt="" coords="1601,244,1763,271"/>
-<area shape="rect" id="node31" href="../../dc/d6a/a00261.html" title="Header file for the Person class. " alt="" coords="2237,162,2343,189"/>
-<area shape="rect" id="node38" href="../../de/d25/a00290.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2203,244,2375,271"/>
-<area shape="rect" id="node29" href="../../d1/db7/a00157.html" title="Header for the ContactLogMode class. " alt="" coords="1182,319,1377,345"/>
-<area shape="rect" id="node32" href="../../dc/d98/a00225.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1939,244,2129,271"/>
-<area shape="rect" id="node37" href="../../d1/de1/a00213.html" title="Header for the Health class. " alt="" coords="2399,244,2528,271"/>
-<area shape="rect" id="node39" href="../../d0/d39/a00314.html" title="Interface/Implementation for SVIterator. " alt="" coords="2654,319,2753,345"/>
-<area shape="rect" id="node49" href="../../d6/d7d/a00161.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1802,162,1989,189"/>
+<div class="center"><img src="../../d3/dad/a00496.gif" border="0" usemap="#Id_8cpp" alt=""/></div>
+<map name="Id_8cpp" id="Id_8cpp">
+<area shape="rect" id="node2" href="../../dd/d52/a00221.html" title="Definition of EventId. " alt="" coords="61,80,107,107"/>
 </map>
 </div>
 </div>
@@ -149,17 +130,36 @@ Include dependency graph for HouseholdPopulator.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:da/d75/a00334"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d75/a00334.html">geopop</a></td></tr>
-<tr class="memdesc:da/d75/a00334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d2/d45/a00342"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/a00342.html">stride</a></td></tr>
+<tr class="memdesc:d2/d45/a00342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:df/d03/a00348"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html">stride::sim_event</a></td></tr>
+<tr class="memdesc:df/d03/a00348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage events signalled by the <a class="el" href="../../d1/d44/a00098.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html#a43c0310b3eef6024b540ffaa5c4c39b2">stride::sim_event::IsType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a ContactPoolType::Id.  <a href="../../df/d03/a00348.html#a43c0310b3eef6024b540ffaa5c4c39b2">More...</a><br /></td></tr>
+<tr class="separator:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa54357f0c5b3af4e7905ed503167ede"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html#aaa54357f0c5b3af4e7905ed503167ede">stride::sim_event::ToString</a> (Id w)</td></tr>
+<tr class="memdesc:aaa54357f0c5b3af4e7905ed503167ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ContactPoolType::Id value to corresponding name.  <a href="../../df/d03/a00348.html#aaa54357f0c5b3af4e7905ed503167ede">More...</a><br /></td></tr>
+<tr class="separator:aaa54357f0c5b3af4e7905ed503167ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81b85da174b73232cac26f53bd6d3a0"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html#ac81b85da174b73232cac26f53bd6d3a0">stride::sim_event::ToType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:ac81b85da174b73232cac26f53bd6d3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../df/d03/a00348.html#ac81b85da174b73232cac26f53bd6d3a0">More...</a><br /></td></tr>
+<tr class="separator:ac81b85da174b73232cac26f53bd6d3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of EventId. </p>
+
+<p>Definition in file <a class="el" href="../../d5/d0b/a00220_source.html">Id.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_e7e2007abe30c6c76c8a673fdd5d8158.html">populators</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">HouseholdPopulator.cpp</a></li>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:08 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">Id.cpp</a></li>
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:50 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

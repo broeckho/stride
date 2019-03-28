@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::ContactPool Class Reference</title>
+<title>Stride Reference Manual: stride::ContactPoolSys Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -107,388 +107,162 @@ $(document).ready(function(){initNavTree('d4/d31/a00069.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
-<a href="../../d4/d60/a00847.html">List of all members</a>  </div>
+<a href="../../d0/d11/a00842.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::ContactPool Class Reference</div>  </div>
+<div class="title">stride::ContactPoolSys Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A group of Persons that potentially have contacts with one another.  
+<p><a class="el" href="../../d4/d31/a00069.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> contains for each of the type of pools (Household, K12School, ...) a vector of with all of the contact pools of the type.  
  <a href="../../d4/d31/a00069.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::ContactPool:</div>
+Collaboration diagram for stride::ContactPoolSys:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d37/a00849.gif" border="0" usemap="#stride_1_1ContactPool_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1ContactPool_coll__map" id="stride_1_1ContactPool_coll__map">
-<area shape="rect" id="node3" href="../../d4/d7d/a00093.html" title="Store and handle person data. " alt="" coords="417,1013,587,1296"/>
-<area shape="rect" id="node4" href="../../d6/d2c/a00072.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="529,727,681,907"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="495,421,698,499"/>
-<area shape="rect" id="node6" href="../../d5/de0/a00050.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="705,712,857,921"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="647,247,803,339"/>
-<area shape="rect" id="node10" title="STL class. " alt="" coords="752,145,967,223"/>
-<area shape="rect" id="node17" title="STL class. " alt="" coords="5,581,132,659"/>
-<area shape="rect" id="node9" href="../../d5/de0/a00050.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="773,363,945,557"/>
-<area shape="rect" id="node14" href="../../d2/d1f/a00083.html" title="Holds a person&#39;s health data. " alt="" coords="297,683,505,951"/>
+<div class="center"><img src="../../dc/d22/a00843.gif" border="0" usemap="#stride_1_1ContactPoolSys_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1ContactPoolSys_coll__map" id="stride_1_1ContactPoolSys_coll__map">
+<area shape="rect" id="node2" href="../../d2/dee/a00049.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="23,693,175,903"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="5,261,161,353"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="148,145,363,223"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="355,247,532,368"/>
+<area shape="rect" id="node5" href="../../d2/dee/a00049.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="169,392,341,587"/>
+<area shape="rect" id="node7" href="../../d2/dee/a00049.html" title="{stride::ContactType\l::IdSubscriptArray\&lt;\l util::stride::util::\lSegmentedVector\&lt; stride\l::ContactPool \&gt; \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="199,679,389,917"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a12e167b902612c7efe48d2e396ad0e03"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a> = std::vector&lt; <a class="el" href="../../d4/d7d/a00093.html">stride::Person</a> * &gt;::<a class="el" href="../../d4/d31/a00069.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a></td></tr>
-<tr class="separator:a12e167b902612c7efe48d2e396ad0e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac592918e280c29411c64df9bc41688c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ac592918e280c29411c64df9bc41688c6">ContactPool</a> (unsigned int poolId, <a class="el" href="../../df/d03/a00348.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a> type)</td></tr>
-<tr class="memdesc:ac592918e280c29411c64df9bc41688c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#ac592918e280c29411c64df9bc41688c6">More...</a><br /></td></tr>
-<tr class="separator:ac592918e280c29411c64df9bc41688c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adee0ae5ebfa3ec1ccd684b2a4e16542c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#adee0ae5ebfa3ec1ccd684b2a4e16542c">~ContactPool</a> ()=default</td></tr>
-<tr class="memdesc:adee0ae5ebfa3ec1ccd684b2a4e16542c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default will do.  <a href="#adee0ae5ebfa3ec1ccd684b2a4e16542c">More...</a><br /></td></tr>
-<tr class="separator:adee0ae5ebfa3ec1ccd684b2a4e16542c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9aeb5154fea3446d9a4ac4d1844b510"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa9aeb5154fea3446d9a4ac4d1844b510">AddMember</a> (<a class="el" href="../../d4/d7d/a00093.html">Person</a> *p)</td></tr>
-<tr class="memdesc:aa9aeb5154fea3446d9a4ac4d1844b510"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the given <a class="el" href="../../d4/d7d/a00093.html" title="Store and handle person data. ">Person</a>.  <a href="#aa9aeb5154fea3446d9a4ac4d1844b510">More...</a><br /></td></tr>
-<tr class="separator:aa9aeb5154fea3446d9a4ac4d1844b510"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b2da2fe2ebe5e75bcf8a13893f8d10a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a">GetId</a> () const </td></tr>
-<tr class="memdesc:a3b2da2fe2ebe5e75bcf8a13893f8d10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pool id.  <a href="#a3b2da2fe2ebe5e75bcf8a13893f8d10a">More...</a><br /></td></tr>
-<tr class="separator:a3b2da2fe2ebe5e75bcf8a13893f8d10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd38806272aa6ee77aae82edaf1224ba"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#acd38806272aa6ee77aae82edaf1224ba">GetInfectedCount</a> () const </td></tr>
-<tr class="memdesc:acd38806272aa6ee77aae82edaf1224ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Infected count.  <a href="#acd38806272aa6ee77aae82edaf1224ba">More...</a><br /></td></tr>
-<tr class="separator:acd38806272aa6ee77aae82edaf1224ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb9a65718e51a5afa72e9f34724f1fe0"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d4/d7d/a00093.html">Person</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#afb9a65718e51a5afa72e9f34724f1fe0">GetPool</a> () const </td></tr>
-<tr class="memdesc:afb9a65718e51a5afa72e9f34724f1fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the entire pool of members.  <a href="#afb9a65718e51a5afa72e9f34724f1fe0">More...</a><br /></td></tr>
-<tr class="separator:afb9a65718e51a5afa72e9f34724f1fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cfd2356daa4191fe6951d7c704bf16c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00348.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a9cfd2356daa4191fe6951d7c704bf16c">GetType</a> () const </td></tr>
-<tr class="memdesc:a9cfd2356daa4191fe6951d7c704bf16c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the type of <a class="el" href="../../d4/d31/a00069.html" title="A group of Persons that potentially have contacts with one another. ">ContactPool</a>, used for logging and tests.  <a href="#a9cfd2356daa4191fe6951d7c704bf16c">More...</a><br /></td></tr>
-<tr class="separator:a9cfd2356daa4191fe6951d7c704bf16c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85249b3315c664761fbd1448708473ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a85249b3315c664761fbd1448708473ab">begin</a> ()</td></tr>
-<tr class="memdesc:a85249b3315c664761fbd1448708473ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator to first person.  <a href="#a85249b3315c664761fbd1448708473ab">More...</a><br /></td></tr>
-<tr class="separator:a85249b3315c664761fbd1448708473ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59eb79bf2d47f73de6ece95400106f2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a59eb79bf2d47f73de6ece95400106f2f">end</a> ()</td></tr>
-<tr class="memdesc:a59eb79bf2d47f73de6ece95400106f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator to end of persons.  <a href="#a59eb79bf2d47f73de6ece95400106f2f">More...</a><br /></td></tr>
-<tr class="separator:a59eb79bf2d47f73de6ece95400106f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c357e530f204c4ba1e686f4903f40ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/de1/a00421.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a2c357e530f204c4ba1e686f4903f40ad">size</a> () const </td></tr>
-<tr class="memdesc:a2c357e530f204c4ba1e686f4903f40ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current size of Location storage.  <a href="#a2c357e530f204c4ba1e686f4903f40ad">More...</a><br /></td></tr>
-<tr class="separator:a2c357e530f204c4ba1e686f4903f40ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cae7beb1739e01246b4d9fa80b3aa79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d7d/a00093.html">Person</a> *const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a3cae7beb1739e01246b4d9fa80b3aa79">operator[]</a> (<a class="el" href="../../d2/de1/a00421.html">size_t</a> index) const </td></tr>
-<tr class="memdesc:a3cae7beb1739e01246b4d9fa80b3aa79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a <a class="el" href="../../d4/d7d/a00093.html" title="Store and handle person data. ">Person</a> by index, doesn't performs a range check.  <a href="#a3cae7beb1739e01246b4d9fa80b3aa79">More...</a><br /></td></tr>
-<tr class="separator:a3cae7beb1739e01246b4d9fa80b3aa79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3234f77279a728449333679b51d72498"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a3234f77279a728449333679b51d72498">ContactPoolSys</a> ()</td></tr>
+<tr class="memdesc:a3234f77279a728449333679b51d72498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty system.  <a href="#a3234f77279a728449333679b51d72498">More...</a><br /></td></tr>
+<tr class="separator:a3234f77279a728449333679b51d72498"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a673d59a562614a82ce1c3adeb28d9dfd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d24/a00068.html">ContactPool</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a673d59a562614a82ce1c3adeb28d9dfd">CreateContactPool</a> (<a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a> typeId)</td></tr>
+<tr class="memdesc:a673d59a562614a82ce1c3adeb28d9dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new contact pool of a given type.  <a href="#a673d59a562614a82ce1c3adeb28d9dfd">More...</a><br /></td></tr>
+<tr class="separator:a673d59a562614a82ce1c3adeb28d9dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a976a718b023257fb4c47028f860e58e6"><td class="memTemplParams" colspan="2">template&lt;ContactType::Id T&gt; </td></tr>
+<tr class="memitem:a976a718b023257fb4c47028f860e58e6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../da/d24/a00068.html">ContactPool</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a976a718b023257fb4c47028f860e58e6">CreateContactPool</a> ()</td></tr>
+<tr class="memdesc:a976a718b023257fb4c47028f860e58e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Templated version of  for use when type id is fixed.  <a href="#a976a718b023257fb4c47028f860e58e6">More...</a><br /></td></tr>
+<tr class="separator:a976a718b023257fb4c47028f860e58e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abec2451157774964a5008679b66b8b48"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt; <a class="el" href="../../da/d24/a00068.html">ContactPool</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#abec2451157774964a5008679b66b8b48">CRefPools</a> (<a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a> id) const </td></tr>
+<tr class="memdesc:abec2451157774964a5008679b66b8b48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access through const reference to ContactPools of type 'id'.  <a href="#abec2451157774964a5008679b66b8b48">More...</a><br /></td></tr>
+<tr class="separator:abec2451157774964a5008679b66b8b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a016fd427c95b26c2fe8b542b6a7d6963"><td class="memTemplParams" colspan="2">template&lt;ContactType::Id T&gt; </td></tr>
+<tr class="memitem:a016fd427c95b26c2fe8b542b6a7d6963"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt; <a class="el" href="../../da/d24/a00068.html">ContactPool</a> &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a016fd427c95b26c2fe8b542b6a7d6963">CRefPools</a> () const </td></tr>
+<tr class="memdesc:a016fd427c95b26c2fe8b542b6a7d6963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Templated version of  for use when the type id is fixed.  <a href="#a016fd427c95b26c2fe8b542b6a7d6963">More...</a><br /></td></tr>
+<tr class="separator:a016fd427c95b26c2fe8b542b6a7d6963"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a38adafed84fa1801c5f1f6420158a7f3"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a38adafed84fa1801c5f1f6420158a7f3">SortMembers</a> ()</td></tr>
-<tr class="memdesc:a38adafed84fa1801c5f1f6420158a7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.  <a href="#a38adafed84fa1801c5f1f6420158a7f3">More...</a><br /></td></tr>
-<tr class="separator:a38adafed84fa1801c5f1f6420158a7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad484960db6d8795971580e635f6da030"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt; <a class="el" href="../../da/d24/a00068.html">ContactPool</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ad484960db6d8795971580e635f6da030">RefPools</a> (<a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a> id)</td></tr>
+<tr class="memdesc:ad484960db6d8795971580e635f6da030"><td class="mdescLeft">&#160;</td><td class="mdescRight">/// Access through non-const reference to ContactPools of type 'id'.  <a href="#ad484960db6d8795971580e635f6da030">More...</a><br /></td></tr>
+<tr class="separator:ad484960db6d8795971580e635f6da030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a2efe968db2b7ac3adb440bb515cdf9c4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a2efe968db2b7ac3adb440bb515cdf9c4">m_index_immune</a></td></tr>
-<tr class="memdesc:a2efe968db2b7ac3adb440bb515cdf9c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the first immune member in the <a class="el" href="../../d4/d31/a00069.html" title="A group of Persons that potentially have contacts with one another. ">ContactPool</a>.  <a href="#a2efe968db2b7ac3adb440bb515cdf9c4">More...</a><br /></td></tr>
-<tr class="separator:a2efe968db2b7ac3adb440bb515cdf9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a491a3a04acc39cf5ffccd30714a8e76a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a491a3a04acc39cf5ffccd30714a8e76a">m_pool_id</a></td></tr>
-<tr class="memdesc:a491a3a04acc39cf5ffccd30714a8e76a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the <a class="el" href="../../d4/d31/a00069.html" title="A group of Persons that potentially have contacts with one another. ">ContactPool</a> (for logging purposes).  <a href="#a491a3a04acc39cf5ffccd30714a8e76a">More...</a><br /></td></tr>
-<tr class="separator:a491a3a04acc39cf5ffccd30714a8e76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe687068792fae04b6b3edb61f6ad93f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00348.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#afe687068792fae04b6b3edb61f6ad93f">m_pool_type</a></td></tr>
-<tr class="memdesc:afe687068792fae04b6b3edb61f6ad93f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the <a class="el" href="../../d4/d31/a00069.html" title="A group of Persons that potentially have contacts with one another. ">ContactPool</a> (for logging and testing purposes).  <a href="#afe687068792fae04b6b3edb61f6ad93f">More...</a><br /></td></tr>
-<tr class="separator:afe687068792fae04b6b3edb61f6ad93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a672b69837fbd57d9a61f8acb18fec82e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d4/d7d/a00093.html">Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a></td></tr>
-<tr class="memdesc:a672b69837fbd57d9a61f8acb18fec82e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointers to contactpool members (raw pointers intentional).  <a href="#a672b69837fbd57d9a61f8acb18fec82e">More...</a><br /></td></tr>
-<tr class="separator:a672b69837fbd57d9a61f8acb18fec82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab59431e05f466c3828738407e37660b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dee/a00049.html">ContactType::IdSubscriptArray</a>&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ab59431e05f466c3828738407e37660b4">m_currentContactPoolId</a></td></tr>
+<tr class="memdesc:ab59431e05f466c3828738407e37660b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The contact pool counters (one per type id) for assigning pool UIDs.  <a href="#ab59431e05f466c3828738407e37660b4">More...</a><br /></td></tr>
+<tr class="separator:ab59431e05f466c3828738407e37660b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c592b3099ba8d56ae60edf74497d814"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/dee/a00049.html">ContactType::IdSubscriptArray</a>&lt; <a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt; <a class="el" href="../../da/d24/a00068.html">ContactPool</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a3c592b3099ba8d56ae60edf74497d814">m_sys</a></td></tr>
+<tr class="memdesc:a3c592b3099ba8d56ae60edf74497d814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pool system container: array that is subscriptable with ContactType::Ids and for each Id contains a SegmentedVector with the ContactPools for that <a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462" title="Enumerates the ContactPool types. ">ContactType::Id</a>.  <a href="#a3c592b3099ba8d56ae60edf74497d814">More...</a><br /></td></tr>
+<tr class="separator:a3c592b3099ba8d56ae60edf74497d814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a9ffe141bfd5da5336894dc1cebf49fa7"><td class="memTemplParams" colspan="2">template&lt;ContactLogMode::Id LL, bool TIC, bool TO&gt; </td></tr>
-<tr class="memitem:a9ffe141bfd5da5336894dc1cebf49fa7"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a9ffe141bfd5da5336894dc1cebf49fa7">Infector</a></td></tr>
-<tr class="memdesc:a9ffe141bfd5da5336894dc1cebf49fa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates contacts and transmissions; accesses private methods and data.  <a href="#a9ffe141bfd5da5336894dc1cebf49fa7">More...</a><br /></td></tr>
-<tr class="separator:a9ffe141bfd5da5336894dc1cebf49fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa79c86f4bdecaefcfc763c2b2f5bee37"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa79c86f4bdecaefcfc763c2b2f5bee37">DefaultPopBuilder</a></td></tr>
+<tr class="separator:aa79c86f4bdecaefcfc763c2b2f5bee37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee783cf11d4fb4f556c985020efd7db"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a9ee783cf11d4fb4f556c985020efd7db">Sim</a></td></tr>
+<tr class="separator:a9ee783cf11d4fb4f556c985020efd7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A group of Persons that potentially have contacts with one another. </p>
-<p>We do not expose the vector that stores pool members because adding &amp; sorting it takes some care. </p>
+<div class="textblock"><p><a class="el" href="../../d4/d31/a00069.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> contains for each of the type of pools (Household, K12School, ...) a vector of with all of the contact pools of the type. </p>
+<p>The <a class="el" href="../../d4/d31/a00069.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> container is an std::array extended to be subscriptable with the enum class of the pool type Ids. </p>
 
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00038">38</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="a12e167b902612c7efe48d2e396ad0e03"></a>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00036">36</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a3234f77279a728449333679b51d72498"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d4/d31/a00069.html#a12e167b902612c7efe48d2e396ad0e03">stride::ContactPool::iterator</a> =  std::vector&lt;<a class="el" href="../../d4/d7d/a00093.html">stride::Person</a>*&gt;::<a class="el" href="../../d4/d31/a00069.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00064">64</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac592918e280c29411c64df9bc41688c6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::ContactPool::ContactPool </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>poolId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d03/a00348.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a>&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializing constructor. </p>
-
-<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00032">32</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPool.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adee0ae5ebfa3ec1ccd684b2a4e16542c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::ContactPool::~ContactPool </td>
+          <td class="memname">stride::ContactPoolSys::ContactPoolSys </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Default will do. </p>
+<p>Empty system. </p>
+
+<p>Definition at line <a class="el" href="../../d1/db7/a00157_source.html#l00028">28</a> of file <a class="el" href="../../d1/db7/a00157_source.html">ContactPoolSys.cpp</a>.</p>
+
+<p>References <a class="el" href="../../de/d38/a00160_source.html#l00075">stride::ContactType::IdList</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00086">m_currentContactPoolId</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00092">m_sys</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa9aeb5154fea3446d9a4ac4d1844b510"></a>
+<a class="anchor" id="a673d59a562614a82ce1c3adeb28d9dfd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::ContactPool::AddMember </td>
+          <td class="memname"><a class="el" href="../../da/d24/a00068.html">ContactPool</a> * stride::ContactPoolSys::CreateContactPool </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d7d/a00093.html">Person</a> *&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a>&#160;</td>
+          <td class="paramname"><em>typeId</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add the given <a class="el" href="../../d4/d7d/a00093.html" title="Store and handle person data. ">Person</a>. </p>
+<p>Create a new contact pool of a given type. </p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00037">37</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/db7/a00157_source.html#l00036">36</a> of file <a class="el" href="../../d1/db7/a00157_source.html">ContactPoolSys.cpp</a>.</p>
 
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00087">m_index_immune</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00090">m_members</a>.</p>
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00086">m_currentContactPoolId</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00092">m_sys</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a3b2da2fe2ebe5e75bcf8a13893f8d10a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::ContactPool::GetId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the pool id. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00051">51</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00043">GetInfectedCount()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00088">m_pool_id</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00077">geopop::GeoGridJSONWriter::WriteContactPool()</a>, and <a class="el" href="../../dd/de3/a00201_source.html#l00075">geopop::GeoGridProtoWriter::WriteContactPool()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_a3b2da2fe2ebe5e75bcf8a13893f8d10a_cgraph.gif" border="0" usemap="#d4/d31/a00069_a3b2da2fe2ebe5e75bcf8a13893f8d10a_cgraph" alt=""/></div>
-<map name="d4/d31/a00069_a3b2da2fe2ebe5e75bcf8a13893f8d10a_cgraph" id="d4/d31/a00069_a3b2da2fe2ebe5e75bcf8a13893f8d10a_cgraph">
-<area shape="rect" id="node2" href="../../d4/d31/a00069.html#acd38806272aa6ee77aae82edaf1224ba" title="Get Infected count. " alt="" coords="196,5,339,47"/>
-</map>
-</div>
-</p>
+<p>Referenced by <a class="el" href="../../d7/dce/a00143_source.html#l00067">geopop::CollegeGenerator::AddPools()</a>, <a class="el" href="../../d3/dd5/a00215_source.html#l00051">geopop::HouseholdGenerator::AddPools()</a>, <a class="el" href="../../dd/dfe/a00283_source.html#l00067">geopop::SecondaryCommunityGenerator::AddPools()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00072">geopop::WorkplaceGenerator::AddPools()</a>, <a class="el" href="../../da/d2e/a00238_source.html#l00061">geopop::K12SchoolGenerator::AddPools()</a>, <a class="el" href="../../d1/dd4/a00267_source.html#l00067">geopop::PrimaryCommunityGenerator::AddPools()</a>, <a class="el" href="../../d7/d6e/a00190_source.html#l00135">geopop::GeoGridJSONReader::ParseContactPool()</a>, and <a class="el" href="../../d7/ded/a00196_source.html#l00087">geopop::GeoGridProtoReader::ParseContactPool()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_a3b2da2fe2ebe5e75bcf8a13893f8d10a_icgraph.gif" border="0" usemap="#d4/d31/a00069_a3b2da2fe2ebe5e75bcf8a13893f8d10a_icgraph" alt=""/></div>
-<map name="d4/d31/a00069_a3b2da2fe2ebe5e75bcf8a13893f8d10a_icgraph" id="d4/d31/a00069_a3b2da2fe2ebe5e75bcf8a13893f8d10a_icgraph">
-<area shape="rect" id="node2" href="../../db/db2/a00020.html#a53289ee143d7c429f1f35d6622f14134" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactPool. " alt="" coords="197,5,395,47"/>
-<area shape="rect" id="node6" href="../../d7/de0/a00022.html#a015dcfc0716f0ffe586fe4d927809435" title="Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool. " alt="" coords="196,71,396,112"/>
-<area shape="rect" id="node3" href="../../db/db2/a00020.html#af23f2e79fd864befd4a86231786d2090" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter. " alt="" coords="445,5,643,47"/>
-<area shape="rect" id="node4" href="../../db/db2/a00020.html#a6896def26cc869e0657b37361cbc2af1" title="Create a Boost Property Tree containing all info needed to reconstruct a Location. " alt="" coords="693,5,891,47"/>
-<area shape="rect" id="node5" href="../../db/db2/a00020.html#ad29ac72b56a116252620d06921f0365e" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="941,5,1139,47"/>
-<area shape="rect" id="node7" href="../../d7/de0/a00022.html#a2200b22b19b44f3be8136aa188186f8f" title="Create a ProtoBuf ContactPools structure. " alt="" coords="444,71,644,112"/>
-<area shape="rect" id="node8" href="../../d7/de0/a00022.html#a926c2d6d9381b1b87ff81fb92f598041" title="Create a ProtoBuf Location containing all the info needed to reconstruct a Location. " alt="" coords="692,71,892,112"/>
-<area shape="rect" id="node9" href="../../d7/de0/a00022.html#abaddb399f1f826203ae6086858dbfbde" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="940,71,1140,112"/>
+<div class="center"><img src="../../d4/d31/a00069_a673d59a562614a82ce1c3adeb28d9dfd_icgraph.gif" border="0" usemap="#d4/d31/a00069_a673d59a562614a82ce1c3adeb28d9dfd_icgraph" alt=""/></div>
+<map name="d4/d31/a00069_a673d59a562614a82ce1c3adeb28d9dfd_icgraph" id="d4/d31/a00069_a673d59a562614a82ce1c3adeb28d9dfd_icgraph">
+<area shape="rect" id="node2" href="../../de/d21/a00006.html#a4709b9f9a3690f5aeb1a0c82962c500f" title="geopop::CollegeGenerator\l::AddPools" alt="" coords="235,5,425,47"/>
+<area shape="rect" id="node3" href="../../d0/d33/a00027.html#a411d099ecd5b5a295b3f055b097e65df" title="geopop::HouseholdGenerator\l::AddPools" alt="" coords="225,71,435,112"/>
+<area shape="rect" id="node4" href="../../d6/d42/a00043.html#a1e63a9295f1d315ec69f895655e9eea6" title="geopop::SecondaryCommunity\lGenerator::AddPools" alt="" coords="220,136,440,177"/>
+<area shape="rect" id="node5" href="../../d6/d97/a00045.html#a55c16a3aa5962b6b57f668b76dfff5a9" title="geopop::WorkplaceGenerator\l::AddPools" alt="" coords="227,201,433,243"/>
+<area shape="rect" id="node6" href="../../d5/d79/a00030.html#a4d47c12ded22f0f6c94a8fb5dcbee452" title="geopop::K12SchoolGenerator\l::AddPools" alt="" coords="225,267,435,308"/>
+<area shape="rect" id="node7" href="../../d3/de7/a00039.html#a9c1eddc731f4fc27d04e474aa560aab4" title="geopop::PrimaryCommunity\lGenerator::AddPools" alt="" coords="229,332,431,373"/>
+<area shape="rect" id="node8" href="../../d1/d2b/a00018.html#a54f28880557331abe18038f0627738c3" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="227,397,433,439"/>
+<area shape="rect" id="node12" href="../../db/db2/a00020.html#a05d394baeec496b54b49fdb203220222" title="Create a ContactPool based on the provided protobuf ContactPool. " alt="" coords="226,463,434,504"/>
+<area shape="rect" id="node9" href="../../d1/d2b/a00018.html#abaeef4e66bbc02c415a8c9235a2eb908" title="Create a ContactCenter based on the information stored in the provided boost property tree..." alt="" coords="489,397,695,439"/>
+<area shape="rect" id="node10" href="../../d1/d2b/a00018.html#a6d75cabadab49fcffe00d193dc7da4a6" title="Create a Location based on the information stored in the provided boost property tree. " alt="" coords="745,397,951,439"/>
+<area shape="rect" id="node11" href="../../d1/d2b/a00018.html#a0b6a6032beee9c1bdb5536e8aa3d87f7" title="Actually perform the read and return the GeoGrid. " alt="" coords="1001,397,1207,439"/>
+<area shape="rect" id="node13" href="../../db/db2/a00020.html#ae1fb8c70e0d2c9bb7652aabef954d115" title="Create ContactPools based on protobuf ContactPools info. " alt="" coords="488,463,696,504"/>
+<area shape="rect" id="node14" href="../../db/db2/a00020.html#a2d7e93b8c38a12f8c662d18973e14a79" title="Create a Location based on protobuf Location info. " alt="" coords="744,463,952,504"/>
+<area shape="rect" id="node15" href="../../db/db2/a00020.html#a6f156064f4af6a0905e1959605ac9826" title="Actually perform the read and return the GeoGrid. " alt="" coords="1000,463,1208,504"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="acd38806272aa6ee77aae82edaf1224ba"></a>
+<a class="anchor" id="a976a718b023257fb4c47028f860e58e6"></a>
 <div class="memitem">
 <div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::ContactPool::GetInfectedCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get Infected count. </p>
-
-<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00043">43</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPool.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00090">m_members</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db9/a00159_source.html#l00051">GetId()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_acd38806272aa6ee77aae82edaf1224ba_icgraph.gif" border="0" usemap="#d4/d31/a00069_acd38806272aa6ee77aae82edaf1224ba_icgraph" alt=""/></div>
-<map name="d4/d31/a00069_acd38806272aa6ee77aae82edaf1224ba_icgraph" id="d4/d31/a00069_acd38806272aa6ee77aae82edaf1224ba_icgraph">
-<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a3b2da2fe2ebe5e75bcf8a13893f8d10a" title="Get the pool id. " alt="" coords="196,39,339,80"/>
-<area shape="rect" id="node3" href="../../db/db2/a00020.html#a53289ee143d7c429f1f35d6622f14134" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactPool. " alt="" coords="387,5,586,47"/>
-<area shape="rect" id="node7" href="../../d7/de0/a00022.html#a015dcfc0716f0ffe586fe4d927809435" title="Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool. " alt="" coords="387,71,587,112"/>
-<area shape="rect" id="node4" href="../../db/db2/a00020.html#af23f2e79fd864befd4a86231786d2090" title="Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter. " alt="" coords="635,5,834,47"/>
-<area shape="rect" id="node5" href="../../db/db2/a00020.html#a6896def26cc869e0657b37361cbc2af1" title="Create a Boost Property Tree containing all info needed to reconstruct a Location. " alt="" coords="883,5,1082,47"/>
-<area shape="rect" id="node6" href="../../db/db2/a00020.html#ad29ac72b56a116252620d06921f0365e" title="Write the provided GeoGrid to the proved ostream in JSON format. " alt="" coords="1131,5,1330,47"/>
-<area shape="rect" id="node8" href="../../d7/de0/a00022.html#a2200b22b19b44f3be8136aa188186f8f" title="Create a ProtoBuf ContactPools structure. " alt="" coords="635,71,835,112"/>
-<area shape="rect" id="node9" href="../../d7/de0/a00022.html#a926c2d6d9381b1b87ff81fb92f598041" title="Create a ProtoBuf Location containing all the info needed to reconstruct a Location. " alt="" coords="883,71,1083,112"/>
-<area shape="rect" id="node10" href="../../d7/de0/a00022.html#abaddb399f1f826203ae6086858dbfbde" title="Write the GeoGrid to the ostream in Protobuf format. " alt="" coords="1131,71,1331,112"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="afb9a65718e51a5afa72e9f34724f1fe0"></a>
-<div class="memitem">
-<div class="memproto">
+<div class="memtemplate">
+template&lt;ContactType::Id T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="../../d4/d7d/a00093.html">Person</a>*&gt;&amp; stride::ContactPool::GetPool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the entire pool of members. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00057">57</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00090">m_members</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00066">stride::Immunizer::Random()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_afb9a65718e51a5afa72e9f34724f1fe0_icgraph.gif" border="0" usemap="#d4/d31/a00069_afb9a65718e51a5afa72e9f34724f1fe0_icgraph" alt=""/></div>
-<map name="d4/d31/a00069_afb9a65718e51a5afa72e9f34724f1fe0_icgraph" id="d4/d31/a00069_afb9a65718e51a5afa72e9f34724f1fe0_icgraph">
-<area shape="rect" id="node2" href="../../df/d13/a00085.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="196,39,339,80"/>
-<area shape="rect" id="node3" href="../../da/dec/a00080.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="387,5,549,47"/>
-<area shape="rect" id="node6" href="../../df/d13/a00085.html#a9cf69f9df2b2b2e357fab3d3ed48b64a" title="stride::Immunizer::\lImmunizer" alt="" coords="397,71,539,112"/>
-<area shape="rect" id="node4" href="../../da/dec/a00080.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="597,5,760,47"/>
-<area shape="rect" id="node5" href="../../d1/d84/a00097.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="808,5,943,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a9cfd2356daa4191fe6951d7c704bf16c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d03/a00348.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a> stride::ContactPool::GetType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the type of <a class="el" href="../../d4/d31/a00069.html" title="A group of Persons that potentially have contacts with one another. ">ContactPool</a>, used for logging and tests. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00060">60</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00089">m_pool_type</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a85249b3315c664761fbd1448708473ab"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a> stride::ContactPool::begin </td>
+          <td class="memname"><a class="el" href="../../da/d24/a00068.html">ContactPool</a>* stride::ContactPoolSys::CreateContactPool </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -501,15 +275,22 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Iterator to first person. </p>
+<p>Templated version of  for use when type id is fixed. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>One of the <a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462" title="Enumerates the ContactPool types. ">ContactType::Id</a>'s (Household, K12 School, ...). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the newly created <a class="el" href="../../da/d24/a00068.html" title="A group of Persons that potentially have contacts with one another. ">ContactPool</a>. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00067">67</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00049">49</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>.</p>
 
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00090">m_members</a>.</p>
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00086">m_currentContactPoolId</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00092">m_sys</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a59eb79bf2d47f73de6ece95400106f2f"></a>
+<a class="anchor" id="abec2451157774964a5008679b66b8b48"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -517,10 +298,11 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a> stride::ContactPool::end </td>
+          <td class="memname">const <a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt;<a class="el" href="../../da/d24/a00068.html">ContactPool</a>&gt;&amp; stride::ContactPoolSys::CRefPools </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -530,23 +312,32 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Iterator to end of persons. </p>
+<p>Access through const reference to ContactPools of type 'id'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td><a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462" title="Enumerates the ContactPool types. ">ContactType::Id</a> of pools container you want to access. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The requested reference. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00070">70</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00057">57</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>.</p>
 
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00090">m_members</a>.</p>
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00092">m_sys</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2c357e530f204c4ba1e686f4903f40ad"></a>
+<a class="anchor" id="a016fd427c95b26c2fe8b542b6a7d6963"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;ContactType::Id T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d2/de1/a00421.html">size_t</a> stride::ContactPool::size </td>
+          <td class="memname">const <a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt;<a class="el" href="../../da/d24/a00068.html">ContactPool</a>&gt;&amp; stride::ContactPoolSys::CRefPools </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -559,15 +350,22 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Gets current size of Location storage. </p>
+<p>Templated version of  for use when the type id is fixed. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td><a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462" title="Enumerates the ContactPool types. ">ContactType::Id</a> of pools container you want to access. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The requested reference. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00073">73</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00063">63</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>.</p>
 
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00090">m_members</a>.</p>
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00092">m_sys</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3cae7beb1739e01246b4d9fa80b3aa79"></a>
+<a class="anchor" id="ad484960db6d8795971580e635f6da030"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -575,92 +373,45 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d7d/a00093.html">Person</a>* const&amp; stride::ContactPool::operator[] </td>
+          <td class="memname"><a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt;<a class="el" href="../../da/d24/a00068.html">ContactPool</a>&gt;&amp; stride::ContactPoolSys::RefPools </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/de1/a00421.html">size_t</a>&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets a <a class="el" href="../../d4/d7d/a00093.html" title="Store and handle person data. ">Person</a> by index, doesn't performs a range check. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00076">76</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00090">m_members</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00055">SortMembers()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_a3cae7beb1739e01246b4d9fa80b3aa79_cgraph.gif" border="0" usemap="#d4/d31/a00069_a3cae7beb1739e01246b4d9fa80b3aa79_cgraph" alt=""/></div>
-<map name="d4/d31/a00069_a3cae7beb1739e01246b4d9fa80b3aa79_cgraph" id="d4/d31/a00069_a3cae7beb1739e01246b4d9fa80b3aa79_cgraph">
-<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a38adafed84fa1801c5f1f6420158a7f3" title="Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. " alt="" coords="196,5,339,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a38adafed84fa1801c5f1f6420158a7f3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::tuple&lt; bool, unsigned int &gt; stride::ContactPool::SortMembers </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. </p>
+<p>/// Access through non-const reference to ContactPools of type 'id'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td><a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462" title="Enumerates the ContactPool types. ">ContactType::Id</a> of pools container you want to access. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The requested reference. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00055">55</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00072">72</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>.</p>
 
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00087">m_index_immune</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00090">m_members</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d40/a00236_source.html#l00211">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00076">operator[]()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d31/a00069_a38adafed84fa1801c5f1f6420158a7f3_icgraph.gif" border="0" usemap="#d4/d31/a00069_a38adafed84fa1801c5f1f6420158a7f3_icgraph" alt=""/></div>
-<map name="d4/d31/a00069_a38adafed84fa1801c5f1f6420158a7f3_icgraph" id="d4/d31/a00069_a38adafed84fa1801c5f1f6420158a7f3_icgraph">
-<area shape="rect" id="node2" href="../../db/ddf/a00088.html#aa27dad30b434e742e80300d88854b36d" title="stride::Infector\&lt; LL,\l TIC, true \&gt;::Exec" alt="" coords="196,5,343,47"/>
-<area shape="rect" id="node3" href="../../d4/d31/a00069.html#a3cae7beb1739e01246b4d9fa80b3aa79" title="Gets a Person by index, doesn&#39;t performs a range check. " alt="" coords="198,71,341,112"/>
-</map>
-</div>
-</p>
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00092">m_sys</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a class="anchor" id="a9ffe141bfd5da5336894dc1cebf49fa7"></a>
+<a class="anchor" id="aa79c86f4bdecaefcfc763c2b2f5bee37"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;ContactLogMode::Id LL, bool TIC, bool TO&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="../../d1/d1e/a00087.html">Infector</a></td>
+          <td class="memname">friend class <a class="el" href="../../d9/da4/a00078.html">DefaultPopBuilder</a></td>
         </tr>
       </table>
   </td>
@@ -670,14 +421,34 @@ template&lt;ContactLogMode::Id LL, bool TIC, bool TO&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates contacts and transmissions; accesses private methods and data. </p>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00074">74</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00084">84</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a9ee783cf11d4fb4f556c985020efd7db"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d9/d77/a00095.html">Sim</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00075">75</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a2efe968db2b7ac3adb440bb515cdf9c4"></a>
+<a class="anchor" id="ab59431e05f466c3828738407e37660b4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -685,7 +456,7 @@ template&lt;ContactLogMode::Id LL, bool TIC, bool TO&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int stride::ContactPool::m_index_immune</td>
+          <td class="memname"><a class="el" href="../../d2/dee/a00049.html">ContactType::IdSubscriptArray</a>&lt;unsigned int&gt; stride::ContactPoolSys::m_currentContactPoolId</td>
         </tr>
       </table>
   </td>
@@ -695,15 +466,16 @@ template&lt;ContactLogMode::Id LL, bool TIC, bool TO&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Index of the first immune member in the <a class="el" href="../../d4/d31/a00069.html" title="A group of Persons that potentially have contacts with one another. ">ContactPool</a>. </p>
+<p>The contact pool counters (one per type id) for assigning pool UIDs. </p>
+<p>Counters generate a non zero UID that's unique per type of pool, so &lt;type, UID&gt; uniquely detemines the pool. UID zero means 'NA" e.g. wor[lace UID for a K12school student will be zero. As a defensive measure, the <a class="el" href="../../d4/d31/a00069.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> gets initialized with (for each type) an empty pool in the vecotor storing the contact pools. As a consequence, one has: if UID != 0 then <a class="el" href="../../d4/d31/a00069.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a>[type][UID].GetId() == UID for all type the index in the vector with pools is identical to the pool's UID. </p>
 
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00087">87</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00086">86</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/db8/a00158_source.html#l00037">AddMember()</a>, <a class="el" href="../../d7/d40/a00236_source.html#l00211">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00055">SortMembers()</a>.</p>
+<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00028">ContactPoolSys()</a>, and <a class="el" href="../../d1/db7/a00157_source.html#l00036">CreateContactPool()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a491a3a04acc39cf5ffccd30714a8e76a"></a>
+<a class="anchor" id="a3c592b3099ba8d56ae60edf74497d814"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -711,7 +483,7 @@ template&lt;ContactLogMode::Id LL, bool TIC, bool TO&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int stride::ContactPool::m_pool_id</td>
+          <td class="memname"><a class="el" href="../../d2/dee/a00049.html">ContactType::IdSubscriptArray</a>&lt;<a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt;<a class="el" href="../../da/d24/a00068.html">ContactPool</a>&gt; &gt; stride::ContactPoolSys::m_sys</td>
         </tr>
       </table>
   </td>
@@ -721,77 +493,26 @@ template&lt;ContactLogMode::Id LL, bool TIC, bool TO&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>The ID of the <a class="el" href="../../d4/d31/a00069.html" title="A group of Persons that potentially have contacts with one another. ">ContactPool</a> (for logging purposes). </p>
+<p>Pool system container: array that is subscriptable with ContactType::Ids and for each Id contains a SegmentedVector with the ContactPools for that <a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462" title="Enumerates the ContactPool types. ">ContactType::Id</a>. </p>
+<p>We use the SegmentedVector not to run in re-allocations and to be able to use pointers into the SegmentedVector. </p>
 
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00088">88</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00092">92</a> of file <a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/db9/a00159_source.html#l00051">GetId()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afe687068792fae04b6b3edb61f6ad93f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d03/a00348.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a> stride::ContactPool::m_pool_type</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The type of the <a class="el" href="../../d4/d31/a00069.html" title="A group of Persons that potentially have contacts with one another. ">ContactPool</a> (for logging and testing purposes). </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00089">89</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d40/a00236_source.html#l00146">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, <a class="el" href="../../d7/d40/a00236_source.html#l00211">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00060">GetType()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a672b69837fbd57d9a61f8acb18fec82e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d4/d7d/a00093.html">Person</a>*&gt; stride::ContactPool::m_members</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pointers to contactpool members (raw pointers intentional). </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00090">90</a> of file <a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/db8/a00158_source.html#l00037">AddMember()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00067">begin()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00070">end()</a>, <a class="el" href="../../d7/d40/a00236_source.html#l00146">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, <a class="el" href="../../d7/d40/a00236_source.html#l00211">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00043">GetInfectedCount()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00057">GetPool()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00076">operator[]()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00073">size()</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00055">SortMembers()</a>.</p>
+<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00028">ContactPoolSys()</a>, <a class="el" href="../../d1/db7/a00157_source.html#l00036">CreateContactPool()</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00057">CRefPools()</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00072">RefPools()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../de/db9/a00159_source.html">ContactPool.h</a></li>
-<li><a class="el" href="../../d6/db8/a00158_source.html">ContactPool.cpp</a></li>
+<li><a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a></li>
+<li><a class="el" href="../../d1/db7/a00157_source.html">ContactPoolSys.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d31/a00069.html">ContactPool</a></li>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:09 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d2/d45/a00342.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d31/a00069.html">ContactPoolSys</a></li>
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

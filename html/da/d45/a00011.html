@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::Generator Class Reference</title>
+<title>Stride Reference Manual: geopop::GeoAggregator&lt; Policy, F &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -106,290 +106,45 @@ $(document).ready(function(){initNavTree('da/d45/a00011.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../dd/d85/a00702.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::Generator Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">geopop::GeoAggregator&lt; Policy, F &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>An interface base class for generators that provide geo data and apply it onto the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>.  
+<p>A <a class="el" href="../../da/d45/a00011.html" title="A GeoAggregator can either be instantiated with a functor, or be called with one every time...">GeoAggregator</a> can either be instantiated with a functor, or be called with one every time.  
  <a href="../../da/d45/a00011.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for geopop::Generator:</div>
+Collaboration diagram for geopop::GeoAggregator&lt; Policy, F &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d86/a00703.gif" border="0" usemap="#geopop_1_1Generator_inherit__map" alt="Inheritance graph"/></div>
-<map name="geopop_1_1Generator_inherit__map" id="geopop_1_1Generator_inherit__map">
-<area shape="rect" id="node2" href="../../de/d21/a00006.html" title="Generates ContactPools for ContactType College. " alt="" coords="5,197,196,289"/>
-<area shape="rect" id="node3" href="../../dc/d3c/a00028.html" title="Generates ContactPools for ContactType Household. " alt="" coords="221,197,431,289"/>
-<area shape="rect" id="node4" href="../../df/d61/a00031.html" title="Generates ContactPools for ContactType K12School. " alt="" coords="455,197,666,289"/>
-<area shape="rect" id="node5" href="../../db/d3a/a00040.html" title="Generator for PCommunity contact pools. " alt="" coords="691,189,892,296"/>
-<area shape="rect" id="node6" href="../../d5/df9/a00044.html" title="Generates ContactPools for ContactType PrimaryCommunity. " alt="" coords="916,189,1136,296"/>
-<area shape="rect" id="node7" href="../../d3/dea/a00046.html" title="Generates ContactPools for ContactType Workplace. " alt="" coords="1160,197,1367,289"/>
+<div class="center"><img src="../../df/d7d/a00696.gif" border="0" usemap="#geopop_1_1GeoAggregator_3_01Policy_00_01F_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1GeoAggregator_3_01Policy_00_01F_01_4_coll__map" id="geopop_1_1GeoAggregator_3_01Policy_00_01F_01_4_coll__map">
 </map>
 </div>
-<div class="dynheader">
-Collaboration diagram for geopop::Generator:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d6a/a00704.gif" border="0" usemap="#geopop_1_1Generator_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1Generator_coll__map" id="geopop_1_1Generator_coll__map">
-<area shape="rect" id="node3" href="../../d4/d3e/a00116.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,145,381,355"/>
-</map>
-</div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ac9372a526b3a7672b5dca424b3743fd5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#ac9372a526b3a7672b5dca424b3743fd5">Generator</a> (<a class="el" href="../../d4/d3e/a00116.html">stride::util::RnMan</a> rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger=nullptr)</td></tr>
-<tr class="memdesc:ac9372a526b3a7672b5dca424b3743fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with random number manager and logger.  <a href="#ac9372a526b3a7672b5dca424b3743fd5">More...</a><br /></td></tr>
-<tr class="separator:ac9372a526b3a7672b5dca424b3743fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf1362cb66b511c7c7fba7feb4fc70f1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#abf1362cb66b511c7c7fba7feb4fc70f1">~Generator</a> ()=default</td></tr>
-<tr class="memdesc:abf1362cb66b511c7c7fba7feb4fc70f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#abf1362cb66b511c7c7fba7feb4fc70f1">More...</a><br /></td></tr>
-<tr class="separator:abf1362cb66b511c7c7fba7feb4fc70f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bebac8186b3c6fb9ea50d17b0562b37"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a7bebac8186b3c6fb9ea50d17b0562b37">Apply</a> (<a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;geogrid, const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;geoGridConfig)=0</td></tr>
-<tr class="memdesc:a7bebac8186b3c6fb9ea50d17b0562b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate ContactPools as sepcified by the data in <a class="el" href="../../d1/d2b/a00018.html" title="Configuration data mostly for generating a population, but also for computing the required number of ...">GeoGridConfig</a>.  <a href="#a7bebac8186b3c6fb9ea50d17b0562b37">More...</a><br /></td></tr>
-<tr class="separator:a7bebac8186b3c6fb9ea50d17b0562b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ee98f26392fc3f649e6d7bcd77a69f1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a7ee98f26392fc3f649e6d7bcd77a69f1">AddPools</a> (<a class="el" href="../../d4/d8c/a00035.html">Location</a> &amp;loc, <a class="el" href="../../dc/d54/a00094.html">stride::Population</a> *pop, unsigned int number)=0</td></tr>
-<tr class="memdesc:a7ee98f26392fc3f649e6d7bcd77a69f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a given number ContactPools in the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>.  <a href="#a7ee98f26392fc3f649e6d7bcd77a69f1">More...</a><br /></td></tr>
-<tr class="separator:a7ee98f26392fc3f649e6d7bcd77a69f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:af8316a93aaae7285075fd5f5d89d8c32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d3e/a00116.html">stride::util::RnMan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#af8316a93aaae7285075fd5f5d89d8c32">m_rn_man</a></td></tr>
-<tr class="memdesc:af8316a93aaae7285075fd5f5d89d8c32"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#af8316a93aaae7285075fd5f5d89d8c32">More...</a><br /></td></tr>
-<tr class="separator:af8316a93aaae7285075fd5f5d89d8c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bb1600be2268f8a580517daf62b1944"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d45/a00011.html#a4bb1600be2268f8a580517daf62b1944">m_logger</a></td></tr>
-<tr class="memdesc:a4bb1600be2268f8a580517daf62b1944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a4bb1600be2268f8a580517daf62b1944">More...</a><br /></td></tr>
-<tr class="separator:a4bb1600be2268f8a580517daf62b1944"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An interface base class for generators that provide geo data and apply it onto the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>. </p>
+<div class="textblock"><h3>template&lt;typename Policy, typename... F&gt;<br />
+class geopop::GeoAggregator&lt; Policy, F &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00038">38</a> of file <a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac9372a526b3a7672b5dca424b3743fd5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">geopop::Generator::Generator </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d3e/a00116.html">stride::util::RnMan</a>&#160;</td>
-          <td class="paramname"><em>rnMan</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>logger</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>A <a class="el" href="../../da/d45/a00011.html" title="A GeoAggregator can either be instantiated with a functor, or be called with one every time...">GeoAggregator</a> can either be instantiated with a functor, or be called with one every time. </p>
+<p>A policy should have the following:</p><ul>
+<li>an embedded type Args: the type of argument it should receive at construction</li>
+<li>a constructor that takes Args</li>
+<li>AABB&lt;geogrid_detail::KdTree2DPoint&gt; GetBoundingBox() const Get the bounding box for the policy region</li>
+<li>bool Contains(const geogrid_detail::KdTree2DPoint&amp; pt) const Does the point fall withing the policy region? </li>
+</ul>
 
-<p>Constructor with random number manager and logger. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00022">22</a> of file <a class="el" href="../../dc/d52/a00183_source.html">Generator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d4/d04/a00255_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, and <a class="el" href="../../d2/d94/a00184_source.html#l00055">m_logger</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d45/a00011_ac9372a526b3a7672b5dca424b3743fd5_cgraph.gif" border="0" usemap="#da/d45/a00011_ac9372a526b3a7672b5dca424b3743fd5_cgraph" alt=""/></div>
-<map name="da/d45/a00011_ac9372a526b3a7672b5dca424b3743fd5_cgraph" id="da/d45/a00011_ac9372a526b3a7672b5dca424b3743fd5_cgraph">
-<area shape="rect" id="node2" href="../../d8/d17/a00114.html#af8edb0cd2ef9049e0347f06e73ae57c2" title="Return a (not&#45;yet&#45;registered) null logger, without registering it. " alt="" coords="204,5,348,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="abf1362cb66b511c7c7fba7feb4fc70f1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual geopop::Generator::~Generator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Virtual destructor for inheritance. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a7bebac8186b3c6fb9ea50d17b0562b37"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void geopop::Generator::Apply </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;&#160;</td>
-          <td class="paramname"><em>geogrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d1/d2b/a00018.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate ContactPools as sepcified by the data in <a class="el" href="../../d1/d2b/a00018.html" title="Configuration data mostly for generating a population, but also for computing the required number of ...">GeoGridConfig</a>. </p>
-
-<p>Implemented in <a class="el" href="../../de/d21/a00006.html#a0ae4016fc7225ecb4f2ce8f5319b4917">geopop::CollegeGenerator</a>, <a class="el" href="../../dc/d3c/a00028.html#a6331c0c9b3c62931305cbe8c11b0c781">geopop::HouseholdGenerator</a>, <a class="el" href="../../df/d61/a00031.html#a2680aab8fbdbd51f3657b317a70b25c3">geopop::K12SchoolGenerator</a>, <a class="el" href="../../db/d3a/a00040.html#adb7003e2d40127bcf9bc4a0576815e5a">geopop::PrimaryCommunityGenerator</a>, <a class="el" href="../../d5/df9/a00044.html#adcde607963b6be5ee44c1b65b39e054f">geopop::SecondaryCommunityGenerator</a>, and <a class="el" href="../../d3/dea/a00046.html#afee876de43bafdc378a264305bd0f231">geopop::WorkplaceGenerator</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7ee98f26392fc3f649e6d7bcd77a69f1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void geopop::Generator::AddPools </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d8c/a00035.html">Location</a> &amp;&#160;</td>
-          <td class="paramname"><em>loc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/d54/a00094.html">stride::Population</a> *&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>number</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create a given number ContactPools in the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>. </p>
-
-<p>Implemented in <a class="el" href="../../de/d21/a00006.html#a4709b9f9a3690f5aeb1a0c82962c500f">geopop::CollegeGenerator</a>, <a class="el" href="../../dc/d3c/a00028.html#a411d099ecd5b5a295b3f055b097e65df">geopop::HouseholdGenerator</a>, <a class="el" href="../../df/d61/a00031.html#a4d47c12ded22f0f6c94a8fb5dcbee452">geopop::K12SchoolGenerator</a>, <a class="el" href="../../db/d3a/a00040.html#a9c1eddc731f4fc27d04e474aa560aab4">geopop::PrimaryCommunityGenerator</a>, <a class="el" href="../../d5/df9/a00044.html#a1e63a9295f1d315ec69f895655e9eea6">geopop::SecondaryCommunityGenerator</a>, and <a class="el" href="../../d3/dea/a00046.html#a55c16a3aa5962b6b57f668b76dfff5a9">geopop::WorkplaceGenerator</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="af8316a93aaae7285075fd5f5d89d8c32"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d3e/a00116.html">stride::util::RnMan</a> geopop::Generator::m_rn_man</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>RnManager used by generators. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00054">54</a> of file <a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4bb1600be2268f8a580517daf62b1944"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; geopop::Generator::m_logger</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Logger used by generators. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00055">55</a> of file <a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d52/a00183_source.html#l00022">Generator()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d2/d94/a00184_source.html">Generator.h</a></li>
-<li><a class="el" href="../../dc/d52/a00183_source.html">Generator.cpp</a></li>
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00076">76</a> of file <a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a>.</p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">geopop</a></li><li class="navelem"><a class="el" href="../../da/d45/a00011.html">Generator</a></li>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:09 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d8/df7/a00331.html">geopop</a></li><li class="navelem"><a class="el" href="../../da/d45/a00011.html">GeoAggregator</a></li>
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

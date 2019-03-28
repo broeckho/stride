@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::LocationsReader Class Reference</title>
+<title>Stride Reference Manual: geopop::PolygonPolicy Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -107,64 +107,67 @@ $(document).ready(function(){initNavTree('d1/dc6/a00037.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../d3/dee/a00774.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../dd/d51/a00769.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::LocationsReader Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">geopop::PolygonPolicy Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Create an abstract Reader which fills a <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> with the cities found in file.  
+<p>A <a class="el" href="../../da/d45/a00011.html" title="A GeoAggregator can either be instantiated with a functor, or be called with one every time...">GeoAggregator</a> Policy that aggregates over a (clockwise) polygon.  
  <a href="../../d1/dc6/a00037.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d7/d03/a00254_source.html">LocationsReader.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for geopop::LocationsReader:</div>
+Collaboration diagram for geopop::PolygonPolicy:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d5d/a00775.gif" border="0" usemap="#geopop_1_1LocationsReader_inherit__map" alt="Inheritance graph"/></div>
-<map name="geopop_1_1LocationsReader_inherit__map" id="geopop_1_1LocationsReader_inherit__map">
-<area shape="rect" id="node2" href="../../de/d8c/a00036.html" title="Create a Reader that fills a GeoGrid with the Location data found in a CSV input stream. " alt="" coords="5,160,216,252"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for geopop::LocationsReader:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/dd4/a00776.gif" border="0" usemap="#geopop_1_1LocationsReader_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1LocationsReader_coll__map" id="geopop_1_1LocationsReader_coll__map">
-<area shape="rect" id="node3" title="STL class. " alt="" coords="40,413,139,491"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="20,259,159,351"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="5,132,173,209"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="36,5,143,83"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="163,413,317,491"/>
+<div class="center"><img src="../../d0/d7e/a00770.gif" border="0" usemap="#geopop_1_1PolygonPolicy_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1PolygonPolicy_coll__map" id="geopop_1_1PolygonPolicy_coll__map">
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a5468ac31eae54f8b993ffd14a62927d7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#a5468ac31eae54f8b993ffd14a62927d7">Args</a> = boost::geometry::model::polygon&lt; <a class="el" href="../../d8/df7/a00331.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a>, true &gt;</td></tr>
+<tr class="separator:a5468ac31eae54f8b993ffd14a62927d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a08a0a0bee6983e75de99b46132e26eaa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#a08a0a0bee6983e75de99b46132e26eaa">LocationsReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
-<tr class="memdesc:a08a0a0bee6983e75de99b46132e26eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the CitiesReader with an istream containing the file content.  <a href="#a08a0a0bee6983e75de99b46132e26eaa">More...</a><br /></td></tr>
-<tr class="separator:a08a0a0bee6983e75de99b46132e26eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf7cb185f3d39194f4065707da23e0d6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#adf7cb185f3d39194f4065707da23e0d6">~LocationsReader</a> ()=default</td></tr>
-<tr class="memdesc:adf7cb185f3d39194f4065707da23e0d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#adf7cb185f3d39194f4065707da23e0d6">More...</a><br /></td></tr>
-<tr class="separator:adf7cb185f3d39194f4065707da23e0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad94de2ea05242ef43ac6ea9723fbc591"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#ad94de2ea05242ef43ac6ea9723fbc591">FillGeoGrid</a> (<a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;) const =0</td></tr>
-<tr class="memdesc:ad94de2ea05242ef43ac6ea9723fbc591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the locations to the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>.  <a href="#ad94de2ea05242ef43ac6ea9723fbc591">More...</a><br /></td></tr>
-<tr class="separator:ad94de2ea05242ef43ac6ea9723fbc591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f6a7862371bdb5991a62af32bfc44fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#a9f6a7862371bdb5991a62af32bfc44fe">PolygonPolicy</a> (boost::geometry::model::polygon&lt; <a class="el" href="../../d8/df7/a00331.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a>, true &gt; args)</td></tr>
+<tr class="separator:a9f6a7862371bdb5991a62af32bfc44fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37ead64e0fc7096f4d71ee2c2b5ce8d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d7c/a00003.html">AABBox</a>&lt; <a class="el" href="../../dd/d1b/a00015.html">geogrid_detail::KdTree2DPoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#a37ead64e0fc7096f4d71ee2c2b5ce8d0">GetBoundingBox</a> () const </td></tr>
+<tr class="separator:a37ead64e0fc7096f4d71ee2c2b5ce8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa76a2a2617b5fd1ae1ff45891adf65b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#aa76a2a2617b5fd1ae1ff45891adf65b5">Contains</a> (const <a class="el" href="../../dd/d1b/a00015.html">geogrid_detail::KdTree2DPoint</a> &amp;pt) const </td></tr>
+<tr class="separator:aa76a2a2617b5fd1ae1ff45891adf65b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:ad1bd8f33fd74070b9b606734e6c8d2de"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#ad1bd8f33fd74070b9b606734e6c8d2de">m_inputStream</a></td></tr>
-<tr class="memdesc:ad1bd8f33fd74070b9b606734e6c8d2de"><td class="mdescLeft">&#160;</td><td class="mdescRight">The istream with the file content.  <a href="#ad1bd8f33fd74070b9b606734e6c8d2de">More...</a><br /></td></tr>
-<tr class="separator:ad1bd8f33fd74070b9b606734e6c8d2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a69ddb55e11e6fa42222646a21432bfb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dc6/a00037.html#a5468ac31eae54f8b993ffd14a62927d7">Args</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00037.html#a69ddb55e11e6fa42222646a21432bfb1">m_poly</a></td></tr>
+<tr class="separator:a69ddb55e11e6fa42222646a21432bfb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Create an abstract Reader which fills a <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> with the cities found in file. </p>
-<p>This can be implemented using different input types. Currently CSV is implemented. </p>
+<div class="textblock"><p>A <a class="el" href="../../da/d45/a00011.html" title="A GeoAggregator can either be instantiated with a functor, or be called with one every time...">GeoAggregator</a> Policy that aggregates over a (clockwise) polygon. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d03/a00254_source.html#l00031">31</a> of file <a class="el" href="../../d7/d03/a00254_source.html">LocationsReader.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a08a0a0bee6983e75de99b46132e26eaa"></a>
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00196">196</a> of file <a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a5468ac31eae54f8b993ffd14a62927d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d1/dc6/a00037.html#a5468ac31eae54f8b993ffd14a62927d7">geopop::PolygonPolicy::Args</a> =  boost::geometry::model::polygon&lt;<a class="el" href="../../d8/df7/a00331.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a>, true&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00199">199</a> of file <a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9f6a7862371bdb5991a62af32bfc44fe"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -172,10 +175,10 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">geopop::LocationsReader::LocationsReader </td>
+          <td class="memname">geopop::PolygonPolicy::PolygonPolicy </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
-          <td class="paramname"><em>inputStream</em></td><td>)</td>
+          <td class="paramtype">boost::geometry::model::polygon&lt; <a class="el" href="../../d8/df7/a00331.html#ad853921c138e9ecb23181946c1d066c4">Coordinate</a>, true &gt;&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -186,64 +189,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct the CitiesReader with an istream containing the file content. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d03/a00254_source.html#l00035">35</a> of file <a class="el" href="../../d7/d03/a00254_source.html">LocationsReader.h</a>.</p>
-
-<p>References <a class="el" href="../../d1/dc6/a00037.html#ad94de2ea05242ef43ac6ea9723fbc591">FillGeoGrid()</a>, and <a class="el" href="../../d1/dc6/a00037.html#adf7cb185f3d39194f4065707da23e0d6">~LocationsReader()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/dc6/a00037_a08a0a0bee6983e75de99b46132e26eaa_cgraph.gif" border="0" usemap="#d1/dc6/a00037_a08a0a0bee6983e75de99b46132e26eaa_cgraph" alt=""/></div>
-<map name="d1/dc6/a00037_a08a0a0bee6983e75de99b46132e26eaa_cgraph" id="d1/dc6/a00037_a08a0a0bee6983e75de99b46132e26eaa_cgraph">
-<area shape="rect" id="node2" href="../../d1/dc6/a00037.html#ad94de2ea05242ef43ac6ea9723fbc591" title="Add the locations to the GeoGrid. " alt="" coords="236,5,419,47"/>
-<area shape="rect" id="node3" href="../../d1/dc6/a00037.html#adf7cb185f3d39194f4065707da23e0d6" title="Default destructor. " alt="" coords="236,71,419,112"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="adf7cb185f3d39194f4065707da23e0d6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual geopop::LocationsReader::~LocationsReader </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default destructor. </p>
-
-<p>Referenced by <a class="el" href="../../d7/d03/a00254_source.html#l00035">LocationsReader()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/dc6/a00037_adf7cb185f3d39194f4065707da23e0d6_icgraph.gif" border="0" usemap="#d1/dc6/a00037_adf7cb185f3d39194f4065707da23e0d6_icgraph" alt=""/></div>
-<map name="d1/dc6/a00037_adf7cb185f3d39194f4065707da23e0d6_icgraph" id="d1/dc6/a00037_adf7cb185f3d39194f4065707da23e0d6_icgraph">
-<area shape="rect" id="node2" href="../../d1/dc6/a00037.html#a08a0a0bee6983e75de99b46132e26eaa" title="Construct the CitiesReader with an istream containing the file content. " alt="" coords="236,5,419,47"/>
-</map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00201">201</a> of file <a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad94de2ea05242ef43ac6ea9723fbc591"></a>
+<a class="anchor" id="a37ead64e0fc7096f4d71ee2c2b5ce8d0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -251,32 +202,60 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void geopop::LocationsReader::FillGeoGrid </td>
+          <td class="memname"><a class="el" href="../../d1/d7c/a00003.html">AABBox</a>&lt;<a class="el" href="../../dd/d1b/a00015.html">geogrid_detail::KdTree2DPoint</a>&gt; geopop::PolygonPolicy::GetBoundingBox </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dd/d1b/a00015.html">GeoGrid</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Add the locations to the <a class="el" href="../../dd/d1b/a00015.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>. </p>
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00203">203</a> of file <a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a>.</p>
 
-<p>Implemented in <a class="el" href="../../de/d8c/a00036.html#a37d5fefcf5e36a282e471d46fd082ad2">geopop::LocationsCSVReader</a>.</p>
+<p>References <a class="el" href="../../d9/d47/a00129_source.html#l00027">geopop::AABBox&lt; P &gt;::lower</a>, and <a class="el" href="../../d9/d47/a00129_source.html#l00029">geopop::AABBox&lt; P &gt;::upper</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d03/a00254_source.html#l00035">LocationsReader()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aa76a2a2617b5fd1ae1ff45891adf65b5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool geopop::PolygonPolicy::Contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">geogrid_detail::KdTree2DPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00213">213</a> of file <a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/d22/a00245_source.html#l00072">geopop::geogrid_detail::KdTree2DPoint::GetPoint()</a>.</p>
 
 <p><div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/dc6/a00037_ad94de2ea05242ef43ac6ea9723fbc591_icgraph.gif" border="0" usemap="#d1/dc6/a00037_ad94de2ea05242ef43ac6ea9723fbc591_icgraph" alt=""/></div>
-<map name="d1/dc6/a00037_ad94de2ea05242ef43ac6ea9723fbc591_icgraph" id="d1/dc6/a00037_ad94de2ea05242ef43ac6ea9723fbc591_icgraph">
-<area shape="rect" id="node2" href="../../d1/dc6/a00037.html#a08a0a0bee6983e75de99b46132e26eaa" title="Construct the CitiesReader with an istream containing the file content. " alt="" coords="236,5,419,47"/>
+<div class="center"><img src="../../d1/dc6/a00037_aa76a2a2617b5fd1ae1ff45891adf65b5_cgraph.gif" border="0" usemap="#d1/dc6/a00037_aa76a2a2617b5fd1ae1ff45891adf65b5_cgraph" alt=""/></div>
+<map name="d1/dc6/a00037_aa76a2a2617b5fd1ae1ff45891adf65b5_cgraph" id="d1/dc6/a00037_aa76a2a2617b5fd1ae1ff45891adf65b5_cgraph">
+<area shape="rect" id="node2" href="../../dd/d1b/a00015.html#a3b5330463d70e33c9759a02ab68ffc27" title="Get the coordinate for this Location. " alt="" coords="217,39,403,80"/>
+<area shape="rect" id="node3" href="../../dd/d1b/a00015.html#a95b74e013a8d4d2c6c5366e27fd3d951" title="geopop::geogrid_detail\l::KdTree2DPoint::InBox" alt="" coords="458,5,626,47"/>
+<area shape="rect" id="node4" href="../../dd/d1b/a00015.html#a6b85c29413257e2c0400e376241e91a3" title="Does the point lie within radius km from start? " alt="" coords="451,71,633,112"/>
+<area shape="rect" id="node5" href="../../dd/d1b/a00015.html#a1ebd0d0592ea210885f32f110d8ec0de" title="Distance in kilometers, following great circle distance on a speroid earth. " alt="" coords="681,71,868,112"/>
 </map>
 </div>
 </p>
@@ -284,7 +263,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad1bd8f33fd74070b9b606734e6c8d2de"></a>
+<a class="anchor" id="a69ddb55e11e6fa42222646a21432bfb1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -292,34 +271,30 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;std::istream&gt; geopop::LocationsReader::m_inputStream</td>
+          <td class="memname"><a class="el" href="../../d1/dc6/a00037.html#a5468ac31eae54f8b993ffd14a62927d7">Args</a> geopop::PolygonPolicy::m_poly</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The istream with the file content. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d03/a00254_source.html#l00044">44</a> of file <a class="el" href="../../d7/d03/a00254_source.html">LocationsReader.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/ded/a00252_source.html#l00028">geopop::LocationsCSVReader::FillGeoGrid()</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00219">219</a> of file <a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d7/d03/a00254_source.html">LocationsReader.h</a></li>
+<li><a class="el" href="../../d2/d94/a00184_source.html">GeoAggregator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">geopop</a></li><li class="navelem"><a class="el" href="../../d1/dc6/a00037.html">LocationsReader</a></li>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:09 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d8/df7/a00331.html">geopop</a></li><li class="navelem"><a class="el" href="../../d1/dc6/a00037.html">PolygonPolicy</a></li>
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

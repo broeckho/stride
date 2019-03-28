@@ -1,4 +1,4 @@
 var a00335 =
 [
-    [ "KdTree2DPoint", "d7/d7a/a00016.html", "d7/d7a/a00016" ]
+    [ "is_proto_enum< ::proto::GeoGrid_Location_ContactPools_Type >", "d6/d2d/a00047.html", null ]
 ];

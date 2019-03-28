@@ -1,6 +1,6 @@
 var a00074 =
 [
-    [ "DaysOffAll", "db/db6/a00074.html#a8804c46ae3703253cb96e5f81f92251b", null ],
-    [ "IsWorkOff", "db/db6/a00074.html#a61f87cc93335185f90d9d772f168b1bb", null ],
-    [ "IsSchoolOff", "db/db6/a00074.html#a12a699d750a9b0a640db4ea47df0b11c", null ]
+    [ "~DaysOffInterface", "db/db6/a00074.html#afec638f8fcc3e653e389f47bd30d63e1", null ],
+    [ "IsWorkOff", "db/db6/a00074.html#a2ae431c15cddca106e2a0753fde99f83", null ],
+    [ "IsSchoolOff", "db/db6/a00074.html#a747d7b072b24545437aa9326ba024185", null ]
 ];

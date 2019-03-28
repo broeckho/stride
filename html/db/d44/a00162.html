@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ContactType.cpp File Reference</title>
+<title>Stride Reference Manual: ControlHelper.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -105,61 +105,73 @@ $(document).ready(function(){initNavTree('db/d44/a00162.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">ContactType.cpp File Reference</div>  </div>
+<div class="title">ControlHelper.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of ContactPoolType.  
+<p>Header for the command line controller.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/dae/a00163_source.html">ContactType.h</a>&quot;</code><br />
-<code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/dcd/a00280_source.html">util/RnMan.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d95/a00299_source.html">util/Stopwatch.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ContactType.cpp:</div>
+Include dependency graph for ControlHelper.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d3d/a00409.gif" border="0" usemap="#ContactType_8cpp" alt=""/></div>
-<map name="ContactType_8cpp" id="ContactType_8cpp">
-<area shape="rect" id="node2" href="../../dd/dae/a00163.html" title="Definition of ContactPool Id Type. " alt="" coords="177,80,289,107"/>
+<div class="center"><img src="../../d1/d98/a00407.gif" border="0" usemap="#ControlHelper_8h" alt=""/></div>
+<map name="ControlHelper_8h" id="ControlHelper_8h">
+<area shape="rect" id="node2" href="../../d0/dcd/a00280.html" title="Interface of RnMan. " alt="" coords="195,87,295,114"/>
+<area shape="rect" id="node9" href="../../df/d95/a00299.html" title="Definition of Stopwatch. " alt="" coords="452,87,576,114"/>
+<area shape="rect" id="node3" href="../../dc/d5d/a00278.html" title="Interface of RnPcg. " alt="" coords="8,169,81,196"/>
+<area shape="rect" id="node10" href="../../d4/d6f/a00315.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="503,169,619,196"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/dea/a00408.gif" border="0" usemap="#ControlHelper_8hdep" alt=""/></div>
+<map name="ControlHelper_8hdep" id="ControlHelper_8hdep">
+<area shape="rect" id="node2" href="../../d6/d7d/a00161.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../dc/d52/a00183.html" title="Header for the command line controller. " alt="" coords="166,80,311,107"/>
+<area shape="rect" id="node6" href="../../d6/d82/a00293.html" title="Header for the command line controller. " alt="" coords="336,80,456,107"/>
+<area shape="rect" id="node8" href="../../d9/d0d/a00298.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="480,80,605,107"/>
+<area shape="rect" id="node4" href="../../d7/d25/a00182.html" title="Header for the command line controller. " alt="" coords="96,155,256,181"/>
+<area shape="rect" id="node5" href="../../db/da2/a00300.html" title="Main program: command line handling. " alt="" coords="280,155,365,181"/>
+<area shape="rect" id="node7" href="../../d8/d0a/a00292.html" title="Header for the command line controller. " alt="" coords="390,155,525,181"/>
+<area shape="rect" id="node9" href="../../d3/d4a/a00297.html" title="Header for the command line controller. " alt="" coords="549,155,689,181"/>
 </map>
 </div>
 </div>
 <p><a href="../../db/d44/a00162_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">stride</a></td></tr>
-<tr class="memdesc:d9/d48/a00345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:df/d03/a00348"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html">stride::ContactType</a></td></tr>
-<tr class="memdesc:df/d03/a00348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of <a class="el" href="../../d4/d31/a00069.html" title="A group of Persons that potentially have contacts with one another. ">ContactPool</a>. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html">stride::ControlHelper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls a simulation run initiated with the command line interface (cli).  <a href="../../d6/d2c/a00072.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ab74302c4c0591098d750ca4e676a7ec1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html#ab74302c4c0591098d750ca4e676a7ec1">stride::ContactType::IsId</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:ab74302c4c0591098d750ca4e676a7ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a ContactPoolType::Id.  <a href="../../df/d03/a00348.html#ab74302c4c0591098d750ca4e676a7ec1">More...</a><br /></td></tr>
-<tr class="separator:ab74302c4c0591098d750ca4e676a7ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02e504d5b5a0ca2434971345323be3a2"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html#a02e504d5b5a0ca2434971345323be3a2">stride::ContactType::ToId</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a02e504d5b5a0ca2434971345323be3a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../df/d03/a00348.html#a02e504d5b5a0ca2434971345323be3a2">More...</a><br /></td></tr>
-<tr class="separator:a02e504d5b5a0ca2434971345323be3a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c3d076da6b82e6b4d082e1ae58740b6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html#a0c3d076da6b82e6b4d082e1ae58740b6">stride::ContactType::ToString</a> (Id w)</td></tr>
-<tr class="memdesc:a0c3d076da6b82e6b4d082e1ae58740b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ContactPoolType::Id value to corresponding name.  <a href="../../df/d03/a00348.html#a0c3d076da6b82e6b4d082e1ae58740b6">More...</a><br /></td></tr>
-<tr class="separator:a0c3d076da6b82e6b4d082e1ae58740b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d2/d45/a00342"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/a00342.html">stride</a></td></tr>
+<tr class="memdesc:d2/d45/a00342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of ContactPoolType. </p>
+<div class="textblock"><p>Header for the command line controller. </p>
 
-<p>Definition in file <a class="el" href="../../db/d44/a00162_source.html">ContactType.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../db/d44/a00162_source.html">ControlHelper.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../db/d44/a00162.html">ContactType.cpp</a></li>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:08 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../db/d44/a00162.html">ControlHelper.h</a></li>
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:50 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

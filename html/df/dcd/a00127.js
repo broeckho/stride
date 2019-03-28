@@ -1,7 +1,7 @@
 var a00127 =
 [
-    [ "PersonsFileViewer", "df/dcd/a00127.html#a3a0f69649baabe6b4403195283d860bb", null ],
-    [ "Update", "df/dcd/a00127.html#ae2840bec7fc5f76db6e79130b61fff19", null ],
-    [ "m_persons_file", "df/dcd/a00127.html#ab49193f33a4ddf52253f1f8cda7d8605", null ],
-    [ "m_runner", "df/dcd/a00127.html#a26e40cde6a79993c1d2a2e779fa48751", null ]
+    [ "SummaryFileViewer", "df/dcd/a00127.html#ae32a48e518b0393ca96921802278ecaf", null ],
+    [ "Update", "df/dcd/a00127.html#a1e54b49cad6f7b645668551b08762e28", null ],
+    [ "m_summary_file", "df/dcd/a00127.html#ad78a0b86893d6f5ef0acb1937482bd06", null ],
+    [ "m_runner", "df/dcd/a00127.html#ad6728d6ca9828f1f405d8c6eeb3793c2", null ]
 ];

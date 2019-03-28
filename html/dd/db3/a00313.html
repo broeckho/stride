@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SurveySeeder.h File Reference</title>
+<title>Stride Reference Manual: TimeStamp.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6e59b9b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b277ee</span>
    </div>
   </td>
  </tr>
@@ -106,32 +106,33 @@ $(document).ready(function(){initNavTree('dd/db3/a00313.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">SurveySeeder.h File Reference</div>  </div>
+<div class="title">TimeStamp.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for the SurveySeeder class.  
+<p>TimeStamp class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
+<div class="textblock"><code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;ostream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SurveySeeder.h:</div>
+Include dependency graph for TimeStamp.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/db6/a00639.gif" border="0" usemap="#SurveySeeder_8h" alt=""/></div>
-<map name="SurveySeeder_8h" id="SurveySeeder_8h">
+<div class="center"><img src="../../d1/daa/a00638.gif" border="0" usemap="#TimeStamp_8h" alt=""/></div>
+<map name="TimeStamp_8h" id="TimeStamp_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d62/a00640.gif" border="0" usemap="#SurveySeeder_8hdep" alt=""/></div>
-<map name="SurveySeeder_8hdep" id="SurveySeeder_8hdep">
-<area shape="rect" id="node2" href="../../d5/de9/a00176.html" title="Initialize populations: implementation. " alt="" coords="5,80,168,107"/>
-<area shape="rect" id="node3" href="../../da/de7/a00210.html" title="Initialize populations: implementation. " alt="" coords="193,80,335,107"/>
-<area shape="rect" id="node4" href="../../d7/df2/a00312.html" title="Implementation for the SurveySeeder class. " alt="" coords="360,80,499,107"/>
-<area shape="rect" id="node5" href="../../d6/d82/a00293.html" title="Implementation for the SimBuilder class. " alt="" coords="523,80,640,107"/>
+<div class="center"><img src="../../dd/db6/a00639.gif" border="0" usemap="#TimeStamp_8hdep" alt=""/></div>
+<map name="TimeStamp_8hdep" id="TimeStamp_8hdep">
+<area shape="rect" id="node2" href="../../d6/d7d/a00161.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../db/da2/a00300.html" title="Main program: command line handling. " alt="" coords="165,80,251,107"/>
+<area shape="rect" id="node4" href="../../d7/df2/a00312.html" title="TimeStamp class. " alt="" coords="275,80,397,107"/>
 </map>
 </div>
 </div>
@@ -139,30 +140,36 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html">stride::SurveySeeder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with survey participants.  <a href="../../d4/d3a/a00101.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html">stride::util::TimeStamp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides wall-clock time stamp using the time call.  <a href="../../d8/dfa/a00121.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d48/a00345"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html">stride</a></td></tr>
-<tr class="memdesc:d9/d48/a00345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d2/d45/a00342"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/a00342.html">stride</a></td></tr>
+<tr class="memdesc:d2/d45/a00342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">stride::util</a></td></tr>
-<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride::util</a></td></tr>
+<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html#a93f9f2ea967f7688a4ed4ef10852b566">stride::util::operator&lt;&lt;</a> (std::ostream &amp;os, TimeStamp t)</td></tr>
+<tr class="memdesc:a93f9f2ea967f7688a4ed4ef10852b566"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d8/dfa/a00121.html" title="Provides wall-clock time stamp using the time call. ">TimeStamp</a> helper inserts string representation in output stream.  <a href="../../d7/dfc/a00349.html#a93f9f2ea967f7688a4ed4ef10852b566">More...</a><br /></td></tr>
+<tr class="separator:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for the SurveySeeder class. </p>
+<div class="textblock"><p>TimeStamp class. </p>
 
-<p>Definition in file <a class="el" href="../../dd/db3/a00313_source.html">SurveySeeder.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dd/db3/a00313_source.html">TimeStamp.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../dd/db3/a00313.html">SurveySeeder.h</a></li>
-    <li class="footer">Generated on Sat Mar 23 2019 00:11:09 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dd/db3/a00313.html">TimeStamp.h</a></li>
+    <li class="footer">Generated on Thu Mar 28 2019 11:40:50 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
