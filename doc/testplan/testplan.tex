@@ -54,19 +54,75 @@ For the rest of this document we will give a short summary of every newly create
 \section{QT}
 \section{improved population generation}
 \subsection{demographic profile}
-\subsubsection{genpop\_ages} 
+\subsubsection{DemographicProfile.age} 
 \textbf{What will it test?} 
 This test will check whether a given demographic profile for the young/old ratio is used. \\
 \newline
 \textbf{How will we achieve this?} 
 We will achieve this by generating a population using a demographic profile for these ratios. We can check if the profile was used by comparing the generated population with the expected percentages.
 
-\subsubsection{genpop\_cities}
+\subsubsection{DemographicProfile.cities}
 \textbf{What will it test?} 
 This test will check whether a given demographic profile for the distribution of central cities compared to other cities is used. \\
 \newline
 \textbf{How will we achieve this?}
 We will achieve this by generating a population using a demographic profile for the different central cities versus other cities. We can check if the profile was used by comparing the generated population with the expected percentages.
-\subsection{factory contactpools}
+\subsection{Workplace contactpools}
+
+\subsubsection{WorkplaceCSVReader.test1}
+\textbf{What will it test?}
+This test will check whether we are able to read Workplace distribution csv's.\\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by passing a possible csv configuration to the reader. The returned format can then be checked in order to ensure that the configuration is read correctly.
+
+\subsubsection{WorkPlaceSizePopulatorTest.NoPopulationTest}
+\textbf{What will it test?}
+The test will check whether the workplace size populator still works when there is no population available.\\
+\newline
+\textbf{How will we achieve this?}
+We can easily check this by passing a geogrid to the populator who has a population size of 0. If there are no exception thrown we now that the function did finish correctly.
+
+\subsubsection{WorkPlaceSizePopulatorTest.OneWorkplaceTypeTest}
+\textbf{What will it test?}
+The test will check whether the workplace size populator can handle one single workplace type.\\
+\newline
+\textbf{How will we achieve this?}
+We can achieve this by passing a single workplace size to populator. We can check if this process was successful by analyzing the altered object.
+
+\subsubsection{WorkPlaceSizePopulatorTest.TwoWorkplaceTypesTest}
+\textbf{What will it test?}
+The test will check whether the workplace size populator can handle two workplace types.\\
+\newline
+\textbf{How will we achieve this?} 
+We can achieve this by passing two workplace sizes to the populator. In order to check if this was successful we can analyze the altered object by checking whether there are two different pools.
+
+\subsubsection{WorkplaceSizePopulatorTest.multipleWorkplaceTypesTest}
+\textbf{What will it test?}
+This test will check whether the workplace size populator can handle multiple types and sizes. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by altering the configuration of the workplace sizes so that there are multiple. We can check if this was successful by analyzing the new populations' data.
+
+\subsubsection{WorkplaceSizeGeneratorTest.OneWorkplaceTypeTest}
+\textbf{What will it test?}
+This test will check whether the workplace size generator can handle one single type of workplace.\\
+\newline
+\textbf{How will we achieve this?}
+We can achieve this by passing one single type to the generator. We can check whether this was successful by checking the resulting populations data.
+
+\subsubsection{WorkplaceSizeGeneratorTest.ZeroWorkplaceTypesTest}
+\textbf{What will it test?}
+This test will check whether the workplace size generator can handle zero types of workplaces.\\
+\newline
+\textbf{How will we achieve this?}
+We can achieve this by passing no types to the generator. To check if this was successful we can check whether the generated population has any workplace data.
+
+\subsubsection{WorkplaceSizeGeneratorTest.FiveWorkplaceTypesTest}
+\textbf{What will it test?}
+This test will check whether the workplace size generator can handle multiple types of workplaces.\\
+\newline
+\textbf{How will we achieve this?}
+We achieve this by passing five different types to the generator. The generated population will, if the process was successful, have five different workplaces, all with their expected sizes.
 
 \end{document}
