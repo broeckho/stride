@@ -46,6 +46,7 @@ set(SRC
     UnitSegmentedVector.cpp
     UnitSlice1.cpp
     UnitSlice2.cpp
+    UnitDemographicProfile.cpp
     #---
     #---
     geopop/generators/CollegeGeneratorTest.cpp
