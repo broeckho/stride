@@ -22,6 +22,7 @@
 #include "util/RnMan.h"
 
 #include <gtest/gtest.h>
+#include <array>
 
 using namespace std;
 using namespace geopop;
@@ -89,15 +90,15 @@ TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
         m_geo_grid.AddLocation(loc4);
         m_geo_grid.AddLocation(loc5);
 
-        for (const shared_ptr<Location>& loc : m_geo_grid) {
+        for (const auto& loc : m_geo_grid) {
                 loc->SetPopFraction(static_cast<double>(loc->GetPopCount()) /
                                     static_cast<double>(m_geogrid_config.input.pop_size));
         }
 
         m_household_generator.Apply(m_geo_grid, m_geogrid_config);
 
-        vector<unsigned int> sizes{1179, 1137, 868, 358, 458};
-        for (size_t i = 0; i < sizes.size(); i++) {
+        array<unsigned int, 5> sizes{1179, 1137, 868, 358, 458};
+        for (auto i = 0U; i < sizes.size(); i++) {
                 EXPECT_EQ(sizes[i] * m_geogrid_config.pools.pools_per_household,
                           m_geo_grid[i]->CRefPools(Id::Household).size());
         }

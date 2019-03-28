@@ -22,6 +22,7 @@
 #include "util/RnMan.h"
 
 #include <gtest/gtest.h>
+#include <array>
 
 using namespace std;
 using namespace geopop;
@@ -74,8 +75,8 @@ TEST_F(PrimaryCommunityGeneratorTest, EqualLocationTest)
 
         m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config);
 
-        vector<unsigned int> expected{546, 495, 475, 500, 463, 533, 472, 539, 496, 481};
-        for (int i = 0; i < 10; i++) {
+        array<unsigned int, 10> expected{546, 495, 475, 500, 463, 533, 472, 539, 496, 481};
+        for (auto i = 0U; i < expected.size(); i++) {
                 const auto& p = m_geo_grid[i]->CRefPools(Id::PrimaryCommunity);
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_primary_community, p.size());
         }
@@ -111,8 +112,8 @@ TEST_F(PrimaryCommunityGeneratorTest, FiveLocationsTest)
 
         m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config);
 
-        vector<unsigned int> expected{553, 518, 410, 173, 224};
-        for (int i = 0; i < 5; i++) {
+        array<unsigned int, 5> expected{553, 518, 410, 173, 224};
+        for (auto i = 0U; i < expected.size(); i++) {
                 const auto& cp = m_geo_grid[i]->CRefPools(Id::PrimaryCommunity);
                 EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_primary_community, cp.size());
         }
