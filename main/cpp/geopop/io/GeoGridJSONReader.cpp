@@ -43,7 +43,7 @@ void GeoGridJSONReader::Read()
         try {
                 json_file = json::parse(*m_inputStream);
 
-        } catch (runtime_error&) {
+        } catch (json::parse_error&) {
                 throw Exception("Problem parsing JSON file, check whether empty or invalid JSON.");
         }
 
@@ -54,7 +54,6 @@ void GeoGridJSONReader::Read()
                 auto person = ParsePerson(*it);
                 m_people[person->GetId()] = person;
         }
-
         auto locations = json_file["locations"];
 
         for (auto it = locations.begin(); it != locations.end(); it++) {
@@ -78,18 +77,18 @@ shared_ptr<Location> GeoGridJSONReader::ParseLocation(json& location)
         const auto coordinate = ParseCoordinate(location["coordinate"]);
 
         auto result         = make_shared<Location>(id, province, coordinate, name, population);
-        auto contactCenters = location["contactCenters"];
+        auto contactCenters = location["contactPools"];
         for (auto it = contactCenters.begin(); it != contactCenters.end(); it++) {
                 ParseContactPools(result, *it);
         }
 
         if (location.find("commutes") != location.end()) {
-                auto commutes = location["commutes"];
-                for (auto it = commutes.begin(); it != commutes.end(); it++) {
-                        json temp_commute = *it;
-                        const auto to     = temp_commute["to"].get<unsigned int>();
-                        const auto amount = temp_commute["proportion"].get<double>();
-                        m_commutes.emplace_back(id, to, amount);
+                json commutes = location["commutes"];
+                for (auto json_obj : commutes) {
+                    for(json::iterator it2 = json_obj.begin(); it2!=json_obj.end(); ++it2){
+                        const auto to = it2.key();
+                        m_commutes.emplace_back(id, std::stoul(to, nullptr,0), json_obj[to].get<double>());
+                    }
                 }
         }
 
@@ -105,9 +104,9 @@ Coordinate GeoGridJSONReader::ParseCoordinate(json& coordinate)
         return {longitude, latitude};
 }
 
-void GeoGridJSONReader::ParseContactPools(std::shared_ptr<geopop::Location> loc, nlohmann::json &contactCenter) {
+void GeoGridJSONReader::ParseContactPools(std::shared_ptr<geopop::Location> loc, nlohmann::json &contactCenter)
+{
         const auto type = contactCenter["class"].get<string>();
-
         ContactType::Id typeId;
 
         if (type == ToString(Id::K12School)) {
@@ -135,7 +134,6 @@ void GeoGridJSONReader::ParseContactPools(std::shared_ptr<geopop::Location> loc,
 
 void GeoGridJSONReader::ParseContactPool(std::shared_ptr<Location> loc, json& contactPool, ContactType::Id typeId)
 {
-
         // Don't use the id of the ContactPool but the let the Population create an id.
         auto result = m_population->RefPoolSys().CreateContactPool(typeId);
         loc->RefPools(typeId).emplace_back(result);
@@ -144,7 +142,11 @@ void GeoGridJSONReader::ParseContactPool(std::shared_ptr<Location> loc, json& co
         for (auto it = people.begin(); it != people.end(); it++) {
                 auto person_id = *it;
                 result->AddMember(m_people[person_id]);
-                m_people[person_id]->SetPoolId(typeId, static_cast<unsigned int>(result->GetId()));
+                if(m_people[person_id]){
+                    m_people[person_id]->SetPoolId(typeId, static_cast<unsigned int>(contactPool["id"]));
+                } else {
+                    throw Exception("Person does not exist!");
+                }
         }
 }
 

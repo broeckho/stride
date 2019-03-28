@@ -118,15 +118,14 @@ json GeoGridJSONWriter::WriteLocation(shared_ptr<Location> location)
         location_object["population"] = location->GetPopCount();
         location_object["coordinate"] = WriteCoordinate(location->GetCoordinate());
 
-
         auto commutes = location->CRefOutgoingCommutes();
 
         if (!commutes.empty()) {
             json commutes_list = json::array();
             for (auto commute_pair : commutes) {
                 json com_obj = json::object();
-                com_obj["to"] = commute_pair.first->GetID();
-                com_obj["proportion"] = commute_pair.second;
+                const auto temp_to = std::to_string(commute_pair.first->GetID());
+                com_obj[temp_to] = commute_pair.second;
                 commutes_list.push_back(com_obj);
             }
             location_object["commute"] = commutes_list;
