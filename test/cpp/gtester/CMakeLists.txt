@@ -49,6 +49,8 @@ set(SRC
     UnitDemographicProfile.cpp
     #---
     #---
+    geopop/generators/DaycareGeneratorTest.cpp
+    geopop/generators/PreSchoolGeneratorTest.cpp
     geopop/generators/CollegeGeneratorTest.cpp
     geopop/generators/HouseholdGeneratorTest.cpp
     geopop/generators/K12SchoolGeneratorTest.cpp

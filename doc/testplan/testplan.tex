@@ -48,6 +48,49 @@
 For the rest of this document we will give a short summary of every newly created test that will check if the new features work as we expected. These new additions include the two new contact types, being Daycare and PreSchool, new data formats, being JSON and HDF5 as well as global schemes that will be used by all students. There will also be a visual output for the data via QT and an improvement to the generation of the population by factoring in new parameters that will make the generation of the population more diverse, so that we can check even more parameters for their influence on the spread of diseases.
 
 \section{Daycare and PreSchool}
+\subsection{Generators}
+\subsubsection{DaycareGenerator.ZeroLocationTest}
+\textbf{What will it test?}
+This test will check whether the DaycareGenerator can function correctly with no locations given.\\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with no locations and handing it over to the Generator, then checking whether the size of the geogrid is zero.
+
+\subsubsection{DaycareGenerator.OneLocationTest}
+\textbf{What will it test?}
+This test will check whether the DaycareGenerator can function correctly with one location given. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with one location and handing it over to the Generator, then comparing the amount of contactPools for the location with the expected amount of contactPools.
+
+\subsubsection{DaycareGenerator.MultipleLocationtest}
+\textbf{What will it test?}
+This test will check whether the DaycareGenerator can function correctly with multiple locations given. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with multiple locations and handing it over to the Generator, then comparing the amount of contactPools for each location with the expected amount of contactPools in that location.
+
+\subsubsection{PreSchoolGenerator.ZeroLocationTest}
+\textbf{What will it test?}
+This test will check whether the PreSchoolGenerator can function correctly with no locations given.\\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with no locations and handing it over to the Generator, then checking whether the size of the geogrid is zero.
+
+\subsubsection{PreSchoolGenerator.OneLocationTest}
+\textbf{What will it test?}
+This test will check whether the PreSchoolGenerator can function correctly with one location given. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with one location and handing it over to the Generator, then comparing the amount of contactPools for the location with the expected amount of contactPools.
+
+\subsubsection{PreSchoolGenerator.MultipleLocationtest}
+\textbf{What will it test?}
+This test will check whether the PreSchoolGenerator can function correctly with multiple locations given. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with multiple locations and handing it over to the Generator, then comparing the amount of contactPools for each location with the expected amount of contactPools in that location.
+
 \section{Data formats}
 \subsection{JSON}
 \subsection{HDF5}
