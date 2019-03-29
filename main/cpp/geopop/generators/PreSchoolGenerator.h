@@ -22,7 +22,10 @@ namespace geopop {
 /**
  * Generates ContactPools for ContactType PreSchool.
  */
-class PreSchoolGenerator : public Generator{
+class PreSchoolGenerator : public Generator
+{
+public:
+
     using Generator::Generator;
 
     /// See @Generator::Apply.

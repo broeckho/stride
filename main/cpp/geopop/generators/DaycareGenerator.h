@@ -22,7 +22,9 @@ namespace geopop {
 /**
  * Generates ContactPools for ContactType Daycare.
  */
-class DaycareGenerator : public Generator{
+class DaycareGenerator : public Generator
+{
+public:
 
     using Generator::Generator;
 
