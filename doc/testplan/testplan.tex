@@ -51,6 +51,68 @@ For the rest of this document we will give a short summary of every newly create
 \section{Data formats}
 \subsection{JSON}
 \subsection{HDF5}
+\subsubsection{HDF5Reader.locationsTest}
+\textbf{What will it test?}
+This test will check whether the locations are read correctly from the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the locations read from the HDF5 input file with the correct locations.
+
+\subsubsection{HDF5Reader.commutesTest}
+\textbf{What will it test?}
+This test will check whether the commutes are read correctly from the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the commutes read from the HDF5 input file with the correct commutes.
+
+\subsubsection{HDF5Reader.contactCentersTest}
+\textbf{What will it test?}
+This test will check whether the contactCenters are read correctly from the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the contactCenters read from the HDF5 input file with the correct contactCenters.
+
+\subsubsection{HDF5Reader.peopleTest}
+\textbf{What will it test?}
+This test will check whether the people are read correctly from the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the people read from the HDF5 input file with the correct people.
+
+\subsubsection{HDF5Reader.invalidHDF5Test}
+\textbf{What will it test?}
+This test will check whether the HDF5Reader accepts invalid formed files or not. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by feeding the HDF5Reader a number of invalid files and check whether or not an exception is thrown by the HDF5Reader.
+
+\subsubsection{HDF5Writer.locationsTest}
+\textbf{What will it test?}
+This test will check whether the locations are written correctly to the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the resulting HDF5 file with the correct HDF5 file.
+
+\subsubsection{HDF5Writer.commutesTest}
+\textbf{What will it test?}
+This test will check whether the commutes are written correctly to the HDF5 file. \\
+\newline 
+\textbf{How will we achieve this?}
+We will achieve this by comparing the resulting HDF5 file with the correct HDF5 file.
+
+\subsubsection{HDF5Writer.contactCentersTest}
+\textbf{What will it test?}
+This test will check whether the contactCenters are written correctly to the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the resulting HDF5 file with the correct HDF5 file.
+
+\subsubsection{HDF5Writer.peopleTest}
+\textbf{What will it test?}
+This test will check whether the people are written correctly to the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the resulting HDF5 file with the correct HDF5 file.
 \section{QT}
 \section{Improved population generation}
 \subsection{Demographic profile}
