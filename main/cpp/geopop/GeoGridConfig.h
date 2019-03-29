@@ -45,11 +45,17 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
+                /// Participation of daycare (fraction of people of daycare age going to daycare).
+                double participation_daycare = 0.45;
+
+                /// Participation of preschool (fraction of people of preschool age going to preschool).
+                double participation_preschool = 0.99;
+
                 /// Participation of college (fraction of people of college age going to college).
                 double participation_college;
 
                 /// Participation of workplace (fraction of people of work age and not going to
-                /// college having emplayment).
+                /// college having employment).
                 double particpation_workplace;
 
                 /// Fraction of college students that commute.
@@ -82,6 +88,12 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
+                ///Numbers of individuals in Daycare.
+                unsigned int popcount_daycare;
+
+                ///Numbers of individuals in PreSchool.
+                unsigned int popcount_preschool;
+
                 /// Numbers of individuals in K12School.
                 unsigned int popcount_k12school;
 
@@ -100,8 +112,18 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Every houselhold constitutes a single ContactPool.
+                /// Every household constitutes a single ContactPool.
                 unsigned int pools_per_household = 1U;
+
+                /// Used to calculate the number of DayCares.
+                unsigned int daycare_size      = 29U;
+                unsigned int pools_per_daycare = 1U;
+                unsigned int daycare_pool_size = 29U;
+
+                /// Used to calculate the number of PreSchools.
+                unsigned int preschool_size      = 120U;
+                unsigned int pools_per_preschool = 6U;
+                unsigned int preschool_pool_size = 20U;
 
                 /// Used to calculate the number of K12Schools.
                 unsigned int k12school_size      = 500U;

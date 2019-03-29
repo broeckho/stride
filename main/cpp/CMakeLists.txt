@@ -97,6 +97,8 @@ set(STRIDE_SRC
     geopop/geo/GeoGridKdTree.cpp
     geopop/geo/KdTree2DPoint.cpp
     #---
+    geopop/generators/DaycareGenerator.cpp
+    geopop/generators/PreSchoolGenerator.cpp
     geopop/generators/CollegeGenerator.cpp
     geopop/generators/Generator.cpp
     geopop/generators/HouseholdGenerator.cpp
@@ -122,6 +124,8 @@ set(STRIDE_SRC
 	geopop/io/HouseholdJSONReader.h
 	geopop/io/HouseholdJSONReader.cpp
     geopop/io/ReaderFactory.cpp
+    geopop/populators/DaycarePopulator.cpp
+    geopop/populators/PreSchoolPopulator.cpp
     geopop/populators/CollegePopulator.cpp
     geopop/populators/HouseholdPopulator.cpp
     geopop/populators/K12SchoolPopulator.cpp
