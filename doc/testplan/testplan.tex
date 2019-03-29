@@ -91,6 +91,49 @@ This test will check whether the PreSchoolGenerator can function correctly with 
 \textbf{How will we achieve this?}
 We will achieve this by creating a geogrid with multiple locations and handing it over to the Generator, then comparing the amount of contactPools for each location with the expected amount of contactPools in that location.
 
+\subsection{Populators}
+\subsubsection{DaycarePopulator.NoPopulation}
+\textbf{What will it test?}
+This test will check whether the DaycarePopulator doesn't crash when it gets  a geogrid with an empty location. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with an empty location and passing it to the DaycarePopulator, then checking if no exceptions occur.
+
+\subsubsection{DaycarePopulator.OneLocationTest}
+\textbf{What will it test?}
+This test will check whether the DaycarePopulator is well-behaved when working with a geogrid with one location. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with one location and passing it to the DaycarePopulator, then comparing a number of parameters with the expected values, such as the amount of pools and the age range for each pool.
+
+\subsubsection{DaycarePopulator.TwoLocationTest}
+\textbf{What will it test?}
+This test will check whether the DaycarePopulator is well-behaved when working with a geogrid with two or more locations. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with two locations and passing it to the DaycarePopulator, then comparing a number of parameters for each location with the expected values, such as the amount of pools and the age range for each pool.
+
+\subsubsection{PreSchoolPopulator.NoPopulation}
+\textbf{What will it test?}
+This test will check whether the PreSchoolPopulator doesn't crash when it gets  a geogrid with an empty location. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with an empty location and passing it to the PreSchoolPopulator, then checking if no exceptions occur.
+
+\subsubsection{PreSchoolPopulator.OneLocationTest}
+\textbf{What will it test?}
+This test will check whether the PreSchoolPopulator is well-behaved when working with a geogrid with one location. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with one location and passing it to the PreSchoolPopulator, then comparing a number of parameters with the expected values, such as the amount of pools and the age range for each pool.
+
+\subsubsection{PreSchoolPopulator.TwoLocationTest}
+\textbf{What will it test?}
+This test will check whether the PreSchoolPopulator is well-behaved when working with a geogrid with two or more locations. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with two locations and passing it to the PreSchoolPopulator, then comparing a number of parameters for each location with the expected values, such as the amount of pools and the age range for each pool.
+
 \section{Data formats}
 \subsection{JSON}
 \subsection{HDF5}
