@@ -64,6 +64,8 @@ set(SRC
     #geopop/io/GeoGridJSONWriterTest.cpp
     geopop/io/GeoGridProtoReaderTest.cpp
     geopop/io/GeoGridProtoWriterTest.cpp
+    geopop/io/GeoGridHDF5ReaderTest.cpp
+    geopop/io/GeoGridHDF5WriterTest.cpp
     geopop/io/HouseholdCSVReaderTest.cpp
     geopop/io/ReaderFactoryTest.cpp
     geopop/io/WorkplaceCSVReader.cpp
