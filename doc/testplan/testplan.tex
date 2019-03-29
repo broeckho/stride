@@ -48,6 +48,92 @@
 For the rest of this document we will give a short summary of every newly created test that will check if the new features work as we expected. These new additions include the two new contact types, being Daycare and PreSchool, new data formats, being JSON and HDF5 as well as global schemes that will be used by all students. There will also be a visual output for the data via QT and an improvement to the generation of the population by factoring in new parameters that will make the generation of the population more diverse, so that we can check even more parameters for their influence on the spread of diseases.
 
 \section{Daycare and PreSchool}
+\subsection{Generators}
+\subsubsection{DaycareGenerator.ZeroLocationTest}
+\textbf{What will it test?}
+This test will check whether the DaycareGenerator can function correctly with no locations given.\\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with no locations and handing it over to the Generator, then checking whether the size of the geogrid is zero.
+
+\subsubsection{DaycareGenerator.OneLocationTest}
+\textbf{What will it test?}
+This test will check whether the DaycareGenerator can function correctly with one location given. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with one location and handing it over to the Generator, then comparing the amount of contactPools for the location with the expected amount of contactPools.
+
+\subsubsection{DaycareGenerator.MultipleLocationtest}
+\textbf{What will it test?}
+This test will check whether the DaycareGenerator can function correctly with multiple locations given. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with multiple locations and handing it over to the Generator, then comparing the amount of contactPools for each location with the expected amount of contactPools in that location.
+
+\subsubsection{PreSchoolGenerator.ZeroLocationTest}
+\textbf{What will it test?}
+This test will check whether the PreSchoolGenerator can function correctly with no locations given.\\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with no locations and handing it over to the Generator, then checking whether the size of the geogrid is zero.
+
+\subsubsection{PreSchoolGenerator.OneLocationTest}
+\textbf{What will it test?}
+This test will check whether the PreSchoolGenerator can function correctly with one location given. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with one location and handing it over to the Generator, then comparing the amount of contactPools for the location with the expected amount of contactPools.
+
+\subsubsection{PreSchoolGenerator.MultipleLocationtest}
+\textbf{What will it test?}
+This test will check whether the PreSchoolGenerator can function correctly with multiple locations given. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with multiple locations and handing it over to the Generator, then comparing the amount of contactPools for each location with the expected amount of contactPools in that location.
+
+\subsection{Populators}
+\subsubsection{DaycarePopulator.NoPopulation}
+\textbf{What will it test?}
+This test will check whether the DaycarePopulator doesn't crash when it gets  a geogrid with an empty location. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with an empty location and passing it to the DaycarePopulator, then checking if no exceptions occur.
+
+\subsubsection{DaycarePopulator.OneLocationTest}
+\textbf{What will it test?}
+This test will check whether the DaycarePopulator is well-behaved when working with a geogrid with one location. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with one location and passing it to the DaycarePopulator, then comparing a number of parameters with the expected values, such as the amount of pools and the age range for each pool.
+
+\subsubsection{DaycarePopulator.TwoLocationTest}
+\textbf{What will it test?}
+This test will check whether the DaycarePopulator is well-behaved when working with a geogrid with two or more locations. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with two locations and passing it to the DaycarePopulator, then comparing a number of parameters for each location with the expected values, such as the amount of pools and the age range for each pool.
+
+\subsubsection{PreSchoolPopulator.NoPopulation}
+\textbf{What will it test?}
+This test will check whether the PreSchoolPopulator doesn't crash when it gets  a geogrid with an empty location. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with an empty location and passing it to the PreSchoolPopulator, then checking if no exceptions occur.
+
+\subsubsection{PreSchoolPopulator.OneLocationTest}
+\textbf{What will it test?}
+This test will check whether the PreSchoolPopulator is well-behaved when working with a geogrid with one location. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with one location and passing it to the PreSchoolPopulator, then comparing a number of parameters with the expected values, such as the amount of pools and the age range for each pool.
+
+\subsubsection{PreSchoolPopulator.TwoLocationTest}
+\textbf{What will it test?}
+This test will check whether the PreSchoolPopulator is well-behaved when working with a geogrid with two or more locations. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by creating a geogrid with two locations and passing it to the PreSchoolPopulator, then comparing a number of parameters for each location with the expected values, such as the amount of pools and the age range for each pool.
+
 \section{Data formats}
 \subsection{JSON}
 \subsubsection{HouseholdJSONReader.validJSON}
@@ -128,6 +214,68 @@ A test to see what will happen if a a random word is given within a JSON formatt
 By passing a random string within a JSON file the test will determine if a proper Exception is thrown and the execution is aborted.
 
 \subsection{HDF5}
+\subsubsection{HDF5Reader.locationsTest}
+\textbf{What will it test?}
+This test will check whether the locations are read correctly from the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the locations read from the HDF5 input file with the correct locations.
+
+\subsubsection{HDF5Reader.commutesTest}
+\textbf{What will it test?}
+This test will check whether the commutes are read correctly from the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the commutes read from the HDF5 input file with the correct commutes.
+
+\subsubsection{HDF5Reader.contactCentersTest}
+\textbf{What will it test?}
+This test will check whether the contactCenters are read correctly from the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the contactCenters read from the HDF5 input file with the correct contactCenters.
+
+\subsubsection{HDF5Reader.peopleTest}
+\textbf{What will it test?}
+This test will check whether the people are read correctly from the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the people read from the HDF5 input file with the correct people.
+
+\subsubsection{HDF5Reader.invalidHDF5Test}
+\textbf{What will it test?}
+This test will check whether the HDF5Reader accepts invalid formed files or not. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by feeding the HDF5Reader a number of invalid files and check whether or not an exception is thrown by the HDF5Reader.
+
+\subsubsection{HDF5Writer.locationsTest}
+\textbf{What will it test?}
+This test will check whether the locations are written correctly to the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the resulting HDF5 file with the correct HDF5 file.
+
+\subsubsection{HDF5Writer.commutesTest}
+\textbf{What will it test?}
+This test will check whether the commutes are written correctly to the HDF5 file. \\
+\newline 
+\textbf{How will we achieve this?}
+We will achieve this by comparing the resulting HDF5 file with the correct HDF5 file.
+
+\subsubsection{HDF5Writer.contactCentersTest}
+\textbf{What will it test?}
+This test will check whether the contactCenters are written correctly to the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the resulting HDF5 file with the correct HDF5 file.
+
+\subsubsection{HDF5Writer.peopleTest}
+\textbf{What will it test?}
+This test will check whether the people are written correctly to the HDF5 file. \\
+\newline
+\textbf{How will we achieve this?}
+We will achieve this by comparing the resulting HDF5 file with the correct HDF5 file.
 \section{QT}
 \section{Improved population generation}
 \subsection{Demographic profile}
