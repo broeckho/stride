@@ -13,13 +13,17 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "GeoGridIOUtils.h"
-
+#include "geopop/io/GeoGridJSONWriter.h"
 #include "geopop/ContactCenter.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/io/GeoGridJSONWriter.h"
+
+#include "contact/ContactType.h"
+#include "contact/ContactPool.h"
+
 #include "pop/Population.h"
+
 #include "util/FileSys.h"
+#include "GeoGridIOUtils.h"
 
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/xml_parser.hpp>
@@ -38,9 +42,9 @@ namespace {
 
 void sortContactCenters(ptree& pt)
 {
-        auto& contactCenters       = pt.get_child("contactCenters");
+        auto& contactCenters       = pt.get_child("contactPools");
         auto  compareContactCenter = [](const pair<string, ptree>& a, const pair<string, ptree>& b) {
-                return a.second.get<string>("type") < b.second.get<string>("type");
+                return a.second.get<string>("class") < b.second.get<string>("class");
         };
         contactCenters.sort<decltype(compareContactCenter)>(compareContactCenter);
 }
@@ -62,6 +66,9 @@ bool compareGeoGrid(GeoGrid& geoGrid, const string& testname)
 {
         GeoGridJSONWriter writer;
         stringstream      ss;
+
+        ofstream outputFileStream(FileSys::GetTestsDir().string() + "/testdata/GeoGridJSON/blubblub.json");
+
         writer.Write(geoGrid, ss);
         ptree result;
         read_json(ss, result);
@@ -74,6 +81,7 @@ bool compareGeoGrid(GeoGrid& geoGrid, const string& testname)
         ostringstream oss1, oss2;
         boost::property_tree::xml_parser::write_xml(oss1, result);
         boost::property_tree::xml_parser::write_xml(oss2, expected);
+
         // return result == expected;
         return oss1.str() == oss2.str();
 }
@@ -88,31 +96,34 @@ TEST(GeoGridJSONWriterTest, locationTest)
 
         EXPECT_TRUE(compareGeoGrid(geoGrid, "test0.json"));
 }
-TEST(GeoGridJSONWriterTest, contactCentersTest)
+TEST(GeoGridJSONWriterTest, contactPoolTest)
 {
-        auto pop      = Population::Create();
-        auto geoGrid  = GeoGrid(pop.get());
-        auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
-        location->AddCenter(make_shared<ContactCenter>(0, Id::K12School));
-        location->AddCenter(make_shared<ContactCenter>(1, Id::PrimaryCommunity));
-        location->AddCenter(make_shared<ContactCenter>(2, Id::College));
-        location->AddCenter(make_shared<ContactCenter>(3, Id::Household));
-        location->AddCenter(make_shared<ContactCenter>(4, Id::Workplace));
-        geoGrid.AddLocation(location);
-
-        EXPECT_TRUE(compareGeoGrid(geoGrid, "test1.json"));
+    EXPECT_TRUE(false);
+//        auto pop      = Population::Create();
+//        auto geoGrid  = GeoGrid(pop.get());
+//        auto location = make_shared<Location>(1, 4, Coordinate(0, 0), "Bavikhove", 2500);
+//        location->RegisterPool(make_shared<ContactPool>(0, Id::K12School));
+//        location->RegisterPool(make_shared<ContactPool>(1, Id::PrimaryCommunity));
+//        location->RegisterPool(make_shared<ContactPool>(2, Id::College));
+//        location->RegisterPool(make_shared<ContactPool>(3, Id::Household));
+//        location->RegisterPool(make_shared<ContactPool>(4, Id::Workplace));
+//        geoGrid.AddLocation(location);
+//
+//        EXPECT_TRUE(compareGeoGrid(geoGrid, "test1.json"));
 }
 
 TEST(GeoGridJSONWriterTest, peopleTest)
 {
-        auto pop = Population::Create();
-        EXPECT_TRUE(compareGeoGrid(*GetPopulatedGeoGrid(pop.get()), "test2.json"));
+        EXPECT_TRUE(false);
+//        auto pop = Population::Create();
+//        EXPECT_TRUE(compareGeoGrid(*GetPopulatedGeoGrid(pop.get()), "test2.json"));
 }
 
 TEST(GeoGridJSONWriterTest, commutesTest)
 {
-        auto pop = Population::Create();
-        EXPECT_TRUE(compareGeoGrid(*GetCommutesGeoGrid(pop.get()), "test7.json"));
+        EXPECT_TRUE(false);
+//        auto pop = Population::Create();
+//        EXPECT_TRUE(compareGeoGrid(*GetCommutesGeoGrid(pop.get()), "test7.json"));
 }
 
 } // namespace

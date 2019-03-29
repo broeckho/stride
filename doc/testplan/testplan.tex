@@ -213,6 +213,34 @@ A test to see what will happen if a a random word is given within a JSON formatt
 \textbf{How will we achieve this?}
 By passing a random string within a JSON file the test will determine if a proper Exception is thrown and the execution is aborted.
 
+\subsubsection{GeoGridJSONWriterTest.locationTest}
+\textbf{What will it test?}
+A test to determine if the location information retrieved from a GeoGrid is correctly formatted in a JSON file. \\
+\newline
+\textbf{How will we achieve this?}
+The test will create a GeoGrid and passes this information to the writer which will create a JSON formatted output. The test will convert this JSON and a comparison file to an XML format and check if they are the same.
+
+\subsubsection{GeoGridJSONWriterTest.contactPoolTest}
+\textbf{What will it test?}
+A test to determine if the contact pool information retrieved from a GeoGrid is correctly formatted in a JSON file.\\
+\newline
+\textbf{How will we achieve this?}
+The test will create a GeoGrid and passes this information to the writer which will create a JSON formatted output. The test will convert this JSON and a comparison file to an XML format and check if they are the same.
+
+\subsubsection{GeoGridJSONWriterTest.peopleTest}
+\textbf{What will it test?}
+This test will look in specific if the people are correctly represented in the resulting JSON file.\\
+\newline
+\textbf{How will we achieve this?}
+The test will create a population and passes this information to the writer which will create a JSON formatted output. The test will convert this JSON and a comparison file to an XML format and check if they are the same.
+
+\subsubsection{GeoGridJSONWriterTest.commutesTest}
+\textbf{What will it test?}
+This test will look in specific if the commuting information is correctly represented in the written JSON file.\\
+\newline
+\textbf{How will we achieve this?}
+The test will create a population and passes this information to the writer which will create a JSON formatted output. The test will convert this JSON and a comparison file to an XML format and check if they are the same.
+
 \subsection{HDF5}
 \subsubsection{HDF5Reader.locationsTest}
 \textbf{What will it test?}
