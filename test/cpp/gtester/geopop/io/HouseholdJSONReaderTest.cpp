@@ -15,6 +15,8 @@
 
 #include "geopop/io/HouseholdJSONReader.h"
 #include "geopop/GeoGridConfig.h"
+#include "util/Exception.h"
+
 
 #include <gtest/gtest.h>
 #include <memory>
@@ -23,28 +25,27 @@
 using namespace std;
 using namespace geopop;
 using namespace stride;
+using namespace stride::ContactType;
+using namespace stride::util;
 
 namespace {
 
-TEST(HouseholdJSONReader, test1)
+TEST(HouseholdJSONReader, validJSON)
 {
-    string jsonString =
-            R"({
-	"householdsName": "writeTest",
-	"householdsList": [
-		[42, 38, 15],
-		[70, 68],
-		[40, 39, 9, 6],
-		[43, 42],
-		[55, 54],
-		[40, 40, 3, 3],
-		[35, 32, 6, 3],
-		[78, 75]
-	]
-}
-)";
-
-//    std::cout << jsonString << std::endl;
+    string jsonString = R"({
+	                            "householdsName": "writeTest",
+                                "householdsList": [
+		                            [42, 38, 15],
+		                            [70, 68],
+		                            [40, 39, 9, 6],
+		                            [43, 42],
+		                            [55, 54],
+		                            [40, 40, 3, 3],
+		                            [35, 32, 6, 3],
+		                            [78, 75]
+	                            ]
+                            }
+                        )";
 
     GeoGridConfig      geoConfig{};
     auto               instream = make_unique<istringstream>(jsonString);
@@ -80,6 +81,20 @@ TEST(HouseholdJSONReader, test1)
 
     EXPECT_EQ(HHages[7][0], 78U);
     EXPECT_EQ(HHages[7][1], 75U);
+}
+
+TEST(HouseholdJSONReader, invalidJSON)
+{
+    string jsonString = R"({
+                            invalid
+                            }
+                        )";
+
+    GeoGridConfig      geoConfig{};
+    auto               instream = make_unique<istringstream>(jsonString);
+    HouseholdJSONReader reader(move(instream));
+
+    EXPECT_THROW(reader.SetReferenceHouseholds(geoConfig.refHH.person_count, geoConfig.refHH.ages), Exception);
 }
 
 } // namespace

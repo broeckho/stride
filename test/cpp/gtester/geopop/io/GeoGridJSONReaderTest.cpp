@@ -83,8 +83,6 @@ TEST(GeoGridJSONReaderTest, locationsTest)
 
 TEST(GeoGridJSONReaderTest, commutesTest)
 {
-
-
         auto pop = Population::Create();
         getGeoGridFromFile("test7.json", pop.get());
         auto& geoGrid = pop->RefGeoGrid();
@@ -147,7 +145,7 @@ TEST(GeoGridJSONReaderTest, commutesTest)
         }
 }
 
-TEST(GeoGridJSONReaderTest, contactCentersTest)
+TEST(GeoGridJSONReaderTest, contactPoolTest)
 {
         auto pop = Population::Create();
         getGeoGridFromFile("test1.json", pop.get());

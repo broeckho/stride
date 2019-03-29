@@ -35,7 +35,7 @@ set(EXEC gtester)
 set(SRC
     ScenarioData.cpp
     ScenarioRuns.cpp
-    #---
+#    ---
     UnitCsvTest.cpp
     UnitIsIterator.cpp
     UnitPtreeUtils.cpp
@@ -47,8 +47,8 @@ set(SRC
     UnitSlice1.cpp
     UnitSlice2.cpp
     UnitDemographicProfile.cpp
-    #---
-    #---
+#    ---
+#    ---
     geopop/generators/CollegeGeneratorTest.cpp
     geopop/generators/HouseholdGeneratorTest.cpp
     geopop/generators/K12SchoolGeneratorTest.cpp
@@ -56,20 +56,21 @@ set(SRC
     geopop/generators/SecondaryCommunityGeneratorTest.cpp
     geopop/generators/WorkplaceGeneratorTest.cpp
     geopop/generators/WorkplaceSizeGeneratorTest.cpp
-    #---
+#    ---
     geopop/io/CitiesCSVReaderTest.cpp
     geopop/io/CommutesCSVReaderTest.cpp
     geopop/io/GeoGridIOUtils.cpp
-    #geopop/io/GeoGridJSONReaderTest.cpp
-    #geopop/io/GeoGridJSONWriterTest.cpp
+    geopop/io/GeoGridJSONReaderTest.cpp
+    geopop/io/GeoGridJSONWriterTest.cpp
     geopop/io/GeoGridProtoReaderTest.cpp
     geopop/io/GeoGridProtoWriterTest.cpp
     geopop/io/HouseholdCSVReaderTest.cpp
+    geopop/io/HouseholdJSONReaderTest.cpp
     geopop/io/ReaderFactoryTest.cpp
     geopop/io/WorkplaceCSVReader.cpp
-    #---
+#    ---
     geopop/kdtree.cpp
-    #---
+#    ---
     geopop/populators/MakeGeoGrid.cpp
     geopop/populators/CollegePopulatorTest.cpp
     geopop/populators/HouseholdPopulatorTest.cpp
@@ -78,12 +79,12 @@ set(SRC
     geopop/populators/SecondaryCommunityPopulatorTests.cpp
     geopop/populators/WorkplacePopulatorTest.cpp
     geopop/populators/WorkPlaceSizePopulatorTest.cpp
-    #---
+#    ---
     myhayai/DeliveryMan.cpp
     myhayai/MyhayaiTests.cpp
     myhayai/class_delivery.cpp
     myhayai/flex_delivery.cpp
-    #---
+#    ---
     main.cpp
 )
 
