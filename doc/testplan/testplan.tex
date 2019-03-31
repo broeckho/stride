@@ -94,7 +94,7 @@ We will achieve this by creating a geogrid with multiple locations and handing i
 \subsection{Populators}
 \subsubsection{DaycarePopulator.NoPopulation}
 \textbf{What will it test?}
-This test will check whether the DaycarePopulator doesn't crash when it gets  a geogrid with an empty location. \\
+This test will check whether the DaycarePopulator doesn't crash when it gets a geogrid with an empty location. \\
 \newline
 \textbf{How will we achieve this?}
 We will achieve this by creating a geogrid with an empty location and passing it to the DaycarePopulator, then checking if no exceptions occur.
@@ -115,7 +115,7 @@ We will achieve this by creating a geogrid with two locations and passing it to 
 
 \subsubsection{PreSchoolPopulator.NoPopulation}
 \textbf{What will it test?}
-This test will check whether the PreSchoolPopulator doesn't crash when it gets  a geogrid with an empty location. \\
+This test will check whether the PreSchoolPopulator doesn't crash when it gets a geogrid with an empty location. \\
 \newline
 \textbf{How will we achieve this?}
 We will achieve this by creating a geogrid with an empty location and passing it to the PreSchoolPopulator, then checking if no exceptions occur.
@@ -138,10 +138,10 @@ We will achieve this by creating a geogrid with two locations and passing it to 
 \subsection{JSON}
 \subsubsection{HouseholdJSONReader.validJSON}
 \textbf{What will it test?}
-This test will check is a given JSON file containing a household configuration is read properly and retrieved the expected values. \\
+This test will check if a given JSON file containing a household configuration is read properly and the expected values can be retreived. \\
 \newline
 \textbf{How will we achieve this?}
-A JSON formatted string is given to the reader. Then all households are checked if they have the same size and if each household contain the right values.
+A JSON formatted string is given to the reader. Then all households are checked if they have the same size and if each household contains the right values.
 
 \subsubsection{HouseholdJSONReader.invalidJSON}
 \textbf{What will it test?}
@@ -180,7 +180,7 @@ From a JSON formatted file we will check if the person within a center has a poi
 
 \subsubsection{GeoGridJSONReaderTest.intTest}
 \textbf{What will it test?}
-It will test if their occurs an error if a double is given in the JSON file.
+It will test if there occurs an error if a double is given and not an integer in the JSON file.
 \newline
 \textbf{How will we achieve this?}
 The test simply follows the same steps as the peopleTest and sees if the error occurs or everything can be simply casted to the right types.
@@ -194,24 +194,24 @@ We will simply pass along an empty stream to the reader and observe its response
 
 \subsubsection{GeoGridJSONReaderTest.invalidTypeTest}
 \textbf{What will it test?}
-This test will examine if a correct response is produces when a wrong type is used for a contact pool in the JSON format.
+This test will examine if a correct response is produced when a wrong type is used for a contactPool in the JSON format.
 \newline
 \textbf{How will we achieve this?}
-A JSON file is given to the reader with a wrong type for a contactPool. Then it is checkes if an Exception has been throw to indicate something has gone wrong.
+A JSON file is given to the reader with a wrong type for a contactPool. Then it is checked if an exception has been throw to indicate something went wrong.
 
 \subsubsection{GeoGridJSONReaderTest.invalidPersonTest}
 \textbf{What will it test?}
-This test is it is possible to reference a non-existing person within a contact pool without defining this person with its attributes. 
+This test sees if it is possible to reference a non-existing person within a contactPool without defining this person with its attributes. 
 \newline
 \textbf{How will we achieve this?}
-A JSON file with a wrong person in a contact pool is given to the reader to test its response. If it returns an Exception indicating something has gone wrong the test will succeed.
+A JSON file with a wrong person in a contactPool is given to the reader to test its response. If it returns an exception indicating something has gone wrong, the test will succeed.
 
 \subsubsection{GeoGridJSONReaderTest.invalidJSONTest}
 \textbf{What will it test?}
-A test to see what will happen if a a random word is given within a JSON formatted file.
+A test to see what will happen if a random word is given within a JSON formatted file.
 \newline
 \textbf{How will we achieve this?}
-By passing a random string within a JSON file the test will determine if a proper Exception is thrown and the execution is aborted.
+By passing a random string within a JSON file the test will determine if a proper exception is thrown and the execution is aborted.
 
 \subsubsection{GeoGridJSONWriterTest.locationTest}
 \textbf{What will it test?}
@@ -222,7 +222,7 @@ The test will create a GeoGrid and passes this information to the writer which w
 
 \subsubsection{GeoGridJSONWriterTest.contactPoolTest}
 \textbf{What will it test?}
-A test to determine if the contact pool information retrieved from a GeoGrid is correctly formatted in a JSON file.\\
+A test to determine if the contactPool information retrieved from a GeoGrid is correctly formatted in a JSON file.\\
 \newline
 \textbf{How will we achieve this?}
 The test will create a GeoGrid and passes this information to the writer which will create a JSON formatted output. The test will convert this JSON and a comparison file to an XML format and check if they are the same.
@@ -305,6 +305,7 @@ This test will check whether the people are written correctly to the HDF5 file. 
 \textbf{How will we achieve this?}
 We will achieve this by comparing the resulting HDF5 file with the correct HDF5 file.
 \section{QT}
+No tests will be made for QT, as this is hard to test via code. The testing of QT will happen via simulations done by ourselves and outsiders checking if our interface is obvious and well made
 \section{Improved population generation}
 \subsection{Demographic profile}
 \subsubsection{DemographicProfile.age} 
