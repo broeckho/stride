@@ -20,33 +20,29 @@ addons:
       # - libhdf5-dev
       - doxygen
       - graphviz
-  homebrew:
-    packages:
-        - qt5
-    update: false    
 
 matrix:
   include:
 
-    #- os: linux
-    #  compiler: gcc
-    #  env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && CMAKE_BUILD_TYPE=Debug"
-    #  addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
+    - os: linux
+      compiler: gcc
+      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && CMAKE_BUILD_TYPE=Debug"
+      addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
-    #- os: linux
-    #  compiler: gcc
-    #  env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && MAKE_TEST=true"
-    #  addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
+    - os: linux
+      compiler: gcc
+      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && MAKE_TEST=true"
+      addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
-    #- os: linux
-    #  compiler: gcc
-    #  env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8 && TRAVIS_BUILD_DOCS=true"
-    #  addons: {apt: { packages: [*default_packages, g++-8], sources: [*default_sources]}}
+    - os: linux
+      compiler: gcc
+      env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8 && TRAVIS_BUILD_DOCS=true"
+      addons: {apt: { packages: [*default_packages, g++-8], sources: [*default_sources]}}
 
-    #- os: linux
-    #  compiler: clang
-    #  env: MATRIX_EVAL="CC=clang && CXX=clang++ && MAKE_TEST=true"
-    #  addons: {apt: { packages: [*default_packages], sources: [*default_sources]}}
+    - os: linux
+      compiler: clang
+      env: MATRIX_EVAL="CC=clang && CXX=clang++ && MAKE_TEST=true"
+      addons: {apt: { packages: [*default_packages], sources: [*default_sources]}}
 
     #- os: osx
     #  osx_image: xcode10.1
@@ -99,20 +95,7 @@ before_install:
     if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CC" == "clang" ]]; then
       export LD_LIBRARY_PATH="/usr/local/clang/lib:$LD_LIBRARY_PATH"
     fi
-  #check os and install neccessary qt5 packages  
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      #install qt5
-      sudo add-apt-repository ppa:beineri/opt-qt58-trusty -y 
-      sudo apt-get install -y qtbase5-dev 
-      sudo apt-get install -y qtdeclarative5-dev
-    fi
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      brew install qt5
-      export PATH=/usr/local/opt/qt5/bin:$PATH=
-    fi
-  
+
 install:
     #--------- Linux
   - |
@@ -160,7 +143,7 @@ install:
       export LD_LIBRARY_PATH=$BOOST_ROOT/lib:$LD_LIBRARY_PATH
       sudo rm -f /usr/local/lib/libboost*.dylib*
       sudo ln -s $BOOST_ROOT/lib/*.{so,dylib}* /usr/local/lib
-    fi   
+    fi
 
 script:
   - make all && if [[ "$MAKE_TEST" = "true" ]]; then make test; fi

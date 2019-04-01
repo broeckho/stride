@@ -84,21 +84,18 @@ else()
         include_directories(${HDF5_INCLUDE_DIR})
         message(${HDF5_INCLUDE_DIRS})
     else()
-        add_subdirectory(main/resources/lib/HDF5)
+        add_subdirectory(main/rescources/libs/hdf5)
     endif()
 endif()
 
 #============================================================================
 # Configuration for QT.
 #============================================================================
-set(QT_FOUND FALSE)
 if(NOT STRIDE_FORCE_NO_QT)
-    #find_package sets Q_FOUND to TRUE if found
-    set(Qt5_FOUND FALSE)
+    set(QT_FOUND TRUE)
     find_package(Qt5 COMPONENTS Widgets Qml Quick Core)
-    if(Qt5_FOUND)
-        set(QT_FOUND TRUE)
-    endif()
+else()
+    set(QT_FOUND FALSE)
 endif()
 
 #============================================================================
@@ -106,12 +103,8 @@ endif()
 #============================================================================
 add_subdirectory(main)
 add_subdirectory(test)
-
-if(QT_FOUND)
-    add_subdirectory(gui)  
-endif()
 if(STRIDE_INCLUDE_DOC)
-    add_subdirectory(doc)
+	add_subdirectory(doc)
 endif()
 
 #============================================================================
