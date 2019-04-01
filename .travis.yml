@@ -28,25 +28,25 @@ addons:
 matrix:
   include:
 
-    - os: linux
-      compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && CMAKE_BUILD_TYPE=Debug"
-      addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
+    #- os: linux
+    #  compiler: gcc
+    #  env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && CMAKE_BUILD_TYPE=Debug"
+    #  addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
-    - os: linux
-      compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && MAKE_TEST=true"
-      addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
+    #- os: linux
+    #  compiler: gcc
+    #  env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && MAKE_TEST=true"
+    #  addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
-    - os: linux
-      compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8 && TRAVIS_BUILD_DOCS=true"
-      addons: {apt: { packages: [*default_packages, g++-8], sources: [*default_sources]}}
+    #- os: linux
+    #  compiler: gcc
+    #  env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8 && TRAVIS_BUILD_DOCS=true"
+    #  addons: {apt: { packages: [*default_packages, g++-8], sources: [*default_sources]}}
 
-    - os: linux
-      compiler: clang
-      env: MATRIX_EVAL="CC=clang && CXX=clang++ && MAKE_TEST=true"
-      addons: {apt: { packages: [*default_packages], sources: [*default_sources]}}
+    #- os: linux
+    #  compiler: clang
+    #  env: MATRIX_EVAL="CC=clang && CXX=clang++ && MAKE_TEST=true"
+    #  addons: {apt: { packages: [*default_packages], sources: [*default_sources]}}
 
     #- os: osx
     #  osx_image: xcode10.1
