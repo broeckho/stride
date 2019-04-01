@@ -56,11 +56,11 @@ endif()
 #============================================================================
 # Prototype Sources.
 #============================================================================
-set(HDF5_PROTOTYPE_SRC
-    protoypes/HDF5Prototype.cpp
-)
-
-add_executable(prototype_hdf5 ${HDF5_PROTOTYPE_SRC})
+#set(HDF5_PROTOTYPE_SRC
+#    protoypes/HDF5Prototype.cpp
+#)
+#
+#add_executable(prototype_hdf5 ${HDF5_PROTOTYPE_SRC})
 
 #============================================================================
 # Sources.

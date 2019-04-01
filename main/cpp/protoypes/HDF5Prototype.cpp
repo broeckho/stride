@@ -2,9 +2,12 @@
 // Created by benji on 21/03/19.
 //
 
-#include <H5Cpp.h>
 
-int main(){
+//commented out because it blocks travis and doesn't do anything
 
-    return 0;
-}
+//#include <H5Cpp.h>
+//
+//int main(){
+//
+//    return 0;
+//}

@@ -108,7 +108,7 @@ if(NOT STRIDE_FORCE_NO_QT)
     message( STATUS "------> QT_FOUND                    : ${QT_FOUND}"                   )
 endif()
 #
-if(NOT STRIDE_FORCE_NO_QT)
+if(NOT STRIDE_FORCE_NO_HDF5)
     message( STATUS "" )
     message( STATUS "------> HDF5_FOUND                  : ${HDF5_FOUND}"                   )
 endif()
