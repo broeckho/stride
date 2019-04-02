@@ -9,7 +9,7 @@ def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
     AgeImmunity.createAgeDistributionPlots(outputDir, "data/pop_flanders600.csv")
     # Overview plot for outbreak occurrence probabilities
     OutbreakOccurrenceAndSize.createOutbreakOccurrenceOverviewPlot(outputDir,
-                                            R0s, years, [str(y) for y in years],
+                                            R0s, years, [str(y) for y in years], "Calendar year",
                                             numDays, extinctionThreshold, poolSize)
     # Overview plot for outbreak sizes
     OutbreakOccurrenceAndSize.createFinalSizesSideBySidePlot(outputDir, R0s,
