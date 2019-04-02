@@ -8,6 +8,8 @@ import os
 from numpy.polynomial.polynomial import polyfit
 from pystride.PyController import PyController
 
+# [  1.48947087  27.38215366  -1.57265546]
+
 def getCommonParameters():
     # TODO adaptive symptomatic behavior?
     parameters = {
@@ -76,15 +78,19 @@ def getSecondaryCases(transmissionRate, startDate, runID):
 def analyseResults(numRuns, startDates, transmissionRates, poolSize):
     allTransmissionRates = []
     allSecondaryCases = []
+    secondaryCasesByTR = []
     for rate in transmissionRates:
         colors = ["b", "g", "y", "k", "m", "c", "r"]
         days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+        secondaryCasesTR = []
         for date_i in range(len(startDates)):
             with multiprocessing.Pool(processes=poolSize) as pool:
                 secondaryCases = pool.starmap(getSecondaryCases, [(rate, startDates[date_i], i) for i in range(numRuns)])
+                secondaryCasesTR += secondaryCases
                 allSecondaryCases += secondaryCases
                 allTransmissionRates += ([rate] * numRuns)
                 plt.plot([rate] * numRuns, secondaryCases, colors[date_i] + "o")
+        secondaryCasesByTR.append(secondaryCasesTR)
     newCoefficients = polyfit(allTransmissionRates, allSecondaryCases, 2)
     print(newCoefficients)
     plt.xlabel("Transmission rate")
@@ -92,6 +98,9 @@ def analyseResults(numRuns, startDates, transmissionRates, poolSize):
     plt.legend(days)
     plt.savefig("TransmissionRateVSSecCases")
     plt.clf()
+
+    plt.boxplot(secondaryCasesByTR)
+    plt.show()
 
 def main(numRuns, poolSize):
     transmissionProbs = numpy.arange(0, 1, 0.05)
