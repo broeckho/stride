@@ -44,7 +44,7 @@ int main(int argc, char** argv)
 {
         int exitStatus = EXIT_SUCCESS;
 
-        try {
+
                 // -----------------------------------------------------------------------------------------
                 // Parse command line (parameters displayed in --help in reverse order to order below).
                 // -----------------------------------------------------------------------------------------
@@ -131,12 +131,5 @@ int main(int argc, char** argv)
                 else if (execArg.getValue() == "clean" || execArg.getValue() == "dump") {
                         RunConfigManager::CleanConfigFile(configPt);
                 }
-        } catch (exception& e) {
-                exitStatus = EXIT_FAILURE;
-                cerr << "\nEXCEPION THROWN: " << e.what() << endl;
-        } catch (...) {
-                exitStatus = EXIT_FAILURE;
-                cerr << "\nEXCEPION THROWN: Unknown exception." << endl;
-        }
         return exitStatus;
 }

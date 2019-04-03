@@ -68,6 +68,10 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // --------------------------------------------------------------
         const auto ageContactPt = ReadAgeContactPtree();
         for (Id typ : IdList) {
+                //TODO: fix this dirty hack with some input files
+                if(typ == Id::PreSchool || typ == Id::Daycare)
+                    continue;
+
                 sim->m_contact_profiles[typ] = AgeContactProfile(typ, ageContactPt);
         }
 

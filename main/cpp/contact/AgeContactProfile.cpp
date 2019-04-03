@@ -34,6 +34,10 @@ AgeContactProfile::AgeContactProfile(Id poolType, const ptree& contactPt) : std:
         // TODO ELiminate this hack by fixing the data file
         if (poolType == Id::K12School || poolType == Id::College) {
                 typeKey = "school";
+        } else if (poolType == Id::Daycare) {
+            typeKey = "daycare";
+        } else if (poolType == Id::PreSchool) {
+            typeKey = "preschool";
         } else if (poolType == Id::Household) {
                 typeKey = "household";
         } else if (poolType == Id::Workplace) {
