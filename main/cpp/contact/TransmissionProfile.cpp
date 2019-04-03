@@ -32,7 +32,7 @@ void TransmissionProfile::Initialize(const ptree& configPt, const ptree& disease
 	boost::optional<double> r0 = configPt.get_optional<double>("run.r0");
 	if (r0) {
 	        // Use a quadratic model, fitted to simulation data:
-	        // Expected(R0) = (0 + b1*transm_rate + b2*transm_rate^2).
+	        // Expected(R0) = (0 + b1*transm_probability + b2*transm_probability^2).
 	        const auto b0 = diseasePt.get<double>("disease.transmission.b0");
 	        const auto b1 = diseasePt.get<double>("disease.transmission.b1");
 	        const auto b2 = diseasePt.get<double>("disease.transmission.b2");
@@ -45,14 +45,14 @@ void TransmissionProfile::Initialize(const ptree& configPt, const ptree& disease
 	        // To obtain a real values (instead of complex)
 	        if (*r0 < (-(b * b) / (4 * a))) {
 	                const double determ = (b * b) - 4 * a * c;
-	                m_transmission_rate = (-b + sqrt(determ)) / (2 * a);
+	                m_transmission_probability = (-b + sqrt(determ)) / (2 * a);
 	        } else {
 	                throw runtime_error("TransmissionProfile::Initialize> Illegal input values.");
 	        }
 
 	} else {
-		// Use transmission rate parameter
-		m_transmission_rate = configPt.get<double>("run.transmission_rate");
+		// Use transmission probability parameter
+		m_transmission_probability = configPt.get<double>("run.transmission_probability");
 	}
 }
 

@@ -25,22 +25,22 @@
 namespace stride {
 
 /**
- * Transmission rates from disease data.
+ * Transmission probabilities from disease data.
  */
 class TransmissionProfile
 {
 public:
         /// Initialize.
-        TransmissionProfile() : m_transmission_rate(0.0) {}
+        TransmissionProfile() : m_transmission_probability(0.0) {}
 
-        /// Return transmission rate.
-        double GetRate() const { return m_transmission_rate; }
+        /// Return transmission probability.
+        double GetProbability() const { return m_transmission_probability; }
 
         /// Initialize.
         void Initialize(const boost::property_tree::ptree& configPt, const boost::property_tree::ptree& diseasePt);
 
 private:
-        double m_transmission_rate;
+        double m_transmission_probability;
 };
 
 } // namespace stride
