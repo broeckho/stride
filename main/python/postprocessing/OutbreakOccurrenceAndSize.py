@@ -110,8 +110,6 @@ def createFinalSizesSideBySidePlot(outputDir, R0s, years, numDays, extinctionThr
                 right=False,         # ticks along the top edge are off
                 labelleft=False) # labels along the bottom edge are off
     plt.tight_layout()
-    #plt.savefig(os.path.join(outputDir, "AllOutbreakSizes.png"))
-    #plt.clf()
     saveFig(outputDir, "AllOutbreakSizesSBS")
 
 def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold, poolSize, figName):

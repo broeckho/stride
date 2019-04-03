@@ -9,10 +9,10 @@ from pystride.PyController import PyController
 
 IMMUNITY_RATES = {
     2013: 0.9161450000000001,
-    2020: 0.9081133333333328,
-    2025: 0.8891299999999993,
-    2030: 0.8666783333333348,
-    2035: 0.8457200000000000,
+    2020: 0.9081133333333369,
+    2025: 0.8891299999999969,
+    2030: 0.8666783333333373,
+    2035: 0.84572,
     2040: 0.8290033333333328,
 }
 
@@ -40,6 +40,23 @@ def registerSusceptibles(simulator, event):
             else:
                 isSusceptible = 0
             writer.writerow({"age": age, "susceptible": isSusceptible})
+
+def registerAgesInfected(simulator, event):
+    outputPrefix = simulator.GetConfigValue('run.output_prefix')
+    pop = simulator.GetPopulation()
+    with open(os.path.join(outputPrefix, 'infected.csv'), 'w') as csvfile:
+        fieldnames = ["age", "infected"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for i in range(pop.size()):
+            person = pop[i]
+            age = person.GetAge()
+            beenInfected = person.GetHealth().IsInfected() or person.GetHealth().IsRecovered()
+            if beenInfected:
+                beenInfected = 1
+            else:
+                beenInfected = 0
+            writer.writerow({"age": age, "infected": beenInfected})
 
 # Callback function to track the cumulative cases
 # at each timestep
@@ -79,6 +96,7 @@ def runSimulation(year, R0, seed):
     control.runConfig.setParameter("immunity_rate", IMMUNITY_RATES[year])
     control.registerCallback(registerSusceptibles, EventType.AtStart)
     control.registerCallback(trackCases, EventType.Stepped)
+    control.registerCallback(registerAgesInfected, EventType.AtFinished)
     control.control()
     return
 

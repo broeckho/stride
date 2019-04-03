@@ -101,6 +101,7 @@ def createInfectedFractionByAgeOverviewPlot(outputDir, scenarioNames, scenarioDi
             for a_i in range(MAX_AGE + 1):
                 age = []
                 for r_i in range(len(infectedByAge)):
+                    print(r_i)
                     age.append(infectedByAge[r_i][a_i] / totalsByAge[r_i][a_i])
                 if stat == "mean":
                     if len(age) > 0:
