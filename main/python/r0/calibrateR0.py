@@ -8,8 +8,6 @@ import os
 from numpy.polynomial.polynomial import polyfit
 from pystride.PyController import PyController
 
-# [  1.48947087  27.38215366  -1.57265546]
-
 def getCommonParameters():
     # TODO adaptive symptomatic behavior?
     parameters = {
@@ -37,10 +35,6 @@ def getCommonParameters():
     }
     return parameters
 
-def probabilityToRate(p):
-    if p < 1:
-        return - math.log(1 - p)
-
 def generateRngSeeds(numSeeds):
     seeds = []
     for i in range(numSeeds):
@@ -48,26 +42,9 @@ def generateRngSeeds(numSeeds):
         seeds.append(int.from_bytes(random_data, byteorder='big'))
     return seeds
 
-def runSimulation(startDate, transmissionRate, seed, runID):
-    control = PyController(data_dir="data")
-    for paramName, paramValue in getCommonParameters().items():
-        control.runConfig.setParameter(paramName, paramValue)
-    control.runConfig.setParameter("transmission_rate", transmissionRate)
-    control.runConfig.setParameter("rng_seed", seed)
-    control.runConfig.setParameter("output_prefix", "TR_" + str(transmissionRate) + "_START_" + startDate + "_" + str(runID))
-    control.runConfig.setParameter("start_date", startDate)
-    control.control()
-
-def runSimulations(numRuns, startDates, transmissionRates, poolSize):
-    for transmissionRate in transmissionRates:
-        for date in startDates:
-            seeds = generateRngSeeds(numRuns)
-            with multiprocessing.Pool(processes=poolSize) as pool:
-                pool.starmap(runSimulation, [(date, transmissionRate, seeds[i], i) for i in range(len(seeds))])
-
-def getSecondaryCases(transmissionRate, startDate, runID):
+def getSecondaryCases(transmissionProbability, startDate, runID):
     secondaryCases = 0
-    contactFile = "TR_" + str(transmissionRate) + "_START_" + startDate + "_" + str(runID) + "_contact_log.txt"
+    contactFile = "TP_" + str(transmissionProbability) + "_START_" + startDate + "_" + str(runID) + "_contact_log.txt"
     with open(contactFile) as f:
         for line in f:
             line = line.split(" ")
@@ -75,39 +52,59 @@ def getSecondaryCases(transmissionRate, startDate, runID):
                 secondaryCases += 1
     return secondaryCases
 
-def analyseResults(numRuns, startDates, transmissionRates, poolSize):
-    allTransmissionRates = []
+def runSimulation(startDate, transmissionProbability, seed, runID):
+    control = PyController(data_dir="data")
+    for paramName, paramValue in getCommonParameters().items():
+        control.runConfig.setParameter(paramName, paramValue)
+    control.runConfig.setParameter("transmission_probability", transmissionProbability)
+    control.runConfig.setParameter("rng_seed", seed)
+    control.runConfig.setParameter("output_prefix", "TP_" + str(transmissionProbability) + "_START_" + startDate + "_" + str(runID))
+    control.runConfig.setParameter("start_date", startDate)
+    control.control()
+
+def runSimulations(numRuns, startDates, transmissionProbabilities, poolSize):
+    for transmissionProb in transmissionProbabilities:
+        for date in startDates:
+            seeds = generateRngSeeds(numRuns)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                pool.starmap(runSimulation, [(date, transmissionProb, seeds[i], i) for i in range(len(seeds))])
+
+def analyseResults(numRuns, startDates, transmissionProbabilities, poolSize):
+    allTransmissionProbs = []
     allSecondaryCases = []
-    secondaryCasesByTR = []
-    for rate in transmissionRates:
+    secondaryCasesByTP = []
+    for prob in transmissionProbabilities:
         colors = ["b", "g", "y", "k", "m", "c", "r"]
         days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-        secondaryCasesTR = []
+        secondaryCasesTP = []
         for date_i in range(len(startDates)):
             with multiprocessing.Pool(processes=poolSize) as pool:
-                secondaryCases = pool.starmap(getSecondaryCases, [(rate, startDates[date_i], i) for i in range(numRuns)])
-                secondaryCasesTR += secondaryCases
+                secondaryCases = pool.starmap(getSecondaryCases, [(prob, startDates[date_i], i) for i in range(numRuns)])
+                secondaryCasesTP += secondaryCases
                 allSecondaryCases += secondaryCases
-                allTransmissionRates += ([rate] * numRuns)
-                plt.plot([rate] * numRuns, secondaryCases, colors[date_i] + "o")
-        secondaryCasesByTR.append(secondaryCasesTR)
-    newCoefficients = polyfit(allTransmissionRates, allSecondaryCases, 2)
+                allTransmissionProbs += ([prob] * numRuns)
+
+                plt.plot([prob] * numRuns, secondaryCases, colors[date_i] + "o")
+        secondaryCasesByTP.append(secondaryCasesTP)
+    newCoefficients = polyfit(allTransmissionProbs, allSecondaryCases, 2)
     print(newCoefficients)
-    plt.xlabel("Transmission rate")
+    plt.xlabel("Transmission probability")
     plt.ylabel("Secondary cases")
     plt.legend(days)
-    plt.savefig("TransmissionRateVSSecCases")
+    plt.savefig("TransmissionProbVSSecCases")
     plt.clf()
 
-    plt.boxplot(secondaryCasesByTR)
-    plt.show()
+    plt.boxplot(secondaryCasesByTP)
+    plt.xlabel("Transmission probability")
+    plt.ylabel("Secondary cases")
+    plt.savefig("TransmissionProbVSSecCases")
+    plt.clf()
 
 def main(numRuns, poolSize):
-    transmissionProbs = numpy.arange(0, 1, 0.05)
-    transmissionRates = [probabilityToRate(x) for x in transmissionProbs]
+    transmissionProbs = numpy.arange(0, 1.05, 0.05)
     startDates = ["2020-01-01", "2020-01-02", "2020-01-03", "2020-01-04", "2020-01-05", "2020-01-06", "2020-01-07"]
-    runSimulations(numRuns, startDates, transmissionRates, poolSize)
-    analyseResults(numRuns, startDates, transmissionRates, poolSize)
+    runSimulations(numRuns, startDates, transmissionProbs, poolSize)
+    analyseResults(numRuns, startDates, transmissionProbs, poolSize)
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
