@@ -34,12 +34,6 @@ def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
         InfectedByAge.createInfectedByAgeOverviewPlot(outputDir, scenarioNames,
                                         scenarioDisplayNames, extinctionThreshold,
                                         poolSize, "R0_" + str(R0) + "_InfectedByAge")
-        InfectedByAge.createInfectedFractionByAgeOverviewPlot(outputDir, scenarioNames,
-                                        scenarioDisplayNames, extinctionThreshold,
-                                        poolSize, "R0_" + str(R0) + "_InfectedFractionByAge")
-        InfectedByAge.createFractionOfInfectedByAgeOverviewPlot(outputDir, scenarioNames,
-                                        scenarioDisplayNames, extinctionThreshold,
-                                        poolSize, "R0_" + str(R0) + "_FractionOfInfectedByAge")
 
     end = time.perf_counter()
     totalTimeSeconds = end - start
