@@ -96,6 +96,7 @@ def analyseResults(numRuns, startDates, transmissionProbabilities, poolSize):
 
     plt.boxplot(secondaryCasesByTP)
     plt.xlabel("Transmission probability")
+    plt.xticks(transmissionProbabilities)
     plt.ylabel("Secondary cases")
     plt.savefig("TransmissionProbVSSecCasesBoxplots")
     plt.clf()
