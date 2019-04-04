@@ -74,8 +74,8 @@ public:
                 return m_config_pt.get<std::string>(attribute);
         }
 
-        /// Get the stored transmission rate.
-        double GetTransmissionRate() const { return m_transmission_profile.GetRate(); }
+        /// Get the stored transmission probability.
+        double GetTransmissionProbability() const { return m_transmission_profile.GetProbability(); }
 
 private:
         /// Constructor for empty Simulator.

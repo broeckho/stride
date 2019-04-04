@@ -74,7 +74,7 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         }
 
         // --------------------------------------------------------------
-        // Initialize the transmission profile (fixes rates).
+        // Initialize the transmission profile (fixes transmission probability).
         // --------------------------------------------------------------
         const auto diseasePt = ReadDiseasePtree();
         sim->m_transmission_profile.Initialize(m_config_pt, diseasePt);

@@ -30,6 +30,9 @@ namespace output {
 using namespace std;
 using namespace stride::util;
 
+// FIXME Some of the parameters written to this file have become optional over time.
+// Seeding rate + immmunity rate
+
 SummaryFile::SummaryFile(const string& output_prefix) : m_fstream() { Initialize(output_prefix); }
 
 SummaryFile::~SummaryFile() { m_fstream.close(); }
@@ -40,7 +43,7 @@ void SummaryFile::Initialize(const string& output_prefix)
         m_fstream.open(p.c_str());
 
         // add header
-        m_fstream << "population_file,num_days,population_size,seeding_rate,r0,transmission_rate,"
+        m_fstream << "population_file,num_days,population_size,seeding_rate,r0,transmission_probability,"
                      "immunity_rate,num_threads,rng_seed,"
                      "run_time,total_time,num_cases,AR,output_prefix,start_date,age_"
                      "contact_matrix_file,num_"
@@ -49,12 +52,12 @@ void SummaryFile::Initialize(const string& output_prefix)
 }
 
 void SummaryFile::Print(const boost::property_tree::ptree& config_pt, unsigned int population_size,
-                        unsigned int num_cases, double transmission_rate, unsigned int run_time,
+                        unsigned int num_cases, double transmission_probability, unsigned int run_time,
                         unsigned int total_time)
 {
         m_fstream << config_pt.get<string>("run.population_file") << "," << config_pt.get<unsigned int>("run.num_days")
-                  << "," << population_size << "," << config_pt.get<double>("run.seeding_rate") << ","
-                  << config_pt.get<double>("run.r0") << "," << transmission_rate << ","
+                  << "," << population_size << "," << config_pt.get<double>("run.seeding_rate", 0.0) << ","
+                  << config_pt.get<double>("run.r0") << "," << transmission_probability << ","
                   << config_pt.get<double>("run.immunity_rate") << "," << config_pt.get<unsigned int>("run.num_threads")
                   << "," << config_pt.get<unsigned int>("run.rng_seed") << "," << run_time << "," << total_time << ","
                   << num_cases << "," << static_cast<double>(num_cases) / population_size << ","
