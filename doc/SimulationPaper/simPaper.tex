@@ -238,9 +238,9 @@ Considering the recorded data we can see that solely changing the percentage of 
 \section{Performance profiling of sequential code}
 To study the performance of the code we will discuss a few parameters. We used the GPROF tool to profile the code. Based on these result we could see the influence of different parameters on the runtime.
 \\
-First we will choose a random number of days to run a simulation and look at the time needed to complete the algorithm. \\ 
+First we will choose a random number of days to run a simulation and look at the time needed to complete the algorithm. We considered in total 19 different amount of days in an interval of 10 to 2000 days. \\ 
 \\
-As could be expected, there is an increase in execution time when we take a larger amount of days. The number of days determines the number of loops in a simulation, hence this logically affects the needed time for a simulation by quite a big margin. This parameter will cause the largest change in perfomace in comparison with the other ones.
+As could be expected, there is an increase in execution time when we take a larger amount of days. The number of days determines the number of loops in a simulation, hence this logically affects the needed time for a simulation by quite a big margin. This parameter will cause the largest change in perfomance in comparison with the other ones. Especially the sorting of the members en getting the total amount of infected people took up most of the computing time.
 
 \begin{table}
 \caption{Relation between the number of days and the runtime}
@@ -248,40 +248,61 @@ As could be expected, there is an increase in execution time when we take a larg
 	\begin{tabular}{ | c | c |}
 	\hline
 	Number of days & Time needed \\ \hline
-	10 & 00:00:03:192:028 \\ \hline
-	50 & 00:00:04:827:135 \\ \hline
-	150 & 00:00:09:313:779 \\ \hline
-	500 & 00:00:22:090:867 \\ \hline
-	1000 & 00:00:39:660:327 \\
+	10 & 00:00:03:946:037 \\ \hline
+	50 & 00:00:06:885:956 \\ \hline
+	100 & 00:00:10:964:261 \\ \hline
+	500 & 00:00:36:137:411 \\ \hline
+	1000 & 00:01:07:248:430 \\ \hline
+	2000 & 00:02:06:124:493 \\
 	\hline	
 	\end{tabular}
 \end{center}
 \end{table}
 
 \noindent
-Next, we vary the parameter of population size. From the following table it is clear that the larger the population the longer the simulation needs to finish. From the GPROF analysis we notice that the most work is done in getting the count of the infected. It can be said that the size of the population delivers the most influence on the total time. One can argue that the number of days had the most impact but it is not completely realistc to study outbreaks over a number of years what takes up the most computation time. A larger population is more common than a large number of days.
+Next, we vary the parameter of population size. From the following table it is clear that the larger the population the longer the simulation needs to finish. From the GPROF analysis we notice that the most work is done in getting the count of the infected and soritng the members. It can be said that the size of the population delivers the most influence on the total time. One can argue that the number of days had the most impact but it is not completely realistc to study outbreaks over a number of years what takes up the most computation time. A larger population is more common than a large number of days.
+\\
+In the previous part we considered the impact of the number of days. And as could be expected a large number of days combined with a large population will result in a large execution time.
 
 \begin{table}
-	\caption{Relation between population size and runtime}
+	\caption{Relation between population size and simulation runtime with 50 days}
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
 		Population size & Time needed \\ \hline
-		10000 & 00:00:00:183:206 \\ \hline
-		50000 & 00:00:00:384:852 \\ \hline
-		100000 & 00:00:00:692:577 \\ \hline
-		600000 & 00:00:04:006:424 \\ \hline
-		1000000 & 00:00:06:608:558 \\
+		1000 & 00:00:00:429:476 \\ \hline
+		50000 & 00:00:00:620:702 \\ \hline
+		100000 & 00:00:00:954:298 \\ \hline
+		500000 & 00:00:03:904:541 \\ \hline
+		1000000 & 00:00:07:272:251 \\
 		\hline	
 	\end{tabular}
 \end{center} 
 \end{table}
 \newpage
 \noindent
-When varying the immunity rate, there is no significant difference in runtime for different configurations. In order for this variable to have an influence on the final result, it is necessary to give other parameters different values.  As mentioned earlier, most of the time is used to sort and analyze the population, a factor like immunity rate has no effect on this process.
+When considering the time needed to generate a geo-based population and write it to a file without performing a simulation, the tendency of an increasing time with a larger population can be observed. The most computingpower went to writing the contact pools for the population.
+\begin{table}
+	\caption{Relation between population size and generating runtime with 50 days}
+	\begin{center}
+		\begin{tabular}{ | c | c |}
+			\hline
+			Population size & Time needed \\ \hline
+			1000 & 00:00:00:262:863 \\ \hline
+			10000 & 00:00:00:308:607 \\ \hline
+			100000 & 00:00:00:336:115 \\ \hline
+			500000 & 00:00:01:130:983 \\ \hline
+			1000000 & 00:00:02:386:551 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\noindent
+When varying the immunity rate, there is no significant difference in runtime for different configurations. In order for this variable to have an influence on the final result, it is necessary to give other parameters different values.  As mentioned earlier, most of the time is used to sort and analyze the population, a factor like immunity rate has no effect on this process. In the table below you can see the runtimes for different immunity rates and a period of 50 days. When performing this ananlysis with a higher number of days of course this took some more time. But changing the immunity itself has no effect.
 
 \begin{table}
-	\caption{Relation between immunity rate and runtime}
+	\caption{Relation between immunity rate and runtime for a 50 days}
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
@@ -297,40 +318,39 @@ When varying the immunity rate, there is no significant difference in runtime fo
 \end{table}
  
 \noindent
-Seeding rate has a slight impact, but this impact is minimal. Seeding rate has no effect on the computation needed to sort and analyze the population, which is the major faction in a simulation.
+Seeding rate has a slight impact, but this impact is minimal. Seeding rate has no effect on the computation needed to sort and analyze the population, which is the major faction in a simulation. The following observations were made with a number of days equal to 50. A larger amount 
 \begin{table}
-\caption{Relation between the seeding rate ans the runtime}
+\caption{Relation between the seeding rate and the runtime}
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
 		Seeding rate & Time needed \\ \hline
-		0.000001 & 00:00:04:684:663 \\ \hline
-		0.00001 & 00:00:04:568:581 \\ \hline
-		0.0001 & 00:00:04:525:856 \\ \hline
-		0.001 & 00:00:04:810:693 \\ \hline
-		0.01 & 00:00:05:369:309 \\
+		0.000001 & 00:00:06:210:017 \\ \hline
+		0.00001 & 00:00:06:188:449 \\ \hline
+		0.0001 & 00:00:06:294:636 \\ \hline
+		0.001 & 00:00:06:659:908 \\ \hline
+		0.01 & 00:00:07:437:776 \\ \hline
+		0.1 & 00:00:07:406:320 \\
 		\hline	
 	\end{tabular}
 \end{center} 
 \end{table} 
 \noindent
 
-The contact log mode has a significant impact on the running time of a simulation. When the standard algorithm is used (all or susceptibles) it requires a lot more time to complete the simulation. It forms a large contrast with the running time needed when using the optimized algorithm with all the members of the contact pool sorted. By reducing the number of loops in the algorithms the necessary time to complete the algorithm can be reduced along with it.
+The contact log mode has a significant impact on the running time of a simulation. When the standard algorithm is used (all or susceptibles) it requires a lot more time to complete the simulation. It forms a large contrast with the running time needed when using the optimized algorithm with all the members of the contact pool sorted. By reducing the number of loops in the algorithms, the necessary time to complete the algorithm can be reduced along with it.
+\begin{table}
+	\caption{Relation between the contact log mode and time needed to perform a simulation with 50 days.}
 \begin{center}
 	\begin{tabular}{ | c | c |}
 		\hline
 		Contact log mode & Time needed \\ \hline
-		All & 00:16:09:012:346 \\ \hline
-		Susceptibles & 00:16:48:490:700 \\ \hline
-		None & 00:00:06:609:545 \\ \hline
-		Transmissions & 00:00:06:747:454 \\
+		All & 00:18:38:106:723 \\ \hline
+		Susceptibles & 00:18:20:352:080 \\ \hline
+		None & 00:00:06:620:969 \\ \hline
+		Transmissions & 00:00:06:793:748 \\
 		\hline	
 	\end{tabular}
 \end{center}
-
-
-
-
+\end{table}
 
 \end{document}
->>>>>>> 3e41104e62e3e8dae4d64b71cd874b4b10e55a08
