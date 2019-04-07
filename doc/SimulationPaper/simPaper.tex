@@ -215,24 +215,18 @@ In conclusion, vaccinating student who still need their vaccinations or who are 
 	\caption{Boxplot of 60 simulation where the students are vaccinated after seven days. The number of total infected people after 50 days is seen on the y-axes}
 	\label{vax_campus}
 \end{figure}
-\newpage
+\clearpage
 
 \subsection{Is commuting to work important for disease spread?}
-One could easily assume that working at a different location affects the rate at which a disease spreads, as it enhances it's reach. In a first simulation we generated simulations for 5 different commuting percentages. As you can clearly see, it does affect the rate at which the disease spreads, but it has no, or little, effect on whether the disease does or does not spread. In all cases, the entire population got the disease, be it that it took a few days longer to get to that point. Another thing we can remark is that the highest "peak" of newly diseased people is lower the lower the commuting factor gets. A possible cause of the lack of serious effect can come from the fact there are a lot of college commuters who will have the same effect as the workplace commuters. 
+One could easily assume that working at a different location affects the rate at which a disease spreads, as it enhances it's reach. To get an idea of the effect of the parameter we did a simulation for 11 different percentages, ranging from 0 to 100. The displayed data is an average derived from 50 different runs for each percentage.
 
 \begin{figure}
-	\includegraphics[width=\textwidth]{test_0-100.png}
-	\caption{Results of 6 different percentages of commuters in a range from 0 to 100.}
+	\includegraphics[width=\textwidth]{fraction_workplace_commutersnew_0_100_10.png}
+	\caption{Results of 11 different percentages of commuters in a range from 0 to 100.}
 \end{figure}
-\newpage
 
-If you watch the top of the graph, you can see that from a certain fraction and onwards, there is little to no difference in their behavior. To get a better view we graphed a closeup of percentages between 30 and 70. In the next graph you can see that the peeks are almost equally in height. You can even notice that some of the higher percentages have their peeks later then the ones with a lower percentage. 
-\begin{figure}
-	\includegraphics[width=\textwidth]{test_30-70.png}
-	\caption{Results of 5 different percentages of commuters in a range from 30 to 70.}
-\end{figure}
-\\
-Considering the recorded data we can see that solely changing the percentage of people who commute to work will not affect the spreading of disease in a significant manner. The disease will still spread all the same, but at a slower pace. 
+\noindent
+As we can clearly see, there is little to no difference between the different commuting percentages and, even though the graph is kinda clouded by the amount of different graphs drawn on top of each other. We can clearly see that the fraction of workplace commuters is negligible. It might still have a slight effect when we were to zoom in, but it is soo small that it can not be considered to be a determining factor for the spread of diseases. 
 
 \newpage
 \section{Performance profiling of sequential code}
