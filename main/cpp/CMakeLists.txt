@@ -37,31 +37,6 @@ set_property(SOURCE ${PROTO_HDR} ${PROTO_SRC}
     COMPILE_FLAGS "-Wno-all -Wno-effc++ -Wno-extra -Wno-pedantic"
 )
 
-
-#============================================================================
-# HDF5.
-#============================================================================
-#set(STRIDE_FORCE_NO_HDF5 TRUE)
-if(${STRIDE_FORCE_NO_HDF5})
-    message("NOT USING PREINSTALLED")
-else()
-    find_package(HDF5 1.10 COMPONENTS CXX)
-    if(${HDF5_FOUND})
-        include_directories(${HDF5_INCLUDE_DIR})
-        message(${HDF5_INCLUDE_DIRS})
-    endif()
-endif()
-
-
-#============================================================================
-# Prototype Sources.
-#============================================================================
-set(HDF5_PROTOTYPE_SRC
-    protoypes/HDF5Prototype.cpp
-)
-
-add_executable(prototype_hdf5 ${HDF5_PROTOTYPE_SRC})
-
 #============================================================================
 # Sources.
 #============================================================================
@@ -72,7 +47,6 @@ set(STRIDE_SRC
     contact/AgeContactProfile.cpp
     contact/ContactLogMode.cpp
     contact/ContactPool.cpp
-    contact/ContactPoolSys.cpp
     contact/ContactType.cpp
     contact/Infector.cpp
     contact/TransmissionProfile.cpp
@@ -88,26 +62,30 @@ set(STRIDE_SRC
     execs/SimController.cpp
     execs/StanController.cpp
     #---
-    #geopop/ContactCenter.cpp
+    geopop/College.cpp
+    geopop/ContactCenter.cpp
     geopop/Coordinate.h
     geopop/GeoGrid.cpp
+    geopop/GeoGridBuilder.cpp
     geopop/GeoGridConfig.cpp
+    geopop/GeoGridConfigBuilder.cpp
+    geopop/Household.cpp
+    geopop/K12School.cpp
     geopop/Location.cpp
+    geopop/PrimaryCommunity.cpp
+    geopop/SecondaryCommunity.cpp
+    geopop/Workplace.cpp
     #---
     geopop/geo/GeoGridKdTree.cpp
     geopop/geo/KdTree2DPoint.cpp
     #---
-    geopop/generators/DaycareGenerator.cpp
-    geopop/generators/PreSchoolGenerator.cpp
     geopop/generators/CollegeGenerator.cpp
-    geopop/generators/Generator.cpp
+    geopop/generators/CommunityGenerator.cpp
     geopop/generators/HouseholdGenerator.cpp
     geopop/generators/K12SchoolGenerator.cpp
-    geopop/generators/PrimaryCommunityGenerator.cpp
-    geopop/generators/SecondaryCommunityGenerator.cpp
     geopop/generators/WorkplaceGenerator.cpp
     #---
-    geopop/io/LocationsCSVReader.cpp
+    geopop/io/CitiesCSVReader.cpp
     geopop/io/CommutesCSVReader.cpp
     geopop/io/GeoGridJSONReader.cpp
     geopop/io/GeoGridJSONWriter.cpp
@@ -121,11 +99,7 @@ set(STRIDE_SRC
     geopop/io/GeoGridWriterFactory.cpp
     geopop/io/GeoGridWriterFactory.h
     geopop/io/HouseholdCSVReader.cpp
-	geopop/io/HouseholdJSONReader.h
-	geopop/io/HouseholdJSONReader.cpp
     geopop/io/ReaderFactory.cpp
-    geopop/populators/DaycarePopulator.cpp
-    geopop/populators/PreSchoolPopulator.cpp
     geopop/populators/CollegePopulator.cpp
     geopop/populators/HouseholdPopulator.cpp
     geopop/populators/K12SchoolPopulator.cpp
@@ -141,7 +115,6 @@ set(STRIDE_SRC
     viewers/PersonsFile.cpp
     viewers/SummaryFile.cpp
     #---
-    pop/AbstractPopBuilder.cpp
     pop/Person.cpp
     pop/Population.cpp
     pop/DefaultPopBuilder.cpp
@@ -155,23 +128,22 @@ set(STRIDE_SRC
     sim/event/Id.cpp
     sim/event/Subject.cpp
     #---
-    util/ConfigInfo.cpp
-    util/CSV.cpp
     util/CSVRow.cpp
-    util/FileSys.cpp
     util/LogUtils.cpp
     util/Rn.cpp
-    util/RnMan.cpp
+    util/CSV.cpp
+    util/ConfigInfo.cpp
+    util/FileSys.cpp
     util/RunConfigManager.cpp
     util/TimeStamp.cpp
     util/TimeToString.cpp
     #---
-    viewers/CliViewer.cpp
     viewers/InfectedFileViewer.cpp
     viewers/InfectedViewer.cpp
+    viewers/CliViewer.cpp
     viewers/PersonsFileViewer.cpp
     viewers/SummaryFileViewer.cpp
-    )
+)
 
 #============================================================================
 # Build the Stride library.

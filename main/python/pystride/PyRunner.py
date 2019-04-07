@@ -1,6 +1,6 @@
 import time
 
-from pystride.stride.pystride import Population, RnInfo, RnMan, Sim
+from pystride.stride.pystride import Sim, CreateSim
 
 from .Event import EventType, Event, SteppedEvent
 from .Stopwatch import Stopwatch
@@ -33,25 +33,18 @@ class PyRunner(Subject):
         self.notifyObservers(Event(EventType.SetupBegin))
         self.stopwatch.start()
         self.runConfig = run_config
-        # Create RnMan
-        info = RnInfo(self.runConfig.getParameter("pop.rng_seed", default="1,2,3,4"),
-                        "", int(self.runConfig.getParameter("run.num_threads", default=1)))
-        rnMan = RnMan(info)
 
-        # Create Population
-        population = Population.Create(self.runConfig.toString(), rnMan)
-        # Create simulator
-        self.simulator = Sim.Create(self.runConfig.toString(), population, rnMan)
+        self.simulator = CreateSim(self.runConfig.toString())
         self.stopwatch.stop()
         self.notifyObservers(Event(EventType.SetupEnd))
 
     def run(self):
         self.stopwatch.start()
-        numDays = int(self.runConfig.getParameter("num_days"))
+        num_days = int(self.runConfig.getParameter("num_days"))
         print("Beginning simulation run.")
         self.notifyObservers(Event(EventType.AtStart))
         # Actual simulation loop
-        for day in range(numDays):
+        for day in range(num_days):
             self.simulator.TimeStep()
             self.notifyObservers(SteppedEvent(day))
         self.notifyObservers(Event(EventType.AtFinished))

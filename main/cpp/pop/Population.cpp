@@ -24,13 +24,11 @@
 #include "pop/DefaultPopBuilder.h"
 #include "pop/GeoPopBuilder.h"
 #include "pop/ImportPopBuilder.h"
-#include "util/Assert.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 #include "util/RunConfigManager.h"
 #include "util/SegmentedVector.h"
-#include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <utility>
@@ -42,43 +40,51 @@ using namespace stride::ContactType;
 
 namespace stride {
 
-Population::Population() : m_pool_sys(), m_contact_logger(), m_geo_grid(this) {}
-
-std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& config, util::RnMan rnMan,
-                                               std::shared_ptr<spdlog::logger> strideLogger)
+Population::Population()
+        : m_pool_sys(), m_contact_logger(), m_geoGrid(), m_currentContactPoolId()
 {
-        if (!strideLogger) {
-                strideLogger = LogUtils::CreateNullLogger("Population_logger");
+        for (Id typ : IdList) {
+                m_pool_sys[typ].emplace_back(ContactPool(0U, typ));
+                m_currentContactPoolId[typ] = 1;
+        }
+}
+
+
+std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt, util::RnMan& rnManager,
+                                               std::shared_ptr<spdlog::logger> stride_logger)
+{
+        if (!stride_logger) {
+                stride_logger = LogUtils::CreateNullLogger("Population_logger");
         }
 
         // --------------------------------------------------------------
-        // Create empty population & and give it a ContactLogger.
+        // Create (empty) population & and give it a ContactLogger.
         // --------------------------------------------------------------
         const auto pop = Create();
-        if (config.get<bool>("run.contact_output_file", true)) {
-                const auto prefix       = config.get<string>("run.output_prefix");
+        if (configPt.get<bool>("run.contact_output_file", true)) {
+                const auto prefix       = configPt.get<string>("run.output_prefix");
                 const auto logPath      = FileSys::BuildPath(prefix, "contact_log.txt");
-                pop->RefContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
-                pop->RefContactLogger()->set_pattern("%v");
-                strideLogger->info("Contact logging requested; logger set up.");
+                pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
+                pop->GetContactLogger()->set_pattern("%v");
+                stride_logger->info("Contact logging requested; logger set up.");
         } else {
-                pop->RefContactLogger() = LogUtils::CreateNullLogger("contact_logger");
-                strideLogger->info("No contact logging requested.");
+                pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
+                stride_logger->info("No contact logging requested.");
         }
 
         // -----------------------------------------------------------------------------------------
         // Build population.
         // -----------------------------------------------------------------------------------------
-        std::string pop_type = config.get<std::string>("run.population_type", "default");
+        std::string pop_type = configPt.get<std::string>("run.population_type", "default");
         if (pop_type == "import") {
-                strideLogger->info("Invoking ImportPopBuilder.");
-                ImportPopBuilder(config, rnMan, strideLogger).Build(pop);
+                stride_logger->info("ImportPopBuilder invoked.");
+                ImportPopBuilder(configPt, rnManager).Build(pop);
         } else if (pop_type == "generate") {
-                strideLogger->info("Invoking GeoPopBuilder.");
-                GeoPopBuilder(config, rnMan, strideLogger).Build(pop);
+                stride_logger->info("GeoPopBuilder invoked.");
+                GeoPopBuilder(configPt, rnManager).Build(pop);
         } else {
-                strideLogger->info("Invoking DefaultPopBuilder.");
-                DefaultPopBuilder(config, rnMan, strideLogger).Build(pop);
+                stride_logger->info("DefaultPopBuilder invoked.");
+                DefaultPopBuilder(configPt, rnManager).Build(pop);
         }
 
         // -----------------------------------------------------------------------------------------
@@ -87,10 +93,10 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         return pop;
 }
 
-std::shared_ptr<Population> Population::Create(const string& configString, util::RnMan rnMan,
+std::shared_ptr<Population> Population::Create(const string& configString, util::RnMan& rnManager,
                                                std::shared_ptr<spdlog::logger> stride_logger)
 {
-        return Create(RunConfigManager::FromString(configString), std::move(rnMan), std::move(stride_logger));
+        return Create(RunConfigManager::FromString(configString), rnManager, std::move(stride_logger));
 }
 
 std::shared_ptr<Population> Population::Create()
@@ -105,14 +111,6 @@ std::shared_ptr<Population> Population::Create()
         return r;
 }
 
-Person* Population::CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,
-                                 unsigned int college, unsigned int workId, unsigned int primaryCommunityId,
-                                 unsigned int secondaryCommunityId)
-{
-        return emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId,
-                            secondaryCommunityId);
-}
-
 unsigned int Population::GetInfectedCount() const
 {
         unsigned int total{0U};
@@ -121,6 +119,19 @@ unsigned int Population::GetInfectedCount() const
                 total += h.IsInfected() || h.IsRecovered();
         }
         return total;
+}
+
+Person* Population::CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,
+                                 unsigned int college, unsigned int workId, unsigned int primaryCommunityId,
+                                 unsigned int secondaryCommunityId)
+{
+        return emplace_back(id, age, householdId, k12SchoolId, college, workId, primaryCommunityId,
+                            secondaryCommunityId);
+}
+
+ContactPool* Population::CreateContactPool(ContactType::Id typeId)
+{
+        return m_pool_sys[typeId].emplace_back(m_currentContactPoolId[typeId]++, typeId);
 }
 
 } // namespace stride

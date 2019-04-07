@@ -61,7 +61,7 @@ ptree RunConfigManager::Create(const std::string& configName)
 
 void RunConfigManager::AddGeoPopConfig(ptree& pt)
 {
-        const string geopop_str   = R"###(
+         const string geopop_str   = R"###(
 <run>
         <population_file>gengeopop.proto</population_file>
         <population_type>generate</geopopulation_type>
@@ -77,7 +77,7 @@ void RunConfigManager::AddGeoPopConfig(ptree& pt)
     </geopop_gen>
 </run>
         )###";
-        ptree        geopop_ptree = FromString(geopop_str);
+        ptree       geopop_ptree = FromString(geopop_str);
         pt.put_child("run.population_file", geopop_ptree.get_child("run.population_file"));
         pt.put_child("run.population_type", geopop_ptree.get_child("run.population_type"));
         pt.put_child("run.geopop_gen", geopop_ptree.get_child("run.geopop_gen"));

@@ -14,10 +14,7 @@
  */
 
 #include "Location.h"
-#include "contact/ContactPool.h"
-#include "contact/ContactType.h"
-#include "disease/Health.h"
-#include "pop/Person.h"
+#include "ContactCenter.h"
 #include "util/Exception.h"
 
 #include <cmath>
@@ -25,77 +22,82 @@
 namespace geopop {
 
 using namespace std;
-using namespace stride::ContactType;
 
-Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, string name, unsigned int popCount)
-    : m_coordinate(coordinate), m_id(id), m_name(move(name)), m_pop_count(popCount), m_pop_fraction(0.0),
-      m_province(province), m_inCommutes(), m_outCommutes(),/* m_cc(),*/ m_pool_index()
+Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, string name)
+    : m_id(id), m_name(move(name)), m_province(province), m_pop_count(0), m_pop_fraction(0.0), m_coordinate(coordinate),
+      m_CC(), m_inCommuteLocations(), m_outCommuteLocations(), m_CC_OfType()
 {
+}
+
+Location::Location(unsigned int id, unsigned int province, unsigned int popCount, Coordinate coordinate, string name)
+    : Location(id, province, coordinate, move(name))
+{
+        m_pop_count = popCount;
 }
 
 bool Location::operator==(const Location& other) const
 {
         using boost::geometry::get;
-
-        auto temp = true;
-        for (Id typ : IdList) {
-                temp = temp && (CRefPools(typ) == other.CRefPools(typ));
-        }
-        return temp && GetID() == other.GetID() && get<0>(GetCoordinate()) == get<0>(other.GetCoordinate()) &&
+        return GetID() == other.GetID() && get<0>(GetCoordinate()) == get<0>(other.GetCoordinate()) &&
                get<1>(GetCoordinate()) == get<1>(other.GetCoordinate()) && GetName() == other.GetName() &&
                GetProvince() == other.GetProvince() && GetPopCount() == other.GetPopCount() &&
-               CRefIncomingCommutes() == other.CRefIncomingCommutes() &&
-               CRefOutgoingCommutes() == other.CRefOutgoingCommutes();
+               GetContactCenters() == other.GetContactCenters() &&
+               GetIncomingCommuningCities() == other.GetIncomingCommuningCities() &&
+               GetOutgoingCommutingCities() == other.GetOutgoingCommutingCities();
 }
 
-void Location::AddIncomingCommute(shared_ptr<Location> otherLocation, double fraction)
+void Location::AddIncomingCommutingLocation(shared_ptr<Location> otherLocation, double fraction)
 {
-        m_inCommutes.emplace_back(otherLocation.get(), fraction);
+        m_inCommuteLocations.emplace_back(otherLocation.get(), fraction);
 }
 
-void Location::AddOutgoingCommute(shared_ptr<Location> otherLocation, double fraction)
+void Location::AddOutgoingCommutingLocation(shared_ptr<Location> otherLocation, double fraction)
 {
-        m_outCommutes.emplace_back(otherLocation.get(), fraction);
+        m_outCommuteLocations.emplace_back(otherLocation.get(), fraction);
 }
 
-int Location::GetIncomingCommuteCount(double fractionCommuters) const
+const vector<pair<Location*, double>>& Location::GetIncomingCommuningCities() const { return m_inCommuteLocations; }
+
+int Location::GetIncomingCommuterCount(double fractionCommuters) const
 {
         double value = 0;
-        for (const auto& locProportion : m_inCommutes) {
+        for (const auto& locProportion : m_inCommuteLocations) {
                 // locProportion.second of the people in locProportion.first are commuting to this
                 value += locProportion.second * (fractionCommuters * (double)locProportion.first->GetPopCount());
         }
         return static_cast<int>(floor(value));
 }
 
-unsigned int Location::GetInfectedCount() const
+double Location::GetInfectedCount() const
 {
-        unsigned int total{0U};
-        for (const auto& pool : CRefPools<Id::Household>()) {
-                for (const auto& person : *pool) {
-                        const auto& h = person->GetHealth();
-                        total += h.IsInfected() || h.IsRecovered();
-                }
+        auto infected = 0U;
+
+        for (const auto& cc : m_CC) {
+                const auto r = cc->GetPopulationAndInfectedCount();
+                infected += r.second;
         }
-        return total;
+
+        return infected;
 }
 
-unsigned int Location::GetOutgoingCommuteCount(double fractionCommuters) const
+const vector<pair<Location*, double>>& Location::GetOutgoingCommutingCities() const { return m_outCommuteLocations; }
+
+int Location::GetOutgoingCommuterCount(double fractionCommuters) const
 {
         double totalProportion = 0;
-        for (const auto& locProportion : m_outCommutes) {
+        for (const auto& locProportion : m_outCommuteLocations) {
                 // locProportion.second of the people in this are commuting to locProportion.first
                 totalProportion += locProportion.second;
         }
-        return static_cast<unsigned int>(floor(totalProportion * (fractionCommuters * m_pop_count)));
+        return static_cast<int>(floor(totalProportion * (fractionCommuters * static_cast<double>(m_pop_count))));
 }
 
-double Location::GetPopFraction() const { return m_pop_fraction; }
+double Location::GetRelativePopulationSize() const { return m_pop_fraction; }
 
 void Location::SetPopCount(unsigned int totalPopCount)
 {
         m_pop_count = static_cast<unsigned int>(floor(m_pop_fraction * totalPopCount));
 }
-void Location::SetPopFraction(double relativePopulation) { m_pop_fraction = relativePopulation; }
+void Location::SetRelativePopulation(double relativePopulation) { m_pop_fraction = relativePopulation; }
 
 } // namespace geopop

@@ -20,18 +20,15 @@
 namespace geopop {
 
 /**
- * Generates ContactPools for ContactType Workplace.
+ * Generate Workplaces.
  */
 class WorkplaceGenerator : public Generator
 {
 public:
         using Generator::Generator;
 
-        /// See @Generator::Apply.
-        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig) override;
-
-        /// @see Generator::AddPools.
-        void AddPools(Location& loc, stride::Population* pop, unsigned int number) override;
+        void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig,
+                   unsigned int& contactCenterCounter) override;
 };
 
 } // namespace geopop

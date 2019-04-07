@@ -109,72 +109,31 @@ Here, we need to approximate the same graph but now he have to use an extra para
 \\
 \\
 \noindent
-A first estimate is done with the same immunity rate found in the previous experiment and R0 varying between 12 and 18. We should expect that a lower R0 will result in a lower amount of infections. We will then try to replicate the correct immunity rate for each R0 and try to determine which graph fits the best.
+We will use the same technique we used in the previous assignment, only this time, we need to repeat it for R0 = 12 .. 18.
 
-\begin{figure}
-	\includegraphics[width=\textwidth]{test_R0_immunity_70.png}
-	\caption{simulations with an immunity rate of 70\%}
-\end{figure}
+\begin{table}
+\begin{center}
 
-\newpage
-\noindent
-For R0 = 12, the optimal immunity rate is somewhere around 65\%, this will mean that 65\% immunity rate is the lower bound for all values of R0 if we want to find the same graph.
-\begin{figure}
-	\includegraphics[width=\textwidth]{test_R0_12.png}
-	\caption{simulations with R0=12}
-\end{figure}
+	\begin{tabular}{c||c}
+		R0 & estimated immunity rate \\ \hline
+		12 & 65	\% \\
+		13 & 68 \\
+		14 & 69 \\
+		15 & 70 \\
+		16 & 73 \\
+		17 & 74 \\
+		18 & 76 \\
+	\end{tabular}
+	\caption{Estimated Immunity Rates based on 25 simulations}
+	\end{center}
 
-\newpage
-\noindent
-For R0 = 13, the estimated immunity rate is around 68\%.
-\begin{figure}
-	\includegraphics[width=\textwidth]{test_R0_13.png}
-	\caption{simulations with R0=13}
-\end{figure}
+\end{table}
 
-\newpage
-\noindent
-For R0 = 14, the estimated immunity rate is around 69\%.
-\begin{figure}
-	\includegraphics[width=\textwidth]{test_R0_14.png}
-	\caption{simulations with R0=14}
-\end{figure}
-
-\newpage
-\noindent
-For R0 = 15, we already know from the previous section that the estimated immunity rate is 70\%, so we don't need to recompute that one.
-\\
-\\
-\noindent
-For R0 = 16, the best fit seeems to be with an immunity rate of 73\%.
-\begin{figure}
-	\includegraphics[width=\textwidth]{test_R0_16.png}
-	\caption{simulations with R0=16}
-\end{figure}
-
-\newpage
-\noindent
-For R0 = 17, it seems to be that an immunity rate of 74\%  gives the best results.
-\begin{figure}
-	\includegraphics[width=\textwidth]{test_R0_17.png}
-	\caption{simulations with R0=17}
-\end{figure}
-
-\newpage
-\noindent
-For R0 = 18, it seems to be that an immunity rate of 76\%  gives the best results.
-\begin{figure}
-	\includegraphics[width=\textwidth]{test_R0_18.png}
-	\caption{simulations with R0=18}
-\end{figure}
-
-\newpage
-\noindent
 Generally speaking, the immunity rate is dependent of the parameter R0, which is to be expected. However, the parameter R0 doesn't seem to matter that much because the immunity rates are still pretty close to eachother.
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{test_R0_final.png}
-	\caption{5 simulations for found immunity values} 
+	\caption{25 simulations for found immunity values} 
 \end{figure}
 
 \newpage
