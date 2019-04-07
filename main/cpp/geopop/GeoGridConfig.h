@@ -26,36 +26,34 @@
 namespace geopop {
 
 class GeoGrid;
+class Household;
 
 /**
  * Configuration data mostly for generating a population, but also for computing
- * the required number of schools, workplaces, communities etc. for that population.
+ * the required number od schools, workplaces, communities etc for that population.
  */
 class GeoGridConfig
 {
 public:
-        /// Default constructor needed in test code.
+        /// Default constructor needed.
         GeoGridConfig();
 
         /// Constructor that configures input data.
         explicit GeoGridConfig(const boost::property_tree::ptree& configPt);
+
+        /// Prints the GeoGridconfig
+        friend std::ostream& operator<<(std::ostream& stream, const GeoGridConfig& config);
 
         // -----------------------------------------------------------------------------------------
         // Input parameters set by constructor with configuration property tree.
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Participation of daycare (fraction of people of daycare age going to daycare).
-                double participation_daycare = 0.45;
-
-                /// Participation of preschool (fraction of people of preschool age going to preschool).
-                double participation_preschool = 0.99;
-
                 /// Participation of college (fraction of people of college age going to college).
                 double participation_college;
 
                 /// Participation of workplace (fraction of people of work age and not going to
-                /// college having employment).
+                /// college having emplayment).
                 double particpation_workplace;
 
                 /// Fraction of college students that commute.
@@ -69,15 +67,18 @@ public:
         } input;
 
         // -----------------------------------------------------------------------------------------
-        // The reference Households used to generate the population by random draws.
+        // The reference set of Households used to generate the population by random draws.
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Number of persons in the reference household set.
-                unsigned int person_count = 0U;
+                /// Reference households: the set of households that we sample from to generate the population.
+                std::vector<std::shared_ptr<Household>> households{};
 
-                /// Age profile per reference household.
-                std::vector<std::vector<unsigned int>> ages{};
+                /// Persons in the reference households (segmented vector to have working pointers into it).
+                stride::util::SegmentedVector<stride::Person> persons{};
+
+                /// Contactpools used for reference households (segmented vector to have working pointers into it).
+                stride::util::SegmentedVector<stride::ContactPool> pools{};
         } refHH;
 
         // -----------------------------------------------------------------------------------------
@@ -88,12 +89,6 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
-                ///Numbers of individuals in Daycare.
-                unsigned int popcount_daycare;
-
-                ///Numbers of individuals in PreSchool.
-                unsigned int popcount_preschool;
-
                 /// Numbers of individuals in K12School.
                 unsigned int popcount_k12school;
 
@@ -112,47 +107,25 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Every household constitutes a single ContactPool.
-                unsigned int pools_per_household = 1U;
-
-                /// Used to calculate the number of DayCares.
-                unsigned int daycare_size      = 29U;
-                unsigned int pools_per_daycare = 1U;
-                unsigned int daycare_pool_size = 29U;
-
-                /// Used to calculate the number of PreSchools.
-                unsigned int preschool_size      = 120U;
-                unsigned int pools_per_preschool = 6U;
-                unsigned int preschool_pool_size = 20U;
+                /// Every houselhold constitutes a single ContactPool.
+                unsigned int pools_per_houselhold = 1U;
 
                 /// Used to calculate the number of K12Schools.
                 unsigned int k12school_size      = 500U;
                 unsigned int pools_per_k12school = 25U;
-                unsigned int k12_pool_size       = 20U;
 
                 /// Used to calculate the number of Colleges.
                 unsigned int college_size      = 3000U;
                 unsigned int pools_per_college = 20U;
-                unsigned int college_pool_size = 150U;
 
-                /// Used to calculate the number of PrimaryCommunities.
-                unsigned int primary_community_size      = 2000U;
-                unsigned int pools_per_primary_community = 1U;
-                unsigned int primary_community_pool_size = 2000U;
-
-                /// Used to calculate the number of SecondaryCommunities.
-                unsigned int secondary_community_size      = 2000U;
-                unsigned int pools_per_secondary_community = 1U;
-                unsigned int secondary_community_pool_size = 2000U;
+                /// Used to calculate the number of Communities.
+                unsigned int community_size      = 2000U;
+                unsigned int pools_per_community = 1U;
 
                 /// Used to calculate the number of Workplaces.
                 unsigned int workplace_size      = 20U;
                 unsigned int pools_per_workplace = 1U;
-                unsigned int workplace_pool_size = 20U;
         } pools;
-
-        /// Read the househould data file, parse it and set data.
-        void SetData(const std::string& householdsFileName);
 };
 
 } // namespace geopop

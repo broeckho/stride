@@ -29,7 +29,7 @@ using namespace stride::util;
 
 CommutesCSVReader::CommutesCSVReader(unique_ptr<istream> inputStream) : CommutesReader(move(inputStream)) {}
 
-void CommutesCSVReader::FillGeoGrid(GeoGrid& geoGrid) const
+void CommutesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
 {
         // flanders_commuting format
         // kolom: stad van vertrek (headers = id)
@@ -43,24 +43,24 @@ void CommutesCSVReader::FillGeoGrid(GeoGrid& geoGrid) const
                 header.push_back(static_cast<unsigned int>(stoi(label.substr(3))));
         }
 
-        const auto                      columnCount = static_cast<unsigned int>(reader.GetColumnCount());
+        const size_t                    columnCount = reader.GetColumnCount();
         map<unsigned int, unsigned int> sizes; // indexed by header/row id
 
         // Since columns represent the "from city" and the proportion is calculated using the from city,
         // the total population of a city is calculated using the values found in the columns.
         for (const CSVRow& row : reader) {
-                for (unsigned int columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+                for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         sizes[columnIndex] += row.GetValue<int>(columnIndex);
                 }
         }
 
-        auto rowIndex = 0U;
+        size_t rowIndex = 0;
         for (const CSVRow& row : reader) {
-                for (auto columnIndex = 0U; columnIndex < columnCount; columnIndex++) {
+                for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         auto abs = row.GetValue<double>(columnIndex);
                         if (abs != 0 && columnIndex != rowIndex) {
-                                const auto& locFrom    = geoGrid.GetById(header[columnIndex]);
-                                const auto& locTo      = geoGrid.GetById(header[rowIndex]);
+                                const auto& locFrom    = geoGrid->GetById(header[columnIndex]);
+                                const auto& locTo      = geoGrid->GetById(header[rowIndex]);
                                 const auto& total      = sizes[columnIndex];
                                 double      proportion = abs / total;
 
@@ -69,8 +69,8 @@ void CommutesCSVReader::FillGeoGrid(GeoGrid& geoGrid) const
                                                         " to " + to_string(locTo->GetID()) +
                                                         " is invalid (0 <= proportion <= 1)");
                                 }
-                                locFrom->AddOutgoingCommute(locTo, proportion);
-                                locTo->AddIncomingCommute(locFrom, proportion);
+                                locFrom->AddOutgoingCommutingLocation(locTo, proportion);
+                                locTo->AddIncomingCommutingLocation(locFrom, proportion);
                         }
                 }
                 rowIndex++;

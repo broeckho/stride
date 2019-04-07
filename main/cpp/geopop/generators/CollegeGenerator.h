@@ -20,18 +20,15 @@
 namespace geopop {
 
 /**
- * Generates ContactPools for ContactType College.
+ * Generator College contact pool types.
  */
 class CollegeGenerator : public Generator
 {
 public:
         using Generator::Generator;
 
-        /// see @Generator::Apply
-        void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig) override;
-
-        /// @see Generator::AddPools.
-        void AddPools(Location& loc, stride::Population* pop, unsigned int number) override;
+        void Apply(std::shared_ptr<GeoGrid> geogrid, const GeoGridConfig& geoGridConfig,
+                   unsigned int& contactCenterCounter) override;
 };
 
 } // namespace geopop

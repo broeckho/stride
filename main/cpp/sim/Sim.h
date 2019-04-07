@@ -47,11 +47,13 @@ class Sim
 {
 public:
         /// Create Sim initialized by the configuration in property tree and population.
-        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& config, std::shared_ptr<Population> pop,
-                                           util::RnMan rnMan);
+        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
+                                           util::RnMan& rnManager);
 
-        /// For use in python environment: create Sim using configuration string i.o. ptree.
-        static std::shared_ptr<Sim> Create(const std::string& configString, std::shared_ptr<Population> pop, util::RnMan rnMan);
+        /// For use in SWIG: use shared_ptr to an rnManager and make the Sim have ownership so it won't be destroyed.
+        /// It cannot be owned by the python environment since SWIG cannot handle the RnMan.
+        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
+                                           std::shared_ptr<util::RnMan> rnManager);
 
         /// Calendar for the simulated world. Initialized with the start date in the simulation
         /// world. Use GetCalendar()->GetSimulationDay() for the number of days simulated.
@@ -59,26 +61,30 @@ public:
 
         /// Get the Sim configuration for the given attribute.
         std::string GetConfigValue(const std::string& attribute) const { return m_config.get<std::string>(attribute); }
-
+        
         /// Get the population.
         std::shared_ptr<Population> GetPopulation() { return m_population; }
 
+        /// Get the transmission profile.
+        const TransmissionProfile& GetTransmissionProfile() const { return m_transmission_profile; }
+
         /// Get the stored transmission rate.
         double GetTransmissionRate() const { return m_transmission_profile.GetRate(); }
-
+        
         /// Get the random number manager.
-        util::RnMan& RefRnManager() { return m_rn_man; }
-
-        /// Get the transmission profile.
-        const TransmissionProfile& RefTransmissionProfile() const { return m_transmission_profile; }
+        util::RnMan& GetRnManager() { return m_rn_manager; }
 
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
-
+        
 private:
         /// Constructor for empty Simulator.
-        explicit Sim();
+        explicit Sim(util::RnMan&);
 
+        /// Constructor for empty Simulator, used in Python environment
+        explicit Sim(std::shared_ptr<util::RnMan> rnMan);
+
+        /// SimBuilder accesses the default constructor to build Sim using config.
         friend class SimBuilder;
 
 private:
@@ -93,10 +99,14 @@ private:
         std::vector<ContactHandler> m_handlers;         ///< Contact handlers (rng & rates).
         InfectorExec*               m_infector;         ///< Executes contacts/transmission loops in contact pool.
         std::shared_ptr<Population> m_population;       ///< Pointer to the Population.
-        util::RnMan                 m_rn_man;           ///< Random number generation management.
+        util::RnMan&                m_rn_manager;       ///< Random number generation management.
 
         TransmissionProfile m_transmission_profile; ///< Profile of disease.
         PublicHealthAgency  m_public_health_agency; ///< Agency to implement reactive strategies.
+
+private:
+        ///< Used when created from the Python environment to prevent rn_manager from being destructed.
+        std::shared_ptr<util::RnMan> m_rn_manager_ptr = nullptr;
 };
 
 } // namespace stride

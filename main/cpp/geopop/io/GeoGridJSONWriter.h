@@ -18,8 +18,6 @@
 #include "GeoGridWriter.h"
 #include "geopop/Location.h"
 
-#include "json.hpp"
-
 #include <boost/property_tree/ptree.hpp>
 #include <set>
 
@@ -30,7 +28,7 @@ class Person;
 
 namespace geopop {
 
-class ContactPool;
+class ContactCenter;
 
 /**
  * Writes a GeoGrid to a JSON file.
@@ -42,24 +40,23 @@ public:
         GeoGridJSONWriter();
 
         /// Write the provided GeoGrid to the proved ostream in JSON format.
-        void Write(GeoGrid& geoGrid, std::ostream& stream) override;
+        void Write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) override;
 
 private:
         /// Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter.
-        nlohmann::json WriteContactPools(stride::ContactType::Id typeId,
-                stride::util::SegmentedVector<stride::ContactPool*>& pools);
+        boost::property_tree::ptree WriteContactCenter(std::shared_ptr<ContactCenter> contactCenter);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a ContactPool.
-        nlohmann::json WriteContactPool(stride::ContactPool* contactPool);
+        boost::property_tree::ptree WriteContactPool(stride::ContactPool* contactPool);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a Coordinate.
-        nlohmann::json WriteCoordinate(const Coordinate& coordinate);
+        boost::property_tree::ptree WriteCoordinate(const Coordinate& coordinate);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a Location.
-        nlohmann::json WriteLocation(std::shared_ptr<Location> location);
+        boost::property_tree::ptree WriteLocation(std::shared_ptr<Location> location);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a Person.
-        nlohmann::json WritePerson(stride::Person* person);
+        boost::property_tree::ptree WritePerson(stride::Person* person);
 
 private:
         std::set<stride::Person*> m_persons_found; ///< The persons found when looping over the ContactPools.

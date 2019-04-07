@@ -20,8 +20,6 @@
 
 %include "./contactpooltype.i";
 %include "./health.i";
-%include "./rninfo.i";
-%include "./rnman.i";
 %include "./population.i";
 %include "./sim.i";
 %include "./transmissionprofile.i"

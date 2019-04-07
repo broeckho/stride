@@ -10,11 +10,14 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2019, Jan Broeckhove.
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "HouseholdCSVReader.h"
 
+#include "contact/ContactPool.h"
+#include "geopop/Household.h"
+#include "pop/Person.h"
 #include "util/CSV.h"
 
 namespace geopop {
@@ -27,16 +30,21 @@ HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream
 {
 }
 
-void HouseholdCSVReader::SetReferenceHouseholds(unsigned int&                           ref_person_count,
-                                                std::vector<std::vector<unsigned int>>& ref_ages)
+void HouseholdCSVReader::SetReferenceHouseholds(std::vector<std::shared_ptr<Household>>& ref_households,
+                                                SegmentedVector<stride::Person>&         ref_persons,
+                                                SegmentedVector<stride::ContactPool>&    ref_pools)
 {
         CSV reader(*(m_input_stream.get()));
 
-        unsigned int p_count = 0U;
+        auto id = 1U;
         for (const CSVRow& row : reader) {
+                auto household = std::make_shared<Household>();
 
-                vector<unsigned int> temp;
-                for (unsigned int i = 0; i < 12; i++) {
+                // Create contactpool of the household.
+                ref_pools.emplace_back(id++, stride::ContactType::Id::Household);
+                stride::ContactPool* newCP = &ref_pools.back();
+
+                for (std::size_t i = 0; i < 12; i++) {
                         unsigned int age;
                         try {
                                 age = row.GetValue<unsigned int>(i);
@@ -44,12 +52,17 @@ void HouseholdCSVReader::SetReferenceHouseholds(unsigned int&                   
                                 // NA
                                 break;
                         }
-                        temp.emplace_back(age);
+
+                        stride::Person p;
+                        ref_persons.push_back(p);
+
+                        stride::Person* p_ptr = &ref_persons.back();
+                        p_ptr->SetAge(age);
+                        newCP->AddMember(p_ptr);
                 }
-                p_count += temp.size();
-                ref_ages.emplace_back(temp);
+                household->RegisterPool(newCP);
+                ref_households.push_back(household);
         }
-        ref_person_count = p_count;
 }
 
 } // namespace geopop

@@ -15,10 +15,9 @@
 
 #include "ReaderFactory.h"
 
+#include "CitiesCSVReader.h"
 #include "CommutesCSVReader.h"
 #include "HouseholdCSVReader.h"
-#include "HouseholdJSONReader.h"
-#include "LocationsCSVReader.h"
 #include "util/FileSys.h"
 
 #include <fstream>
@@ -30,14 +29,14 @@ namespace geopop {
 using namespace std;
 using namespace stride::util;
 
-shared_ptr<LocationsReader> ReaderFactory::CreateCitiesReader(const string& filename)
+shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const string& filename)
 {
         return CreateCitiesReader(FileSys::GetDataDir() / filesys::path(filename));
 }
 
-shared_ptr<LocationsReader> ReaderFactory::CreateCitiesReader(const filesys::path& path)
+shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const filesys::path& path)
 {
-        return make_shared<LocationsCSVReader>(OpenFile(path));
+        return make_shared<CitiesCSVReader>(OpenFile(path));
 }
 
 std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const std::string& filename)
@@ -57,25 +56,16 @@ std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const std:
 
 shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const filesys::path& path)
 {
-        if(!filesys::exists(path)) {
-            throw runtime_error("File not found: " + path.string());
-        }
-        if (path.extension().string() == ".csv") {
-            return make_shared<HouseholdCSVReader>(OpenFile(path));
-        } else if(path.extension().string() == ".json") {
-            return make_shared<HouseholdJSONReader>(OpenFile(path));
-        } else {
-            throw runtime_error("Unsupported file extension: " + path.extension().string());
-        }
+        return make_shared<HouseholdCSVReader>(OpenFile(path));
 }
 
-std::unique_ptr<std::istream> ReaderFactory::OpenFile(const filesys::path& path)
+std::unique_ptr<std::istream> ReaderFactory::OpenFile(const filesys::path& path) const
 {
         if (!filesys::exists(path)) {
                 throw runtime_error("File not found: " + path.string());
         }
 
-        if (path.extension().string() == ".csv" or path.extension().string() == ".json") {
+        if (path.extension().string() == ".csv") {
                 return make_unique<ifstream>(path.string());
         } else {
                 throw runtime_error("Unsupported file extension: " + path.extension().string());
