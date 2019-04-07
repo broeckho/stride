@@ -21,10 +21,15 @@
 #include "Rn.h"
 #include "StringUtils.h"
 
+#include <trng/lcg64.hpp>
 #include <cctype>
+#include <functional>
+#include <pcg/pcg_random.hpp>
 #include <randutils/randutils.hpp>
 #include <sstream>
 #include <stdexcept>
+#include <string>
+#include <vector>
 
 using namespace std;
 using namespace randutils;
@@ -45,9 +50,9 @@ bool Rn<E>::operator==(const Rn& other)
 }
 
 template <typename E>
-RnInfo Rn<E>::GetInfo() const
+typename Rn<E>::Info Rn<E>::GetInfo() const
 {
-        RnInfo            info;
+        Info              info;
         std::stringstream ss;
         for (auto& e : *this) {
                 ss << e.engine();
@@ -59,7 +64,7 @@ RnInfo Rn<E>::GetInfo() const
 }
 
 template <typename E>
-void Rn<E>::Initialize(const RnInfo& info)
+void Rn<E>::Initialize(const Info& info)
 {
         if (m_stream_count != info.m_stream_count) {
                 m_stream_count = info.m_stream_count;

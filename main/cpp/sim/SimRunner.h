@@ -22,6 +22,7 @@
 
 #include "sim/event/Id.h"
 #include "sim/event/Subject.h"
+#include "util/RnMan.h"
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -46,7 +47,8 @@ class SimRunner : public util::Subject<stride::sim_event::Id>
 public:
         /// Initialization with property tree.
         /// \param configPt config info for run and for config of simulator
-        explicit SimRunner(const boost::property_tree::ptree& configPt, std::shared_ptr<Sim> sim);
+        explicit SimRunner(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
+                           util::RnMan& rnManager);
 
         /// Destructor
         ~SimRunner() override = default;
@@ -67,9 +69,10 @@ public:
         void Run(unsigned int numSteps);
 
 private:
-        util::Stopwatch<>           m_clock;  ///< Stopwatch for timing the computation.
-        boost::property_tree::ptree m_config; ///< Ptree with configuration.
-        std::shared_ptr<Sim>        m_sim;    ///< Simulator object.
+        util::Stopwatch<>           m_clock;         ///< Stopwatch for timing the computation.
+        boost::property_tree::ptree m_config;        ///< Ptree with configuration.
+        std::string                 m_output_prefix; ///< Prefix for output data files.
+        std::shared_ptr<Sim>        m_sim;           ///< Simulator object.
 };
 
 } // namespace stride

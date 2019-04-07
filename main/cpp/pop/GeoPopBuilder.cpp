@@ -20,146 +20,75 @@
 
 #include "GeoPopBuilder.h"
 
-#include "geopop/GeoGrid.h"
+#include "geopop/GeoGridBuilder.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/generators/DaycareGenerator.h"
-#include "geopop/generators/PreSchoolGenerator.h"
-#include "geopop/generators/CollegeGenerator.h"
-#include "geopop/generators/HouseholdGenerator.h"
-#include "geopop/generators/K12SchoolGenerator.h"
-#include "geopop/generators/PrimaryCommunityGenerator.h"
-#include "geopop/generators/SecondaryCommunityGenerator.h"
-#include "geopop/generators/WorkplaceGenerator.h"
-#include "geopop/io/ReaderFactory.h"
-#include "geopop/populators/PreSchoolPopulator.h"
-#include "geopop/populators/DaycarePopulator.h"
-#include "geopop/populators/CollegePopulator.h"
-#include "geopop/populators/HouseholdPopulator.h"
-#include "geopop/populators/K12SchoolPopulator.h"
-#include "geopop/populators/PrimaryCommunityPopulator.h"
-#include "geopop/populators/SecondaryCommunityPopulator.h"
-#include "geopop/populators/WorkplacePopulator.h"
+#include "geopop/GeoGridConfigBuilder.h"
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
-
+#include "util/LogUtils.h"
 #include "util/RnMan.h"
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <contact/ContactType.h>
-#include <spdlog/logger.h>
+#include <spdlog/common.h>
+#include <spdlog/fmt/ostr.h>
 
 namespace stride {
 
 using namespace std;
 using namespace util;
-using namespace ContactType;
 using namespace boost::property_tree;
 using namespace geopop;
 
-GeoPopBuilder::GeoPopBuilder(const ptree& config, RnMan& rnMan, shared_ptr<spdlog::logger> strideLogger)
-    : AbstractPopBuilder(config, rnMan, move(strideLogger))
-{
-}
-
 shared_ptr<Population> GeoPopBuilder::Build(shared_ptr<Population> pop)
 {
-        m_stride_logger->trace("Building geopop.");
+        if (!m_stride_logger) {
+                m_stride_logger = LogUtils::CreateNullLogger("PopBuilder_logger");
+        }
 
         // --------------------------------------------------------------
         // Set the GeoGridConfig.
         // --------------------------------------------------------------
-        GeoGridConfig ggConfig(m_config);
-        ggConfig.SetData(m_config.get<string>("run.geopop_gen.household_file"));
+        GeoGridConfig        ggConfig(m_config_pt);
+        GeoGridConfigBuilder ggConfigBuilder{};
+        ggConfigBuilder.SetData(ggConfig, m_config_pt.get<string>("run.geopop_gen.household_file"));
 
-        // --------------------------------------------------------------
-        // Get GeoGrid associated with 'pop'.
-        // --------------------------------------------------------------
-        auto& geoGrid = pop->RefGeoGrid();
+        m_stride_logger->info("Number of reference households: {}", ggConfig.refHH.households.size());
+        m_stride_logger->info("Number of reference persons: {}", ggConfig.refHH.persons.size());
+        m_stride_logger->info("Number of reference households: {}", ggConfig.refHH.pools.size());
 
         // --------------------------------------------------------------
         // Read cities input files (commute info file only if present).
         // --------------------------------------------------------------
         string commutesFile;
-        auto   geopop_gen = m_config.get_child("run.geopop_gen");
+        auto   geopop_gen = m_config_pt.get_child("run.geopop_gen");
         if (geopop_gen.count("commuting_file")) {
-                commutesFile = m_config.get<string>("run.geopop_gen.commuting_file");
+                commutesFile = m_config_pt.get<string>("run.geopop_gen.commuting_file");
         }
+        GeoGridBuilder ggBuilder(m_stride_logger, m_rn_manager, pop);
 
-        m_stride_logger->trace("Starting MakeLocations");
-        MakeLocations(geoGrid, ggConfig, m_config.get<string>("run.geopop_gen.cities_file"), commutesFile);
-        m_stride_logger->trace("Finished MakeLocations");
-
-        // --------------------------------------------------------------
-        // Generate Geo.
-        // --------------------------------------------------------------
-        m_stride_logger->trace("Starting MakePools");
-        MakePools(geoGrid, ggConfig);
-        m_stride_logger->trace("Finished MakePools");
+        m_stride_logger->info("Starting GenCities");
+        ggBuilder.GenCities(ggConfig, m_config_pt.get<string>("run.geopop_gen.cities_file"), commutesFile);
+        m_stride_logger->info("Finished GenCities");
 
         // --------------------------------------------------------------
-        // Generate Pop.
+        // Generate Geo
         // --------------------------------------------------------------
-        m_stride_logger->trace("Starting MakePersons");
-        MakePersons(geoGrid, ggConfig);
-        m_stride_logger->trace("Finished MakePersons");
+        m_stride_logger->info("Starting GenGeo");
+        ggBuilder.GenGeo(ggConfig);
+        m_stride_logger->info("Finished GenGeo");
 
         // --------------------------------------------------------------
-        // Done.
+        // Generate Pop
         // --------------------------------------------------------------
-        m_stride_logger->trace("Done building geopop.");
+        m_stride_logger->info("Starting GenPop");
+        ggBuilder.GenPop(ggConfig);
+        m_stride_logger->info("Finished GenPop");
+
+        pop->m_geoGrid = ggBuilder.GetGeoGrid();
 
         return pop;
-}
-
-void GeoPopBuilder::MakeLocations(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig, const string& citiesFileName,
-                                  const string& commutingFileName)
-{
-        const auto citiesReader = ReaderFactory::CreateCitiesReader(citiesFileName);
-        citiesReader->FillGeoGrid(geoGrid);
-
-        if (!commutingFileName.empty()) {
-                const auto commutesReader = ReaderFactory::CreateCommutesReader(commutingFileName);
-                commutesReader->FillGeoGrid(geoGrid);
-        }
-
-        for (const shared_ptr<Location>& loc : geoGrid) {
-                loc->SetPopCount(geoGridConfig.input.pop_size);
-        }
-        geoGrid.Finalize();
-}
-
-void GeoPopBuilder::MakePools(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
-{
-        vector<shared_ptr<Generator>> generators{make_shared<K12SchoolGenerator>(m_rn_man, m_stride_logger),
-                                                 make_shared<DaycareGenerator>(m_rn_man, m_stride_logger),
-                                                 make_shared<PreSchoolGenerator>(m_rn_man, m_stride_logger),
-                                                 make_shared<CollegeGenerator>(m_rn_man, m_stride_logger),
-                                                 make_shared<WorkplaceGenerator>(m_rn_man, m_stride_logger),
-                                                 make_shared<PrimaryCommunityGenerator>(m_rn_man, m_stride_logger),
-                                                 make_shared<SecondaryCommunityGenerator>(m_rn_man, m_stride_logger),
-                                                 make_shared<HouseholdGenerator>(m_rn_man, m_stride_logger)};
-
-        for (const auto& g : generators) {
-                g->Apply(geoGrid, geoGridConfig);
-        }
-}
-
-void GeoPopBuilder::MakePersons(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
-{
-        vector<shared_ptr<Populator>> populators{make_shared<HouseholdPopulator>(m_rn_man, m_stride_logger),
-                                                 make_shared<DaycarePopulator>(m_rn_man, m_stride_logger),
-                                                 make_shared<PreSchoolPopulator>(m_rn_man, m_stride_logger),
-                                                 make_shared<K12SchoolPopulator>(m_rn_man, m_stride_logger),
-                                                 make_shared<CollegePopulator>(m_rn_man, m_stride_logger),
-                                                 make_shared<PrimaryCommunityPopulator>(m_rn_man, m_stride_logger),
-                                                 make_shared<SecondaryCommunityPopulator>(m_rn_man, m_stride_logger),
-                                                 make_shared<WorkplacePopulator>(m_rn_man, m_stride_logger)};
-
-        for (shared_ptr<Populator>& p : populators) {
-                p->Apply(geoGrid, geoGridConfig);
-        }
 }
 
 } // namespace stride

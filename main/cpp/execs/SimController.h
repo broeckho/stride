@@ -45,7 +45,7 @@ class SimController : protected ControlHelper
 {
 public:
         /// Straight initialization.
-        explicit SimController(const boost::property_tree::ptree& config);
+        explicit SimController(const boost::property_tree::ptree& configPt);
 
         /// Actual run of the simulator.
         void Control();
