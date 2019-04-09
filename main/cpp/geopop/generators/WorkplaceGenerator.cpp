@@ -31,10 +31,10 @@ using namespace stride::ContactType;
 void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         // 1. active people count and the commuting people count are given
-        // 2. count the workplaces, each workplace has an average of 20 employees
+        // 2. count the workplaces
         // 3. count the working people at each location = #residents + #incoming commuters - #outgoing commuters
-        // 4. use the last information for the distribution
-        // 5. assign each workplace to a location
+        // 4. use that information for the distribution
+        // 5. assign each workplaces to a location
 
         const auto EmployeeCount = geoGridConfig.popInfo.popcount_workplace;
         const auto WorkplacesCount =

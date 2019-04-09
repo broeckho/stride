@@ -29,8 +29,7 @@ using namespace stride::ContactType;
 
 void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
-        // 1. given the number of persons of school age, calculate number of schools; schools
-        //    have 500 pupils on average
+        // 1. given the number of persons of school age, calculate number of schools
         // 2. assign schools to a location by using a discrete distribution which reflects the
         //    relative number of pupils for that location; the relative number of pupils is set
         //    to the relative population w.r.t the total population.

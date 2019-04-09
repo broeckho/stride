@@ -34,9 +34,9 @@ using namespace stride::ContactType;
 
 void SecondaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
-        // 1. calculate number of communities, each community has average 2000 persons
-        // 2. assign communities to a location using a discrete distribution reflecting the relative number of
-        //    people at that location
+        // 1. calculate number of communities
+        // 2. assign communities to a location using a discrete distribution reflecting
+        //    the relative number of people at that location
 
         const auto popCount       = geoGridConfig.input.pop_size;
         const auto communitySize  = geoGridConfig.pools.secondary_community_size;
