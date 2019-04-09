@@ -34,8 +34,8 @@ class PyRunner(Subject):
         self.stopwatch.start()
         self.runConfig = run_config
         # Create RnMan
-        info = RnInfo(self.runConfig.getParameter("pop.rng_seed", default="1,2,3,4"),
-                        "", int(self.runConfig.getParameter("run.num_threads", default=1)))
+        info = RnInfo(self.runConfig.getParameter("rng_seed", default="1,2,3,4"),
+                        "", int(self.runConfig.getParameter("num_threads", default=1)))
         rnMan = RnMan(info)
 
         # Create Population
