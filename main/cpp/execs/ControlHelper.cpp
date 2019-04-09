@@ -133,7 +133,7 @@ void ControlHelper::LogStartup()
         const auto s = ss.str();
         stringstream spretty;
         std::regex_replace(std::ostreambuf_iterator<char>(spretty), s.begin(), s.end(), std::regex("(\\n+)"), "\n");
-        m_stride_logger->info("Config :\n {}", spretty.str());
+        m_stride_logger->trace("Config :\n {}", spretty.str());
 }
 
 void ControlHelper::RegisterViewers(shared_ptr<SimRunner> runner)
