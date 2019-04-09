@@ -78,8 +78,8 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsign
         const auto target = get<1>(d);
         const auto margin = get<2>(d);
         config.put("run.num_threads", numThreads);
-        config.put("run.output_prefix",
-                    string("tests/") + ::testing::UnitTest::GetInstance()->current_test_info()->name() + "_" + testTag);
+        config.put("run.output_prefix", string("tests/gtester_")
+                   + ::testing::UnitTest::GetInstance()->current_test_info()->name() + "_" + testTag);
 
         // -----------------------------------------------------------------------------------------
         // Actual simulator run.

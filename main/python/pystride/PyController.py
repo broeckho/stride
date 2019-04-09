@@ -29,7 +29,7 @@ class PyController:
     def getOutputPrefix(self):
         output_prefix = self.runConfig.getParameter("output_prefix")
         if output_prefix == None:
-            return self.timestamp
+            return self.timestamp+"/"
         return output_prefix
 
     def getWorkingDirectory(self):

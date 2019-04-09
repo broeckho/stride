@@ -127,7 +127,7 @@ test: install
 	cd $(BUILD_DIR)/test; ctest $(TESTARGS) -V
 
 gtest: install
-	cd $(CMAKE_INSTALL_PREFIX); bin/gtester $(TESTARGS)
+	cd $(CMAKE_INSTALL_PREFIX); bin/gtester $(TESTARGS) --gtest_output=xml:tests/gtester_all.xml
 
 format:
 	resources/bash/clang-format-all .

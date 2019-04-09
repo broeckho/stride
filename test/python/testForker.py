@@ -2,11 +2,11 @@ import pystride
 from pystride.PyController import PyController
 
 # Set the workspace (default = .)
-pystride.workspace = "testForker"
+pystride.workspace = "pytest_Forker"
 
 # Configure simulation
 controller = PyController(config_path="../config/run_default.xml")
-controller.runConfig.setParameter("output_prefix", "testForker/")
+controller.runConfig.setParameter("output_prefix", "forks/")
 controller.runConfig.setParameter("num_days", 2)
 
 # Create 5 identical forks except for the seed

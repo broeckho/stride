@@ -18,21 +18,21 @@
 #============================================================================
 # Define smoke test. DO NOT BREAK THE COMMAND LINE.
 #============================================================================
-add_test(NAME sim_defaultpop_smoke
+add_test(NAME smoke_sim_defaultpop
     WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-    COMMAND ${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/sim_defaultpop_smoke
+    COMMAND ${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/smoke_sim_defaultpop
 	)
-add_test(NAME stan_defaultpop_smoke
+add_test(NAME smoke_stan_defaultpop
 	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-	COMMAND ${BIN_INSTALL_LOCATION}/stride --stan 3 --override output_prefix=tests/stan_defaultpop_smoke
+	COMMAND ${BIN_INSTALL_LOCATION}/stride --stan 3 --override output_prefix=tests/smoke_stan_defaultpop
 	)
-add_test(NAME sim_geopop_smoke
+add_test(NAME smoke_sim_geopop
 	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-	COMMAND ${BIN_INSTALL_LOCATION}/stride -c run_generate_default.xml --override output_prefix=tests/sim_generate_smoke
+	COMMAND ${BIN_INSTALL_LOCATION}/stride -c run_generate_default.xml --override output_prefix=tests/smoke_sim_geopop
 	)
-add_test(NAME genpop_smoke
+add_test(NAME smoke_genpop_smoke
 	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-	COMMAND ${BIN_INSTALL_LOCATION}/stride -e genpop -c run_generate_default.xml --override output_prefix=tests/genpop_smoke
+	COMMAND ${BIN_INSTALL_LOCATION}/stride -e genpop -c run_generate_default.xml --override output_prefix=tests/smoke_genpop
 	)
 
 #============================================================================
