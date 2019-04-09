@@ -223,7 +223,7 @@ TEST_F(WorkplacePopulatorTest, OnlyCommuting)
         }
 }
 
-TEST_F(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
+TEST_F(WorkplacePopulatorTest, NoCommutingAvailable)
 {
         MakeGeoGrid(m_geogrid_config, 3, 100, 3, 33, 3, m_pop.get());
 

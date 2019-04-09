@@ -94,12 +94,6 @@ void GenPopController::Control()
         outputFileStream.close();
 
         m_stride_logger->trace("Done writing population to file.");
-
-        // -----------------------------------------------------------------------------------------
-        // Done, shutdown.
-        // -----------------------------------------------------------------------------------------
-        LogShutdown();
-        spdlog::drop_all();
 }
 
 } // namespace stride

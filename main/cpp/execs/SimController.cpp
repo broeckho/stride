@@ -68,12 +68,6 @@ void SimController::Control()
         auto runner = make_shared<SimRunner>(m_config, m_simulator);
         RegisterViewers(runner);
         runner->Run();
-
-        // -----------------------------------------------------------------------------------------
-        // Done, shutdown.
-        // -----------------------------------------------------------------------------------------
-        LogShutdown();
-        spdlog::drop_all();
 }
 
 } // namespace stride

@@ -121,12 +121,6 @@ void StanController::Control()
                 csv.AddRow(v.begin(), v.end());
         }
         csv.Write(FileSys::BuildPath(m_config.get<string>("run.output_prefix"), "stan_infected.csv"));
-
-        // -----------------------------------------------------------------------------------------
-        // Done, shutdown.
-        // -----------------------------------------------------------------------------------------
-        LogShutdown();
-        spdlog::drop_all();
 }
 
 } // namespace stride
