@@ -97,9 +97,9 @@ install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 # Define tests.
 #============================================================================
 add_test(NAME ${EXEC}
-        WORKING_DIRECTORY ${TESTS_DIR}
+        WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
         COMMAND ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
-        --gtest_output=xml:gtester_all.xml
+        --gtest_output=${TESTS_DIR}/xml:gtester_all.xml
 )
 
 #############################################################################

@@ -43,7 +43,7 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-StanController::StanController(const ptree& config) : ControlHelper("Stancontoller", config) {}
+StanController::StanController(const ptree& config, const string& name) : ControlHelper(config, name) {}
 
 void StanController::Control()
 {

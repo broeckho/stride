@@ -49,7 +49,7 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-GenPopController::GenPopController(const ptree& config) : ControlHelper("GenPopController", config) {}
+GenPopController::GenPopController(const ptree& config, const string& name) : ControlHelper(config, name) {}
 
 void GenPopController::Control()
 {

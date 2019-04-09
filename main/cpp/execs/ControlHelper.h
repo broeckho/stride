@@ -46,7 +46,7 @@ class ControlHelper
 {
 public:
         /// Straight initialization.
-        explicit ControlHelper(std::string name, const boost::property_tree::ptree& config);
+        explicit ControlHelper(const boost::property_tree::ptree& config, std::string name);
 
 protected:
         /// Empty controller: used as target for delegation.

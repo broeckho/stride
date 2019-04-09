@@ -46,7 +46,7 @@ ControlHelper::ControlHelper()
 {
 }
 
-ControlHelper::ControlHelper(string name, const ptree& config) : ControlHelper()
+ControlHelper::ControlHelper(const ptree& config, string name) : ControlHelper()
 {
         m_run_clock.Start();
         m_config           = config;
@@ -77,7 +77,11 @@ void ControlHelper::InstallLogger()
         // spd log levels are: trace, debug, info, warn, error, critical, off
         const auto path     = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
         const auto logLevel = m_config.get<string>("run.stride_log_level");
-        m_stride_logger     = LogUtils::CreateCliLogger("stride_logger", path.string());
+        if (m_name == "TestController") {
+                m_stride_logger = LogUtils::CreateFileLogger("stride_logger", path.string());
+        } else {
+                m_stride_logger = LogUtils::CreateCliLogger("stride_logger", path.string());
+        }
         m_stride_logger->set_level(spdlog::level::from_str(logLevel));
         m_stride_logger->flush_on(spdlog::level::err);
         spdlog::register_logger(m_stride_logger);
