@@ -358,5 +358,23 @@ private:
         size_t              m_size;   ///< Index of first free chunk when indexed contiguously.
 };
 
+/**
+ * Helper function for equality test (equal size and all elements equal).
+ */
+template <typename T, size_t N = 512, bool Safe = true>
+inline bool operator==(const SegmentedVector<T, N, Safe>& lhs, const SegmentedVector<T, N, Safe>& rhs)
+{
+        return std::equal(lhs.cbegin(), lhs.cend(), rhs.cbegin(), rhs.cend());
+}
+
+/**
+ * Helper function for inequality test (unequal size or not all elements equal).
+ */
+template <typename T, size_t N = 512, bool Safe = true>
+inline bool operator!=(const SegmentedVector<T, N, Safe>& lhs, const SegmentedVector<T, N, Safe>& rhs)
+{
+        return !operator==(lhs, rhs);
+}
+
 } // namespace util
 } // namespace stride

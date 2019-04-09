@@ -20,6 +20,8 @@
 
 #include "CSV.h"
 
+#include <fstream>
+
 using namespace std;
 
 namespace {

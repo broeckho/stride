@@ -16,6 +16,7 @@
 #pragma once
 
 #include <stdexcept>
+#include <string>
 
 namespace stride {
 namespace util {
@@ -24,10 +25,20 @@ namespace util {
  * Basic exception class: needed to prevent clang-tidy warning
  * "thrown exception type is not nothrow copy constructible".
  */
-class Exception : public std::runtime_error
+class Exception : public std::exception
 {
 public:
-        explicit Exception(const std::string& msg) : runtime_error(msg) {}
+        /// Straightforward constructor.
+        explicit Exception(std::string msg) : m_msg(std::move(msg)) {}
+
+        /// Return the message.
+        const char* what() const noexcept override { return m_msg.c_str(); }
+
+        /// Default constructor
+        ~Exception() noexcept override = default;
+
+private:
+        std::string m_msg;
 };
 
 } // namespace util

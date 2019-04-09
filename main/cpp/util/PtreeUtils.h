@@ -24,12 +24,12 @@
 
 #pragma once
 
-#include <array>
-
-#include <boost/foreach.hpp>
+//#include <boost/foreach.hpp>
 #include <boost/iterator/transform_iterator.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <algorithm>
+#include <array>
+#include <functional>
 #include <stdexcept>
 
 namespace stride {

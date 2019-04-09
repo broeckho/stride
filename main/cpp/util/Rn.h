@@ -20,15 +20,15 @@
 
 #pragma once
 
-#include "StringUtils.h"
+#include "RnInfo.h"
 
+#include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
-#include <cctype>
+#include <trng/uniform01_dist.hpp>
+#include <trng/uniform_int_dist.hpp>
 #include <functional>
 #include <pcg/pcg_random.hpp>
 #include <randutils/randutils.hpp>
-#include <sstream>
-#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -46,29 +46,16 @@ public:
         using RnType        = randutils::random_generator<E, randutils::seed_seq_fe128>;
         using ContainerType = std::vector<randutils::random_generator<E, randutils::seed_seq_fe128>>;
 
-public:
-        /// POD representation of the RNManager's state. If no state is available, i.e. state
-        /// is an empty string, the initial state corresponding to the seed sequence is implied.
-        /// If a state is available, the seed sequence is disregarded.
-        struct Info
-        {
-                explicit Info(std::string seed_seq_init = "1,2,3,4", std::string state = "",
-                              unsigned int stream_count = 1U)
-                    : m_seed_seq_init(std::move(seed_seq_init)), m_state(std::move(state)),
-                      m_stream_count(stream_count){};
-
-                std::string  m_seed_seq_init; ///< Seed for the engine.
-                std::string  m_state;         ///< Long string representing current state.
-                unsigned int m_stream_count;  ///< Number of streams set up with the engine.
-        };
-
-public:
         using ContainerType::operator[];
         using ContainerType::at;
         using ContainerType::size;
 
+public:
+        /// Default constructor build empty manager.
+        Rn() : ContainerType(), m_seed_seq_init(""), m_stream_count(0U) {}
+
         /// Initializes.
-        explicit Rn(const Info& info = Info())
+        explicit Rn(const RnInfo& info)
             : ContainerType(info.m_stream_count), m_seed_seq_init(info.m_seed_seq_init),
               m_stream_count(info.m_stream_count)
         {
@@ -82,88 +69,52 @@ public:
         Rn& operator=(const Rn&) = delete;
 
         /// Equality of states
-        bool operator==(const Rn& other)
-        {
-                bool status = m_stream_count == other.m_stream_count;
-                if (status) {
-                        for (size_t i = 0; i < size(); ++i) {
-                                status = status && ((*this)[i] == other[i]);
-                        }
-                }
-                return status;
-        }
+        bool operator==(const Rn& other);
 
         /// Return the state of the random engines.
-        Info GetInfo() const
+        RnInfo GetInfo() const;
+
+        /// Return a generator for uniform doubles in [0, 1[ using i-th random engine.
+        std::function<double()> GetUniform01Generator(unsigned int i = 0U)
         {
-                Info              info;
-                std::stringstream ss;
-                for (auto& e : *this) {
-                        ss << e.engine();
-                }
-                info.m_seed_seq_init = m_seed_seq_init;
-                info.m_state         = ss.str();
-                info.m_stream_count  = m_stream_count;
-                return info;
+                return ContainerType::at(i).variate_generator(trng::uniform01_dist<double>());
+        }
+
+        /// Return a generator for uniform ints in [a, b[ (a < b) using i-th random engine.
+        std::function<int()> GetUniformIntGenerator(int a, int b, unsigned int i = 0U)
+        {
+                return ContainerType::at(i).variate_generator(trng::uniform_int_dist(a, b));
+        }
+
+        /// Return generator for integers [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random engine.
+        std::function<int()> GetDiscreteGenerator(const std::vector<double>& weights, unsigned int i = 0U)
+        {
+                return ContainerType::at(i).variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
         }
 
         /// Initalize with data in Info.
-        void Initialize(const Info& info = Info())
+        void Initialize(const RnInfo& info);
+
+        /// Is this een empty (i.e. non-initialized Rn)?
+        bool IsEmpty() const { return ContainerType::empty() || (m_stream_count == 0U); }
+
+        /// Random shuffle of vector of unsigned int indices using i-th engine.
+        void Shuffle(std::vector<unsigned int>& indices, unsigned int i)
         {
-                if (m_stream_count != info.m_stream_count) {
-                        m_stream_count = info.m_stream_count;
-                        this->resize(m_stream_count);
-                }
-                m_seed_seq_init = info.m_seed_seq_init;
-
-                auto state = info.m_state;
-                if (state.empty()) {
-                        std::vector<unsigned int> seseq_init_vec;
-                        for (const auto& e : Split(m_seed_seq_init, ",")) {
-                                if (!CheckAllDigits(e)) {
-                                        throw std::runtime_error("Rn::Seed> Error in seeding definiton.");
-                                }
-                                seseq_init_vec.push_back(FromString<unsigned int>(e));
-                        }
-                        randutils::seed_seq_fe128 seseq(seseq_init_vec.begin(), seseq_init_vec.end());
-
-                        Seed(seseq);
-                } else {
-                        std::stringstream ss(state);
-                        for (size_t i = 0; i < m_stream_count; ++i) {
-                                ss >> (*this)[i].engine();
-                        }
-                }
+                ContainerType::at(i).shuffle(indices.begin(), indices.end());
         }
 
 private:
         /// Actual first-time seeding. Procedure varies according to engine type, see specialisations.
-        void Seed(randutils::seed_seq_fe128& seseq)
-        {
-                auto seeds = pcg_extras::generate_one<unsigned long>(seseq);
-                for (size_t i = 0; i < m_stream_count; ++i) {
-                        (*this)[i].engine().seed(seeds);
-                        (*this)[i].engine().split(m_stream_count, i);
-                }
-        }
+        void Seed(randutils::seed_seq_fe128& seseq);
 
 private:
         std::string  m_seed_seq_init; ///< Seed sequence initializer used with engines.
         unsigned int m_stream_count;  ///< Number of threads/streams set up with the engine.
 };
 
-/// Specialization of seeding for pcg64.
 template <>
-inline void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq)
-{
-        if (2 * m_stream_count > 64) {
-                throw std::runtime_error("RnPcg64 generate seed vector, cannot handle large n.");
-        }
-        auto seeds = pcg_extras::generate_vector<pcg64::state_type, 64>(seseq);
-        for (size_t i = 0; i < m_stream_count; ++i) {
-                (*this)[i].engine().seed(seeds[i + 1], seeds[i]);
-        }
-}
+void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq);
 
 extern template class Rn<pcg64>;
 extern template class Rn<trng::lcg64>;

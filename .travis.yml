@@ -26,43 +26,48 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && MAKE_TEST=true"
+      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && CMAKE_BUILD_TYPE=Debug"
       addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
     - os: linux
       compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && CMAKE_BUILD_TYPE=Debug"
+      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && MAKE_TEST=true"
       addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
     - os: linux
       compiler: gcc
       env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8 && TRAVIS_BUILD_DOCS=true"
       addons: {apt: { packages: [*default_packages, g++-8], sources: [*default_sources]}}
-      
+
     - os: linux
       compiler: clang
-      env: MATRIX_EVAL="CC=clang && CXX=clang++"
+      env: MATRIX_EVAL="CC=clang && CXX=clang++ && MAKE_TEST=true"
       addons: {apt: { packages: [*default_packages], sources: [*default_sources]}}
+
+    #- os: osx
+    #  osx_image: xcode10.1
+    #  compiler: clang
+    #  env: MATRIX_EVAL="CXX_ID=clang6 && CC=clang && CXX=clang++"
+
+    - os: osx
+      osx_image: xcode10.1
+      compiler: clang
+      env: MATRIX_EVAL="CXX_ID=clang7 && CC=clang && CXX=clang++ && MAKE_TEST=true"
+
+    - os: osx
+      osx_image: xcode10.1
+      compiler: gcc
+      env: MATRIX_EVAL="CXX_ID=gcc && CC=gcc-8 && CXX=g++-8"
 
     - os: osx
       osx_image: xcode10.1
       compiler: clang
       env: MATRIX_EVAL="CXX_ID=apple && CC=cc && CXX=c++"
 
-    - os: osx
-      osx_image: xcode10.1
-      compiler: clang
-      env: MATRIX_EVAL="CXX_ID=clang6 && CC=/usr/local/opt/llvm@6/bin/clang && CXX=/usr/local/opt/llvm@6/bin/clang++"
-
-    #- os: osx
-    #  osx_image: xcode10.1
-    #  compiler: clang
-    #  env: MATRIX_EVAL="CXX_ID=clang7 && CC=/usr/local/opt/llvm@7/bin/clang && CXX=/usr/local/opt/llvm@7/bin/clang++"
-
 before_install:
   - eval "${MATRIX_EVAL}"
   # OpenMP issue with linux+clang
-  - export LD_LIBRARY_PATH=/usr/local/clang/lib:$LD_LIBRARY_PATH
+  #- export LD_LIBRARY_PATH=/usr/local/clang/lib:$LD_LIBRARY_PATH
   # Check commit matches expected commit (because of Travis bug)
   - |
     if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then
@@ -70,17 +75,25 @@ before_install:
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "clang6" ]]; then
-      brew install llvm@6
-      brew link --force --overwrite llvm@6
-      export PATH="/usr/local/opt/llvm@6/bin:$PATH"
-      ls $(brew --prefix llvm@6)/bin
+      brew install llvm@6 libomp
+      # brew link --force --overwrite llvm@6
+      export PATH="$(brew --prefix llvm@6)/bin:$PATH"
+      ls
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "clang7" ]]; then
-      brew install --with-clang llvm@7
-      brew link --force --overwrite llvm@7
-      export PATH="/usr/local/opt/llvm@7/bin:$PATH"
-      ls $(brew --prefix llvm@7)/bin
+      brew install llvm@7 libomp
+      # brew link --force --overwrite llvm@7
+      export PATH="$(brew --prefix llvm@7)/bin:$PATH"
+    fi
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
+      brew install gcc
+      export PATH="/usr/local/bin:$PATH"
+    fi
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CC" == "clang" ]]; then
+      export LD_LIBRARY_PATH="/usr/local/clang/lib:$LD_LIBRARY_PATH"
     fi
 
 install:
@@ -108,27 +121,29 @@ install:
     fi
     #--------- All platforms
   - |
+    #           STRIDE_FORCE_NO_BOOST: do not use bjam to build boost (mac+gcc problems)
     #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
     #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-    export BOOST_ROOT=$HOME/deps/boost_1_66_0
-    export BOOST_NO_SYSTEM_PATHS=ON
-    if [[ -z "$(ls -A $BOOST_ROOT)" ]]; then
-      cd /tmp/
-      wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
-      tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
-      cd boost_1_66_0/
-      if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
-        echo "using gcc : : ${CXX} ;" > ./tools/build/v2/user-config.jam
-      fi
-      ./bootstrap.sh --prefix=$BOOST_ROOT --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
-      ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
-      cd $TRAVIS_BUILD_DIR;
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
+      export STRIDE_FORCE_NO_BOOST=ON
+      export STRIDE_BOOST_NO_SYSTEM_PATHS=ON
     else
-      echo "Already have boost cache"
+      export BOOST_ROOT=$HOME/deps/boost_1_69_0
+      if [[ -z "$(ls -A $BOOST_ROOT)" ]]; then
+        cd /tmp/
+        wget https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.gz -q
+        tar xf boost_1_69_0.tar.gz > /dev/null 2>&1
+        cd boost_1_69_0/
+        ./bootstrap.sh --prefix=$BOOST_ROOT --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
+        ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
+        cd $TRAVIS_BUILD_DIR;
+      else
+        echo "Already have boost cache"
+      fi
+      export LD_LIBRARY_PATH=$BOOST_ROOT/lib:$LD_LIBRARY_PATH
+      sudo rm -f /usr/local/lib/libboost*.dylib*
+      sudo ln -s $BOOST_ROOT/lib/*.{so,dylib}* /usr/local/lib
     fi
-    export LD_LIBRARY_PATH=$BOOST_ROOT/lib:$LD_LIBRARY_PATH
-    sudo rm -f /usr/local/lib/libboost*.dylib*
-    sudo ln -s $BOOST_ROOT/lib/*.{so,dylib}* /usr/local/lib
 
 script:
   - make all && if [[ "$MAKE_TEST" = "true" ]]; then make test; fi

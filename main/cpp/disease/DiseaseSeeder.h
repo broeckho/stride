@@ -20,16 +20,16 @@
 
 #pragma once
 
-#include "pool/ContactPool.h"
-#include "pop/Population.h"
+#include "contact/ContactPool.h"
 #include "util/RnMan.h"
+#include "util/SegmentedVector.h"
 
-#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
+class Population;
 class Sim;
 
 /**
@@ -39,19 +39,19 @@ class DiseaseSeeder
 {
 public:
         /// Initializing DiseaseSeeder.
-        DiseaseSeeder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
+        DiseaseSeeder(const boost::property_tree::ptree& config, util::RnMan& rnMan);
 
         /// Build the simulator.
         void Seed(std::shared_ptr<Population> pop);
 
 private:
         /// Seed for vaccination/natural immunity.
-        template <typename T>
-        void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile, T& immunityPools);
+        void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
+                       const util::SegmentedVector<ContactPool>& immunityPools);
 
 private:
-        const boost::property_tree::ptree& m_config_pt;  ///< Run config.
-        util::RnMan&                       m_rn_manager; ///< Random number manager.
+        const boost::property_tree::ptree& m_config; ///< Run config.
+        util::RnMan&                       m_rn_man; ///< Random number manager.
 };
 
 } // namespace stride

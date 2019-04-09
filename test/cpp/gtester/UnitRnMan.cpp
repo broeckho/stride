@@ -18,18 +18,14 @@
  * Implementation of scenario tests running in batch mode.
  */
 
+#include "util/Rn.h"
 #include "util/RnMan.h"
 #include "util/StringUtils.h"
 
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/xml_parser.hpp>
 #include <chrono>
-#include <exception>
 #include <gtest/gtest.h>
 #include <iostream>
-#include <pcg/pcg_random.hpp>
 #include <random>
-#include <randutils/randutils.hpp>
 #include <sstream>
 #include <thread>
 
@@ -37,6 +33,17 @@ using namespace std;
 using namespace ::testing;
 using namespace randutils;
 using namespace stride::util;
+
+namespace stride {
+namespace util {
+
+class RnPcg64 : public Rn<pcg64>
+{
+        using Rn<pcg64>::Rn;
+};
+
+} // namespace util
+} // namespace stride
 
 namespace Tests {
 using pcg_extras::operator<<;
@@ -50,7 +57,7 @@ TYPED_TEST_CASE_P(UnitRnMan);
 
 TYPED_TEST_P(UnitRnMan, DefaultInfo)
 {
-        const typename TypeParam::Info info;
+        const RnInfo info;
 
         EXPECT_EQ("1,2,3,4", info.m_seed_seq_init);
         EXPECT_EQ("", info.m_state);
@@ -59,27 +66,27 @@ TYPED_TEST_P(UnitRnMan, DefaultInfo)
 
 TYPED_TEST_P(UnitRnMan, Reset1)
 {
-        const typename TypeParam::Info info("1,2,3,4", "", 1);
-        TypeParam                      rn(info);
-        const auto                     info2 = rn.GetInfo();
-        TypeParam                      rn2(info2);
-        const auto                     info3 = rn2.GetInfo();
+        const RnInfo info("1,2,3,4", "", 1);
+        TypeParam    rn(info);
+        const auto   info2 = rn.GetInfo();
+        TypeParam    rn2(info2);
+        const auto   info3 = rn2.GetInfo();
         EXPECT_EQ(info2.m_state, info3.m_state);
 }
 
 TYPED_TEST_P(UnitRnMan, Reset2)
 {
-        const typename TypeParam::Info info("1,2,3,4", "", 1);
-        TypeParam                      rn(info);
-        const auto                     info2 = rn.GetInfo();
-        TypeParam                      rn2(info2);
-        const auto                     info3 = rn2.GetInfo();
+        const RnInfo info("1,2,3,4", "", 1);
+        TypeParam    rn(info);
+        const auto   info2 = rn.GetInfo();
+        TypeParam    rn2(info2);
+        const auto   info3 = rn2.GetInfo();
         EXPECT_EQ(info2.m_state, info3.m_state);
 }
 
 TYPED_TEST_P(UnitRnMan, Distribution)
 {
-        const typename TypeParam::Info info("1,2,3,4", "", 2);
+        const RnInfo info("1,2,3,4", "", 2);
 
         TypeParam                        rnPcg1(info);
         std::normal_distribution<double> dist;
@@ -100,7 +107,7 @@ TYPED_TEST_P(UnitRnMan, Distribution)
 
 TYPED_TEST_P(UnitRnMan, Uniform1)
 {
-        const typename TypeParam::Info info("1,2,3,4", "", 2);
+        const RnInfo info("1,2,3,4", "", 2);
 
         TypeParam                              rnPcg1(info);
         std::uniform_real_distribution<double> dist(0.0, 1.0);
@@ -121,7 +128,7 @@ TYPED_TEST_P(UnitRnMan, Uniform1)
 
 TYPED_TEST_P(UnitRnMan, Uniform2)
 {
-        const typename TypeParam::Info info("1,2,3,4", "", 2);
+        const RnInfo info("1,2,3,4", "", 2);
 
         TypeParam                                   rnPcg1(info);
         std::uniform_int_distribution<unsigned int> dist(0, 10);
@@ -142,7 +149,8 @@ TYPED_TEST_P(UnitRnMan, Uniform2)
 
 REGISTER_TYPED_TEST_CASE_P(UnitRnMan, DefaultInfo, Reset1, Reset2, Distribution, Uniform1, Uniform2);
 
-typedef ::testing::Types<RnPcg64, RnLcg64> TestedTypes;
+// typedef ::testing::Types<RnPcg64, RnLcg64> TestedTypes;
+typedef ::testing::Types<RnPcg64> TestedTypes;
 INSTANTIATE_TYPED_TEST_CASE_P(Rn, UnitRnMan, TestedTypes);
 
 } // namespace Tests

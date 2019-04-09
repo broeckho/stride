@@ -20,11 +20,8 @@
 
 #pragma once
 
-#include <algorithm>
 #include <chrono>
-#include <ctime>
-#include <iomanip>
-#include <sstream>
+#include <ostream>
 #include <string>
 
 namespace stride {
@@ -37,38 +34,14 @@ namespace util {
 class TimeStamp
 {
 public:
-        /// Constructor marks the time for the time stamp.
-        TimeStamp() : m_tp(std::chrono::system_clock::now()) {}
+        /// Constructor marks the current time for the time stamp.
+        TimeStamp();
 
         /// Returns string with the time stamp after eliminating newline.
-        std::string ToString() const
-        {
-                std::time_t t   = std::chrono::system_clock::to_time_t(m_tp);
-                std::string str = std::ctime(&t);
-                // str[str.length() - 1] = ' ';
-                return str.substr(0, str.length() - 1);
-        }
+        std::string ToString() const;
 
         /// Returns string with the time stamp after eliminating newline.
-        std::string ToTag() const
-        {
-                // This is the C++11 implementation but clang 5 on Travis Linux VM's
-                // still does not implement std::put_time.
-                // auto now = std::chrono::system_clock::now();
-                // auto in_time_t = std::chrono::system_clock::to_time_t(now);
-                // std::stringstream ss;
-                // ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%X");
-                // return ss.str();
-                time_t    now = time(nullptr);
-                struct tm tstruct;
-                char      buf[80];
-                tstruct = *localtime_r(&now, &tstruct);
-                strftime(buf, sizeof(buf), "%Y%m%d_%H%M%S", &tstruct);
-                return std::string(buf);
-        }
-
-        /// Returns time stamp as a time_t.
-        std::time_t ToTimeT() const { return std::chrono::system_clock::to_time_t(m_tp); }
+        std::string ToTag() const;
 
 private:
         std::chrono::system_clock::time_point m_tp;

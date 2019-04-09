@@ -1,0 +1,78 @@
+/*
+ *  This is free software: you can redistribute it and/or modify it
+ *  under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  any later version.
+ *  The software is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License
+ *  along with the software. If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
+ */
+
+syntax = "proto3";
+package proto;
+
+// GeoGrid consists of multiple Locations and multiplePersons.
+message GeoGrid {
+
+    // Location of UUID, name, province and population count, coordinate,
+    // multiple ContactCenters and (outgoing) Commute data.
+    message Location {
+
+        int64 id = 1;
+        string name = 2;
+        int64 province = 3;
+        int64 population = 4;
+
+        // Coordinate with longitude and latitude.
+        message Coordinate {
+            double longitude = 1;
+            double latitude = 2;
+        }
+        Coordinate coordinate = 5;
+
+        // ContactPool Index: ContactPools with UUID, type ID.
+        message ContactPools {
+
+            int64 id = 1;
+
+            enum Type {
+                K12School = 0;
+                PrimaryCommunity = 1;
+                SecondaryCommunity = 2;
+                College = 3;
+                Household = 4;
+                Workplace = 5;
+            }
+            Type type = 2;
+
+            // ContactPool with pool UUID and people's ID's.
+            message ContactPool {
+                int64 id = 1;
+                repeated int64 people = 2;
+            }
+            repeated ContactPool pools = 3;
+        }
+        repeated ContactPools contactPools = 6;
+
+        message Commute {
+            int64 to = 1;
+            double proportion = 2;
+        }
+        repeated Commute commutes = 7;
+    }
+
+    // Person with UUID and age.
+    message Person {
+        int64 id = 1;
+        int64 age = 2;
+    }
+
+    // The actual message content: multiple Locations and multiple Persons.
+    repeated Location locations = 1;
+    repeated Person persons = 2;
+}

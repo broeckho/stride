@@ -20,10 +20,10 @@
 
 #pragma once
 
-#include "pool/ContactPoolType.h"
+#include "ContactType.h"
 #include "pop/Age.h"
 
-#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ptree_fwd.hpp>
 #include <array>
 
 namespace stride {
@@ -38,7 +38,7 @@ public:
         AgeContactProfile() = default;
 
         /// Explicitly initialize
-        AgeContactProfile(ContactPoolType::Id poolType, const boost::property_tree::ptree& contactPt);
+        AgeContactProfile(ContactType::Id poolType, const boost::property_tree::ptree& contactPt);
 };
 
 } // namespace stride

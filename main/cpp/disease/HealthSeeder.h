@@ -20,17 +20,14 @@
 
 #pragma once
 
-#include "Health.h"
-#include "contact/ContactHandler.h"
-
 #include <boost/property_tree/ptree_fwd.hpp>
-#include <functional>
 #include <memory>
 #include <string>
 #include <vector>
 
 namespace stride {
 
+class ContactHandler;
 class Population;
 
 /**
@@ -54,10 +51,10 @@ private:
         unsigned short int Sample(const std::vector<double>& distribution, double random01);
 
 private:
-        std::vector<double> m_distrib_start_symptomatic;
-        std::vector<double> m_distrib_time_asymptomatic;
-        std::vector<double> m_distrib_time_infectious;
-        std::vector<double> m_distrib_time_symptomatic;
+        std::vector<double> m_start_symptomatic;
+        std::vector<double> m_time_asymptomatic;
+        std::vector<double> m_time_infectious;
+        std::vector<double> m_time_symptomatic;
 };
 
 } // namespace stride

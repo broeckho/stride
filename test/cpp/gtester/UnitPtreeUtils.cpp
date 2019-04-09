@@ -19,17 +19,14 @@
  */
 
 #include "UnitPtreeUtilsHelper.h"
+
 #include "util/PtreeUtils.h"
 #include "util/RunConfigManager.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <array>
-#include <deque>
-#include <forward_list>
 #include <gtest/gtest.h>
-#include <iostream>
 #include <list>
-#include <vector>
 
 using namespace std;
 using namespace stride::util;

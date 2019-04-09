@@ -22,8 +22,9 @@
 
 #include "util/ConfigInfo.h"
 
-#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ptree_fwd.hpp>
 #include <string>
+#include <vector>
 
 namespace stride {
 namespace util {
@@ -34,44 +35,44 @@ namespace util {
 class RunConfigManager
 {
 public:
+        /// Adapt the configuration by adding the gengeopop data items.
+        static void AddGeoPopConfig(boost::property_tree::ptree& pt);
+
         /// Clean (i.e. indent, sort and produde the sha1) the ptree config file.
         static void CleanConfigFile(boost::property_tree::ptree pt);
 
-        ///
+        /// Produce property tree for config with given name.
         static boost::property_tree::ptree Create(const std::string& configName);
 
-        ///
-        static std::vector<unsigned int> CreateNumThreads(unsigned int max = ConfigInfo::ProcessorCount());
+        /// Set of threadcounts to use for tests based an nomber of available OpenMP threads.
+        static std::vector<unsigned int> CreateNumThreads(unsigned int maxNum = ConfigInfo::NumberAvailableThreads());
 
-        ///
+        /// Reconstitute property tree from string representation.
         static boost::property_tree::ptree FromString(const std::string& s);
 
-        ///
+        /// Produce string representation of property tree.
         static std::string ToString(const boost::property_tree::ptree& pt);
 
-        ///
+        /// Produce the sha1 hash of property tree (of it's string representation).
         static std::string ToSha1(const boost::property_tree::ptree& pt);
 
-        ///
+        /// Produce the short sha1 hash of property tree (of it's string representation).
         static std::string ToShortSha1(const boost::property_tree::ptree& pt, unsigned int n = 7U);
 
-        ///
-        static void ConvertToGenGeoPop(boost::property_tree::ptree&);
-
 private:
-        ///
+        /// Produce Influenza config for Benchmarking.
         static std::string CreateBenchInfluenza();
 
-        ///
+        /// Produce Measles config for Benchmarking.
         static std::string CreateBenchMeasles();
 
-        ///
+        /// Produce the deefault config.
         static std::string CreateDefault();
 
-        ///
+        /// Produce Influenza config for scenario tests.
         static std::string CreateTestsInfluenza();
 
-        ///
+        /// Produce Measles config for scenario tests.
         static std::string CreateTestsMeasles();
 };
 

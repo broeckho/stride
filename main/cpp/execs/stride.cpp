@@ -21,7 +21,6 @@
 #include "GenPopController.h"
 #include "SimController.h"
 #include "StanController.h"
-
 #include "util/FileSys.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"

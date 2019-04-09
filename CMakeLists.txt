@@ -18,17 +18,14 @@
 #  CMake config.
 #
 #############################################################################
-cmake_minimum_required(VERSION 3.5)
-if(CMAKE_VERSION VERSION_LESS 3.8)
-    set(STRIDE_FORCE_NO_PYTHON ON)
-endif()
+cmake_minimum_required(VERSION 3.12...3.13)
 include(CMakeConfig.cmake)
 include(CMakeLocal.cmake OPTIONAL)
 
 #============================================================================
 # Configuration for CMake, for build & install.
 #============================================================================
-project(STRIDE)
+project(STRIDE VERSION 1.0 LANGUAGES CXX)
 include(CMakeLocalProject.cmake OPTIONAL)
 
 #============================================================================

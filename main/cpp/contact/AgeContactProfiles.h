@@ -20,12 +20,12 @@
 
 #pragma once
 
+#include "ContactType.h"
+#include "IdSubscriptArray.h"
 #include "contact/AgeContactProfile.h"
-#include "pool/ContactPoolType.h"
-#include "pool/IdSubscriptArray.h"
 
 namespace stride {
 
-using AgeContactProfiles = ContactPoolType::IdSubscriptArray<AgeContactProfile>;
+using AgeContactProfiles = ContactType::IdSubscriptArray<AgeContactProfile>;
 
 } // namespace stride
