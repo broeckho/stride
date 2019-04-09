@@ -64,7 +64,7 @@ void GenPopController::Control()
         // -----------------------------------------------------------------------------------------
         // MakePersons scenario: step 1, build a random number manager.
         // -----------------------------------------------------------------------------------------
-        const RnInfo info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
+        const RnInfo info{m_config.get<string>("run.rng_seed", "1,2,3,4"), "",
                           m_config.get<unsigned int>("run.num_threads")};
         RnMan        rnMan{info};
 
