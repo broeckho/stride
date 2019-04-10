@@ -13,13 +13,8 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "K12SchoolGenerator.h"
+#include "Generator.h"
 
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
-#include "geopop/Location.h"
-#include "pop/Population.h"
-#include "util/RnMan.h"
 
 namespace geopop {
 
@@ -27,7 +22,8 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Generator<stride::ContactType::Id::K12School>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         // 1. given the number of persons of school age, calculate number of schools
         // 2. assign schools to a location by using a discrete distribution which reflects the
@@ -54,15 +50,6 @@ void K12SchoolGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         for (auto i = 0U; i < schoolCount; i++) {
                 const auto loc = geoGrid[dist()];
                 AddPools(*loc, pop, geoGridConfig.pools.pools_per_k12school);
-        }
-}
-
-void K12SchoolGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
-{
-        auto& poolSys = pop->RefPoolSys();
-        for (auto i = 0U; i < number; ++i) {
-                const auto p = poolSys.CreateContactPool(Id::K12School);
-                loc.RegisterPool<Id::K12School>(p);
         }
 }
 

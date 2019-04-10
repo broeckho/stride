@@ -13,14 +13,9 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "WorkplaceGenerator.h"
+#include "Generator.h"
 
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
-#include "geopop/Location.h"
-#include "pop/Population.h"
 #include "util/Assert.h"
-#include "util/RnMan.h"
 
 namespace geopop {
 
@@ -28,7 +23,8 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Generator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         // 1. active people count and the commuting people count are given
         // 2. count the workplaces
@@ -66,15 +62,6 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = geoGrid[dist()];
                 AddPools(*loc, pop, geoGridConfig.pools.pools_per_workplace);
-        }
-}
-
-void WorkplaceGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
-{
-        auto& poolSys = pop->RefPoolSys();
-        for (auto i = 0U; i < number; ++i) {
-                const auto p = poolSys.CreateContactPool(Id::Workplace);
-                loc.RegisterPool<Id::Workplace>(p);
         }
 }
 

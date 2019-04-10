@@ -13,14 +13,9 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "CollegeGenerator.h"
+#include "Generator.h"
 
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
-#include "geopop/Location.h"
-#include "pop/Population.h"
 #include "util/Assert.h"
-#include "util/RnMan.h"
 
 namespace geopop {
 
@@ -28,7 +23,8 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Generator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         const auto studentCount = geoGridConfig.popInfo.popcount_college;
         const auto collegeCount =
@@ -64,13 +60,5 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
         }
 }
 
-void CollegeGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
-{
-        auto& poolSys = pop->RefPoolSys();
-        for (auto i = 0U; i < number; ++i) {
-                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::College);
-                loc.RegisterPool<Id::College>(p);
-        }
-}
 
 } // namespace geopop

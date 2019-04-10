@@ -18,7 +18,7 @@
 #include "MakeGeoGrid.h"
 #include "contact/AgeBrackets.h"
 #include "geopop/Location.h"
-#include "geopop/generators/WorkplaceGenerator.h"
+#include "geopop/generators/Generator.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 

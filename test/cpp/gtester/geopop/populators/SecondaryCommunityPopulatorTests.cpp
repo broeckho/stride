@@ -13,8 +13,7 @@
  *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "geopop/generators/HouseholdGenerator.h"
-#include "geopop/generators/SecondaryCommunityGenerator.h"
+#include "geopop/generators/Generator.h"
 #include "geopop/populators/SecondaryCommunityPopulator.h"
 
 #include "geopop/Coordinate.h"

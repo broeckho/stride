@@ -13,14 +13,9 @@
  *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "SecondaryCommunityGenerator.h"
+#include "Generator.h"
 
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
-#include "geopop/Location.h"
-#include "pop/Population.h"
 #include "util/Assert.h"
-#include "util/RnMan.h"
 
 #include <cmath>
 #include <iostream>
@@ -32,7 +27,8 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void SecondaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Generator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         // 1. calculate number of communities
         // 2. assign communities to a location using a discrete distribution reflecting
@@ -61,15 +57,6 @@ void SecondaryCommunityGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& g
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
                 AddPools(*loc, pop, geoGridConfig.pools.pools_per_secondary_community);
-        }
-}
-
-void SecondaryCommunityGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
-{
-        auto& poolSys = pop->RefPoolSys();
-        for (auto i = 0U; i < number; ++i) {
-                const auto p = poolSys.CreateContactPool(Id::SecondaryCommunity);
-                loc.RegisterPool<Id::SecondaryCommunity>(p);
         }
 }
 

@@ -22,12 +22,7 @@
 
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/generators/CollegeGenerator.h"
-#include "geopop/generators/HouseholdGenerator.h"
-#include "geopop/generators/K12SchoolGenerator.h"
-#include "geopop/generators/PrimaryCommunityGenerator.h"
-#include "geopop/generators/SecondaryCommunityGenerator.h"
-#include "geopop/generators/WorkplaceGenerator.h"
+#include "geopop/generators/Generator.h"
 #include "geopop/io/ReaderFactory.h"
 #include "geopop/populators/CollegePopulator.h"
 #include "geopop/populators/HouseholdPopulator.h"
@@ -128,23 +123,18 @@ void GeoPopBuilder::MakeLocations(GeoGrid& geoGrid, const GeoGridConfig& geoGrid
 
 void GeoPopBuilder::MakePools(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
-        K12SchoolGenerator gK(m_rn_man, m_stride_logger);
-        gK.Apply(geoGrid, geoGridConfig);
+        K12SchoolGenerator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
-        CollegeGenerator gC(m_rn_man, m_stride_logger);
-        gC.Apply(geoGrid, geoGridConfig);
+        CollegeGenerator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
-        WorkplaceGenerator gW(m_rn_man, m_stride_logger);
-        gW.Apply(geoGrid, geoGridConfig);
+        WorkplaceGenerator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
-        PrimaryCommunityGenerator gP(m_rn_man, m_stride_logger);
-        gP.Apply(geoGrid, geoGridConfig);
+        PrimaryCommunityGenerator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
-        SecondaryCommunityGenerator gS(m_rn_man, m_stride_logger);
-        gS.Apply(geoGrid, geoGridConfig);
+        SecondaryCommunityGenerator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
-        HouseholdGenerator gH(m_rn_man, m_stride_logger);
-        gH.Apply(geoGrid, geoGridConfig);
+        HouseholdGenerator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
+
 }
 
 void GeoPopBuilder::MakePersons(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)

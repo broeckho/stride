@@ -19,7 +19,7 @@
 #include "contact/AgeBrackets.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/generators/CollegeGenerator.h"
+#include "geopop/generators/Generator.h"
 #include "pop/Population.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"

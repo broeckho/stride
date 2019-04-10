@@ -13,7 +13,7 @@
  *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "geopop/generators/CollegeGenerator.h"
+#include "geopop/generators/Generator.h"
 
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"

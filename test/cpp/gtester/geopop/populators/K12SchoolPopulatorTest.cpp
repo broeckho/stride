@@ -14,7 +14,7 @@
  */
 
 #include "geopop/populators/K12SchoolPopulator.h"
-#include "geopop/generators/K12SchoolGenerator.h"
+#include "geopop/generators/Generator.h"
 
 #include "MakeGeoGrid.h"
 #include "contact/AgeBrackets.h"

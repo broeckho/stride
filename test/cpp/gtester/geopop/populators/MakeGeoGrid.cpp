@@ -16,8 +16,7 @@
 #include "MakeGeoGrid.h"
 
 #include "geopop/Location.h"
-#include "geopop/generators/HouseholdGenerator.h"
-#include "geopop/generators/K12SchoolGenerator.h"
+#include "geopop/generators/Generator.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
