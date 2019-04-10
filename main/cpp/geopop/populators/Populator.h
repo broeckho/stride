@@ -43,17 +43,7 @@ public:
         virtual ~Populator() = default;
 
         /// Populate the given geogrid for pool type (fixed in implementation).
-        virtual void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig) = 0;
-
-protected:
-        /// Find contactpools in startRadius (in km) around start and, if none are found, double
-        /// the radius and search again until the radius gets infinite. May return an empty vector
-        /// when there are no pools to be found.
-        std::vector<stride::ContactPool*> GetNearbyPools(stride::ContactType::Id id, const GeoGrid& geoGrid,
-                                                         const Location& start, double startRadius = 10.0) const;
-
-        /// Binary selection corresponding to fraction% true en (1-fraction)% false.
-        bool MakeChoice(double fraction);
+        virtual void Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig) = 0;
 
 protected:
         stride::util::RnMan&            m_rn_man; ///< RnManager used by populators.

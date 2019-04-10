@@ -15,10 +15,6 @@
 
 #include "Populator.h"
 
-#include "contact/ContactPool.h"
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
-#include "geopop/Location.h"
 #include "util/LogUtils.h"
 
 namespace geopop {
@@ -31,35 +27,6 @@ Populator::Populator(util::RnMan& rnMan, shared_ptr<spdlog::logger> logger) : m_
 {
         if (!m_logger)
                 m_logger = stride::util::LogUtils::CreateNullLogger();
-}
-
-bool Populator::MakeChoice(double fraction)
-{
-        vector<double> weights;
-        weights.push_back(1.0 - fraction); // -> 0, return is false -> not part of the fraction
-        weights.push_back(fraction);       // -> 1, return is true -> part of the fraction
-
-        auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
-        return static_cast<bool>(dist());
-}
-
-vector<ContactPool*> Populator::GetNearbyPools(Id id, const GeoGrid& geoGrid, const Location& start,
-                                               double startRadius) const
-{
-        double               currentRadius = startRadius;
-        vector<ContactPool*> pools;
-
-        while (pools.empty()) {
-                for (const Location* nearLoc : geoGrid.LocationsInRadius(start, currentRadius)) {
-                        const auto& locPool = nearLoc->CRefPools(id);
-                        pools.insert(pools.end(), locPool.begin(), locPool.end());
-                }
-                currentRadius *= 2;
-                if (currentRadius == numeric_limits<double>::infinity()) {
-                        break;
-                }
-        }
-        return pools;
 }
 
 } // namespace geopop

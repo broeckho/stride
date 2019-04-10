@@ -37,7 +37,7 @@ void SecondaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                         continue;
                 }
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& nearbyPools = GetNearbyPools(Id::SecondaryCommunity, geoGrid, *loc);
+                const auto& nearbyPools = geoGrid.GetNearbyPools(Id::SecondaryCommunity, *loc);
 
                 if (nearbyPools.empty()) { // apparently no commumity pools present, so nothing to populate
                         return;

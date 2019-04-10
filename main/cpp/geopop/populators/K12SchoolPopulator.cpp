@@ -37,7 +37,7 @@ void K12SchoolPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                 }
 
                 // 1. find all schools in an area of 10-k*10 km
-                const vector<ContactPool*>& classes = GetNearbyPools(Id::K12School, geoGrid, *loc);
+                const vector<ContactPool*>& classes = geoGrid.GetNearbyPools(Id::K12School, *loc);
 
                 auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(classes.size()), 0U);
 

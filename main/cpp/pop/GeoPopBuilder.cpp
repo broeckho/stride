@@ -134,28 +134,21 @@ void GeoPopBuilder::MakePools(GeoGrid& geoGrid, const GeoGridConfig& geoGridConf
         SecondaryCommunityGenerator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
         HouseholdGenerator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
-
 }
 
 void GeoPopBuilder::MakePersons(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
-        HouseholdPopulator pH(m_rn_man, m_stride_logger);
-        pH.Apply(geoGrid, geoGridConfig);
+        HouseholdPopulator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
-        K12SchoolPopulator pK(m_rn_man, m_stride_logger);
-        pK.Apply(geoGrid, geoGridConfig);
+        K12SchoolPopulator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
-        CollegePopulator pC(m_rn_man, m_stride_logger);
-        pC.Apply(geoGrid, geoGridConfig);
+        CollegePopulator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
-        PrimaryCommunityPopulator pP(m_rn_man, m_stride_logger);
-        pP.Apply(geoGrid, geoGridConfig);
+        PrimaryCommunityPopulator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
-        SecondaryCommunityPopulator pS(m_rn_man, m_stride_logger);
-        pS.Apply(geoGrid, geoGridConfig);
+        SecondaryCommunityPopulator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 
-        WorkplacePopulator pW(m_rn_man, m_stride_logger);
-        pW.Apply(geoGrid, geoGridConfig);
+        WorkplacePopulator(m_rn_man, m_stride_logger).Apply(geoGrid, geoGridConfig);
 }
 
 } // namespace stride
