@@ -16,8 +16,8 @@
 #pragma once
 
 #include "contact/ContactType.h"
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
+
+#include "geopop/PoolParams.h"
 #include "geopop/Location.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
@@ -26,6 +26,9 @@
 #include <spdlog/logger.h>
 
 namespace geopop {
+
+class GeoGrid;
+class GeoGridConfig;
 
 /**
  * Generator uses geo & pop data to construct ContactPools in the GeoGrid.
@@ -49,10 +52,10 @@ public:
         void Apply(GeoGrid&, const GeoGridConfig&) {}
 
         /// Create a given number ContactPools in the GeoGrid.
-        void AddPools(Location& loc, stride::Population* pop, unsigned int number)
+        void AddPools(Location& loc, stride::Population* pop)
         {
                 auto& poolSys = pop->RefPoolSys();
-                for (auto i = 0U; i < number; ++i) {
+                for (auto i = 0U; i < PoolParams<ID>::pools; ++i) {
                         const auto p = poolSys.CreateContactPool(ID);
                         loc.RegisterPool<ID>(p);
                 }

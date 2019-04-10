@@ -15,6 +15,8 @@
 
 #include "Generator.h"
 
+#include "geopop/GeoGridConfig.h"
+#include "geopop/PoolParams.h"
 #include "util/Assert.h"
 
 #include <cmath>
@@ -35,7 +37,7 @@ void Generator<stride::ContactType::Id::PrimaryCommunity>::Apply(GeoGrid& geoGri
         //    the relative number of people at that location
 
         const auto popCount       = geoGridConfig.input.pop_size;
-        const auto communitySize  = GeoGridConfig::primary_community_size;
+        const auto communitySize  = PoolParams<Id::PrimaryCommunity>::people;
         const auto communityCount = static_cast<unsigned int>(ceil(popCount / static_cast<double>(communitySize)));
 
         vector<double> weights;
@@ -56,7 +58,7 @@ void Generator<stride::ContactType::Id::PrimaryCommunity>::Apply(GeoGrid& geoGri
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
-                AddPools(*loc, pop, GeoGridConfig::pools_per_primary_community);
+                AddPools(*loc, pop);
         }
 }
 

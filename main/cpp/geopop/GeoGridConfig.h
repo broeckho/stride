@@ -97,38 +97,6 @@ public:
         } popInfo;
 
         // -----------------------------------------------------------------------------------------
-        // Config params for ContactPools (constants for now at least).
-        // -----------------------------------------------------------------------------------------
-
-        /// Every houselhold constitutes a single ContactPool.
-        static constexpr unsigned int pools_per_household = 1U;
-
-        /// Used to calculate the number of K12Schools.
-        static constexpr unsigned int k12school_size      = 500U;
-        static constexpr unsigned int pools_per_k12school = 25U;
-        static constexpr unsigned int k12_pool_size       = 20U;
-
-        /// Used to calculate the number of Colleges.
-        static constexpr unsigned int college_size      = 3000U;
-        static constexpr unsigned int pools_per_college = 20U;
-        static constexpr unsigned int college_pool_size = 150U;
-
-        /// Used to calculate the number of PrimaryCommunities.
-        static constexpr unsigned int primary_community_size      = 2000U;
-        static constexpr unsigned int pools_per_primary_community = 1U;
-        static constexpr unsigned int primary_community_pool_size = 2000U;
-
-        /// Used to calculate the number of SecondaryCommunities.
-        static constexpr unsigned int secondary_community_size      = 2000U;
-        static constexpr unsigned int pools_per_secondary_community = 1U;
-        static constexpr unsigned int secondary_community_pool_size = 2000U;
-
-        /// Used to calculate the number of Workplaces.
-        static constexpr unsigned int workplace_size      = 20U;
-        static constexpr unsigned int pools_per_workplace = 1U;
-        static constexpr unsigned int workplace_pool_size = 20U;
-
-        // -----------------------------------------------------------------------------------------
         /// Read the househould data file, parse it and set data.
         // -----------------------------------------------------------------------------------------
         void SetData(const std::string& householdsFileName);

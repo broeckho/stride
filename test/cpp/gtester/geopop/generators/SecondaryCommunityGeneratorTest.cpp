@@ -18,6 +18,7 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
+#include "geopop/PoolParams.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
@@ -61,7 +62,7 @@ TEST_F(SecondaryCommunityGeneratorTest, OneLocationTest)
 
         m_secondary_community_generator.Apply(m_geo_grid, m_geogrid_config);
 
-        EXPECT_EQ(p1.size(), 5 * GeoGridConfig::pools_per_secondary_community);
+        EXPECT_EQ(p1.size(), 5 * PoolParams<Id::SecondaryCommunity>::pools);
 }
 
 TEST_F(SecondaryCommunityGeneratorTest, EqualLocationTest)
@@ -78,7 +79,7 @@ TEST_F(SecondaryCommunityGeneratorTest, EqualLocationTest)
         array<unsigned int, 10> expected{546, 495, 475, 500, 463, 533, 472, 539, 496, 481};
         for (auto i = 0U; i < expected.size(); i++) {
                 const auto& p = m_geo_grid[i]->RefPools(Id::SecondaryCommunity);
-                EXPECT_EQ(expected[i] * GeoGridConfig::pools_per_secondary_community, p.size());
+                EXPECT_EQ(expected[i] * PoolParams<Id::SecondaryCommunity>::pools, p.size());
         }
 }
 
@@ -112,7 +113,7 @@ TEST_F(SecondaryCommunityGeneratorTest, FiveLocationsTest)
         array<unsigned int, 5> expected{553, 518, 410, 173, 224};
         for (auto i = 0U; i < expected.size(); i++) {
                 const auto& cp = m_geo_grid[i]->CRefPools(Id::SecondaryCommunity);
-                EXPECT_EQ(expected[i] * GeoGridConfig::pools_per_secondary_community, cp.size());
+                EXPECT_EQ(expected[i] * PoolParams<Id::SecondaryCommunity>::pools, cp.size());
         }
 }
 

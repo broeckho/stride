@@ -18,6 +18,7 @@
 #include "MakeGeoGrid.h"
 #include "contact/AgeBrackets.h"
 #include "geopop/Location.h"
+#include "geopop/PoolParams.h"
 #include "geopop/generators/Generator.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
@@ -48,7 +49,7 @@ protected:
         shared_ptr<Population> m_pop;
         GeoGrid&               m_geo_grid;
         WorkplaceGenerator     m_workplace_generator;
-        const unsigned int     m_ppwp = GeoGridConfig::pools_per_workplace;
+        const unsigned int     m_ppwp = PoolParams<Id::Workplace>::pools;
 };
 
 TEST_F(WorkplacePopulatorTest, NoPopulation)
@@ -100,23 +101,23 @@ TEST_F(WorkplacePopulatorTest, NoCommuting)
 
         auto brasschaat = *m_geo_grid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        m_workplace_generator.AddPools(*brasschaat, m_pop.get(), m_ppwp);
-        m_workplace_generator.AddPools(*brasschaat, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*brasschaat, m_pop.get());
+        m_workplace_generator.AddPools(*brasschaat, m_pop.get());
 
         auto schoten = *(m_geo_grid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
-        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*schoten, m_pop.get());
+        m_workplace_generator.AddPools(*schoten, m_pop.get());
 
         auto kortrijk = *(m_geo_grid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
-        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get());
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get());
 
         m_geo_grid.Finalize();
         m_workplace_populator.Apply(m_geo_grid, m_geogrid_config);
 
-        const auto pwc = GeoGridConfig::pools_per_workplace;
+        constexpr auto pwc = PoolParams<Id::Workplace>::pools;
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& hPool : schoten->RefPools(Id::Household)) {
@@ -176,13 +177,13 @@ TEST_F(WorkplacePopulatorTest, OnlyCommuting)
 
         auto schoten = *(m_geo_grid.begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
-        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*schoten, m_pop.get());
+        m_workplace_generator.AddPools(*schoten, m_pop.get());
 
         auto kortrijk = *(m_geo_grid.begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
-        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get());
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get());
 
         schoten->AddOutgoingCommute(kortrijk, 0.5);
         kortrijk->AddIncomingCommute(schoten, 0.5);
@@ -192,7 +193,7 @@ TEST_F(WorkplacePopulatorTest, OnlyCommuting)
         m_geo_grid.Finalize();
         m_workplace_populator.Apply(m_geo_grid, m_geogrid_config);
 
-        const auto pwc = GeoGridConfig::pools_per_workplace;
+        constexpr auto pwc = PoolParams<Id::Workplace>::pools;
 
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& hPool : schoten->RefPools(Id::Household)) {
@@ -236,18 +237,18 @@ TEST_F(WorkplacePopulatorTest, NoCommutingAvailable)
 
         auto brasschaat = *m_geo_grid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        m_workplace_generator.AddPools(*brasschaat, m_pop.get(), m_ppwp);
-        m_workplace_generator.AddPools(*brasschaat, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*brasschaat, m_pop.get());
+        m_workplace_generator.AddPools(*brasschaat, m_pop.get());
 
         auto schoten = *(m_geo_grid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
-        m_workplace_generator.AddPools(*schoten, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*schoten, m_pop.get());
+        m_workplace_generator.AddPools(*schoten, m_pop.get());
 
         auto kortrijk = *(m_geo_grid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
-        m_workplace_generator.AddPools(*kortrijk, m_pop.get(), m_ppwp);
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get());
+        m_workplace_generator.AddPools(*kortrijk, m_pop.get());
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat
         schoten->AddOutgoingCommute(kortrijk, 0.5);
@@ -258,7 +259,7 @@ TEST_F(WorkplacePopulatorTest, NoCommutingAvailable)
         m_geo_grid.Finalize();
         m_workplace_populator.Apply(m_geo_grid, m_geogrid_config);
 
-        const auto pwc = GeoGridConfig::pools_per_workplace;
+        constexpr auto pwc = PoolParams<Id::Workplace>::pools;
 
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& hPool : schoten->RefPools(Id::Household)) {

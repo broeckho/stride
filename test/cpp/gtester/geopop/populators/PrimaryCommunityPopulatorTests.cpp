@@ -49,7 +49,7 @@ protected:
         // members and not yet registered in the GeoGrid.
         void SetUp() override
         {
-                m_household_generator.AddPools(*m_location, m_pop.get(), m_pppc);
+                m_household_generator.AddPools(*m_location, m_pop.get());
 
                 m_person = make_shared<Person>();
                 m_person->SetId(42);
@@ -57,7 +57,7 @@ protected:
 
                 m_geo_grid.AddLocation(m_location);
 
-                m_community_generator.AddPools(*m_location, m_pop.get(), m_pppc);
+                m_community_generator.AddPools(*m_location, m_pop.get());
         }
 
         RnMan                     m_rn_man;
@@ -69,8 +69,6 @@ protected:
         shared_ptr<Person>        m_person;
         PrimaryCommunityGenerator m_community_generator;
         HouseholdGenerator        m_household_generator;
-        const unsigned int        m_pphh = GeoGridConfig::pools_per_household;
-        const unsigned int        m_pppc = GeoGridConfig::pools_per_primary_community;
 };
 
 TEST_F(PrimaryCommunityPopulatorTest, OneCommunityTest)
@@ -102,7 +100,7 @@ TEST_F(PrimaryCommunityPopulatorTest, HouseholdTest)
         auto pool = m_location->RefPools(Id::Household)[0];
         pool->AddMember(person2.get());
 
-        m_community_generator.AddPools(*m_location, m_pop.get(), m_pppc);
+        m_community_generator.AddPools(*m_location, m_pop.get());
 
         m_geo_grid.Finalize();
         m_populator.Apply(m_geo_grid, m_geogrid_config);
@@ -120,7 +118,7 @@ TEST_F(PrimaryCommunityPopulatorTest, HouseholdTest)
 TEST_F(PrimaryCommunityPopulatorTest, TwoLocationsTest)
 {
         auto location2 = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
-        m_community_generator.AddPools(*location2, m_pop.get(), m_pppc);
+        m_community_generator.AddPools(*location2, m_pop.get());
 
         m_geo_grid.AddLocation(location2);
         m_geo_grid.Finalize();

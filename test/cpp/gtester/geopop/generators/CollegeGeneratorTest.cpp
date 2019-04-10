@@ -18,6 +18,7 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
+#include "geopop/PoolParams.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
@@ -61,7 +62,7 @@ TEST_F(CollegeGeneratorTest, OneLocationTest)
         m_college_generator.Apply(m_geo_grid, m_geogrid_config);
 
         const auto& poolsOfLoc1 = loc1->CRefPools<Id::College>();
-        EXPECT_EQ(poolsOfLoc1.size(), 3 * GeoGridConfig::pools_per_college);
+        EXPECT_EQ(poolsOfLoc1.size(), 3 * PoolParams<Id::College>::pools);
 }
 
 // Checks whether Generator can handle zero locations in GeoGrid.
@@ -91,7 +92,7 @@ TEST_F(CollegeGeneratorTest, MultipleLocationsTest)
 
         array<unsigned int, sizes.size()> expected{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i] * GeoGridConfig::pools_per_college,
+                EXPECT_EQ(expected[i] * PoolParams<Id::College>::pools,
                           m_geo_grid[i]->CRefPools<Id::College>().size());
         }
 }

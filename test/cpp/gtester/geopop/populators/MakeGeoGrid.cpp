@@ -60,8 +60,6 @@ void MakeGeoGrid(const GeoGridConfig& , int locCount, int locPop, int schoolCoun
         RnMan              rnMan(RnInfo{});
         K12SchoolGenerator k12Gen(rnMan);
         HouseholdGenerator hhGen(rnMan);
-        const unsigned int pph   = GeoGridConfig::pools_per_household;
-        const unsigned int ppk12 = GeoGridConfig::pools_per_k12school;
 
         size_t sampleId = 0;
         auto   personId = 0U;
@@ -69,11 +67,11 @@ void MakeGeoGrid(const GeoGridConfig& , int locCount, int locPop, int schoolCoun
                 auto loc = make_shared<Location>(locI, 1, Coordinate(0.0, 0.0), "", locPop);
 
                 for (int schI = 0; schI < schoolCount; schI++) {
-                        k12Gen.AddPools(*loc, pop, ppk12);
+                        k12Gen.AddPools(*loc, pop);
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {
-                        hhGen.AddPools(*loc, pop, pph);
+                        hhGen.AddPools(*loc, pop);
                         auto contactPool = loc->RefPools(Id::Household).back();
 
                         for (int i = 0; i < personCount; i++) {

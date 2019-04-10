@@ -18,6 +18,7 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
+#include "geopop/PoolParams.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
@@ -99,8 +100,7 @@ TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
 
         array<unsigned int, 5> sizes{1179, 1137, 868, 358, 458};
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(sizes[i] * GeoGridConfig::pools_per_household,
-                          m_geo_grid[i]->CRefPools(Id::Household).size());
+                EXPECT_EQ(sizes[i] * PoolParams<Id::Household>::pools, m_geo_grid[i]->CRefPools(Id::Household).size());
         }
 }
 
