@@ -13,7 +13,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "HouseholdPopulator.h"
+#include "Populator.h"
 
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
@@ -25,7 +25,8 @@ namespace geopop {
 using namespace std;
 using namespace stride::ContactType;
 
-void HouseholdPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Populator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         m_logger->trace("Starting to populate Households");
 

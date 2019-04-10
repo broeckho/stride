@@ -13,7 +13,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "geopop/populators/K12SchoolPopulator.h"
+#include "geopop/populators/Populator.h"
 #include "geopop/generators/Generator.h"
 
 #include "MakeGeoGrid.h"

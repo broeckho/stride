@@ -13,7 +13,7 @@
  *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "geopop/populators/CollegePopulator.h"
+#include "geopop/populators/Populator.h"
 
 #include "MakeGeoGrid.h"
 #include "contact/AgeBrackets.h"

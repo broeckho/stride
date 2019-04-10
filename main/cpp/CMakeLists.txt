@@ -94,10 +94,10 @@ set(STRIDE_SRC
     geopop/io/GeoGridWriterFactory.h
     geopop/io/HouseholdCSVReader.cpp
     geopop/io/ReaderFactory.cpp
+    #---
     geopop/populators/CollegePopulator.cpp
     geopop/populators/HouseholdPopulator.cpp
     geopop/populators/K12SchoolPopulator.cpp
-    geopop/populators/Populator.cpp
     geopop/populators/PrimaryCommunityPopulator.cpp
     geopop/populators/SecondaryCommunityPopulator.cpp
     geopop/populators/WorkplacePopulator.cpp

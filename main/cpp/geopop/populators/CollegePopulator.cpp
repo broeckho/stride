@@ -13,7 +13,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "CollegePopulator.h"
+#include "Populator.h"
 
 #include "contact/AgeBrackets.h"
 #include "contact/ContactPool.h"
@@ -29,7 +29,8 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Populator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         m_logger->trace("Starting to populate Colleges");
 

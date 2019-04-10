@@ -13,7 +13,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "SecondaryCommunityPopulator.h"
+#include "Populator.h"
 
 #include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
@@ -28,7 +28,8 @@ using namespace stride::ContactType;
 
 namespace geopop {
 
-void SecondaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
+template<>
+void Populator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 {
         m_logger->trace("Starting to populate Secondary Communities");
 
