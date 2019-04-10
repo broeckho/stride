@@ -46,7 +46,6 @@ public:
         ~Generator() = default;
 
         /// Generate ContactPools for ContactType::Id as sepcified by data in GeoGridConfig.
-
         void Apply(GeoGrid&, const GeoGridConfig&) {}
 
         /// Create a given number ContactPools in the GeoGrid.

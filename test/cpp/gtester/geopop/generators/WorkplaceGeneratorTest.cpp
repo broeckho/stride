@@ -84,7 +84,7 @@ TEST_F(WorkplaceGeneratorTest, NoCommuting)
                                                    1355, 594,  104,  1298, 136,  94,   140,  500,  588,  1663};
 
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
+                EXPECT_EQ(expected[i] * GeoGridConfig::pools_per_workplace,
                           m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
@@ -127,7 +127,7 @@ TEST_F(WorkplaceGeneratorTest, NullCommuting)
                                                    446,  1754, 1169, 263,  1194, 1456, 1058, 594,  793,  869,
                                                    1356, 591,  105,  1297, 136,  95,   139,  499,  588,  1663};
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
+                EXPECT_EQ(expected[i] * GeoGridConfig::pools_per_workplace,
                           m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
@@ -200,7 +200,7 @@ TEST_F(WorkplaceGeneratorTest, TenCommuting)
                                                    1355,  589,  101, 1291,  142,   93,  132, 507,  584, 1659};
 
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_workplace,
+                EXPECT_EQ(expected[i] * GeoGridConfig::pools_per_workplace,
                           m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }

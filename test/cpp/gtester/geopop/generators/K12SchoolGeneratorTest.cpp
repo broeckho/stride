@@ -61,7 +61,7 @@ TEST_F(K12SchoolGeneratorTest, OneLocationTest)
         m_k12school_generator.Apply(m_geo_grid, m_geogrid_config);
 
         const auto& poolsOfLoc1 = loc1->CRefPools(Id::K12School);
-        EXPECT_EQ(poolsOfLoc1.size(), 4 * m_geogrid_config.pools.pools_per_k12school);
+        EXPECT_EQ(poolsOfLoc1.size(), 4 * GeoGridConfig::pools_per_k12school);
 }
 
 // Check that generator can handle empty GeoGrid.
@@ -102,7 +102,7 @@ TEST_F(K12SchoolGeneratorTest, FiveLocationsTest)
 
         array<unsigned int, 5> sizes{444, 416, 330, 133, 179};
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(sizes[i] * m_geogrid_config.pools.pools_per_k12school,
+                EXPECT_EQ(sizes[i] * GeoGridConfig::pools_per_k12school,
                           m_geo_grid[i]->CRefPools(Id::K12School).size());
         }
 }

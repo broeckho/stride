@@ -34,7 +34,7 @@ void Generator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, cons
 
         const auto EmployeeCount = geoGridConfig.popInfo.popcount_workplace;
         const auto WorkplacesCount =
-            static_cast<unsigned int>(ceil(EmployeeCount / static_cast<double>(geoGridConfig.pools.workplace_size)));
+            static_cast<unsigned int>(ceil(EmployeeCount / static_cast<double>(GeoGridConfig::workplace_size)));
 
         // = for each location #residents + #incoming commuting people - #outgoing commuting people
         vector<double> weights;
@@ -61,7 +61,7 @@ void Generator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, cons
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = geoGrid[dist()];
-                AddPools(*loc, pop, geoGridConfig.pools.pools_per_workplace);
+                AddPools(*loc, pop, GeoGridConfig::pools_per_workplace);
         }
 }
 

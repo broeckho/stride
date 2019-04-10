@@ -61,7 +61,7 @@ TEST_F(CollegeGeneratorTest, OneLocationTest)
         m_college_generator.Apply(m_geo_grid, m_geogrid_config);
 
         const auto& poolsOfLoc1 = loc1->CRefPools<Id::College>();
-        EXPECT_EQ(poolsOfLoc1.size(), 3 * m_geogrid_config.pools.pools_per_college);
+        EXPECT_EQ(poolsOfLoc1.size(), 3 * GeoGridConfig::pools_per_college);
 }
 
 // Checks whether Generator can handle zero locations in GeoGrid.
@@ -91,7 +91,7 @@ TEST_F(CollegeGeneratorTest, MultipleLocationsTest)
 
         array<unsigned int, sizes.size()> expected{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_college,
+                EXPECT_EQ(expected[i] * GeoGridConfig::pools_per_college,
                           m_geo_grid[i]->CRefPools<Id::College>().size());
         }
 }

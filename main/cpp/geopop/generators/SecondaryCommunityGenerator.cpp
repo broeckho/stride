@@ -35,7 +35,7 @@ void Generator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoG
         //    the relative number of people at that location
 
         const auto popCount       = geoGridConfig.input.pop_size;
-        const auto communitySize  = geoGridConfig.pools.secondary_community_size;
+        const auto communitySize  = GeoGridConfig::secondary_community_size;
         const auto communityCount = static_cast<unsigned int>(ceil(popCount / static_cast<double>(communitySize)));
 
         vector<double> weights;
@@ -56,7 +56,7 @@ void Generator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoG
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
-                AddPools(*loc, pop, geoGridConfig.pools.pools_per_secondary_community);
+                AddPools(*loc, pop, GeoGridConfig::pools_per_secondary_community);
         }
 }
 

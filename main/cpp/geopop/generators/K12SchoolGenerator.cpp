@@ -32,7 +32,7 @@ void Generator<stride::ContactType::Id::K12School>::Apply(GeoGrid& geoGrid, cons
 
         const auto pupilCount = geoGridConfig.popInfo.popcount_k12school;
         const auto schoolCount =
-            static_cast<unsigned int>(ceil(pupilCount / static_cast<double>(geoGridConfig.pools.k12school_size)));
+            static_cast<unsigned int>(ceil(pupilCount / static_cast<double>(GeoGridConfig::k12school_size)));
 
         vector<double> weights;
         for (const auto& loc : geoGrid) {
@@ -49,7 +49,7 @@ void Generator<stride::ContactType::Id::K12School>::Apply(GeoGrid& geoGrid, cons
 
         for (auto i = 0U; i < schoolCount; i++) {
                 const auto loc = geoGrid[dist()];
-                AddPools(*loc, pop, geoGridConfig.pools.pools_per_k12school);
+                AddPools(*loc, pop, GeoGridConfig::pools_per_k12school);
         }
 }
 

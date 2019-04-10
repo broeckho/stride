@@ -69,8 +69,8 @@ protected:
         shared_ptr<Person>          m_person;
         SecondaryCommunityGenerator m_community_generator;
         HouseholdGenerator          m_household_generator;
-        const unsigned int          m_pphh = GeoGridConfig{}.pools.pools_per_household;
-        const unsigned int          m_ppsc = GeoGridConfig{}.pools.pools_per_secondary_community;
+        const unsigned int          m_pphh = GeoGridConfig::pools_per_household;
+        const unsigned int          m_ppsc = GeoGridConfig::pools_per_secondary_community;
 };
 
 TEST_F(SecondaryCommunityPopulatorTest, OneCommunityTest)

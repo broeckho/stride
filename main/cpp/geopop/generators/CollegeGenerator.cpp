@@ -28,7 +28,7 @@ void Generator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const 
 {
         const auto studentCount = geoGridConfig.popInfo.popcount_college;
         const auto collegeCount =
-            static_cast<unsigned int>(ceil(studentCount / static_cast<double>(geoGridConfig.pools.college_size)));
+            static_cast<unsigned int>(ceil(studentCount / static_cast<double>(GeoGridConfig::college_size)));
         const auto cities = geoGrid.TopK(10);
 
         if (cities.empty()) {
@@ -56,7 +56,7 @@ void Generator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const 
 
         for (auto i = 0U; i < collegeCount; i++) {
                 auto loc = cities[dist()];
-                AddPools(*loc, pop, geoGridConfig.pools.pools_per_college);
+                AddPools(*loc, pop, GeoGridConfig::pools_per_college);
         }
 }
 

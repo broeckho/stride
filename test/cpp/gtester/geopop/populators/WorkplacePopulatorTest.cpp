@@ -48,7 +48,7 @@ protected:
         shared_ptr<Population> m_pop;
         GeoGrid&               m_geo_grid;
         WorkplaceGenerator     m_workplace_generator;
-        const unsigned int     m_ppwp = GeoGridConfig{}.pools.pools_per_workplace;
+        const unsigned int     m_ppwp = GeoGridConfig::pools_per_workplace;
 };
 
 TEST_F(WorkplacePopulatorTest, NoPopulation)
@@ -116,7 +116,7 @@ TEST_F(WorkplacePopulatorTest, NoCommuting)
         m_geo_grid.Finalize();
         m_workplace_populator.Apply(m_geo_grid, m_geogrid_config);
 
-        const auto pwc = GeoGridConfig().pools.pools_per_workplace;
+        const auto pwc = GeoGridConfig::pools_per_workplace;
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& hPool : schoten->RefPools(Id::Household)) {
@@ -192,7 +192,7 @@ TEST_F(WorkplacePopulatorTest, OnlyCommuting)
         m_geo_grid.Finalize();
         m_workplace_populator.Apply(m_geo_grid, m_geogrid_config);
 
-        const auto pwc = GeoGridConfig().pools.pools_per_workplace;
+        const auto pwc = GeoGridConfig::pools_per_workplace;
 
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& hPool : schoten->RefPools(Id::Household)) {
@@ -258,7 +258,7 @@ TEST_F(WorkplacePopulatorTest, NoCommutingAvailable)
         m_geo_grid.Finalize();
         m_workplace_populator.Apply(m_geo_grid, m_geogrid_config);
 
-        const auto pwc = GeoGridConfig().pools.pools_per_workplace;
+        const auto pwc = GeoGridConfig::pools_per_workplace;
 
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& hPool : schoten->RefPools(Id::Household)) {

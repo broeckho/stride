@@ -52,7 +52,7 @@ protected:
         shared_ptr<Population> m_pop;
         GeoGrid&               m_geo_grid;
         K12SchoolGenerator     m_k212school_generator;
-        const unsigned int     m_ppk12 = GeoGridConfig{}.pools.pools_per_k12school;
+        const unsigned int     m_ppk12 = GeoGridConfig::pools_per_k12school;
 };
 
 TEST_F(K12SchoolPopulatorTest, NoPopulation)
@@ -87,7 +87,7 @@ TEST_F(K12SchoolPopulatorTest, OneLocationTest)
         auto  location = *m_geo_grid.begin();
         auto& k12Pools = location->RefPools(Id::K12School);
 
-        ASSERT_EQ(k12Pools.size(), 5 * m_geogrid_config.pools.pools_per_k12school);
+        ASSERT_EQ(k12Pools.size(), 5 * GeoGridConfig::pools_per_k12school);
         for (auto& pool : k12Pools) {
                 EXPECT_EQ(usedCapacity[pool->GetId()], pool->size());
                 for (Person* person : *pool) {
@@ -160,9 +160,9 @@ TEST_F(K12SchoolPopulatorTest, TwoLocationTest)
         auto& k12Pools3 = kortrijk->RefPools(Id::K12School);
 
         // Check number of pools corresponding to 3 K12Schools per location.
-        EXPECT_EQ(k12Pools1.size(), 3 * m_geogrid_config.pools.pools_per_k12school);
-        EXPECT_EQ(k12Pools2.size(), 3 * m_geogrid_config.pools.pools_per_k12school);
-        EXPECT_EQ(k12Pools3.size(), 3 * m_geogrid_config.pools.pools_per_k12school);
+        EXPECT_EQ(k12Pools1.size(), 3 * GeoGridConfig::pools_per_k12school);
+        EXPECT_EQ(k12Pools2.size(), 3 * GeoGridConfig::pools_per_k12school);
+        EXPECT_EQ(k12Pools3.size(), 3 * GeoGridConfig::pools_per_k12school);
 
         map<int, int> persons{
             {0, 92},    {1, 0},     {2, 0},     {3, 0},     {4, 0},     {5, 0},     {6, 0},     {7, 0},     {8, 0},

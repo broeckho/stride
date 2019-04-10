@@ -31,7 +31,7 @@ using namespace boost::property_tree;
 using namespace stride::AgeBrackets;
 using stride::util::intToDottedString;
 
-GeoGridConfig::GeoGridConfig() : input{}, refHH{}, popInfo{}, pools{} {}
+GeoGridConfig::GeoGridConfig() : input{}, refHH{}, popInfo{} {}
 
 GeoGridConfig::GeoGridConfig(const ptree& configPt) : GeoGridConfig()
 {
@@ -44,9 +44,7 @@ GeoGridConfig::GeoGridConfig(const ptree& configPt) : GeoGridConfig()
 
 void GeoGridConfig::SetData(const string& householdsFileName)
 {
-        ReaderFactory readerFactory;
-
-        auto householdsReader = readerFactory.CreateHouseholdReader(householdsFileName);
+        auto householdsReader = ReaderFactory::CreateHouseholdReader(householdsFileName);
         householdsReader->SetReferenceHouseholds(refHH.person_count, refHH.ages);
         const auto popSize = input.pop_size;
 

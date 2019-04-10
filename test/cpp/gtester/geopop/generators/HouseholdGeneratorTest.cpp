@@ -99,7 +99,7 @@ TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
 
         array<unsigned int, 5> sizes{1179, 1137, 868, 358, 458};
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(sizes[i] * m_geogrid_config.pools.pools_per_household,
+                EXPECT_EQ(sizes[i] * GeoGridConfig::pools_per_household,
                           m_geo_grid[i]->CRefPools(Id::Household).size());
         }
 }

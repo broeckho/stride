@@ -37,7 +37,7 @@ using namespace geopop;
  * @param personCount       The number of persons per Household.
  * @param pop               The population carrying this GeoGrid.
  */
-void MakeGeoGrid(const GeoGridConfig& ggConfig, int locCount, int locPop, int schoolCount, int houseHoldCount,
+void MakeGeoGrid(const GeoGridConfig& , int locCount, int locPop, int schoolCount, int houseHoldCount,
                  int personCount, Population* pop)
 {
         vector<unsigned int> populationSample = {
@@ -60,8 +60,8 @@ void MakeGeoGrid(const GeoGridConfig& ggConfig, int locCount, int locPop, int sc
         RnMan              rnMan(RnInfo{});
         K12SchoolGenerator k12Gen(rnMan);
         HouseholdGenerator hhGen(rnMan);
-        const unsigned int pph   = ggConfig.pools.pools_per_household;
-        const unsigned int ppk12 = ggConfig.pools.pools_per_k12school;
+        const unsigned int pph   = GeoGridConfig::pools_per_household;
+        const unsigned int ppk12 = GeoGridConfig::pools_per_k12school;
 
         size_t sampleId = 0;
         auto   personId = 0U;

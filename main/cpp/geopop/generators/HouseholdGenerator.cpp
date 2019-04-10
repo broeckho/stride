@@ -39,7 +39,7 @@ void Generator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, cons
 
         for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
                 const auto loc = geoGrid[dist()];
-                AddPools(*loc, pop, geoGridConfig.pools.pools_per_household);
+                AddPools(*loc, pop, GeoGridConfig::pools_per_household);
         }
 }
 

@@ -61,7 +61,7 @@ TEST_F(PrimaryCommunityGeneratorTest, OneLocationTest)
 
         m_primary_community_generator.Apply(m_geo_grid, m_geogrid_config);
 
-        EXPECT_EQ(p1.size(), 5 * m_geogrid_config.pools.pools_per_primary_community);
+        EXPECT_EQ(p1.size(), 5 * GeoGridConfig::pools_per_primary_community);
 }
 
 TEST_F(PrimaryCommunityGeneratorTest, EqualLocationTest)
@@ -78,7 +78,7 @@ TEST_F(PrimaryCommunityGeneratorTest, EqualLocationTest)
         array<unsigned int, 10> expected{546, 495, 475, 500, 463, 533, 472, 539, 496, 481};
         for (auto i = 0U; i < expected.size(); i++) {
                 const auto& p = m_geo_grid[i]->CRefPools(Id::PrimaryCommunity);
-                EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_primary_community, p.size());
+                EXPECT_EQ(expected[i] * GeoGridConfig::pools_per_primary_community, p.size());
         }
 }
 
@@ -115,7 +115,7 @@ TEST_F(PrimaryCommunityGeneratorTest, FiveLocationsTest)
         array<unsigned int, 5> expected{553, 518, 410, 173, 224};
         for (auto i = 0U; i < expected.size(); i++) {
                 const auto& cp = m_geo_grid[i]->CRefPools(Id::PrimaryCommunity);
-                EXPECT_EQ(expected[i] * m_geogrid_config.pools.pools_per_primary_community, cp.size());
+                EXPECT_EQ(expected[i] * GeoGridConfig::pools_per_primary_community, cp.size());
         }
 }
 
