@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['tclock',['TClock',['../d8/d87/a00118.html#aedbb343fde64ffebcdb371dd862aae7f',1,'stride::util::Stopwatch']]],
-  ['type',['type',['../d7/d7a/a00016.html#af301c9d0d60f687fad02d840a4496905',1,'geopop::geogrid_detail::KdTree2DPoint::dimension_type::type()'],['../d4/d81/a00110.html#a4183f045c6086dabede526dea8e6cedb',1,'stride::util::ii_detail::make_void::type()'],['../dc/dee/a00053.html#a4aaf8c000b5dee2ed0f32eadae9406d0',1,'proto::GeoGrid_Location_ContactPools::Type()']]]
+  ['range_5ftype',['range_type',['../db/d57/a00112.html#aa697693cf36c60a25c469e21b26cb84f',1,'stride::util::SliceIndexer']]],
+  ['reference',['reference',['../d2/da3/a00115.html#ad6269050ef800b2827028000efab4759',1,'stride::util::SVIterator']]],
+  ['rntype',['RnType',['../d1/d84/a00052.html#a33bdc913e6a82dbdc349484dc76cd6f2',1,'stride::util::Rn']]]
 ];

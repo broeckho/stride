@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::DaysOffInterface Class Reference</title>
+<title>Stride Reference Manual: stride::DiseaseSeeder Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -108,79 +108,146 @@ $(document).ready(function(){initNavTree('db/db6/a00074.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../dc/d0a/a00850.html">List of all members</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../da/db8/a00797.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::DaysOffInterface Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">stride::DiseaseSeeder Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface definition.  
+<p>Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection.  
  <a href="../../db/db6/a00074.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../de/d53/a00169_source.html">DaysOffInterface.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/d53/a00169_source.html">DiseaseSeeder.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::DaysOffInterface:</div>
+Collaboration diagram for stride::DiseaseSeeder:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d4c/a00851.gif" border="0" usemap="#stride_1_1DaysOffInterface_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1DaysOffInterface_inherit__map" id="stride_1_1DaysOffInterface_inherit__map">
-<area shape="rect" id="node2" href="../../d1/d6e/a00073.html" title="No days off work or school. " alt="" coords="5,160,136,267"/>
-<area shape="rect" id="node3" href="../../d9/da5/a00075.html" title="No days off work or school. " alt="" coords="161,160,311,267"/>
-<area shape="rect" id="node4" href="../../db/df8/a00076.html" title="Schools closed. " alt="" coords="335,160,494,267"/>
-<area shape="rect" id="node5" href="../../d1/d09/a00077.html" title="Standard situation for days off from work and school. " alt="" coords="518,160,693,267"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::DaysOffInterface:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/dbb/a00852.gif" border="0" usemap="#stride_1_1DaysOffInterface_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1DaysOffInterface_coll__map" id="stride_1_1DaysOffInterface_coll__map">
+<div class="center"><img src="../../de/d79/a00798.gif" border="0" usemap="#stride_1_1DiseaseSeeder_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1DiseaseSeeder_coll__map" id="stride_1_1DiseaseSeeder_coll__map">
+<area shape="rect" id="node2" href="../../d4/d81/a00110.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ MakeWeightedCoinFlip()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="5,145,208,369"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2ae431c15cddca106e2a0753fde99f83"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a2ae431c15cddca106e2a0753fde99f83">IsWorkOff</a> ()=0</td></tr>
-<tr class="memdesc:a2ae431c15cddca106e2a0753fde99f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether today is a work day.  <a href="#a2ae431c15cddca106e2a0753fde99f83">More...</a><br /></td></tr>
-<tr class="separator:a2ae431c15cddca106e2a0753fde99f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a747d7b072b24545437aa9326ba024185"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a747d7b072b24545437aa9326ba024185">IsSchoolOff</a> ()=0</td></tr>
-<tr class="memdesc:a747d7b072b24545437aa9326ba024185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether today is school day.  <a href="#a747d7b072b24545437aa9326ba024185">More...</a><br /></td></tr>
-<tr class="separator:a747d7b072b24545437aa9326ba024185"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afec638f8fcc3e653e389f47bd30d63e1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#afec638f8fcc3e653e389f47bd30d63e1">~DaysOffInterface</a> ()=default</td></tr>
-<tr class="memdesc:afec638f8fcc3e653e389f47bd30d63e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#afec638f8fcc3e653e389f47bd30d63e1">More...</a><br /></td></tr>
-<tr class="separator:afec638f8fcc3e653e389f47bd30d63e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66cbeee60e72d2a8f5ec2836abeae9c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a66cbeee60e72d2a8f5ec2836abeae9c9">DiseaseSeeder</a> (const boost::property_tree::ptree &amp;config, <a class="el" href="../../d4/d81/a00110.html">util::RnMan</a> &amp;rnMan)</td></tr>
+<tr class="memdesc:a66cbeee60e72d2a8f5ec2836abeae9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing <a class="el" href="../../db/db6/a00074.html" title="Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. ">DiseaseSeeder</a>.  <a href="#a66cbeee60e72d2a8f5ec2836abeae9c9">More...</a><br /></td></tr>
+<tr class="separator:a66cbeee60e72d2a8f5ec2836abeae9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc5b1f152367382afe3dade9421357da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#adc5b1f152367382afe3dade9421357da">Seed</a> (std::shared_ptr&lt; <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt; pop)</td></tr>
+<tr class="memdesc:adc5b1f152367382afe3dade9421357da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the simulator.  <a href="#adc5b1f152367382afe3dade9421357da">More...</a><br /></td></tr>
+<tr class="separator:adc5b1f152367382afe3dade9421357da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:adddf4de9a6ae831d6e46d2f047309504"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#adddf4de9a6ae831d6e46d2f047309504">Vaccinate</a> (const std::string &amp;immunityType, const std::string &amp;immunizationProfile, const <a class="el" href="../../dc/dee/a00053.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d1/d6f/a00063.html">ContactPool</a> &gt; &amp;immunityPools)</td></tr>
+<tr class="memdesc:adddf4de9a6ae831d6e46d2f047309504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for vaccination/natural immunity.  <a href="#adddf4de9a6ae831d6e46d2f047309504">More...</a><br /></td></tr>
+<tr class="separator:adddf4de9a6ae831d6e46d2f047309504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7f897725d29dc459e6fda6c0fef91f37"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a7f897725d29dc459e6fda6c0fef91f37">m_config</a></td></tr>
+<tr class="memdesc:a7f897725d29dc459e6fda6c0fef91f37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config.  <a href="#a7f897725d29dc459e6fda6c0fef91f37">More...</a><br /></td></tr>
+<tr class="separator:a7f897725d29dc459e6fda6c0fef91f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeee28660d3988b645ebc1c26f6d82b2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d81/a00110.html">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#aeee28660d3988b645ebc1c26f6d82b2a">m_rn_man</a></td></tr>
+<tr class="memdesc:aeee28660d3988b645ebc1c26f6d82b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#aeee28660d3988b645ebc1c26f6d82b2a">More...</a><br /></td></tr>
+<tr class="separator:aeee28660d3988b645ebc1c26f6d82b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface definition. </p>
+<div class="textblock"><p>Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. </p>
 
-<p>Definition at line <a class="el" href="../../de/d53/a00169_source.html#l00028">28</a> of file <a class="el" href="../../de/d53/a00169_source.html">DaysOffInterface.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d53/a00169_source.html#l00038">38</a> of file <a class="el" href="../../de/d53/a00169_source.html">DiseaseSeeder.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="afec638f8fcc3e653e389f47bd30d63e1"></a>
+<a class="anchor" id="a66cbeee60e72d2a8f5ec2836abeae9c9"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual stride::DaysOffInterface::~DaysOffInterface </td>
+          <td class="memname">stride::DiseaseSeeder::DiseaseSeeder </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>config</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d81/a00110.html">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnMan</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Virtual destructor. </p>
+<p>Initializing <a class="el" href="../../db/db6/a00074.html" title="Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. ">DiseaseSeeder</a>. </p>
+
+<p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00038">38</a> of file <a class="el" href="../../dd/da7/a00168_source.html">DiseaseSeeder.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a2ae431c15cddca106e2a0753fde99f83"></a>
+<a class="anchor" id="adc5b1f152367382afe3dade9421357da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::DiseaseSeeder::Seed </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build the simulator. </p>
+
+<p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00040">40</a> of file <a class="el" href="../../dd/da7/a00168_source.html">DiseaseSeeder.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d4/d9a/a00246_source.html#l00053">stride::Person::GetAge()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00056">stride::Person::GetHealth()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00062">stride::Person::GetId()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00074">stride::util::RnMan::GetUniformIntGenerator()</a>, <a class="el" href="../../db/d53/a00202_source.html#l00077">stride::Health::IsSusceptible()</a>, <a class="el" href="../../de/d53/a00169_source.html#l00053">m_config</a>, <a class="el" href="../../de/d53/a00169_source.html#l00054">m_rn_man</a>, <a class="el" href="../../dd/de3/a00201_source.html#l00035">stride::Health::StartInfection()</a>, and <a class="el" href="../../dd/da7/a00168_source.html#l00076">Vaccinate()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/d56/a00274_source.html#l00041">stride::SimBuilder::Build()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/db6/a00074_adc5b1f152367382afe3dade9421357da_cgraph.gif" border="0" usemap="#db/db6/a00074_adc5b1f152367382afe3dade9421357da_cgraph" alt=""/></div>
+<map name="db/db6/a00074_adc5b1f152367382afe3dade9421357da_cgraph" id="db/db6/a00074_adc5b1f152367382afe3dade9421357da_cgraph">
+<area shape="rect" id="node2" href="../../d1/d1e/a00087.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="740,5,907,32"/>
+<area shape="rect" id="node3" href="../../d1/d1e/a00087.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="732,57,915,84"/>
+<area shape="rect" id="node4" href="../../d1/d1e/a00087.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="241,213,393,240"/>
+<area shape="rect" id="node5" href="../../d4/d81/a00110.html#a1afc757c92ddad702ce35677297ed15f" title="Return a generator for uniform ints in [a, b[ (a &lt; b) using i&#45;th random stream. " alt="" coords="225,265,410,306"/>
+<area shape="rect" id="node6" href="../../d1/d09/a00077.html#ae2a3b14e79e08a261ca7122afba9b95c" title="Is this person susceptible? " alt="" coords="217,331,417,357"/>
+<area shape="rect" id="node7" href="../../d1/d09/a00077.html#a5d85541b8e22aeaa75b364a454f59088" title="Start the infection. " alt="" coords="216,381,419,408"/>
+<area shape="rect" id="node9" href="../../db/db6/a00074.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="236,147,399,189"/>
+<area shape="rect" id="node8" href="../../d1/d09/a00077.html#a468c554771acc883799456c14373e9db" title="Reset the disease counter. " alt="" coords="467,374,669,415"/>
+<area shape="rect" id="node10" href="../../d8/df7/a00331.html#aa45ab4a5a30f65dcd1bf25c3d095825b" title="Builds a string with lower case characters only. " alt="" coords="497,236,639,263"/>
+<area shape="rect" id="node11" href="../../d1/d51/a00079.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="497,170,639,211"/>
+<area shape="rect" id="node15" href="../../d5/d1e/a00103.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="500,287,636,329"/>
+<area shape="rect" id="node16" href="../../d1/d51/a00079.html#a9b4435f990b9a24bc0ededbd9af4877b" title="Cocoon immunization. " alt="" coords="497,105,639,146"/>
+<area shape="rect" id="node12" href="../../d1/d6f/a00063.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="752,111,895,153"/>
+<area shape="rect" id="node13" href="../../d1/d09/a00077.html#a7c9caae07db1dd15732f726cec514dc2" title="Is this person immune? " alt="" coords="734,177,913,204"/>
+<area shape="rect" id="node14" href="../../d1/d09/a00077.html#a8edeec79c050faabe2c09a1bc4860261" title="Set health state to susceptible. " alt="" coords="717,228,929,255"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/db6/a00074_adc5b1f152367382afe3dade9421357da_icgraph.gif" border="0" usemap="#db/db6/a00074_adc5b1f152367382afe3dade9421357da_icgraph" alt=""/></div>
+<map name="db/db6/a00074_adc5b1f152367382afe3dade9421357da_icgraph" id="db/db6/a00074_adc5b1f152367382afe3dade9421357da_icgraph">
+<area shape="rect" id="node2" href="../../da/d82/a00091.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="216,5,351,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adddf4de9a6ae831d6e46d2f047309504"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -188,26 +255,77 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool stride::DaysOffInterface::IsWorkOff </td>
+          <td class="memname">void stride::DiseaseSeeder::Vaccinate </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>immunityType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>immunizationProfile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/dee/a00053.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d1/d6f/a00063.html">ContactPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>immunityPools</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Whether today is a work day. </p>
+<p>Seed for vaccination/natural immunity. </p>
 
-<p>Implemented in <a class="el" href="../../d1/d6e/a00073.html#a61f87cc93335185f90d9d772f168b1bb">stride::DaysOffAll</a>, <a class="el" href="../../d1/d09/a00077.html#a5f55ab77243cf483c5c47e8f81bf3b2a">stride::DaysOffStandard</a>, <a class="el" href="../../d9/da5/a00075.html#a6287fa68ca109373fc9be31f3941079d">stride::DaysOffNone</a>, and <a class="el" href="../../db/df8/a00076.html#a633453bbe4892b56891c42a4f4ac72fd">stride::DaysOffSchool</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00076">76</a> of file <a class="el" href="../../dd/da7/a00168_source.html">DiseaseSeeder.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00034">stride::Immunizer::Cocoon()</a>, <a class="el" href="../../de/d53/a00169_source.html#l00053">m_config</a>, <a class="el" href="../../de/d53/a00169_source.html#l00054">m_rn_man</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00066">stride::Immunizer::Random()</a>, <a class="el" href="../../d1/d0d/a00171_source.html#l00208">stride::util::FileSys::ReadPtreeFile()</a>, and <a class="el" href="../../d3/d58/a00285_source.html#l00135">stride::util::ToLower()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/da7/a00168_source.html#l00040">Seed()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/db6/a00074_adddf4de9a6ae831d6e46d2f047309504_cgraph.gif" border="0" usemap="#db/db6/a00074_adddf4de9a6ae831d6e46d2f047309504_cgraph" alt=""/></div>
+<map name="db/db6/a00074_adddf4de9a6ae831d6e46d2f047309504_cgraph" id="db/db6/a00074_adddf4de9a6ae831d6e46d2f047309504_cgraph">
+<area shape="rect" id="node2" href="../../d1/d51/a00079.html#a9b4435f990b9a24bc0ededbd9af4877b" title="Cocoon immunization. " alt="" coords="216,49,359,91"/>
+<area shape="rect" id="node3" href="../../d1/d51/a00079.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="216,115,359,156"/>
+<area shape="rect" id="node9" href="../../d5/d1e/a00103.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="219,180,355,221"/>
+<area shape="rect" id="node10" href="../../d8/df7/a00331.html#aa45ab4a5a30f65dcd1bf25c3d095825b" title="Builds a string with lower case characters only. " alt="" coords="216,246,359,273"/>
+<area shape="rect" id="node4" href="../../d1/d6f/a00063.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="441,5,584,47"/>
+<area shape="rect" id="node5" href="../../d1/d1e/a00087.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="421,71,604,98"/>
+<area shape="rect" id="node6" href="../../d1/d09/a00077.html#a7c9caae07db1dd15732f726cec514dc2" title="Is this person immune? " alt="" coords="423,122,602,149"/>
+<area shape="rect" id="node7" href="../../d1/d1e/a00087.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="429,173,596,199"/>
+<area shape="rect" id="node8" href="../../d1/d09/a00077.html#a8edeec79c050faabe2c09a1bc4860261" title="Set health state to susceptible. " alt="" coords="407,223,619,250"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/db6/a00074_adddf4de9a6ae831d6e46d2f047309504_icgraph.gif" border="0" usemap="#db/db6/a00074_adddf4de9a6ae831d6e46d2f047309504_icgraph" alt=""/></div>
+<map name="db/db6/a00074_adddf4de9a6ae831d6e46d2f047309504_icgraph" id="db/db6/a00074_adddf4de9a6ae831d6e46d2f047309504_icgraph">
+<area shape="rect" id="node2" href="../../db/db6/a00074.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="216,5,379,47"/>
+<area shape="rect" id="node3" href="../../da/d82/a00091.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="427,5,561,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a747d7b072b24545437aa9326ba024185"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a7f897725d29dc459e6fda6c0fef91f37"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -215,35 +333,61 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool stride::DaysOffInterface::IsSchoolOff </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">const boost::property_tree::ptree&amp; stride::DiseaseSeeder::m_config</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Whether today is school day. </p>
+<p>Run config. </p>
 
-<p>Implemented in <a class="el" href="../../d1/d6e/a00073.html#a12a699d750a9b0a640db4ea47df0b11c">stride::DaysOffAll</a>, <a class="el" href="../../d1/d09/a00077.html#ad27b8f2efdbb153c71d1a5dbdce42537">stride::DaysOffStandard</a>, <a class="el" href="../../d9/da5/a00075.html#a939df1a48d594f56ec3099d1edcfdca7">stride::DaysOffNone</a>, and <a class="el" href="../../db/df8/a00076.html#a709acf6d0cec5722e20760a797ae35bb">stride::DaysOffSchool</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d53/a00169_source.html#l00053">53</a> of file <a class="el" href="../../de/d53/a00169_source.html">DiseaseSeeder.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/da7/a00168_source.html#l00040">Seed()</a>, and <a class="el" href="../../dd/da7/a00168_source.html#l00076">Vaccinate()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../de/d53/a00169_source.html">DaysOffInterface.h</a></li>
+<a class="anchor" id="aeee28660d3988b645ebc1c26f6d82b2a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d81/a00110.html">util::RnMan</a>&amp; stride::DiseaseSeeder::m_rn_man</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Random number manager. </p>
+
+<p>Definition at line <a class="el" href="../../de/d53/a00169_source.html#l00054">54</a> of file <a class="el" href="../../de/d53/a00169_source.html">DiseaseSeeder.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/da7/a00168_source.html#l00040">Seed()</a>, and <a class="el" href="../../dd/da7/a00168_source.html#l00076">Vaccinate()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../de/d53/a00169_source.html">DiseaseSeeder.h</a></li>
+<li><a class="el" href="../../dd/da7/a00168_source.html">DiseaseSeeder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d45/a00342.html">stride</a></li><li class="navelem"><a class="el" href="../../db/db6/a00074.html">DaysOffInterface</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d8f/a00324.html">stride</a></li><li class="navelem"><a class="el" href="../../db/db6/a00074.html">DiseaseSeeder</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

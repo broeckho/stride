@@ -1,9 +1,7 @@
 var a00010 =
 [
-    [ "Generator", "d7/dec/a00010.html#ac9372a526b3a7672b5dca424b3743fd5", null ],
-    [ "~Generator", "d7/dec/a00010.html#abf1362cb66b511c7c7fba7feb4fc70f1", null ],
-    [ "Apply", "d7/dec/a00010.html#a7bebac8186b3c6fb9ea50d17b0562b37", null ],
-    [ "AddPools", "d7/dec/a00010.html#a7ee98f26392fc3f649e6d7bcd77a69f1", null ],
-    [ "m_rn_man", "d7/dec/a00010.html#af8316a93aaae7285075fd5f5d89d8c32", null ],
-    [ "m_logger", "d7/dec/a00010.html#a4bb1600be2268f8a580517daf62b1944", null ]
+    [ "GeoAggregator", "d7/dec/a00010.html#a98061f715d7f989acc80177244b9e382", null ],
+    [ "operator()", "d7/dec/a00010.html#a9690fa2f2fd4865dc4fc1f36007cae6c", null ],
+    [ "m_policy", "d7/dec/a00010.html#a8869ab6e0b5648b01be252b664c29c4f", null ],
+    [ "m_tree", "d7/dec/a00010.html#a72d96601581d45ac424d0d5b2ff60a5d", null ]
 ];

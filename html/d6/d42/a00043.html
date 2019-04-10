@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::SecondaryCommunityGenerator Class Reference</title>
+<title>Stride Reference Manual: Message Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -106,178 +106,41 @@ $(document).ready(function(){initNavTree('d6/d42/a00043.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d9/d00/a00784.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::SecondaryCommunityGenerator Class Reference</div>  </div>
+<div class="title">Message Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Generates ContactPools for ContactType PrimaryCommunity.  
- <a href="../../d6/d42/a00043.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../db/dc3/a00284_source.html">SecondaryCommunityGenerator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for geopop::SecondaryCommunityGenerator:</div>
+Inheritance diagram for Message:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d00/a00785.gif" border="0" usemap="#geopop_1_1SecondaryCommunityGenerator_inherit__map" alt="Inheritance graph"/></div>
-<map name="geopop_1_1SecondaryCommunityGenerator_inherit__map" id="geopop_1_1SecondaryCommunityGenerator_inherit__map">
-<area shape="rect" id="node2" href="../../d7/dec/a00010.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid..." alt="" coords="44,5,187,141"/>
+<div class="center"><img src="../../da/d6e/a00610.gif" border="0" usemap="#Message_inherit__map" alt="Inheritance graph"/></div>
+<map name="Message_inherit__map" id="Message_inherit__map">
+<area shape="rect" id="node2" href="../../d6/d97/a00045.html" title="{proto::GeoGrid\n|+ kIndexInFileMessages\l+ kLocationsFieldNumber\l+ kPersonsFieldNumber\l&#45; _internal_metadata_\l&#45; locations_\l&#45; persons_\l&#45; _cached_size_\l|+ GeoGrid()\l+ ~GeoGrid()\l+ GeoGrid()\l+ operator=()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\l+ MergeFrom()\l+ CopyFrom()\land 23 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l}" alt="" coords="5,270,212,729"/>
+<area shape="rect" id="node3" href="../../d3/dea/a00046.html" title="{proto::GeoGrid_Location\n|+ kIndexInFileMessages\l+ kContactPoolsFieldNumber\l+ kCommutesFieldNumber\l+ kNameFieldNumber\l+ kCoordinateFieldNumber\l+ kIdFieldNumber\l+ kProvinceFieldNumber\l+ kPopulationFieldNumber\l&#45; _internal_metadata_\l&#45; contactpools_\l&#45; commutes_\l&#45; name_\l&#45; coordinate_\l&#45; id_\l&#45; province_\l&#45; population_\l&#45; _cached_size_\l|+ GeoGrid_Location()\l+ ~GeoGrid_Location()\l+ GeoGrid_Location()\l+ operator=()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\l+ MergeFrom()\l+ CopyFrom()\land 46 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l}" alt="" coords="237,197,445,802"/>
+<area shape="rect" id="node4" href="../../d6/d2d/a00047.html" title="{proto::GeoGrid_Location\l_Commute\n|+ kIndexInFileMessages\l+ kToFieldNumber\l+ kProportionFieldNumber\l&#45; _internal_metadata_\l&#45; to_\l&#45; proportion_\l&#45; _cached_size_\l|+ GeoGrid_Location_Commute()\l+ ~GeoGrid_Location_Commute()\l+ GeoGrid_Location_Commute()\l+ operator=()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\l+ MergeFrom()\l+ CopyFrom()\land 15 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l}" alt="" coords="469,263,711,736"/>
+<area shape="rect" id="node5" href="../../d4/dca/a00048.html" title="{proto::GeoGrid_Location\l_ContactPools\n|+ kIndexInFileMessages\l+ K12School\l+ PrimaryCommunity\l+ SecondaryCommunity\l+ College\l+ Household\l+ Workplace\l+ Type_MIN\l+ Type_MAX\l+ Type_ARRAYSIZE\l+ kPoolsFieldNumber\l+ kIdFieldNumber\l+ kTypeFieldNumber\l&#45; _internal_metadata_\l&#45; pools_\l&#45; id_\l&#45; type_\l&#45; _cached_size_\l|+ GeoGrid_Location_Contact\lPools()\l+ ~GeoGrid_Location_Contact\lPools()\l+ GeoGrid_Location_Contact\lPools()\l+ operator=()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\l+ MergeFrom()\l+ CopyFrom()\land 22 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l+ Type_IsValid()\l+ Type_descriptor()\l+ Type_Name()\l+ Type_Parse()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l}" alt="" coords="735,131,954,868"/>
+<area shape="rect" id="node6" href="../../d2/dee/a00049.html" title="{proto::GeoGrid_Location\l_ContactPools_ContactPool\n|+ kIndexInFileMessages\l+ kPeopleFieldNumber\l+ kIdFieldNumber\l&#45; _internal_metadata_\l&#45; people_\l&#45; _people_cached_byte\l_size_\l&#45; id_\l&#45; _cached_size_\l|+ GeoGrid_Location_Contact\lPools_ContactPool()\l+ ~GeoGrid_Location_Contact\lPools_ContactPool()\l+ GeoGrid_Location_Contact\lPools_ContactPool()\l+ operator=()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\l+ MergeFrom()\l+ CopyFrom()\land 19 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l}" alt="" coords="978,226,1197,773"/>
+<area shape="rect" id="node7" href="../../d5/de0/a00050.html" title="{proto::GeoGrid_Location\l_Coordinate\n|+ kIndexInFileMessages\l+ kLongitudeFieldNumber\l+ kLatitudeFieldNumber\l&#45; _internal_metadata_\l&#45; longitude_\l&#45; latitude_\l&#45; _cached_size_\l|+ GeoGrid_Location_Coordinate()\l+ ~GeoGrid_Location_Coordinate()\l+ GeoGrid_Location_Coordinate()\l+ operator=()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\l+ MergeFrom()\l+ CopyFrom()\land 15 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l}" alt="" coords="1221,263,1469,736"/>
+<area shape="rect" id="node8" href="../../d2/d79/a00051.html" title="{proto::GeoGrid_Person\n|+ kIndexInFileMessages\l+ kIdFieldNumber\l+ kAgeFieldNumber\l&#45; _internal_metadata_\l&#45; id_\l&#45; age_\l&#45; _cached_size_\l|+ GeoGrid_Person()\l+ ~GeoGrid_Person()\l+ GeoGrid_Person()\l+ operator=()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\l+ MergeFrom()\l+ CopyFrom()\land 15 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l}" alt="" coords="1493,270,1700,729"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for geopop::SecondaryCommunityGenerator:</div>
+Collaboration diagram for Message:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d7d/a00786.gif" border="0" usemap="#geopop_1_1SecondaryCommunityGenerator_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1SecondaryCommunityGenerator_coll__map" id="geopop_1_1SecondaryCommunityGenerator_coll__map">
-<area shape="rect" id="node2" href="../../d7/dec/a00010.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid..." alt="" coords="84,417,227,539"/>
-<area shape="rect" id="node4" href="../../d2/da3/a00115.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,145,381,355"/>
+<div class="center"><img src="../../dd/dc0/a00611.gif" border="0" usemap="#Message_coll__map" alt="Collaboration graph"/></div>
+<map name="Message_coll__map" id="Message_coll__map">
 </map>
 </div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:adcde607963b6be5ee44c1b65b39e054f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#adcde607963b6be5ee44c1b65b39e054f">Apply</a> (<a class="el" href="../../d2/de7/a00014.html">GeoGrid</a> &amp;geogrid, const <a class="el" href="../../d4/d51/a00017.html">GeoGridConfig</a> &amp;geoGridConfig) override</td></tr>
-<tr class="memdesc:adcde607963b6be5ee44c1b65b39e054f"><td class="mdescLeft">&#160;</td><td class="mdescRight">See ::Apply.  <a href="#adcde607963b6be5ee44c1b65b39e054f">More...</a><br /></td></tr>
-<tr class="separator:adcde607963b6be5ee44c1b65b39e054f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e63a9295f1d315ec69f895655e9eea6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html#a1e63a9295f1d315ec69f895655e9eea6">AddPools</a> (<a class="el" href="../../db/df3/a00034.html">Location</a> &amp;loc, <a class="el" href="../../d4/d7d/a00093.html">stride::Population</a> *pop, unsigned int number) override</td></tr>
-<tr class="separator:a1e63a9295f1d315ec69f895655e9eea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00010"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00010')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d7/dec/a00010.html">geopop::Generator</a></td></tr>
-<tr class="memitem:ac9372a526b3a7672b5dca424b3743fd5 inherit pub_methods_a00010"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html#ac9372a526b3a7672b5dca424b3743fd5">Generator</a> (<a class="el" href="../../d2/da3/a00115.html">stride::util::RnMan</a> rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger=nullptr)</td></tr>
-<tr class="memdesc:ac9372a526b3a7672b5dca424b3743fd5 inherit pub_methods_a00010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with random number manager and logger.  <a href="#ac9372a526b3a7672b5dca424b3743fd5">More...</a><br /></td></tr>
-<tr class="separator:ac9372a526b3a7672b5dca424b3743fd5 inherit pub_methods_a00010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00010"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html#abf1362cb66b511c7c7fba7feb4fc70f1">~Generator</a> ()=default</td></tr>
-<tr class="memdesc:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#abf1362cb66b511c7c7fba7feb4fc70f1">More...</a><br /></td></tr>
-<tr class="separator:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00010"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00010')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d7/dec/a00010.html">geopop::Generator</a></td></tr>
-<tr class="memitem:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00010"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/da3/a00115.html">stride::util::RnMan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html#af8316a93aaae7285075fd5f5d89d8c32">m_rn_man</a></td></tr>
-<tr class="memdesc:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00010"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#af8316a93aaae7285075fd5f5d89d8c32">More...</a><br /></td></tr>
-<tr class="separator:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00010"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html#a4bb1600be2268f8a580517daf62b1944">m_logger</a></td></tr>
-<tr class="memdesc:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a4bb1600be2268f8a580517daf62b1944">More...</a><br /></td></tr>
-<tr class="separator:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Generates ContactPools for ContactType PrimaryCommunity. </p>
-
-<p>Definition at line <a class="el" href="../../db/dc3/a00284_source.html#l00025">25</a> of file <a class="el" href="../../db/dc3/a00284_source.html">SecondaryCommunityGenerator.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="adcde607963b6be5ee44c1b65b39e054f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void geopop::SecondaryCommunityGenerator::Apply </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/de7/a00014.html">GeoGrid</a> &amp;&#160;</td>
-          <td class="paramname"><em>geogrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d4/d51/a00017.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>See ::Apply. </p>
-
-<p>Implements <a class="el" href="../../d7/dec/a00010.html#a7bebac8186b3c6fb9ea50d17b0562b37">geopop::Generator</a>.</p>
-
-<p>Definition at line <a class="el" href="../../dd/dfe/a00283_source.html#l00035">35</a> of file <a class="el" href="../../dd/dfe/a00283_source.html">SecondaryCommunityGenerator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d2/df5/a00137_source.html#l00068">AssertThrow</a>, <a class="el" href="../../d4/d51/a00017.html#ae6b25524fbb9a5d3406e0cb37b2cc18f">geopop::GeoGridConfig::input</a>, <a class="el" href="../../d4/d51/a00017.html#ac2118fdaa02c6c419fe1c9b2ec7a87dd">geopop::GeoGridConfig::pools</a>, <a class="el" href="../../da/deb/a00189_source.html#l00123">geopop::GeoGridConfig::pools_per_secondary_community</a>, <a class="el" href="../../da/deb/a00189_source.html#l00062">geopop::GeoGridConfig::pop_size</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00122">geopop::GeoGridConfig::secondary_community_size</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1e63a9295f1d315ec69f895655e9eea6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void geopop::SecondaryCommunityGenerator::AddPools </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/df3/a00034.html">Location</a> &amp;&#160;</td>
-          <td class="paramname"><em>loc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d7d/a00093.html">stride::Population</a> *&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>number</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/dec/a00010.html#a7ee98f26392fc3f649e6d7bcd77a69f1" title="Create a given number ContactPools in the GeoGrid. ">Generator::AddPools</a>. </dd></dl>
-
-<p>Implements <a class="el" href="../../d7/dec/a00010.html#a7ee98f26392fc3f649e6d7bcd77a69f1">geopop::Generator</a>.</p>
-
-<p>Definition at line <a class="el" href="../../dd/dfe/a00283_source.html#l00067">67</a> of file <a class="el" href="../../dd/dfe/a00283_source.html">SecondaryCommunityGenerator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/db7/a00157_source.html#l00036">stride::ContactPoolSys::CreateContactPool()</a>, <a class="el" href="../../d3/dcc/a00264_source.html#l00080">stride::Population::RefPoolSys()</a>, and <a class="el" href="../../dd/dd7/a00248_source.html#l00132">geopop::Location::RegisterPool()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d6/d42/a00043_a1e63a9295f1d315ec69f895655e9eea6_cgraph.gif" border="0" usemap="#d6/d42/a00043_a1e63a9295f1d315ec69f895655e9eea6_cgraph" alt=""/></div>
-<map name="d6/d42/a00043_a1e63a9295f1d315ec69f895655e9eea6_cgraph" id="d6/d42/a00043_a1e63a9295f1d315ec69f895655e9eea6_cgraph">
-<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="299,5,466,47"/>
-<area shape="rect" id="node3" href="../../d4/d7d/a00093.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="316,71,449,112"/>
-<area shape="rect" id="node4" href="../../db/df3/a00034.html#a5bd9b521763ed0bc766cc51e0d6e35ab" title="Register a ContactPool pointer in this Location&#39;s pool system. " alt="" coords="273,137,492,163"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../db/dc3/a00284_source.html">SecondaryCommunityGenerator.h</a></li>
-<li><a class="el" href="../../dd/dfe/a00283_source.html">SecondaryCommunityGenerator.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../db/dd9/a00179_source.html">geogrid.pb.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d8/df7/a00331.html">geopop</a></li><li class="navelem"><a class="el" href="../../d6/d42/a00043.html">SecondaryCommunityGenerator</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d6/d42/a00043.html">Message</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GeoGridWriterFactory.h File Reference</title>
+<title>Stride Reference Manual: HouseholdCSVReader.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -108,25 +108,28 @@ $(document).ready(function(){initNavTree('d5/df1/a00206.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGridWriterFactory.h File Reference</div>  </div>
+<div class="title">HouseholdCSVReader.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/de5/a00209_source.html">HouseholdReader.h</a>&quot;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGridWriterFactory.h:</div>
+Include dependency graph for HouseholdCSVReader.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d92/a00475.gif" border="0" usemap="#GeoGridWriterFactory_8h" alt=""/></div>
-<map name="GeoGridWriterFactory_8h" id="GeoGridWriterFactory_8h">
+<div class="center"><img src="../../d3/d5d/a00463.gif" border="0" usemap="#HouseholdCSVReader_8h" alt=""/></div>
+<map name="HouseholdCSVReader_8h" id="HouseholdCSVReader_8h">
+<area shape="rect" id="node2" href="../../d3/de5/a00209.html" title="HouseholdReader.h" alt="" coords="207,80,352,107"/>
+<area shape="rect" id="node3" href="../../dd/d86/a00271.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="253,155,425,181"/>
+<area shape="rect" id="node4" href="../../d9/d5e/a00295.html" title="Interface/Implementation for SVIterator. " alt="" coords="143,229,242,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d34/a00476.gif" border="0" usemap="#GeoGridWriterFactory_8hdep" alt=""/></div>
-<map name="GeoGridWriterFactory_8hdep" id="GeoGridWriterFactory_8hdep">
-<area shape="rect" id="node2" href="../../d7/d25/a00182.html" title="Header for the command line controller. " alt="" coords="5,80,165,107"/>
-<area shape="rect" id="node3" href="../../d5/d13/a00205.html" title="GeoGridWriterFactory.cpp" alt="" coords="189,80,371,107"/>
+<div class="center"><img src="../../d2/d9d/a00464.gif" border="0" usemap="#HouseholdCSVReader_8hdep" alt=""/></div>
+<map name="HouseholdCSVReader_8hdep" id="HouseholdCSVReader_8hdep">
+<area shape="rect" id="node2" href="../../d5/d13/a00205.html" title="HouseholdCSVReader.cpp" alt="" coords="5,80,192,107"/>
+<area shape="rect" id="node3" href="../../dd/dd7/a00260.html" title="ReaderFactory.cpp" alt="" coords="217,80,354,107"/>
 </map>
 </div>
 </div>
@@ -134,14 +137,17 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html">geopop::GeoGridWriterFactory</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory creates the correct implementation of a <a class="el" href="../../dc/de2/a00024.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> based on the filename extension.  <a href="../../d3/dfe/a00025.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html">geopop::HouseholdCSVReader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Reader that retrieves the different Household profiles from a given CSV file.  <a href="../../dc/de2/a00024.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d8/df7/a00331"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df7/a00331.html">geopop</a></td></tr>
-<tr class="memdesc:d8/df7/a00331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d4/d8f/a00324"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">stride</a></td></tr>
+<tr class="memdesc:d4/d8f/a00324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dd/db3/a00313"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db3/a00313.html">geopop</a></td></tr>
+<tr class="memdesc:dd/db3/a00313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -149,8 +155,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d5/df1/a00206.html">GeoGridWriterFactory.h</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d5/df1/a00206.html">HouseholdCSVReader.h</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

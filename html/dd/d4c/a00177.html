@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Exception.h File Reference</title>
+<title>Stride Reference Manual: GeoGrid.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -105,61 +105,53 @@ $(document).ready(function(){initNavTree('dd/d4c/a00177.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Exception.h File Reference</div>  </div>
+<div class="title">GeoGrid.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdexcept&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d90/a00178_source.html">GeoGrid.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d1e/a00149_source.html">contact/ContactPool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d40/a00236_source.html">geopop/Location.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/de9/a00176_source.html">geopop/geo/GeoAggregator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/daa/a00187_source.html">geopop/geo/GeoGridKdTree.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d3e/a00253_source.html">pop/Population.h</a>&quot;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Exception.h:</div>
+Include dependency graph for GeoGrid.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d0c/a00430.gif" border="0" usemap="#Exception_8h" alt=""/></div>
-<map name="Exception_8h" id="Exception_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d70/a00431.gif" border="0" usemap="#Exception_8hdep" alt=""/></div>
-<map name="Exception_8hdep" id="Exception_8hdep">
-<area shape="rect" id="node2" href="../../d0/d4a/a00147.html" title="CommutesCSVReader.cpp" alt="" coords="5,80,196,107"/>
-<area shape="rect" id="node3" href="../../d7/d6e/a00190.html" title="GeoGridJSONReader.cpp" alt="" coords="221,80,397,107"/>
-<area shape="rect" id="node4" href="../../d7/da0/a00198.html" title="GeoGridProtoWriter.cpp" alt="" coords="421,80,591,107"/>
-<area shape="rect" id="node5" href="../../db/d53/a00202.html" title="GeoGridReaderFactory.cpp" alt="" coords="615,80,805,107"/>
-<area shape="rect" id="node6" href="../../d5/d13/a00205.html" title="GeoGridWriterFactory.cpp" alt="" coords="829,80,1010,107"/>
-<area shape="rect" id="node7" href="../../d0/d1f/a00247.html" title="Location.cpp" alt="" coords="1035,80,1137,107"/>
-<area shape="rect" id="node8" href="../../d2/d71/a00309.html" title="Implementation for the SurveySeeder class. " alt="" coords="1162,80,1301,107"/>
-<area shape="rect" id="node9" href="../../d2/df5/a00137.html" title="Definition of . " alt="" coords="1325,80,1399,107"/>
-<area shape="rect" id="node10" href="../../d3/de5/a00209.html" title="Implementation for the Health class. " alt="" coords="517,155,607,181"/>
-<area shape="rect" id="node11" href="../../dd/ded/a00211.html" title="Implementation for HelthSeeder class. " alt="" coords="631,155,767,181"/>
-<area shape="rect" id="node12" href="../../d7/dce/a00143.html" title="CollegeGenerator.cpp" alt="" coords="791,155,951,181"/>
-<area shape="rect" id="node13" href="../../d1/dd4/a00267.html" title="PrimaryCommunityGenerator.cpp" alt="" coords="975,155,1211,181"/>
-<area shape="rect" id="node14" href="../../dd/dfe/a00283.html" title="SecondaryCommunityGenerator.cpp" alt="" coords="1235,155,1489,181"/>
-<area shape="rect" id="node15" href="../../d2/d41/a00318.html" title="WorkplaceGenerator.cpp" alt="" coords="1513,155,1691,181"/>
-<area shape="rect" id="node16" href="../../da/ddb/a00145.html" title="CollegePopulator.cpp" alt="" coords="1715,155,1871,181"/>
-<area shape="rect" id="node17" href="../../dd/de2/a00320.html" title="WorkplacePopulator.cpp" alt="" coords="1895,155,2069,181"/>
-<area shape="rect" id="node18" href="../../df/da9/a00263.html" title="Core Population class. " alt="" coords="2093,155,2209,181"/>
+<div class="center"><img src="../../db/d4f/a00420.gif" border="0" usemap="#GeoGrid_8cpp" alt=""/></div>
+<map name="GeoGrid_8cpp" id="GeoGrid_8cpp">
+<area shape="rect" id="node2" href="../../d9/d90/a00178.html" title="GeoGrid.h" alt="" coords="1065,162,1152,189"/>
+<area shape="rect" id="node9" href="../../d6/daa/a00187.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="276,244,484,271"/>
+<area shape="rect" id="node23" href="../../da/d1e/a00149.html" title="Header for the core ContactPool class. " alt="" coords="1772,244,1935,271"/>
+<area shape="rect" id="node26" href="../../d7/d40/a00236.html" title="geopop/Location.h" alt="" coords="1390,162,1530,189"/>
+<area shape="rect" id="node39" href="../../d5/de9/a00176.html" title="geopop/geo/GeoAggregator.h" alt="" coords="586,244,796,271"/>
+<area shape="rect" id="node44" href="../../d0/d3e/a00253.html" title="Header file for the core Population class. " alt="" coords="1892,80,2021,107"/>
+<area shape="rect" id="node3" href="../../da/d01/a00153.html" title="Definition of ContactPool Id Type. " alt="" coords="1966,326,2130,353"/>
+<area shape="rect" id="node10" href="../../df/d17/a00231.html" title="KdTree.h" alt="" coords="265,326,341,353"/>
+<area shape="rect" id="node16" href="../../d6/de1/a00233.html" title="KdTree2DPoint.h" alt="" coords="114,326,241,353"/>
+<area shape="rect" id="node11" href="../../da/d72/a00124.html" title="AABBox.h" alt="" coords="278,415,363,442"/>
+<area shape="rect" id="node12" href="../../d1/da8/a00230.html" title="KdNode.h" alt="" coords="822,415,906,442"/>
+<area shape="rect" id="node17" href="../../d2/d34/a00156.html" title="geopop/Coordinate.h" alt="" coords="1381,415,1537,442"/>
+<area shape="rect" id="node24" href="../../d0/d4a/a00147.html" title="Header for the ContactLogMode class. " alt="" coords="1747,326,1942,353"/>
+<area shape="rect" id="node27" href="../../dd/dc1/a00212.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2216,244,2406,271"/>
+<area shape="rect" id="node32" href="../../dd/d86/a00271.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2586,244,2758,271"/>
+<area shape="rect" id="node33" href="../../d9/d5e/a00295.html" title="Interface/Implementation for SVIterator. " alt="" coords="2938,326,3036,353"/>
+<area shape="rect" id="node45" href="../../dd/db2/a00151.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2092,162,2279,189"/>
+<area shape="rect" id="node46" href="../../d4/d9a/a00246.html" title="Header file for the Person class. " alt="" coords="2303,162,2410,189"/>
+<area shape="rect" id="node47" href="../../d5/d35/a00266.html" title="Interface of RnMan. " alt="" coords="3112,326,3212,353"/>
 </map>
 </div>
 </div>
 <p><a href="../../dd/d4c/a00177_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html">stride::util::Exception</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic exception class: needed to prevent clang-tidy warning "thrown exception type is not nothrow copy constructible".  <a href="../../df/d98/a00107.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d2/d45/a00342"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/a00342.html">stride</a></td></tr>
-<tr class="memdesc:d2/d45/a00342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d7/dfc/a00349"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dfc/a00349.html">stride::util</a></td></tr>
-<tr class="memdesc:d7/dfc/a00349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:dd/db3/a00313"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db3/a00313.html">geopop</a></td></tr>
+<tr class="memdesc:dd/db3/a00313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -167,8 +159,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dd/d4c/a00177.html">Exception.h</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dd/d4c/a00177.html">GeoGrid.cpp</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,10 +1,5 @@
 var a00038 =
 [
-    [ "Populator", "d8/d41/a00038.html#a555413f57e921b72913adb79172abb9d", null ],
-    [ "~Populator", "d8/d41/a00038.html#ac218f00867d01c6507088582162710c9", null ],
-    [ "Apply", "d8/d41/a00038.html#a2f009fc6c0acb9a100568304204e03d5", null ],
-    [ "GetNearbyPools", "d8/d41/a00038.html#a720e1d4541eb3af0b9b2bd6089e8a4ce", null ],
-    [ "MakeChoice", "d8/d41/a00038.html#af7b9250da3bb9be0c877028a56bf5b2a", null ],
-    [ "m_rn_man", "d8/d41/a00038.html#aea1433eb78a263d44fe81683ff65987e", null ],
-    [ "m_logger", "d8/d41/a00038.html#aeecc8afde4f92991f8140a1f3145aeda", null ]
+    [ "people", "d8/d41/a00038.html#af54bb20c722989ec5be35209e436fe3e", null ],
+    [ "pools", "d8/d41/a00038.html#ae8822f4a7d8a6bc8ed3b8b4d38e160f3", null ]
 ];

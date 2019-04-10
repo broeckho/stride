@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['value_5ftype',['value_type',['../d7/df7/a00058.html#a7882e74f6cb8dd40fe7f359daf0376c3',1,'stride::util::SegmentedVector::value_type()'],['../d4/d98/a00120.html#a19491e9889942ecc009a6bf9cddcbf11',1,'stride::util::SVIterator::value_type()']]],
-  ['void_5ft',['void_t',['../d0/d48/a00351.html#a5548d91f3cf721a08ab97267e8dd80ec',1,'stride::util::ii_detail']]]
+  ['secondarycommunitygenerator',['SecondaryCommunityGenerator',['../dd/db3/a00313.html#aa934d3959deda800f3c144f5c7ee82b8',1,'geopop']]],
+  ['secondarycommunitypopulator',['SecondaryCommunityPopulator',['../dd/db3/a00313.html#a70a6f0464fbde62721a9fa263a3209c0',1,'geopop']]],
+  ['self_5ftype',['self_type',['../dc/dee/a00053.html#aa72e1f8f1437134e2ead160ca23c35bd',1,'stride::util::SegmentedVector::self_type()'],['../d2/da3/a00115.html#acf4391226c3334af2ab02fdbfcbe81c8',1,'stride::util::SVIterator::self_type()']]],
+  ['size_5ftype',['size_type',['../dc/dee/a00053.html#a4344636a6d7dea3aff481c178b5ff008',1,'stride::util::SegmentedVector']]]
 ];

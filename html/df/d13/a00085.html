@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::ImportPopBuilder Class Reference</title>
+<title>Stride Reference Manual: stride::output::PersonsFile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -108,65 +108,60 @@ $(document).ready(function(){initNavTree('df/d13/a00085.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d2/da1/a00879.html">List of all members</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d3/db2/a00869.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::ImportPopBuilder Class Reference</div>  </div>
+<div class="title">stride::output::PersonsFile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Initializes <a class="el" href="../../d4/d7d/a00093.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> objects.  
+<p>Produces a file with daily cases count.  
  <a href="../../df/d13/a00085.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d55/a00226_source.html">ImportPopBuilder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/dd7/a00248_source.html">PersonsFile.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::ImportPopBuilder:</div>
+Collaboration diagram for stride::output::PersonsFile:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d8f/a00880.gif" border="0" usemap="#stride_1_1ImportPopBuilder_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1ImportPopBuilder_inherit__map" id="stride_1_1ImportPopBuilder_inherit__map">
-<area shape="rect" id="node2" href="../../d3/d8b/a00059.html" title="Base Class for PopBuilders. " alt="" coords="5,5,193,141"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::ImportPopBuilder:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d41/a00881.gif" border="0" usemap="#stride_1_1ImportPopBuilder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1ImportPopBuilder_coll__map" id="stride_1_1ImportPopBuilder_coll__map">
-<area shape="rect" id="node2" href="../../d3/d8b/a00059.html" title="Base Class for PopBuilders. " alt="" coords="185,417,373,524"/>
-<area shape="rect" id="node4" href="../../d2/da3/a00115.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,145,381,355"/>
+<div class="center"><img src="../../da/d98/a00870.gif" border="0" usemap="#stride_1_1output_1_1PersonsFile_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1output_1_1PersonsFile_coll__map" id="stride_1_1output_1_1PersonsFile_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="45,541,153,619"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="25,400,173,492"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="27,259,171,351"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="15,132,183,209"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="45,5,152,83"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a78076cb42a88b90e4183bfb805d8361f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/d7d/a00093.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a78076cb42a88b90e4183bfb805d8361f">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d4/d7d/a00093.html">Population</a> &gt; pop) override</td></tr>
-<tr class="memdesc:a78076cb42a88b90e4183bfb805d8361f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a population by importing it.  <a href="#a78076cb42a88b90e4183bfb805d8361f">More...</a><br /></td></tr>
-<tr class="separator:a78076cb42a88b90e4183bfb805d8361f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00059"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00059')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d3/d8b/a00059.html">stride::AbstractPopBuilder</a></td></tr>
-<tr class="memitem:a0dc3493a948b42c70cd879d83c879526 inherit pub_methods_a00059"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a0dc3493a948b42c70cd879d83c879526">AbstractPopBuilder</a> (const boost::property_tree::ptree &amp;config, <a class="el" href="../../d2/da3/a00115.html">util::RnMan</a> &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; strideLogger=nullptr)</td></tr>
-<tr class="memdesc:a0dc3493a948b42c70cd879d83c879526 inherit pub_methods_a00059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a0dc3493a948b42c70cd879d83c879526">More...</a><br /></td></tr>
-<tr class="separator:a0dc3493a948b42c70cd879d83c879526 inherit pub_methods_a00059"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00059"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a938da421d2a2d203e7cb90ead7b91807">~AbstractPopBuilder</a> ()=default</td></tr>
-<tr class="memdesc:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has to be virtual.  <a href="#a938da421d2a2d203e7cb90ead7b91807">More...</a><br /></td></tr>
-<tr class="separator:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2c1e70237152817647dded0f5906c6b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ab2c1e70237152817647dded0f5906c6b">PersonsFile</a> (const std::string &amp;output_dir=&quot;output&quot;)</td></tr>
+<tr class="memdesc:ab2c1e70237152817647dded0f5906c6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor: initialize.  <a href="#ab2c1e70237152817647dded0f5906c6b">More...</a><br /></td></tr>
+<tr class="separator:ab2c1e70237152817647dded0f5906c6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafacf4448a2354eff812e02d2048e114"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#aafacf4448a2354eff812e02d2048e114">~PersonsFile</a> ()</td></tr>
+<tr class="memdesc:aafacf4448a2354eff812e02d2048e114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor: close the file stream.  <a href="#aafacf4448a2354eff812e02d2048e114">More...</a><br /></td></tr>
+<tr class="separator:aafacf4448a2354eff812e02d2048e114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac72a90d142c34ca2137bdf09760ba2c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#ac72a90d142c34ca2137bdf09760ba2c4">Print</a> (std::shared_ptr&lt; const <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt; population)</td></tr>
+<tr class="memdesc:ac72a90d142c34ca2137bdf09760ba2c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the given cases with corresponding tag.  <a href="#ac72a90d142c34ca2137bdf09760ba2c4">More...</a><br /></td></tr>
+<tr class="separator:ac72a90d142c34ca2137bdf09760ba2c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00059"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00059')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d3/d8b/a00059.html">stride::AbstractPopBuilder</a></td></tr>
-<tr class="memitem:a34a81e371e1bf73c2a75fd9d2df21353 inherit pro_attribs_a00059"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a34a81e371e1bf73c2a75fd9d2df21353">m_config</a></td></tr>
-<tr class="memdesc:a34a81e371e1bf73c2a75fd9d2df21353 inherit pro_attribs_a00059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree.  <a href="#a34a81e371e1bf73c2a75fd9d2df21353">More...</a><br /></td></tr>
-<tr class="separator:a34a81e371e1bf73c2a75fd9d2df21353 inherit pro_attribs_a00059"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a438798c37f82817665369d725a3a34 inherit pro_attribs_a00059"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/da3/a00115.html">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a2a438798c37f82817665369d725a3a34">m_rn_man</a></td></tr>
-<tr class="memdesc:a2a438798c37f82817665369d725a3a34 inherit pro_attribs_a00059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generation management.  <a href="#a2a438798c37f82817665369d725a3a34">More...</a><br /></td></tr>
-<tr class="separator:a2a438798c37f82817665369d725a3a34 inherit pro_attribs_a00059"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aa42972b4d340a04b0366af0a889b5e inherit pro_attribs_a00059"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a6aa42972b4d340a04b0366af0a889b5e">m_stride_logger</a></td></tr>
-<tr class="separator:a6aa42972b4d340a04b0366af0a889b5e inherit pro_attribs_a00059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a70798ee06674e243f7dad24ae2dca7fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a70798ee06674e243f7dad24ae2dca7fd">Initialize</a> (const std::string &amp;output_dir)</td></tr>
+<tr class="memdesc:a70798ee06674e243f7dad24ae2dca7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate file name and open the file stream.  <a href="#a70798ee06674e243f7dad24ae2dca7fd">More...</a><br /></td></tr>
+<tr class="separator:a70798ee06674e243f7dad24ae2dca7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a426f21983cf23767cfa51c0f4b9fb068"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html#a426f21983cf23767cfa51c0f4b9fb068">m_fstream</a></td></tr>
+<tr class="separator:a426f21983cf23767cfa51c0f4b9fb068"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Initializes <a class="el" href="../../d4/d7d/a00093.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> objects. </p>
+<div class="textblock"><p>Produces a file with daily cases count. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00030">30</a> of file <a class="el" href="../../dc/d55/a00226_source.html">ImportPopBuilder.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a78076cb42a88b90e4183bfb805d8361f"></a>
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00036">36</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">PersonsFile.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab2c1e70237152817647dded0f5906c6b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -174,36 +169,121 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d4/d7d/a00093.html">Population</a> &gt; stride::ImportPopBuilder::Build </td>
+          <td class="memname">stride::output::PersonsFile::PersonsFile </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/d7d/a00093.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>output_dir</em> = <code>&quot;output&quot;</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a population by importing it. </p>
+<p>Constructor: initialize. </p>
 
-<p>Implements <a class="el" href="../../d3/d8b/a00059.html#a864865f7e88c7b737ad91a245f49f466">stride::AbstractPopBuilder</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d1f/a00247_source.html#l00032">32</a> of file <a class="el" href="../../d0/d1f/a00247_source.html">PersonsFile.cpp</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00038">38</a> of file <a class="el" href="../../dc/d98/a00225_source.html">ImportPopBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/d53/a00202_source.html#l00036">geopop::GeoGridReaderFactory::CreateReader()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/da9/a00263_source.html#l00047">stride::Population::Create()</a>.</p>
+<p>References <a class="el" href="../../d0/d1f/a00247_source.html#l00036">Initialize()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d13/a00085_a78076cb42a88b90e4183bfb805d8361f_cgraph.gif" border="0" usemap="#df/d13/a00085_a78076cb42a88b90e4183bfb805d8361f_cgraph" alt=""/></div>
-<map name="df/d13/a00085_a78076cb42a88b90e4183bfb805d8361f_cgraph" id="df/d13/a00085_a78076cb42a88b90e4183bfb805d8361f_cgraph">
-<area shape="rect" id="node2" href="../../d3/d52/a00023.html#afd9d54966d5a7c5d19308cc53d48f6e7" title="Create a GeoGridReader based on the provided extension in the filename. " alt="" coords="229,5,449,47"/>
+<div class="center"><img src="../../df/d13/a00085_ab2c1e70237152817647dded0f5906c6b_cgraph.gif" border="0" usemap="#df/d13/a00085_ab2c1e70237152817647dded0f5906c6b_cgraph" alt=""/></div>
+<map name="df/d13/a00085_ab2c1e70237152817647dded0f5906c6b_cgraph" id="df/d13/a00085_ab2c1e70237152817647dded0f5906c6b_cgraph">
+<area shape="rect" id="node2" href="../../df/d13/a00085.html#a70798ee06674e243f7dad24ae2dca7fd" title="Generate file name and open the file stream. " alt="" coords="240,5,427,47"/>
+<area shape="rect" id="node3" href="../../d5/d1e/a00103.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="475,5,611,47"/>
+<area shape="rect" id="node4" href="../../d5/d1e/a00103.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="659,5,795,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aafacf4448a2354eff812e02d2048e114"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::output::PersonsFile::~PersonsFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor: close the file stream. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d1f/a00247_source.html#l00034">34</a> of file <a class="el" href="../../d0/d1f/a00247_source.html">PersonsFile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dd/dd7/a00248_source.html#l00053">m_fstream</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac72a90d142c34ca2137bdf09760ba2c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::output::PersonsFile::Print </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; const <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>population</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print the given cases with corresponding tag. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d1f/a00247_source.html#l00045">45</a> of file <a class="el" href="../../d0/d1f/a00247_source.html">PersonsFile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dd/dd7/a00248_source.html#l00053">m_fstream</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a70798ee06674e243f7dad24ae2dca7fd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::output::PersonsFile::Initialize </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>output_dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate file name and open the file stream. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d1f/a00247_source.html#l00036">36</a> of file <a class="el" href="../../d0/d1f/a00247_source.html">PersonsFile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d1/d0d/a00171_source.html#l00052">stride::util::FileSys::BuildPath()</a>, and <a class="el" href="../../dd/dd7/a00248_source.html#l00053">m_fstream</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/d1f/a00247_source.html#l00032">PersonsFile()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d13/a00085_a70798ee06674e243f7dad24ae2dca7fd_cgraph.gif" border="0" usemap="#df/d13/a00085_a70798ee06674e243f7dad24ae2dca7fd_cgraph" alt=""/></div>
+<map name="df/d13/a00085_a70798ee06674e243f7dad24ae2dca7fd_cgraph" id="df/d13/a00085_a70798ee06674e243f7dad24ae2dca7fd_cgraph">
+<area shape="rect" id="node2" href="../../d5/d1e/a00103.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="240,5,376,47"/>
+<area shape="rect" id="node3" href="../../d5/d1e/a00103.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="424,5,560,47"/>
 </map>
 </div>
 </p>
@@ -211,26 +291,51 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d13/a00085_a78076cb42a88b90e4183bfb805d8361f_icgraph.gif" border="0" usemap="#df/d13/a00085_a78076cb42a88b90e4183bfb805d8361f_icgraph" alt=""/></div>
-<map name="df/d13/a00085_a78076cb42a88b90e4183bfb805d8361f_icgraph" id="df/d13/a00085_a78076cb42a88b90e4183bfb805d8361f_icgraph">
-<area shape="rect" id="node2" href="../../d4/d7d/a00093.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="229,5,363,47"/>
+<div class="center"><img src="../../df/d13/a00085_a70798ee06674e243f7dad24ae2dca7fd_icgraph.gif" border="0" usemap="#df/d13/a00085_a70798ee06674e243f7dad24ae2dca7fd_icgraph" alt=""/></div>
+<map name="df/d13/a00085_a70798ee06674e243f7dad24ae2dca7fd_icgraph" id="df/d13/a00085_a70798ee06674e243f7dad24ae2dca7fd_icgraph">
+<area shape="rect" id="node2" href="../../df/d13/a00085.html#ab2c1e70237152817647dded0f5906c6b" title="Constructor: initialize. " alt="" coords="240,5,427,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a426f21983cf23767cfa51c0f4b9fb068"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ofstream stride::output::PersonsFile::m_fstream</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00053">53</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">PersonsFile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/d1f/a00247_source.html#l00036">Initialize()</a>, <a class="el" href="../../d0/d1f/a00247_source.html#l00045">Print()</a>, and <a class="el" href="../../d0/d1f/a00247_source.html#l00034">~PersonsFile()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dc/d55/a00226_source.html">ImportPopBuilder.h</a></li>
-<li><a class="el" href="../../dc/d98/a00225_source.html">ImportPopBuilder.cpp</a></li>
+<li><a class="el" href="../../dd/dd7/a00248_source.html">PersonsFile.h</a></li>
+<li><a class="el" href="../../d0/d1f/a00247_source.html">PersonsFile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d45/a00342.html">stride</a></li><li class="navelem"><a class="el" href="../../df/d13/a00085.html">ImportPopBuilder</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d8f/a00324.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/db5/a00328.html">output</a></li><li class="navelem"><a class="el" href="../../df/d13/a00085.html">PersonsFile</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

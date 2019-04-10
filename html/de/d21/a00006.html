@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::CollegeGenerator Class Reference</title>
+<title>Stride Reference Manual: geopop::CommutesCSVReader Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -108,65 +108,67 @@ $(document).ready(function(){initNavTree('de/d21/a00006.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d5/d39/a00676.html">List of all members</a>  </div>
+<a href="../../d7/de4/a00634.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::CollegeGenerator Class Reference</div>  </div>
+<div class="title">geopop::CommutesCSVReader Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Generates ContactPools for ContactType College.  
+<p>Create a Reader that fills a <a class="el" href="../../df/d86/a00012.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> with the commute info from CSV file.  
  <a href="../../de/d21/a00006.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/da7/a00144_source.html">CollegeGenerator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/d4e/a00141_source.html">CommutesCSVReader.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for geopop::CollegeGenerator:</div>
+Inheritance diagram for geopop::CommutesCSVReader:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/de4/a00677.gif" border="0" usemap="#geopop_1_1CollegeGenerator_inherit__map" alt="Inheritance graph"/></div>
-<map name="geopop_1_1CollegeGenerator_inherit__map" id="geopop_1_1CollegeGenerator_inherit__map">
-<area shape="rect" id="node2" href="../../d7/dec/a00010.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid..." alt="" coords="29,5,172,141"/>
+<div class="center"><img src="../../d4/d10/a00635.gif" border="0" usemap="#geopop_1_1CommutesCSVReader_inherit__map" alt="Inheritance graph"/></div>
+<map name="geopop_1_1CommutesCSVReader_inherit__map" id="geopop_1_1CommutesCSVReader_inherit__map">
+<area shape="rect" id="node2" href="../../de/d5e/a00007.html" title="Create an abstract Reader that fills a GeoGrid with the commute info from file. " alt="" coords="19,5,212,112"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for geopop::CollegeGenerator:</div>
+Collaboration diagram for geopop::CommutesCSVReader:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d31/a00678.gif" border="0" usemap="#geopop_1_1CollegeGenerator_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1CollegeGenerator_coll__map" id="geopop_1_1CollegeGenerator_coll__map">
-<area shape="rect" id="node2" href="../../d7/dec/a00010.html" title="An interface base class for generators that provide geo data and apply it onto the GeoGrid..." alt="" coords="84,417,227,539"/>
-<area shape="rect" id="node4" href="../../d2/da3/a00115.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,145,381,355"/>
+<div class="center"><img src="../../db/d3a/a00641.gif" border="0" usemap="#geopop_1_1CommutesCSVReader_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1CommutesCSVReader_coll__map" id="geopop_1_1CommutesCSVReader_coll__map">
+<area shape="rect" id="node2" href="../../de/d5e/a00007.html" title="Create an abstract Reader that fills a GeoGrid with the commute info from file. " alt="" coords="78,708,271,815"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="40,413,139,491"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="20,259,159,351"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="5,132,173,209"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="36,5,143,83"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="163,413,317,491"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0ae4016fc7225ecb4f2ce8f5319b4917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/a00006.html#a0ae4016fc7225ecb4f2ce8f5319b4917">Apply</a> (<a class="el" href="../../d2/de7/a00014.html">GeoGrid</a> &amp;geogrid, const <a class="el" href="../../d4/d51/a00017.html">GeoGridConfig</a> &amp;geoGridConfig) override</td></tr>
-<tr class="memdesc:a0ae4016fc7225ecb4f2ce8f5319b4917"><td class="mdescLeft">&#160;</td><td class="mdescRight">see ::Apply  <a href="#a0ae4016fc7225ecb4f2ce8f5319b4917">More...</a><br /></td></tr>
-<tr class="separator:a0ae4016fc7225ecb4f2ce8f5319b4917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4709b9f9a3690f5aeb1a0c82962c500f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/a00006.html#a4709b9f9a3690f5aeb1a0c82962c500f">AddPools</a> (<a class="el" href="../../db/df3/a00034.html">Location</a> &amp;loc, <a class="el" href="../../d4/d7d/a00093.html">stride::Population</a> *pop, unsigned int number) override</td></tr>
-<tr class="separator:a4709b9f9a3690f5aeb1a0c82962c500f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00010"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00010')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d7/dec/a00010.html">geopop::Generator</a></td></tr>
-<tr class="memitem:ac9372a526b3a7672b5dca424b3743fd5 inherit pub_methods_a00010"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html#ac9372a526b3a7672b5dca424b3743fd5">Generator</a> (<a class="el" href="../../d2/da3/a00115.html">stride::util::RnMan</a> rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger=nullptr)</td></tr>
-<tr class="memdesc:ac9372a526b3a7672b5dca424b3743fd5 inherit pub_methods_a00010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with random number manager and logger.  <a href="#ac9372a526b3a7672b5dca424b3743fd5">More...</a><br /></td></tr>
-<tr class="separator:ac9372a526b3a7672b5dca424b3743fd5 inherit pub_methods_a00010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00010"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html#abf1362cb66b511c7c7fba7feb4fc70f1">~Generator</a> ()=default</td></tr>
-<tr class="memdesc:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#abf1362cb66b511c7c7fba7feb4fc70f1">More...</a><br /></td></tr>
-<tr class="separator:abf1362cb66b511c7c7fba7feb4fc70f1 inherit pub_methods_a00010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a08896e164c5172832c662b18b0af7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/a00006.html#a9a08896e164c5172832c662b18b0af7e">CommutesCSVReader</a> (std::unique_ptr&lt; std::istream &gt; istream)</td></tr>
+<tr class="memdesc:a9a08896e164c5172832c662b18b0af7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../de/d21/a00006.html" title="Create a Reader that fills a GeoGrid with the commute info from CSV file. ">CommutesCSVReader</a> with an istream containing the CSV data.  <a href="#a9a08896e164c5172832c662b18b0af7e">More...</a><br /></td></tr>
+<tr class="separator:a9a08896e164c5172832c662b18b0af7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45fffb45b9c5fb2eb92b6b1fc1f3d88c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/a00006.html#a45fffb45b9c5fb2eb92b6b1fc1f3d88c">FillGeoGrid</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid) const override</td></tr>
+<tr class="memdesc:a45fffb45b9c5fb2eb92b6b1fc1f3d88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the found Commutes to the provided <a class="el" href="../../df/d86/a00012.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>.  <a href="#a45fffb45b9c5fb2eb92b6b1fc1f3d88c">More...</a><br /></td></tr>
+<tr class="separator:a45fffb45b9c5fb2eb92b6b1fc1f3d88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00007"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00007')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../de/d5e/a00007.html">geopop::CommutesReader</a></td></tr>
+<tr class="memitem:a0dd104614182629344c1103571db7e4c inherit pub_methods_a00007"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a0dd104614182629344c1103571db7e4c">CommutesReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
+<tr class="memdesc:a0dd104614182629344c1103571db7e4c inherit pub_methods_a00007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../de/d5e/a00007.html" title="Create an abstract Reader that fills a GeoGrid with the commute info from file. ">CommutesReader</a> with an istream with the file content.  <a href="#a0dd104614182629344c1103571db7e4c">More...</a><br /></td></tr>
+<tr class="separator:a0dd104614182629344c1103571db7e4c inherit pub_methods_a00007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87275d249311463450de4aa0a8312f28 inherit pub_methods_a00007"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a87275d249311463450de4aa0a8312f28">~CommutesReader</a> ()=default</td></tr>
+<tr class="memdesc:a87275d249311463450de4aa0a8312f28 inherit pub_methods_a00007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor needs to be virtual.  <a href="#a87275d249311463450de4aa0a8312f28">More...</a><br /></td></tr>
+<tr class="separator:a87275d249311463450de4aa0a8312f28 inherit pub_methods_a00007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00010"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00010')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d7/dec/a00010.html">geopop::Generator</a></td></tr>
-<tr class="memitem:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00010"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/da3/a00115.html">stride::util::RnMan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html#af8316a93aaae7285075fd5f5d89d8c32">m_rn_man</a></td></tr>
-<tr class="memdesc:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00010"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#af8316a93aaae7285075fd5f5d89d8c32">More...</a><br /></td></tr>
-<tr class="separator:af8316a93aaae7285075fd5f5d89d8c32 inherit pro_attribs_a00010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00010"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html#a4bb1600be2268f8a580517daf62b1944">m_logger</a></td></tr>
-<tr class="memdesc:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a4bb1600be2268f8a580517daf62b1944">More...</a><br /></td></tr>
-<tr class="separator:a4bb1600be2268f8a580517daf62b1944 inherit pro_attribs_a00010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00007"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00007')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../de/d5e/a00007.html">geopop::CommutesReader</a></td></tr>
+<tr class="memitem:a045bcd22a463157da9d270ae2ceec8b1 inherit pro_attribs_a00007"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a045bcd22a463157da9d270ae2ceec8b1">m_inputStream</a></td></tr>
+<tr class="memdesc:a045bcd22a463157da9d270ae2ceec8b1 inherit pro_attribs_a00007"><td class="mdescLeft">&#160;</td><td class="mdescRight">The istream with the file content.  <a href="#a045bcd22a463157da9d270ae2ceec8b1">More...</a><br /></td></tr>
+<tr class="separator:a045bcd22a463157da9d270ae2ceec8b1 inherit pro_attribs_a00007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Generates ContactPools for ContactType College. </p>
+<div class="textblock"><p>Create a Reader that fills a <a class="el" href="../../df/d86/a00012.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> with the commute info from CSV file. </p>
 
-<p>Definition at line <a class="el" href="../../d5/da7/a00144_source.html#l00025">25</a> of file <a class="el" href="../../d5/da7/a00144_source.html">CollegeGenerator.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a0ae4016fc7225ecb4f2ce8f5319b4917"></a>
+<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00027">27</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">CommutesCSVReader.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9a08896e164c5172832c662b18b0af7e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -174,21 +176,40 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void geopop::CollegeGenerator::Apply </td>
+          <td class="memname">geopop::CommutesCSVReader::CommutesCSVReader </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/de7/a00014.html">GeoGrid</a> &amp;&#160;</td>
-          <td class="paramname"><em>geogrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
+          <td class="paramname"><em>istream</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d4/d51/a00017.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
         </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct the <a class="el" href="../../de/d21/a00006.html" title="Create a Reader that fills a GeoGrid with the commute info from CSV file. ">CommutesCSVReader</a> with an istream containing the CSV data. </p>
+
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00030">30</a> of file <a class="el" href="../../d5/db1/a00140_source.html">CommutesCSVReader.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a45fffb45b9c5fb2eb92b6b1fc1f3d88c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
         <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">void geopop::CommutesCSVReader::FillGeoGrid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -198,86 +219,33 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>see ::Apply </p>
+<p>Add the found Commutes to the provided <a class="el" href="../../df/d86/a00012.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>. </p>
 
-<p>Implements <a class="el" href="../../d7/dec/a00010.html#a7bebac8186b3c6fb9ea50d17b0562b37">geopop::Generator</a>.</p>
+<p>Implements <a class="el" href="../../de/d5e/a00007.html#af234e008eac36ce38d34edecef9cd477">geopop::CommutesReader</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d7/dce/a00143_source.html#l00031">31</a> of file <a class="el" href="../../d7/dce/a00143_source.html">CollegeGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00032">32</a> of file <a class="el" href="../../d5/db1/a00140_source.html">CommutesCSVReader.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d2/df5/a00137_source.html#l00068">AssertThrow</a>, <a class="el" href="../../da/deb/a00189_source.html#l00112">geopop::GeoGridConfig::college_size</a>, <a class="el" href="../../d8/d00/a00186_source.html#l00063">geopop::GeoGrid::GetPopulation()</a>, <a class="el" href="../../d4/d51/a00017.html#ac2118fdaa02c6c419fe1c9b2ec7a87dd">geopop::GeoGridConfig::pools</a>, <a class="el" href="../../da/deb/a00189_source.html#l00113">geopop::GeoGridConfig::pools_per_college</a>, <a class="el" href="../../da/deb/a00189_source.html#l00089">geopop::GeoGridConfig::popcount_college</a>, <a class="el" href="../../d4/d51/a00017.html#aa7ab12667956a7a9f263bb8be8f07155">geopop::GeoGridConfig::popInfo</a>, and <a class="el" href="../../de/df3/a00185_source.html#l00109">geopop::GeoGrid::TopK()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../de/d21/a00006_a0ae4016fc7225ecb4f2ce8f5319b4917_cgraph.gif" border="0" usemap="#de/d21/a00006_a0ae4016fc7225ecb4f2ce8f5319b4917_cgraph" alt=""/></div>
-<map name="de/d21/a00006_a0ae4016fc7225ecb4f2ce8f5319b4917_cgraph" id="de/d21/a00006_a0ae4016fc7225ecb4f2ce8f5319b4917_cgraph">
-<area shape="rect" id="node2" href="../../d2/de7/a00014.html#adb9b0f349282a7dca217e604799fb606" title="Get the Population associated with this GeoGrid. " alt="" coords="244,137,472,163"/>
-<area shape="rect" id="node7" href="../../d2/de7/a00014.html#a9d40942005a9bc3ad67f8961c5c77aac" title="Gets the K biggest (in population count) locations of this GeoGrid. " alt="" coords="557,187,724,214"/>
-<area shape="rect" id="node3" href="../../d2/de7/a00014.html#a819fba3f0ca0af029cc913aaf7729b0b" title="Search for locations in radius (in km) around start. " alt="" coords="541,5,740,47"/>
-<area shape="rect" id="node6" href="../../d2/de7/a00014.html#a54759924264d5047ea81defa57d6eef3" title="Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2..." alt="" coords="541,71,740,112"/>
-<area shape="rect" id="node9" href="../../d2/de7/a00014.html#a63e088928a2b54e738d552bb6a61d157" title="Build a GeoAggregator with a predefined functor and given args for the Policy. " alt="" coords="520,137,761,163"/>
-<area shape="rect" id="node4" href="../../d2/de7/a00014.html#a5be9ae73035d8a654299f91efe16934d" title="&lt; Checks whether the GeoGrid is finalized i.e. certain operations can(not) be used. " alt="" coords="809,74,1040,101"/>
-<area shape="rect" id="node5" href="../../d8/df7/a00331.html#ad29105dc339e24a7c92af01763abce35" title="Build a Collector, useful for type inference. " alt="" coords="841,17,1009,43"/>
-<area shape="rect" id="node8" href="../../db/df3/a00034.html#a7fde850960f5c783ed650ea2de16a24f" title="Gets the absolute population. " alt="" coords="831,180,1018,221"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a4709b9f9a3690f5aeb1a0c82962c500f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void geopop::CollegeGenerator::AddPools </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/df3/a00034.html">Location</a> &amp;&#160;</td>
-          <td class="paramname"><em>loc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d7d/a00093.html">stride::Population</a> *&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>number</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/dec/a00010.html#a7ee98f26392fc3f649e6d7bcd77a69f1" title="Create a given number ContactPools in the GeoGrid. ">Generator::AddPools</a>. </dd></dl>
-
-<p>Implements <a class="el" href="../../d7/dec/a00010.html#a7ee98f26392fc3f649e6d7bcd77a69f1">geopop::Generator</a>.</p>
-
-<p>Definition at line <a class="el" href="../../d7/dce/a00143_source.html#l00067">67</a> of file <a class="el" href="../../d7/dce/a00143_source.html">CollegeGenerator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d48/a00345.html#a61a32e88a50c57e6f5c49f0996b6b462a2806259c227f694c678ec9444aec2042">stride::ContactType::College</a>, <a class="el" href="../../d1/db7/a00157_source.html#l00036">stride::ContactPoolSys::CreateContactPool()</a>, <a class="el" href="../../d3/dcc/a00264_source.html#l00080">stride::Population::RefPoolSys()</a>, and <a class="el" href="../../dd/dd7/a00248_source.html#l00132">geopop::Location::RegisterPool()</a>.</p>
+<p>References <a class="el" href="../../d9/d90/a00178_source.html#l00060">geopop::GeoGrid::GetById()</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00101">stride::util::CSV::GetColumnCount()</a>, <a class="el" href="../../d1/db7/a00157_source.html#l00163">stride::util::CSV::GetLabels()</a>, and <a class="el" href="../../d2/d82/a00142_source.html#l00044">geopop::CommutesReader::m_inputStream</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d21/a00006_a4709b9f9a3690f5aeb1a0c82962c500f_cgraph.gif" border="0" usemap="#de/d21/a00006_a4709b9f9a3690f5aeb1a0c82962c500f_cgraph" alt=""/></div>
-<map name="de/d21/a00006_a4709b9f9a3690f5aeb1a0c82962c500f_cgraph" id="de/d21/a00006_a4709b9f9a3690f5aeb1a0c82962c500f_cgraph">
-<area shape="rect" id="node2" href="../../d4/d31/a00069.html#a673d59a562614a82ce1c3adeb28d9dfd" title="Create a new contact pool of a given type. " alt="" coords="270,5,437,47"/>
-<area shape="rect" id="node3" href="../../d4/d7d/a00093.html#aa3cce01ca781a43bc67620e798c3b484" title="Reference the ContactPoolSys of the Population. " alt="" coords="287,71,420,112"/>
-<area shape="rect" id="node4" href="../../db/df3/a00034.html#a5bd9b521763ed0bc766cc51e0d6e35ab" title="Register a ContactPool pointer in this Location&#39;s pool system. " alt="" coords="244,137,463,163"/>
+<div class="center"><img src="../../de/d21/a00006_a45fffb45b9c5fb2eb92b6b1fc1f3d88c_cgraph.gif" border="0" usemap="#de/d21/a00006_a45fffb45b9c5fb2eb92b6b1fc1f3d88c_cgraph" alt=""/></div>
+<map name="de/d21/a00006_a45fffb45b9c5fb2eb92b6b1fc1f3d88c_cgraph" id="de/d21/a00006_a45fffb45b9c5fb2eb92b6b1fc1f3d88c_cgraph">
+<area shape="rect" id="node2" href="../../df/d86/a00012.html#a53d0f06d0142edf9b2abe5fc89dd3f28" title="Gets a Location by Id and check if the Id exists. " alt="" coords="273,5,461,32"/>
+<area shape="rect" id="node3" href="../../da/d74/a00099.html#a63ffba1157ea6381bbce102c430e189b" title="Number of columns in the CSV. " alt="" coords="301,143,433,185"/>
+<area shape="rect" id="node6" href="../../da/d74/a00099.html#ad153bb329555a2b114defc97e53793ad" title="stride::util::CSV::\lGetLabels" alt="" coords="513,13,639,54"/>
+<area shape="rect" id="node4" href="../../da/d74/a00099.html#aed99cf47769a6284b45c2815b08d1bd0" title="Convert label to index for more user friendly and robust implementation. " alt="" coords="509,78,643,119"/>
+<area shape="rect" id="node5" href="../../da/d74/a00099.html#a37f3333bbf84b5babbdd63811ed773c1" title="Write CSV to file. " alt="" coords="513,143,639,185"/>
+<area shape="rect" id="node7" href="../../da/d74/a00099.html#a2f3c33a76164f6cbc6e31aab6f8b560d" title="Read data from input stream. " alt="" coords="509,209,643,250"/>
+<area shape="rect" id="node14" href="../../da/d74/a00099.html#a38b31963922766d5da78dfc5b95e6668" title="Write header with labels. " alt="" coords="513,274,639,315"/>
+<area shape="rect" id="node15" href="../../da/d74/a00099.html#a8595802615346728b2e76121e1cbda4c" title="Write the body of rows. " alt="" coords="513,339,639,381"/>
+<area shape="rect" id="node8" href="../../d8/df7/a00331.html#a01882a252a5e262d442f9a8b8f64e3ef" title="Trim characters at both ends of string. " alt="" coords="695,165,813,192"/>
+<area shape="rect" id="node11" href="../../d8/df7/a00331.html#aadef750132d5d399e7ed8a96eab53c4c" title="Split a string (in order of occurence) by splitting it on the given delimiters. " alt="" coords="693,216,815,243"/>
+<area shape="rect" id="node12" href="../../da/d74/a00099.html#a1ae467f9599974c0f180c529f8a9f298" title="Add row of values. " alt="" coords="691,267,817,309"/>
+<area shape="rect" id="node9" href="../../d8/df7/a00331.html#a2c5aacbb4d606af3e43a96e8aad692cf" title="Trim characters at left end of string. " alt="" coords="869,140,1012,167"/>
+<area shape="rect" id="node10" href="../../d8/df7/a00331.html#a9fa614ccd671679a0e1feff6e0f6da33" title="Trim characters at right end of string. " alt="" coords="865,191,1016,217"/>
+<area shape="rect" id="node13" href="../../d8/df7/a00331.html#a256d75fffdad0f4f49c6e58c69f76e20" title="Builds a string representation of a value of type T. " alt="" coords="869,275,1013,301"/>
 </map>
 </div>
 </p>
@@ -285,16 +253,16 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/da7/a00144_source.html">CollegeGenerator.h</a></li>
-<li><a class="el" href="../../d7/dce/a00143_source.html">CollegeGenerator.cpp</a></li>
+<li><a class="el" href="../../d5/d4e/a00141_source.html">CommutesCSVReader.h</a></li>
+<li><a class="el" href="../../d5/db1/a00140_source.html">CommutesCSVReader.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d8/df7/a00331.html">geopop</a></li><li class="navelem"><a class="el" href="../../de/d21/a00006.html">CollegeGenerator</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dd/db3/a00313.html">geopop</a></li><li class="navelem"><a class="el" href="../../de/d21/a00006.html">CommutesCSVReader</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

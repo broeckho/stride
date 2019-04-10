@@ -1,7 +1,6 @@
 var a00271 =
 [
-    [ "pair2data", "d7/d70/a00106.html", "d7/d70/a00106" ],
-    [ "ToSequence", "dd/d86/a00271.html#a29ac84256d48f3fb5596d2d4d6bc5173", null ],
-    [ "ToArray", "dd/d86/a00271.html#a4a886659f5c17aa6571c4c01211bfe99", null ],
-    [ "Merge", "dd/d86/a00271.html#aaf7d3b8f66de250307e449784676de27", null ]
+    [ "SegmentedVector", "dc/dee/a00053.html", "dc/dee/a00053" ],
+    [ "operator==", "dd/d86/a00271.html#a6eaaf506e8aca5d5bc8fa9889924e892", null ],
+    [ "operator!=", "dd/d86/a00271.html#a29c3bf8ea6f91c062396ae746b51b2db", null ]
 ];

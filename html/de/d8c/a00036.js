@@ -1,7 +1,5 @@
 var a00036 =
 [
-    [ "LocationsReader", "de/d8c/a00036.html#a08a0a0bee6983e75de99b46132e26eaa", null ],
-    [ "~LocationsReader", "de/d8c/a00036.html#adf7cb185f3d39194f4065707da23e0d6", null ],
-    [ "FillGeoGrid", "de/d8c/a00036.html#ad94de2ea05242ef43ac6ea9723fbc591", null ],
-    [ "m_inputStream", "de/d8c/a00036.html#ad1bd8f33fd74070b9b606734e6c8d2de", null ]
+    [ "people", "de/d8c/a00036.html#ad7158e037ad146f1e512d4e539343368", null ],
+    [ "pools", "de/d8c/a00036.html#ad46269c158d1f017b359ab904fd2f1f3", null ]
 ];

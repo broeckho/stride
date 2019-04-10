@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::Immunizer Class Reference</title>
+<title>Stride Reference Manual: stride::output::InfectedFile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -109,48 +109,53 @@ $(document).ready(function(){initNavTree('df/d5d/a00084.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d1/de7/a00877.html">List of all members</a>  </div>
+<a href="../../d7/d1b/a00864.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Immunizer Class Reference</div>  </div>
+<div class="title">stride::output::InfectedFile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Deals with immunization strategies.  
+<p>Produces a file with daily count of infected persons.  
  <a href="../../df/d5d/a00084.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/ddf/a00224_source.html">Immunizer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/d9a/a00218_source.html">InfectedFile.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Immunizer:</div>
+Collaboration diagram for stride::output::InfectedFile:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d69/a00878.gif" border="0" usemap="#stride_1_1Immunizer_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Immunizer_coll__map" id="stride_1_1Immunizer_coll__map">
-<area shape="rect" id="node2" href="../../d2/da3/a00115.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="5,145,208,355"/>
+<div class="center"><img src="../../da/d5b/a00868.gif" border="0" usemap="#stride_1_1output_1_1InfectedFile_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1output_1_1InfectedFile_coll__map" id="stride_1_1output_1_1InfectedFile_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="45,541,153,619"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="25,400,173,492"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="27,259,171,351"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="15,132,183,209"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="45,5,152,83"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9cf69f9df2b2b2e357fab3d3ed48b64a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a9cf69f9df2b2b2e357fab3d3ed48b64a">Immunizer</a> (<a class="el" href="../../d2/da3/a00115.html">util::RnMan</a> &amp;rnManager)</td></tr>
-<tr class="separator:a9cf69f9df2b2b2e357fab3d3ed48b64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac187b34c18ec3cd1efccaf8f197766fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#ac187b34c18ec3cd1efccaf8f197766fc">Random</a> (const <a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt; <a class="el" href="../../da/d24/a00068.html">ContactPool</a> &gt; &amp;pools, std::vector&lt; <a class="el" href="../../d3/dc9/a00355.html">double</a> &gt; &amp;immunityDistribution, <a class="el" href="../../d3/dc9/a00355.html">double</a> immunityLinkProbability)</td></tr>
-<tr class="memdesc:ac187b34c18ec3cd1efccaf8f197766fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random immunization.  <a href="#ac187b34c18ec3cd1efccaf8f197766fc">More...</a><br /></td></tr>
-<tr class="separator:ac187b34c18ec3cd1efccaf8f197766fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b4435f990b9a24bc0ededbd9af4877b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a9b4435f990b9a24bc0ededbd9af4877b">Cocoon</a> (const <a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt; <a class="el" href="../../da/d24/a00068.html">ContactPool</a> &gt; &amp;, std::vector&lt; <a class="el" href="../../d3/dc9/a00355.html">double</a> &gt; &amp;, <a class="el" href="../../d3/dc9/a00355.html">double</a>)</td></tr>
-<tr class="memdesc:a9b4435f990b9a24bc0ededbd9af4877b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cocoon immunization.  <a href="#a9b4435f990b9a24bc0ededbd9af4877b">More...</a><br /></td></tr>
-<tr class="separator:a9b4435f990b9a24bc0ededbd9af4877b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f9b3fab4125e26c2eebd32ee27dd977"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#a1f9b3fab4125e26c2eebd32ee27dd977">InfectedFile</a> (const std::string &amp;output_dir=&quot;output&quot;)</td></tr>
+<tr class="memdesc:a1f9b3fab4125e26c2eebd32ee27dd977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor: initialize.  <a href="#a1f9b3fab4125e26c2eebd32ee27dd977">More...</a><br /></td></tr>
+<tr class="separator:a1f9b3fab4125e26c2eebd32ee27dd977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab67bfb80c8ca94162f3c33d2c7be3f89"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#ab67bfb80c8ca94162f3c33d2c7be3f89">~InfectedFile</a> ()</td></tr>
+<tr class="memdesc:ab67bfb80c8ca94162f3c33d2c7be3f89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor: close the file stream.  <a href="#ab67bfb80c8ca94162f3c33d2c7be3f89">More...</a><br /></td></tr>
+<tr class="separator:ab67bfb80c8ca94162f3c33d2c7be3f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae42038f7696374e29aef434de61d386d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#ae42038f7696374e29aef434de61d386d">Print</a> (const std::vector&lt; unsigned int &gt; &amp;infectionCounts)</td></tr>
+<tr class="memdesc:ae42038f7696374e29aef434de61d386d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the given cases with corresponding tag.  <a href="#ae42038f7696374e29aef434de61d386d">More...</a><br /></td></tr>
+<tr class="separator:ae42038f7696374e29aef434de61d386d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aea5b1b7d720384302b740a11d0ec484b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/da3/a00115.html">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#aea5b1b7d720384302b740a11d0ec484b">m_rn_man</a></td></tr>
-<tr class="memdesc:aea5b1b7d720384302b740a11d0ec484b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#aea5b1b7d720384302b740a11d0ec484b">More...</a><br /></td></tr>
-<tr class="separator:aea5b1b7d720384302b740a11d0ec484b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab499185c218c6a1ef08779d8e0ece660"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html#ab499185c218c6a1ef08779d8e0ece660">m_fstream</a></td></tr>
+<tr class="memdesc:ab499185c218c6a1ef08779d8e0ece660"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file stream.  <a href="#ab499185c218c6a1ef08779d8e0ece660">More...</a><br /></td></tr>
+<tr class="separator:ab499185c218c6a1ef08779d8e0ece660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Deals with immunization strategies. </p>
+<div class="textblock"><p>Produces a file with daily count of infected persons. </p>
 
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00032">32</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">Immunizer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d9a/a00218_source.html#l00033">33</a> of file <a class="el" href="../../dc/d9a/a00218_source.html">InfectedFile.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9cf69f9df2b2b2e357fab3d3ed48b64a"></a>
+<a class="anchor" id="a1f9b3fab4125e26c2eebd32ee27dd977"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -158,163 +163,85 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::Immunizer::Immunizer </td>
+          <td class="memname">stride::output::InfectedFile::InfectedFile </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/da3/a00115.html">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>output_dir</em> = <code>&quot;output&quot;</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00036">36</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">Immunizer.h</a>.</p>
+<p>Constructor: initialize. </p>
 
-<p>References <a class="el" href="../../dc/d28/a00223_source.html#l00034">Cocoon()</a>, and <a class="el" href="../../dc/d28/a00223_source.html#l00066">Random()</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d24/a00217_source.html#l00030">30</a> of file <a class="el" href="../../df/d24/a00217_source.html">InfectedFile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d1/d0d/a00171_source.html#l00052">stride::util::FileSys::BuildPath()</a>, and <a class="el" href="../../dc/d9a/a00218_source.html#l00046">m_fstream</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d5d/a00084_a9cf69f9df2b2b2e357fab3d3ed48b64a_cgraph.gif" border="0" usemap="#df/d5d/a00084_a9cf69f9df2b2b2e357fab3d3ed48b64a_cgraph" alt=""/></div>
-<map name="df/d5d/a00084_a9cf69f9df2b2b2e357fab3d3ed48b64a_cgraph" id="df/d5d/a00084_a9cf69f9df2b2b2e357fab3d3ed48b64a_cgraph">
-<area shape="rect" id="node2" href="../../df/d5d/a00084.html#a9b4435f990b9a24bc0ededbd9af4877b" title="Cocoon immunization. " alt="" coords="196,49,339,91"/>
-<area shape="rect" id="node3" href="../../df/d5d/a00084.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="196,115,339,156"/>
-<area shape="rect" id="node4" href="../../da/d24/a00068.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="421,5,564,47"/>
-<area shape="rect" id="node5" href="../../d1/dc1/a00092.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="401,71,584,98"/>
-<area shape="rect" id="node6" href="../../d4/d63/a00082.html#a7c9caae07db1dd15732f726cec514dc2" title="Is this person immune? " alt="" coords="403,122,582,149"/>
-<area shape="rect" id="node7" href="../../d1/dc1/a00092.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="409,173,576,199"/>
-<area shape="rect" id="node8" href="../../d4/d63/a00082.html#a8edeec79c050faabe2c09a1bc4860261" title="Set health state to susceptible. " alt="" coords="387,223,599,250"/>
+<div class="center"><img src="../../df/d5d/a00084_a1f9b3fab4125e26c2eebd32ee27dd977_cgraph.gif" border="0" usemap="#df/d5d/a00084_a1f9b3fab4125e26c2eebd32ee27dd977_cgraph" alt=""/></div>
+<map name="df/d5d/a00084_a1f9b3fab4125e26c2eebd32ee27dd977_cgraph" id="df/d5d/a00084_a1f9b3fab4125e26c2eebd32ee27dd977_cgraph">
+<area shape="rect" id="node2" href="../../d5/d1e/a00103.html#aa9230a86f4c23a2ea906ebaaafb18e37" title="Interpret prefix (directory or filename prefix) and return appropriate path. " alt="" coords="220,5,356,47"/>
+<area shape="rect" id="node3" href="../../d5/d1e/a00103.html#a33c582aaa9397e6ba22efc14b1a44189" title="String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr..." alt="" coords="404,5,540,47"/>
 </map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="ab67bfb80c8ca94162f3c33d2c7be3f89"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::output::InfectedFile::~InfectedFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor: close the file stream. </p>
+
+<p>Definition at line <a class="el" href="../../df/d24/a00217_source.html#l00036">36</a> of file <a class="el" href="../../df/d24/a00217_source.html">InfectedFile.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dc/d9a/a00218_source.html#l00046">m_fstream</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac187b34c18ec3cd1efccaf8f197766fc"></a>
+<a class="anchor" id="ae42038f7696374e29aef434de61d386d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::Immunizer::Random </td>
+          <td class="memname">void stride::output::InfectedFile::Print </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt; <a class="el" href="../../da/d24/a00068.html">ContactPool</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pools</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>infectionCounts</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d3/dc9/a00355.html">double</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>immunityDistribution</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/dc9/a00355.html">double</a>&#160;</td>
-          <td class="paramname"><em>immunityLinkProbability</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Random immunization. </p>
+<p>Print the given cases with corresponding tag. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d28/a00223_source.html#l00066">66</a> of file <a class="el" href="../../dc/d28/a00223_source.html">Immunizer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d24/a00217_source.html#l00038">38</a> of file <a class="el" href="../../df/d24/a00217_source.html">InfectedFile.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00053">stride::Person::GetAge()</a>, <a class="el" href="../../d7/d2f/a00258_source.html#l00056">stride::Person::GetHealth()</a>, <a class="el" href="../../d2/d34/a00156_source.html#l00057">stride::ContactPool::GetPool()</a>, <a class="el" href="../../da/de7/a00210_source.html#l00058">stride::Health::IsImmune()</a>, and <a class="el" href="../../da/de7/a00210_source.html#l00092">stride::Health::SetSusceptible()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/ddf/a00224_source.html#l00036">Immunizer()</a>, and <a class="el" href="../../de/d45/a00175_source.html#l00076">stride::DiseaseSeeder::Vaccinate()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d5d/a00084_ac187b34c18ec3cd1efccaf8f197766fc_cgraph.gif" border="0" usemap="#df/d5d/a00084_ac187b34c18ec3cd1efccaf8f197766fc_cgraph" alt=""/></div>
-<map name="df/d5d/a00084_ac187b34c18ec3cd1efccaf8f197766fc_cgraph" id="df/d5d/a00084_ac187b34c18ec3cd1efccaf8f197766fc_cgraph">
-<area shape="rect" id="node2" href="../../d1/dc1/a00092.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="219,5,385,32"/>
-<area shape="rect" id="node3" href="../../d1/dc1/a00092.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="211,56,393,83"/>
-<area shape="rect" id="node4" href="../../da/d24/a00068.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="231,107,373,149"/>
-<area shape="rect" id="node5" href="../../d4/d63/a00082.html#a7c9caae07db1dd15732f726cec514dc2" title="Is this person immune? " alt="" coords="213,173,391,200"/>
-<area shape="rect" id="node6" href="../../d4/d63/a00082.html#a8edeec79c050faabe2c09a1bc4860261" title="Set health state to susceptible. " alt="" coords="196,224,408,251"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d5d/a00084_ac187b34c18ec3cd1efccaf8f197766fc_icgraph.gif" border="0" usemap="#df/d5d/a00084_ac187b34c18ec3cd1efccaf8f197766fc_icgraph" alt=""/></div>
-<map name="df/d5d/a00084_ac187b34c18ec3cd1efccaf8f197766fc_icgraph" id="df/d5d/a00084_ac187b34c18ec3cd1efccaf8f197766fc_icgraph">
-<area shape="rect" id="node2" href="../../df/d5d/a00084.html#a9cf69f9df2b2b2e357fab3d3ed48b64a" title="stride::Immunizer::\lImmunizer" alt="" coords="206,5,349,47"/>
-<area shape="rect" id="node3" href="../../d1/d51/a00079.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="196,71,359,112"/>
-<area shape="rect" id="node4" href="../../d1/d51/a00079.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="407,71,569,112"/>
-<area shape="rect" id="node5" href="../../d9/df8/a00096.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="617,71,752,112"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a9b4435f990b9a24bc0ededbd9af4877b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Immunizer::Cocoon </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/df7/a00058.html">util::SegmentedVector</a>&lt; <a class="el" href="../../da/d24/a00068.html">ContactPool</a> &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d3/dc9/a00355.html">double</a> &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/dc9/a00355.html">double</a>&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Cocoon immunization. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d28/a00223_source.html#l00034">34</a> of file <a class="el" href="../../dc/d28/a00223_source.html">Immunizer.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/ddf/a00224_source.html#l00036">Immunizer()</a>, and <a class="el" href="../../de/d45/a00175_source.html#l00076">stride::DiseaseSeeder::Vaccinate()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d5d/a00084_a9b4435f990b9a24bc0ededbd9af4877b_icgraph.gif" border="0" usemap="#df/d5d/a00084_a9b4435f990b9a24bc0ededbd9af4877b_icgraph" alt=""/></div>
-<map name="df/d5d/a00084_a9b4435f990b9a24bc0ededbd9af4877b_icgraph" id="df/d5d/a00084_a9b4435f990b9a24bc0ededbd9af4877b_icgraph">
-<area shape="rect" id="node2" href="../../df/d5d/a00084.html#a9cf69f9df2b2b2e357fab3d3ed48b64a" title="stride::Immunizer::\lImmunizer" alt="" coords="206,5,349,47"/>
-<area shape="rect" id="node3" href="../../d1/d51/a00079.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="196,71,359,112"/>
-<area shape="rect" id="node4" href="../../d1/d51/a00079.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="407,71,569,112"/>
-<area shape="rect" id="node5" href="../../d9/df8/a00096.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="617,71,752,112"/>
-</map>
-</div>
-</p>
+<p>References <a class="el" href="../../dc/d9a/a00218_source.html#l00046">m_fstream</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="aea5b1b7d720384302b740a11d0ec484b"></a>
+<a class="anchor" id="ab499185c218c6a1ef08779d8e0ece660"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -322,7 +249,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d2/da3/a00115.html">util::RnMan</a>&amp; stride::Immunizer::m_rn_man</td>
+          <td class="memname">std::ofstream stride::output::InfectedFile::m_fstream</td>
         </tr>
       </table>
   </td>
@@ -332,23 +259,25 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Random number manager. </p>
+<p>The file stream. </p>
 
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00047">47</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">Immunizer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d9a/a00218_source.html#l00046">46</a> of file <a class="el" href="../../dc/d9a/a00218_source.html">InfectedFile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../df/d24/a00217_source.html#l00030">InfectedFile()</a>, <a class="el" href="../../df/d24/a00217_source.html#l00038">Print()</a>, and <a class="el" href="../../df/d24/a00217_source.html#l00036">~InfectedFile()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/ddf/a00224_source.html">Immunizer.h</a></li>
-<li><a class="el" href="../../dc/d28/a00223_source.html">Immunizer.cpp</a></li>
+<li><a class="el" href="../../dc/d9a/a00218_source.html">InfectedFile.h</a></li>
+<li><a class="el" href="../../df/d24/a00217_source.html">InfectedFile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d2/d45/a00342.html">stride</a></li><li class="navelem"><a class="el" href="../../df/d5d/a00084.html">Immunizer</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d8f/a00324.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/db5/a00328.html">output</a></li><li class="navelem"><a class="el" href="../../df/d5d/a00084.html">InfectedFile</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

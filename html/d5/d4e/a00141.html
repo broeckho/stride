@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CliViewer.cpp File Reference</title>
+<title>Stride Reference Manual: CommutesCSVReader.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -105,77 +105,53 @@ $(document).ready(function(){initNavTree('d5/d4e/a00141.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CliViewer.cpp File Reference</div>  </div>
+<div class="title">CommutesCSVReader.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Definition of Observer for SimEvents for commandline interface usage.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d82/a00142_source.html">CliViewer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/db1/a00140_source.html">calendar/Calendar.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/dcc/a00264_source.html">pop/Population.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d4/d66/a00289_source.html">sim/Sim.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/d5e/a00295_source.html">sim/SimRunner.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d82/a00142_source.html">CommutesReader.h</a>&quot;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CliViewer.cpp:</div>
+Include dependency graph for CommutesCSVReader.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/dcb/a00375.gif" border="0" usemap="#CliViewer_8cpp" alt=""/></div>
-<map name="CliViewer_8cpp" id="CliViewer_8cpp">
-<area shape="rect" id="node2" href="../../d2/d82/a00142.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="2355,177,2446,203"/>
-<area shape="rect" id="node7" href="../../d5/db1/a00140.html" title="Header file for the Calendar class. " alt="" coords="315,87,464,114"/>
-<area shape="rect" id="node14" href="../../d3/dcc/a00264.html" title="Header file for the core Population class. " alt="" coords="1202,87,1332,114"/>
-<area shape="rect" id="node39" href="../../d4/d66/a00289.html" title="Header for the Simulator class. " alt="" coords="2062,87,2149,114"/>
-<area shape="rect" id="node46" href="../../d9/d5e/a00295.html" title="Header for the SimRunner class. " alt="" coords="2470,177,2600,203"/>
-<area shape="rect" id="node3" href="../../dd/d52/a00221.html" title="Definition of EventId. " alt="" coords="2367,348,2479,375"/>
-<area shape="rect" id="node15" href="../../d2/d34/a00156.html" title="Header for the core ContactPool class. " alt="" coords="534,266,696,293"/>
-<area shape="rect" id="node17" href="../../de/d38/a00160.html" title="Definition of ContactPool Id Type. " alt="" coords="673,348,837,375"/>
-<area shape="rect" id="node22" href="../../d6/db8/a00158.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="771,177,958,203"/>
-<area shape="rect" id="node26" href="../../d6/d7f/a00287.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1085,266,1257,293"/>
-<area shape="rect" id="node30" href="../../d8/d00/a00186.html" title="geopop/GeoGrid.h" alt="" coords="371,266,510,293"/>
-<area shape="rect" id="node34" href="../../d7/d2f/a00258.html" title="Header file for the Person class. " alt="" coords="1214,177,1320,203"/>
-<area shape="rect" id="node36" href="../../d0/dcd/a00280.html" title="Interface of RnMan. " alt="" coords="1592,266,1692,293"/>
-<area shape="rect" id="node16" href="../../d3/d65/a00154.html" title="Header for the ContactLogMode class. " alt="" coords="2554,348,2748,375"/>
-<area shape="rect" id="node23" href="../../d0/d24/a00222.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="924,266,1061,293"/>
-<area shape="rect" id="node27" href="../../d1/d5d/a00311.html" title="Interface/Implementation for SVIterator. " alt="" coords="1304,348,1403,375"/>
-<area shape="rect" id="node31" href="../../d3/d2a/a00195.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="192,348,400,375"/>
-<area shape="rect" id="node35" href="../../da/de7/a00210.html" title="Header for the Health class. " alt="" coords="1281,266,1410,293"/>
-<area shape="rect" id="node37" href="../../dc/d5d/a00278.html" title="Interface of RnPcg. " alt="" coords="1709,348,1782,375"/>
-<area shape="rect" id="node40" href="../../d0/d5e/a00136.html" title="Contact profiles stored in simulator. " alt="" coords="982,177,1189,203"/>
-<area shape="rect" id="node41" href="../../d7/d9a/a00152.html" title="Header for the ContactHandler class. " alt="" coords="2088,266,2273,293"/>
-<area shape="rect" id="node42" href="../../d3/d42/a00235.html" title="Header for the InfectorExec class. " alt="" coords="1833,177,1997,203"/>
-<area shape="rect" id="node43" href="../../da/de0/a00317.html" title="Header for the TransmissionProfile class. " alt="" coords="2073,177,2280,203"/>
-<area shape="rect" id="node45" href="../../d0/d19/a00273.html" title="Header for the PublicHealthAgency class. " alt="" coords="1598,177,1808,203"/>
-<area shape="rect" id="node47" href="../../dc/d0f/a00303.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="2348,266,2498,293"/>
-<area shape="rect" id="node48" href="../../df/d95/a00299.html" title="Definition of Stopwatch. " alt="" coords="2624,266,2748,293"/>
+<div class="center"><img src="../../d9/d9b/a00363.gif" border="0" usemap="#CommutesCSVReader_8h" alt=""/></div>
+<map name="CommutesCSVReader_8h" id="CommutesCSVReader_8h">
+<area shape="rect" id="node2" href="../../d2/d82/a00142.html" title="CommutesReader.h" alt="" coords="5,80,153,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d59/a00364.gif" border="0" usemap="#CommutesCSVReader_8hdep" alt=""/></div>
+<map name="CommutesCSVReader_8hdep" id="CommutesCSVReader_8hdep">
+<area shape="rect" id="node2" href="../../d5/db1/a00140.html" title="CommutesCSVReader.cpp" alt="" coords="5,80,196,107"/>
+<area shape="rect" id="node3" href="../../dd/dd7/a00260.html" title="ReaderFactory.cpp" alt="" coords="220,80,357,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d5/d4e/a00141_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/a00006.html">geopop::CommutesCSVReader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Reader that fills a <a class="el" href="../../df/d86/a00012.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> with the commute info from CSV file.  <a href="../../de/d21/a00006.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d2/d45/a00342"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/a00342.html">stride</a></td></tr>
-<tr class="memdesc:d2/d45/a00342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d6/d9c/a00352"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9c/a00352.html">stride::viewers</a></td></tr>
-<tr class="memdesc:d6/d9c/a00352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d1/d44/a00098.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
+<tr class="memitem:dd/db3/a00313"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db3/a00313.html">geopop</a></td></tr>
+<tr class="memdesc:dd/db3/a00313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definition of Observer for SimEvents for commandline interface usage. </p>
-
-<p>Definition in file <a class="el" href="../../d5/d4e/a00141_source.html">CliViewer.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">CliViewer.cpp</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">CommutesCSVReader.h</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

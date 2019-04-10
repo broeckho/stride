@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: StanController.cpp File Reference</title>
+<title>Stride Reference Manual: TimeStamp.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -105,85 +105,71 @@ $(document).ready(function(){initNavTree('d3/d4a/a00297.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">StanController.cpp File Reference</div>  </div>
+<div class="title">TimeStamp.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the command line controller.  
+<p>TimeStamp class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d0d/a00298_source.html">StanController.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/dcc/a00264_source.html">pop/Population.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d4/d66/a00289_source.html">sim/Sim.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/d5e/a00295_source.html">sim/SimRunner.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d4/ddd/a00138_source.html">util/BoxPlotData.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/d48/a00165_source.html">util/CSV.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/db2/a00151_source.html">util/ConfigInfo.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../db/dd9/a00179_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/d50/a00301_source.html">util/StringUtils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/d53/a00232_source.html">viewers/InfectedViewer.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-<code>#include &lt;initializer_list&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;random&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;ostream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for StanController.cpp:</div>
+Include dependency graph for TimeStamp.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d6e/a00613.gif" border="0" usemap="#StanController_8cpp" alt=""/></div>
-<map name="StanController_8cpp" id="StanController_8cpp">
-<area shape="rect" id="node2" href="../../d9/d0d/a00298.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="2090,80,2216,107"/>
-<area shape="rect" id="node13" href="../../d3/dcc/a00264.html" title="Header file for the core Population class. " alt="" coords="2259,80,2388,107"/>
-<area shape="rect" id="node24" href="../../d4/d66/a00289.html" title="Header for the Simulator class. " alt="" coords="1144,80,1231,107"/>
-<area shape="rect" id="node30" href="../../d9/d5e/a00295.html" title="Header for the SimRunner class. " alt="" coords="250,155,379,181"/>
-<area shape="rect" id="node33" href="../../d4/ddd/a00138.html" title="Header file for BoxPlotData. " alt="" coords="3134,319,3270,345"/>
-<area shape="rect" id="node36" href="../../d0/d48/a00165.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="3253,155,3336,181"/>
-<area shape="rect" id="node38" href="../../da/d50/a00301.html" title="Miscellaneous string utilities. " alt="" coords="3494,319,3617,345"/>
-<area shape="rect" id="node46" href="../../dd/db2/a00151.html" title="Info on configuration. " alt="" coords="24,80,144,107"/>
-<area shape="rect" id="node47" href="../../db/dd9/a00179.html" title="Interface for install directory queries. " alt="" coords="2003,155,2103,181"/>
-<area shape="rect" id="node48" href="../../d0/d53/a00232.html" title="Observer for infection count at each sim step. " alt="" coords="408,237,586,263"/>
-<area shape="rect" id="node3" href="../../db/d44/a00162.html" title="Header for the command line controller. " alt="" coords="788,155,910,181"/>
-<area shape="rect" id="node4" href="../../d0/dcd/a00280.html" title="Interface of RnMan. " alt="" coords="1374,237,1474,263"/>
-<area shape="rect" id="node8" href="../../df/d95/a00299.html" title="Definition of Stopwatch. " alt="" coords="260,237,384,263"/>
-<area shape="rect" id="node14" href="../../d2/d34/a00156.html" title="Header for the core ContactPool class. " alt="" coords="2206,237,2369,263"/>
-<area shape="rect" id="node16" href="../../de/d38/a00160.html" title="Definition of ContactPool Id Type. " alt="" coords="2500,319,2664,345"/>
-<area shape="rect" id="node18" href="../../d6/db8/a00158.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2381,155,2568,181"/>
-<area shape="rect" id="node19" href="../../d6/d7f/a00287.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2870,237,3042,263"/>
-<area shape="rect" id="node22" href="../../d8/d00/a00186.html" title="geopop/GeoGrid.h" alt="" coords="2393,237,2532,263"/>
-<area shape="rect" id="node23" href="../../d7/d2f/a00258.html" title="Header file for the Person class. " alt="" coords="2592,155,2698,181"/>
-<area shape="rect" id="node15" href="../../d3/d65/a00154.html" title="Header for the ContactLogMode class. " alt="" coords="960,319,1154,345"/>
-<area shape="rect" id="node25" href="../../d0/d5e/a00136.html" title="Contact profiles stored in simulator. " alt="" coords="1772,155,1979,181"/>
-<area shape="rect" id="node26" href="../../d7/d9a/a00152.html" title="Header for the ContactHandler class. " alt="" coords="1511,155,1696,181"/>
-<area shape="rect" id="node27" href="../../d3/d42/a00235.html" title="Header for the InfectorExec class. " alt="" coords="986,155,1150,181"/>
-<area shape="rect" id="node28" href="../../da/de0/a00317.html" title="Header for the TransmissionProfile class. " alt="" coords="506,155,712,181"/>
-<area shape="rect" id="node29" href="../../d0/d19/a00273.html" title="Header for the PublicHealthAgency class. " alt="" coords="1225,155,1436,181"/>
-<area shape="rect" id="node31" href="../../dd/d52/a00221.html" title="Definition of EventId. " alt="" coords="64,319,176,345"/>
-<area shape="rect" id="node32" href="../../dc/d0f/a00303.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="36,237,185,263"/>
-<area shape="rect" id="node37" href="../../dc/de6/a00167.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="3464,237,3548,263"/>
-<area shape="rect" id="node44" href="../../d4/d08/a00237.html" title="Interface/Implementation of is_iterator. " alt="" coords="3269,237,3389,263"/>
+<div class="center"><img src="../../d1/d8c/a00600.gif" border="0" usemap="#TimeStamp_8h" alt=""/></div>
+<map name="TimeStamp_8h" id="TimeStamp_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/db2/a00601.gif" border="0" usemap="#TimeStamp_8hdep" alt=""/></div>
+<map name="TimeStamp_8hdep" id="TimeStamp_8hdep">
+<area shape="rect" id="node2" href="../../d3/d65/a00154.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../db/dc3/a00284.html" title="Main program: command line handling. " alt="" coords="165,80,251,107"/>
+<area shape="rect" id="node4" href="../../db/d7b/a00296.html" title="TimeStamp class. " alt="" coords="275,80,397,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d3/d4a/a00297_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3e/a00116.html">stride::util::TimeStamp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides wall-clock time stamp using the time call.  <a href="../../d4/d3e/a00116.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d2/d45/a00342"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/a00342.html">stride</a></td></tr>
-<tr class="memdesc:d2/d45/a00342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d4/d8f/a00324"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">stride</a></td></tr>
+<tr class="memdesc:d4/d8f/a00324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d8/df7/a00331"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df7/a00331.html">stride::util</a></td></tr>
+<tr class="memdesc:d8/df7/a00331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df7/a00331.html#a93f9f2ea967f7688a4ed4ef10852b566">stride::util::operator&lt;&lt;</a> (std::ostream &amp;os, TimeStamp t)</td></tr>
+<tr class="memdesc:a93f9f2ea967f7688a4ed4ef10852b566"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d4/d3e/a00116.html" title="Provides wall-clock time stamp using the time call. ">TimeStamp</a> helper inserts string representation in output stream.  <a href="../../d8/df7/a00331.html#a93f9f2ea967f7688a4ed4ef10852b566">More...</a><br /></td></tr>
+<tr class="separator:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the command line controller. </p>
+<div class="textblock"><p>TimeStamp class. </p>
 
-<p>Definition in file <a class="el" href="../../d3/d4a/a00297_source.html">StanController.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d3/d4a/a00297_source.html">TimeStamp.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../d3/d4a/a00297.html">StanController.cpp</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d3/d4a/a00297.html">TimeStamp.h</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

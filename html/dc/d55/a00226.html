@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ImportPopBuilder.h File Reference</title>
+<title>Stride Reference Manual: InfectorMap.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -108,28 +108,40 @@ $(document).ready(function(){initNavTree('dc/d55/a00226.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">ImportPopBuilder.h File Reference</div>  </div>
+<div class="title">InfectorMap.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Initialize populations.  
+<p>Header for the InfectorMap.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d06/a00131_source.html">AbstractPopBuilder.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d4a/a00147_source.html">contact/ContactLogMode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/ddf/a00224_source.html">contact/Infector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d98/a00225_source.html">contact/InfectorExec.h</a>&quot;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;tuple&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ImportPopBuilder.h:</div>
+Include dependency graph for InfectorMap.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d37/a00505.gif" border="0" usemap="#ImportPopBuilder_8h" alt=""/></div>
-<map name="ImportPopBuilder_8h" id="ImportPopBuilder_8h">
-<area shape="rect" id="node2" href="../../d7/d06/a00131.html" title="Base Class for PopBuilders. " alt="" coords="140,80,295,107"/>
+<div class="center"><img src="../../d5/d0f/a00494.gif" border="0" usemap="#InfectorMap_8h" alt=""/></div>
+<map name="InfectorMap_8h" id="InfectorMap_8h">
+<area shape="rect" id="node2" href="../../d0/d4a/a00147.html" title="Header for the ContactLogMode class. " alt="" coords="5,155,200,181"/>
+<area shape="rect" id="node4" href="../../d5/ddf/a00224.html" title="Header for the Infector class. " alt="" coords="560,80,693,107"/>
+<area shape="rect" id="node25" href="../../dc/d98/a00225.html" title="Header for the InfectorExec class. " alt="" coords="718,80,882,107"/>
+<area shape="rect" id="node5" href="../../da/d50/a00301.html" title="Header for the TransmissionProfile class. " alt="" coords="435,155,589,181"/>
+<area shape="rect" id="node7" href="../../d5/d5b/a00135.html" title="Header file for the Calendar class. " alt="" coords="675,155,824,181"/>
+<area shape="rect" id="node14" href="../../d6/db3/a00130.html" title="Contact profile. " alt="" coords="951,155,1151,181"/>
+<area shape="rect" id="node21" href="../../da/ddb/a00145.html" title="Header for the ContactHandler class. " alt="" coords="225,155,410,181"/>
+<area shape="rect" id="node15" href="../../da/d01/a00153.html" title="Definition of ContactPool Id Type. " alt="" coords="1149,237,1261,263"/>
+<area shape="rect" id="node19" href="../../df/dcd/a00127.html" title="Helpers for age. " alt="" coords="1286,237,1373,263"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d1f/a00506.gif" border="0" usemap="#ImportPopBuilder_8hdep" alt=""/></div>
-<map name="ImportPopBuilder_8hdep" id="ImportPopBuilder_8hdep">
-<area shape="rect" id="node2" href="../../dc/d98/a00225.html" title="Initialize populations: implementation. " alt="" coords="5,80,164,107"/>
-<area shape="rect" id="node3" href="../../df/da9/a00263.html" title="Core Population class. " alt="" coords="188,80,304,107"/>
+<div class="center"><img src="../../db/dc4/a00495.gif" border="0" usemap="#InfectorMap_8hdep" alt=""/></div>
+<map name="InfectorMap_8hdep" id="InfectorMap_8hdep">
+<area shape="rect" id="node2" href="../../dd/d56/a00274.html" title="Implementation for the SimBuilder class. " alt="" coords="5,80,123,107"/>
 </map>
 </div>
 </div>
@@ -137,27 +149,27 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d13/a00085.html">stride::ImportPopBuilder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <a class="el" href="../../d4/d7d/a00093.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> objects.  <a href="../../df/d13/a00085.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d1f/a00083.html">stride::InfectorMap</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mechanism to select the appropriate <a class="el" href="../../d8/d53/a00081.html" title="Actual contacts and transmission in contactpool (primary template). ">Infector</a> template to execute.  <a href="../../d2/d1f/a00083.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d2/d45/a00342"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/a00342.html">stride</a></td></tr>
-<tr class="memdesc:d2/d45/a00342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d4/d8f/a00324"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">stride</a></td></tr>
+<tr class="memdesc:d4/d8f/a00324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Initialize populations. </p>
+<div class="textblock"><p>Header for the InfectorMap. </p>
 
-<p>Definition in file <a class="el" href="../../dc/d55/a00226_source.html">ImportPopBuilder.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dc/d55/a00226_source.html">InfectorMap.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../dc/d55/a00226.html">ImportPopBuilder.h</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../dc/d55/a00226.html">InfectorMap.h</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

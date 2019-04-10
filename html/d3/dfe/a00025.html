@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::GeoGridWriterFactory Class Reference</title>
+<title>Stride Reference Manual: geopop::HouseholdReader Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -107,37 +107,52 @@ $(document).ready(function(){initNavTree('d3/dfe/a00025.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d1/da6/a00738.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../d3/dd2/a00693.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::GeoGridWriterFactory Class Reference</div>  </div>
+<div class="title">geopop::HouseholdReader Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Factory creates the correct implementation of a <a class="el" href="../../dc/de2/a00024.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> based on the filename extension.  
+<p>Retrieves the reference Household profiles from file.  
  <a href="../../d3/dfe/a00025.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/df1/a00206_source.html">GeoGridWriterFactory.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d3/de5/a00209_source.html">HouseholdReader.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for geopop::GeoGridWriterFactory:</div>
+Inheritance diagram for geopop::HouseholdReader:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/df7/a00739.gif" border="0" usemap="#geopop_1_1GeoGridWriterFactory_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1GeoGridWriterFactory_coll__map" id="geopop_1_1GeoGridWriterFactory_coll__map">
+<div class="center"><img src="../../da/d3a/a00694.gif" border="0" usemap="#geopop_1_1HouseholdReader_inherit__map" alt="Inheritance graph"/></div>
+<map name="geopop_1_1HouseholdReader_inherit__map" id="geopop_1_1HouseholdReader_inherit__map">
+<area shape="rect" id="node2" href="../../dc/de2/a00024.html" title="Creates a Reader that retrieves the different Household profiles from a given CSV file..." alt="" coords="5,160,223,252"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for geopop::HouseholdReader:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d5b/a00695.gif" border="0" usemap="#geopop_1_1HouseholdReader_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1HouseholdReader_coll__map" id="geopop_1_1HouseholdReader_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9a839ef127715e6a3481c69c66db0fed"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="../../dc/de2/a00024.html">GeoGridWriter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a9a839ef127715e6a3481c69c66db0fed">CreateGeoGridWriter</a> (const std::string &amp;filename)</td></tr>
-<tr class="memdesc:a9a839ef127715e6a3481c69c66db0fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../dc/de2/a00024.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> based on the provided extension in the filename.  <a href="#a9a839ef127715e6a3481c69c66db0fed">More...</a><br /></td></tr>
-<tr class="separator:a9a839ef127715e6a3481c69c66db0fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a176ab97c6e6fecf6f866a3acc173c82d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a176ab97c6e6fecf6f866a3acc173c82d">HouseholdReader</a> ()=default</td></tr>
+<tr class="memdesc:a176ab97c6e6fecf6f866a3acc173c82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d3/dfe/a00025.html" title="Retrieves the reference Household profiles from file. ">HouseholdReader</a>.  <a href="#a176ab97c6e6fecf6f866a3acc173c82d">More...</a><br /></td></tr>
+<tr class="separator:a176ab97c6e6fecf6f866a3acc173c82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a0b479e10e4bbcaa57bc0a4955df946"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a1a0b479e10e4bbcaa57bc0a4955df946">~HouseholdReader</a> ()=default</td></tr>
+<tr class="memdesc:a1a0b479e10e4bbcaa57bc0a4955df946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a1a0b479e10e4bbcaa57bc0a4955df946">More...</a><br /></td></tr>
+<tr class="separator:a1a0b479e10e4bbcaa57bc0a4955df946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8f72e3d2cf0cda493fdb3fe17f90da7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#ae8f72e3d2cf0cda493fdb3fe17f90da7">SetReferenceHouseholds</a> (unsigned int &amp;ref_person_count, std::vector&lt; std::vector&lt; unsigned int &gt;&gt; &amp;ref_ages)=0</td></tr>
+<tr class="memdesc:ae8f72e3d2cf0cda493fdb3fe17f90da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the info on reference households to the <a class="el" href="../../dd/d1b/a00015.html" title="Configuration data mostly for generating a population, but also for computing the required number of ...">GeoGridConfig</a>.  <a href="#ae8f72e3d2cf0cda493fdb3fe17f90da7">More...</a><br /></td></tr>
+<tr class="separator:ae8f72e3d2cf0cda493fdb3fe17f90da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Factory creates the correct implementation of a <a class="el" href="../../dc/de2/a00024.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> based on the filename extension. </p>
+<div class="textblock"><p>Retrieves the reference Household profiles from file. </p>
+<p>This can be implemented using different input file types. Currently CSV is implemented. </p>
 
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00028">28</a> of file <a class="el" href="../../d5/df1/a00206_source.html">GeoGridWriterFactory.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9a839ef127715e6a3481c69c66db0fed"></a>
+<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00034">34</a> of file <a class="el" href="../../d3/de5/a00209_source.html">HouseholdReader.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a176ab97c6e6fecf6f866a3acc173c82d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -145,50 +160,97 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../dc/de2/a00024.html">GeoGridWriter</a> &gt; geopop::GeoGridWriterFactory::CreateGeoGridWriter </td>
+          <td class="memname">geopop::HouseholdReader::HouseholdReader </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Create a <a class="el" href="../../dc/de2/a00024.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> based on the provided extension in the filename. </p>
-
-<p>Definition at line <a class="el" href="../../d5/d13/a00205_source.html#l00036">36</a> of file <a class="el" href="../../d5/d13/a00205_source.html">GeoGridWriterFactory.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d25/a00182_source.html#l00054">stride::GenPopController::Control()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dfe/a00025_a9a839ef127715e6a3481c69c66db0fed_icgraph.gif" border="0" usemap="#d3/dfe/a00025_a9a839ef127715e6a3481c69c66db0fed_icgraph" alt=""/></div>
-<map name="d3/dfe/a00025_a9a839ef127715e6a3481c69c66db0fed_icgraph" id="d3/dfe/a00025_a9a839ef127715e6a3481c69c66db0fed_icgraph">
-<area shape="rect" id="node2" href="../../da/dec/a00080.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="265,5,444,47"/>
-<area shape="rect" id="node3" href="../../db/da2/a00300.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="492,13,547,39"/>
-</map>
-</div>
-</p>
+<p>Construct the <a class="el" href="../../d3/dfe/a00025.html" title="Retrieves the reference Household profiles from file. ">HouseholdReader</a>. </p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/df1/a00206_source.html">GeoGridWriterFactory.h</a></li>
-<li><a class="el" href="../../d5/d13/a00205_source.html">GeoGridWriterFactory.cpp</a></li>
+<a class="anchor" id="a1a0b479e10e4bbcaa57bc0a4955df946"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual geopop::HouseholdReader::~HouseholdReader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae8f72e3d2cf0cda493fdb3fe17f90da7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void geopop::HouseholdReader::SetReferenceHouseholds </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int &amp;&#160;</td>
+          <td class="paramname"><em>ref_person_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; unsigned int &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>ref_ages</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add the info on reference households to the <a class="el" href="../../dd/d1b/a00015.html" title="Configuration data mostly for generating a population, but also for computing the required number of ...">GeoGridConfig</a>. </p>
+
+<p>Implemented in <a class="el" href="../../dc/de2/a00024.html#ae1f12dfb634ec54d84b096e57c3effad">geopop::HouseholdCSVReader</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d3/de5/a00209_source.html">HouseholdReader.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d8/df7/a00331.html">geopop</a></li><li class="navelem"><a class="el" href="../../d3/dfe/a00025.html">GeoGridWriterFactory</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dd/db3/a00313.html">geopop</a></li><li class="navelem"><a class="el" href="../../d3/dfe/a00025.html">HouseholdReader</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

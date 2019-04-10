@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SecondaryCommunityGenerator.cpp File Reference</title>
+<title>Stride Reference Manual: Stopwatch.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -105,67 +105,87 @@ $(document).ready(function(){initNavTree('dd/dfe/a00283.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">SecondaryCommunityGenerator.cpp File Reference</div>  </div>
+<div class="title">Stopwatch.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/dc3/a00284_source.html">SecondaryCommunityGenerator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/d00/a00186_source.html">geopop/GeoGrid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/deb/a00189_source.html">geopop/GeoGridConfig.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/dd7/a00248_source.html">geopop/Location.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/dcc/a00264_source.html">pop/Population.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/df5/a00137_source.html">util/Assert.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/dcd/a00280_source.html">util/RnMan.h</a>&quot;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;stdexcept&gt;</code><br />
+
+<p>Definition of Stopwatch.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d95/a00299_source.html">TimeToString.h</a>&quot;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SecondaryCommunityGenerator.cpp:</div>
+Include dependency graph for Stopwatch.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/dec/a00592.gif" border="0" usemap="#SecondaryCommunityGenerator_8cpp" alt=""/></div>
-<map name="SecondaryCommunityGenerator_8cpp" id="SecondaryCommunityGenerator_8cpp">
-<area shape="rect" id="node2" href="../../db/dc3/a00284.html" title="SecondaryCommunityGenerator.h" alt="" coords="355,80,595,107"/>
-<area shape="rect" id="node4" href="../../d0/dcd/a00280.html" title="Interface of RnMan. " alt="" coords="87,244,187,271"/>
-<area shape="rect" id="node12" href="../../d8/d00/a00186.html" title="geopop/GeoGrid.h" alt="" coords="782,162,921,189"/>
-<area shape="rect" id="node24" href="../../da/deb/a00189.html" title="geopop/GeoGridConfig.h" alt="" coords="1687,80,1866,107"/>
-<area shape="rect" id="node42" href="../../dd/dd7/a00248.html" title="geopop/Location.h" alt="" coords="1108,162,1248,189"/>
-<area shape="rect" id="node45" href="../../d3/dcc/a00264.html" title="Header file for the core Population class. " alt="" coords="1419,80,1548,107"/>
-<area shape="rect" id="node48" href="../../d2/df5/a00137.html" title="Definition of . " alt="" coords="2527,162,2626,189"/>
-<area shape="rect" id="node3" href="../../d8/d64/a00181.html" title="Generator.h" alt="" coords="181,162,279,189"/>
-<area shape="rect" id="node5" href="../../dc/d5d/a00278.html" title="Interface of RnPcg. " alt="" coords="1975,319,2048,345"/>
-<area shape="rect" id="node13" href="../../de/d38/a00160.html" title="Definition of ContactPool Id Type. " alt="" coords="1392,319,1556,345"/>
-<area shape="rect" id="node16" href="../../d3/d2a/a00195.html" title="geopop/geo/GeoGridKdTree.h" alt="" coords="455,244,663,271"/>
-<area shape="rect" id="node17" href="../../d6/d82/a00243.html" title="KdTree.h" alt="" coords="669,319,745,345"/>
-<area shape="rect" id="node20" href="../../d6/d22/a00245.html" title="KdTree2DPoint.h" alt="" coords="152,319,279,345"/>
-<area shape="rect" id="node21" href="../../dd/dae/a00163.html" title="geopop/Coordinate.h" alt="" coords="5,393,161,420"/>
-<area shape="rect" id="node25" href="../../d2/d34/a00156.html" title="Header for the core ContactPool class. " alt="" coords="1771,244,1934,271"/>
-<area shape="rect" id="node28" href="../../d7/d2f/a00258.html" title="Header file for the Person class. " alt="" coords="1521,162,1627,189"/>
-<area shape="rect" id="node34" href="../../d6/d7f/a00287.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2276,244,2448,271"/>
-<area shape="rect" id="node26" href="../../d3/d65/a00154.html" title="Header for the ContactLogMode class. " alt="" coords="2073,319,2267,345"/>
-<area shape="rect" id="node29" href="../../d0/d24/a00222.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2009,244,2198,271"/>
-<area shape="rect" id="node33" href="../../da/de7/a00210.html" title="Header for the Health class. " alt="" coords="1617,244,1747,271"/>
-<area shape="rect" id="node35" href="../../d1/d5d/a00311.html" title="Interface/Implementation for SVIterator. " alt="" coords="2835,319,2934,345"/>
-<area shape="rect" id="node46" href="../../d6/db8/a00158.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1926,162,2113,189"/>
-<area shape="rect" id="node49" href="../../dd/d4c/a00177.html" title="util/Exception.h" alt="" coords="2608,244,2727,271"/>
+<div class="center"><img src="../../dd/d5c/a00578.gif" border="0" usemap="#Stopwatch_8h" alt=""/></div>
+<map name="Stopwatch_8h" id="Stopwatch_8h">
+<area shape="rect" id="node2" href="../../df/d95/a00299.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="73,80,189,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d4a/a00579.gif" border="0" usemap="#Stopwatch_8hdep" alt=""/></div>
+<map name="Stopwatch_8hdep" id="Stopwatch_8hdep">
+<area shape="rect" id="node2" href="../../d3/df8/a00155.html" title="Header for the command line controller. " alt="" coords="331,80,453,107"/>
+<area shape="rect" id="node11" href="../../d2/d82/a00279.html" title="Header for the SimRunner class. " alt="" coords="873,80,975,107"/>
+<area shape="rect" id="node3" href="../../d3/d65/a00154.html" title="Header for the command line controller. " alt="" coords="760,229,896,256"/>
+<area shape="rect" id="node4" href="../../de/d45/a00175.html" title="Header for the command line controller. " alt="" coords="13,155,158,181"/>
+<area shape="rect" id="node7" href="../../d6/d4b/a00277.html" title="Header for the command line controller. " alt="" coords="332,155,452,181"/>
+<area shape="rect" id="node9" href="../../dc/dc9/a00282.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="183,155,308,181"/>
+<area shape="rect" id="node5" href="../../d8/df1/a00174.html" title="Header for the command line controller. " alt="" coords="5,229,165,256"/>
+<area shape="rect" id="node6" href="../../db/dc3/a00284.html" title="Main program: command line handling. " alt="" coords="203,229,288,256"/>
+<area shape="rect" id="node8" href="../../dc/d28/a00276.html" title="Header for the command line controller. " alt="" coords="511,229,646,256"/>
+<area shape="rect" id="node10" href="../../d2/d04/a00281.html" title="Header for the command line controller. " alt="" coords="325,229,465,256"/>
+<area shape="rect" id="node12" href="../../dc/d5d/a00278.html" title="Implementation for SimRunner. " alt="" coords="865,155,983,181"/>
+<area shape="rect" id="node13" href="../../d0/d5e/a00136.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1006,155,1111,181"/>
+<area shape="rect" id="node14" href="../../dd/df3/a00219.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1370,155,1531,181"/>
+<area shape="rect" id="node15" href="../../dd/d52/a00221.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1556,155,1697,181"/>
+<area shape="rect" id="node16" href="../../de/dbc/a00249.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="629,155,790,181"/>
+<area shape="rect" id="node17" href="../../d8/d0a/a00292.html" title="Observer for Persons output. " alt="" coords="1135,155,1294,181"/>
+<area shape="rect" id="node18" href="../../da/dd4/a00291.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1187,229,1360,256"/>
 </map>
 </div>
 </div>
 <p><a href="../../dd/dfe/a00283_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d00/a00113.html">stride::util::Stopwatch&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a stopwatch interface to time: it accumulates time between start/stop pairs.  <a href="../../d3/d00/a00113.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d8/df7/a00331"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df7/a00331.html">geopop</a></td></tr>
-<tr class="memdesc:d8/df7/a00331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d4/d8f/a00324"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">stride</a></td></tr>
+<tr class="memdesc:d4/d8f/a00324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d8/df7/a00331"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df7/a00331.html">stride::util</a></td></tr>
+<tr class="memdesc:d8/df7/a00331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d8/df7/a00331.html#a1c487ec7202a72d7aa33bc6b5767b287">stride::util::operator&lt;&lt;</a> (std::ostream &amp;oss, Stopwatch&lt; T &gt; const &amp;stopwatch)</td></tr>
+<tr class="memdesc:a1c487ec7202a72d7aa33bc6b5767b287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert accumulated time into output stream without altering stopwatch state.  <a href="../../d8/df7/a00331.html#a1c487ec7202a72d7aa33bc6b5767b287">More...</a><br /></td></tr>
+<tr class="separator:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Definition of Stopwatch. </p>
+
+<p>Definition in file <a class="el" href="../../dd/dfe/a00283_source.html">Stopwatch.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_02b8471d88aea77fae7c19982808da05.html">generators</a></li><li class="navelem"><a class="el" href="../../dd/dfe/a00283.html">SecondaryCommunityGenerator.cpp</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dd/dfe/a00283.html">Stopwatch.h</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

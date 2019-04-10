@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ContactPoolSys.h File Reference</title>
+<title>Stride Reference Manual: CSV.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7073ab8</span>
+   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
    </div>
   </td>
  </tr>
@@ -106,67 +106,43 @@ $(document).ready(function(){initNavTree('d6/db8/a00158.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">ContactPoolSys.h File Reference</div>  </div>
+<div class="title">CSV.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Container for the contact pools of various type (household, work, ...).  
+<p>Header file of base class for config that needs to be read from a file.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../de/d38/a00160_source.html">ContactType.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/d24/a00222_source.html">IdSubscriptArray.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/d34/a00156_source.html">contact/ContactPool.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/d7f/a00287_source.html">util/SegmentedVector.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/d38/a00160_source.html">CSVRow.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d58/a00285_source.html">util/StringUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d01/a00227_source.html">util/is_iterator.h</a>&quot;</code><br />
+<code>#include &lt;iosfwd&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ContactPoolSys.h:</div>
+Include dependency graph for CSV.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d00/a00401.gif" border="0" usemap="#ContactPoolSys_8h" alt=""/></div>
-<map name="ContactPoolSys_8h" id="ContactPoolSys_8h">
-<area shape="rect" id="node2" href="../../de/d38/a00160.html" title="Definition of ContactPool Id Type. " alt="" coords="355,155,467,181"/>
-<area shape="rect" id="node8" href="../../d0/d24/a00222.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="557,80,694,107"/>
-<area shape="rect" id="node13" href="../../d2/d34/a00156.html" title="Header for the core ContactPool class. " alt="" coords="236,80,399,107"/>
-<area shape="rect" id="node16" href="../../d6/d7f/a00287.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="970,80,1142,107"/>
-<area shape="rect" id="node14" href="../../d3/d65/a00154.html" title="Header for the ContactLogMode class. " alt="" coords="5,155,200,181"/>
-<area shape="rect" id="node17" href="../../d1/d5d/a00311.html" title="Interface/Implementation for SVIterator. " alt="" coords="1304,155,1403,181"/>
+<div class="center"><img src="../../d9/d0a/a00390.gif" border="0" usemap="#CSV_8h" alt=""/></div>
+<map name="CSV_8h" id="CSV_8h">
+<area shape="rect" id="node2" href="../../de/d38/a00160.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="567,80,651,107"/>
+<area shape="rect" id="node3" href="../../d3/d58/a00285.html" title="Miscellaneous string utilities. " alt="" coords="345,155,467,181"/>
+<area shape="rect" id="node13" href="../../d9/d01/a00227.html" title="Interface/Implementation of is_iterator. " alt="" coords="814,80,934,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d6d/a00402.gif" border="0" usemap="#ContactPoolSys_8hdep" alt=""/></div>
-<map name="ContactPoolSys_8hdep" id="ContactPoolSys_8hdep">
-<area shape="rect" id="node2" href="../../d1/db7/a00157.html" title="Core Population class. " alt="" coords="2525,80,2674,107"/>
-<area shape="rect" id="node3" href="../../d3/dcc/a00264.html" title="Header file for the core Population class. " alt="" coords="2698,80,2799,107"/>
-<area shape="rect" id="node4" href="../../de/d45/a00175.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="5,155,151,181"/>
-<area shape="rect" id="node5" href="../../dd/ded/a00211.html" title="Implementation for HelthSeeder class. " alt="" coords="175,155,311,181"/>
-<area shape="rect" id="node6" href="../../d9/dd6/a00272.html" title="Implementation for the PublicHealthAgency class. " alt="" coords="335,155,509,181"/>
-<area shape="rect" id="node7" href="../../d6/d7d/a00161.html" title="Header for the command line controller. " alt="" coords="533,155,669,181"/>
-<area shape="rect" id="node8" href="../../d7/d25/a00182.html" title="Header for the command line controller. " alt="" coords="693,155,853,181"/>
-<area shape="rect" id="node9" href="../../d8/d0a/a00292.html" title="Header for the command line controller. " alt="" coords="877,155,1012,181"/>
-<area shape="rect" id="node10" href="../../d3/d4a/a00297.html" title="Header for the command line controller. " alt="" coords="1036,155,1176,181"/>
-<area shape="rect" id="node11" href="../../d7/dce/a00143.html" title="CollegeGenerator.cpp" alt="" coords="1201,155,1361,181"/>
-<area shape="rect" id="node12" href="../../d3/dd5/a00215.html" title="HouseholdGenerator.cpp" alt="" coords="1385,155,1566,181"/>
-<area shape="rect" id="node13" href="../../da/d2e/a00238.html" title="K12SchoolGenerator.cpp" alt="" coords="1591,155,1771,181"/>
-<area shape="rect" id="node14" href="../../d1/dd4/a00267.html" title="PrimaryCommunityGenerator.cpp" alt="" coords="1795,155,2031,181"/>
-<area shape="rect" id="node15" href="../../dd/dfe/a00283.html" title="SecondaryCommunityGenerator.cpp" alt="" coords="2055,155,2309,181"/>
-<area shape="rect" id="node16" href="../../d2/d41/a00318.html" title="WorkplaceGenerator.cpp" alt="" coords="2333,155,2511,181"/>
-<area shape="rect" id="node17" href="../../de/df3/a00185.html" title="GeoGrid.cpp" alt="" coords="2535,155,2637,181"/>
-<area shape="rect" id="node18" href="../../d7/d6e/a00190.html" title="GeoGridJSONReader.cpp" alt="" coords="2661,155,2837,181"/>
-<area shape="rect" id="node19" href="../../d7/ded/a00196.html" title="GeoGridProtoReader.cpp" alt="" coords="2861,155,3039,181"/>
-<area shape="rect" id="node20" href="../../df/d24/a00217.html" title="HouseholdPopulator.cpp" alt="" coords="3064,155,3241,181"/>
-<area shape="rect" id="node21" href="../../d7/d3f/a00173.html" title="Initialize populations: implementation. " alt="" coords="3266,155,3429,181"/>
-<area shape="rect" id="node22" href="../../de/dd2/a00207.html" title="Initialize populations: implementation. " alt="" coords="3453,155,3596,181"/>
-<area shape="rect" id="node23" href="../../dc/d98/a00225.html" title="Initialize populations: implementation. " alt="" coords="3620,155,3779,181"/>
-<area shape="rect" id="node24" href="../../df/da9/a00263.html" title="Core Population class. " alt="" coords="3803,155,3919,181"/>
-<area shape="rect" id="node25" href="../../d2/d71/a00309.html" title="Implementation for the SurveySeeder class. " alt="" coords="3943,155,4082,181"/>
-<area shape="rect" id="node26" href="../../da/ddc/a00288.html" title="Implementation for the Simulator class. " alt="" coords="4106,155,4181,181"/>
-<area shape="rect" id="node27" href="../../d4/d5b/a00294.html" title="Implementation for SimRunner. " alt="" coords="4205,155,4322,181"/>
-<area shape="rect" id="node28" href="../../d5/d4e/a00141.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="4345,155,4451,181"/>
-<area shape="rect" id="node29" href="../../dd/d2d/a00229.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="4475,155,4636,181"/>
-<area shape="rect" id="node30" href="../../df/d17/a00231.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="4661,155,4802,181"/>
-<area shape="rect" id="node31" href="../../d0/d2f/a00259.html" title="Implementation of the CasesFile class. " alt="" coords="4826,155,4946,181"/>
-<area shape="rect" id="node32" href="../../d0/da2/a00307.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="4970,155,5143,181"/>
+<div class="center"><img src="../../db/d95/a00391.gif" border="0" usemap="#CSV_8hdep" alt=""/></div>
+<map name="CSV_8hdep" id="CSV_8hdep">
+<area shape="rect" id="node2" href="../../d2/d04/a00281.html" title="Header for the command line controller. " alt="" coords="5,80,145,107"/>
+<area shape="rect" id="node3" href="../../d5/db1/a00140.html" title="CommutesCSVReader.cpp" alt="" coords="169,80,360,107"/>
+<area shape="rect" id="node4" href="../../d5/d13/a00205.html" title="HouseholdCSVReader.cpp" alt="" coords="385,80,571,107"/>
+<area shape="rect" id="node5" href="../../d4/d08/a00237.html" title="LocationsCSVReader.cpp" alt="" coords="596,80,776,107"/>
+<area shape="rect" id="node6" href="../../d1/db7/a00157.html" title="Source file of csv. " alt="" coords="801,80,875,107"/>
+<area shape="rect" id="node7" href="../../de/db9/a00159.html" title="Source file of CSVRow. " alt="" coords="899,80,998,107"/>
 </map>
 </div>
 </div>
@@ -174,27 +150,35 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html">stride::ContactPoolSys</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d4/d31/a00069.html" title="ContactPoolSys contains for each of the type of pools (Household, K12School, ...) a vector of with al...">ContactPoolSys</a> contains for each of the type of pools (Household, K12School, ...) a vector of with all of the contact pools of the type.  <a href="../../d4/d31/a00069.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d74/a00099.html">stride::util::CSV</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of <a class="el" href="../../d0/d61/a00100.html" title="Row in CSV file. ">CSVRow</a> elements.  <a href="../../da/d74/a00099.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d2/d45/a00342"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d45/a00342.html">stride</a></td></tr>
-<tr class="memdesc:d2/d45/a00342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d4/d8f/a00324"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">stride</a></td></tr>
+<tr class="memdesc:d4/d8f/a00324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d8/df7/a00331"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df7/a00331.html">stride::util</a></td></tr>
+<tr class="memdesc:d8/df7/a00331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ab8f4ca13e5c3a78333ce8cfa62f36fe1"><td class="memItemLeft" align="right" valign="top">std::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df7/a00331.html#ab8f4ca13e5c3a78333ce8cfa62f36fe1">stride::util::operator&lt;&lt;</a> (std::ofstream &amp;ofs, const CSV &amp;csv)</td></tr>
+<tr class="separator:ab8f4ca13e5c3a78333ce8cfa62f36fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Container for the contact pools of various type (household, work, ...). </p>
+<div class="textblock"><p>Header file of base class for config that needs to be read from a file. </p>
 
-<p>Definition in file <a class="el" href="../../d6/db8/a00158_source.html">ContactPoolSys.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d6/db8/a00158_source.html">CSV.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d6/db8/a00158.html">ContactPoolSys.h</a></li>
-    <li class="footer">Generated on Tue Apr 9 2019 09:16:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d6/db8/a00158.html">CSV.h</a></li>
+    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

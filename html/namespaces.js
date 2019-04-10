@@ -1,8 +1,8 @@
 var namespaces =
 [
-    [ "geoaggregator_detail", "dd/dbb/a00330.html", null ],
-    [ "geopop", "d8/df7/a00331.html", "d8/df7/a00331" ],
-    [ "google", "da/d75/a00334.html", "da/d75/a00334" ],
-    [ "proto", "dd/d1d/a00336.html", null ],
-    [ "stride", "d2/d45/a00342.html", "d2/d45/a00342" ]
+    [ "geoaggregator_detail", "d7/df2/a00312.html", null ],
+    [ "geopop", "dd/db3/a00313.html", "dd/db3/a00313" ],
+    [ "google", "d3/db8/a00316.html", "d3/db8/a00316" ],
+    [ "proto", "d2/d41/a00318.html", null ],
+    [ "stride", "d4/d8f/a00324.html", "d4/d8f/a00324" ]
 ];
