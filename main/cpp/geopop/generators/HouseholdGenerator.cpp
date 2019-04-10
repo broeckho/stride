@@ -39,7 +39,7 @@ void Generator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, cons
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
         auto       pop  = geoGrid.GetPopulation();
 
-        for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
+        for (auto i = 0U; i < geoGridConfig.info.count_households; i++) {
                 const auto loc = geoGrid[dist()];
                 AddPools(*loc, pop);
         }

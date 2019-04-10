@@ -31,22 +31,22 @@ using namespace boost::property_tree;
 using namespace stride::AgeBrackets;
 using stride::util::intToDottedString;
 
-GeoGridConfig::GeoGridConfig() : input{}, refHH{}, popInfo{} {}
+GeoGridConfig::GeoGridConfig() : param{}, refHH{}, info{} {}
 
 GeoGridConfig::GeoGridConfig(const ptree& configPt) : GeoGridConfig()
 {
-        input.pop_size                     = configPt.get<unsigned int>("run.geopop_gen.population_size");
-        input.participation_college        = configPt.get<double>("run.geopop_gen.participation_college");
-        input.fraction_workplace_commuters = configPt.get<double>("run.geopop_gen.fraction_workplace_commuters");
-        input.fraction_college_commuters   = configPt.get<double>("run.geopop_gen.fraction_college_commuters");
-        input.particpation_workplace       = configPt.get<double>("run.geopop_gen.particpation_workplace");
+        param.pop_size                     = configPt.get<unsigned int>("run.geopop_gen.population_size");
+        param.participation_college        = configPt.get<double>("run.geopop_gen.participation_college");
+        param.fraction_workplace_commuters = configPt.get<double>("run.geopop_gen.fraction_workplace_commuters");
+        param.fraction_college_commuters   = configPt.get<double>("run.geopop_gen.fraction_college_commuters");
+        param.particpation_workplace       = configPt.get<double>("run.geopop_gen.particpation_workplace");
 }
 
 void GeoGridConfig::SetData(const string& householdsFileName)
 {
         auto householdsReader = ReaderFactory::CreateHouseholdReader(householdsFileName);
         householdsReader->SetReferenceHouseholds(refHH.person_count, refHH.ages);
-        const auto popSize = input.pop_size;
+        const auto popSize = param.pop_size;
 
         //----------------------------------------------------------------
         // Determine age makeup of reference houshold population.
@@ -81,14 +81,14 @@ void GeoGridConfig::SetData(const string& householdsFileName)
         const auto age_count_college   = static_cast<unsigned int>(floor(popSize * fraction_college_age));
         const auto age_count_workplace = static_cast<unsigned int>(floor(popSize * fraction_workplace_age));
 
-        popInfo.popcount_k12school = age_count_k12school;
+        info.popcount_k12school = age_count_k12school;
 
-        popInfo.popcount_college = static_cast<unsigned int>(floor(input.participation_college * age_count_college));
+        info.popcount_college = static_cast<unsigned int>(floor(param.participation_college * age_count_college));
 
-        popInfo.popcount_workplace = static_cast<unsigned int>(
-            floor(input.particpation_workplace * (age_count_workplace - popInfo.popcount_college)));
+        info.popcount_workplace = static_cast<unsigned int>(
+            floor(param.particpation_workplace * (age_count_workplace - info.popcount_college)));
 
-        popInfo.count_households = static_cast<unsigned int>(floor(static_cast<double>(popSize) / averageHhSize));
+        info.count_households = static_cast<unsigned int>(floor(static_cast<double>(popSize) / averageHhSize));
 }
 
 ostream& operator<<(ostream& out, const GeoGridConfig& config)
@@ -96,17 +96,17 @@ ostream& operator<<(ostream& out, const GeoGridConfig& config)
         const int w = 53;
         out.setf(std::ios_base::left, std::ios_base::adjustfield);
         out << "Input:" << endl;
-        out << setw(w) << "Fraction college commuters:" << config.input.fraction_college_commuters << "\n";
-        out << setw(w) << "Fraction workplace commuters:" << config.input.fraction_workplace_commuters << "\n";
-        out << setw(w) << "Participation fraction of college:" << config.input.participation_college << "\n";
-        out << setw(w) << "Participation fraaction of workplace:" << config.input.particpation_workplace << "\n";
-        out << setw(w) << "Target population size" << intToDottedString(config.input.pop_size) << "\n"
+        out << setw(w) << "Fraction college commuters:" << config.param.fraction_college_commuters << "\n";
+        out << setw(w) << "Fraction workplace commuters:" << config.param.fraction_workplace_commuters << "\n";
+        out << setw(w) << "Participation fraction of college:" << config.param.participation_college << "\n";
+        out << setw(w) << "Participation fraaction of workplace:" << config.param.particpation_workplace << "\n";
+        out << setw(w) << "Target population size" << intToDottedString(config.param.pop_size) << "\n"
             << "\n";
         out << "Calculated:"
             << "\n";
-        out << setw(w) << "K12School student count:" << intToDottedString(config.popInfo.popcount_k12school) << "\n";
-        out << setw(w) << "College student count:" << intToDottedString(config.popInfo.popcount_college) << "\n";
-        out << setw(w) << "Workplace person count:" << intToDottedString(config.popInfo.popcount_workplace) << "\n";
+        out << setw(w) << "K12School student count:" << intToDottedString(config.info.popcount_k12school) << "\n";
+        out << setw(w) << "College student count:" << intToDottedString(config.info.popcount_college) << "\n";
+        out << setw(w) << "Workplace person count:" << intToDottedString(config.info.popcount_workplace) << "\n";
         out << endl;
         return out;
 }

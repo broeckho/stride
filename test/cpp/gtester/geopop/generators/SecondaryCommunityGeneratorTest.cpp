@@ -52,7 +52,7 @@ protected:
 
 TEST_F(SecondaryCommunityGeneratorTest, OneLocationTest)
 {
-        m_geogrid_config.input.pop_size = 10000;
+        m_geogrid_config.param.pop_size = 10000;
 
         auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         m_geo_grid.AddLocation(loc1);
@@ -67,7 +67,7 @@ TEST_F(SecondaryCommunityGeneratorTest, OneLocationTest)
 
 TEST_F(SecondaryCommunityGeneratorTest, EqualLocationTest)
 {
-        m_geogrid_config.input.pop_size = 100 * 100 * 1000;
+        m_geogrid_config.param.pop_size = 100 * 100 * 1000;
 
         for (int i = 0; i < 10; i++) {
                 m_geo_grid.AddLocation(
@@ -85,7 +85,7 @@ TEST_F(SecondaryCommunityGeneratorTest, EqualLocationTest)
 
 TEST_F(SecondaryCommunityGeneratorTest, ZeroLocationTest)
 {
-        m_geogrid_config.input.pop_size = 10000;
+        m_geogrid_config.param.pop_size = 10000;
         m_secondary_community_generator.Apply(m_geo_grid, m_geogrid_config);
 
         EXPECT_EQ(m_geo_grid.size(), 0);
@@ -93,8 +93,8 @@ TEST_F(SecondaryCommunityGeneratorTest, ZeroLocationTest)
 
 TEST_F(SecondaryCommunityGeneratorTest, FiveLocationsTest)
 {
-        m_geogrid_config.input.pop_size             = 37542 * 100;
-        m_geogrid_config.popInfo.popcount_k12school = 750840;
+        m_geogrid_config.param.pop_size             = 37542 * 100;
+        m_geogrid_config.info.popcount_k12school = 750840;
 
         auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
         auto loc2 = make_shared<Location>(1, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);

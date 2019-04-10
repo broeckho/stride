@@ -29,12 +29,12 @@ namespace geopop {
 using namespace std;
 using namespace stride::util;
 
-shared_ptr<LocationsReader> ReaderFactory::CreateCitiesReader(const string& filename)
+shared_ptr<LocationsReader> ReaderFactory::CreateLocationsReader(const string &filename)
 {
-        return CreateCitiesReader(FileSys::GetDataDir() / filesys::path(filename));
+        return CreateLocationsReader(FileSys::GetDataDir() / filesys::path(filename));
 }
 
-shared_ptr<LocationsReader> ReaderFactory::CreateCitiesReader(const filesys::path& path)
+shared_ptr<LocationsReader> ReaderFactory::CreateLocationsReader(const filesys::path &path)
 {
         return make_shared<LocationsCSVReader>(OpenFile(path));
 }

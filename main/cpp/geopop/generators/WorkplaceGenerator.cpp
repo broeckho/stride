@@ -34,7 +34,7 @@ void Generator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, cons
         // 4. use that information for the distribution
         // 5. assign each workplaces to a location
 
-        const auto EmployeeCount = geoGridConfig.popInfo.popcount_workplace;
+        const auto EmployeeCount = geoGridConfig.info.popcount_workplace;
         const auto WorkplacesCount =
             static_cast<unsigned int>(ceil(EmployeeCount / static_cast<double>(PoolParams<Id::Workplace>::people)));
 
@@ -43,9 +43,9 @@ void Generator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, cons
         for (const auto& loc : geoGrid) {
                 const double ActivePeopleCount =
                     (loc->GetPopCount() +
-                     loc->GetIncomingCommuteCount(geoGridConfig.input.fraction_workplace_commuters) -
-                     loc->GetOutgoingCommuteCount(geoGridConfig.input.fraction_workplace_commuters) *
-                         geoGridConfig.input.particpation_workplace);
+                     loc->GetIncomingCommuteCount(geoGridConfig.param.fraction_workplace_commuters) -
+                     loc->GetOutgoingCommuteCount(geoGridConfig.param.fraction_workplace_commuters) *
+                         geoGridConfig.param.particpation_workplace);
 
                 const double weight = ActivePeopleCount / EmployeeCount;
                 AssertThrow(weight >= 0 && weight <= 1 && !std::isnan(weight), "Invalid weight: " + to_string(weight),

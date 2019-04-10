@@ -53,7 +53,7 @@ protected:
 // Check that generator can handle situation with a single Location.
 TEST_F(HouseholdGeneratorTest, OneLocationTest)
 {
-        m_geogrid_config.popInfo.count_households = 4;
+        m_geogrid_config.info.count_households = 4;
 
         auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         m_geo_grid.AddLocation(loc1);
@@ -67,7 +67,7 @@ TEST_F(HouseholdGeneratorTest, OneLocationTest)
 // Check that generator can handle "no Locations" situation.
 TEST_F(HouseholdGeneratorTest, ZeroLocationTest)
 {
-        m_geogrid_config.popInfo.count_households = 4;
+        m_geogrid_config.info.count_households = 4;
         m_household_generator.Apply(m_geo_grid, m_geogrid_config);
 
         EXPECT_EQ(m_geo_grid.size(), 0);
@@ -76,8 +76,8 @@ TEST_F(HouseholdGeneratorTest, ZeroLocationTest)
 // check that generator can handle five Locations.
 TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
 {
-        m_geogrid_config.popInfo.count_households = 4000;
-        m_geogrid_config.input.pop_size           = 37542 * 100;
+        m_geogrid_config.info.count_households = 4000;
+        m_geogrid_config.param.pop_size           = 37542 * 100;
 
         auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
         auto loc2 = make_shared<Location>(2, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
@@ -93,7 +93,7 @@ TEST_F(HouseholdGeneratorTest, FiveLocationsTest)
 
         for (const auto& loc : m_geo_grid) {
                 loc->SetPopFraction(static_cast<double>(loc->GetPopCount()) /
-                                    static_cast<double>(m_geogrid_config.input.pop_size));
+                                    static_cast<double>(m_geogrid_config.param.pop_size));
         }
 
         m_household_generator.Apply(m_geo_grid, m_geogrid_config);

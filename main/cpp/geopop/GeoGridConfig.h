@@ -41,7 +41,7 @@ public:
         explicit GeoGridConfig(const boost::property_tree::ptree& configPt);
 
         // -----------------------------------------------------------------------------------------
-        // Input parameters set by constructor with configuration property tree.
+        // Parameters set by constructor with configuration property tree.
         // -----------------------------------------------------------------------------------------
         struct
         {
@@ -60,7 +60,7 @@ public:
 
                 /// Target population size for the generated population.
                 unsigned int pop_size;
-        } input;
+        } param;
 
         // -----------------------------------------------------------------------------------------
         // The reference Households used to generate the population by random draws.
@@ -94,7 +94,7 @@ public:
 
                 /// The number of households.
                 unsigned int count_households;
-        } popInfo;
+        } info;
 
         // -----------------------------------------------------------------------------------------
         /// Read the househould data file, parse it and set data.

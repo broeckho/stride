@@ -42,12 +42,12 @@ void Populator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, cons
         vector<ContactPool*> nearbyWp{};
         vector<Location*> commuteLocations{};
 
-        const auto participCollege      = geoGridConfig.input.participation_college;
-        const auto participWorkplace    = geoGridConfig.input.particpation_workplace;
-        const auto popCollege           = geoGridConfig.popInfo.popcount_college;
-        const auto popWorkplace         = geoGridConfig.popInfo.popcount_workplace;
-        const auto fracCollegeCommute   = geoGridConfig.input.fraction_college_commuters;
-        const auto fracWorkplaceCommute = geoGridConfig.input.fraction_workplace_commuters;
+        const auto participCollege      = geoGridConfig.param.participation_college;
+        const auto participWorkplace    = geoGridConfig.param.particpation_workplace;
+        const auto popCollege           = geoGridConfig.info.popcount_college;
+        const auto popWorkplace         = geoGridConfig.info.popcount_workplace;
+        const auto fracCollegeCommute   = geoGridConfig.param.fraction_college_commuters;
+        const auto fracWorkplaceCommute = geoGridConfig.param.fraction_workplace_commuters;
 
         double fracCommuteStudents = 0.0;
         if (static_cast<bool>(fracWorkplaceCommute) && popWorkplace) {
