@@ -59,22 +59,22 @@ protected:
 // Declare specializations (implemntation in separate .cpp files).
 // ---------------------------------------------------------------
 template<>
-void Populator<stride::ContactType::Id::K12School>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Populator<stride::ContactType::Id::K12School>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 template<>
-void Populator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Populator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 template<>
-void Populator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Populator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 template<>
-void Populator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Populator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 template<>
-void Populator<stride::ContactType::Id::PrimaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Populator<stride::ContactType::Id::PrimaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 template<>
-void Populator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Populator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 // ---------------------------------------------------------------
 // Shorthand definitions.

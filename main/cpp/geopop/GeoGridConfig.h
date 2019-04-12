@@ -15,6 +15,7 @@
  */
 
 #include "contact/ContactPool.h"
+#include "contact/IdSubscriptArray.h"
 #include "pop/Person.h"
 #include "util/SegmentedVector.h"
 
@@ -39,6 +40,16 @@ public:
 
         /// Constructor that configures input data.
         explicit GeoGridConfig(const boost::property_tree::ptree& configPt);
+
+        /// People per unit (= Household, K12School, College, etc.) for each of the ContactTypes.
+        /// Default initialization. Order in which contacttypes are listed in the
+        /// definition of the enumeration must be respected!
+        stride::ContactType::IdSubscriptArray<unsigned int> people {0U, 500U, 3000U, 20U, 2000U, 2000U};
+
+        /// Pools per unit (= Household, K12School, College, etc.) for each of the ContactTypes.
+        /// Default initialization. Order in which contacttypes are listed in the
+        /// definition of the enumeration must be respected!
+        stride::ContactType::IdSubscriptArray<unsigned int> pools {1U, 25U, 20U, 1U, 1U, 1U};
 
         // -----------------------------------------------------------------------------------------
         // Parameters set by constructor with configuration property tree.

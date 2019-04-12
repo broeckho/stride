@@ -40,7 +40,7 @@ class K12SchoolPopulatorTest : public testing::Test
 {
 public:
         K12SchoolPopulatorTest()
-            : m_rn_man(RnInfo()), m_k12school_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+            : m_rn_man(RnInfo()), m_k12school_populator(m_rn_man), m_gg_config(), m_pop(Population::Create()),
               m_geo_grid(m_pop->RefGeoGrid()), m_k212school_generator(m_rn_man)
         {
         }
@@ -48,11 +48,11 @@ public:
 protected:
         RnMan                  m_rn_man;
         K12SchoolPopulator     m_k12school_populator;
-        GeoGridConfig          m_geogrid_config;
+        GeoGridConfig          m_gg_config;
         shared_ptr<Population> m_pop;
         GeoGrid&               m_geo_grid;
         K12SchoolGenerator     m_k212school_generator;
-        const unsigned int     m_ppk12 = PoolParams<Id::K12School>::pools;
+        const unsigned int     m_ppk12 = m_gg_config.pools[Id::K12School];
 };
 
 TEST_F(K12SchoolPopulatorTest, NoPopulation)
@@ -60,14 +60,14 @@ TEST_F(K12SchoolPopulatorTest, NoPopulation)
         m_geo_grid.AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
         m_geo_grid.Finalize();
 
-        EXPECT_NO_THROW(m_k12school_populator.Apply(m_geo_grid, m_geogrid_config));
+        EXPECT_NO_THROW(m_k12school_populator.Apply(m_geo_grid, m_gg_config));
 }
 
 TEST_F(K12SchoolPopulatorTest, OneLocationTest)
 {
-        MakeGeoGrid(m_geogrid_config, 1, 300, 5, 100, 3, m_pop.get());
+        MakeGeoGrid(m_gg_config, 1, 300, 5, 100, 3, m_pop.get());
         m_geo_grid.Finalize();
-        m_k12school_populator.Apply(m_geo_grid, m_geogrid_config);
+        m_k12school_populator.Apply(m_geo_grid, m_gg_config);
 
         map<int, int> usedCapacity{
             {1, 1},   {2, 1},   {3, 0},   {4, 0},   {5, 0},   {6, 0},   {7, 1},   {8, 1},   {9, 2},   {10, 1},
@@ -139,7 +139,7 @@ TEST_F(K12SchoolPopulatorTest, OneLocationTest)
 
 TEST_F(K12SchoolPopulatorTest, TwoLocationTest)
 {
-        MakeGeoGrid(m_geogrid_config, 3, 100, 3, 33, 3, m_pop.get());
+        MakeGeoGrid(m_gg_config, 3, 100, 3, 33, 3, m_pop.get());
 
         // Brasschaat and Schoten are close to each oter and will both have students from both.
         // Kortrijk will only have students going to Kortrijk.
@@ -153,7 +153,7 @@ TEST_F(K12SchoolPopulatorTest, TwoLocationTest)
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
 
         m_geo_grid.Finalize();
-        m_k12school_populator.Apply(m_geo_grid, m_geogrid_config);
+        m_k12school_populator.Apply(m_geo_grid, m_gg_config);
 
         auto& k12Pools1 = brasschaat->RefPools(Id::K12School);
         auto& k12Pools2 = schoten->RefPools(Id::K12School);

@@ -15,8 +15,6 @@
 
 #include "Generator.h"
 
-#include "geopop/GeoGridConfig.h"
-#include "geopop/PoolParams.h"
 #include "util/Assert.h"
 
 #include <cmath>
@@ -30,14 +28,14 @@ using namespace stride;
 using namespace stride::ContactType;
 
 template<>
-void Generator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+void Generator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig)
 {
         // 1. calculate number of communities
         // 2. assign communities to a location using a discrete distribution reflecting
         //    the relative number of people at that location
 
-        const auto popCount       = geoGridConfig.param.pop_size;
-        const auto communitySize  = PoolParams<Id::SecondaryCommunity>::people;
+        const auto popCount       = ggConfig.param.pop_size;
+        const auto communitySize  = ggConfig.people[Id::SecondaryCommunity];
         const auto communityCount = static_cast<unsigned int>(ceil(popCount / static_cast<double>(communitySize)));
 
         vector<double> weights;
@@ -58,7 +56,7 @@ void Generator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoG
 
         for (auto i = 0U; i < communityCount; i++) {
                 const auto loc = geoGrid[dist()];
-                AddPools(*loc, pop);
+                AddPools(*loc, pop, ggConfig);
         }
 }
 

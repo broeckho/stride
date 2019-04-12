@@ -18,7 +18,6 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/PoolParams.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
@@ -37,22 +36,23 @@ class SecondaryCommunityGeneratorTest : public testing::Test
 {
 public:
         SecondaryCommunityGeneratorTest()
-            : m_rn_man(RnInfo()), m_secondary_community_generator(m_rn_man), m_geogrid_config(),
+            : m_rn_man(RnInfo()), m_community_generator(m_rn_man), m_gg_config(),
               m_pop(Population::Create()), m_geo_grid(m_pop.get())
         {
         }
 
 protected:
         RnMan                       m_rn_man;
-        SecondaryCommunityGenerator m_secondary_community_generator;
-        GeoGridConfig               m_geogrid_config;
+        SecondaryCommunityGenerator m_community_generator;
+        GeoGridConfig               m_gg_config;
         shared_ptr<Population>      m_pop;
         GeoGrid                     m_geo_grid;
+        unsigned int                m_ppsc = m_gg_config.pools[Id::SecondaryCommunity];
 };
 
 TEST_F(SecondaryCommunityGeneratorTest, OneLocationTest)
 {
-        m_geogrid_config.param.pop_size = 10000;
+        m_gg_config.param.pop_size = 10000;
 
         auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         m_geo_grid.AddLocation(loc1);
@@ -60,41 +60,41 @@ TEST_F(SecondaryCommunityGeneratorTest, OneLocationTest)
         const auto& p1 = loc1->CRefPools(Id::SecondaryCommunity);
         EXPECT_EQ(p1.size(), 0);
 
-        m_secondary_community_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_community_generator.Apply(m_geo_grid, m_gg_config);
 
-        EXPECT_EQ(p1.size(), 5 * PoolParams<Id::SecondaryCommunity>::pools);
+        EXPECT_EQ(p1.size(), 5 * m_ppsc);
 }
 
 TEST_F(SecondaryCommunityGeneratorTest, EqualLocationTest)
 {
-        m_geogrid_config.param.pop_size = 100 * 100 * 1000;
+        m_gg_config.param.pop_size = 100 * 100 * 1000;
 
         for (int i = 0; i < 10; i++) {
                 m_geo_grid.AddLocation(
                     make_shared<Location>(1, 4, Coordinate(0, 0), "Location " + to_string(i), 10 * 1000 * 1000));
         }
 
-        m_secondary_community_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_community_generator.Apply(m_geo_grid, m_gg_config);
 
         array<unsigned int, 10> expected{546, 495, 475, 500, 463, 533, 472, 539, 496, 481};
         for (auto i = 0U; i < expected.size(); i++) {
                 const auto& p = m_geo_grid[i]->RefPools(Id::SecondaryCommunity);
-                EXPECT_EQ(expected[i] * PoolParams<Id::SecondaryCommunity>::pools, p.size());
+                EXPECT_EQ(expected[i] * m_ppsc, p.size());
         }
 }
 
 TEST_F(SecondaryCommunityGeneratorTest, ZeroLocationTest)
 {
-        m_geogrid_config.param.pop_size = 10000;
-        m_secondary_community_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_gg_config.param.pop_size = 10000;
+        m_community_generator.Apply(m_geo_grid, m_gg_config);
 
         EXPECT_EQ(m_geo_grid.size(), 0);
 }
 
 TEST_F(SecondaryCommunityGeneratorTest, FiveLocationsTest)
 {
-        m_geogrid_config.param.pop_size             = 37542 * 100;
-        m_geogrid_config.info.popcount_k12school = 750840;
+        m_gg_config.param.pop_size             = 37542 * 100;
+        m_gg_config.info.popcount_k12school = 750840;
 
         auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
         auto loc2 = make_shared<Location>(1, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
@@ -108,12 +108,12 @@ TEST_F(SecondaryCommunityGeneratorTest, FiveLocationsTest)
         m_geo_grid.AddLocation(loc4);
         m_geo_grid.AddLocation(loc5);
 
-        m_secondary_community_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_community_generator.Apply(m_geo_grid, m_gg_config);
 
         array<unsigned int, 5> expected{553, 518, 410, 173, 224};
         for (auto i = 0U; i < expected.size(); i++) {
                 const auto& cp = m_geo_grid[i]->CRefPools(Id::SecondaryCommunity);
-                EXPECT_EQ(expected[i] * PoolParams<Id::SecondaryCommunity>::pools, cp.size());
+                EXPECT_EQ(expected[i] * m_ppsc, cp.size());
         }
 }
 

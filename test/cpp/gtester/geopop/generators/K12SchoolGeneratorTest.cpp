@@ -18,7 +18,6 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/PoolParams.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
@@ -37,7 +36,7 @@ class K12SchoolGeneratorTest : public testing::Test
 {
 public:
         K12SchoolGeneratorTest()
-            : m_rn_man(RnInfo()), m_k12school_generator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+            : m_rn_man(RnInfo()), m_k12school_generator(m_rn_man), m_gg_config(), m_pop(Population::Create()),
               m_geo_grid(m_pop.get())
         {
         }
@@ -45,33 +44,34 @@ public:
 protected:
         RnMan                  m_rn_man;
         K12SchoolGenerator     m_k12school_generator;
-        GeoGridConfig          m_geogrid_config;
+        GeoGridConfig          m_gg_config;
         shared_ptr<Population> m_pop;
         GeoGrid                m_geo_grid;
+        unsigned int           m_ppk12 = m_gg_config.pools[Id::K12School];
 };
 
 // Check that generator can handle one Location.
 TEST_F(K12SchoolGeneratorTest, OneLocationTest)
 {
-        m_geogrid_config.param.pop_size             = 10000;
-        m_geogrid_config.info.popcount_k12school = 2000;
+        m_gg_config.param.pop_size             = 10000;
+        m_gg_config.info.popcount_k12school = 2000;
 
         auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500);
         m_geo_grid.AddLocation(loc1);
 
-        m_k12school_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_k12school_generator.Apply(m_geo_grid, m_gg_config);
 
         const auto& poolsOfLoc1 = loc1->CRefPools(Id::K12School);
-        EXPECT_EQ(poolsOfLoc1.size(), 4 * PoolParams<Id::K12School>::pools);
+        EXPECT_EQ(poolsOfLoc1.size(), 4 * m_ppk12);
 }
 
 // Check that generator can handle empty GeoGrid.
 TEST_F(K12SchoolGeneratorTest, ZeroLocationTest)
 {
-        m_geogrid_config.param.pop_size             = 10000;
-        m_geogrid_config.info.popcount_k12school = 2000;
+        m_gg_config.param.pop_size             = 10000;
+        m_gg_config.info.popcount_k12school = 2000;
 
-        m_k12school_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_k12school_generator.Apply(m_geo_grid, m_gg_config);
 
         EXPECT_EQ(m_geo_grid.size(), 0);
 }
@@ -79,8 +79,8 @@ TEST_F(K12SchoolGeneratorTest, ZeroLocationTest)
 // Check that generator can handle five Locations.
 TEST_F(K12SchoolGeneratorTest, FiveLocationsTest)
 {
-        m_geogrid_config.param.pop_size             = 37542 * 100;
-        m_geogrid_config.info.popcount_k12school = 750840;
+        m_gg_config.param.pop_size             = 37542 * 100;
+        m_gg_config.info.popcount_k12school = 750840;
 
         auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 10150 * 100);
         auto loc2 = make_shared<Location>(1, 4, Coordinate(0, 0), "Vlaams-Brabant", 10040 * 100);
@@ -96,15 +96,14 @@ TEST_F(K12SchoolGeneratorTest, FiveLocationsTest)
 
         for (const auto& loc : m_geo_grid) {
                 loc->SetPopFraction(static_cast<double>(loc->GetPopCount()) /
-                                    static_cast<double>(m_geogrid_config.param.pop_size));
+                                    static_cast<double>(m_gg_config.param.pop_size));
         }
 
-        m_k12school_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_k12school_generator.Apply(m_geo_grid, m_gg_config);
 
         array<unsigned int, 5> sizes{444, 416, 330, 133, 179};
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(sizes[i] * PoolParams<Id::K12School>::pools,
-                          m_geo_grid[i]->CRefPools(Id::K12School).size());
+                EXPECT_EQ(sizes[i] * m_ppk12, m_geo_grid[i]->CRefPools(Id::K12School).size());
         }
 }
 

@@ -15,8 +15,6 @@
 
 #include "Generator.h"
 
-#include "geopop/GeoGridConfig.h"
-#include "geopop/PoolParams.h"
 #include "util/Assert.h"
 
 namespace geopop {
@@ -26,11 +24,11 @@ using namespace stride;
 using namespace stride::ContactType;
 
 template<>
-void Generator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+void Generator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig)
 {
-        const auto studentCount = geoGridConfig.info.popcount_college;
+        const auto studentCount = ggConfig.info.popcount_college;
         const auto collegeCount =
-            static_cast<unsigned int>(ceil(studentCount / static_cast<double>(PoolParams<Id::College>::people)));
+            static_cast<unsigned int>(ceil(studentCount / static_cast<double>(ggConfig.people[Id::College])));
         const auto cities = geoGrid.TopK(10);
 
         if (cities.empty()) {
@@ -58,7 +56,7 @@ void Generator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const 
 
         for (auto i = 0U; i < collegeCount; i++) {
                 auto loc = cities[dist()];
-                AddPools(*loc, pop);
+                AddPools(*loc, pop, ggConfig);
         }
 }
 

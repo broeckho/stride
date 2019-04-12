@@ -17,7 +17,7 @@
 
 #include "contact/ContactType.h"
 
-#include "geopop/PoolParams.h"
+#include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
@@ -28,7 +28,7 @@
 namespace geopop {
 
 class GeoGrid;
-class GeoGridConfig;
+
 
 /**
  * Generator uses geo & pop data to construct ContactPools in the GeoGrid.
@@ -52,10 +52,10 @@ public:
         void Apply(GeoGrid&, const GeoGridConfig&) {}
 
         /// Create a given number ContactPools in the GeoGrid.
-        void AddPools(Location& loc, stride::Population* pop)
+        void AddPools(Location& loc, stride::Population* pop, const GeoGridConfig& ggConfig)
         {
                 auto& poolSys = pop->RefPoolSys();
-                for (auto i = 0U; i < PoolParams<ID>::pools; ++i) {
+                for (auto i = 0U; i < ggConfig.pools[ID]; ++i) {
                         const auto p = poolSys.CreateContactPool(ID);
                         loc.RegisterPool<ID>(p);
                 }
@@ -70,22 +70,22 @@ protected:
 // Declare specializations (implemntation in separate .cpp files).
 // ---------------------------------------------------------------
 template<>
-void Generator<stride::ContactType::Id::K12School>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Generator<stride::ContactType::Id::K12School>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 template<>
-void Generator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Generator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 template<>
-void Generator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Generator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 template<>
-void Generator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Generator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 template<>
-void Generator<stride::ContactType::Id::PrimaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Generator<stride::ContactType::Id::PrimaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 template<>
-void Generator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig);
+void Generator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
 
 // ---------------------------------------------------------------
 // Shorthand definitions.

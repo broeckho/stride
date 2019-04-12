@@ -18,7 +18,6 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/PoolParams.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
@@ -37,7 +36,7 @@ class WorkplaceGeneratorTest : public testing::Test
 {
 public:
         WorkplaceGeneratorTest()
-            : m_rn_man(RnInfo()), m_workplace_generator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+            : m_rn_man(RnInfo()), m_workplace_generator(m_rn_man), m_gg_config(), m_pop(Population::Create()),
               m_geo_grid(m_pop.get())
         {
         }
@@ -45,17 +44,18 @@ public:
 protected:
         RnMan                  m_rn_man;
         WorkplaceGenerator     m_workplace_generator;
-        GeoGridConfig          m_geogrid_config;
+        GeoGridConfig          m_gg_config;
         shared_ptr<Population> m_pop;
         GeoGrid                m_geo_grid;
+        unsigned int            m_ppwp = m_gg_config.pools[Id::Workplace];
 };
 
 // Check that generator can handle empty GeoGrid.
 TEST_F(WorkplaceGeneratorTest, ZeroLocationTest)
 {
-        m_geogrid_config.param.pop_size           = 10000;
-        m_geogrid_config.info.popcount_college = 20000;
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_gg_config.param.pop_size           = 10000;
+        m_gg_config.info.popcount_college = 20000;
+        m_workplace_generator.Apply(m_geo_grid, m_gg_config);
 
         EXPECT_EQ(m_geo_grid.size(), 0);
 }
@@ -63,10 +63,10 @@ TEST_F(WorkplaceGeneratorTest, ZeroLocationTest)
 // Check that situation without commutes is OK.
 TEST_F(WorkplaceGeneratorTest, NoCommuting)
 {
-        m_geogrid_config.param.pop_size                     = 5 * 1000 * 1000;
-        m_geogrid_config.info.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
-        m_geogrid_config.param.particpation_workplace       = 0.20;
-        m_geogrid_config.param.fraction_workplace_commuters = 0;
+        m_gg_config.param.pop_size                     = 5 * 1000 * 1000;
+        m_gg_config.info.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        m_gg_config.param.particpation_workplace       = 0.20;
+        m_gg_config.param.fraction_workplace_commuters = 0;
 
         array<unsigned int, 50> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
                                       63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
@@ -76,7 +76,7 @@ TEST_F(WorkplaceGeneratorTest, NoCommuting)
         for (const auto size : sizes) {
                 m_geo_grid.AddLocation(make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size));
         }
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_workplace_generator.Apply(m_geo_grid, m_gg_config);
 
         array<unsigned int, sizes.size()> expected{1342, 512,  1948, 1801, 1919, 1087, 1304, 6,    1133, 1728,
                                                    646,  441,  450,  1643, 1897, 1410, 810,  382,  1192, 1688,
@@ -85,18 +85,17 @@ TEST_F(WorkplaceGeneratorTest, NoCommuting)
                                                    1355, 594,  104,  1298, 136,  94,   140,  500,  588,  1663};
 
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i] * PoolParams<Id::Workplace>::pools,
-                          m_geo_grid[i]->CRefPools(Id::Workplace).size());
+                EXPECT_EQ(expected[i] * m_ppwp, m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
 
 // As many commutes from A to B as from B to A.
 TEST_F(WorkplaceGeneratorTest, NullCommuting)
 {
-        m_geogrid_config.param.pop_size                     = 5 * 1000 * 1000;
-        m_geogrid_config.info.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
-        m_geogrid_config.param.particpation_workplace       = 0.20;
-        m_geogrid_config.param.fraction_workplace_commuters = 0.10;
+        m_gg_config.param.pop_size                     = 5 * 1000 * 1000;
+        m_gg_config.info.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        m_gg_config.param.particpation_workplace       = 0.20;
+        m_gg_config.param.fraction_workplace_commuters = 0.10;
 
         array<unsigned int, 50> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
                                       63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
@@ -115,12 +114,12 @@ TEST_F(WorkplaceGeneratorTest, NullCommuting)
         m_geo_grid[1]->AddOutgoingCommute(m_geo_grid[0], 0.252697700063012); // 0.25 is relative to loc1
         m_geo_grid[0]->AddIncomingCommute(m_geo_grid[1], 0.252697700063012); // 0.25 is relative to loc1
 
-        EXPECT_EQ(1283, m_geo_grid[0]->GetIncomingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
-        EXPECT_EQ(1283, m_geo_grid[0]->GetOutgoingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
-        EXPECT_EQ(1283, m_geo_grid[1]->GetIncomingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
-        EXPECT_EQ(1283, m_geo_grid[1]->GetOutgoingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(1283, m_geo_grid[0]->GetIncomingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(1283, m_geo_grid[0]->GetOutgoingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(1283, m_geo_grid[1]->GetIncomingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(1283, m_geo_grid[1]->GetOutgoingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
 
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_workplace_generator.Apply(m_geo_grid, m_gg_config);
 
         array<unsigned int, sizes.size()> expected{1351, 521,  1960, 1798, 1907, 1088, 1301, 5,    1134, 1739,
                                                    644,  431,  447,  1650, 1894, 1409, 809,  377,  1198, 1685,
@@ -128,17 +127,16 @@ TEST_F(WorkplaceGeneratorTest, NullCommuting)
                                                    446,  1754, 1169, 263,  1194, 1456, 1058, 594,  793,  869,
                                                    1356, 591,  105,  1297, 136,  95,   139,  499,  588,  1663};
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i] * PoolParams<Id::Workplace>::pools,
-                          m_geo_grid[i]->CRefPools(Id::Workplace).size());
+                EXPECT_EQ(expected[i] * m_ppwp, m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
 
 TEST_F(WorkplaceGeneratorTest, TenCommuting)
 {
-        m_geogrid_config.param.pop_size                     = 5 * 1000 * 1000;
-        m_geogrid_config.info.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
-        m_geogrid_config.param.particpation_workplace       = 0.20;
-        m_geogrid_config.param.fraction_workplace_commuters = 0.10;
+        m_gg_config.param.pop_size                     = 5 * 1000 * 1000;
+        m_gg_config.info.popcount_workplace         = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        m_gg_config.param.particpation_workplace       = 0.20;
+        m_gg_config.param.fraction_workplace_commuters = 0.10;
 
         array<unsigned int, 50> sizes{128331, 50784,  191020, 174476, 186595, 105032, 136388, 577,   111380, 171014,
                                       63673,  49438,  45590,  164666, 185249, 141389, 82525,  40397, 123307, 168128,
@@ -159,40 +157,40 @@ TEST_F(WorkplaceGeneratorTest, TenCommuting)
         }
 
         // = 0,23 * 128331 * 0,10 = 2951,613
-        EXPECT_EQ(2951, m_geo_grid[0]->GetOutgoingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
-        EXPECT_EQ(0, m_geo_grid[0]->GetIncomingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(2951, m_geo_grid[0]->GetOutgoingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(0, m_geo_grid[0]->GetIncomingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
 
         // = 0,25 * 63673 * 0,10 = 1591,825
-        EXPECT_EQ(1591, m_geo_grid[10]->GetOutgoingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(1591, m_geo_grid[10]->GetOutgoingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
 
         // = 0,23 * 128331 * 0,10 = 2951,613
-        EXPECT_EQ(2951, m_geo_grid[10]->GetIncomingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(2951, m_geo_grid[10]->GetIncomingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
 
         // = 0,43 * 116959 * 0,10 = 5029,023
-        EXPECT_EQ(5029, m_geo_grid[25]->GetOutgoingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
-        EXPECT_EQ(0, m_geo_grid[25]->GetIncomingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
-        EXPECT_EQ(0, m_geo_grid[3]->GetOutgoingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(5029, m_geo_grid[25]->GetOutgoingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(0, m_geo_grid[25]->GetIncomingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(0, m_geo_grid[3]->GetOutgoingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
 
         // = 0,43 * 116959 * 0,10 = 5029,023
-        EXPECT_EQ(5029, m_geo_grid[3]->GetIncomingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
-        EXPECT_EQ(0, m_geo_grid[17]->GetOutgoingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(5029, m_geo_grid[3]->GetIncomingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(0, m_geo_grid[17]->GetOutgoingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
 
         // = 0,10 * (0,65 * 76946 + 0,22 * 141389 + 0,47 * 20775 + 0,25*63673) = 10680,298
-        EXPECT_EQ(10680, m_geo_grid[17]->GetIncomingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(10680, m_geo_grid[17]->GetIncomingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
 
         // = 0,65 * 76946 * 0,10 = 5001,048
-        EXPECT_EQ(5001, m_geo_grid[38]->GetOutgoingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
-        EXPECT_EQ(0, m_geo_grid[38]->GetIncomingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(5001, m_geo_grid[38]->GetOutgoingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(0, m_geo_grid[38]->GetIncomingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
 
         // 0,22 * 141389 * 0,10 = 3310,558
-        EXPECT_EQ(3110, m_geo_grid[15]->GetOutgoingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
-        EXPECT_EQ(0, m_geo_grid[15]->GetIncomingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
-        EXPECT_EQ(0, m_geo_grid[17]->GetOutgoingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(3110, m_geo_grid[15]->GetOutgoingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(0, m_geo_grid[15]->GetIncomingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(0, m_geo_grid[17]->GetOutgoingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
 
         // = 0,10 * (0,65 * 76946 + 0,22  * 141389 + 0,47 * 20775 + 0,25* 63673) = 10680,298
-        EXPECT_EQ(10680, m_geo_grid[17]->GetIncomingCommuteCount(m_geogrid_config.param.fraction_workplace_commuters));
+        EXPECT_EQ(10680, m_geo_grid[17]->GetIncomingCommuteCount(m_gg_config.param.fraction_workplace_commuters));
 
-        m_workplace_generator.Apply(m_geo_grid, m_geogrid_config);
+        m_workplace_generator.Apply(m_geo_grid, m_gg_config);
 
         array<unsigned int, sizes.size()> expected{1328,  516, 1941, 1850, 1906, 1087, 1297,   6, 1132, 1727,
                                                     671,  428,  447, 1647, 1896, 1394,  810, 464, 1220, 1682,
@@ -201,8 +199,7 @@ TEST_F(WorkplaceGeneratorTest, TenCommuting)
                                                    1355,  589,  101, 1291,  142,   93,  132, 507,  584, 1659};
 
         for (auto i = 0U; i < sizes.size(); i++) {
-                EXPECT_EQ(expected[i] * PoolParams<Id::Workplace>::pools,
-                          m_geo_grid[i]->CRefPools(Id::Workplace).size());
+                EXPECT_EQ(expected[i] * m_ppwp, m_geo_grid[i]->CRefPools(Id::Workplace).size());
         }
 }
 

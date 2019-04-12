@@ -16,6 +16,7 @@
 #include "GeoGridConfig.h"
 
 #include "contact/AgeBrackets.h"
+#include "contact/ContactType.h"
 #include "geopop/io/HouseholdReader.h"
 #include "geopop/io/ReaderFactory.h"
 #include "util/StringUtils.h"
@@ -29,17 +30,28 @@ namespace geopop {
 using namespace std;
 using namespace boost::property_tree;
 using namespace stride::AgeBrackets;
+using namespace stride::ContactType;
 using stride::util::intToDottedString;
 
 GeoGridConfig::GeoGridConfig() : param{}, refHH{}, info{} {}
 
 GeoGridConfig::GeoGridConfig(const ptree& configPt) : GeoGridConfig()
 {
-        param.pop_size                     = configPt.get<unsigned int>("run.geopop_gen.population_size");
-        param.participation_college        = configPt.get<double>("run.geopop_gen.participation_college");
-        param.fraction_workplace_commuters = configPt.get<double>("run.geopop_gen.fraction_workplace_commuters");
-        param.fraction_college_commuters   = configPt.get<double>("run.geopop_gen.fraction_college_commuters");
-        param.particpation_workplace       = configPt.get<double>("run.geopop_gen.particpation_workplace");
+        const auto pt = configPt.get_child("run.geopop_gen");
+        param.pop_size                     = pt.get<unsigned int>("population_size");
+        param.participation_college        = pt.get<double>("participation_college");
+        param.fraction_workplace_commuters = pt.get<double>("fraction_workplace_commuters");
+        param.fraction_college_commuters   = pt.get<double>("fraction_college_commuters");
+        param.particpation_workplace       = pt.get<double>("particpation_workplace");
+
+        people[Id::K12School]              = pt.get<unsigned int>("people_per_K12School", 500U);
+        people[Id::College]                = pt.get<unsigned int>("people_per_College", 3000U);
+        people[Id::Workplace]              = pt.get<unsigned int>("people_per_Workplace", 20U);
+        people[Id::PrimaryCommunity]       = pt.get<unsigned int>("people_per_PrimaryCommunity", 2000U);
+        people[Id::SecondaryCommunity]     = pt.get<unsigned int>("people_per_SecondaryCommunity", 2000U);
+
+        pools[Id::K12School]              = pt.get<unsigned int>("pools_per_K12School", 25U);
+        pools[Id::College]                = pt.get<unsigned int>("pools_per_College", 20U);
 }
 
 void GeoGridConfig::SetData(const string& householdsFileName)

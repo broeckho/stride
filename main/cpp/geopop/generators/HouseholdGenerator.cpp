@@ -15,8 +15,6 @@
 
 #include "Generator.h"
 
-#include "geopop/GeoGridConfig.h"
-
 namespace geopop {
 
 using namespace std;
@@ -24,7 +22,7 @@ using namespace stride;
 using namespace stride::ContactType;
 
 template<>
-void Generator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+void Generator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig)
 {
         vector<double> weights;
         for (const auto& loc : geoGrid) {
@@ -39,9 +37,9 @@ void Generator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, cons
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
         auto       pop  = geoGrid.GetPopulation();
 
-        for (auto i = 0U; i < geoGridConfig.info.count_households; i++) {
+        for (auto i = 0U; i < ggConfig.info.count_households; i++) {
                 const auto loc = geoGrid[dist()];
-                AddPools(*loc, pop);
+                AddPools(*loc, pop, ggConfig);
         }
 }
 
