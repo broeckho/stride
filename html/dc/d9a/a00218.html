@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: InfectedFile.h File Reference</title>
+<title>Stride Reference Manual: InfectorExec.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -105,65 +105,68 @@ $(document).ready(function(){initNavTree('dc/d9a/a00218.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">InfectedFile.h File Reference</div>  </div>
+<div class="title">InfectorExec.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the InfectedFile class.  
+<p>Header for the InfectorExec class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;spdlog/spdlog.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for InfectedFile.h:</div>
+Include dependency graph for InfectorExec.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d58/a00481.gif" border="0" usemap="#InfectedFile_8h" alt=""/></div>
-<map name="InfectedFile_8h" id="InfectedFile_8h">
+<div class="center"><img src="../../d8/d89/a00484.gif" border="0" usemap="#InfectorExec_8h" alt=""/></div>
+<map name="InfectorExec_8h" id="InfectorExec_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d8e/a00482.gif" border="0" usemap="#InfectedFile_8hdep" alt=""/></div>
-<map name="InfectedFile_8hdep" id="InfectedFile_8hdep">
-<area shape="rect" id="node2" href="../../df/d24/a00217.html" title="Implementation of the CasesFile class. " alt="" coords="5,80,125,107"/>
-<area shape="rect" id="node3" href="../../d5/d0b/a00220.html" title="Observer for Infected output. " alt="" coords="149,80,296,107"/>
-<area shape="rect" id="node4" href="../../d3/d65/a00154.html" title="Header for the command line controller. " alt="" coords="68,155,204,181"/>
-<area shape="rect" id="node5" href="../../dd/df3/a00219.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="229,155,390,181"/>
+<div class="center"><img src="../../d6/d1a/a00485.gif" border="0" usemap="#InfectorExec_8hdep" alt=""/></div>
+<map name="InfectorExec_8hdep" id="InfectorExec_8hdep">
+<area shape="rect" id="node2" href="../../dd/df3/a00219.html" title="Header for the InfectorMap. " alt="" coords="24,80,133,107"/>
+<area shape="rect" id="node4" href="../../da/d53/a00265.html" title="Header for the Simulator class. " alt="" coords="667,80,725,107"/>
+<area shape="rect" id="node7" href="../../d3/dcc/a00264.html" title="Implementation for the Simulator class. " alt="" coords="147,155,221,181"/>
+<area shape="rect" id="node3" href="../../d5/d35/a00266.html" title="Implementation for the SimBuilder class. " alt="" coords="5,155,123,181"/>
+<area shape="rect" id="node5" href="../../db/d12/a00268.html" title="Header for the command line controller. " alt="" coords="629,155,763,181"/>
+<area shape="rect" id="node6" href="../../d0/d19/a00273.html" title="Header for the command line controller. " alt="" coords="787,155,927,181"/>
+<area shape="rect" id="node8" href="../../d9/d2a/a00270.html" title="Implementation for SimRunner. " alt="" coords="952,155,1069,181"/>
+<area shape="rect" id="node9" href="../../d9/d47/a00129.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1093,155,1198,181"/>
+<area shape="rect" id="node10" href="../../dd/dc1/a00212.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1222,155,1383,181"/>
+<area shape="rect" id="node11" href="../../d3/dd1/a00214.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1408,155,1549,181"/>
+<area shape="rect" id="node12" href="../../d2/dc8/a00242.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="245,155,406,181"/>
+<area shape="rect" id="node13" href="../../dd/dfe/a00283.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="431,155,604,181"/>
 </map>
 </div>
 </div>
 <p><a href="../../dc/d9a/a00218_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5d/a00084.html">stride::output::InfectedFile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with daily count of infected persons.  <a href="../../df/d5d/a00084.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d8f/a00324"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">stride</a></td></tr>
-<tr class="memdesc:d4/d8f/a00324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d3/db8/a00316"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db8/a00316.html">stride</a></td></tr>
+<tr class="memdesc:d3/db8/a00316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d4/db5/a00328"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/a00328.html">stride::output</a></td></tr>
-<tr class="memdesc:d4/db5/a00328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a5e7b27e9cd0a9f422bfc9f310bc5f13d"><td class="memItemLeft" align="right" valign="top">typedef void(&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db8/a00316.html#a5e7b27e9cd0a9f422bfc9f310bc5f13d">stride::InfectorExec</a>) (ContactPool &amp;pool, const AgeContactProfile &amp;profile, const TransmissionProfile &amp;trans_profile, ContactHandler &amp;c_handler, unsigned short int sim_day, std::shared_ptr&lt; spdlog::logger &gt; c_logger)</td></tr>
+<tr class="memdesc:a5e7b27e9cd0a9f422bfc9f310bc5f13d"><td class="mdescLeft">&#160;</td><td class="mdescRight">For use in the <a class="el" href="../../db/df8/a00076.html" title="Mechanism to select the appropriate Infector template to execute. ">InfectorMap</a> and <a class="el" href="../../d2/d1f/a00083.html" title="Simulator can time step and reveal some of the key data. ">Sim</a>; executes infector.  <a href="../../d3/db8/a00316.html#a5e7b27e9cd0a9f422bfc9f310bc5f13d">More...</a><br /></td></tr>
+<tr class="separator:a5e7b27e9cd0a9f422bfc9f310bc5f13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the InfectedFile class. </p>
+<div class="textblock"><p>Header for the InfectorExec class. </p>
 
-<p>Definition in file <a class="el" href="../../dc/d9a/a00218_source.html">InfectedFile.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dc/d9a/a00218_source.html">InfectorExec.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../dc/d9a/a00218.html">InfectedFile.h</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../dc/d9a/a00218.html">InfectorExec.h</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:00 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

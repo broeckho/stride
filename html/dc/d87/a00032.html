@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: geopop::PoolParams&lt; ID &gt; Struct Template Reference</title>
+<title>Stride Reference Manual: geopop::Populator&lt; ID &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -106,39 +106,677 @@ $(document).ready(function(){initNavTree('dc/d87/a00032.html','../../');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="../../d8/d33/a00699.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">geopop::PoolParams&lt; ID &gt; Struct Template Reference</div>  </div>
+<div class="title">geopop::Populator&lt; ID &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Config params for ContactPools (constants for now at least): &lt;people&gt; is the number of Persons per unit (college, workplace, etc.), while &lt;pools&gt; is the number of ContactPools per unit.  
+<p><a class="el" href="../../dc/d87/a00032.html" title="Populator uses geo &amp; pop data to populate ContactPools in the GeoGrid. ">Populator</a> uses geo &amp; pop data to populate ContactPools in the <a class="el" href="../../df/d86/a00012.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>.  
  <a href="../../dc/d87/a00032.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d3/d1a/a00251_source.html">PoolParams.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d4/d9a/a00246_source.html">Populator.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for geopop::PoolParams&lt; ID &gt;:</div>
+Collaboration diagram for geopop::Populator&lt; ID &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d7e/a00709.gif" border="0" usemap="#geopop_1_1PoolParams_3_01ID_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="geopop_1_1PoolParams_3_01ID_01_4_coll__map" id="geopop_1_1PoolParams_3_01ID_01_4_coll__map">
+<div class="center"><img src="../../d0/d15/a00700.gif" border="0" usemap="#geopop_1_1Populator_3_01ID_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="geopop_1_1Populator_3_01ID_01_4_coll__map" id="geopop_1_1Populator_3_01ID_01_4_coll__map">
+<area shape="rect" id="node3" href="../../d5/d1e/a00103.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ MakeWeightedCoinFlip()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,145,381,369"/>
 </map>
 </div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:acd520f78994929ac5489ecd1f2e5c96f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#acd520f78994929ac5489ecd1f2e5c96f">Populator</a> (<a class="el" href="../../d5/d1e/a00103.html">stride::util::RnMan</a> &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; logger=nullptr)</td></tr>
+<tr class="memdesc:acd520f78994929ac5489ecd1f2e5c96f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with a RnMan and a logger.  <a href="#acd520f78994929ac5489ecd1f2e5c96f">More...</a><br /></td></tr>
+<tr class="separator:acd520f78994929ac5489ecd1f2e5c96f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20dc4554176fc13bc20c7d528114bb98"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a20dc4554176fc13bc20c7d528114bb98">~Populator</a> ()=default</td></tr>
+<tr class="memdesc:a20dc4554176fc13bc20c7d528114bb98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default is OK.  <a href="#a20dc4554176fc13bc20c7d528114bb98">More...</a><br /></td></tr>
+<tr class="separator:a20dc4554176fc13bc20c7d528114bb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ee46a78b8135e9e9f3053aeaec2256b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a0ee46a78b8135e9e9f3053aeaec2256b">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;)</td></tr>
+<tr class="memdesc:a0ee46a78b8135e9e9f3053aeaec2256b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the ContactPools type ID. This is a placeholder for the specializations.  <a href="#a0ee46a78b8135e9e9f3053aeaec2256b">More...</a><br /></td></tr>
+<tr class="separator:a0ee46a78b8135e9e9f3053aeaec2256b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aba88d9a2331b1628cb583b709c067e"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a3aba88d9a2331b1628cb583b709c067e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a3aba88d9a2331b1628cb583b709c067e">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;geoGridConfig)</td></tr>
+<tr class="separator:a3aba88d9a2331b1628cb583b709c067e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ef58e6d2a59a356c3993b7f88900a2b"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a5ef58e6d2a59a356c3993b7f88900a2b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a5ef58e6d2a59a356c3993b7f88900a2b">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;geoGridConfig)</td></tr>
+<tr class="separator:a5ef58e6d2a59a356c3993b7f88900a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeb8965e8223e8d4d60763c4e4966582"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:afeb8965e8223e8d4d60763c4e4966582"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#afeb8965e8223e8d4d60763c4e4966582">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;)</td></tr>
+<tr class="separator:afeb8965e8223e8d4d60763c4e4966582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031e25c616e8ffc13b56b3a738a55127"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a031e25c616e8ffc13b56b3a738a55127"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a031e25c616e8ffc13b56b3a738a55127">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;ggConfig)</td></tr>
+<tr class="separator:a031e25c616e8ffc13b56b3a738a55127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83393ca3cc296bc14dcf22dd88020b56"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a83393ca3cc296bc14dcf22dd88020b56"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a83393ca3cc296bc14dcf22dd88020b56">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;ggConfig)</td></tr>
+<tr class="separator:a83393ca3cc296bc14dcf22dd88020b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d7f90458d89e401380c48d819167b2b"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a1d7f90458d89e401380c48d819167b2b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a1d7f90458d89e401380c48d819167b2b">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;ggConfig)</td></tr>
+<tr class="separator:a1d7f90458d89e401380c48d819167b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefefa24f85612910717822d18ec12b56"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:aefefa24f85612910717822d18ec12b56"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#aefefa24f85612910717822d18ec12b56">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;ggConfig)</td></tr>
+<tr class="separator:aefefa24f85612910717822d18ec12b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae2c4fde305df09d2d7554d28f8da02b"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:aae2c4fde305df09d2d7554d28f8da02b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#aae2c4fde305df09d2d7554d28f8da02b">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;ggConfig)</td></tr>
+<tr class="separator:aae2c4fde305df09d2d7554d28f8da02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a641e73e3506acaa3a6c2d6c2eeccfb"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a6a641e73e3506acaa3a6c2d6c2eeccfb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a6a641e73e3506acaa3a6c2d6c2eeccfb">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;ggConfig)</td></tr>
+<tr class="separator:a6a641e73e3506acaa3a6c2d6c2eeccfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c3adf19c35d4a0a47efff65e872e333"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a1c3adf19c35d4a0a47efff65e872e333"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a1c3adf19c35d4a0a47efff65e872e333">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;)</td></tr>
+<tr class="separator:a1c3adf19c35d4a0a47efff65e872e333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b0c4dd184ea0d62d08a384c7cd99da5"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a4b0c4dd184ea0d62d08a384c7cd99da5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a4b0c4dd184ea0d62d08a384c7cd99da5">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;)</td></tr>
+<tr class="separator:a4b0c4dd184ea0d62d08a384c7cd99da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa96d254528a29c367494d8c358864a8e"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:aa96d254528a29c367494d8c358864a8e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#aa96d254528a29c367494d8c358864a8e">Apply</a> (<a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;geoGridConfig)</td></tr>
+<tr class="separator:aa96d254528a29c367494d8c358864a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a01539d0d361973a359b2c24919934f33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d1e/a00103.html">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a01539d0d361973a359b2c24919934f33">m_rn_man</a></td></tr>
+<tr class="memdesc:a01539d0d361973a359b2c24919934f33"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by populators.  <a href="#a01539d0d361973a359b2c24919934f33">More...</a><br /></td></tr>
+<tr class="separator:a01539d0d361973a359b2c24919934f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07b67c5e6ac0efe724af8f0fefa462ad"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a07b67c5e6ac0efe724af8f0fefa462ad">m_logger</a></td></tr>
+<tr class="memdesc:a07b67c5e6ac0efe724af8f0fefa462ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by populators.  <a href="#a07b67c5e6ac0efe724af8f0fefa462ad">More...</a><br /></td></tr>
+<tr class="separator:a07b67c5e6ac0efe724af8f0fefa462ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;stride::ContactType::Id ID&gt;<br />
-struct geopop::PoolParams&lt; ID &gt;</h3>
+<div class="textblock"><h3>template&lt;typename stride::ContactType::Id ID&gt;<br />
+class geopop::Populator&lt; ID &gt;</h3>
 
-<p>Config params for ContactPools (constants for now at least): &lt;people&gt; is the number of Persons per unit (college, workplace, etc.), while &lt;pools&gt; is the number of ContactPools per unit. </p>
+<p><a class="el" href="../../dc/d87/a00032.html" title="Populator uses geo &amp; pop data to populate ContactPools in the GeoGrid. ">Populator</a> uses geo &amp; pop data to populate ContactPools in the <a class="el" href="../../df/d86/a00012.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d3/d1a/a00251_source.html#l00028">28</a> of file <a class="el" href="../../d3/d1a/a00251_source.html">PoolParams.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../d3/d1a/a00251_source.html">PoolParams.h</a></li>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00036">36</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Populator.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="acd520f78994929ac5489ecd1f2e5c96f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename stride::ContactType::Id ID&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; ID &gt;::<a class="el" href="../../dc/d87/a00032.html">Populator</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/a00103.html">stride::util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnMan</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct with a RnMan and a logger. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00040">40</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Populator.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/de1/a00233_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00055">geopop::Populator&lt; ID &gt;::m_logger</a>, and <a class="el" href="../../dc/d87/a00032.html#a20dc4554176fc13bc20c7d528114bb98">geopop::Populator&lt; ID &gt;::~Populator()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d87/a00032_acd520f78994929ac5489ecd1f2e5c96f_cgraph.gif" border="0" usemap="#dc/d87/a00032_acd520f78994929ac5489ecd1f2e5c96f_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_acd520f78994929ac5489ecd1f2e5c96f_cgraph" id="dc/d87/a00032_acd520f78994929ac5489ecd1f2e5c96f_cgraph">
+<area shape="rect" id="node2" href="../../d4/d3a/a00101.html#af8edb0cd2ef9049e0347f06e73ae57c2" title="Return a (not&#45;yet&#45;registered) null logger, without registering it. " alt="" coords="201,5,345,47"/>
+<area shape="rect" id="node3" href="../../dc/d87/a00032.html#a20dc4554176fc13bc20c7d528114bb98" title="Default is OK. " alt="" coords="200,71,347,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a20dc4554176fc13bc20c7d528114bb98"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename stride::ContactType::Id ID&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; ID &gt;::~<a class="el" href="../../dc/d87/a00032.html">Populator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default is OK. </p>
+
+<p>Referenced by <a class="el" href="../../d4/d9a/a00246_source.html#l00040">geopop::Populator&lt; ID &gt;::Populator()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d87/a00032_a20dc4554176fc13bc20c7d528114bb98_icgraph.gif" border="0" usemap="#dc/d87/a00032_a20dc4554176fc13bc20c7d528114bb98_icgraph" alt=""/></div>
+<map name="dc/d87/a00032_a20dc4554176fc13bc20c7d528114bb98_icgraph" id="dc/d87/a00032_a20dc4554176fc13bc20c7d528114bb98_icgraph">
+<area shape="rect" id="node2" href="../../dc/d87/a00032.html#acd520f78994929ac5489ecd1f2e5c96f" title="Construct with a RnMan and a logger. " alt="" coords="200,5,347,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a0ee46a78b8135e9e9f3053aeaec2256b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename stride::ContactType::Id ID&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; ID &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Populate the ContactPools type ID. This is a placeholder for the specializations. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00051">51</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Populator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3aba88d9a2331b1628cb583b709c067e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462a2806259c227f694c678ec9444aec2042">stride::ContactType::Id::College</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d5/deb/a00132_source.html#l00033">33</a> of file <a class="el" href="../../d5/deb/a00132_source.html">CollegePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dc/dfe/a00125_source.html#l00068">AssertThrow</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00067">geopop::GeoGridConfig::fraction_college_commuters</a>, <a class="el" href="../../dd/d1b/a00015.html#a94643f701d8a4359bf23a937ce33ee1e">geopop::GeoGridConfig::param</a>, and <a class="el" href="../../d8/df1/a00174_source.html#l00060">geopop::GeoGridConfig::participation_college</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ef58e6d2a59a356c3993b7f88900a2b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462aea4be67641b70cfa3fec0f86ea7f239b">stride::ContactType::Id::Household</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00029">29</a> of file <a class="el" href="../../dd/de3/a00201_source.html">HouseholdPopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00085">geopop::GeoGridConfig::ages</a>, <a class="el" href="../../d6/d08/a00244_source.html#l00108">stride::Population::CreatePerson()</a>, <a class="el" href="../../d1/d0d/a00171_source.html#l00063">geopop::GeoGrid::GetPopulation()</a>, and <a class="el" href="../../dd/d1b/a00015.html#a9662b39487348642124af214d4c6ca82">geopop::GeoGridConfig::refHH</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d87/a00032_a5ef58e6d2a59a356c3993b7f88900a2b_cgraph.gif" border="0" usemap="#dc/d87/a00032_a5ef58e6d2a59a356c3993b7f88900a2b_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_a5ef58e6d2a59a356c3993b7f88900a2b_cgraph" id="dc/d87/a00032_a5ef58e6d2a59a356c3993b7f88900a2b_cgraph">
+<area shape="rect" id="node2" href="../../d8/d53/a00081.html#a04a055ac18fa585bec4a8b32be5d5fbd" title="Create Person in the population. " alt="" coords="247,37,381,79"/>
+<area shape="rect" id="node5" href="../../df/d86/a00012.html#adb9b0f349282a7dca217e604799fb606" title="Get the Population associated with this GeoGrid. " alt="" coords="200,159,428,186"/>
+<area shape="rect" id="node3" href="../../d3/dea/a00046.html#a2cd11f9b95b20b69378fc9268c380096" title="Constructs element in&#45;place at the end. " alt="" coords="479,9,715,51"/>
+<area shape="rect" id="node4" href="../../d3/dea/a00046.html#a4f98e9e54da37bbf7c6ed0c2b40361d9" title="Get next available chunk for element construction with placement new. " alt="" coords="765,5,975,47"/>
+<area shape="rect" id="node6" href="../../df/d86/a00012.html#a63e088928a2b54e738d552bb6a61d157" title="Build a GeoAggregator with a predefined functor and given args for the Policy. " alt="" coords="476,246,717,273"/>
+<area shape="rect" id="node7" href="../../df/d86/a00012.html#aa5a265994b7e58a089a5f6cccc546e63" title="Find contactpools in startRadius (in km) around start and, if none are found, double the radius and s..." alt="" coords="493,180,700,221"/>
+<area shape="rect" id="node8" href="../../df/d86/a00012.html#a819fba3f0ca0af029cc913aaf7729b0b" title="Search for locations in radius (in km) around start. " alt="" coords="771,201,969,243"/>
+<area shape="rect" id="node11" href="../../df/d86/a00012.html#a54759924264d5047ea81defa57d6eef3" title="Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2..." alt="" coords="771,71,969,112"/>
+<area shape="rect" id="node12" href="../../df/d86/a00012.html#a9d40942005a9bc3ad67f8961c5c77aac" title="Gets the K biggest (in population count) locations of this GeoGrid. " alt="" coords="513,129,680,155"/>
+<area shape="rect" id="node9" href="../../df/d86/a00012.html#a5be9ae73035d8a654299f91efe16934d" title="&lt; Checks whether the GeoGrid is finalized i.e. certain operations can(not) be used. " alt="" coords="1023,98,1253,125"/>
+<area shape="rect" id="node10" href="../../d3/d07/a00305.html#ad29105dc339e24a7c92af01763abce35" title="Build a Collector, useful for type inference. " alt="" coords="1054,169,1222,195"/>
+<area shape="rect" id="node13" href="../../dc/d3c/a00028.html#a7fde850960f5c783ed650ea2de16a24f" title="Gets the absolute population. " alt="" coords="777,136,963,177"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afeb8965e8223e8d4d60763c4e4966582"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462ab055a361403830ea4fa7bd1c8519b38e">stride::ContactType::Id::K12School</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00031">31</a> of file <a class="el" href="../../d0/d24/a00222_source.html">K12SchoolPopulator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a031e25c616e8ffc13b56b3a738a55127"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462ab055a361403830ea4fa7bd1c8519b38e">stride::ContactType::Id::K12School</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>ggConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a83393ca3cc296bc14dcf22dd88020b56"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462a2806259c227f694c678ec9444aec2042">stride::ContactType::Id::College</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>ggConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1d7f90458d89e401380c48d819167b2b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462a45c6a290fcb4fad167ee4b610eeea878">stride::ContactType::Id::Workplace</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>ggConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aefefa24f85612910717822d18ec12b56"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462aea4be67641b70cfa3fec0f86ea7f239b">stride::ContactType::Id::Household</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>ggConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aae2c4fde305df09d2d7554d28f8da02b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462a96ebabb1132dcba9eed74dd06579a2a6">stride::ContactType::Id::PrimaryCommunity</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>ggConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6a641e73e3506acaa3a6c2d6c2eeccfb"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462ad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactType::Id::SecondaryCommunity</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>ggConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1c3adf19c35d4a0a47efff65e872e333"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462a96ebabb1132dcba9eed74dd06579a2a6">stride::ContactType::Id::PrimaryCommunity</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00248_source.html#l00029">29</a> of file <a class="el" href="../../dd/dd7/a00248_source.html">PrimaryCommunityPopulator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4b0c4dd184ea0d62d08a384c7cd99da5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462ad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactType::Id::SecondaryCommunity</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00032">32</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">SecondaryCommunityPopulator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa96d254528a29c367494d8c358864a8e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462a45c6a290fcb4fad167ee4b610eeea878">stride::ContactType::Id::Workplace</a> &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">GeoGrid</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00036">36</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">WorkplacePopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dc/dfe/a00125_source.html#l00068">AssertThrow</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00067">geopop::GeoGridConfig::fraction_college_commuters</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00070">geopop::GeoGridConfig::fraction_workplace_commuters</a>, <a class="el" href="../../d8/dfa/a00121_source.html#l00057">stride::AgeBrackets::College::HasAge()</a>, <a class="el" href="../../d8/dfa/a00121_source.html#l00066">stride::AgeBrackets::Workplace::HasAge()</a>, <a class="el" href="../../dd/d1b/a00015.html#a10331216ea395afc95a872ad10025e3b">geopop::GeoGridConfig::info</a>, <a class="el" href="../../dd/d1b/a00015.html#a94643f701d8a4359bf23a937ce33ee1e">geopop::GeoGridConfig::param</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00060">geopop::GeoGridConfig::participation_college</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00064">geopop::GeoGridConfig::particpation_workplace</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00101">geopop::GeoGridConfig::popcount_college</a>, and <a class="el" href="../../d8/df1/a00174_source.html#l00104">geopop::GeoGridConfig::popcount_workplace</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d87/a00032_aa96d254528a29c367494d8c358864a8e_cgraph.gif" border="0" usemap="#dc/d87/a00032_aa96d254528a29c367494d8c358864a8e_cgraph" alt=""/></div>
+<map name="dc/d87/a00032_aa96d254528a29c367494d8c358864a8e_cgraph" id="dc/d87/a00032_aa96d254528a29c367494d8c358864a8e_cgraph">
+<area shape="rect" id="node2" href="../../d4/dca/a00048.html#a9da586fa49f908053a05ce521e904d27" title="stride::AgeBrackets\l::College::HasAge" alt="" coords="203,5,349,47"/>
+<area shape="rect" id="node3" href="../../d1/d84/a00052.html#ae65edbaf591c0475af30028e30ff6005" title="stride::AgeBrackets\l::Workplace::HasAge" alt="" coords="200,71,352,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a01539d0d361973a359b2c24919934f33"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename stride::ContactType::Id ID&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d1e/a00103.html">stride::util::RnMan</a>&amp; <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; ID &gt;::m_rn_man</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>RnManager used by populators. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00051">51</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Populator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a07b67c5e6ac0efe724af8f0fefa462ad"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename stride::ContactType::Id ID&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; <a class="el" href="../../dc/d87/a00032.html">geopop::Populator</a>&lt; ID &gt;::m_logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logger used by populators. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00055">55</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Populator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/d9a/a00246_source.html#l00040">geopop::Populator&lt; ID &gt;::Populator()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d4/d9a/a00246_source.html">Populator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dd/db3/a00313.html">geopop</a></li><li class="navelem"><a class="el" href="../../dc/d87/a00032.html">PoolParams</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/d07/a00305.html">geopop</a></li><li class="navelem"><a class="el" href="../../dc/d87/a00032.html">Populator</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:01 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

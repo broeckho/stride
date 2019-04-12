@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::ContactHandler Class Reference</title>
+<title>Stride Reference Manual: stride::DaysOffInterface Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -108,62 +108,53 @@ $(document).ready(function(){initNavTree('df/d03/a00062.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../dd/d51/a00769.html">List of all members</a>  </div>
+<a href="../../d2/d87/a00759.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::ContactHandler Class Reference</div>  </div>
+<div class="title">stride::DaysOffInterface Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Processes the contacts between persons and determines whether transmission occurs.  
+<p>Interface definition.  
  <a href="../../df/d03/a00062.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/ddb/a00145_source.html">ContactHandler.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d3/df8/a00155_source.html">DaysOffInterface.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::ContactHandler:</div>
+Inheritance diagram for stride::DaysOffInterface:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d7e/a00770.gif" border="0" usemap="#stride_1_1ContactHandler_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1ContactHandler_coll__map" id="stride_1_1ContactHandler_coll__map">
+<div class="center"><img src="../../d8/db4/a00760.gif" border="0" usemap="#stride_1_1DaysOffInterface_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1DaysOffInterface_inherit__map" id="stride_1_1DaysOffInterface_inherit__map">
+<area shape="rect" id="node2" href="../../d4/de8/a00061.html" title="No days off work or school. " alt="" coords="5,160,136,267"/>
+<area shape="rect" id="node3" href="../../d1/d6f/a00063.html" title="No days off work or school. " alt="" coords="161,160,311,267"/>
+<area shape="rect" id="node4" href="../../df/d5f/a00064.html" title="Schools closed. " alt="" coords="335,160,494,267"/>
+<area shape="rect" id="node5" href="../../de/de1/a00065.html" title="Standard situation for days off from work and school. " alt="" coords="518,160,693,267"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::DaysOffInterface:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d3/d4f/a00761.gif" border="0" usemap="#stride_1_1DaysOffInterface_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1DaysOffInterface_coll__map" id="stride_1_1DaysOffInterface_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acd8b09e759ed6049412de25662d1301d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#acd8b09e759ed6049412de25662d1301d">ContactHandler</a> (std::function&lt; <a class="el" href="../../d4/dce/a00337.html">double</a>()&gt; gen)</td></tr>
-<tr class="memdesc:acd8b09e759ed6049412de25662d1301d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor sets the transmission rate and random number generator.  <a href="#acd8b09e759ed6049412de25662d1301d">More...</a><br /></td></tr>
-<tr class="separator:acd8b09e759ed6049412de25662d1301d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac03cd0d69d17bb0a97189c24ed537fdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dce/a00337.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ac03cd0d69d17bb0a97189c24ed537fdf">operator()</a> ()</td></tr>
-<tr class="memdesc:ac03cd0d69d17bb0a97189c24ed537fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a draw on the uniform generator.  <a href="#ac03cd0d69d17bb0a97189c24ed537fdf">More...</a><br /></td></tr>
-<tr class="separator:ac03cd0d69d17bb0a97189c24ed537fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65ae0c571176ea267cf980ce31408f35"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a65ae0c571176ea267cf980ce31408f35">HasContactAndTransmission</a> (<a class="el" href="../../d4/dce/a00337.html">double</a> contact_rate, <a class="el" href="../../d4/dce/a00337.html">double</a> transmission_rate)</td></tr>
-<tr class="memdesc:a65ae0c571176ea267cf980ce31408f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two individuals have contact and transmission.  <a href="#a65ae0c571176ea267cf980ce31408f35">More...</a><br /></td></tr>
-<tr class="separator:a65ae0c571176ea267cf980ce31408f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a6ef10cff06328c9bc5b7f6337339ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a4a6ef10cff06328c9bc5b7f6337339ad">HasContact</a> (<a class="el" href="../../d4/dce/a00337.html">double</a> contact_rate)</td></tr>
-<tr class="memdesc:a4a6ef10cff06328c9bc5b7f6337339ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two individuals have contact.  <a href="#a4a6ef10cff06328c9bc5b7f6337339ad">More...</a><br /></td></tr>
-<tr class="separator:a4a6ef10cff06328c9bc5b7f6337339ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94d8f2bdeff1e99b1e6380060e8fb622"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a94d8f2bdeff1e99b1e6380060e8fb622">HasTransmission</a> (<a class="el" href="../../d4/dce/a00337.html">double</a> transmission_rate)</td></tr>
-<tr class="memdesc:a94d8f2bdeff1e99b1e6380060e8fb622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether transmission occurs.  <a href="#a94d8f2bdeff1e99b1e6380060e8fb622">More...</a><br /></td></tr>
-<tr class="separator:a94d8f2bdeff1e99b1e6380060e8fb622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a51fd44b433163a1bd2a9fb424a003344"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/dce/a00337.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a51fd44b433163a1bd2a9fb424a003344">RateToProbability</a> (<a class="el" href="../../d4/dce/a00337.html">double</a> rate)</td></tr>
-<tr class="memdesc:a51fd44b433163a1bd2a9fb424a003344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert rate into probability.  <a href="#a51fd44b433163a1bd2a9fb424a003344">More...</a><br /></td></tr>
-<tr class="separator:a51fd44b433163a1bd2a9fb424a003344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ad89329d01eda188d96ac8fea0386cdc4"><td class="memItemLeft" align="right" valign="top">std::function&lt; <a class="el" href="../../d4/dce/a00337.html">double</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a></td></tr>
-<tr class="memdesc:ad89329d01eda188d96ac8fea0386cdc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generator: double in [0.0, 1.0)  <a href="#ad89329d01eda188d96ac8fea0386cdc4">More...</a><br /></td></tr>
-<tr class="separator:ad89329d01eda188d96ac8fea0386cdc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ae431c15cddca106e2a0753fde99f83"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a2ae431c15cddca106e2a0753fde99f83">IsWorkOff</a> ()=0</td></tr>
+<tr class="memdesc:a2ae431c15cddca106e2a0753fde99f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether today is a work day.  <a href="#a2ae431c15cddca106e2a0753fde99f83">More...</a><br /></td></tr>
+<tr class="separator:a2ae431c15cddca106e2a0753fde99f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a747d7b072b24545437aa9326ba024185"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a747d7b072b24545437aa9326ba024185">IsSchoolOff</a> ()=0</td></tr>
+<tr class="memdesc:a747d7b072b24545437aa9326ba024185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether today is school day.  <a href="#a747d7b072b24545437aa9326ba024185">More...</a><br /></td></tr>
+<tr class="separator:a747d7b072b24545437aa9326ba024185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afec638f8fcc3e653e389f47bd30d63e1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#afec638f8fcc3e653e389f47bd30d63e1">~DaysOffInterface</a> ()=default</td></tr>
+<tr class="memdesc:afec638f8fcc3e653e389f47bd30d63e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#afec638f8fcc3e653e389f47bd30d63e1">More...</a><br /></td></tr>
+<tr class="separator:afec638f8fcc3e653e389f47bd30d63e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Processes the contacts between persons and determines whether transmission occurs. </p>
+<div class="textblock"><p>Interface definition. </p>
 
-<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00031">31</a> of file <a class="el" href="../../da/ddb/a00145_source.html">ContactHandler.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/df8/a00155_source.html#l00028">28</a> of file <a class="el" href="../../d3/df8/a00155_source.html">DaysOffInterface.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="acd8b09e759ed6049412de25662d1301d"></a>
+<a class="anchor" id="afec638f8fcc3e653e389f47bd30d63e1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -171,36 +162,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::ContactHandler::ContactHandler </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; <a class="el" href="../../d4/dce/a00337.html">double</a>()&gt;&#160;</td>
-          <td class="paramname"><em>gen</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructor sets the transmission rate and random number generator. </p>
-
-<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00035">35</a> of file <a class="el" href="../../da/ddb/a00145_source.html">ContactHandler.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac03cd0d69d17bb0a97189c24ed537fdf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/dce/a00337.html">double</a> stride::ContactHandler::operator() </td>
+          <td class="memname">virtual stride::DaysOffInterface::~DaysOffInterface </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -208,20 +170,17 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Make a draw on the uniform generator. </p>
-
-<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00038">38</a> of file <a class="el" href="../../da/ddb/a00145_source.html">ContactHandler.h</a>.</p>
-
-<p>References <a class="el" href="../../da/ddb/a00145_source.html#l00060">m_uniform01_generator</a>.</p>
+<p>Virtual destructor. </p>
 
 </div>
 </div>
-<a class="anchor" id="a65ae0c571176ea267cf980ce31408f35"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2ae431c15cddca106e2a0753fde99f83"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -229,61 +188,26 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::ContactHandler::HasContactAndTransmission </td>
+          <td class="memname">virtual bool stride::DaysOffInterface::IsWorkOff </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/dce/a00337.html">double</a>&#160;</td>
-          <td class="paramname"><em>contact_rate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/dce/a00337.html">double</a>&#160;</td>
-          <td class="paramname"><em>transmission_rate</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check if two individuals have contact and transmission. </p>
+<p>Whether today is a work day. </p>
 
-<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00041">41</a> of file <a class="el" href="../../da/ddb/a00145_source.html">ContactHandler.h</a>.</p>
-
-<p>References <a class="el" href="../../da/ddb/a00145_source.html#l00060">m_uniform01_generator</a>, and <a class="el" href="../../da/ddb/a00145_source.html#l00057">RateToProbability()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d28/a00223_source.html#l00211">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d03/a00062_a65ae0c571176ea267cf980ce31408f35_cgraph.gif" border="0" usemap="#df/d03/a00062_a65ae0c571176ea267cf980ce31408f35_cgraph" alt=""/></div>
-<map name="df/d03/a00062_a65ae0c571176ea267cf980ce31408f35_cgraph" id="df/d03/a00062_a65ae0c571176ea267cf980ce31408f35_cgraph">
-<area shape="rect" id="node2" href="../../df/d03/a00062.html#a51fd44b433163a1bd2a9fb424a003344" title="Convert rate into probability. " alt="" coords="265,5,432,47"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d03/a00062_a65ae0c571176ea267cf980ce31408f35_icgraph.gif" border="0" usemap="#df/d03/a00062_a65ae0c571176ea267cf980ce31408f35_icgraph" alt=""/></div>
-<map name="df/d03/a00062_a65ae0c571176ea267cf980ce31408f35_icgraph" id="df/d03/a00062_a65ae0c571176ea267cf980ce31408f35_icgraph">
-<area shape="rect" id="node2" href="../../d4/d63/a00082.html#aa27dad30b434e742e80300d88854b36d" title="stride::Infector\&lt; LL,\l TIC, true \&gt;::Exec" alt="" coords="265,5,412,47"/>
-</map>
-</div>
-</p>
+<p>Implemented in <a class="el" href="../../d4/de8/a00061.html#a61f87cc93335185f90d9d772f168b1bb">stride::DaysOffAll</a>, <a class="el" href="../../de/de1/a00065.html#a5f55ab77243cf483c5c47e8f81bf3b2a">stride::DaysOffStandard</a>, <a class="el" href="../../d1/d6f/a00063.html#a6287fa68ca109373fc9be31f3941079d">stride::DaysOffNone</a>, and <a class="el" href="../../df/d5f/a00064.html#a633453bbe4892b56891c42a4f4ac72fd">stride::DaysOffSchool</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4a6ef10cff06328c9bc5b7f6337339ad"></a>
+<a class="anchor" id="a747d7b072b24545437aa9326ba024185"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -291,183 +215,35 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::ContactHandler::HasContact </td>
+          <td class="memname">virtual bool stride::DaysOffInterface::IsSchoolOff </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/dce/a00337.html">double</a>&#160;</td>
-          <td class="paramname"><em>contact_rate</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check if two individuals have contact. </p>
+<p>Whether today is school day. </p>
 
-<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00047">47</a> of file <a class="el" href="../../da/ddb/a00145_source.html">ContactHandler.h</a>.</p>
-
-<p>References <a class="el" href="../../da/ddb/a00145_source.html#l00060">m_uniform01_generator</a>, and <a class="el" href="../../da/ddb/a00145_source.html#l00057">RateToProbability()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d28/a00223_source.html#l00146">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d03/a00062_a4a6ef10cff06328c9bc5b7f6337339ad_cgraph.gif" border="0" usemap="#df/d03/a00062_a4a6ef10cff06328c9bc5b7f6337339ad_cgraph" alt=""/></div>
-<map name="df/d03/a00062_a4a6ef10cff06328c9bc5b7f6337339ad_cgraph" id="df/d03/a00062_a4a6ef10cff06328c9bc5b7f6337339ad_cgraph">
-<area shape="rect" id="node2" href="../../df/d03/a00062.html#a51fd44b433163a1bd2a9fb424a003344" title="Convert rate into probability. " alt="" coords="220,5,387,47"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d03/a00062_a4a6ef10cff06328c9bc5b7f6337339ad_icgraph.gif" border="0" usemap="#df/d03/a00062_a4a6ef10cff06328c9bc5b7f6337339ad_icgraph" alt=""/></div>
-<map name="df/d03/a00062_a4a6ef10cff06328c9bc5b7f6337339ad_icgraph" id="df/d03/a00062_a4a6ef10cff06328c9bc5b7f6337339ad_icgraph">
-<area shape="rect" id="node2" href="../../d8/d53/a00081.html#a7a04fe600bfbb5b09330163fd2d49409" title="stride::Infector::Exec" alt="" coords="220,13,372,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a94d8f2bdeff1e99b1e6380060e8fb622"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::ContactHandler::HasTransmission </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/dce/a00337.html">double</a>&#160;</td>
-          <td class="paramname"><em>transmission_rate</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check whether transmission occurs. </p>
-
-<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00050">50</a> of file <a class="el" href="../../da/ddb/a00145_source.html">ContactHandler.h</a>.</p>
-
-<p>References <a class="el" href="../../da/ddb/a00145_source.html#l00060">m_uniform01_generator</a>, and <a class="el" href="../../da/ddb/a00145_source.html#l00057">RateToProbability()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d28/a00223_source.html#l00146">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d03/a00062_a94d8f2bdeff1e99b1e6380060e8fb622_cgraph.gif" border="0" usemap="#df/d03/a00062_a94d8f2bdeff1e99b1e6380060e8fb622_cgraph" alt=""/></div>
-<map name="df/d03/a00062_a94d8f2bdeff1e99b1e6380060e8fb622_cgraph" id="df/d03/a00062_a94d8f2bdeff1e99b1e6380060e8fb622_cgraph">
-<area shape="rect" id="node2" href="../../df/d03/a00062.html#a51fd44b433163a1bd2a9fb424a003344" title="Convert rate into probability. " alt="" coords="220,5,387,47"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d03/a00062_a94d8f2bdeff1e99b1e6380060e8fb622_icgraph.gif" border="0" usemap="#df/d03/a00062_a94d8f2bdeff1e99b1e6380060e8fb622_icgraph" alt=""/></div>
-<map name="df/d03/a00062_a94d8f2bdeff1e99b1e6380060e8fb622_icgraph" id="df/d03/a00062_a94d8f2bdeff1e99b1e6380060e8fb622_icgraph">
-<area shape="rect" id="node2" href="../../d8/d53/a00081.html#a7a04fe600bfbb5b09330163fd2d49409" title="stride::Infector::Exec" alt="" coords="220,13,372,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a51fd44b433163a1bd2a9fb424a003344"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/dce/a00337.html">double</a> stride::ContactHandler::RateToProbability </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/dce/a00337.html">double</a>&#160;</td>
-          <td class="paramname"><em>rate</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Convert rate into probability. </p>
-
-<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00057">57</a> of file <a class="el" href="../../da/ddb/a00145_source.html">ContactHandler.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/ddb/a00145_source.html#l00047">HasContact()</a>, <a class="el" href="../../da/ddb/a00145_source.html#l00041">HasContactAndTransmission()</a>, and <a class="el" href="../../da/ddb/a00145_source.html#l00050">HasTransmission()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../df/d03/a00062_a51fd44b433163a1bd2a9fb424a003344_icgraph.gif" border="0" usemap="#df/d03/a00062_a51fd44b433163a1bd2a9fb424a003344_icgraph" alt=""/></div>
-<map name="df/d03/a00062_a51fd44b433163a1bd2a9fb424a003344_icgraph" id="df/d03/a00062_a51fd44b433163a1bd2a9fb424a003344_icgraph">
-<area shape="rect" id="node2" href="../../df/d03/a00062.html#a4a6ef10cff06328c9bc5b7f6337339ad" title="Check if two individuals have contact. " alt="" coords="243,5,409,47"/>
-<area shape="rect" id="node4" href="../../df/d03/a00062.html#a65ae0c571176ea267cf980ce31408f35" title="Check if two individuals have contact and transmission. " alt="" coords="220,136,432,177"/>
-<area shape="rect" id="node6" href="../../df/d03/a00062.html#a94d8f2bdeff1e99b1e6380060e8fb622" title="Check whether transmission occurs. " alt="" coords="243,71,409,112"/>
-<area shape="rect" id="node3" href="../../d8/d53/a00081.html#a7a04fe600bfbb5b09330163fd2d49409" title="stride::Infector::Exec" alt="" coords="480,46,632,73"/>
-<area shape="rect" id="node5" href="../../d4/d63/a00082.html#aa27dad30b434e742e80300d88854b36d" title="stride::Infector\&lt; LL,\l TIC, true \&gt;::Exec" alt="" coords="483,136,629,177"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad89329d01eda188d96ac8fea0386cdc4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt;<a class="el" href="../../d4/dce/a00337.html">double</a>()&gt; stride::ContactHandler::m_uniform01_generator</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Random number generator: double in [0.0, 1.0) </p>
-
-<p>Definition at line <a class="el" href="../../da/ddb/a00145_source.html#l00060">60</a> of file <a class="el" href="../../da/ddb/a00145_source.html">ContactHandler.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/ddb/a00145_source.html#l00047">HasContact()</a>, <a class="el" href="../../da/ddb/a00145_source.html#l00041">HasContactAndTransmission()</a>, <a class="el" href="../../da/ddb/a00145_source.html#l00050">HasTransmission()</a>, and <a class="el" href="../../da/ddb/a00145_source.html#l00038">operator()()</a>.</p>
+<p>Implemented in <a class="el" href="../../d4/de8/a00061.html#a12a699d750a9b0a640db4ea47df0b11c">stride::DaysOffAll</a>, <a class="el" href="../../de/de1/a00065.html#ad27b8f2efdbb153c71d1a5dbdce42537">stride::DaysOffStandard</a>, <a class="el" href="../../d1/d6f/a00063.html#a939df1a48d594f56ec3099d1edcfdca7">stride::DaysOffNone</a>, and <a class="el" href="../../df/d5f/a00064.html#a709acf6d0cec5722e20760a797ae35bb">stride::DaysOffSchool</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../da/ddb/a00145_source.html">ContactHandler.h</a></li>
+<li><a class="el" href="../../d3/df8/a00155_source.html">DaysOffInterface.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d8f/a00324.html">stride</a></li><li class="navelem"><a class="el" href="../../df/d03/a00062.html">ContactHandler</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/db8/a00316.html">stride</a></li><li class="navelem"><a class="el" href="../../df/d03/a00062.html">DaysOffInterface</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:01 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

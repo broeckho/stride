@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GeoGridProtoWriter.h File Reference</title>
+<title>Stride Reference Manual: GeoGridWriterFactory.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -108,33 +108,25 @@ $(document).ready(function(){initNavTree('d9/dd0/a00191.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGridProtoWriter.h File Reference</div>  </div>
+<div class="title">GeoGridWriterFactory.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/ded/a00196_source.html">GeoGridWriter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/d40/a00236_source.html">geopop/Location.h</a>&quot;</code><br />
-<code>#include &lt;set&gt;</code><br />
+<div class="textblock"><code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGridProtoWriter.h:</div>
+Include dependency graph for GeoGridWriterFactory.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d66/a00441.gif" border="0" usemap="#GeoGridProtoWriter_8h" alt=""/></div>
-<map name="GeoGridProtoWriter_8h" id="GeoGridProtoWriter_8h">
-<area shape="rect" id="node2" href="../../d7/ded/a00196.html" title="GeoGridWriter.h" alt="" coords="174,80,295,107"/>
-<area shape="rect" id="node5" href="../../d7/d40/a00236.html" title="geopop/Location.h" alt="" coords="855,80,995,107"/>
-<area shape="rect" id="node6" href="../../da/d01/a00153.html" title="Definition of ContactPool Id Type. " alt="" coords="1067,237,1231,263"/>
-<area shape="rect" id="node12" href="../../dd/dc1/a00212.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="897,155,1087,181"/>
-<area shape="rect" id="node17" href="../../d2/d34/a00156.html" title="geopop/Coordinate.h" alt="" coords="1358,155,1514,181"/>
-<area shape="rect" id="node20" href="../../dd/d86/a00271.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="297,155,469,181"/>
-<area shape="rect" id="node21" href="../../d9/d5e/a00295.html" title="Interface/Implementation for SVIterator. " alt="" coords="80,237,179,263"/>
+<div class="center"><img src="../../d3/dea/a00444.gif" border="0" usemap="#GeoGridWriterFactory_8h" alt=""/></div>
+<map name="GeoGridWriterFactory_8h" id="GeoGridWriterFactory_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d34/a00442.gif" border="0" usemap="#GeoGridProtoWriter_8hdep" alt=""/></div>
-<map name="GeoGridProtoWriter_8hdep" id="GeoGridProtoWriter_8hdep">
-<area shape="rect" id="node2" href="../../d7/d6e/a00190.html" title="GeoGridProtoWriter.cpp" alt="" coords="5,80,176,107"/>
-<area shape="rect" id="node3" href="../../de/db1/a00197.html" title="GeoGridWriterFactory.cpp" alt="" coords="200,80,381,107"/>
+<div class="center"><img src="../../dd/d47/a00445.gif" border="0" usemap="#GeoGridWriterFactory_8hdep" alt=""/></div>
+<map name="GeoGridWriterFactory_8hdep" id="GeoGridWriterFactory_8hdep">
+<area shape="rect" id="node2" href="../../dc/de6/a00167.html" title="Header for the command line controller. " alt="" coords="5,80,165,107"/>
+<area shape="rect" id="node3" href="../../d7/d6e/a00190.html" title="GeoGridWriterFactory.cpp" alt="" coords="189,80,371,107"/>
 </map>
 </div>
 </div>
@@ -142,19 +134,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html">geopop::GeoGridProtoWriter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An implementation of the <a class="el" href="../../d7/de0/a00022.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> using Protocol Buffers This class is used to write a <a class="el" href="../../df/d86/a00012.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> to a Proto file.  <a href="../../dd/da2/a00019.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d52/a00023.html">geopop::GeoGridWriterFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory creates the correct implementation of a <a class="el" href="../../d7/de0/a00022.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types...">GeoGridWriter</a> based on the filename extension.  <a href="../../d3/d52/a00023.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d8f/a00324"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">stride</a></td></tr>
-<tr class="memdesc:d4/d8f/a00324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d2/d41/a00318"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d41/a00318.html">proto</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:dd/db3/a00313"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db3/a00313.html">geopop</a></td></tr>
-<tr class="memdesc:dd/db3/a00313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d3/d07/a00305"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d07/a00305.html">geopop</a></td></tr>
+<tr class="memdesc:d3/d07/a00305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -162,8 +149,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d9/dd0/a00191.html">GeoGridProtoWriter.h</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d9/dd0/a00191.html">GeoGridWriterFactory.h</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:00 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

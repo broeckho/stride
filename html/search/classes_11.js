@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['workplace',['Workplace',['../d3/d8b/a00059.html',1,'stride::AgeBrackets']]]
+  ['workplace',['Workplace',['../d1/d84/a00052.html',1,'stride::AgeBrackets']]]
 ];

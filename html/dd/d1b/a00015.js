@@ -3,6 +3,8 @@ var a00015 =
     [ "GeoGridConfig", "dd/d1b/a00015.html#a088dd31f1a0ac5f2aa217ed3c6113bbd", null ],
     [ "GeoGridConfig", "dd/d1b/a00015.html#a808a145911801f2194703fb4815f6763", null ],
     [ "SetData", "dd/d1b/a00015.html#aea2742355e7e5bd756a3204fa0dfb160", null ],
+    [ "people", "dd/d1b/a00015.html#af51964b5e60593430bbb2bcdcc0400ec", null ],
+    [ "pools", "dd/d1b/a00015.html#ac33a9ff190210799b551cc1702f4682c", null ],
     [ "participation_college", "dd/d1b/a00015.html#a079dd4c7d18c3d25e3af1509a1ec7b75", null ],
     [ "particpation_workplace", "dd/d1b/a00015.html#a680f78bbf91c7a7d297a6b37dd8543c2", null ],
     [ "fraction_college_commuters", "dd/d1b/a00015.html#a4af24f062d897f70d30e4b353ed2e65c", null ],

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: FileSys.h File Reference</title>
+<title>Stride Reference Manual: geogrid.pb.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -106,46 +106,45 @@ $(document).ready(function(){initNavTree('d6/dfb/a00172.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">FileSys.h File Reference</div>  </div>
+<div class="title">geogrid.pb.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Interface for install directory queries.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
-<code>#include &lt;functional&gt;</code><br />
+<div class="textblock"><code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;google/protobuf/port_def.inc&gt;</code><br />
+<code>#include &lt;google/protobuf/port_undef.inc&gt;</code><br />
+<code>#include &lt;google/protobuf/io/coded_stream.h&gt;</code><br />
+<code>#include &lt;google/protobuf/arena.h&gt;</code><br />
+<code>#include &lt;google/protobuf/arenastring.h&gt;</code><br />
+<code>#include &lt;google/protobuf/generated_message_table_driven.h&gt;</code><br />
+<code>#include &lt;google/protobuf/generated_message_util.h&gt;</code><br />
+<code>#include &lt;google/protobuf/inlined_string_field.h&gt;</code><br />
+<code>#include &lt;google/protobuf/metadata.h&gt;</code><br />
+<code>#include &lt;google/protobuf/message.h&gt;</code><br />
+<code>#include &lt;google/protobuf/repeated_field.h&gt;</code><br />
+<code>#include &lt;google/protobuf/extension_set.h&gt;</code><br />
+<code>#include &lt;google/protobuf/generated_enum_reflection.h&gt;</code><br />
+<code>#include &lt;google/protobuf/unknown_field_set.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for FileSys.h:</div>
+Include dependency graph for geogrid.pb.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/db6/a00411.gif" border="0" usemap="#FileSys_8h" alt=""/></div>
-<map name="FileSys_8h" id="FileSys_8h">
+<div class="center"><img src="../../d0/dd6/a00415.gif" border="0" usemap="#geogrid_8pb_8h" alt=""/></div>
+<map name="geogrid_8pb_8h" id="geogrid_8pb_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d72/a00412.gif" border="0" usemap="#FileSys_8hdep" alt=""/></div>
-<map name="FileSys_8hdep" id="FileSys_8hdep">
-<area shape="rect" id="node2" href="../../de/d76/a00134.html" title="Implementation file for the Calendar class. " alt="" coords="5,80,111,107"/>
-<area shape="rect" id="node3" href="../../dd/da7/a00168.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="135,80,280,107"/>
-<area shape="rect" id="node4" href="../../d3/d65/a00154.html" title="Header for the command line controller. " alt="" coords="305,80,441,107"/>
-<area shape="rect" id="node5" href="../../d8/df1/a00174.html" title="Header for the command line controller. " alt="" coords="465,80,625,107"/>
-<area shape="rect" id="node6" href="../../d2/d04/a00281.html" title="Header for the command line controller. " alt="" coords="649,80,789,107"/>
-<area shape="rect" id="node7" href="../../db/dc3/a00284.html" title="Main program: command line handling. " alt="" coords="814,80,899,107"/>
-<area shape="rect" id="node8" href="../../dd/dd7/a00260.html" title="ReaderFactory.cpp" alt="" coords="924,80,1061,107"/>
-<area shape="rect" id="node9" href="../../d9/d38/a00166.html" title="Initialize populations: implementation. " alt="" coords="1086,80,1249,107"/>
-<area shape="rect" id="node10" href="../../d8/d72/a00199.html" title="Initialize populations: implementation. " alt="" coords="1273,80,1416,107"/>
-<area shape="rect" id="node11" href="../../dc/ded/a00252.html" title="Core Population class. " alt="" coords="1440,80,1556,107"/>
-<area shape="rect" id="node12" href="../../dd/d56/a00274.html" title="Implementation for the SimBuilder class. " alt="" coords="1581,80,1698,107"/>
-<area shape="rect" id="node13" href="../../d1/d0d/a00171.html" title="Utilities for interaction with filesystem. " alt="" coords="1723,80,1815,107"/>
-<area shape="rect" id="node14" href="../../d1/dd4/a00267.html" title="Implementation of ptree utils. " alt="" coords="1839,80,2005,107"/>
-<area shape="rect" id="node15" href="../../df/d24/a00217.html" title="Implementation of the CasesFile class. " alt="" coords="2030,80,2150,107"/>
-<area shape="rect" id="node16" href="../../d0/d1f/a00247.html" title="Implementation of the CasesFile class. " alt="" coords="2174,80,2294,107"/>
-<area shape="rect" id="node17" href="../../d4/d66/a00289.html" title="Implementation of the SummaryFile class. " alt="" coords="2319,80,2451,107"/>
+<div class="center"><img src="../../df/d15/a00416.gif" border="0" usemap="#geogrid_8pb_8hdep" alt=""/></div>
+<map name="geogrid_8pb_8hdep" id="geogrid_8pb_8hdep">
+<area shape="rect" id="node2" href="../../d8/d64/a00181.html" title="GeoGridProtoReader.cpp" alt="" coords="5,80,184,107"/>
+<area shape="rect" id="node3" href="../../dc/d52/a00183.html" title="GeoGridProtoWriter.cpp" alt="" coords="208,80,379,107"/>
 </map>
 </div>
 </div>
@@ -153,33 +152,153 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d1e/a00103.html">stride::util::FileSys</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for interaction with filesystem.  <a href="../../d5/d1e/a00103.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3e/a00116.html">TableStruct_geogrid_2eproto</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/a00104.html">stride::util::FileSys::Dirs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using this to avoid global variables &amp; their initialization.  <a href="../../d0/dc2/a00104.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d42/a00043.html">proto::GeoGrid_Location_Coordinate</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html">proto::GeoGrid_Location_ContactPools_ContactPool</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d32/a00041.html">proto::GeoGrid_Location_ContactPools</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3a/a00040.html">proto::GeoGrid_Location_Commute</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html">proto::GeoGrid_Location</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html">proto::GeoGrid_Person</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d41/a00038.html">proto::GeoGrid</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8c/a00035.html">google::protobuf::is_proto_enum&lt; ::proto::GeoGrid_Location_ContactPools_Type &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d8f/a00324"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">stride</a></td></tr>
-<tr class="memdesc:d4/d8f/a00324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d1/d67/a00310"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html">proto</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d8/df7/a00331"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/df7/a00331.html">stride::util</a></td></tr>
-<tr class="memdesc:d8/df7/a00331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:d5/d0f/a00308"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d0f/a00308.html">google</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d2/d71/a00309"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d71/a00309.html">google::protobuf</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a3b18659d2597bfb3fc99625f5b82ae54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfb/a00172.html#a3b18659d2597bfb3fc99625f5b82ae54">PROTOBUF_INTERNAL_EXPORT_geogrid_2eproto</a></td></tr>
+<tr class="separator:a3b18659d2597bfb3fc99625f5b82ae54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ad4ae099290da11db94f2d5bdfa0d081e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#ad4ae099290da11db94f2d5bdfa0d081e">proto::GeoGrid_Location_ContactPools_Type</a> { <br />
+&#160;&#160;<a class="el" href="../../d1/d67/a00310.html#ad4ae099290da11db94f2d5bdfa0d081ea8536f493237b2d2ed678afce3ff03b70">proto::GeoGrid_Location_ContactPools_Type_K12School</a> = 0, 
+<a class="el" href="../../d1/d67/a00310.html#ad4ae099290da11db94f2d5bdfa0d081ead22c7e84d2275ef9d44e85672d32c1d3">proto::GeoGrid_Location_ContactPools_Type_PrimaryCommunity</a> = 1, 
+<a class="el" href="../../d1/d67/a00310.html#ad4ae099290da11db94f2d5bdfa0d081eaa231e4d31a6189c1ea5fa106c4f94218">proto::GeoGrid_Location_ContactPools_Type_SecondaryCommunity</a> = 2, 
+<a class="el" href="../../d1/d67/a00310.html#ad4ae099290da11db94f2d5bdfa0d081ead9b25c0796acd0bb78edc7f3b1902fe2">proto::GeoGrid_Location_ContactPools_Type_College</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="../../d1/d67/a00310.html#ad4ae099290da11db94f2d5bdfa0d081eab30dc2ce4d1ca6233b6d3938d6857f25">proto::GeoGrid_Location_ContactPools_Type_Household</a> = 4, 
+<a class="el" href="../../d1/d67/a00310.html#ad4ae099290da11db94f2d5bdfa0d081ea5b4fb250cbf1dbe6d6e2b32a0790cd71">proto::GeoGrid_Location_ContactPools_Type_Workplace</a> = 5, 
+<a class="el" href="../../d1/d67/a00310.html#ad4ae099290da11db94f2d5bdfa0d081ea6ccd7daa7defd04ac287d3e8d2fd97ad">proto::GeoGrid_Location_ContactPools_Type_GeoGrid_Location_ContactPools_Type_INT_MIN_SENTINEL_DO_NOT_USE_</a> = std::numeric_limits&lt;::google::protobuf::int32&gt;::min(), 
+<a class="el" href="../../d1/d67/a00310.html#ad4ae099290da11db94f2d5bdfa0d081eae7e8f34f3c2718f0d0d0ae4721390f5d">proto::GeoGrid_Location_ContactPools_Type_GeoGrid_Location_ContactPools_Type_INT_MAX_SENTINEL_DO_NOT_USE_</a> = std::numeric_limits&lt;::google::protobuf::int32&gt;::max()
+<br />
+ }</td></tr>
+<tr class="separator:ad4ae099290da11db94f2d5bdfa0d081e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aa92e2bcfdfdb006936c34f05287f6290"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dfb/a00172.html#aa92e2bcfdfdb006936c34f05287f6290">AddDescriptors_geogrid_2eproto</a> ()</td></tr>
+<tr class="separator:aa92e2bcfdfdb006936c34f05287f6290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab514fb17aa78c035022c33b3c9b429d7"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:ab514fb17aa78c035022c33b3c9b429d7"><td class="memTemplItemLeft" align="right" valign="top">::<a class="el" href="../../d8/d41/a00038.html">proto::GeoGrid</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d71/a00309.html#ab514fb17aa78c035022c33b3c9b429d7">google::protobuf::Arena::CreateMaybeMessage&lt;::proto::GeoGrid &gt;</a> (Arena *)</td></tr>
+<tr class="separator:ab514fb17aa78c035022c33b3c9b429d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e392d727052546b31558e6deb3809d"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:ad4e392d727052546b31558e6deb3809d"><td class="memTemplItemLeft" align="right" valign="top">::<a class="el" href="../../d3/de7/a00039.html">proto::GeoGrid_Location</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d71/a00309.html#ad4e392d727052546b31558e6deb3809d">google::protobuf::Arena::CreateMaybeMessage&lt;::proto::GeoGrid_Location &gt;</a> (Arena *)</td></tr>
+<tr class="separator:ad4e392d727052546b31558e6deb3809d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bb6fc6f35925281e7940749832acf3d"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a7bb6fc6f35925281e7940749832acf3d"><td class="memTemplItemLeft" align="right" valign="top">::<a class="el" href="../../db/d3a/a00040.html">proto::GeoGrid_Location_Commute</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d71/a00309.html#a7bb6fc6f35925281e7940749832acf3d">google::protobuf::Arena::CreateMaybeMessage&lt;::proto::GeoGrid_Location_Commute &gt;</a> (Arena *)</td></tr>
+<tr class="separator:a7bb6fc6f35925281e7940749832acf3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6297990d49dc07a5f19948046fc9bb"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:aac6297990d49dc07a5f19948046fc9bb"><td class="memTemplItemLeft" align="right" valign="top">::<a class="el" href="../../dd/d32/a00041.html">proto::GeoGrid_Location_ContactPools</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d71/a00309.html#aac6297990d49dc07a5f19948046fc9bb">google::protobuf::Arena::CreateMaybeMessage&lt;::proto::GeoGrid_Location_ContactPools &gt;</a> (Arena *)</td></tr>
+<tr class="separator:aac6297990d49dc07a5f19948046fc9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5cbf81bb62e7098fe363f7c0c2ad35d"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:ab5cbf81bb62e7098fe363f7c0c2ad35d"><td class="memTemplItemLeft" align="right" valign="top">::<a class="el" href="../../d5/db6/a00042.html">proto::GeoGrid_Location_ContactPools_ContactPool</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d71/a00309.html#ab5cbf81bb62e7098fe363f7c0c2ad35d">google::protobuf::Arena::CreateMaybeMessage&lt;::proto::GeoGrid_Location_ContactPools_ContactPool &gt;</a> (Arena *)</td></tr>
+<tr class="separator:ab5cbf81bb62e7098fe363f7c0c2ad35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae61086405036600aa5d8c9809a14e077"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:ae61086405036600aa5d8c9809a14e077"><td class="memTemplItemLeft" align="right" valign="top">::<a class="el" href="../../d6/d42/a00043.html">proto::GeoGrid_Location_Coordinate</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d71/a00309.html#ae61086405036600aa5d8c9809a14e077">google::protobuf::Arena::CreateMaybeMessage&lt;::proto::GeoGrid_Location_Coordinate &gt;</a> (Arena *)</td></tr>
+<tr class="separator:ae61086405036600aa5d8c9809a14e077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e10704a77c25bd1ff340257fd06a7b6"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a7e10704a77c25bd1ff340257fd06a7b6"><td class="memTemplItemLeft" align="right" valign="top">::<a class="el" href="../../d5/df9/a00044.html">proto::GeoGrid_Person</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d71/a00309.html#a7e10704a77c25bd1ff340257fd06a7b6">google::protobuf::Arena::CreateMaybeMessage&lt;::proto::GeoGrid_Person &gt;</a> (Arena *)</td></tr>
+<tr class="separator:a7e10704a77c25bd1ff340257fd06a7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46e99895dcacac9cdf406906086c41da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#a46e99895dcacac9cdf406906086c41da">proto::GeoGrid_Location_ContactPools_Type_IsValid</a> (int value)</td></tr>
+<tr class="separator:a46e99895dcacac9cdf406906086c41da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a709bb90b7db5960ab0c653bb9f044b59"><td class="memItemLeft" align="right" valign="top">const ::google::protobuf::EnumDescriptor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#a709bb90b7db5960ab0c653bb9f044b59">proto::GeoGrid_Location_ContactPools_Type_descriptor</a> ()</td></tr>
+<tr class="separator:a709bb90b7db5960ab0c653bb9f044b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac396de74b9f3e23ba28c3ae4a2b7c96a"><td class="memItemLeft" align="right" valign="top">const ::std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#ac396de74b9f3e23ba28c3ae4a2b7c96a">proto::GeoGrid_Location_ContactPools_Type_Name</a> (GeoGrid_Location_ContactPools_Type value)</td></tr>
+<tr class="separator:ac396de74b9f3e23ba28c3ae4a2b7c96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58aaa4b81e4b6cd826f54ee1f7923545"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#a58aaa4b81e4b6cd826f54ee1f7923545">proto::GeoGrid_Location_ContactPools_Type_Parse</a> (const ::std::string &amp;name, GeoGrid_Location_ContactPools_Type *value)</td></tr>
+<tr class="separator:a58aaa4b81e4b6cd826f54ee1f7923545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c592f0848fc199820b01fb3a38f05cf"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a8c592f0848fc199820b01fb3a38f05cf"><td class="memTemplItemLeft" align="right" valign="top">const EnumDescriptor *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d71/a00309.html#a8c592f0848fc199820b01fb3a38f05cf">google::protobuf::GetEnumDescriptor&lt; ::proto::GeoGrid_Location_ContactPools_Type &gt;</a> ()</td></tr>
+<tr class="separator:a8c592f0848fc199820b01fb3a38f05cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a8d72fed491d0139073e6e2bd512f7488"><td class="memItemLeft" align="right" valign="top">GeoGridDefaultTypeInternal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#a8d72fed491d0139073e6e2bd512f7488">proto::_GeoGrid_default_instance_</a></td></tr>
+<tr class="separator:a8d72fed491d0139073e6e2bd512f7488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb99fee11b7bff15d992ba5c29c87f9"><td class="memItemLeft" align="right" valign="top">GeoGrid_LocationDefaultTypeInternal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#aceb99fee11b7bff15d992ba5c29c87f9">proto::_GeoGrid_Location_default_instance_</a></td></tr>
+<tr class="separator:aceb99fee11b7bff15d992ba5c29c87f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7214ad95557e678c34c8d1d8b5363a3f"><td class="memItemLeft" align="right" valign="top">GeoGrid_Location_CommuteDefaultTypeInternal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#a7214ad95557e678c34c8d1d8b5363a3f">proto::_GeoGrid_Location_Commute_default_instance_</a></td></tr>
+<tr class="separator:a7214ad95557e678c34c8d1d8b5363a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14c186083c3d2233fd2019b0fb5c7e03"><td class="memItemLeft" align="right" valign="top">GeoGrid_Location_ContactPoolsDefaultTypeInternal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#a14c186083c3d2233fd2019b0fb5c7e03">proto::_GeoGrid_Location_ContactPools_default_instance_</a></td></tr>
+<tr class="separator:a14c186083c3d2233fd2019b0fb5c7e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec863cf64b37f5ea31049c7e4c858be5"><td class="memItemLeft" align="right" valign="top">GeoGrid_Location_ContactPools_ContactPoolDefaultTypeInternal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#aec863cf64b37f5ea31049c7e4c858be5">proto::_GeoGrid_Location_ContactPools_ContactPool_default_instance_</a></td></tr>
+<tr class="separator:aec863cf64b37f5ea31049c7e4c858be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a8cb433bd6d94158cab73a051bbfd72"><td class="memItemLeft" align="right" valign="top">GeoGrid_Location_CoordinateDefaultTypeInternal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#a2a8cb433bd6d94158cab73a051bbfd72">proto::_GeoGrid_Location_Coordinate_default_instance_</a></td></tr>
+<tr class="separator:a2a8cb433bd6d94158cab73a051bbfd72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a513dcf96a19c73e559fa630aa0ce6ecf"><td class="memItemLeft" align="right" valign="top">GeoGrid_PersonDefaultTypeInternal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#a513dcf96a19c73e559fa630aa0ce6ecf">proto::_GeoGrid_Person_default_instance_</a></td></tr>
+<tr class="separator:a513dcf96a19c73e559fa630aa0ce6ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac04caa42633288c5c4ee8691883f83cc"><td class="memItemLeft" align="right" valign="top">const GeoGrid_Location_ContactPools_Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#ac04caa42633288c5c4ee8691883f83cc">proto::GeoGrid_Location_ContactPools_Type_Type_MIN</a> = GeoGrid_Location_ContactPools_Type_K12School</td></tr>
+<tr class="separator:ac04caa42633288c5c4ee8691883f83cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5833b17f6b8507eb96c3024c295c3919"><td class="memItemLeft" align="right" valign="top">const GeoGrid_Location_ContactPools_Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#a5833b17f6b8507eb96c3024c295c3919">proto::GeoGrid_Location_ContactPools_Type_Type_MAX</a> = GeoGrid_Location_ContactPools_Type_Workplace</td></tr>
+<tr class="separator:a5833b17f6b8507eb96c3024c295c3919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85687b9d8275ed90a373c0ca895688c6"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d67/a00310.html#a85687b9d8275ed90a373c0ca895688c6">proto::GeoGrid_Location_ContactPools_Type_Type_ARRAYSIZE</a> = GeoGrid_Location_ContactPools_Type_Type_MAX + 1</td></tr>
+<tr class="separator:a85687b9d8275ed90a373c0ca895688c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface for install directory queries. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a3b18659d2597bfb3fc99625f5b82ae54"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROTOBUF_INTERNAL_EXPORT_geogrid_2eproto</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
-<p>Definition in file <a class="el" href="../../d6/dfb/a00172_source.html">FileSys.h</a>.</p>
-</div></div><!-- contents -->
+<p>Definition at line <a class="el" href="../../d6/dfb/a00172_source.html#l00037">37</a> of file <a class="el" href="../../d6/dfb/a00172_source.html">geogrid.pb.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="aa92e2bcfdfdb006936c34f05287f6290"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AddDescriptors_geogrid_2eproto </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d6/dfb/a00172.html">FileSys.h</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../dir_16af17a0c1fbb2172c71a712b2e57072.html">proto_pb</a></li><li class="navelem"><a class="el" href="../../d6/dfb/a00172.html">geogrid.pb.h</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:00 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

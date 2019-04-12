@@ -1,6 +1,10 @@
 var a00055 =
 [
-    [ "HasAge", "d4/d6d/a00055.html#a9da586fa49f908053a05ce521e904d27", null ],
-    [ "m_lower", "d4/d6d/a00055.html#a029109d3a8bf8ca7e5d7ad04800c5daf", null ],
-    [ "m_upper", "d4/d6d/a00055.html#a7ff124dd1641223d7e51a4c6b8c6356b", null ]
+    [ "ContactHandler", "d4/d6d/a00055.html#acd8b09e759ed6049412de25662d1301d", null ],
+    [ "operator()", "d4/d6d/a00055.html#ac03cd0d69d17bb0a97189c24ed537fdf", null ],
+    [ "HasContactAndTransmission", "d4/d6d/a00055.html#a65ae0c571176ea267cf980ce31408f35", null ],
+    [ "HasContact", "d4/d6d/a00055.html#a4a6ef10cff06328c9bc5b7f6337339ad", null ],
+    [ "HasTransmission", "d4/d6d/a00055.html#a94d8f2bdeff1e99b1e6380060e8fb622", null ],
+    [ "RateToProbability", "d4/d6d/a00055.html#a51fd44b433163a1bd2a9fb424a003344", null ],
+    [ "m_uniform01_generator", "d4/d6d/a00055.html#ad89329d01eda188d96ac8fea0386cdc4", null ]
 ];

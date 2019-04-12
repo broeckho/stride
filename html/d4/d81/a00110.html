@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::RnMan Class Reference</title>
+<title>Stride Reference Manual: stride::util::TimeToString Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -107,88 +107,49 @@ $(document).ready(function(){initNavTree('d4/d81/a00110.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d0/dac/a00901.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../da/dd6/a00896.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::RnMan Class Reference</div>  </div>
+<div class="title">stride::util::TimeToString Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d5/d35/a00266_source.html">RnMan.h</a>&gt;</code></p>
+<p>Utilities to tag clocks and to reformat number of ticks to a string.  
+ <a href="../../d4/d81/a00110.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../da/dd4/a00291_source.html">TimeToString.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::RnMan:</div>
+Collaboration diagram for stride::util::TimeToString:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/dd3/a00902.gif" border="0" usemap="#stride_1_1util_1_1RnMan_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1RnMan_coll__map" id="stride_1_1util_1_1RnMan_coll__map">
+<div class="center"><img src="../../de/d01/a00897.gif" border="0" usemap="#stride_1_1util_1_1TimeToString_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1TimeToString_coll__map" id="stride_1_1util_1_1TimeToString_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a229263d44538b9e98c79efefeb4fe25b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a229263d44538b9e98c79efefeb4fe25b">RnMan</a> ()</td></tr>
-<tr class="memdesc:a229263d44538b9e98c79efefeb4fe25b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor builds empty (uninitialized) manager.  <a href="#a229263d44538b9e98c79efefeb4fe25b">More...</a><br /></td></tr>
-<tr class="separator:a229263d44538b9e98c79efefeb4fe25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa15910f5b3089887ce13f64317643559"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#aa15910f5b3089887ce13f64317643559">RnMan</a> (const <a class="el" href="../../dd/d42/a00109.html">RnInfo</a> &amp;info)</td></tr>
-<tr class="memdesc:aa15910f5b3089887ce13f64317643559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing Constructor.  <a href="#aa15910f5b3089887ce13f64317643559">More...</a><br /></td></tr>
-<tr class="separator:aa15910f5b3089887ce13f64317643559"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd9598a66962e16f222a4fc5d8db74f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#afd9598a66962e16f222a4fc5d8db74f8">operator==</a> (const <a class="el" href="../../d4/d81/a00110.html">RnMan</a> &amp;other)</td></tr>
-<tr class="memdesc:afd9598a66962e16f222a4fc5d8db74f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality of states.  <a href="#afd9598a66962e16f222a4fc5d8db74f8">More...</a><br /></td></tr>
-<tr class="separator:afd9598a66962e16f222a4fc5d8db74f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade2585557f13443f624dbcf5ded638a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d42/a00109.html">RnInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#ade2585557f13443f624dbcf5ded638a2">GetInfo</a> () const </td></tr>
-<tr class="memdesc:ade2585557f13443f624dbcf5ded638a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the state of the random engines.  <a href="#ade2585557f13443f624dbcf5ded638a2">More...</a><br /></td></tr>
-<tr class="separator:ade2585557f13443f624dbcf5ded638a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae70c110738d7772252e9bf96703ff2b8"><td class="memItemLeft" align="right" valign="top">std::function&lt; <a class="el" href="../../d4/dce/a00337.html">double</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#ae70c110738d7772252e9bf96703ff2b8">GetUniform01Generator</a> (unsigned int i=0U)</td></tr>
-<tr class="memdesc:ae70c110738d7772252e9bf96703ff2b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a generator for uniform doubles in [0, 1[ using i-th random stream.  <a href="#ae70c110738d7772252e9bf96703ff2b8">More...</a><br /></td></tr>
-<tr class="separator:ae70c110738d7772252e9bf96703ff2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1afc757c92ddad702ce35677297ed15f"><td class="memItemLeft" align="right" valign="top">std::function&lt; int()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a1afc757c92ddad702ce35677297ed15f">GetUniformIntGenerator</a> (int a, int b, unsigned int i=0U)</td></tr>
-<tr class="memdesc:a1afc757c92ddad702ce35677297ed15f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a generator for uniform ints in [a, b[ (a &lt; b) using i-th random stream.  <a href="#a1afc757c92ddad702ce35677297ed15f">More...</a><br /></td></tr>
-<tr class="separator:a1afc757c92ddad702ce35677297ed15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d63b51ba6bc37656dae43c5de244ae8"><td class="memItemLeft" align="right" valign="top">std::function&lt; int()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a8d63b51ba6bc37656dae43c5de244ae8">GetDiscreteGenerator</a> (const std::vector&lt; <a class="el" href="../../d4/dce/a00337.html">double</a> &gt; &amp;weights, unsigned int i=0U)</td></tr>
-<tr class="memdesc:a8d63b51ba6bc37656dae43c5de244ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return generator for ints [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random stream.  <a href="#a8d63b51ba6bc37656dae43c5de244ae8">More...</a><br /></td></tr>
-<tr class="separator:a8d63b51ba6bc37656dae43c5de244ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c25836b66b554daafc1d56dfb036353"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a5c25836b66b554daafc1d56dfb036353">MakeWeightedCoinFlip</a> (<a class="el" href="../../d4/dce/a00337.html">double</a> fraction, unsigned int i=0U)</td></tr>
-<tr class="memdesc:a5c25836b66b554daafc1d56dfb036353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make weighted coin flip: &lt;fraction&gt; of the flips need to come up true.  <a href="#a5c25836b66b554daafc1d56dfb036353">More...</a><br /></td></tr>
-<tr class="separator:a5c25836b66b554daafc1d56dfb036353"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a647c8ce68f6e7b4df809c8d0b83b822d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a647c8ce68f6e7b4df809c8d0b83b822d">Initialize</a> (const <a class="el" href="../../dd/d42/a00109.html">RnInfo</a> &amp;info)</td></tr>
-<tr class="memdesc:a647c8ce68f6e7b4df809c8d0b83b822d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize with data in Info.  <a href="#a647c8ce68f6e7b4df809c8d0b83b822d">More...</a><br /></td></tr>
-<tr class="separator:a647c8ce68f6e7b4df809c8d0b83b822d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a458f946234ad493257ca056856b48a61"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a458f946234ad493257ca056856b48a61">IsEmpty</a> () const </td></tr>
-<tr class="memdesc:a458f946234ad493257ca056856b48a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this een empty (i.e. non-initialized <a class="el" href="../../d1/d84/a00052.html" title="Manages random number generation in parallel (OpenMP) calculations. ">Rn</a>)?  <a href="#a458f946234ad493257ca056856b48a61">More...</a><br /></td></tr>
-<tr class="separator:a458f946234ad493257ca056856b48a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0355a2c7c7d7b3e4c69698cd0f076319"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a0355a2c7c7d7b3e4c69698cd0f076319">Shuffle</a> (std::vector&lt; unsigned int &gt; &amp;indices, unsigned int i)</td></tr>
-<tr class="memdesc:a0355a2c7c7d7b3e4c69698cd0f076319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random shuffle of vector of int indices using i-th random stream.  <a href="#a0355a2c7c7d7b3e4c69698cd0f076319">More...</a><br /></td></tr>
-<tr class="separator:a0355a2c7c7d7b3e4c69698cd0f076319"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ad1e16836f137a4311ce12d78b79ee934"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; RnEngine &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#ad1e16836f137a4311ce12d78b79ee934">m_rn</a></td></tr>
-<tr class="separator:ad1e16836f137a4311ce12d78b79ee934"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ad6dcc9ca1dfee4746a739175240585ce"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#ad6dcc9ca1dfee4746a739175240585ce">ToColonString</a> (std::chrono::minutes d)</td></tr>
+<tr class="memdesc:ad6dcc9ca1dfee4746a739175240585ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#ad6dcc9ca1dfee4746a739175240585ce">More...</a><br /></td></tr>
+<tr class="separator:ad6dcc9ca1dfee4746a739175240585ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4289b5e11499452e2d8257c7c4bf1393"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a4289b5e11499452e2d8257c7c4bf1393">ToColonString</a> (std::chrono::seconds d)</td></tr>
+<tr class="memdesc:a4289b5e11499452e2d8257c7c4bf1393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#a4289b5e11499452e2d8257c7c4bf1393">More...</a><br /></td></tr>
+<tr class="separator:a4289b5e11499452e2d8257c7c4bf1393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75cf053eac30cd061369b1b3bc8320e2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a75cf053eac30cd061369b1b3bc8320e2">ToColonString</a> (std::chrono::milliseconds d)</td></tr>
+<tr class="memdesc:a75cf053eac30cd061369b1b3bc8320e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:mus format.  <a href="#a75cf053eac30cd061369b1b3bc8320e2">More...</a><br /></td></tr>
+<tr class="separator:a75cf053eac30cd061369b1b3bc8320e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a3257445eaf8975e71bd08d8ed6d8dad8">ToColonString</a> (std::chrono::microseconds d)</td></tr>
+<tr class="memdesc:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus format.  <a href="#a3257445eaf8975e71bd08d8ed6d8dad8">More...</a><br /></td></tr>
+<tr class="separator:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bc634d3b69e570aa22d04aab7c94823"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d81/a00110.html#a7bc634d3b69e570aa22d04aab7c94823">ToColonString</a> (std::chrono::nanoseconds d)</td></tr>
+<tr class="memdesc:a7bc634d3b69e570aa22d04aab7c94823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus:ns format.  <a href="#a7bc634d3b69e570aa22d04aab7c94823">More...</a><br /></td></tr>
+<tr class="separator:a7bc634d3b69e570aa22d04aab7c94823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../d5/d35/a00266_source.html#l00038">38</a> of file <a class="el" href="../../d5/d35/a00266_source.html">RnMan.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a229263d44538b9e98c79efefeb4fe25b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::RnMan::RnMan </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<div class="textblock"><p>Utilities to tag clocks and to reformat number of ticks to a string. </p>
 
-<p>Default constructor builds empty (uninitialized) manager. </p>
-
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00064">64</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa15910f5b3089887ce13f64317643559"></a>
+<p>Definition at line <a class="el" href="../../da/dd4/a00291_source.html#l00032">32</a> of file <a class="el" href="../../da/dd4/a00291_source.html">TimeToString.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad6dcc9ca1dfee4746a739175240585ce"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -196,298 +157,39 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::RnMan::RnMan </td>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/d42/a00109.html">RnInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em></td><td>)</td>
+          <td class="paramtype">std::chrono::minutes&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializing Constructor. </p>
+<p>Produce string in hh:mm:ss format. </p>
 
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00066">66</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="afd9598a66962e16f222a4fc5d8db74f8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::util::RnMan::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/d81/a00110.html">RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Equality of states. </p>
-
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00068">68</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00075">m_rn</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ade2585557f13443f624dbcf5ded638a2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/d42/a00109.html">RnInfo</a> stride::util::RnMan::GetInfo </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the state of the random engines. </p>
-
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00070">70</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00075">m_rn</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae70c110738d7772252e9bf96703ff2b8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt; <a class="el" href="../../d4/dce/a00337.html">double</a>()&gt; stride::util::RnMan::GetUniform01Generator </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>i</em> = <code>0U</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return a generator for uniform doubles in [0, 1[ using i-th random stream. </p>
-
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00072">72</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00075">m_rn</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d2f/a00258_source.html#l00041">stride::PublicHealthAgency::PerformCaseFinding()</a>.</p>
+<p>Referenced by <a class="el" href="../../d3/d5e/a00275_source.html#l00094">stride::util::Stopwatch&lt; T &gt;::ToString()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_ae70c110738d7772252e9bf96703ff2b8_icgraph.gif" border="0" usemap="#d4/d81/a00110_ae70c110738d7772252e9bf96703ff2b8_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_ae70c110738d7772252e9bf96703ff2b8_icgraph" id="d4/d81/a00110_ae70c110738d7772252e9bf96703ff2b8_icgraph">
-<area shape="rect" id="node2" href="../../db/dab/a00089.html#a009d5f79aa598d721d252c4470411237" title="Public Health Strategy: look for symptomatic cases and vaccinate their household. ..." alt="" coords="239,5,431,47"/>
-<area shape="rect" id="node3" href="../../db/dab/a00089.html#a03ebd97271af159e0831b61b43e6e62f" title="Constructs uni&#45;initialized object. " alt="" coords="479,5,671,47"/>
+<div class="center"><img src="../../d4/d81/a00110_ad6dcc9ca1dfee4746a739175240585ce_icgraph.gif" border="0" usemap="#d4/d81/a00110_ad6dcc9ca1dfee4746a739175240585ce_icgraph" alt=""/></div>
+<map name="d4/d81/a00110_ad6dcc9ca1dfee4746a739175240585ce_icgraph" id="d4/d81/a00110_ad6dcc9ca1dfee4746a739175240585ce_icgraph">
+<area shape="rect" id="node2" href="../../d7/d70/a00106.html#a1a068a66f6b5db8cf68dabe5a8935f22" title="Returns string representation of readout. " alt="" coords="228,5,388,47"/>
+<area shape="rect" id="node3" href="../../d9/d73/a00060.html#a22795c9aba9a37972c5452a2a1c672b6" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="436,5,591,47"/>
+<area shape="rect" id="node4" href="../../d9/d73/a00060.html#a4c0bbd0529e9b3cf89701ee6d4e4dd36" title="Simple destructor. " alt="" coords="639,5,793,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a1afc757c92ddad702ce35677297ed15f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt; int()&gt; stride::util::RnMan::GetUniformIntGenerator </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>i</em> = <code>0U</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return a generator for uniform ints in [a, b[ (a &lt; b) using i-th random stream. </p>
-
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00074">74</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00075">m_rn</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/da7/a00168_source.html#l00040">stride::DiseaseSeeder::Seed()</a>, and <a class="el" href="../../d6/d82/a00293_source.html#l00039">stride::SurveySeeder::Seed()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d81/a00110_a1afc757c92ddad702ce35677297ed15f_icgraph.gif" border="0" usemap="#d4/d81/a00110_a1afc757c92ddad702ce35677297ed15f_icgraph" alt=""/></div>
-<map name="d4/d81/a00110_a1afc757c92ddad702ce35677297ed15f_icgraph" id="d4/d81/a00110_a1afc757c92ddad702ce35677297ed15f_icgraph">
-<area shape="rect" id="node2" href="../../db/db6/a00074.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="239,5,401,47"/>
-<area shape="rect" id="node4" href="../../d9/d77/a00095.html#a81b191380f9a2c93768ff0efcec47f6b" title="Seeds the population with survey participants. " alt="" coords="242,71,398,112"/>
-<area shape="rect" id="node3" href="../../da/d82/a00091.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="449,39,584,80"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a8d63b51ba6bc37656dae43c5de244ae8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt; int()&gt; stride::util::RnMan::GetDiscreteGenerator </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="../../d4/dce/a00337.html">double</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>weights</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>i</em> = <code>0U</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return generator for ints [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random stream. </p>
-
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00079">79</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00075">m_rn</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5c25836b66b554daafc1d56dfb036353"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::util::RnMan::MakeWeightedCoinFlip </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/dce/a00337.html">double</a>&#160;</td>
-          <td class="paramname"><em>fraction</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>i</em> = <code>0U</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Make weighted coin flip: &lt;fraction&gt; of the flips need to come up true. </p>
-
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00084">84</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00075">m_rn</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a647c8ce68f6e7b4df809c8d0b83b822d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::RnMan::Initialize </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/d42/a00109.html">RnInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>info</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initalize with data in Info. </p>
-
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00093">93</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00075">m_rn</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a458f946234ad493257ca056856b48a61"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::util::RnMan::IsEmpty </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Is this een empty (i.e. non-initialized <a class="el" href="../../d1/d84/a00052.html" title="Manages random number generation in parallel (OpenMP) calculations. ">Rn</a>)? </p>
-
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00095">95</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00075">m_rn</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0355a2c7c7d7b3e4c69698cd0f076319"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::RnMan::Shuffle </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>indices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Random shuffle of vector of int indices using i-th random stream. </p>
-
-<p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00097">97</a> of file <a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d35/a00266_source.html#l00075">m_rn</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad1e16836f137a4311ce12d78b79ee934"></a>
+<a class="anchor" id="a4289b5e11499452e2d8257c7c4bf1393"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -495,33 +197,112 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;RnEngine&gt; stride::util::RnMan::m_rn</td>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::seconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d35/a00266_source.html#l00075">75</a> of file <a class="el" href="../../d5/d35/a00266_source.html">RnMan.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d53/a00265_source.html#l00079">GetDiscreteGenerator()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00070">GetInfo()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00072">GetUniform01Generator()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00074">GetUniformIntGenerator()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00093">Initialize()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00095">IsEmpty()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00084">MakeWeightedCoinFlip()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00068">operator==()</a>, and <a class="el" href="../../da/d53/a00265_source.html#l00097">Shuffle()</a>.</p>
+<p>Produce string in hh:mm:ss format. </p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/d35/a00266_source.html">RnMan.h</a></li>
-<li><a class="el" href="../../da/d53/a00265_source.html">RnMan.cpp</a></li>
+<a class="anchor" id="a75cf053eac30cd061369b1b3bc8320e2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::milliseconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Produce string in hh:mm:ss:mus format. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3257445eaf8975e71bd08d8ed6d8dad8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::microseconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Produce string in hh:mm:ss:ms:mus format. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7bc634d3b69e570aa22d04aab7c94823"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::nanoseconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Produce string in hh:mm:ss:ms:mus:ns format. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../da/dd4/a00291_source.html">TimeToString.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d8f/a00324.html">stride</a></li><li class="navelem"><a class="el" href="../../d8/df7/a00331.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d81/a00110.html">RnMan</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/db8/a00316.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d55/a00323.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d81/a00110.html">TimeToString</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:01 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

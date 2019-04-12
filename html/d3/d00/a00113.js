@@ -1,16 +1,8 @@
 var a00113 =
 [
-    [ "TClock", "d3/d00/a00113.html#aedbb343fde64ffebcdb371dd862aae7f", null ],
-    [ "Stopwatch", "d3/d00/a00113.html#a925b07b32b747a519b37c549ba7f1531", null ],
-    [ "Start", "d3/d00/a00113.html#acaf0b5f9f645a7dd6420420443de5a96", null ],
-    [ "Stop", "d3/d00/a00113.html#a4b6145f590e94467a0048817f348ac75", null ],
-    [ "Reset", "d3/d00/a00113.html#a45e66e4b53acb9c8f1edb7d5fda4f451", null ],
-    [ "IsRunning", "d3/d00/a00113.html#a6afa0761326b35e675517b6a81ffef1f", null ],
-    [ "GetName", "d3/d00/a00113.html#abcec896fa075fcb4b54b13e4bf1fd088", null ],
-    [ "Get", "d3/d00/a00113.html#afe36cf7e76eb1de8cda4490fc5b41829", null ],
-    [ "ToString", "d3/d00/a00113.html#a1a068a66f6b5db8cf68dabe5a8935f22", null ],
-    [ "m_accumulated", "d3/d00/a00113.html#a765784978119de616443c956d98166c4", null ],
-    [ "m_last_start", "d3/d00/a00113.html#ab9c7ba8e093b3c7d933ed5511d16cde4", null ],
-    [ "m_name", "d3/d00/a00113.html#aa22d2b26b456a8895b2e5c8ce62fe071", null ],
-    [ "m_running", "d3/d00/a00113.html#a20bfb79938c423d71cde68c8d2d42fbb", null ]
+    [ "InfectedViewer", "d3/d00/a00113.html#a772cf9c0229d31368250d437f1596ab0", null ],
+    [ "GetInfectionCounts", "d3/d00/a00113.html#a3051b3ab2155b525830220d7a4e1d3d4", null ],
+    [ "Update", "d3/d00/a00113.html#ac539c7549cc8c19530813f0bdb35a14d", null ],
+    [ "m_infected", "d3/d00/a00113.html#a613860070a4a0778c61631fc4f343028", null ],
+    [ "m_runner", "d3/d00/a00113.html#a13b27fd1d407a15fe3b542952168ba33", null ]
 ];

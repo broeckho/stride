@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::GeoPopBuilder Class Reference</title>
+<title>Stride Reference Manual: stride::InfectorMap Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -109,392 +109,118 @@ $(document).ready(function(){initNavTree('db/df8/a00076.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="../../d5/dcd/a00802.html">List of all members</a>  </div>
+<a href="../../dd/d7a/a00795.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::GeoPopBuilder Class Reference</div>  </div>
+<div class="title">stride::InfectorMap Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Builds poulation of a geographic grid.  
+<p>Mechanism to select the appropriate <a class="el" href="../../db/db6/a00074.html" title="Actual contacts and transmission in contactpool (primary template). ">Infector</a> template to execute.  
  <a href="../../db/df8/a00076.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d3/db1/a00200_source.html">GeoPopBuilder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/df3/a00219_source.html">InfectorMap.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::GeoPopBuilder:</div>
+Inheritance diagram for stride::InfectorMap:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d72/a00803.gif" border="0" usemap="#stride_1_1GeoPopBuilder_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1GeoPopBuilder_inherit__map" id="stride_1_1GeoPopBuilder_inherit__map">
-<area shape="rect" id="node2" href="../../d1/dea/a00054.html" title="Base Class for PopBuilders. " alt="" coords="5,5,193,141"/>
+<div class="center"><img src="../../d0/da2/a00796.gif" border="0" usemap="#stride_1_1InfectorMap_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1InfectorMap_inherit__map" id="stride_1_1InfectorMap_inherit__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="5,5,208,127"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for stride::GeoPopBuilder:</div>
+Collaboration diagram for stride::InfectorMap:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/dd1/a00804.gif" border="0" usemap="#stride_1_1GeoPopBuilder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1GeoPopBuilder_coll__map" id="stride_1_1GeoPopBuilder_coll__map">
-<area shape="rect" id="node2" href="../../d1/dea/a00054.html" title="Base Class for PopBuilders. " alt="" coords="185,432,373,539"/>
-<area shape="rect" id="node4" href="../../d4/d81/a00110.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ MakeWeightedCoinFlip()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="178,145,381,369"/>
+<div class="center"><img src="../../da/db8/a00797.gif" border="0" usemap="#stride_1_1InfectorMap_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1InfectorMap_coll__map" id="stride_1_1InfectorMap_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="5,145,208,252"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9159585958c5ab6405e8022c5bbd7421"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a9159585958c5ab6405e8022c5bbd7421">GeoPopBuilder</a> (const boost::property_tree::ptree &amp;config, <a class="el" href="../../d4/d81/a00110.html">util::RnMan</a> &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; strideLogger=nullptr)</td></tr>
-<tr class="memdesc:a9159585958c5ab6405e8022c5bbd7421"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use constructor of base.  <a href="#a9159585958c5ab6405e8022c5bbd7421">More...</a><br /></td></tr>
-<tr class="separator:a9159585958c5ab6405e8022c5bbd7421"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23493e205a9a22922b1511b80e64bc1e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a23493e205a9a22922b1511b80e64bc1e">Build</a> (std::shared_ptr&lt; <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt; pop) override</td></tr>
-<tr class="memdesc:a23493e205a9a22922b1511b80e64bc1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a synthetic population.  <a href="#a23493e205a9a22922b1511b80e64bc1e">More...</a><br /></td></tr>
-<tr class="separator:a23493e205a9a22922b1511b80e64bc1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00054"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00054')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d1/dea/a00054.html">stride::AbstractPopBuilder</a></td></tr>
-<tr class="memitem:a0dc3493a948b42c70cd879d83c879526 inherit pub_methods_a00054"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html#a0dc3493a948b42c70cd879d83c879526">AbstractPopBuilder</a> (const boost::property_tree::ptree &amp;config, <a class="el" href="../../d4/d81/a00110.html">util::RnMan</a> &amp;rnMan, std::shared_ptr&lt; spdlog::logger &gt; strideLogger=nullptr)</td></tr>
-<tr class="memdesc:a0dc3493a948b42c70cd879d83c879526 inherit pub_methods_a00054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a0dc3493a948b42c70cd879d83c879526">More...</a><br /></td></tr>
-<tr class="separator:a0dc3493a948b42c70cd879d83c879526 inherit pub_methods_a00054"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00054"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html#a938da421d2a2d203e7cb90ead7b91807">~AbstractPopBuilder</a> ()=default</td></tr>
-<tr class="memdesc:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has to be virtual.  <a href="#a938da421d2a2d203e7cb90ead7b91807">More...</a><br /></td></tr>
-<tr class="separator:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a389bcbbddf547f27cb2e60feadca12af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a389bcbbddf547f27cb2e60feadca12af">InfectorMap</a> ()</td></tr>
+<tr class="memdesc:a389bcbbddf547f27cb2e60feadca12af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fully initialized.  <a href="#a389bcbbddf547f27cb2e60feadca12af">More...</a><br /></td></tr>
+<tr class="separator:a389bcbbddf547f27cb2e60feadca12af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a0a67e3e8c4d250509a6f76acb076824e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a0a67e3e8c4d250509a6f76acb076824e">MakeLocations</a> (<a class="el" href="../../df/d86/a00012.html">geopop::GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGridConfig</a> &amp;geoGridConfig, const std::string &amp;citiesFileName, const std::string &amp;commutingFileName)</td></tr>
-<tr class="memdesc:a0a67e3e8c4d250509a6f76acb076824e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read files with location data and constructs GeoGrid config.  <a href="#a0a67e3e8c4d250509a6f76acb076824e">More...</a><br /></td></tr>
-<tr class="separator:a0a67e3e8c4d250509a6f76acb076824e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c0a01d2def04c804fff3ef162dfbc4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a6c0a01d2def04c804fff3ef162dfbc4f">MakePools</a> (<a class="el" href="../../df/d86/a00012.html">geopop::GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGridConfig</a> &amp;geoGridConfig)</td></tr>
-<tr class="memdesc:a6c0a01d2def04c804fff3ef162dfbc4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build and store the Geo part of the GeoGrid.  <a href="#a6c0a01d2def04c804fff3ef162dfbc4f">More...</a><br /></td></tr>
-<tr class="separator:a6c0a01d2def04c804fff3ef162dfbc4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22327526a0de14f648b2375065527fda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a22327526a0de14f648b2375065527fda">MakePersons</a> (<a class="el" href="../../df/d86/a00012.html">geopop::GeoGrid</a> &amp;geoGrid, const <a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGridConfig</a> &amp;geoGridConfig)</td></tr>
-<tr class="memdesc:a22327526a0de14f648b2375065527fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build and store the Pop part of the GeoGrid.  <a href="#a22327526a0de14f648b2375065527fda">More...</a><br /></td></tr>
-<tr class="separator:a22327526a0de14f648b2375065527fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_a00054"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00054')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d1/dea/a00054.html">stride::AbstractPopBuilder</a></td></tr>
-<tr class="memitem:a34a81e371e1bf73c2a75fd9d2df21353 inherit pro_attribs_a00054"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html#a34a81e371e1bf73c2a75fd9d2df21353">m_config</a></td></tr>
-<tr class="memdesc:a34a81e371e1bf73c2a75fd9d2df21353 inherit pro_attribs_a00054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree.  <a href="#a34a81e371e1bf73c2a75fd9d2df21353">More...</a><br /></td></tr>
-<tr class="separator:a34a81e371e1bf73c2a75fd9d2df21353 inherit pro_attribs_a00054"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a438798c37f82817665369d725a3a34 inherit pro_attribs_a00054"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d81/a00110.html">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html#a2a438798c37f82817665369d725a3a34">m_rn_man</a></td></tr>
-<tr class="memdesc:a2a438798c37f82817665369d725a3a34 inherit pro_attribs_a00054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generation management.  <a href="#a2a438798c37f82817665369d725a3a34">More...</a><br /></td></tr>
-<tr class="separator:a2a438798c37f82817665369d725a3a34 inherit pro_attribs_a00054"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aa42972b4d340a04b0366af0a889b5e inherit pro_attribs_a00054"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html#a6aa42972b4d340a04b0366af0a889b5e">m_stride_logger</a></td></tr>
-<tr class="separator:a6aa42972b4d340a04b0366af0a889b5e inherit pro_attribs_a00054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0e244621d901cb06ae8ec8d7dc82161"><td class="memTemplParams" colspan="2">template&lt;bool B&gt; </td></tr>
+<tr class="memitem:ae0e244621d901cb06ae8ec8d7dc82161"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#ae0e244621d901cb06ae8ec8d7dc82161">Add</a> ()</td></tr>
+<tr class="memdesc:ae0e244621d901cb06ae8ec8d7dc82161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filling up the <a class="el" href="../../db/df8/a00076.html" title="Mechanism to select the appropriate Infector template to execute. ">InfectorMap</a>.  <a href="#ae0e244621d901cb06ae8ec8d7dc82161">More...</a><br /></td></tr>
+<tr class="separator:ae0e244621d901cb06ae8ec8d7dc82161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Builds poulation of a geographic grid. </p>
+<div class="textblock"><p>Mechanism to select the appropriate <a class="el" href="../../db/db6/a00074.html" title="Actual contacts and transmission in contactpool (primary template). ">Infector</a> template to execute. </p>
 
-<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00041">41</a> of file <a class="el" href="../../d3/db1/a00200_source.html">GeoPopBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00039">39</a> of file <a class="el" href="../../dd/df3/a00219_source.html">InfectorMap.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9159585958c5ab6405e8022c5bbd7421"></a>
+<a class="anchor" id="a389bcbbddf547f27cb2e60feadca12af"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::GeoPopBuilder::GeoPopBuilder </td>
+          <td class="memname">stride::InfectorMap::InfectorMap </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>config</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d81/a00110.html">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnMan</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>strideLogger</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Use constructor of base. </p>
-<p>Initializing constructor. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">config</td><td>Property_tree with general configuration settings. </td></tr>
-    <tr><td class="paramname">rnMan</td><td>Random number manager for pop build process. </td></tr>
-    <tr><td class="paramname">strideLogger</td><td>Logging. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Fully initialized. </p>
 
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00047">47</a> of file <a class="el" href="../../d8/d72/a00199_source.html">GeoPopBuilder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00043">43</a> of file <a class="el" href="../../dd/df3/a00219_source.html">InfectorMap.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a23493e205a9a22922b1511b80e64bc1e"></a>
+<a class="anchor" id="ae0e244621d901cb06ae8ec8d7dc82161"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;bool B&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt; stride::GeoPopBuilder::Build </td>
+          <td class="memname">void stride::InfectorMap::Add </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generates a synthetic population. </p>
+<p>Filling up the <a class="el" href="../../db/df8/a00076.html" title="Mechanism to select the appropriate Infector template to execute. ">InfectorMap</a>. </p>
 
-<p>Implements <a class="el" href="../../d1/dea/a00054.html#a864865f7e88c7b737ad91a245f49f466">stride::AbstractPopBuilder</a>.</p>
-
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00052">52</a> of file <a class="el" href="../../d8/d72/a00199_source.html">GeoPopBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d12/a00126_source.html#l00055">stride::AbstractPopBuilder::m_config</a>, <a class="el" href="../../d7/d12/a00126_source.html#l00057">stride::AbstractPopBuilder::m_stride_logger</a>, <a class="el" href="../../d8/d72/a00199_source.html#l00102">MakeLocations()</a>, <a class="el" href="../../d8/d72/a00199_source.html#l00134">MakePersons()</a>, <a class="el" href="../../d8/d72/a00199_source.html#l00119">MakePools()</a>, and <a class="el" href="../../d0/d81/a00180_source.html#l00045">geopop::GeoGridConfig::SetData()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/df1/a00174_source.html#l00054">stride::GenPopController::Control()</a>, and <a class="el" href="../../dc/ded/a00252_source.html#l00047">stride::Population::Create()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/df8/a00076_a23493e205a9a22922b1511b80e64bc1e_cgraph.gif" border="0" usemap="#db/df8/a00076_a23493e205a9a22922b1511b80e64bc1e_cgraph" alt=""/></div>
-<map name="db/df8/a00076_a23493e205a9a22922b1511b80e64bc1e_cgraph" id="db/df8/a00076_a23493e205a9a22922b1511b80e64bc1e_cgraph">
-<area shape="rect" id="node2" href="../../db/df8/a00076.html#a0a67e3e8c4d250509a6f76acb076824e" title="Read files with location data and constructs GeoGrid config. " alt="" coords="219,39,379,80"/>
-<area shape="rect" id="node7" href="../../db/df8/a00076.html#a22327526a0de14f648b2375065527fda" title="Build and store the Pop part of the GeoGrid. " alt="" coords="219,104,379,145"/>
-<area shape="rect" id="node8" href="../../db/df8/a00076.html#a6c0a01d2def04c804fff3ef162dfbc4f" title="Build and store the Geo part of the GeoGrid. " alt="" coords="219,169,379,211"/>
-<area shape="rect" id="node9" href="../../dd/d1b/a00015.html#aea2742355e7e5bd756a3204fa0dfb160" title="Read the househould data file, parse it and set data. " alt="" coords="213,235,384,276"/>
-<area shape="rect" id="node3" href="../../dd/d32/a00041.html#ae49c8c2b58b37fe832d04a37251a9e76" title="Create a Reader based on the filename relative to the data directory. " alt="" coords="437,5,615,47"/>
-<area shape="rect" id="node6" href="../../dd/d32/a00041.html#abb99b826e135cac651269f27058c9e81" title="Create a CommutesReader based on the filename relative to the data directory. " alt="" coords="432,71,620,112"/>
-<area shape="rect" id="node4" href="../../d5/d1e/a00103.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="668,71,804,112"/>
-<area shape="rect" id="node5" href="../../d5/d1e/a00103.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="852,78,1019,105"/>
-<area shape="rect" id="node10" href="../../dd/d32/a00041.html#af8f94fd8f5a9cafc1eff4399e2b3e093" title="Create a HouseholdReader based on the filename relative to the data directory. " alt="" coords="433,136,619,177"/>
-<area shape="rect" id="node11" href="../../d1/d22/a00057.html#ab773fa6a11ca2ab240ce27295561f2eb" title="stride::AgeBrackets\l::K12School::HasAge" alt="" coords="449,201,603,243"/>
-<area shape="rect" id="node12" href="../../d4/d6d/a00055.html#a9da586fa49f908053a05ce521e904d27" title="stride::AgeBrackets\l::College::HasAge" alt="" coords="453,267,599,308"/>
-<area shape="rect" id="node13" href="../../d3/d8b/a00059.html#ae65edbaf591c0475af30028e30ff6005" title="stride::AgeBrackets\l::Workplace::HasAge" alt="" coords="450,332,602,373"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/df8/a00076_a23493e205a9a22922b1511b80e64bc1e_icgraph.gif" border="0" usemap="#db/df8/a00076_a23493e205a9a22922b1511b80e64bc1e_icgraph" alt=""/></div>
-<map name="db/df8/a00076_a23493e205a9a22922b1511b80e64bc1e_icgraph" id="db/df8/a00076_a23493e205a9a22922b1511b80e64bc1e_icgraph">
-<area shape="rect" id="node2" href="../../d9/da5/a00075.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="213,5,392,47"/>
-<area shape="rect" id="node4" href="../../db/ddf/a00088.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="236,71,369,112"/>
-<area shape="rect" id="node3" href="../../db/dc3/a00284.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="440,13,495,39"/>
-</map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00052">52</a> of file <a class="el" href="../../dd/df3/a00219_source.html">InfectorMap.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a0a67e3e8c4d250509a6f76acb076824e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::GeoPopBuilder::MakeLocations </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">geopop::GeoGrid</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>citiesFileName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>commutingFileName</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Read files with location data and constructs GeoGrid config. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00102">102</a> of file <a class="el" href="../../d8/d72/a00199_source.html">GeoPopBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/dd7/a00260_source.html#l00042">geopop::ReaderFactory::CreateCommutesReader()</a>, <a class="el" href="../../dd/dd7/a00260_source.html#l00032">geopop::ReaderFactory::CreateLocationsReader()</a>, <a class="el" href="../../dd/d1b/a00015.html#a94643f701d8a4359bf23a937ce33ee1e">geopop::GeoGridConfig::param</a>, and <a class="el" href="../../d8/d64/a00181_source.html#l00062">geopop::GeoGridConfig::pop_size</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d72/a00199_source.html#l00052">Build()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/df8/a00076_a0a67e3e8c4d250509a6f76acb076824e_cgraph.gif" border="0" usemap="#db/df8/a00076_a0a67e3e8c4d250509a6f76acb076824e_cgraph" alt=""/></div>
-<map name="db/df8/a00076_a0a67e3e8c4d250509a6f76acb076824e_cgraph" id="db/df8/a00076_a0a67e3e8c4d250509a6f76acb076824e_cgraph">
-<area shape="rect" id="node2" href="../../dd/d32/a00041.html#abb99b826e135cac651269f27058c9e81" title="Create a CommutesReader based on the filename relative to the data directory. " alt="" coords="213,5,401,47"/>
-<area shape="rect" id="node5" href="../../dd/d32/a00041.html#ae49c8c2b58b37fe832d04a37251a9e76" title="Create a Reader based on the filename relative to the data directory. " alt="" coords="218,71,397,112"/>
-<area shape="rect" id="node3" href="../../d5/d1e/a00103.html#adf7673eaecc73f8e0b1ac635c23a8d3f" title="/// Return data dir (only relevant when use_install_dirs mode is active) " alt="" coords="449,39,585,80"/>
-<area shape="rect" id="node4" href="../../d5/d1e/a00103.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="633,46,800,73"/>
-</map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/df8/a00076_a0a67e3e8c4d250509a6f76acb076824e_icgraph.gif" border="0" usemap="#db/df8/a00076_a0a67e3e8c4d250509a6f76acb076824e_icgraph" alt=""/></div>
-<map name="db/df8/a00076_a0a67e3e8c4d250509a6f76acb076824e_icgraph" id="db/df8/a00076_a0a67e3e8c4d250509a6f76acb076824e_icgraph">
-<area shape="rect" id="node2" href="../../db/df8/a00076.html#a23493e205a9a22922b1511b80e64bc1e" title="Generates a synthetic population. " alt="" coords="213,39,373,80"/>
-<area shape="rect" id="node3" href="../../d9/da5/a00075.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="421,5,600,47"/>
-<area shape="rect" id="node5" href="../../db/ddf/a00088.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="444,71,577,112"/>
-<area shape="rect" id="node4" href="../../db/dc3/a00284.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="648,13,703,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a6c0a01d2def04c804fff3ef162dfbc4f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::GeoPopBuilder::MakePools </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">geopop::GeoGrid</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Build and store the Geo part of the GeoGrid. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00119">119</a> of file <a class="el" href="../../d8/d72/a00199_source.html">GeoPopBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d12/a00126_source.html#l00056">stride::AbstractPopBuilder::m_rn_man</a>, and <a class="el" href="../../d7/d12/a00126_source.html#l00057">stride::AbstractPopBuilder::m_stride_logger</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d72/a00199_source.html#l00052">Build()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/df8/a00076_a6c0a01d2def04c804fff3ef162dfbc4f_icgraph.gif" border="0" usemap="#db/df8/a00076_a6c0a01d2def04c804fff3ef162dfbc4f_icgraph" alt=""/></div>
-<map name="db/df8/a00076_a6c0a01d2def04c804fff3ef162dfbc4f_icgraph" id="db/df8/a00076_a6c0a01d2def04c804fff3ef162dfbc4f_icgraph">
-<area shape="rect" id="node2" href="../../db/df8/a00076.html#a23493e205a9a22922b1511b80e64bc1e" title="Generates a synthetic population. " alt="" coords="213,39,373,80"/>
-<area shape="rect" id="node3" href="../../d9/da5/a00075.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="421,5,600,47"/>
-<area shape="rect" id="node5" href="../../db/ddf/a00088.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="444,71,577,112"/>
-<area shape="rect" id="node4" href="../../db/dc3/a00284.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="648,13,703,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a22327526a0de14f648b2375065527fda"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::GeoPopBuilder::MakePersons </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../df/d86/a00012.html">geopop::GeoGrid</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../dd/d1b/a00015.html">geopop::GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Build and store the Pop part of the GeoGrid. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00134">134</a> of file <a class="el" href="../../d8/d72/a00199_source.html">GeoPopBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d12/a00126_source.html#l00056">stride::AbstractPopBuilder::m_rn_man</a>, and <a class="el" href="../../d7/d12/a00126_source.html#l00057">stride::AbstractPopBuilder::m_stride_logger</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d72/a00199_source.html#l00052">Build()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/df8/a00076_a22327526a0de14f648b2375065527fda_icgraph.gif" border="0" usemap="#db/df8/a00076_a22327526a0de14f648b2375065527fda_icgraph" alt=""/></div>
-<map name="db/df8/a00076_a22327526a0de14f648b2375065527fda_icgraph" id="db/df8/a00076_a22327526a0de14f648b2375065527fda_icgraph">
-<area shape="rect" id="node2" href="../../db/df8/a00076.html#a23493e205a9a22922b1511b80e64bc1e" title="Generates a synthetic population. " alt="" coords="213,39,373,80"/>
-<area shape="rect" id="node3" href="../../d9/da5/a00075.html#a9cef30bd849611feee70025cd9270e96" title="Actual run of the simulator. " alt="" coords="421,5,600,47"/>
-<area shape="rect" id="node5" href="../../db/ddf/a00088.html#a56ed209c60c77e0080a0a653b09b26ce" title="Create a Population initialized by the configuration in property tree. " alt="" coords="444,71,577,112"/>
-<area shape="rect" id="node4" href="../../db/dc3/a00284.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="648,13,703,39"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d3/db1/a00200_source.html">GeoPopBuilder.h</a></li>
-<li><a class="el" href="../../d8/d72/a00199_source.html">GeoPopBuilder.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dd/df3/a00219_source.html">InfectorMap.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d8f/a00324.html">stride</a></li><li class="navelem"><a class="el" href="../../db/df8/a00076.html">GeoPopBuilder</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/db8/a00316.html">stride</a></li><li class="navelem"><a class="el" href="../../db/df8/a00076.html">InfectorMap</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:01 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

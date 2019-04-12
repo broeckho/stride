@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Calendar.cpp File Reference</title>
+<title>Stride Reference Manual: CommutesCSVReader.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -105,53 +105,53 @@ $(document).ready(function(){initNavTree('de/d76/a00134.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Calendar.cpp File Reference</div>  </div>
+<div class="title">CommutesCSVReader.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Implementation file for the Calendar class.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d5b/a00135_source.html">Calendar.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/dfb/a00172_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/json_parser.hpp&gt;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d5b/a00135_source.html">CommutesReader.h</a>&quot;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Calendar.cpp:</div>
+Include dependency graph for CommutesCSVReader.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/dc3/a00354.gif" border="0" usemap="#Calendar_8cpp" alt=""/></div>
-<map name="Calendar_8cpp" id="Calendar_8cpp">
-<area shape="rect" id="node2" href="../../d5/d5b/a00135.html" title="Header file for the Calendar class. " alt="" coords="285,87,376,114"/>
-<area shape="rect" id="node9" href="../../d6/dfb/a00172.html" title="Interface for install directory queries. " alt="" coords="673,87,773,114"/>
+<div class="center"><img src="../../d3/dc9/a00355.gif" border="0" usemap="#CommutesCSVReader_8h" alt=""/></div>
+<map name="CommutesCSVReader_8h" id="CommutesCSVReader_8h">
+<area shape="rect" id="node2" href="../../d5/d5b/a00135.html" title="CommutesReader.h" alt="" coords="5,80,153,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/de1/a00356.gif" border="0" usemap="#CommutesCSVReader_8hdep" alt=""/></div>
+<map name="CommutesCSVReader_8hdep" id="CommutesCSVReader_8hdep">
+<area shape="rect" id="node2" href="../../d0/de8/a00133.html" title="CommutesCSVReader.cpp" alt="" coords="5,80,196,107"/>
+<area shape="rect" id="node3" href="../../dc/ded/a00252.html" title="ReaderFactory.cpp" alt="" coords="220,80,357,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../de/d76/a00134_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d4/d8f/a00324"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">stride</a></td></tr>
-<tr class="memdesc:d4/d8f/a00324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/a00006.html">geopop::CommutesCSVReader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Reader that fills a <a class="el" href="../../df/d86/a00012.html" title="A Geographic grid of simulation region contains Locations that in turn contain an index to the Contac...">GeoGrid</a> with the commute info from CSV file.  <a href="../../de/d21/a00006.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ad8bead5f8361eccc7b7b699529da6351"><td class="memItemLeft" align="right" valign="top">date::year_month_day&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html#ad8bead5f8361eccc7b7b699529da6351">stride::ConvertFromString</a> (const string &amp;day)</td></tr>
-<tr class="separator:ad8bead5f8361eccc7b7b699529da6351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d3/d07/a00305"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d07/a00305.html">geopop</a></td></tr>
+<tr class="memdesc:d3/d07/a00305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation file for the Calendar class. </p>
-
-<p>Definition in file <a class="el" href="../../de/d76/a00134_source.html">Calendar.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../de/d76/a00134.html">Calendar.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../de/d76/a00134.html">CommutesCSVReader.h</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:00 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

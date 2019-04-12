@@ -1,7 +1,7 @@
 var a00072 =
 [
-    [ "DaysOffStandard", "d6/d2c/a00072.html#a06edf10647a556a135c345995b2309be", null ],
-    [ "IsWorkOff", "d6/d2c/a00072.html#a5f55ab77243cf483c5c47e8f81bf3b2a", null ],
-    [ "IsSchoolOff", "d6/d2c/a00072.html#ad27b8f2efdbb153c71d1a5dbdce42537", null ],
-    [ "m_calendar", "d6/d2c/a00072.html#a2ee41292bda3236f6c3fb77fddcdf882", null ]
+    [ "Immunizer", "d6/d2c/a00072.html#a9cf69f9df2b2b2e357fab3d3ed48b64a", null ],
+    [ "Random", "d6/d2c/a00072.html#ac187b34c18ec3cd1efccaf8f197766fc", null ],
+    [ "Cocoon", "d6/d2c/a00072.html#a9b4435f990b9a24bc0ededbd9af4877b", null ],
+    [ "m_rn_man", "d6/d2c/a00072.html#aea5b1b7d720384302b740a11d0ec484b", null ]
 ];

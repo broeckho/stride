@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GeoGridWriterFactory.cpp File Reference</title>
+<title>Stride Reference Manual: HealthSeeder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -105,50 +105,61 @@ $(document).ready(function(){initNavTree('de/db1/a00197.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGridWriterFactory.cpp File Reference</div>  </div>
+<div class="title">HealthSeeder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/da0/a00198_source.html">GeoGridWriterFactory.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/dd0/a00191_source.html">GeoGridProtoWriter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/ded/a00196_source.html">GeoGridWriter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/dcb/a00170_source.html">util/Exception.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;filesystem&gt;</code><br />
+
+<p>Header file for the HealthSeeder.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGridWriterFactory.cpp:</div>
+Include dependency graph for HealthSeeder.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d69/a00451.gif" border="0" usemap="#GeoGridWriterFactory_8cpp" alt=""/></div>
-<map name="GeoGridWriterFactory_8cpp" id="GeoGridWriterFactory_8cpp">
-<area shape="rect" id="node2" href="../../d7/da0/a00198.html" title="GeoGridWriterFactory.h" alt="" coords="5,155,172,181"/>
-<area shape="rect" id="node5" href="../../d9/dd0/a00191.html" title="GeoGridProtoWriter.h" alt="" coords="445,80,599,107"/>
-<area shape="rect" id="node6" href="../../d7/ded/a00196.html" title="GeoGridWriter.h" alt="" coords="248,155,369,181"/>
-<area shape="rect" id="node33" href="../../d5/dcb/a00170.html" title="util/Exception.h" alt="" coords="51,229,169,256"/>
-<area shape="rect" id="node8" href="../../d7/d40/a00236.html" title="geopop/Location.h" alt="" coords="1128,155,1268,181"/>
-<area shape="rect" id="node9" href="../../da/d01/a00153.html" title="Definition of ContactPool Id Type. " alt="" coords="867,311,1031,338"/>
-<area shape="rect" id="node14" href="../../dd/dc1/a00212.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="602,229,791,256"/>
-<area shape="rect" id="node19" href="../../d2/d34/a00156.html" title="geopop/Coordinate.h" alt="" coords="1693,229,1849,256"/>
-<area shape="rect" id="node22" href="../../dd/d86/a00271.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1112,229,1284,256"/>
-<area shape="rect" id="node23" href="../../d9/d5e/a00295.html" title="Interface/Implementation for SVIterator. " alt="" coords="1286,311,1385,338"/>
+<div class="center"><img src="../../d1/d0b/a00452.gif" border="0" usemap="#HealthSeeder_8h" alt=""/></div>
+<map name="HealthSeeder_8h" id="HealthSeeder_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/dc3/a00453.gif" border="0" usemap="#HealthSeeder_8hdep" alt=""/></div>
+<map name="HealthSeeder_8hdep" id="HealthSeeder_8hdep">
+<area shape="rect" id="node2" href="../../d7/ded/a00196.html" title="Implementation for HelthSeeder class. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../d5/d35/a00266.html" title="Implementation for the SimBuilder class. " alt="" coords="165,80,283,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../de/db1/a00197_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html">stride::HealthSeeder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with <a class="el" href="../../d2/db1/a00070.html" title="Holds a person&#39;s health data. ">Health</a> data.  <a href="../../d0/d89/a00071.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/db3/a00313"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db3/a00313.html">geopop</a></td></tr>
-<tr class="memdesc:dd/db3/a00313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d3/db8/a00316"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db8/a00316.html">stride</a></td></tr>
+<tr class="memdesc:d3/db8/a00316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header file for the HealthSeeder. </p>
+
+<p>Definition in file <a class="el" href="../../de/db1/a00197_source.html">HealthSeeder.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../de/db1/a00197.html">GeoGridWriterFactory.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../de/db1/a00197.html">HealthSeeder.h</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:00 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

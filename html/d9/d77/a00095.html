@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::SurveySeeder Class Reference</title>
+<title>Stride Reference Manual: stride::util::Exception Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -109,141 +109,156 @@ $(document).ready(function(){initNavTree('d9/d77/a00095.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d0/d11/a00842.html">List of all members</a>  </div>
+<a href="../../dc/d8c/a00859.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::SurveySeeder Class Reference</div>  </div>
+<div class="title">stride::util::Exception Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Seeds the population with survey participants.  
+<p>Basic exception class: needed to prevent clang-tidy warning "thrown exception type is not nothrow copy constructible".  
  <a href="../../d9/d77/a00095.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d4/d5b/a00294_source.html">SurveySeeder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/dae/a00163_source.html">Exception.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::SurveySeeder:</div>
+Inheritance diagram for stride::util::Exception:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d22/a00843.gif" border="0" usemap="#stride_1_1SurveySeeder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1SurveySeeder_coll__map" id="stride_1_1SurveySeeder_coll__map">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html" title="{stride::util::RnMan\n||+ RnMan()\l+ RnMan()\l+ operator==()\l+ GetInfo()\l+ GetUniform01Generator()\l+ GetUniformIntGenerator()\l+ GetDiscreteGenerator()\l+ MakeWeightedCoinFlip()\l+ Initialize()\l+ IsEmpty()\l+ Shuffle()\l}" alt="" coords="5,145,208,369"/>
+<div class="center"><img src="../../dd/dd5/a00861.gif" border="0" usemap="#stride_1_1util_1_1Exception_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1util_1_1Exception_inherit__map" id="stride_1_1util_1_1Exception_inherit__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="27,5,139,83"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::util::Exception:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d41/a00862.gif" border="0" usemap="#stride_1_1util_1_1Exception_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1Exception_coll__map" id="stride_1_1util_1_1Exception_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="5,147,117,224"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="142,147,229,224"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="117,5,254,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaab0b9475ab5ae90ba02931f0fc3ba6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#aaab0b9475ab5ae90ba02931f0fc3ba6c">SurveySeeder</a> (const boost::property_tree::ptree &amp;config, <a class="el" href="../../d4/d81/a00110.html">util::RnMan</a> &amp;rnMan)</td></tr>
-<tr class="memdesc:aaab0b9475ab5ae90ba02931f0fc3ba6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Seeder.  <a href="#aaab0b9475ab5ae90ba02931f0fc3ba6c">More...</a><br /></td></tr>
-<tr class="separator:aaab0b9475ab5ae90ba02931f0fc3ba6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81b191380f9a2c93768ff0efcec47f6b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a81b191380f9a2c93768ff0efcec47f6b">Seed</a> (std::shared_ptr&lt; <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a81b191380f9a2c93768ff0efcec47f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with survey participants.  <a href="#a81b191380f9a2c93768ff0efcec47f6b">More...</a><br /></td></tr>
-<tr class="separator:a81b191380f9a2c93768ff0efcec47f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada9a96369897608bd84b0fdb33c23a7f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#ada9a96369897608bd84b0fdb33c23a7f">Exception</a> (std::string msg)</td></tr>
+<tr class="memdesc:ada9a96369897608bd84b0fdb33c23a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straightforward constructor.  <a href="#ada9a96369897608bd84b0fdb33c23a7f">More...</a><br /></td></tr>
+<tr class="separator:ada9a96369897608bd84b0fdb33c23a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad933b798ce411d1acfe2ff86f178f219"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#ad933b798ce411d1acfe2ff86f178f219">what</a> () const noexceptoverride</td></tr>
+<tr class="memdesc:ad933b798ce411d1acfe2ff86f178f219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the message.  <a href="#ad933b798ce411d1acfe2ff86f178f219">More...</a><br /></td></tr>
+<tr class="separator:ad933b798ce411d1acfe2ff86f178f219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c14e1f62d8cf7c69a4c6c08ec296a83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a1c14e1f62d8cf7c69a4c6c08ec296a83">~Exception</a> () noexceptoverride=default</td></tr>
+<tr class="memdesc:a1c14e1f62d8cf7c69a4c6c08ec296a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a1c14e1f62d8cf7c69a4c6c08ec296a83">More...</a><br /></td></tr>
+<tr class="separator:a1c14e1f62d8cf7c69a4c6c08ec296a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ab7c91ff2c4cbefb84a9e8fb98dc00f93"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#ab7c91ff2c4cbefb84a9e8fb98dc00f93">m_config</a></td></tr>
-<tr class="memdesc:ab7c91ff2c4cbefb84a9e8fb98dc00f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config.  <a href="#ab7c91ff2c4cbefb84a9e8fb98dc00f93">More...</a><br /></td></tr>
-<tr class="separator:ab7c91ff2c4cbefb84a9e8fb98dc00f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ad3f25a83c627f7c3c009ab4ffda171"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d81/a00110.html">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a4ad3f25a83c627f7c3c009ab4ffda171">m_rn_man</a></td></tr>
-<tr class="memdesc:a4ad3f25a83c627f7c3c009ab4ffda171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#a4ad3f25a83c627f7c3c009ab4ffda171">More...</a><br /></td></tr>
-<tr class="separator:a4ad3f25a83c627f7c3c009ab4ffda171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f5e43370eb477d14fe94f0e1b452629"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d77/a00095.html#a5f5e43370eb477d14fe94f0e1b452629">m_msg</a></td></tr>
+<tr class="separator:a5f5e43370eb477d14fe94f0e1b452629"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Seeds the population with survey participants. </p>
+<div class="textblock"><p>Basic exception class: needed to prevent clang-tidy warning "thrown exception type is not nothrow copy constructible". </p>
 
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00037">37</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">SurveySeeder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dae/a00163_source.html#l00028">28</a> of file <a class="el" href="../../dd/dae/a00163_source.html">Exception.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aaab0b9475ab5ae90ba02931f0fc3ba6c"></a>
+<a class="anchor" id="ada9a96369897608bd84b0fdb33c23a7f"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::SurveySeeder::SurveySeeder </td>
+          <td class="memname">stride::util::Exception::Exception </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>config</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/d81/a00110.html">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnMan</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize Seeder. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">config</td><td>Configuration parameters. </td></tr>
-    <tr><td class="paramname">rnMan</td><td>Random number manager. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d6/d82/a00293_source.html#l00037">37</a> of file <a class="el" href="../../d6/d82/a00293_source.html">SurveySeeder.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a81b191380f9a2c93768ff0efcec47f6b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt; stride::SurveySeeder::Seed </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../db/ddf/a00088.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Seeds the population with survey participants. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pop</td><td><a class="el" href="../../db/ddf/a00088.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Straightforward constructor. </p>
 
-<p>Definition at line <a class="el" href="../../d6/d82/a00293_source.html#l00039">39</a> of file <a class="el" href="../../d6/d82/a00293_source.html">SurveySeeder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dae/a00163_source.html#l00032">32</a> of file <a class="el" href="../../dd/dae/a00163_source.html">Exception.h</a>.</p>
 
-<p>References <a class="el" href="../../d0/d3e/a00253_source.html#l00071">stride::Population::CRefPoolSys()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00053">stride::Person::GetAge()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00056">stride::Person::GetHealth()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00062">stride::Person::GetId()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00065">stride::Person::GetPoolId()</a>, <a class="el" href="../../da/d53/a00265_source.html#l00074">stride::util::RnMan::GetUniformIntGenerator()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00071">stride::Person::IsSurveyParticipant()</a>, <a class="el" href="../../d4/d5b/a00294_source.html#l00050">m_config</a>, <a class="el" href="../../d4/d5b/a00294_source.html#l00051">m_rn_man</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00074">stride::Person::ParticipateInSurvey()</a>, <a class="el" href="../../d0/d3e/a00253_source.html#l00077">stride::Population::RefContactLogger()</a>, and <a class="el" href="../../dd/d86/a00271_source.html#l00210">stride::util::SegmentedVector&lt; T, N, Safe &gt;::size()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/d56/a00274_source.html#l00041">stride::SimBuilder::Build()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/d77/a00095_a81b191380f9a2c93768ff0efcec47f6b_cgraph.gif" border="0" usemap="#d9/d77/a00095_a81b191380f9a2c93768ff0efcec47f6b_cgraph" alt=""/></div>
-<map name="d9/d77/a00095_a81b191380f9a2c93768ff0efcec47f6b_cgraph" id="d9/d77/a00095_a81b191380f9a2c93768ff0efcec47f6b_cgraph">
-<area shape="rect" id="node2" href="../../db/ddf/a00088.html#a70b16fe667a40360d247e32c9422ad44" title="The ContactPoolSys of the simulator. " alt="" coords="247,5,381,47"/>
-<area shape="rect" id="node3" href="../../d1/d1e/a00087.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="231,71,397,98"/>
-<area shape="rect" id="node4" href="../../d1/d1e/a00087.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="223,122,405,149"/>
-<area shape="rect" id="node5" href="../../d1/d1e/a00087.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="238,173,390,199"/>
-<area shape="rect" id="node6" href="../../d1/d1e/a00087.html#aebd3f273ac67e7db18d2db9aa0bdda2d" title="Get ID of contactpool_type. " alt="" coords="225,223,403,250"/>
-<area shape="rect" id="node7" href="../../d4/d81/a00110.html#a1afc757c92ddad702ce35677297ed15f" title="Return a generator for uniform ints in [a, b[ (a &lt; b) using i&#45;th random stream. " alt="" coords="221,275,407,316"/>
-<area shape="rect" id="node8" href="../../d1/d1e/a00087.html#a5942b9a4f5226e8810dc8b63fb250f3e" title="Does this person participates in the social contact study? " alt="" coords="228,340,400,381"/>
-<area shape="rect" id="node9" href="../../d1/d1e/a00087.html#a6c27c93e351ca63aa6e3a055cd9110b2" title="Participate in social contact study and log person details. " alt="" coords="221,405,407,447"/>
-<area shape="rect" id="node12" href="../../db/ddf/a00088.html#a4db3f0bf4c302b0f5d4b2bb1e8cc24fc" title="Return the contactlogger. " alt="" coords="243,471,385,512"/>
-<area shape="rect" id="node13" href="../../dc/dee/a00053.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="209,536,419,577"/>
-<area shape="rect" id="node10" href="../../d1/d1e/a00087.html#abeed34b336b17866bb881b77237c76c4" title="Update the health status and presence in contact pools. " alt="" coords="467,413,632,439"/>
-<area shape="rect" id="node11" href="../../d4/d8f/a00324.html#a2b354a18a7f6986d363385ff46c9a473" title="Maximum age for Person&#39;s. " alt="" coords="680,413,827,439"/>
-</map>
 </div>
-</p>
+</div>
+<a class="anchor" id="a1c14e1f62d8cf7c69a4c6c08ec296a83"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::util::Exception::~Exception </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+
+<p>Referenced by <a class="el" href="../../dd/dae/a00163_source.html#l00035">what()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d77/a00095_a81b191380f9a2c93768ff0efcec47f6b_icgraph.gif" border="0" usemap="#d9/d77/a00095_a81b191380f9a2c93768ff0efcec47f6b_icgraph" alt=""/></div>
-<map name="d9/d77/a00095_a81b191380f9a2c93768ff0efcec47f6b_icgraph" id="d9/d77/a00095_a81b191380f9a2c93768ff0efcec47f6b_icgraph">
-<area shape="rect" id="node2" href="../../da/d82/a00091.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="209,5,344,47"/>
+<div class="center"><img src="../../d9/d77/a00095_a1c14e1f62d8cf7c69a4c6c08ec296a83_icgraph.gif" border="0" usemap="#d9/d77/a00095_a1c14e1f62d8cf7c69a4c6c08ec296a83_icgraph" alt=""/></div>
+<map name="d9/d77/a00095_a1c14e1f62d8cf7c69a4c6c08ec296a83_icgraph" id="d9/d77/a00095_a1c14e1f62d8cf7c69a4c6c08ec296a83_icgraph">
+<area shape="rect" id="node2" href="../../d9/d77/a00095.html#ad933b798ce411d1acfe2ff86f178f219" title="Return the message. " alt="" coords="208,5,363,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad933b798ce411d1acfe2ff86f178f219"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* stride::util::Exception::what </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the message. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dae/a00163_source.html#l00035">35</a> of file <a class="el" href="../../dd/dae/a00163_source.html">Exception.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/dae/a00163_source.html#l00041">m_msg</a>, and <a class="el" href="../../d9/d77/a00095.html#a1c14e1f62d8cf7c69a4c6c08ec296a83">~Exception()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/d77/a00095_ad933b798ce411d1acfe2ff86f178f219_cgraph.gif" border="0" usemap="#d9/d77/a00095_ad933b798ce411d1acfe2ff86f178f219_cgraph" alt=""/></div>
+<map name="d9/d77/a00095_ad933b798ce411d1acfe2ff86f178f219_cgraph" id="d9/d77/a00095_ad933b798ce411d1acfe2ff86f178f219_cgraph">
+<area shape="rect" id="node2" href="../../d9/d77/a00095.html#a1c14e1f62d8cf7c69a4c6c08ec296a83" title="Default constructor. " alt="" coords="208,5,363,47"/>
 </map>
 </div>
 </p>
@@ -251,7 +266,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ab7c91ff2c4cbefb84a9e8fb98dc00f93"></a>
+<a class="anchor" id="a5f5e43370eb477d14fe94f0e1b452629"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -259,7 +274,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::property_tree::ptree&amp; stride::SurveySeeder::m_config</td>
+          <td class="memname">std::string stride::util::Exception::m_msg</td>
         </tr>
       </table>
   </td>
@@ -269,51 +284,22 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Run config. </p>
+<p>Definition at line <a class="el" href="../../dd/dae/a00163_source.html#l00041">41</a> of file <a class="el" href="../../dd/dae/a00163_source.html">Exception.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00050">50</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">SurveySeeder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d82/a00293_source.html#l00039">Seed()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/dae/a00163_source.html#l00035">what()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4ad3f25a83c627f7c3c009ab4ffda171"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d81/a00110.html">util::RnMan</a>&amp; stride::SurveySeeder::m_rn_man</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Random number manager. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00051">51</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">SurveySeeder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d82/a00293_source.html#l00039">Seed()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d4/d5b/a00294_source.html">SurveySeeder.h</a></li>
-<li><a class="el" href="../../d6/d82/a00293_source.html">SurveySeeder.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dd/dae/a00163_source.html">Exception.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d8f/a00324.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/d77/a00095.html">SurveySeeder</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/db8/a00316.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d55/a00323.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d77/a00095.html">Exception</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:01 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

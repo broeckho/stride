@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GeoGridKdTree.h File Reference</title>
+<title>Stride Reference Manual: GeoGridReaderFactory.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -105,79 +105,34 @@ $(document).ready(function(){initNavTree('d6/daa/a00187.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGridKdTree.h File Reference</div>  </div>
+<div class="title">GeoGridReaderFactory.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d17/a00231_source.html">KdTree.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/de1/a00233_source.html">KdTree2DPoint.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d15/a00188_source.html">GeoGridReaderFactory.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d25/a00182_source.html">GeoGridProtoReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d00/a00186_source.html">GeoGridReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dae/a00163_source.html">util/Exception.h</a>&quot;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGridKdTree.h:</div>
+Include dependency graph for GeoGridReaderFactory.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/dc5/a00435.gif" border="0" usemap="#GeoGridKdTree_8h" alt=""/></div>
-<map name="GeoGridKdTree_8h" id="GeoGridKdTree_8h">
-<area shape="rect" id="node2" href="../../df/d17/a00231.html" title="KdTree.h" alt="" coords="615,80,691,107"/>
-<area shape="rect" id="node10" href="../../d6/de1/a00233.html" title="KdTree2DPoint.h" alt="" coords="316,80,443,107"/>
-<area shape="rect" id="node3" href="../../da/d72/a00124.html" title="AABBox.h" alt="" coords="417,162,502,189"/>
-<area shape="rect" id="node4" href="../../d1/da8/a00230.html" title="KdNode.h" alt="" coords="716,162,800,189"/>
-<area shape="rect" id="node11" href="../../d2/d34/a00156.html" title="geopop/Coordinate.h" alt="" coords="185,162,341,189"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d82/a00436.gif" border="0" usemap="#GeoGridKdTree_8hdep" alt=""/></div>
-<map name="GeoGridKdTree_8hdep" id="GeoGridKdTree_8hdep">
-<area shape="rect" id="node2" href="../../d8/d00/a00186.html" title="GeoGridKdTree.cpp" alt="" coords="978,80,1121,107"/>
-<area shape="rect" id="node3" href="../../d9/d90/a00178.html" title="GeoGrid.h" alt="" coords="1145,80,1231,107"/>
-<area shape="rect" id="node5" href="../../dd/d4c/a00177.html" title="GeoGrid.cpp" alt="" coords="3767,229,3868,256"/>
-<area shape="rect" id="node4" href="../../d8/df1/a00174.html" title="Header for the command line controller. " alt="" coords="793,229,953,256"/>
-<area shape="rect" id="node6" href="../../d5/db1/a00140.html" title="CommutesCSVReader.cpp" alt="" coords="3553,155,3743,181"/>
-<area shape="rect" id="node7" href="../../d7/d25/a00182.html" title="GeoGridJSONReader.cpp" alt="" coords="5,229,181,256"/>
-<area shape="rect" id="node8" href="../../d2/d94/a00184.html" title="GeoGridJSONWriter.cpp" alt="" coords="161,155,329,181"/>
-<area shape="rect" id="node9" href="../../da/d15/a00188.html" title="GeoGridProtoReader.cpp" alt="" coords="205,229,384,256"/>
-<area shape="rect" id="node10" href="../../d7/d6e/a00190.html" title="GeoGridProtoWriter.cpp" alt="" coords="404,155,575,181"/>
-<area shape="rect" id="node11" href="../../dd/da2/a00192.html" title="GeoGridReader.cpp" alt="" coords="599,155,743,181"/>
-<area shape="rect" id="node12" href="../../d0/d27/a00239.html" title="LocationsReader.h" alt="" coords="3884,155,4023,181"/>
-<area shape="rect" id="node18" href="../../d8/d72/a00199.html" title="Initialize populations: implementation. " alt="" coords="3633,304,3775,331"/>
-<area shape="rect" id="node19" href="../../de/d14/a00139.html" title="CollegePopulator.cpp" alt="" coords="869,155,1025,181"/>
-<area shape="rect" id="node20" href="../../dc/d31/a00208.html" title="HouseholdPopulator.cpp" alt="" coords="409,229,586,256"/>
-<area shape="rect" id="node21" href="../../dd/d2d/a00229.html" title="K12SchoolPopulator.cpp" alt="" coords="1100,155,1276,181"/>
-<area shape="rect" id="node22" href="../../d0/def/a00256.html" title="PrimaryCommunityPopulator.cpp" alt="" coords="1300,155,1532,181"/>
-<area shape="rect" id="node23" href="../../d9/d2a/a00270.html" title="SecondaryCommunityPopulator.cpp" alt="" coords="1556,155,1807,181"/>
-<area shape="rect" id="node24" href="../../dc/d0f/a00303.html" title="WorkplacePopulator.cpp" alt="" coords="1831,155,2004,181"/>
-<area shape="rect" id="node25" href="../../d3/dd5/a00215.html" title="Initialize populations: implementation. " alt="" coords="610,229,769,256"/>
-<area shape="rect" id="node26" href="../../d0/d3e/a00253.html" title="Header file for the core Population class. " alt="" coords="2028,155,2129,181"/>
-<area shape="rect" id="node13" href="../../da/d2e/a00238.html" title="LocationsCSVReader.h" alt="" coords="4039,229,4204,256"/>
-<area shape="rect" id="node16" href="../../dc/d6a/a00261.html" title="ReaderFactory.h" alt="" coords="3892,229,4015,256"/>
-<area shape="rect" id="node14" href="../../d4/d08/a00237.html" title="LocationsCSVReader.cpp" alt="" coords="4181,304,4361,331"/>
-<area shape="rect" id="node15" href="../../dd/dd7/a00260.html" title="ReaderFactory.cpp" alt="" coords="4019,304,4157,331"/>
-<area shape="rect" id="node17" href="../../d0/d81/a00180.html" title="GeoGridConfig.cpp" alt="" coords="3853,304,3995,331"/>
-<area shape="rect" id="node27" href="../../dd/da7/a00168.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="3138,229,3283,256"/>
-<area shape="rect" id="node28" href="../../de/d79/a00203.html" title="Implementation for HelthSeeder class. " alt="" coords="3308,229,3444,256"/>
-<area shape="rect" id="node29" href="../../d7/d2f/a00258.html" title="Implementation for the PublicHealthAgency class. " alt="" coords="3468,229,3641,256"/>
-<area shape="rect" id="node30" href="../../d3/d65/a00154.html" title="Header for the command line controller. " alt="" coords="977,229,1113,256"/>
-<area shape="rect" id="node31" href="../../dc/d28/a00276.html" title="Header for the command line controller. " alt="" coords="1138,229,1273,256"/>
-<area shape="rect" id="node32" href="../../d2/d04/a00281.html" title="Header for the command line controller. " alt="" coords="1297,229,1437,256"/>
-<area shape="rect" id="node33" href="../../d7/d3f/a00173.html" title="Generator.h" alt="" coords="2321,229,2420,256"/>
-<area shape="rect" id="node40" href="../../d9/d38/a00166.html" title="Initialize populations: implementation. " alt="" coords="1461,229,1624,256"/>
-<area shape="rect" id="node41" href="../../dc/ded/a00252.html" title="Core Population class. " alt="" coords="1649,229,1765,256"/>
-<area shape="rect" id="node42" href="../../d6/d82/a00293.html" title="Implementation for the SurveySeeder class. " alt="" coords="1789,229,1928,256"/>
-<area shape="rect" id="node43" href="../../d9/dd6/a00272.html" title="Implementation for the Simulator class. " alt="" coords="1952,229,2027,256"/>
-<area shape="rect" id="node44" href="../../dc/d5d/a00278.html" title="Implementation for SimRunner. " alt="" coords="2051,229,2168,256"/>
-<area shape="rect" id="node45" href="../../d0/d5e/a00136.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2191,229,2297,256"/>
-<area shape="rect" id="node46" href="../../dd/df3/a00219.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2445,229,2606,256"/>
-<area shape="rect" id="node47" href="../../dd/d52/a00221.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="2631,229,2772,256"/>
-<area shape="rect" id="node48" href="../../d0/d1f/a00247.html" title="Implementation of the CasesFile class. " alt="" coords="2796,229,2916,256"/>
-<area shape="rect" id="node49" href="../../da/dd4/a00291.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2940,229,3113,256"/>
-<area shape="rect" id="node34" href="../../d4/ddd/a00138.html" title="CollegeGenerator.cpp" alt="" coords="2604,304,2764,331"/>
-<area shape="rect" id="node35" href="../../de/dd2/a00207.html" title="HouseholdGenerator.cpp" alt="" coords="2788,304,2969,331"/>
-<area shape="rect" id="node36" href="../../de/dc2/a00228.html" title="K12SchoolGenerator.cpp" alt="" coords="1659,304,1839,331"/>
-<area shape="rect" id="node37" href="../../d4/d04/a00255.html" title="PrimaryCommunityGenerator.cpp" alt="" coords="1863,304,2099,331"/>
-<area shape="rect" id="node38" href="../../d5/d42/a00269.html" title="SecondaryCommunityGenerator.cpp" alt="" coords="2123,304,2378,331"/>
-<area shape="rect" id="node39" href="../../d0/d61/a00302.html" title="WorkplaceGenerator.cpp" alt="" coords="2402,304,2579,331"/>
+<div class="center"><img src="../../dd/dfd/a00438.gif" border="0" usemap="#GeoGridReaderFactory_8cpp" alt=""/></div>
+<map name="GeoGridReaderFactory_8cpp" id="GeoGridReaderFactory_8cpp">
+<area shape="rect" id="node2" href="../../da/d15/a00188.html" title="GeoGridReaderFactory.h" alt="" coords="5,155,180,181"/>
+<area shape="rect" id="node5" href="../../d7/d25/a00182.html" title="GeoGridProtoReader.h" alt="" coords="545,80,707,107"/>
+<area shape="rect" id="node6" href="../../d8/d00/a00186.html" title="GeoGridReader.h" alt="" coords="273,155,403,181"/>
+<area shape="rect" id="node37" href="../../dd/dae/a00163.html" title="util/Exception.h" alt="" coords="2264,229,2383,256"/>
+<area shape="rect" id="node11" href="../../d2/d82/a00142.html" title="Header for the core ContactPool class. " alt="" coords="426,229,589,256"/>
+<area shape="rect" id="node13" href="../../d9/db6/a00146.html" title="Definition of ContactPool Id Type. " alt="" coords="655,311,819,338"/>
+<area shape="rect" id="node17" href="../../dd/d2d/a00229.html" title="geopop/Location.h" alt="" coords="837,155,977,181"/>
+<area shape="rect" id="node12" href="../../d5/db1/a00140.html" title="Header for the ContactLogMode class. " alt="" coords="334,311,529,338"/>
+<area shape="rect" id="node18" href="../../d5/d13/a00205.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="945,229,1134,256"/>
+<area shape="rect" id="node23" href="../../da/d1e/a00149.html" title="geopop/Coordinate.h" alt="" coords="1284,229,1440,256"/>
+<area shape="rect" id="node26" href="../../df/da9/a00263.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1647,229,1819,256"/>
+<area shape="rect" id="node27" href="../../d6/d7f/a00287.html" title="Interface/Implementation for SVIterator. " alt="" coords="2002,311,2101,338"/>
 </map>
 </div>
 </div>
@@ -185,22 +140,17 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/db3/a00313"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db3/a00313.html">geopop</a></td></tr>
-<tr class="memdesc:dd/db3/a00313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
+<tr class="memitem:d3/d07/a00305"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d07/a00305.html">geopop</a></td></tr>
+<tr class="memdesc:d3/d07/a00305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the geographic and demograhic classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:aa68c8e0466bb47cfd27bcba14b979c52"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db3/a00313.html#aa68c8e0466bb47cfd27bcba14b979c52">geopop::GeoGridKdTree</a> = KdTree&lt; geogrid_detail::KdTree2DPoint &gt;</td></tr>
-<tr class="separator:aa68c8e0466bb47cfd27bcba14b979c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_1fafd3a38d53c2ca250f450f6134d22a.html">geo</a></li><li class="navelem"><a class="el" href="../../d6/daa/a00187.html">GeoGridKdTree.h</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_0be871b61b0cfdce2f605ca21b1bda01.html">geopop</a></li><li class="navelem"><a class="el" href="../../dir_c490ff723361adf09283ce460b26e466.html">io</a></li><li class="navelem"><a class="el" href="../../d6/daa/a00187.html">GeoGridReaderFactory.cpp</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:00 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

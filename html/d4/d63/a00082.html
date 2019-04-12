@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::Infector&lt; LL, TIC, true &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::PublicHealthAgency Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -107,89 +107,202 @@ $(document).ready(function(){initNavTree('d4/d63/a00082.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d7/d60/a00816.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d5/d72/a00803.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Infector&lt; LL, TIC, true &gt; Class Template Reference</div>  </div>
+<div class="title">stride::PublicHealthAgency Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Time-optimized version (For NoLocalInformation &amp;&amp; (None || Transmission logging)).  
- <a href="../../d4/d63/a00082.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d5/ddf/a00224_source.html">Infector.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d3/d1a/a00251_source.html">PublicHealthAgency.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Infector&lt; LL, TIC, true &gt;:</div>
+Collaboration diagram for stride::PublicHealthAgency:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d5e/a00817.gif" border="0" usemap="#stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map" id="stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map">
+<div class="center"><img src="../../d1/dd1/a00804.gif" border="0" usemap="#stride_1_1PublicHealthAgency_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1PublicHealthAgency_coll__map" id="stride_1_1PublicHealthAgency_coll__map">
+<area shape="rect" id="node2" href="../../dd/d4e/a00329.html" title="{double\n||}" alt="" coords="69,5,134,83"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa27dad30b434e742e80300d88854b36d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#aa27dad30b434e742e80300d88854b36d">Exec</a> (<a class="el" href="../../d1/d6f/a00063.html">ContactPool</a> &amp;pool, const <a class="el" href="../../d9/d73/a00060.html">AgeContactProfile</a> &amp;profile, const <a class="el" href="../../d9/df8/a00096.html">TransmissionProfile</a> &amp;transProfile, <a class="el" href="../../df/d03/a00062.html">ContactHandler</a> &amp;cHandler, unsigned short int simDay, std::shared_ptr&lt; spdlog::logger &gt; cLogger)</td></tr>
-<tr class="separator:aa27dad30b434e742e80300d88854b36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a03ebd97271af159e0831b61b43e6e62f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a03ebd97271af159e0831b61b43e6e62f">PublicHealthAgency</a> ()</td></tr>
+<tr class="memdesc:a03ebd97271af159e0831b61b43e6e62f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs uni-initialized object.  <a href="#a03ebd97271af159e0831b61b43e6e62f">More...</a><br /></td></tr>
+<tr class="separator:a03ebd97271af159e0831b61b43e6e62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5096270693bc78b306cc236d6dcfb747"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a5096270693bc78b306cc236d6dcfb747">Exec</a> (std::shared_ptr&lt; <a class="el" href="../../d8/d53/a00081.html">Population</a> &gt; pop, <a class="el" href="../../d5/d1e/a00103.html">util::RnMan</a> &amp;rnManager, unsigned short int sim_day)</td></tr>
+<tr class="memdesc:a5096270693bc78b306cc236d6dcfb747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute.  <a href="#a5096270693bc78b306cc236d6dcfb747">More...</a><br /></td></tr>
+<tr class="separator:a5096270693bc78b306cc236d6dcfb747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96febde4c86b8e16590d782130058533"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a96febde4c86b8e16590d782130058533">Initialize</a> (<a class="el" href="../../dd/d4e/a00329.html">double</a> detection_probability)</td></tr>
+<tr class="memdesc:a96febde4c86b8e16590d782130058533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a96febde4c86b8e16590d782130058533">More...</a><br /></td></tr>
+<tr class="separator:a96febde4c86b8e16590d782130058533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a009d5f79aa598d721d252c4470411237"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a009d5f79aa598d721d252c4470411237">PerformCaseFinding</a> (std::shared_ptr&lt; <a class="el" href="../../d8/d53/a00081.html">Population</a> &gt; pop, <a class="el" href="../../d5/d1e/a00103.html">util::RnMan</a> &amp;rnMan, unsigned short int simDay)</td></tr>
+<tr class="memdesc:a009d5f79aa598d721d252c4470411237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public <a class="el" href="../../d2/db1/a00070.html" title="Holds a person&#39;s health data. ">Health</a> Strategy: look for symptomatic cases and vaccinate their household.  <a href="#a009d5f79aa598d721d252c4470411237">More...</a><br /></td></tr>
+<tr class="separator:a009d5f79aa598d721d252c4470411237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4511cc382abab53cdea308741ce59a43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d4e/a00329.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html#a4511cc382abab53cdea308741ce59a43">m_detection_probability</a></td></tr>
+<tr class="memdesc:a4511cc382abab53cdea308741ce59a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detection probability of symptomatic cases.  <a href="#a4511cc382abab53cdea308741ce59a43">More...</a><br /></td></tr>
+<tr class="separator:a4511cc382abab53cdea308741ce59a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;ContactLogMode::Id LL, bool TIC&gt;<br />
-class stride::Infector&lt; LL, TIC, true &gt;</h3>
-
-<p>Time-optimized version (For NoLocalInformation &amp;&amp; (None || Transmission logging)). </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">LL</td><td>LogLevel </td></tr>
-    <tr><td class="paramname">TIC</td><td>TrackIndexCase </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00081">81</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">Infector.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa27dad30b434e742e80300d88854b36d"></a>
+<div class="textblock">
+<p>Definition at line <a class="el" href="../../d3/d1a/a00251_source.html#l00028">28</a> of file <a class="el" href="../../d3/d1a/a00251_source.html">PublicHealthAgency.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a03ebd97271af159e0831b61b43e6e62f"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;ContactLogMode::Id LL, bool TIC&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d8/d53/a00081.html">stride::Infector</a>&lt; LL, TIC, true &gt;::Exec </td>
+          <td class="memname">stride::PublicHealthAgency::PublicHealthAgency </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d1/d6f/a00063.html">ContactPool</a> &amp;&#160;</td>
-          <td class="paramname"><em>pool</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs uni-initialized object. </p>
+
+<p>Definition at line <a class="el" href="../../d3/d1a/a00251_source.html#l00032">32</a> of file <a class="el" href="../../d3/d1a/a00251_source.html">PublicHealthAgency.h</a>.</p>
+
+<p>References <a class="el" href="../../d0/da7/a00250_source.html#l00034">Exec()</a>, <a class="el" href="../../d0/da7/a00250_source.html#l00039">Initialize()</a>, and <a class="el" href="../../d0/da7/a00250_source.html#l00041">PerformCaseFinding()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d63/a00082_a03ebd97271af159e0831b61b43e6e62f_cgraph.gif" border="0" usemap="#d4/d63/a00082_a03ebd97271af159e0831b61b43e6e62f_cgraph" alt=""/></div>
+<map name="d4/d63/a00082_a03ebd97271af159e0831b61b43e6e62f_cgraph" id="d4/d63/a00082_a03ebd97271af159e0831b61b43e6e62f_cgraph">
+<area shape="rect" id="node2" href="../../d4/d63/a00082.html#a5096270693bc78b306cc236d6dcfb747" title="Execute. " alt="" coords="245,5,437,47"/>
+<area shape="rect" id="node3" href="../../d4/d63/a00082.html#a96febde4c86b8e16590d782130058533" title="Initialize. " alt="" coords="245,71,437,112"/>
+<area shape="rect" id="node4" href="../../d4/d63/a00082.html#a009d5f79aa598d721d252c4470411237" title="Public Health Strategy: look for symptomatic cases and vaccinate their household. ..." alt="" coords="245,136,437,177"/>
+<area shape="rect" id="node5" href="../../d5/d1e/a00103.html#ae70c110738d7772252e9bf96703ff2b8" title="Return a generator for uniform doubles in [0, 1[ using i&#45;th random stream. " alt="" coords="485,103,671,144"/>
+<area shape="rect" id="node6" href="../../d2/d41/a00318.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="491,168,665,209"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a5096270693bc78b306cc236d6dcfb747"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::PublicHealthAgency::Exec </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d8/d53/a00081.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d9/d73/a00060.html">AgeContactProfile</a> &amp;&#160;</td>
-          <td class="paramname"><em>profile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d9/df8/a00096.html">TransmissionProfile</a> &amp;&#160;</td>
-          <td class="paramname"><em>transProfile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../df/d03/a00062.html">ContactHandler</a> &amp;&#160;</td>
-          <td class="paramname"><em>cHandler</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/a00103.html">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned short int&#160;</td>
-          <td class="paramname"><em>simDay</em>, </td>
+          <td class="paramname"><em>sim_day</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Execute. </p>
+
+<p>Definition at line <a class="el" href="../../d0/da7/a00250_source.html#l00034">34</a> of file <a class="el" href="../../d0/da7/a00250_source.html">PublicHealthAgency.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d1a/a00251_source.html#l00032">PublicHealthAgency()</a>, and <a class="el" href="../../d3/dcc/a00264_source.html#l00063">stride::Sim::TimeStep()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d63/a00082_a5096270693bc78b306cc236d6dcfb747_icgraph.gif" border="0" usemap="#d4/d63/a00082_a5096270693bc78b306cc236d6dcfb747_icgraph" alt=""/></div>
+<map name="d4/d63/a00082_a5096270693bc78b306cc236d6dcfb747_icgraph" id="d4/d63/a00082_a5096270693bc78b306cc236d6dcfb747_icgraph">
+<area shape="rect" id="node2" href="../../d4/d63/a00082.html#a03ebd97271af159e0831b61b43e6e62f" title="Constructs uni&#45;initialized object. " alt="" coords="245,5,437,47"/>
+<area shape="rect" id="node3" href="../../d2/d1f/a00083.html#a032911d7270c91e0a6a9c55f68800096" title="Run one time step, computing full simulation (default) or only index case. " alt="" coords="261,71,421,98"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a96febde4c86b8e16590d782130058533"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::PublicHealthAgency::Initialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d4e/a00329.html">double</a>&#160;</td>
+          <td class="paramname"><em>detection_probability</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize. </p>
+
+<p>Definition at line <a class="el" href="../../d0/da7/a00250_source.html#l00039">39</a> of file <a class="el" href="../../d0/da7/a00250_source.html">PublicHealthAgency.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d1a/a00251_source.html#l00032">PublicHealthAgency()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d63/a00082_a96febde4c86b8e16590d782130058533_icgraph.gif" border="0" usemap="#d4/d63/a00082_a96febde4c86b8e16590d782130058533_icgraph" alt=""/></div>
+<map name="d4/d63/a00082_a96febde4c86b8e16590d782130058533_icgraph" id="d4/d63/a00082_a96febde4c86b8e16590d782130058533_icgraph">
+<area shape="rect" id="node2" href="../../d4/d63/a00082.html#a03ebd97271af159e0831b61b43e6e62f" title="Constructs uni&#45;initialized object. " alt="" coords="245,5,437,47"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a009d5f79aa598d721d252c4470411237"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::PublicHealthAgency::PerformCaseFinding </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d8/d53/a00081.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>cLogger</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d5/d1e/a00103.html">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnMan</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>simDay</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -199,46 +312,79 @@ template&lt;ContactLogMode::Id LL, bool TIC&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d28/a00223_source.html#l00211">211</a> of file <a class="el" href="../../dc/d28/a00223_source.html">Infector.cpp</a>.</p>
+<p>Public <a class="el" href="../../d2/db1/a00070.html" title="Holds a person&#39;s health data. ">Health</a> Strategy: look for symptomatic cases and vaccinate their household. </p>
+<p>To allow iteration over pool types for the <a class="el" href="../../d4/d63/a00082.html">PublicHealthAgency</a>. </p>
 
-<p>References <a class="el" href="../../d4/d9a/a00246_source.html#l00056">stride::Person::GetHealth()</a>, <a class="el" href="../../da/d50/a00301_source.html#l00037">stride::TransmissionProfile::GetRate()</a>, <a class="el" href="../../da/ddb/a00145_source.html#l00041">stride::ContactHandler::HasContactAndTransmission()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00068">stride::Person::IsInPool()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00087">stride::ContactPool::m_index_immune</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00090">stride::ContactPool::m_members</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00089">stride::ContactPool::m_pool_type</a>, <a class="el" href="../../db/d48/a00148_source.html#l00055">stride::ContactPool::SortMembers()</a>, and <a class="el" href="../../dd/de3/a00201_source.html#l00035">stride::Health::StartInfection()</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da7/a00250_source.html#l00041">41</a> of file <a class="el" href="../../d0/da7/a00250_source.html">PublicHealthAgency.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/d39/a00257_source.html#l00072">stride::util::RnMan::GetUniform01Generator()</a>, and <a class="el" href="../../de/d14/a00139_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d1a/a00251_source.html#l00032">PublicHealthAgency()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d63/a00082_aa27dad30b434e742e80300d88854b36d_cgraph.gif" border="0" usemap="#d4/d63/a00082_aa27dad30b434e742e80300d88854b36d_cgraph" alt=""/></div>
-<map name="d4/d63/a00082_aa27dad30b434e742e80300d88854b36d_cgraph" id="d4/d63/a00082_aa27dad30b434e742e80300d88854b36d_cgraph">
-<area shape="rect" id="node2" href="../../d1/d1e/a00087.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="215,5,397,32"/>
-<area shape="rect" id="node3" href="../../d9/df8/a00096.html#a51ffe104253ffd5bcf12ab299fa6f2e2" title="Return transmission rate. " alt="" coords="213,57,399,98"/>
-<area shape="rect" id="node5" href="../../df/d03/a00062.html#a65ae0c571176ea267cf980ce31408f35" title="Check if two individuals have contact and transmission. " alt="" coords="200,122,412,163"/>
-<area shape="rect" id="node7" href="../../d1/d1e/a00087.html#afc181c9b642346133f4667c08c72d3f8" title="Check if a person is present today in a given contact pool. " alt="" coords="223,188,389,215"/>
-<area shape="rect" id="node8" href="../../d1/d6f/a00063.html#a38adafed84fa1801c5f1f6420158a7f3" title="Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. " alt="" coords="235,239,377,281"/>
-<area shape="rect" id="node9" href="../../d1/d09/a00077.html#a5d85541b8e22aeaa75b364a454f59088" title="Start the infection. " alt="" coords="205,305,407,332"/>
-<area shape="rect" id="node4" href="../../d9/df8/a00096.html#a5e67e9eab813de18fff32722ee6f1437" title="Initialize. " alt="" coords="468,57,655,98"/>
-<area shape="rect" id="node6" href="../../df/d03/a00062.html#a51fd44b433163a1bd2a9fb424a003344" title="Convert rate into probability. " alt="" coords="478,122,645,163"/>
-<area shape="rect" id="node10" href="../../d1/d09/a00077.html#a468c554771acc883799456c14373e9db" title="Reset the disease counter. " alt="" coords="460,298,663,339"/>
+<div class="center"><img src="../../d4/d63/a00082_a009d5f79aa598d721d252c4470411237_cgraph.gif" border="0" usemap="#d4/d63/a00082_a009d5f79aa598d721d252c4470411237_cgraph" alt=""/></div>
+<map name="d4/d63/a00082_a009d5f79aa598d721d252c4470411237_cgraph" id="d4/d63/a00082_a009d5f79aa598d721d252c4470411237_cgraph">
+<area shape="rect" id="node2" href="../../d5/d1e/a00103.html#ae70c110738d7772252e9bf96703ff2b8" title="Return a generator for uniform doubles in [0, 1[ using i&#45;th random stream. " alt="" coords="245,5,431,47"/>
+<area shape="rect" id="node3" href="../../d2/d41/a00318.html#a025f9ff3cf2df8c0c8b95e48724d9b7c" title="Converts a LogMode value to corresponding name. " alt="" coords="251,71,425,112"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d63/a00082_a009d5f79aa598d721d252c4470411237_icgraph.gif" border="0" usemap="#d4/d63/a00082_a009d5f79aa598d721d252c4470411237_icgraph" alt=""/></div>
+<map name="d4/d63/a00082_a009d5f79aa598d721d252c4470411237_icgraph" id="d4/d63/a00082_a009d5f79aa598d721d252c4470411237_icgraph">
+<area shape="rect" id="node2" href="../../d4/d63/a00082.html#a03ebd97271af159e0831b61b43e6e62f" title="Constructs uni&#45;initialized object. " alt="" coords="245,5,437,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a4511cc382abab53cdea308741ce59a43"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d4e/a00329.html">double</a> stride::PublicHealthAgency::m_detection_probability</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Detection probability of symptomatic cases. </p>
+
+<p>Definition at line <a class="el" href="../../d3/d1a/a00251_source.html#l00044">44</a> of file <a class="el" href="../../d3/d1a/a00251_source.html">PublicHealthAgency.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/ddf/a00224_source.html">Infector.h</a></li>
-<li><a class="el" href="../../dc/d28/a00223_source.html">Infector.cpp</a></li>
+<li><a class="el" href="../../d3/d1a/a00251_source.html">PublicHealthAgency.h</a></li>
+<li><a class="el" href="../../d0/da7/a00250_source.html">PublicHealthAgency.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d8f/a00324.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d63/a00082.html">Infector&lt; LL, TIC, true &gt;</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:11 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/db8/a00316.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d63/a00082.html">PublicHealthAgency</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:01 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

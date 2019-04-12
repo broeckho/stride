@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: InfectedFileViewer.h File Reference</title>
+<title>Stride Reference Manual: is_iterator.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 24f7498</span>
+   &#160;<span id="projectnumber">- generated for commit 701e3b0</span>
    </div>
   </td>
  </tr>
@@ -106,34 +106,36 @@ $(document).ready(function(){initNavTree('d5/d0b/a00220.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">InfectedFileViewer.h File Reference</div>  </div>
+<div class="title">is_iterator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Observer for Infected output.  
+<p>Interface/Implementation of is_iterator.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d9a/a00218_source.html">InfectedFile.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/ded/a00211_source.html">sim/event/Id.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;iterator&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for InfectedFileViewer.h:</div>
+Include dependency graph for is_iterator.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d89/a00484.gif" border="0" usemap="#InfectedFileViewer_8h" alt=""/></div>
-<map name="InfectedFileViewer_8h" id="InfectedFileViewer_8h">
-<area shape="rect" id="node2" href="../../dc/d9a/a00218.html" title="Header for the InfectedFile class. " alt="" coords="81,80,186,107"/>
-<area shape="rect" id="node6" href="../../dd/ded/a00211.html" title="Definition of EventId. " alt="" coords="209,80,321,107"/>
+<div class="center"><img src="../../d4/ddf/a00488.gif" border="0" usemap="#is__iterator_8h" alt=""/></div>
+<map name="is__iterator_8h" id="is__iterator_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d1a/a00485.gif" border="0" usemap="#InfectedFileViewer_8hdep" alt=""/></div>
-<map name="InfectedFileViewer_8hdep" id="InfectedFileViewer_8hdep">
-<area shape="rect" id="node2" href="../../d3/d65/a00154.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
-<area shape="rect" id="node3" href="../../dd/df3/a00219.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="166,80,327,107"/>
+<div class="center"><img src="../../da/d05/a00489.gif" border="0" usemap="#is__iterator_8hdep" alt=""/></div>
+<map name="is__iterator_8hdep" id="is__iterator_8hdep">
+<area shape="rect" id="node2" href="../../dd/db2/a00151.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="553,80,611,107"/>
+<area shape="rect" id="node3" href="../../d0/d19/a00273.html" title="Header for the command line controller. " alt="" coords="5,155,145,181"/>
+<area shape="rect" id="node4" href="../../d0/de8/a00133.html" title="CommutesCSVReader.cpp" alt="" coords="169,155,360,181"/>
+<area shape="rect" id="node5" href="../../d7/da0/a00198.html" title="HouseholdCSVReader.cpp" alt="" coords="385,155,571,181"/>
+<area shape="rect" id="node6" href="../../d1/da8/a00230.html" title="LocationsCSVReader.cpp" alt="" coords="596,155,776,181"/>
+<area shape="rect" id="node7" href="../../d9/d7d/a00150.html" title="Source file of csv. " alt="" coords="801,155,875,181"/>
+<area shape="rect" id="node8" href="../../d7/d9a/a00152.html" title="Source file of CSVRow. " alt="" coords="899,155,998,181"/>
 </map>
 </div>
 </div>
@@ -141,30 +143,43 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d6a/a00119.html">stride::viewers::InfectedFileViewer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../df/d6a/a00119.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html">stride::util::ii_detail::make_void&lt; Ts &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d74/a00099.html">stride::util::is_iterator&lt; T, class &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">When it 's not an iterator.  <a href="../../da/d74/a00099.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d61/a00100.html">stride::util::is_iterator&lt; T, ii_detail::void_t&lt; typename std::iterator_traits&lt; T &gt;::iterator_category &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">When it is an iterator.  <a href="../../d0/d61/a00100.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d8f/a00324"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">stride</a></td></tr>
-<tr class="memdesc:d4/d8f/a00324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
+<tr class="memitem:d3/db8/a00316"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db8/a00316.html">stride</a></td></tr>
+<tr class="memdesc:d3/db8/a00316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the simulator and related classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:da/d75/a00334"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d75/a00334.html">stride::viewers</a></td></tr>
-<tr class="memdesc:da/d75/a00334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d4/d7d/a00093.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
+<tr class="memitem:de/d55/a00323"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d55/a00323.html">stride::util</a></td></tr>
+<tr class="memdesc:de/d55/a00323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:de/dc8/a00325"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dc8/a00325.html">stride::util::ii_detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a5548d91f3cf721a08ab97267e8dd80ec"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
+<tr class="memitem:a5548d91f3cf721a08ab97267e8dd80ec"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dc8/a00325.html#a5548d91f3cf721a08ab97267e8dd80ec">stride::util::ii_detail::void_t</a> = typename make_void&lt; Ts... &gt;::type</td></tr>
+<tr class="separator:a5548d91f3cf721a08ab97267e8dd80ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Observer for Infected output. </p>
+<div class="textblock"><p>Interface/Implementation of is_iterator. </p>
 
-<p>Definition in file <a class="el" href="../../d5/d0b/a00220_source.html">InfectedFileViewer.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d5/d0b/a00220_source.html">is_iterator.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">InfectedFileViewer.h</a></li>
-    <li class="footer">Generated on Wed Apr 10 2019 22:15:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">is_iterator.h</a></li>
+    <li class="footer">Generated on Fri Apr 12 2019 21:19:00 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
