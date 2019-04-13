@@ -149,9 +149,9 @@ target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVIS
 target_compile_definitions(libstride PUBLIC "-DPROCCOUNT=${PROCCOUNT}")
 target_link_libraries(libstride PRIVATE ${LIBS})
 if(Protobuf_FOUND)
-    target_link_libraries(libstride PRIVATE ${Protobuf_LIBRARIES})
+    target_link_libraries(libstride PUBLIC ${Protobuf_LIBRARIES})
 else()
-    target_link_libraries(libstride PRIVATE libprotobuf)
+    target_link_libraries(libstride PUBLIC libprotobuf)
 endif()
 set_target_properties(libstride
     PROPERTIES

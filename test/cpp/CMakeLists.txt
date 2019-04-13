@@ -30,9 +30,18 @@ add_test(NAME smoke_sim_geopop
 	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
 	COMMAND ${BIN_INSTALL_LOCATION}/stride -c run_generate_default.xml --override output_prefix=tests/smoke_sim_geopop
 	)
+add_test(NAME smoke_stan_geopop
+	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
+	COMMAND ${BIN_INSTALL_LOCATION}/stride --stan 3 -c run_generate_default.xml --override output_prefix=tests/smoke_stan_geopop
+	)
 add_test(NAME smoke_genpop_smoke
 	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
 	COMMAND ${BIN_INSTALL_LOCATION}/stride -e genpop -c run_generate_default.xml --override output_prefix=tests/smoke_genpop
+	)
+add_test(NAME smoke_sim_import
+	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
+	COMMAND ${BIN_INSTALL_LOCATION}/stride -c run_generate_default.xml -o population_type=import -o population_file=tests/smoke_genpop/genpop.proto
+	-o output_prefix=tests/smoke_sim_import
 	)
 
 #============================================================================
