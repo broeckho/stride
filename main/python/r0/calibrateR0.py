@@ -4,8 +4,10 @@ import matplotlib.pyplot as plt
 import multiprocessing
 import numpy
 import os
+import statistics
 
-from numpy.polynomial.polynomial import polyfit
+import scipy.optimize
+
 from pystride.PyController import PyController
 
 def getCommonParameters():
@@ -42,15 +44,6 @@ def generateRngSeeds(numSeeds):
         seeds.append(int.from_bytes(random_data, byteorder='big'))
     return seeds
 
-def getSecondaryCases(transmissionProbability, startDate, runID):
-    secondaryCases = 0
-    contactFile = "TP_" + str(transmissionProbability) + "_START_" + startDate + "_" + str(runID) + "_contact_log.txt"
-    with open(contactFile) as f:
-        for line in f:
-            line = line.split(" ")
-            if line[0] == "[TRAN]":
-                secondaryCases += 1
-    return secondaryCases
 
 def runSimulation(startDate, transmissionProbability, seed, runID):
     control = PyController(data_dir="data")
@@ -69,42 +62,73 @@ def runSimulations(numRuns, startDates, transmissionProbabilities, poolSize):
             with multiprocessing.Pool(processes=poolSize) as pool:
                 pool.starmap(runSimulation, [(date, transmissionProb, seeds[i], i) for i in range(len(seeds))])
 
+def getSecondaryCases(transmissionProbability, startDate, runID):
+    secondaryCases = 0
+    contactFile = "TP_" + str(transmissionProbability) + "_START_" + startDate + "_" + str(runID) + "_contact_log.txt"
+    with open(contactFile) as f:
+        for line in f:
+            line = line.split(" ")
+            if line[0] == "[TRAN]":
+                secondaryCases += 1
+    return secondaryCases
+
+'''def lnFunc(xs, a, b):
+    return [a + b * math.log(x + 1) for x in xs]'''
+
 def analyseResults(numRuns, startDates, transmissionProbabilities, poolSize):
+    secondaryCasesByProb = []
+    secondaryCasesMeans = []
+    secondaryCasesMedians = []
+
     allTransmissionProbs = []
     allSecondaryCases = []
-    secondaryCasesByTP = []
     for prob in transmissionProbabilities:
         colors = ["b", "g", "y", "k", "m", "c", "r"]
         days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-        secondaryCasesTP = []
         for date_i in range(len(startDates)):
+            secondaryCases = []
             with multiprocessing.Pool(processes=poolSize) as pool:
-                secondaryCases = pool.starmap(getSecondaryCases, [(prob, startDates[date_i], i) for i in range(numRuns)])
-                secondaryCasesTP += secondaryCases
-                allSecondaryCases += secondaryCases
+                results = pool.starmap(getSecondaryCases, [(prob, startDates[date_i], i) for i in range(numRuns)])
+                secondaryCases += results
+                allSecondaryCases += results
                 allTransmissionProbs += ([prob] * numRuns)
+                plt.plot([prob] * numRuns, results, colors[date_i] + "o")
+        secondaryCasesByProb.append(secondaryCases)
+        secondaryCasesMeans.append(sum(secondaryCases) / len(secondaryCases))
+        secondaryCasesMedians.append(statistics.median(secondaryCases))
 
-                plt.plot([prob] * numRuns, secondaryCases, colors[date_i] + "o")
-        secondaryCasesByTP.append(secondaryCasesTP)
-    newCoefficients = polyfit(allTransmissionProbs, allSecondaryCases, 2)
-    print(newCoefficients)
     plt.xlabel("Transmission probability")
     plt.ylabel("Secondary cases")
     plt.legend(days)
-    plt.savefig("TransmissionProbVSSecCases")
+    plt.savefig("SecondaryCasesScatter")
     plt.clf()
 
-    plt.boxplot(secondaryCasesByTP, labels=transmissionProbabilities)
+    bp = plt.boxplot(secondaryCasesByProb, labels=transmissionProbabilities)
+    line1, = plt.plot(range(1, len(transmissionProbabilities) + 1), secondaryCasesMeans)
+    line2, = plt.plot(range(1, len(transmissionProbabilities) + 1), secondaryCasesMedians)
     plt.xlabel("Transmission probability")
     plt.ylabel("Secondary cases")
-    plt.savefig("TransmissionProbVSSecCasesBoxplots")
+    plt.legend([line1, line2],["Means", "Medians"])
+    plt.savefig("SecondaryCasesBoxplots")
     plt.clf()
 
+    '''
+    fit = scipy.optimize.curve_fit(lnFunc, allTransmissionProbs, allSecondaryCases)
+    ffunc = lnFunc(transmissionProbabilities, -0.43092477, 39.78475362)
+    plt.plot(transmissionProbabilities, ffunc, color="red")
+
+    errors = []
+    for i in range(len(allTransmissionProbs)):
+        model = -0.43092477 + (39.7847536 * math.log(allTransmissionProbs[i] + 1))
+        e =  model - allSecondaryCases[i]
+        errors.append(e)
+    plt.plot(allTransmissionProbs, errors, "ro")'''
+
 def main(numRuns, poolSize):
-    transmissionProbs = numpy.arange(0, 1.05, 0.05)
+    transmissionProbabilities = numpy.arange(0, 1.05, 0.05)
     startDates = ["2020-01-01", "2020-01-02", "2020-01-03", "2020-01-04", "2020-01-05", "2020-01-06", "2020-01-07"]
-    runSimulations(numRuns, startDates, transmissionProbs, poolSize)
-    analyseResults(numRuns, startDates, transmissionProbs, poolSize)
+    runSimulations(numRuns, startDates, transmissionProbabilities, poolSize)
+    analyseResults(numRuns, startDates, transmissionProbabilities, poolSize)
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
