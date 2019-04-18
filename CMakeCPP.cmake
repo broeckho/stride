@@ -101,15 +101,21 @@ find_package(Threads)
 #----------------------------------------------------------------------------
 # ProtoBuf
 #----------------------------------------------------------------------------
+set(Protobuf_USE_STATIC_LIBS ON)
 if(NOT STRIDE_FORCE_NO_PROTOC)
     include(FindProtobuf)
     find_package(Protobuf)
     if(NOT Protobuf_FOUND)
-            set(Protobuf_VERSION "0.0.0")
+        set(Protobuf_VERSION "0.0.0")
     endif()
+    if((Protobuf_FOUND) AND (${Protobuf_VERSION} VERSION_LESS 3.0.0))
+         set(Protobuf_FOUND FALSE)
+    endif()
+else()
+    set(Protobuf_FOUND FALSE)
 endif()
 #
-if(Protobuf_FOUND AND ${Protobuf_VERSION} VERSION_GREATER_EQUAL 3.0.0)
+if(Protobuf_FOUND)
     set(Protobuf_PBS_DIR ${CMAKE_BINARY_DIR}/main/cpp)
     include_directories(SYSTEM ${Protobuf_INCLUDE_DIRS})
 else()

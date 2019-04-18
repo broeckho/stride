@@ -10,12 +10,16 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2019, Jan Broeckhove.
  */
 
 #include "Generator.h"
 
 #include "util/Assert.h"
+
+#include <cmath>
+#include <iostream>
+#include <stdexcept>
 
 namespace geopop {
 
@@ -24,41 +28,36 @@ using namespace stride;
 using namespace stride::ContactType;
 
 template<>
-void Generator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig)
+void Generator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig)
 {
-        const auto studentCount = ggConfig.info.popcount_college;
-        const auto collegeCount =
-            static_cast<unsigned int>(ceil(studentCount / static_cast<double>(ggConfig.people[Id::College])));
-        const auto cities = geoGrid.TopK(10);
+        // 1. calculate number of communities
+        // 2. assign communities to a location using a discrete distribution reflecting
+        //    the relative number of people at that location
 
-        if (cities.empty()) {
+        const auto popCount       = ggConfig.param.pop_size;
+        const auto communitySize  = ggConfig.people[Id::SecondaryCommunity];
+        const auto communityCount = static_cast<unsigned int>(ceil(popCount / static_cast<double>(communitySize)));
+
+        vector<double> weights;
+        for (const auto& loc : geoGrid) {
+                const auto weight = static_cast<double>(loc->GetPopCount()) / static_cast<double>(popCount);
+                AssertThrow(weight >= 0 && weight <= 1 && !std::isnan(weight),
+                            "SecondaryCommunityGenerator> Invalid weight: " + to_string(weight), m_logger);
+                weights.push_back(weight);
+        }
+
+        if (weights.empty()) {
                 // trng can't handle empty vectors
                 return;
-        }
-
-        // Aggregate population in TopK cities.
-        auto totalPop = 0U;
-        for (const auto& c : cities) {
-                totalPop += c->GetPopCount();
-        }
-
-        // Weights determined by relative population in city.
-        vector<double> weights;
-        for (const auto& c : cities) {
-                const auto weight = static_cast<double>(c->GetPopCount()) / static_cast<double>(totalPop);
-                AssertThrow(weight >= 0 && weight <= 1 && !std::isnan(weight),
-                            "CollegeGenerator> Invalid weight: " + to_string(weight), m_logger);
-                weights.push_back(weight);
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
         auto       pop  = geoGrid.GetPopulation();
 
-        for (auto i = 0U; i < collegeCount; i++) {
-                auto loc = cities[dist()];
+        for (auto i = 0U; i < communityCount; i++) {
+                const auto loc = geoGrid[dist()];
                 AddPools(*loc, pop, ggConfig);
         }
 }
-
 
 } // namespace geopop

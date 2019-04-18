@@ -13,25 +13,20 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "HouseholdGenerator.h"
-
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
-#include "geopop/HouseholdCenter.h"
-#include "geopop/Location.h"
-#include "util/RnMan.h"
-
-using namespace std;
-using namespace stride::ContactType;
+#include "Generator.h"
 
 namespace geopop {
 
-void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig,
-                               IdSubscriptArray<unsigned int>& ccCounter)
+using namespace std;
+using namespace stride;
+using namespace stride::ContactType;
+
+template<>
+void Generator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig)
 {
         vector<double> weights;
         for (const auto& loc : geoGrid) {
-                weights.push_back(loc->GetRelativePop());
+                weights.push_back(loc->GetPopFraction());
         }
 
         if (weights.empty()) {
@@ -40,12 +35,11 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         }
 
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
+        auto       pop  = geoGrid.GetPopulation();
 
-        for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
+        for (auto i = 0U; i < ggConfig.info.count_households; i++) {
                 const auto loc = geoGrid[dist()];
-                const auto h   = std::make_shared<HouseholdCenter>(ccCounter[Id::Household]++);
-                h->SetupPools(geoGridConfig, geoGrid.GetPopulation());
-                loc->AddCenter(h);
+                AddPools(*loc, pop, ggConfig);
         }
 }
 

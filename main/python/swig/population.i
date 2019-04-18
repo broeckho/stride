@@ -30,12 +30,12 @@ using namespace stride::util;
 
 %include "pop/Person.h"
 %include "util/SegmentedVector.h"
-%extend stride::util::SegmentedVector<stride::Person> {
+%extend stride::util::SegmentedVector<stride::Person, 2048> {
     stride::Person& __getitem__(std::size_t pos) {
         return (*($self))[pos];
     }
 }
-%shared_ptr(stride::util::SegmentedVector<stride::Person>);
+%shared_ptr(stride::util::SegmentedVector<stride::Person, 2048>);
 %shared_ptr(stride::Population);
-%template(PopulationBaseClass) stride::util::SegmentedVector<stride::Person>;
+%template(PopulationBaseClass) stride::util::SegmentedVector<stride::Person, 2048>;
 %include "pop/Population.h"

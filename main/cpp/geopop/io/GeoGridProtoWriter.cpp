@@ -18,10 +18,10 @@
 #include "contact/ContactPool.h"
 #include "contact/ContactType.h"
 #include "geogrid.pb.h"
-#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
 #include "pop/Person.h"
 #include "util/Exception.h"
+#include "util/SegmentedVector.h"
 
 #include <iostream>
 #include <map>
@@ -30,6 +30,7 @@
 namespace geopop {
 
 using namespace std;
+using namespace stride::util;
 using namespace stride::ContactType;
 
 GeoGridProtoWriter::GeoGridProtoWriter() : m_persons_found() {}
@@ -40,7 +41,7 @@ void GeoGridProtoWriter::Write(GeoGrid& geoGrid, ostream& stream)
 
         proto::GeoGrid protoGrid;
         for (const auto& location : geoGrid) {
-                WriteLocation(location, protoGrid.add_locations());
+                WriteLocation(*location, protoGrid.add_locations());
         }
         for (const auto& person : m_persons_found) {
                 WritePerson(person, protoGrid.add_persons());
@@ -54,26 +55,25 @@ void GeoGridProtoWriter::Write(GeoGrid& geoGrid, ostream& stream)
         stream.flush();
 }
 
-void GeoGridProtoWriter::WriteContactCenter(shared_ptr<ContactCenter>              contactCenter,
-                                            proto::GeoGrid_Location_ContactCenter* protoContactCenter)
+void GeoGridProtoWriter::WriteContactPools(Id typeId, SegmentedVector<stride::ContactPool*>& contactPools,
+                                           proto::GeoGrid_Location_ContactPools* protoContactPools)
 {
-        map<Id, proto::GeoGrid_Location_ContactCenter_Type> types = {
-            {Id::K12School, proto::GeoGrid_Location_ContactCenter_Type_K12School},
-            {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
-            {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity},
-            {Id::College, proto::GeoGrid_Location_ContactCenter_Type_College},
-            {Id::Household, proto::GeoGrid_Location_ContactCenter_Type_Household},
-            {Id::Workplace, proto::GeoGrid_Location_ContactCenter_Type_Workplace}};
+        static const map<Id, proto::GeoGrid_Location_ContactPools_Type> types = {
+            {Id::K12School, proto::GeoGrid_Location_ContactPools_Type_K12School},
+            {Id::PrimaryCommunity, proto::GeoGrid_Location_ContactPools_Type_PrimaryCommunity},
+            {Id::SecondaryCommunity, proto::GeoGrid_Location_ContactPools_Type_SecondaryCommunity},
+            {Id::College, proto::GeoGrid_Location_ContactPools_Type_College},
+            {Id::Household, proto::GeoGrid_Location_ContactPools_Type_Household},
+            {Id::Workplace, proto::GeoGrid_Location_ContactPools_Type_Workplace}};
 
-        protoContactCenter->set_id(contactCenter->GetId());
-        protoContactCenter->set_type(types[contactCenter->GetContactPoolType()]);
-        for (stride::ContactPool* pool : *contactCenter) {
-                WriteContactPool(pool, protoContactCenter->add_pools());
+        protoContactPools->set_type(types.at(typeId));
+        for (stride::ContactPool* pool : contactPools) {
+                WriteContactPool(pool, protoContactPools->add_pools());
         }
 }
 
-void GeoGridProtoWriter::WriteContactPool(stride::ContactPool*                               contactPool,
-                                          proto::GeoGrid_Location_ContactCenter_ContactPool* protoContactPool)
+void GeoGridProtoWriter::WriteContactPool(stride::ContactPool*                              contactPool,
+                                          proto::GeoGrid_Location_ContactPools_ContactPool* protoContactPool)
 {
         protoContactPool->set_id(static_cast<google::protobuf::int64>(contactPool->GetId()));
         for (const auto& person : *contactPool) {
@@ -89,17 +89,17 @@ void GeoGridProtoWriter::WriteCoordinate(const Coordinate&                   coo
         protoCoordinate->set_latitude(boost::geometry::get<1>(coordinate));
 }
 
-void GeoGridProtoWriter::WriteLocation(shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation)
+void GeoGridProtoWriter::WriteLocation(Location& location, proto::GeoGrid_Location* protoLocation)
 {
-        protoLocation->set_id(location->GetID());
-        protoLocation->set_name(location->GetName());
-        protoLocation->set_province(location->GetProvince());
-        protoLocation->set_population(location->GetPopCount());
+        protoLocation->set_id(location.GetID());
+        protoLocation->set_name(location.GetName());
+        protoLocation->set_province(location.GetProvince());
+        protoLocation->set_population(location.GetPopCount());
         auto coordinate = new proto::GeoGrid_Location_Coordinate();
-        WriteCoordinate(location->GetCoordinate(), coordinate);
+        WriteCoordinate(location.GetCoordinate(), coordinate);
         protoLocation->set_allocated_coordinate(coordinate);
 
-        auto commutes = location->CRefOutgoingCommutes();
+        auto commutes = location.CRefOutgoingCommutes();
         for (auto commute_pair : commutes) {
                 auto commute = protoLocation->add_commutes();
                 commute->set_to(commute_pair.first->GetID());
@@ -107,9 +107,7 @@ void GeoGridProtoWriter::WriteLocation(shared_ptr<Location> location, proto::Geo
         }
 
         for (Id typ : IdList) {
-                for (const auto& c : location->RefCenters(typ)) {
-                        WriteContactCenter(c, protoLocation->add_contactcenters());
-                }
+                WriteContactPools(typ, location.RefPools(typ), protoLocation->add_contactpools());
         }
 }
 

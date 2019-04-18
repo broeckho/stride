@@ -53,7 +53,7 @@ private:
         boost::property_tree::ptree WriteCoordinate(const Coordinate& coordinate);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a Location.
-        boost::property_tree::ptree WriteLocation(std::shared_ptr<Location> location);
+        boost::property_tree::ptree WriteLocation(const Location& location);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a Person.
         boost::property_tree::ptree WritePerson(stride::Person* person);

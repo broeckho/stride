@@ -46,7 +46,10 @@ class ControlHelper
 {
 public:
         /// Straight initialization.
-        explicit ControlHelper(std::string name, const boost::property_tree::ptree& config);
+        explicit ControlHelper(const boost::property_tree::ptree& config, std::string name);
+
+        /// Simple destructor.
+        ~ControlHelper();
 
 protected:
         /// Empty controller: used as target for delegation.
@@ -63,13 +66,13 @@ protected:
         void InstallLogger();
 
         /// Logs info on setup for cli environment to stride_logger.
-        void LogShutdown();
-
-        /// Logs info on setup for cli environment to stride_logger.
         void LogStartup();
 
         /// Register the viewers of the SimRunner.
         void RegisterViewers(std::shared_ptr<SimRunner> runner);
+
+        /// Logs info on setup for cli environment to stride_logger.
+        void Shutdown();
 
 protected:
         boost::property_tree::ptree     m_config;           ///< Main configuration for run and sim.

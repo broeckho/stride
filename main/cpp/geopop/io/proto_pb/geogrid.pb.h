@@ -59,12 +59,12 @@ extern GeoGrid_LocationDefaultTypeInternal _GeoGrid_Location_default_instance_;
 class GeoGrid_Location_Commute;
 class GeoGrid_Location_CommuteDefaultTypeInternal;
 extern GeoGrid_Location_CommuteDefaultTypeInternal _GeoGrid_Location_Commute_default_instance_;
-class GeoGrid_Location_ContactCenter;
-class GeoGrid_Location_ContactCenterDefaultTypeInternal;
-extern GeoGrid_Location_ContactCenterDefaultTypeInternal _GeoGrid_Location_ContactCenter_default_instance_;
-class GeoGrid_Location_ContactCenter_ContactPool;
-class GeoGrid_Location_ContactCenter_ContactPoolDefaultTypeInternal;
-extern GeoGrid_Location_ContactCenter_ContactPoolDefaultTypeInternal _GeoGrid_Location_ContactCenter_ContactPool_default_instance_;
+class GeoGrid_Location_ContactPools;
+class GeoGrid_Location_ContactPoolsDefaultTypeInternal;
+extern GeoGrid_Location_ContactPoolsDefaultTypeInternal _GeoGrid_Location_ContactPools_default_instance_;
+class GeoGrid_Location_ContactPools_ContactPool;
+class GeoGrid_Location_ContactPools_ContactPoolDefaultTypeInternal;
+extern GeoGrid_Location_ContactPools_ContactPoolDefaultTypeInternal _GeoGrid_Location_ContactPools_ContactPool_default_instance_;
 class GeoGrid_Location_Coordinate;
 class GeoGrid_Location_CoordinateDefaultTypeInternal;
 extern GeoGrid_Location_CoordinateDefaultTypeInternal _GeoGrid_Location_Coordinate_default_instance_;
@@ -77,38 +77,38 @@ namespace protobuf {
 template<> ::proto::GeoGrid* Arena::CreateMaybeMessage<::proto::GeoGrid>(Arena*);
 template<> ::proto::GeoGrid_Location* Arena::CreateMaybeMessage<::proto::GeoGrid_Location>(Arena*);
 template<> ::proto::GeoGrid_Location_Commute* Arena::CreateMaybeMessage<::proto::GeoGrid_Location_Commute>(Arena*);
-template<> ::proto::GeoGrid_Location_ContactCenter* Arena::CreateMaybeMessage<::proto::GeoGrid_Location_ContactCenter>(Arena*);
-template<> ::proto::GeoGrid_Location_ContactCenter_ContactPool* Arena::CreateMaybeMessage<::proto::GeoGrid_Location_ContactCenter_ContactPool>(Arena*);
+template<> ::proto::GeoGrid_Location_ContactPools* Arena::CreateMaybeMessage<::proto::GeoGrid_Location_ContactPools>(Arena*);
+template<> ::proto::GeoGrid_Location_ContactPools_ContactPool* Arena::CreateMaybeMessage<::proto::GeoGrid_Location_ContactPools_ContactPool>(Arena*);
 template<> ::proto::GeoGrid_Location_Coordinate* Arena::CreateMaybeMessage<::proto::GeoGrid_Location_Coordinate>(Arena*);
 template<> ::proto::GeoGrid_Person* Arena::CreateMaybeMessage<::proto::GeoGrid_Person>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace proto {
 
-enum GeoGrid_Location_ContactCenter_Type {
-  GeoGrid_Location_ContactCenter_Type_K12School = 0,
-  GeoGrid_Location_ContactCenter_Type_PrimaryCommunity = 1,
-  GeoGrid_Location_ContactCenter_Type_SecondaryCommunity = 2,
-  GeoGrid_Location_ContactCenter_Type_College = 3,
-  GeoGrid_Location_ContactCenter_Type_Household = 4,
-  GeoGrid_Location_ContactCenter_Type_Workplace = 5,
-  GeoGrid_Location_ContactCenter_Type_GeoGrid_Location_ContactCenter_Type_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
-  GeoGrid_Location_ContactCenter_Type_GeoGrid_Location_ContactCenter_Type_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
+enum GeoGrid_Location_ContactPools_Type {
+  GeoGrid_Location_ContactPools_Type_K12School = 0,
+  GeoGrid_Location_ContactPools_Type_PrimaryCommunity = 1,
+  GeoGrid_Location_ContactPools_Type_SecondaryCommunity = 2,
+  GeoGrid_Location_ContactPools_Type_College = 3,
+  GeoGrid_Location_ContactPools_Type_Household = 4,
+  GeoGrid_Location_ContactPools_Type_Workplace = 5,
+  GeoGrid_Location_ContactPools_Type_GeoGrid_Location_ContactPools_Type_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
+  GeoGrid_Location_ContactPools_Type_GeoGrid_Location_ContactPools_Type_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
 };
-bool GeoGrid_Location_ContactCenter_Type_IsValid(int value);
-const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter_Type_Type_MIN = GeoGrid_Location_ContactCenter_Type_K12School;
-const GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter_Type_Type_MAX = GeoGrid_Location_ContactCenter_Type_Workplace;
-const int GeoGrid_Location_ContactCenter_Type_Type_ARRAYSIZE = GeoGrid_Location_ContactCenter_Type_Type_MAX + 1;
+bool GeoGrid_Location_ContactPools_Type_IsValid(int value);
+const GeoGrid_Location_ContactPools_Type GeoGrid_Location_ContactPools_Type_Type_MIN = GeoGrid_Location_ContactPools_Type_K12School;
+const GeoGrid_Location_ContactPools_Type GeoGrid_Location_ContactPools_Type_Type_MAX = GeoGrid_Location_ContactPools_Type_Workplace;
+const int GeoGrid_Location_ContactPools_Type_Type_ARRAYSIZE = GeoGrid_Location_ContactPools_Type_Type_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* GeoGrid_Location_ContactCenter_Type_descriptor();
-inline const ::std::string& GeoGrid_Location_ContactCenter_Type_Name(GeoGrid_Location_ContactCenter_Type value) {
+const ::google::protobuf::EnumDescriptor* GeoGrid_Location_ContactPools_Type_descriptor();
+inline const ::std::string& GeoGrid_Location_ContactPools_Type_Name(GeoGrid_Location_ContactPools_Type value) {
   return ::google::protobuf::internal::NameOfEnum(
-    GeoGrid_Location_ContactCenter_Type_descriptor(), value);
+    GeoGrid_Location_ContactPools_Type_descriptor(), value);
 }
-inline bool GeoGrid_Location_ContactCenter_Type_Parse(
-    const ::std::string& name, GeoGrid_Location_ContactCenter_Type* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<GeoGrid_Location_ContactCenter_Type>(
-    GeoGrid_Location_ContactCenter_Type_descriptor(), name, value);
+inline bool GeoGrid_Location_ContactPools_Type_Parse(
+    const ::std::string& name, GeoGrid_Location_ContactPools_Type* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<GeoGrid_Location_ContactPools_Type>(
+    GeoGrid_Location_ContactPools_Type_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -231,25 +231,25 @@ class GeoGrid_Location_Coordinate final :
 };
 // -------------------------------------------------------------------
 
-class GeoGrid_Location_ContactCenter_ContactPool final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactCenter.ContactPool) */ {
+class GeoGrid_Location_ContactPools_ContactPool final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactPools.ContactPool) */ {
  public:
-  GeoGrid_Location_ContactCenter_ContactPool();
-  virtual ~GeoGrid_Location_ContactCenter_ContactPool();
+  GeoGrid_Location_ContactPools_ContactPool();
+  virtual ~GeoGrid_Location_ContactPools_ContactPool();
 
-  GeoGrid_Location_ContactCenter_ContactPool(const GeoGrid_Location_ContactCenter_ContactPool& from);
+  GeoGrid_Location_ContactPools_ContactPool(const GeoGrid_Location_ContactPools_ContactPool& from);
 
-  inline GeoGrid_Location_ContactCenter_ContactPool& operator=(const GeoGrid_Location_ContactCenter_ContactPool& from) {
+  inline GeoGrid_Location_ContactPools_ContactPool& operator=(const GeoGrid_Location_ContactPools_ContactPool& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  GeoGrid_Location_ContactCenter_ContactPool(GeoGrid_Location_ContactCenter_ContactPool&& from) noexcept
-    : GeoGrid_Location_ContactCenter_ContactPool() {
+  GeoGrid_Location_ContactPools_ContactPool(GeoGrid_Location_ContactPools_ContactPool&& from) noexcept
+    : GeoGrid_Location_ContactPools_ContactPool() {
     *this = ::std::move(from);
   }
 
-  inline GeoGrid_Location_ContactCenter_ContactPool& operator=(GeoGrid_Location_ContactCenter_ContactPool&& from) noexcept {
+  inline GeoGrid_Location_ContactPools_ContactPool& operator=(GeoGrid_Location_ContactPools_ContactPool&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -261,34 +261,34 @@ class GeoGrid_Location_ContactCenter_ContactPool final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const GeoGrid_Location_ContactCenter_ContactPool& default_instance();
+  static const GeoGrid_Location_ContactPools_ContactPool& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeoGrid_Location_ContactCenter_ContactPool* internal_default_instance() {
-    return reinterpret_cast<const GeoGrid_Location_ContactCenter_ContactPool*>(
-               &_GeoGrid_Location_ContactCenter_ContactPool_default_instance_);
+  static inline const GeoGrid_Location_ContactPools_ContactPool* internal_default_instance() {
+    return reinterpret_cast<const GeoGrid_Location_ContactPools_ContactPool*>(
+               &_GeoGrid_Location_ContactPools_ContactPool_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  void Swap(GeoGrid_Location_ContactCenter_ContactPool* other);
-  friend void swap(GeoGrid_Location_ContactCenter_ContactPool& a, GeoGrid_Location_ContactCenter_ContactPool& b) {
+  void Swap(GeoGrid_Location_ContactPools_ContactPool* other);
+  friend void swap(GeoGrid_Location_ContactPools_ContactPool& a, GeoGrid_Location_ContactPools_ContactPool& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline GeoGrid_Location_ContactCenter_ContactPool* New() const final {
-    return CreateMaybeMessage<GeoGrid_Location_ContactCenter_ContactPool>(nullptr);
+  inline GeoGrid_Location_ContactPools_ContactPool* New() const final {
+    return CreateMaybeMessage<GeoGrid_Location_ContactPools_ContactPool>(nullptr);
   }
 
-  GeoGrid_Location_ContactCenter_ContactPool* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<GeoGrid_Location_ContactCenter_ContactPool>(arena);
+  GeoGrid_Location_ContactPools_ContactPool* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<GeoGrid_Location_ContactPools_ContactPool>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const GeoGrid_Location_ContactCenter_ContactPool& from);
-  void MergeFrom(const GeoGrid_Location_ContactCenter_ContactPool& from);
+  void CopyFrom(const GeoGrid_Location_ContactPools_ContactPool& from);
+  void MergeFrom(const GeoGrid_Location_ContactPools_ContactPool& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -310,7 +310,7 @@ class GeoGrid_Location_ContactCenter_ContactPool final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(GeoGrid_Location_ContactCenter_ContactPool* other);
+  void InternalSwap(GeoGrid_Location_ContactPools_ContactPool* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -344,7 +344,7 @@ class GeoGrid_Location_ContactCenter_ContactPool final :
   ::google::protobuf::int64 id() const;
   void set_id(::google::protobuf::int64 value);
 
-  // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.ContactCenter.ContactPool)
+  // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.ContactPools.ContactPool)
  private:
   class HasBitSetters;
 
@@ -357,25 +357,25 @@ class GeoGrid_Location_ContactCenter_ContactPool final :
 };
 // -------------------------------------------------------------------
 
-class GeoGrid_Location_ContactCenter final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactCenter) */ {
+class GeoGrid_Location_ContactPools final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:proto.GeoGrid.Location.ContactPools) */ {
  public:
-  GeoGrid_Location_ContactCenter();
-  virtual ~GeoGrid_Location_ContactCenter();
+  GeoGrid_Location_ContactPools();
+  virtual ~GeoGrid_Location_ContactPools();
 
-  GeoGrid_Location_ContactCenter(const GeoGrid_Location_ContactCenter& from);
+  GeoGrid_Location_ContactPools(const GeoGrid_Location_ContactPools& from);
 
-  inline GeoGrid_Location_ContactCenter& operator=(const GeoGrid_Location_ContactCenter& from) {
+  inline GeoGrid_Location_ContactPools& operator=(const GeoGrid_Location_ContactPools& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  GeoGrid_Location_ContactCenter(GeoGrid_Location_ContactCenter&& from) noexcept
-    : GeoGrid_Location_ContactCenter() {
+  GeoGrid_Location_ContactPools(GeoGrid_Location_ContactPools&& from) noexcept
+    : GeoGrid_Location_ContactPools() {
     *this = ::std::move(from);
   }
 
-  inline GeoGrid_Location_ContactCenter& operator=(GeoGrid_Location_ContactCenter&& from) noexcept {
+  inline GeoGrid_Location_ContactPools& operator=(GeoGrid_Location_ContactPools&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -387,34 +387,34 @@ class GeoGrid_Location_ContactCenter final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const GeoGrid_Location_ContactCenter& default_instance();
+  static const GeoGrid_Location_ContactPools& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GeoGrid_Location_ContactCenter* internal_default_instance() {
-    return reinterpret_cast<const GeoGrid_Location_ContactCenter*>(
-               &_GeoGrid_Location_ContactCenter_default_instance_);
+  static inline const GeoGrid_Location_ContactPools* internal_default_instance() {
+    return reinterpret_cast<const GeoGrid_Location_ContactPools*>(
+               &_GeoGrid_Location_ContactPools_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  void Swap(GeoGrid_Location_ContactCenter* other);
-  friend void swap(GeoGrid_Location_ContactCenter& a, GeoGrid_Location_ContactCenter& b) {
+  void Swap(GeoGrid_Location_ContactPools* other);
+  friend void swap(GeoGrid_Location_ContactPools& a, GeoGrid_Location_ContactPools& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline GeoGrid_Location_ContactCenter* New() const final {
-    return CreateMaybeMessage<GeoGrid_Location_ContactCenter>(nullptr);
+  inline GeoGrid_Location_ContactPools* New() const final {
+    return CreateMaybeMessage<GeoGrid_Location_ContactPools>(nullptr);
   }
 
-  GeoGrid_Location_ContactCenter* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<GeoGrid_Location_ContactCenter>(arena);
+  GeoGrid_Location_ContactPools* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<GeoGrid_Location_ContactPools>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const GeoGrid_Location_ContactCenter& from);
-  void MergeFrom(const GeoGrid_Location_ContactCenter& from);
+  void CopyFrom(const GeoGrid_Location_ContactPools& from);
+  void MergeFrom(const GeoGrid_Location_ContactPools& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -436,7 +436,7 @@ class GeoGrid_Location_ContactCenter final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(GeoGrid_Location_ContactCenter* other);
+  void InternalSwap(GeoGrid_Location_ContactPools* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -450,54 +450,54 @@ class GeoGrid_Location_ContactCenter final :
 
   // nested types ----------------------------------------------------
 
-  typedef GeoGrid_Location_ContactCenter_ContactPool ContactPool;
+  typedef GeoGrid_Location_ContactPools_ContactPool ContactPool;
 
-  typedef GeoGrid_Location_ContactCenter_Type Type;
+  typedef GeoGrid_Location_ContactPools_Type Type;
   static const Type K12School =
-    GeoGrid_Location_ContactCenter_Type_K12School;
+    GeoGrid_Location_ContactPools_Type_K12School;
   static const Type PrimaryCommunity =
-    GeoGrid_Location_ContactCenter_Type_PrimaryCommunity;
+    GeoGrid_Location_ContactPools_Type_PrimaryCommunity;
   static const Type SecondaryCommunity =
-    GeoGrid_Location_ContactCenter_Type_SecondaryCommunity;
+    GeoGrid_Location_ContactPools_Type_SecondaryCommunity;
   static const Type College =
-    GeoGrid_Location_ContactCenter_Type_College;
+    GeoGrid_Location_ContactPools_Type_College;
   static const Type Household =
-    GeoGrid_Location_ContactCenter_Type_Household;
+    GeoGrid_Location_ContactPools_Type_Household;
   static const Type Workplace =
-    GeoGrid_Location_ContactCenter_Type_Workplace;
+    GeoGrid_Location_ContactPools_Type_Workplace;
   static inline bool Type_IsValid(int value) {
-    return GeoGrid_Location_ContactCenter_Type_IsValid(value);
+    return GeoGrid_Location_ContactPools_Type_IsValid(value);
   }
   static const Type Type_MIN =
-    GeoGrid_Location_ContactCenter_Type_Type_MIN;
+    GeoGrid_Location_ContactPools_Type_Type_MIN;
   static const Type Type_MAX =
-    GeoGrid_Location_ContactCenter_Type_Type_MAX;
+    GeoGrid_Location_ContactPools_Type_Type_MAX;
   static const int Type_ARRAYSIZE =
-    GeoGrid_Location_ContactCenter_Type_Type_ARRAYSIZE;
+    GeoGrid_Location_ContactPools_Type_Type_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
   Type_descriptor() {
-    return GeoGrid_Location_ContactCenter_Type_descriptor();
+    return GeoGrid_Location_ContactPools_Type_descriptor();
   }
   static inline const ::std::string& Type_Name(Type value) {
-    return GeoGrid_Location_ContactCenter_Type_Name(value);
+    return GeoGrid_Location_ContactPools_Type_Name(value);
   }
   static inline bool Type_Parse(const ::std::string& name,
       Type* value) {
-    return GeoGrid_Location_ContactCenter_Type_Parse(name, value);
+    return GeoGrid_Location_ContactPools_Type_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto.GeoGrid.Location.ContactCenter.ContactPool pools = 3;
+  // repeated .proto.GeoGrid.Location.ContactPools.ContactPool pools = 3;
   int pools_size() const;
   void clear_pools();
   static const int kPoolsFieldNumber = 3;
-  ::proto::GeoGrid_Location_ContactCenter_ContactPool* mutable_pools(int index);
-  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter_ContactPool >*
+  ::proto::GeoGrid_Location_ContactPools_ContactPool* mutable_pools(int index);
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactPools_ContactPool >*
       mutable_pools();
-  const ::proto::GeoGrid_Location_ContactCenter_ContactPool& pools(int index) const;
-  ::proto::GeoGrid_Location_ContactCenter_ContactPool* add_pools();
-  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter_ContactPool >&
+  const ::proto::GeoGrid_Location_ContactPools_ContactPool& pools(int index) const;
+  ::proto::GeoGrid_Location_ContactPools_ContactPool* add_pools();
+  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactPools_ContactPool >&
       pools() const;
 
   // int64 id = 1;
@@ -506,18 +506,18 @@ class GeoGrid_Location_ContactCenter final :
   ::google::protobuf::int64 id() const;
   void set_id(::google::protobuf::int64 value);
 
-  // .proto.GeoGrid.Location.ContactCenter.Type type = 2;
+  // .proto.GeoGrid.Location.ContactPools.Type type = 2;
   void clear_type();
   static const int kTypeFieldNumber = 2;
-  ::proto::GeoGrid_Location_ContactCenter_Type type() const;
-  void set_type(::proto::GeoGrid_Location_ContactCenter_Type value);
+  ::proto::GeoGrid_Location_ContactPools_Type type() const;
+  void set_type(::proto::GeoGrid_Location_ContactPools_Type value);
 
-  // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.ContactCenter)
+  // @@protoc_insertion_point(class_scope:proto.GeoGrid.Location.ContactPools)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter_ContactPool > pools_;
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactPools_ContactPool > pools_;
   ::google::protobuf::int64 id_;
   int type_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -738,22 +738,22 @@ class GeoGrid_Location final :
   // nested types ----------------------------------------------------
 
   typedef GeoGrid_Location_Coordinate Coordinate;
-  typedef GeoGrid_Location_ContactCenter ContactCenter;
+  typedef GeoGrid_Location_ContactPools ContactPools;
   typedef GeoGrid_Location_Commute Commute;
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto.GeoGrid.Location.ContactCenter contactCenters = 6;
-  int contactcenters_size() const;
-  void clear_contactcenters();
-  static const int kContactCentersFieldNumber = 6;
-  ::proto::GeoGrid_Location_ContactCenter* mutable_contactcenters(int index);
-  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter >*
-      mutable_contactcenters();
-  const ::proto::GeoGrid_Location_ContactCenter& contactcenters(int index) const;
-  ::proto::GeoGrid_Location_ContactCenter* add_contactcenters();
-  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter >&
-      contactcenters() const;
+  // repeated .proto.GeoGrid.Location.ContactPools contactPools = 6;
+  int contactpools_size() const;
+  void clear_contactpools();
+  static const int kContactPoolsFieldNumber = 6;
+  ::proto::GeoGrid_Location_ContactPools* mutable_contactpools(int index);
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactPools >*
+      mutable_contactpools();
+  const ::proto::GeoGrid_Location_ContactPools& contactpools(int index) const;
+  ::proto::GeoGrid_Location_ContactPools* add_contactpools();
+  const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactPools >&
+      contactpools() const;
 
   // repeated .proto.GeoGrid.Location.Commute commutes = 7;
   int commutes_size() const;
@@ -813,7 +813,7 @@ class GeoGrid_Location final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter > contactcenters_;
+  ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactPools > contactpools_;
   ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_Commute > commutes_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::proto::GeoGrid_Location_Coordinate* coordinate_;
@@ -1117,111 +1117,111 @@ inline void GeoGrid_Location_Coordinate::set_latitude(double value) {
 
 // -------------------------------------------------------------------
 
-// GeoGrid_Location_ContactCenter_ContactPool
+// GeoGrid_Location_ContactPools_ContactPool
 
 // int64 id = 1;
-inline void GeoGrid_Location_ContactCenter_ContactPool::clear_id() {
+inline void GeoGrid_Location_ContactPools_ContactPool::clear_id() {
   id_ = PROTOBUF_LONGLONG(0);
 }
-inline ::google::protobuf::int64 GeoGrid_Location_ContactCenter_ContactPool::id() const {
-  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.ContactPool.id)
+inline ::google::protobuf::int64 GeoGrid_Location_ContactPools_ContactPool::id() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactPools.ContactPool.id)
   return id_;
 }
-inline void GeoGrid_Location_ContactCenter_ContactPool::set_id(::google::protobuf::int64 value) {
+inline void GeoGrid_Location_ContactPools_ContactPool::set_id(::google::protobuf::int64 value) {
 
   id_ = value;
-  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.ContactPool.id)
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactPools.ContactPool.id)
 }
 
 // repeated int64 people = 2;
-inline int GeoGrid_Location_ContactCenter_ContactPool::people_size() const {
+inline int GeoGrid_Location_ContactPools_ContactPool::people_size() const {
   return people_.size();
 }
-inline void GeoGrid_Location_ContactCenter_ContactPool::clear_people() {
+inline void GeoGrid_Location_ContactPools_ContactPool::clear_people() {
   people_.Clear();
 }
-inline ::google::protobuf::int64 GeoGrid_Location_ContactCenter_ContactPool::people(int index) const {
-  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+inline ::google::protobuf::int64 GeoGrid_Location_ContactPools_ContactPool::people(int index) const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactPools.ContactPool.people)
   return people_.Get(index);
 }
-inline void GeoGrid_Location_ContactCenter_ContactPool::set_people(int index, ::google::protobuf::int64 value) {
+inline void GeoGrid_Location_ContactPools_ContactPool::set_people(int index, ::google::protobuf::int64 value) {
   people_.Set(index, value);
-  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactPools.ContactPool.people)
 }
-inline void GeoGrid_Location_ContactCenter_ContactPool::add_people(::google::protobuf::int64 value) {
+inline void GeoGrid_Location_ContactPools_ContactPool::add_people(::google::protobuf::int64 value) {
   people_.Add(value);
-  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.ContactPools.ContactPool.people)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
-GeoGrid_Location_ContactCenter_ContactPool::people() const {
-  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+GeoGrid_Location_ContactPools_ContactPool::people() const {
+  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.ContactPools.ContactPool.people)
   return people_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
-GeoGrid_Location_ContactCenter_ContactPool::mutable_people() {
-  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.ContactCenter.ContactPool.people)
+GeoGrid_Location_ContactPools_ContactPool::mutable_people() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.ContactPools.ContactPool.people)
   return &people_;
 }
 
 // -------------------------------------------------------------------
 
-// GeoGrid_Location_ContactCenter
+// GeoGrid_Location_ContactPools
 
 // int64 id = 1;
-inline void GeoGrid_Location_ContactCenter::clear_id() {
+inline void GeoGrid_Location_ContactPools::clear_id() {
   id_ = PROTOBUF_LONGLONG(0);
 }
-inline ::google::protobuf::int64 GeoGrid_Location_ContactCenter::id() const {
-  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.id)
+inline ::google::protobuf::int64 GeoGrid_Location_ContactPools::id() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactPools.id)
   return id_;
 }
-inline void GeoGrid_Location_ContactCenter::set_id(::google::protobuf::int64 value) {
+inline void GeoGrid_Location_ContactPools::set_id(::google::protobuf::int64 value) {
 
   id_ = value;
-  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.id)
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactPools.id)
 }
 
-// .proto.GeoGrid.Location.ContactCenter.Type type = 2;
-inline void GeoGrid_Location_ContactCenter::clear_type() {
+// .proto.GeoGrid.Location.ContactPools.Type type = 2;
+inline void GeoGrid_Location_ContactPools::clear_type() {
   type_ = 0;
 }
-inline ::proto::GeoGrid_Location_ContactCenter_Type GeoGrid_Location_ContactCenter::type() const {
-  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.type)
-  return static_cast< ::proto::GeoGrid_Location_ContactCenter_Type >(type_);
+inline ::proto::GeoGrid_Location_ContactPools_Type GeoGrid_Location_ContactPools::type() const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactPools.type)
+  return static_cast< ::proto::GeoGrid_Location_ContactPools_Type >(type_);
 }
-inline void GeoGrid_Location_ContactCenter::set_type(::proto::GeoGrid_Location_ContactCenter_Type value) {
+inline void GeoGrid_Location_ContactPools::set_type(::proto::GeoGrid_Location_ContactPools_Type value) {
 
   type_ = value;
-  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactCenter.type)
+  // @@protoc_insertion_point(field_set:proto.GeoGrid.Location.ContactPools.type)
 }
 
-// repeated .proto.GeoGrid.Location.ContactCenter.ContactPool pools = 3;
-inline int GeoGrid_Location_ContactCenter::pools_size() const {
+// repeated .proto.GeoGrid.Location.ContactPools.ContactPool pools = 3;
+inline int GeoGrid_Location_ContactPools::pools_size() const {
   return pools_.size();
 }
-inline void GeoGrid_Location_ContactCenter::clear_pools() {
+inline void GeoGrid_Location_ContactPools::clear_pools() {
   pools_.Clear();
 }
-inline ::proto::GeoGrid_Location_ContactCenter_ContactPool* GeoGrid_Location_ContactCenter::mutable_pools(int index) {
-  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.ContactCenter.pools)
+inline ::proto::GeoGrid_Location_ContactPools_ContactPool* GeoGrid_Location_ContactPools::mutable_pools(int index) {
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.ContactPools.pools)
   return pools_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter_ContactPool >*
-GeoGrid_Location_ContactCenter::mutable_pools() {
-  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.ContactCenter.pools)
+inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactPools_ContactPool >*
+GeoGrid_Location_ContactPools::mutable_pools() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.ContactPools.pools)
   return &pools_;
 }
-inline const ::proto::GeoGrid_Location_ContactCenter_ContactPool& GeoGrid_Location_ContactCenter::pools(int index) const {
-  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactCenter.pools)
+inline const ::proto::GeoGrid_Location_ContactPools_ContactPool& GeoGrid_Location_ContactPools::pools(int index) const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.ContactPools.pools)
   return pools_.Get(index);
 }
-inline ::proto::GeoGrid_Location_ContactCenter_ContactPool* GeoGrid_Location_ContactCenter::add_pools() {
-  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.ContactCenter.pools)
+inline ::proto::GeoGrid_Location_ContactPools_ContactPool* GeoGrid_Location_ContactPools::add_pools() {
+  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.ContactPools.pools)
   return pools_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter_ContactPool >&
-GeoGrid_Location_ContactCenter::pools() const {
-  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.ContactCenter.pools)
+inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactPools_ContactPool >&
+GeoGrid_Location_ContactPools::pools() const {
+  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.ContactPools.pools)
   return pools_;
 }
 
@@ -1407,34 +1407,34 @@ inline void GeoGrid_Location::set_allocated_coordinate(::proto::GeoGrid_Location
   // @@protoc_insertion_point(field_set_allocated:proto.GeoGrid.Location.coordinate)
 }
 
-// repeated .proto.GeoGrid.Location.ContactCenter contactCenters = 6;
-inline int GeoGrid_Location::contactcenters_size() const {
-  return contactcenters_.size();
+// repeated .proto.GeoGrid.Location.ContactPools contactPools = 6;
+inline int GeoGrid_Location::contactpools_size() const {
+  return contactpools_.size();
 }
-inline void GeoGrid_Location::clear_contactcenters() {
-  contactcenters_.Clear();
+inline void GeoGrid_Location::clear_contactpools() {
+  contactpools_.Clear();
 }
-inline ::proto::GeoGrid_Location_ContactCenter* GeoGrid_Location::mutable_contactcenters(int index) {
-  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.contactCenters)
-  return contactcenters_.Mutable(index);
+inline ::proto::GeoGrid_Location_ContactPools* GeoGrid_Location::mutable_contactpools(int index) {
+  // @@protoc_insertion_point(field_mutable:proto.GeoGrid.Location.contactPools)
+  return contactpools_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter >*
-GeoGrid_Location::mutable_contactcenters() {
-  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.contactCenters)
-  return &contactcenters_;
+inline ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactPools >*
+GeoGrid_Location::mutable_contactpools() {
+  // @@protoc_insertion_point(field_mutable_list:proto.GeoGrid.Location.contactPools)
+  return &contactpools_;
 }
-inline const ::proto::GeoGrid_Location_ContactCenter& GeoGrid_Location::contactcenters(int index) const {
-  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.contactCenters)
-  return contactcenters_.Get(index);
+inline const ::proto::GeoGrid_Location_ContactPools& GeoGrid_Location::contactpools(int index) const {
+  // @@protoc_insertion_point(field_get:proto.GeoGrid.Location.contactPools)
+  return contactpools_.Get(index);
 }
-inline ::proto::GeoGrid_Location_ContactCenter* GeoGrid_Location::add_contactcenters() {
-  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.contactCenters)
-  return contactcenters_.Add();
+inline ::proto::GeoGrid_Location_ContactPools* GeoGrid_Location::add_contactpools() {
+  // @@protoc_insertion_point(field_add:proto.GeoGrid.Location.contactPools)
+  return contactpools_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactCenter >&
-GeoGrid_Location::contactcenters() const {
-  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.contactCenters)
-  return contactcenters_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto::GeoGrid_Location_ContactPools >&
+GeoGrid_Location::contactpools() const {
+  // @@protoc_insertion_point(field_list:proto.GeoGrid.Location.contactPools)
+  return contactpools_;
 }
 
 // repeated .proto.GeoGrid.Location.Commute commutes = 7;
@@ -1586,10 +1586,10 @@ GeoGrid::persons() const {
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::proto::GeoGrid_Location_ContactCenter_Type> : ::std::true_type {};
+template <> struct is_proto_enum< ::proto::GeoGrid_Location_ContactPools_Type> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::proto::GeoGrid_Location_ContactCenter_Type>() {
-  return ::proto::GeoGrid_Location_ContactCenter_Type_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::proto::GeoGrid_Location_ContactPools_Type>() {
+  return ::proto::GeoGrid_Location_ContactPools_Type_descriptor();
 }
 
 }  // namespace protobuf

@@ -21,15 +21,11 @@
 #include <vector>
 
 namespace stride {
-
 class Person;
 class ContactPool;
-
 } // namespace stride
 
 namespace geopop {
-
-class HouseholdCenter;
 
 /**
  * Retrieves the reference Household profiles from file.

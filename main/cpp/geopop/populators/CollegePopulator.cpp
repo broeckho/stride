@@ -13,14 +13,12 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "CollegePopulator.h"
+#include "Populator.h"
 
 #include "contact/AgeBrackets.h"
 #include "contact/ContactPool.h"
-#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
-#include "geopop/HouseholdCenter.h"
 #include "geopop/Location.h"
 #include "pop/Person.h"
 #include "util/Assert.h"
@@ -31,13 +29,10 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Populator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         m_logger->trace("Starting to populate Colleges");
-
-        set<ContactPool*> found;
-        auto              students  = 0U;
-        auto              commuting = 0U;
 
         // for every location
         for (const auto& loc : geoGrid) {
@@ -45,19 +40,19 @@ void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
                         continue;
                 }
                 // 1. find all highschools in an area of 10-k*10 km
-                const auto& nearByColleges = GetNearbyPools(Id::College, geoGrid, *loc);
+                const auto& nearByCollegePools = geoGrid.GetNearbyPools(Id::College, *loc);
 
-                AssertThrow(!nearByColleges.empty(), "No HighSchool found!", m_logger);
+                AssertThrow(!nearByCollegePools.empty(), "No College found!", m_logger);
 
                 const auto distNonCommuting =
-                    m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearByColleges.size()), 0U);
+                    m_rn_man.GetUniformIntGenerator(0, static_cast<int>(nearByCollegePools.size()), 0U);
 
                 // 2. find all colleges where students from this location commute to
                 vector<Location*> commutingCollege;
                 vector<double>    commutingWeights;
                 for (const auto& commute : loc->CRefOutgoingCommutes()) {
-                        const auto& highSchools = commute.first->RefCenters(Id::College);
-                        if (!highSchools.empty()) {
+                        const auto& cpools = commute.first->CRefPools(Id::College);
+                        if (!cpools.empty()) {
                                 commutingCollege.push_back(commute.first);
                                 commutingWeights.push_back(commute.second);
                         }
@@ -70,48 +65,34 @@ void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
                 }
 
                 // 2. for every student assign a class
-                for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
-                        ContactPool* const contactPool = (*hhCenter)[0];
-                        found.insert(contactPool);
-                        for (Person* p : *contactPool) {
+                for (const auto& hhPool : loc->RefPools(Id::Household)) {
+                        for (Person* p : *hhPool) {
                                 if (AgeBrackets::College::HasAge(p->GetAge()) &&
-                                    MakeChoice(geoGridConfig.input.participation_college)) {
-                                        students++;
+                                    m_rn_man.MakeWeightedCoinFlip(geoGridConfig.param.participation_college)) {
                                         // this person is a student
                                         if (!commutingCollege.empty() &&
-                                            MakeChoice(geoGridConfig.input.fraction_college_commuters)) {
+                                            m_rn_man.MakeWeightedCoinFlip(geoGridConfig.param.fraction_college_commuters)) {
                                                 // this person is commuting
-                                                commuting++;
 
-                                                // id of the location this person is commuting to
-                                                auto locationId = disCommuting();
-                                                // create list of classes for each highschool at this location
-                                                const auto& highSchools =
-                                                    commutingCollege[locationId]->RefCenters(Id::College);
-
-                                                vector<ContactPool*> contactPools;
-                                                for (const auto& hs : highSchools) {
-                                                        contactPools.insert(contactPools.end(), hs->begin(), hs->end());
-                                                }
+                                                // pools to commute to
+                                                const auto& collegePools =
+                                                    commutingCollege[disCommuting()]->CRefPools(Id::College);
 
                                                 auto disPools = m_rn_man.GetUniformIntGenerator(
-                                                    0, static_cast<int>(contactPools.size()), 0U);
-
-                                                auto id = disPools();
-                                                contactPools[id]->AddMember(p);
-                                                p->SetPoolId(Id::College, contactPools[id]->GetId());
+                                                    0, static_cast<int>(collegePools.size()), 0U);
+                                                auto idraw = disPools();
+                                                collegePools[idraw]->AddMember(p);
+                                                p->SetPoolId(Id::College, collegePools[idraw]->GetId());
                                         } else {
-                                                auto id = distNonCommuting();
-                                                nearByColleges[id]->AddMember(p);
-                                                p->SetPoolId(Id::College, nearByColleges[id]->GetId());
+                                                auto idraw = distNonCommuting();
+                                                nearByCollegePools[idraw]->AddMember(p);
+                                                p->SetPoolId(Id::College, nearByCollegePools[idraw]->GetId());
                                         }
                                 }
                         }
                 }
         }
-        m_logger->debug("Number of students in Colleges: {}", students);
-        m_logger->debug("Number of classes:  {}", found.size());
-        m_logger->debug("Number students that commute: ", commuting);
+
         m_logger->trace("Done populating Colleges");
 }
 

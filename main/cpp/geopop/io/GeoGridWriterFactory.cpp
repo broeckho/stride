@@ -15,7 +15,7 @@
 
 #include "GeoGridWriterFactory.h"
 
-#include "GeoGridJSONWriter.h"
+//#include "GeoGridJSONWriter.h"
 #include "GeoGridProtoWriter.h"
 #include "GeoGridWriter.h"
 #include "util/Exception.h"
@@ -37,9 +37,10 @@ std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateGeoGridWriter(const s
 {
         filesys::path path(filename);
 
-        if (path.extension().string() == ".json") {
+        /*if (path.extension().string() == ".json") {
                 return std::make_shared<GeoGridJSONWriter>();
-        } else if (path.extension().string() == ".proto") {
+        } else */
+         if (path.extension().string() == ".proto") {
                 return std::make_shared<GeoGridProtoWriter>();
         } else {
                 throw stride::util::Exception("GeoGridWriterFactory::CreateWriter> Unsupported file extension: " +

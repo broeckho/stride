@@ -21,7 +21,6 @@
 #pragma once
 
 #include "AbstractPopBuilder.h"
-#include "contact/IdSubscriptArray.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 
@@ -43,7 +42,7 @@ class GeoPopBuilder : public AbstractPopBuilder
 {
 public:
         /// Use constructor of base.
-        //using AbstractPopBuilder::AbstractPopBuilder;
+        // using AbstractPopBuilder::AbstractPopBuilder;
 
         /// Initializing constructor.
         /// \param config        Property_tree with general configuration settings.
@@ -56,20 +55,15 @@ public:
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) override;
 
 private:
-        /// Reads the data files.
+        /// Read files with location data and constructs GeoGrid config.
         void MakeLocations(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig,
                            const std::string& citiesFileName, const std::string& commutingFileName);
 
         /// Build and store the Geo part of the GeoGrid.
-        void MakeCenters(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
+        void MakePools(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
 
         /// Build and store the Pop part of the GeoGrid.
         void MakePersons(geopop::GeoGrid& geoGrid, const geopop::GeoGridConfig& geoGridConfig);
-
-private:
-        /// The current number of ContactCenters, used to obtain an Id for a new contactCenter.
-        /// ! 0 has special meaning (not assigned)!
-        ContactType::IdSubscriptArray<unsigned int> m_cc_counters;
 };
 
 } // namespace stride

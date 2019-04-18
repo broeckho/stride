@@ -45,10 +45,11 @@ public:
         AbstractPopBuilder(const boost::property_tree::ptree& config, util::RnMan& rnMan,
                            std::shared_ptr<spdlog::logger> strideLogger = nullptr);
 
+        /// Has to be virtual.
+        virtual ~AbstractPopBuilder() = default;
+
         /// Build Population and return it afterwards.
         virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) = 0;
-
-        virtual ~AbstractPopBuilder() = default;
 
 protected:
         const boost::property_tree::ptree& m_config;        ///< Configuration property tree.

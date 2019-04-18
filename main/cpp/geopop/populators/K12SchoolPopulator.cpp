@@ -13,13 +13,11 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "K12SchoolPopulator.h"
+#include "Populator.h"
 
 #include "contact/AgeBrackets.h"
 #include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/HouseholdCenter.h"
-#include "geopop/K12SchoolCenter.h"
 #include "geopop/Location.h"
 #include "pop/Person.h"
 
@@ -29,41 +27,33 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void K12SchoolPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
+template<>
+void Populator<stride::ContactType::Id::K12School>::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 {
         m_logger->trace("Starting to populate Schools");
 
-        set<ContactPool*> found;
-        unsigned int      pupils = 0;
-
-        // for every location
         for (const auto& loc : geoGrid) {
                 if (loc->GetPopCount() == 0) {
                         continue;
                 }
 
                 // 1. find all schools in an area of 10-k*10 km
-                const vector<ContactPool*>& classes = GetNearbyPools(Id::K12School, geoGrid, *loc);
+                const vector<ContactPool*>& classes = geoGrid.GetNearbyPools(Id::K12School, *loc);
 
                 auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(classes.size()), 0U);
 
                 // 2. for every student assign a class
-                for (const auto& hhCenter : loc->RefCenters(Id::Household)) {
-                        ContactPool* const contactPool = (*hhCenter)[0];
-                        found.insert(contactPool);
-                        for (Person* p : *contactPool) {
+                for (auto& pool : loc->RefPools(Id::Household)) {
+                        for (Person* p : *pool) {
                                 if (AgeBrackets::K12School::HasAge(p->GetAge())) {
                                         auto& c = classes[dist()];
                                         c->AddMember(p);
                                         p->SetPoolId(Id::K12School, c->GetId());
-                                        pupils++;
                                 }
                         }
                 }
         }
 
-        m_logger->debug("Number of pupils in schools: {}", pupils);
-        m_logger->debug("Number of different classes: {}", found.size());
         m_logger->trace("Done populating K12Schools");
 }
 

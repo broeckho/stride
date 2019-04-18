@@ -35,7 +35,8 @@ template <typename Policy, typename... F>
 class GeoAggregator;
 
 /**
- * A Geographic grid of simulation region contains Locations that in turn contains ContactCenters.
+ * A Geographic grid of simulation region contains Locations that in turn contain
+ * an index to the ContactPools situated at that Location.
  */
 class GeoGrid
 {
@@ -63,6 +64,12 @@ public:
 
         /// Search for locations in \p radius (in km) around \p start.
         std::vector<const Location*> LocationsInRadius(const Location& start, double radius) const;
+
+        /// Find contactpools in startRadius (in km) around start and, if none are found, double
+        /// the radius and search again until the radius gets infinite. May return an empty vector
+        /// when there are really no pools to be found (empty grid).
+        std::vector<stride::ContactPool*> GetNearbyPools(stride::ContactType::Id id, const Location& start,
+                                                         double startRadius = 10.0) const;
 
         /**
          * Gets the locations in a rectangle determined by the two coordinates (long1, lat1) and (long2, lat2).

@@ -47,19 +47,19 @@ set(SRC
     UnitSlice1.cpp
     UnitSlice2.cpp
     #---
-    createlogger.h
     #---
     geopop/generators/CollegeGeneratorTest.cpp
-    geopop/generators/CommunityGeneratorTest.cpp
     geopop/generators/HouseholdGeneratorTest.cpp
     geopop/generators/K12SchoolGeneratorTest.cpp
+    geopop/generators/PrimaryCommunityGeneratorTest.cpp
+    geopop/generators/SecondaryCommunityGeneratorTest.cpp
     geopop/generators/WorkplaceGeneratorTest.cpp
     #---
     geopop/io/CitiesCSVReaderTest.cpp
     geopop/io/CommutesCSVReaderTest.cpp
     geopop/io/GeoGridIOUtils.cpp
-    geopop/io/GeoGridJSONReaderTest.cpp
-    geopop/io/GeoGridJSONWriterTest.cpp
+    #geopop/io/GeoGridJSONReaderTest.cpp
+    #geopop/io/GeoGridJSONWriterTest.cpp
     geopop/io/GeoGridProtoReaderTest.cpp
     geopop/io/GeoGridProtoWriterTest.cpp
     geopop/io/HouseholdCSVReaderTest.cpp
@@ -67,12 +67,13 @@ set(SRC
     #---
     geopop/kdtree.cpp
     #---
-    geopop/populators/CommunityPopulatorTests.cpp
+    geopop/populators/MakeGeoGrid.cpp
     geopop/populators/CollegePopulatorTest.cpp
     geopop/populators/HouseholdPopulatorTest.cpp
     geopop/populators/K12SchoolPopulatorTest.cpp
+    geopop/populators/PrimaryCommunityPopulatorTests.cpp
+    geopop/populators/SecondaryCommunityPopulatorTests.cpp
     geopop/populators/WorkplacePopulatorTest.cpp
-    geopop/populators/createGeogrid.cpp
     #---
     myhayai/DeliveryMan.cpp
     myhayai/MyhayaiTests.cpp
@@ -96,9 +97,8 @@ install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 # Define tests.
 #============================================================================
 add_test(NAME ${EXEC}
-        WORKING_DIRECTORY ${TESTS_DIR}
-        COMMAND ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
-        --gtest_output=xml:gtester_all.xml
+        WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
+        COMMAND ${BIN_INSTALL_LOCATION}/${EXEC} --gtest_output=xml:${TESTS_INSTALL_LOCATION}/gtester_all.xml
 )
 
 #############################################################################

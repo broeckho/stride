@@ -10,21 +10,19 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Jan Broeckhove and Bistromatics group.
+ *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "geopop/generators/CollegeGenerator.h"
+#include "geopop/generators/Generator.h"
 
-#include "../../createlogger.h"
-#include "geopop/CollegeCenter.h"
 #include "geopop/GeoGrid.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/generators/K12SchoolGenerator.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
 #include <gtest/gtest.h>
+#include <array>
 
 using namespace std;
 using namespace geopop;
@@ -34,71 +32,67 @@ using namespace stride::util;
 
 namespace {
 
-TEST(CollegeGeneratorTest, OneLocationTest)
+class CollegeGeneratorTest : public testing::Test
 {
-        RnMan            rnMan{RnInfo()}; // Default random number manager.
-        CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
-        GeoGridConfig    config{};
-
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
-
-        config.input.pop_size                 = 45000;
-        config.popInfo.popcount_college       = 9000;
-
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
-        auto loc1    = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", config.input.pop_size);
-
-        geoGrid.AddLocation(loc1);
-
-        collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
-
-        const auto& centersOfLoc1 = loc1->RefCenters(Id::College);
-        EXPECT_EQ(centersOfLoc1.size(), 3);
-}
-
-TEST(CollegeGeneratorTest, ZeroLocationTest)
-{
-        RnMan            rnMan{RnInfo()}; // Default random number manager.
-        CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
-        GeoGridConfig    config{};
-
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
-
-        config.input.pop_size                 = 10000;
-        config.popInfo.popcount_college       = 2000;
-
-        auto pop     = Population::Create();
-        auto geoGrid = GeoGrid(pop.get());
-        collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
-
-        EXPECT_EQ(geoGrid.size(), 0);
-}
-
-TEST(CollegeGeneratorTest, FiveLocationsTest)
-{
-        RnMan            rnMan{RnInfo()}; // Default random number manager.
-        CollegeGenerator collegeGenerator(rnMan, CreateTestLogger());
-        GeoGridConfig    config{};
-
-        IdSubscriptArray<unsigned int>   contactCenterCounter(1U);
-
-        config.input.pop_size                 = 399992;
-        config.popInfo.popcount_college       = 79998;
-
-        auto        pop     = Population::Create();
-        auto        geoGrid = GeoGrid(pop.get());
-        vector<int> sizes{28559, 33319, 39323, 37755, 35050, 10060, 13468, 8384,
-                          9033,  31426, 33860, 4110,  50412, 25098, 40135};
-        for (int size : sizes) {
-                const auto loc = make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size);
-                geoGrid.AddLocation(loc);
+public:
+        CollegeGeneratorTest()
+            : m_rn_man(RnInfo()), m_college_generator(m_rn_man), m_gg_config(), m_pop(Population::Create()),
+              m_geo_grid(m_pop.get())
+        {
         }
-        collegeGenerator.Apply(geoGrid, config, contactCenterCounter);
 
-        vector<int> expectedCount{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
-        for (size_t i = 0; i < sizes.size(); i++) {
-                EXPECT_EQ(expectedCount[i], geoGrid[i]->RefCenters(Id::College).size());
+protected:
+        RnMan                  m_rn_man;
+        CollegeGenerator       m_college_generator;
+        GeoGridConfig          m_gg_config;
+        shared_ptr<Population> m_pop;
+        GeoGrid                m_geo_grid;
+        unsigned int           m_ppc = m_gg_config.pools[Id::College];
+};
+
+// Checks whther generator can handle a single location.
+TEST_F(CollegeGeneratorTest, OneLocationTest)
+{
+        m_gg_config.param.pop_size           = 45000;
+        m_gg_config.info.popcount_college = 9000;
+
+        auto loc1 = make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", m_gg_config.param.pop_size);
+        m_geo_grid.AddLocation(loc1);
+
+        m_college_generator.Apply(m_geo_grid, m_gg_config);
+
+        const auto& poolsOfLoc1 = loc1->CRefPools<Id::College>();
+        EXPECT_EQ(poolsOfLoc1.size(), 3 * m_ppc);
+}
+
+// Checks whether Generator can handle zero locations in GeoGrid.
+TEST_F(CollegeGeneratorTest, ZeroLocationTest)
+{
+        m_gg_config.param.pop_size           = 10000;
+        m_gg_config.info.popcount_college = 2000;
+
+        m_college_generator.Apply(m_geo_grid, m_gg_config);
+
+        EXPECT_EQ(m_geo_grid.size(), 0);
+}
+
+// Checks whether generator can handle multiple locations.
+TEST_F(CollegeGeneratorTest, MultipleLocationsTest)
+{
+        m_gg_config.param.pop_size           = 399992;
+        m_gg_config.info.popcount_college = 79998;
+
+        array<unsigned int, 15> sizes{28559, 33319, 39323, 37755, 35050, 10060, 13468, 8384,
+                                      9033,  31426, 33860, 4110,  50412, 25098, 40135};
+        for (const auto size : sizes) {
+                const auto loc = make_shared<Location>(1, 4, Coordinate(0, 0), "Size: " + to_string(size), size);
+                m_geo_grid.AddLocation(loc);
+        }
+        m_college_generator.Apply(m_geo_grid, m_gg_config);
+
+        array<unsigned int, sizes.size()> expected{2, 2, 5, 2, 3, 0, 0, 0, 0, 2, 2, 0, 3, 3, 3};
+        for (auto i = 0U; i < sizes.size(); i++) {
+                EXPECT_EQ(expected[i] * m_ppc, m_geo_grid[i]->CRefPools<Id::College>().size());
         }
 }
 

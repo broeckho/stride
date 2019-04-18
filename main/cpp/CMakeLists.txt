@@ -63,31 +63,26 @@ set(STRIDE_SRC
     execs/SimController.cpp
     execs/StanController.cpp
     #---
-    geopop/CollegeCenter.cpp
-    geopop/ContactCenter.cpp
+    #geopop/ContactCenter.cpp
     geopop/Coordinate.h
     geopop/GeoGrid.cpp
     geopop/GeoGridConfig.cpp
-    geopop/HouseholdCenter.cpp
-    geopop/K12SchoolCenter.cpp
     geopop/Location.cpp
-    geopop/PrimaryCommunityCenter.cpp
-    geopop/SecondaryCommunityCenter.cpp
-    geopop/WorkplaceCenter.cpp
     #---
     geopop/geo/GeoGridKdTree.cpp
     geopop/geo/KdTree2DPoint.cpp
     #---
     geopop/generators/CollegeGenerator.cpp
-    geopop/generators/CommunityGenerator.cpp
     geopop/generators/HouseholdGenerator.cpp
     geopop/generators/K12SchoolGenerator.cpp
+    geopop/generators/PrimaryCommunityGenerator.cpp
+    geopop/generators/SecondaryCommunityGenerator.cpp
     geopop/generators/WorkplaceGenerator.cpp
     #---
-    geopop/io/CitiesCSVReader.cpp
+    geopop/io/LocationsCSVReader.cpp
     geopop/io/CommutesCSVReader.cpp
-    geopop/io/GeoGridJSONReader.cpp
-    geopop/io/GeoGridJSONWriter.cpp
+    #geopop/io/GeoGridJSONReader.cpp
+    #geopop/io/GeoGridJSONWriter.cpp
     geopop/io/GeoGridProtoReader.cpp
     geopop/io/GeoGridProtoReader.h
     geopop/io/GeoGridProtoWriter.cpp
@@ -99,10 +94,10 @@ set(STRIDE_SRC
     geopop/io/GeoGridWriterFactory.h
     geopop/io/HouseholdCSVReader.cpp
     geopop/io/ReaderFactory.cpp
+    #---
     geopop/populators/CollegePopulator.cpp
     geopop/populators/HouseholdPopulator.cpp
     geopop/populators/K12SchoolPopulator.cpp
-    geopop/populators/Populator.cpp
     geopop/populators/PrimaryCommunityPopulator.cpp
     geopop/populators/SecondaryCommunityPopulator.cpp
     geopop/populators/WorkplacePopulator.cpp
@@ -154,9 +149,9 @@ target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVIS
 target_compile_definitions(libstride PUBLIC "-DPROCCOUNT=${PROCCOUNT}")
 target_link_libraries(libstride PRIVATE ${LIBS})
 if(Protobuf_FOUND)
-    target_link_libraries(libstride PRIVATE ${Protobuf_LIBRARIES})
+    target_link_libraries(libstride PUBLIC ${Protobuf_LIBRARIES})
 else()
-    target_link_libraries(libstride PRIVATE libprotobuf)
+    target_link_libraries(libstride PUBLIC libprotobuf)
 endif()
 set_target_properties(libstride
     PROPERTIES

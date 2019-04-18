@@ -17,7 +17,7 @@
  * For use in  cpp-python interface.
  */
 
-#include "create_sim.h"
+/*#include "create_sim.h"
 
 #include "pop/Population.h"
 #include "util/RnMan.h"
@@ -39,4 +39,4 @@ shared_ptr<Sim> CreateSim(const string& configString)
         auto sim = Sim::Create(config, population, rnMan);
 
         return sim;
-}
+}*/

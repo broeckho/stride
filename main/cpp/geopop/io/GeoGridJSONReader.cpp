@@ -15,21 +15,14 @@
 
 #include "GeoGridJSONReader.h"
 
-#include "ThreadException.h"
-#include "geopop/CollegeCenter.h"
+#include "geopop/ContactCenter.h"
 #include "geopop/GeoGrid.h"
-#include "geopop/HouseholdCenter.h"
-#include "geopop/K12SchoolCenter.h"
-#include "geopop/PrimaryCommunityCenter.h"
-#include "geopop/SecondaryCommunityCenter.h"
-#include "geopop/WorkplaceCenter.h"
 #include "pop/Population.h"
 #include "util/Exception.h"
 
 #include <boost/lexical_cast.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <memory>
-#include <omp.h>
 
 namespace geopop {
 
@@ -55,39 +48,18 @@ void GeoGridJSONReader::Read()
         auto& geoGrid = m_population->RefGeoGrid();
         auto  people  = root.get_child("persons");
 
-#pragma omp parallel
-#pragma omp single
-        {
-                for (auto it = people.begin(); it != people.end(); it++) {
-#pragma omp task firstprivate(it)
-                        {
-#pragma omp critical
-                                {
-                                        auto person               = ParsePerson(it->second.get_child(""));
-                                        m_people[person->GetId()] = person;
-                                }
-                        }
-                }
-#pragma omp taskwait
+        for (auto it = people.begin(); it != people.end(); it++) {
+                auto person               = ParsePerson(it->second.get_child(""));
+                m_people[person->GetId()] = person;
         }
         auto locations = root.get_child("locations");
-        auto e         = make_shared<ThreadException>();
-#pragma omp parallel
-#pragma omp single
-        {
-                for (auto it = locations.begin(); it != locations.end(); it++) {
-                        shared_ptr<Location> loc;
-#pragma omp task firstprivate(it, loc)
-                        {
-                                e->Run([&loc, this, &it] { loc = ParseLocation(it->second.get_child("")); });
-                                if (!e->HasError())
-#pragma omp critical
-                                        geoGrid.AddLocation(move(loc));
-                        }
-                }
-#pragma omp taskwait
+
+        for (auto it = locations.begin(); it != locations.end(); it++) {
+                shared_ptr<Location> loc;
+                loc = ParseLocation(it->second.get_child(""));
+                geoGrid.AddLocation(move(loc));
         }
-        e->Rethrow();
+
         AddCommutes(geoGrid);
         m_commutes.clear();
         m_people.clear();
@@ -103,31 +75,17 @@ shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree::ptre
 
         auto result         = make_shared<Location>(id, province, coordinate, name, population);
         auto contactCenters = location.get_child("contactCenters");
-        auto e              = make_shared<ThreadException>();
 
-#pragma omp parallel
-#pragma omp single
-        {
-                for (auto it = contactCenters.begin(); it != contactCenters.end(); it++) {
-                        shared_ptr<ContactCenter> center;
-#pragma omp task firstprivate(it, center)
-                        {
-                                e->Run([&it, this, &center] { center = ParseContactCenter(it->second.get_child("")); });
-                                if (!e->HasError())
-#pragma omp critical
-                                        result->AddCenter(center);
-                        }
-                }
-#pragma omp taskwait
+        for (auto it = contactCenters.begin(); it != contactCenters.end(); it++) {
+                const auto center = ParseContactCenter(it->second.get_child(""));
+                result->AddCenter(center);
         }
-        e->Rethrow();
 
         if (location.count("commutes")) {
                 boost::property_tree::ptree commutes = location.get_child("commutes");
                 for (auto it = commutes.begin(); it != commutes.end(); it++) {
                         const auto to     = boost::lexical_cast<unsigned int>(it->first);
                         const auto amount = boost::lexical_cast<double>(it->second.data());
-#pragma omp critical
                         m_commutes.emplace_back(id, to, amount);
                 }
         }
@@ -147,52 +105,30 @@ shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::property_
         const auto type = contactCenter.get<string>("type");
         const auto id   = boost::lexical_cast<unsigned int>(contactCenter.get<string>("id"));
 
-        shared_ptr<ContactCenter> result;
-        ContactType::Id           typeId;
+        ContactType::Id typeId;
         if (type == ToString(Id::K12School)) {
-                result = make_shared<K12SchoolCenter>(id);
                 typeId = Id::K12School;
         } else if (type == ToString(Id::College)) {
-                result = make_shared<CollegeCenter>(id);
                 typeId = Id::College;
         } else if (type == ToString(Id::Household)) {
-                result = make_shared<HouseholdCenter>(id);
                 typeId = Id::Household;
         } else if (type == ToString(Id::PrimaryCommunity)) {
-                result = make_shared<PrimaryCommunityCenter>(id);
                 typeId = Id::PrimaryCommunity;
         } else if (type == ToString(Id::SecondaryCommunity)) {
-                result = make_shared<SecondaryCommunityCenter>(id);
                 typeId = Id::SecondaryCommunity;
         } else if (type == ToString(Id::Workplace)) {
-                result = make_shared<WorkplaceCenter>(id);
                 typeId = Id::Workplace;
         } else {
                 throw Exception("No such ContactCenter type: " + type);
         }
-
+        auto result       = make_shared<ContactCenter>(id, typeId);
         auto contactPools = contactCenter.get_child("pools");
-        auto e            = make_shared<ThreadException>();
 
-#pragma omp parallel
-#pragma omp single
-        {
-                for (auto it = contactPools.begin(); it != contactPools.end(); it++) {
-#pragma omp task firstprivate(it)
-                        {
-                                ContactPool* pool = nullptr;
-                                e->Run([&it, &pool, this, typeId] {
-                                        pool = ParseContactPool(it->second.get_child(""), typeId);
-                                });
-                                if (!e->HasError()) {
-#pragma omp critical
-                                        result->RegisterPool(pool);
-                                }
-                        }
-                }
-#pragma omp taskwait
+        for (auto it = contactPools.begin(); it != contactPools.end(); it++) {
+                const auto pool = ParseContactPool(it->second.get_child(""), typeId);
+                result->RegisterPool(pool);
         }
-        e->Rethrow();
+
         return result;
 }
 
@@ -207,7 +143,6 @@ ContactPool* GeoGridJSONReader::ParseContactPool(boost::property_tree::ptree& co
                 if (m_people.count(person_id) == 0) {
                         throw Exception("No such person: " + to_string(person_id));
                 }
-#pragma omp critical
                 result->AddMember(m_people[person_id]);
         }
 

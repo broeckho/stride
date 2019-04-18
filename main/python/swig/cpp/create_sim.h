@@ -17,6 +17,6 @@
  * For use in  cpp-python interface.
  */
 
-#include <sim/Sim.h>
+/*#include <sim/Sim.h>
 
-std::shared_ptr<stride::Sim> CreateSim(const std::string& config);
+std::shared_ptr<stride::Sim> CreateSim(const std::string& config);*/

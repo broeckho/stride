@@ -23,8 +23,11 @@
 #include "ControlHelper.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
+#include <memory>
 
 namespace stride {
+
+class Sim;
 
 /**
  * Controls a simulation run initiated with the command line interface (cli).
@@ -45,10 +48,16 @@ class SimController : protected ControlHelper
 {
 public:
         /// Straight initialization.
-        explicit SimController(const boost::property_tree::ptree& config);
+        explicit SimController(const boost::property_tree::ptree& config, const std::string& name = "SimController");
 
-        /// Actual run of the simulator.
+        /// Control the execution of the simulation.
         void Control();
+
+        /// Reference the simulator (method used mostly in tests).
+        std::shared_ptr<Sim> GetSim() const { return m_simulator; };
+
+private:
+        std::shared_ptr<Sim> m_simulator;
 };
 
 } // namespace stride

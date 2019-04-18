@@ -28,6 +28,8 @@
 namespace geopop {
 
 using namespace std;
+using stride::ContactPool;
+using stride::ContactType::Id;
 
 GeoGrid::GeoGrid(stride::Population* population)
     : m_locations(), m_id_to_index(), m_population(population), m_finalized(false), m_tree()
@@ -98,7 +100,7 @@ vector<const Location*> GeoGrid::LocationsInRadius(const Location& start, double
         CheckFinalized(__func__);
 
         geogrid_detail::KdTree2DPoint startPt(&start);
-        vector<const Location*>             result;
+        vector<const Location*>       result;
 
         auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)), make_tuple(startPt, radius));
         agg();
@@ -106,11 +108,27 @@ vector<const Location*> GeoGrid::LocationsInRadius(const Location& start, double
         return result;
 }
 
+vector<ContactPool*> GeoGrid::GetNearbyPools(Id id, const Location& start, double startRadius) const
+{
+        double               currentRadius = startRadius;
+        vector<ContactPool*> pools;
+
+        while (pools.empty()) {
+                for (const Location* nearLoc : LocationsInRadius(start, currentRadius)) {
+                        const auto& locPool = nearLoc->CRefPools(id);
+                        pools.insert(pools.end(), locPool.begin(), locPool.end());
+                }
+                currentRadius *= 2;
+                if (currentRadius == numeric_limits<double>::infinity()) {
+                        break;
+                }
+        }
+        return pools;
+}
+
 vector<Location*> GeoGrid::TopK(size_t k) const
 {
-        auto cmp = [](Location* rhs, Location* lhs) {
-                return rhs->GetPopCount() > lhs->GetPopCount();
-        };
+        auto cmp = [](Location* rhs, Location* lhs) { return rhs->GetPopCount() > lhs->GetPopCount(); };
 
         priority_queue<Location*, vector<Location*>, decltype(cmp)> queue(cmp);
         for (const auto& loc : m_locations) {

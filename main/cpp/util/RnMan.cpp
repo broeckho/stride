@@ -26,6 +26,7 @@
 #include <trng/lcg64.hpp>
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
+#include <array>
 #include <cctype>
 #include <functional>
 #include <pcg/pcg_random.hpp>
@@ -77,7 +78,16 @@ std::function<int()> RnMan::GetUniformIntGenerator(int a, int b, unsigned int i)
 
 std::function<int()> RnMan::GetDiscreteGenerator(const vector<double>& weights, unsigned int i)
 {
-        return m_rn->GetDiscreteGenerator(weights, i);
+        return m_rn->GetDiscreteGenerator(weights.begin(), weights.end(), i);
+}
+
+bool RnMan::MakeWeightedCoinFlip(double fraction, unsigned int i)
+{
+        array<double, 2> weights{ 1.0 - fraction, fraction};
+        // -> 0, return is false -> not part of the fraction
+        // -> 1, return is true -> part of the fraction
+        auto dist = m_rn->GetDiscreteGenerator(weights.begin(), weights.end(), i);
+        return static_cast<bool>(dist());
 }
 
 void RnMan::Initialize(const RnInfo& info) { m_rn->Initialize(info); }

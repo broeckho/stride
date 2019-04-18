@@ -42,9 +42,9 @@ class RnMan;
  * Key Data structure: container for
  * (a) all individuals in the population
  * (b) the ContactPoolSys wchich is used to loop over ContactPools of each type
- * (c) (if present) the GeoGrid of Locations with ContactCenters at that location.
+ * (c) (if present) GeoGrid of Locations, each having an index of ContactPools at that location.
  */
-class Population : public util::SegmentedVector<Person>
+class Population : public util::SegmentedVector<Person, 2048>
 {
 public:
         /// Create a Population initialized by the configuration in property tree.
@@ -61,7 +61,7 @@ public:
 public:
         /// Create Person in the population.
         Person* CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId,
-                             unsigned int college, unsigned int workId, unsigned int primaryCommunityId,
+                             unsigned int collegeId, unsigned int workId, unsigned int primaryCommunityId,
                              unsigned int secondaryCommunityId);
 
         /// Get the cumulative number of cases.
@@ -87,9 +87,9 @@ private:
         Population();
 
 private:
-        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
+        ContactPoolSys                  m_pool_sys;       ///< The global @ContactPoolSys.
         std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
-        geopop::GeoGrid                 m_geo_grid;       ///< Associated geoGrid may be nullptr.
+        geopop::GeoGrid                 m_geo_grid;       ///< Associated @GeoGrid may be nullptr.
 };
 
 } // namespace stride

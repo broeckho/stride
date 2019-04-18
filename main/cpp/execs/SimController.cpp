@@ -32,7 +32,8 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-SimController::SimController(const ptree& config) : ControlHelper("SimController", config) {}
+SimController::SimController(const ptree& config, const string& name)
+        : ControlHelper(config, name), m_simulator(nullptr) {}
 
 void SimController::Control()
 {
@@ -47,7 +48,7 @@ void SimController::Control()
         // -----------------------------------------------------------------------------------------
         // Sim scenario: step 1, build a random number manager.
         // -----------------------------------------------------------------------------------------
-        const RnInfo info{m_config.get<string>("pop.rng_seed", "1,2,3,4"), "",
+        const RnInfo info{m_config.get<string>("run.rng_seed", "1,2,3,4"), "",
                           m_config.get<unsigned int>("run.num_threads")};
         RnMan        rnMan{info};
 
@@ -59,20 +60,14 @@ void SimController::Control()
         // -----------------------------------------------------------------------------------------
         // Sim scenario: step 3, create a simulator, as described by the parameter in the config.
         // -----------------------------------------------------------------------------------------
-        auto sim = Sim::Create(m_config, pop, rnMan);
+        m_simulator = Sim::Create(m_config, pop, rnMan);
 
         // -----------------------------------------------------------------------------------------
         // Sim scenario: step , build a runner, register viewers and run.
         // -----------------------------------------------------------------------------------------
-        auto runner = make_shared<SimRunner>(m_config, sim);
+        auto runner = make_shared<SimRunner>(m_config, m_simulator);
         RegisterViewers(runner);
         runner->Run();
-
-        // -----------------------------------------------------------------------------------------
-        // Done, shutdown.
-        // -----------------------------------------------------------------------------------------
-        LogShutdown();
-        spdlog::drop_all();
 }
 
 } // namespace stride

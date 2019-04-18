@@ -17,7 +17,7 @@ def checkNumCases(simulator, event):
 
 # Configure simulation
 controller = PyController(config_path="../config/run_default.xml")
-controller.runConfig.setParameter("output_prefix", "testInfected")
+controller.runConfig.setParameter("output_prefix", "pytest_Infected/")
 controller.runConfig.setParameter("use_install_dirs", "true")
 
 # Clean up leftover of previous failed testrun

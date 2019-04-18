@@ -80,7 +80,7 @@ if( NOT STRIDE_FORCE_NO_OPENMP )
 endif()
 #
 message( STATUS "" )
-if( Protobuf_FOUND VERSION_GREATER_EQUAL 3.0.0)
+if( Protobuf_FOUND)
 	message( STATUS "------> Protobuf_FOUND              : ${Protobuf_FOUND}"          )
 	message( STATUS "------> Protobuf_VERSION            : ${Protobuf_VERSION}"        )
 	message( STATUS "------> Protobuf_INCLUDE_DIRS       : ${Protobuf_INCLUDE_DIRS} "  )
