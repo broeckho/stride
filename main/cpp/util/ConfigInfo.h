@@ -51,7 +51,7 @@ public:
         static unsigned int NumberAvailableThreads();
 
         /// Return processor count for system.
-        static constexpr unsigned int ProcessorCount() { return PROCCOUNT; }
+        static unsigned int ProcessorCount();
 };
 
 } // namespace util

@@ -35,7 +35,7 @@ set(CMAKE_INSTALL_PREFIX  "${CMAKE_BINARY_DIR}/installed"
         CACHE PATH "Install prefix path.")
 set(CMAKE_BUILD_TYPE          "Release"
         CACHE STRING "Build type: None Debug Release RelWithDebInfo MinSizeRel.")
-set(CMAKE_PROGRAM_PATH  "/opt/local/bin;/usr/texbin;/usr/local/bin;/usr/bin"
+set(CMAKE_PROGRAM_PATH  "/opt/local/bin;/usr/local/bin;/usr/bin"
 		CACHE PATH "Where to look with find_program." )
 
 #============================================================================
@@ -51,17 +51,19 @@ endif()
 #============================================================================
 set(STRIDE_INCLUDE_DOC	FALSE
 	CACHE BOOL "Exclude doc directory from build and install.")
+set(STRIDE_FORCE_NO_BOOST FALSE
+	CACHE BOOL "Do NOT use installed Boost even if available.")
 set(STRIDE_FORCE_NO_OPENMP	FALSE
 	CACHE BOOL "Do NOT use OpenMP even if available.")
 set(STRIDE_FORCE_NO_PYTHON FALSE
 	CACHE BOOL "Force CMake to act as if Python or SWIG had not been found.")
-set(STRIDE_FORCE_NO_BOOST FALSE
-    CACHE BOOL "Do NOT use Boost even if available.")
+set(STRIDE_FORCE_NO_PROTOC FALSE
+	CACHE BOOL "Do NOT use installed protobuf compiler even if available.")
 
 #============================================================================
 # Additional CMake modules:
 #============================================================================
-list( APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/resources/cmake/" )
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/resources/cmake/")
 
 #============================================================================
 # Distinguish Linux from Aplle in UNIX family.

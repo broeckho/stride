@@ -23,11 +23,11 @@
 #include "geopop/GeoGrid.h"
 #include "geopop/io/GeoGridReader.h"
 #include "geopop/io/GeoGridReaderFactory.h"
+#include "pop/Population.h"
 #include "util/LogUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <spdlog/common.h>
-#include <spdlog/fmt/ostr.h>
+#include <spdlog/logger.h>
 
 namespace stride {
 
@@ -37,17 +37,13 @@ using namespace geopop;
 
 shared_ptr<Population> ImportPopBuilder::Build(shared_ptr<Population> pop)
 {
-        auto stride_logger = spdlog::get("stride_logger");
+        const auto importFile = m_config.get<string>("run.population_file");
+        m_stride_logger->info("Importing population from file {}.", importFile);
 
-        const auto importFile = m_config_pt.get<string>("run.population_file");
-
-        GeoGridReaderFactory             geoGridReaderFactory;
-        const shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile, pop.get());
-
-        stride_logger->debug("Importing population from " + importFile);
-
-        pop->m_geoGrid = reader->Read();
-        pop->m_geoGrid->Finalize();
+        GeoGridReaderFactory geoGridReaderFactory;
+        const auto&          reader = geoGridReaderFactory.CreateReader(importFile, pop.get());
+        reader->Read();
+        pop->RefGeoGrid().Finalize();
 
         return pop;
 }

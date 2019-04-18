@@ -1,6 +1,6 @@
 import time
 
-from pystride.stride.stride import Sim, CreateSim
+from pystride.stride.pystride import Sim, CreateSim
 
 from .Event import EventType, Event, SteppedEvent
 from .Stopwatch import Stopwatch

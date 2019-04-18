@@ -16,7 +16,6 @@
 #pragma once
 
 #include "CitiesReader.h"
-#include "util/CSV.h"
 
 namespace geopop {
 
@@ -30,10 +29,7 @@ public:
         explicit CitiesCSVReader(std::unique_ptr<std::istream> inputStream);
 
         /// Add the locations read to the GeoGrid.
-        void FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
-
-private:
-        stride::util::CSV m_reader; ///< The pure CSV reader
+        void FillGeoGrid(GeoGrid& geoGrid) const override;
 };
 
 } // namespace geopop

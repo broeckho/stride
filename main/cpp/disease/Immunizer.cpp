@@ -23,8 +23,6 @@
 #include "pop/Person.h"
 #include "util/RnMan.h"
 
-#include <trng/uniform01_dist.hpp>
-#include <trng/uniform_int_dist.hpp>
 #include <numeric>
 #include <vector>
 
@@ -65,11 +63,17 @@ void Immunizer::Cocoon(const SegmentedVector<ContactPool>& /*pools*/, vector<dou
         */
 }
 
-void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>& immunityDistribution,
+void Immunizer::Random_tmp(const SegmentedVector<ContactPool>& pools, vector<double>& immunityDistribution,
                        double immunityLinkProbability,std::shared_ptr<Population> pop, const bool log_immunity)
 {
         // Initialize a vector to count the population per age class [0-100].
         vector<double> populationBrackets(100, 0.0);
+
+        // Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).
+        const auto poolsSize          = static_cast<int>(pools.size());
+        auto       intGenerator       = m_rn_man.GetUniformIntGenerator(0, poolsSize, 0U);
+        auto       uniform01Generator = m_rn_man.GetUniform01Generator(0U);
+        auto&      logger             = pop->RefContactLogger();
 
         // Count susceptible individuals per age class
         for (auto& c : pools) {
@@ -80,10 +84,6 @@ void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>
                 }
         }
 
-        // Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).
-        const auto poolsSize          = static_cast<int>(pools.size());
-        auto       intGenerator       = m_rn_manager[0].variate_generator(trng::uniform_int_dist(0, poolsSize));
-        auto       uniform01Generator = m_rn_manager[0].variate_generator(trng::uniform01_dist<double>());
 
         // Calculate the number of "new immune" individuals per age class.
         unsigned int numImmune = 0;
@@ -92,24 +92,22 @@ void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>
                 numImmune += static_cast<unsigned int>(populationBrackets[age]);
         }
 
-        // Get logger
-        auto& logger             = pop->GetContactLogger();
-
         // Sample immune individuals, until all age-dependent quota are reached.
         while (numImmune > 0) {
                 // random pool, random order of members
                 const ContactPool&   p_pool = pools[intGenerator()];
-                const auto           size   = static_cast<unsigned int>(p_pool.GetSize());
+                const auto           size   = static_cast<unsigned int>(p_pool.GetPool().size());
                 vector<unsigned int> indices(size);
                 iota(indices.begin(), indices.end(), 0U);
-                m_rn_manager[0].shuffle(indices.begin(), indices.end());
+                m_rn_man.Shuffle(indices, 0U);
 
                 // loop over members, in random order
                 for (unsigned int i_p = 0; i_p < size && numImmune > 0; i_p++) {
-                        Person& p = *p_pool.GetMember(indices[i_p]);
+                        Person& p = *p_pool[indices[i_p]];
                         // if p is susceptible and his/her age class has not reached the quota => make immune
                         if (p.GetHealth().IsSusceptible() && populationBrackets[p.GetAge()] > 0) {
                                 p.GetHealth().SetImmune();
+
                                 populationBrackets[p.GetAge()]--;
                                 numImmune--;
                                 // TODO: check log_level
@@ -117,6 +115,63 @@ void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>
                                 	logger->info("[VACC] {} {} {} {} {} {} {} {}",
                                 				 p.GetId(), p.GetAge(),-1, -1, -1,-1, 0, -1);
                                 }
+                        }
+                        // random draw to continue in this pool or to sample a new one
+                        if (uniform01Generator() < (1 - immunityLinkProbability)) {
+                                break;
+                        }
+                }
+        }
+}
+
+void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>& immunityDistribution,
+                       double immunityLinkProbability,std::shared_ptr<Population> /*pop*/, const bool /*log_immunity*/)
+{
+        // Initialize a vector to count the population per age class [0-100].
+        vector<double> populationBrackets(100, 0.0);
+
+        // Count individuals per age class and set all "susceptible" individuals "immune".
+        // note: focusing on measles, we expect the number of susceptible individuals
+        // to be less compared to the number of immune.
+        // TODO but this is a generic simulator
+        for (auto& c : pools) {
+                for (const auto& p : c.GetPool()) {
+                        if (p->GetHealth().IsSusceptible()) {
+                                p->GetHealth().SetImmune();
+                                populationBrackets[p->GetAge()]++;
+                        }
+                }
+        }
+
+        // Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).
+        const auto poolsSize          = static_cast<int>(pools.size());
+        auto       intGenerator       = m_rn_man.GetUniformIntGenerator(0, poolsSize, 0U);
+        auto       uniform01Generator = m_rn_man.GetUniform01Generator(0U);
+
+        // Calculate the number of susceptible individuals per age class.
+        unsigned int numSusceptible = 0;
+        for (unsigned int age = 0; age < 100; age++) {
+                populationBrackets[age] = floor(populationBrackets[age] * (1 - immunityDistribution[age]));
+                numSusceptible += static_cast<unsigned int>(populationBrackets[age]);
+        }
+
+        // Sample susceptible individuals, until all age-dependent quota are reached.
+        while (numSusceptible > 0) {
+                // random pool, random order of members
+                const ContactPool&   p_pool = pools[intGenerator()];
+                const auto           size   = static_cast<unsigned int>(p_pool.GetPool().size());
+                vector<unsigned int> indices(size);
+                iota(indices.begin(), indices.end(), 0U);
+                m_rn_man.Shuffle(indices, 0U);
+
+                // loop over members, in random order
+                for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {
+                        Person& p = *p_pool.GetPool()[indices[i_p]];
+                        // if p is immune and his/her age class has not reached the quota => make susceptible
+                        if (p.GetHealth().IsImmune() && populationBrackets[p.GetAge()] > 0) {
+                                p.GetHealth().SetSusceptible();
+                                populationBrackets[p.GetAge()]--;
+                                numSusceptible--;
                         }
                         // random draw to continue in this pool or to sample a new one
                         if (uniform01Generator() < (1 - immunityLinkProbability)) {

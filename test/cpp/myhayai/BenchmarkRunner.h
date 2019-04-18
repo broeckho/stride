@@ -24,7 +24,6 @@
 #include "TestDescriptors.h"
 #include "TestFactory.h"
 #include "TestResult.h"
-
 #include "util/Subject.h"
 
 #include <string>

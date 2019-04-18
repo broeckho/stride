@@ -65,7 +65,7 @@ parse_contact_logfile <- function(contact_log_filename)
   ######################
   if(any(data_log[,1] == "[PART]"))
   {
-    header_part         <- c('local_id', 'part_age', 'part_gender', 'household_id', 'school_id', 'college_id','workplace_id',
+    header_part         <- c('local_id', 'part_age', 'household_id', 'school_id', 'college_id','workplace_id',
                              'is_susceptible','is_infected','is_infectious','is_recovered','is_immune',
                              'start_infectiousness','start_symptomatic','end_infectiousness','end_symptomatic',
                              'household_size','school_size','college_size','workplace_size','primarycommunity_size','secundarycommunity_size')
@@ -77,8 +77,8 @@ parse_contact_logfile <- function(contact_log_filename)
     data_part[data_part=="true"] <- TRUE
     data_part[data_part=="false"] <- FALSE
     
-    # make sure, all values (exept the gender and booleans) are stored as integers
-    col_non_numeric <- which(grepl('is_',header_part) | grepl('part_gender',header_part))
+    # make sure, all values (except the booleans) are stored as integers
+    col_non_numeric <- which(grepl('is_',header_part))
     data_part[,-col_non_numeric] <- data.frame(apply(data_part[,-col_non_numeric], 2, as.double))
     
     # save

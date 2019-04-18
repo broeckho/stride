@@ -16,23 +16,18 @@
 #################################################################################################
 
 #================================================================================================
-# Example scripts
+# Example scripts + Scripts for 'Measles in Flanders' study
 #================================================================================================
 add_subdirectory(examples)
-
-#============================================================================
-# Scripts for 'Measles in Flanders' study
-#============================================================================
 add_subdirectory(measles_in_flanders)
 add_subdirectory(age_immunity_shift)
 
 #================================================================================================
 # Create the library that performs as a wrapper for some C++ code that is incompatible with SWIG.
 #================================================================================================
-
 set(SWIG_WRAPPER
     swig/cpp/create_sim.cpp
-)
+    )
 set_source_files_properties( ${SWIG_WRAPPER} PROPERTIES COMPILE_FLAGS "-fPIC")
 add_library(swigwrapper ${SWIG_WRAPPER})
 
@@ -41,46 +36,32 @@ add_library(swigwrapper ${SWIG_WRAPPER})
 #============================================================================
 set(SWIG_IFACE
     swig/contactpooltype.i
-	swig/health.i
-	swig/population.i
-	swig/sim.i
-	swig/stride.i
-	swig/transmissionprofile.i
-)
+    swig/health.i
+    swig/population.i
+    swig/sim.i
+    swig/pystride.i
+    swig/transmissionprofile.i
+    )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
 include(${SWIG_USE_FILE})
 include_directories(${PYTHON_INCLUDE_DIRS})
 set_property(SOURCE ${SWIG_IFACE} PROPERTY CPLUSPLUS ON)
-swig_add_library(stride LANGUAGE python SOURCES swig/stride.i TYPE MODULE)
-swig_link_libraries(stride PUBLIC libstride swigwrapper ${PYTHON_LIBRARIES})
+swig_add_library(pystride LANGUAGE python SOURCES swig/pystride.i TYPE MODULE)
+swig_link_libraries(pystride PUBLIC libstride swigwrapper ${PYTHON_LIBRARIES})
 
 #================================================================================================
-# Install Python package.
+# Install Python package (modules plus scripts).
 #================================================================================================
-SET(PYTHON_TO_INSTALL _pythonInstallPyStride)
+INSTALL(FILES
+    ${CMAKE_BINARY_DIR}/main/python/pystride.py
+    ${CMAKE_BINARY_DIR}/main/python/_pystride.so
+    DESTINATION ${BIN_INSTALL_LOCATION}/pystride/stride)
 
-add_custom_target(pythonInstallPyStride ALL
-				  DEPENDS
-				  _stride
-				  ${PYTHON_TO_INSTALL}
-)
-
-add_custom_command(OUTPUT _pythonInstallPyStride
-		COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/main/python/stride.py pystride/stride/stride.py
-		COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/main/python/_stride.so pystride/stride/_stride.so
-)
-
-#================================================================================================
-# Copy the Python scripts to the bin folder.
-#================================================================================================
-INSTALL(DIRECTORY pystride
-        DESTINATION ${BIN_INSTALL_LOCATION})
-INSTALL(DIRECTORY ${CMAKE_BINARY_DIR}/main/python/pystride/stride
-        DESTINATION ${BIN_INSTALL_LOCATION}/pystride/)
-
-INSTALL(DIRECTORY postprocessing
-		DESTINATION ${BIN_INSTALL_LOCATION})
+INSTALL(DIRECTORY
+    pystride
+    postprocessing
+    DESTINATION ${BIN_INSTALL_LOCATION})
 
 #================================================================================================
 # Clean up

@@ -28,20 +28,20 @@ class Population;
 class PublicHealthAgency
 {
 public:
-        ///
-        explicit PublicHealthAgency() : m_case_detection_probability(0.0){};
+        /// Constructs uni-initialized object.
+        explicit PublicHealthAgency() : m_detection_probability(0.0){};
 
-        /// Execute
+        /// Execute.
         void Exec(std::shared_ptr<Population> pop, util::RnMan& rnManager, unsigned short int sim_day);
 
-        /// Initialize
-        void Initialize(const double detection_probability);
+        /// Initialize.
+        void Initialize(double detection_probability);
 
 private:
         /// Public Health Strategy: look for symptomatic cases and vaccinate their household
-        void PerformCaseFinding(std::shared_ptr<Population> pop, util::RnMan& rnManager, unsigned short int sim_day);
+        void PerformCaseFinding(std::shared_ptr<Population> pop, util::RnMan& rnMan, unsigned short int simDay);
 
-        double m_case_detection_probability; ///< Detection probability of symptomatic cases
+        double m_detection_probability; ///< Detection probability of symptomatic cases.
 };
 
 } // namespace stride

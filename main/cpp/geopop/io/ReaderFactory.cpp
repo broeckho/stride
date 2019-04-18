@@ -20,6 +20,7 @@
 #include "HouseholdCSVReader.h"
 #include "util/FileSys.h"
 
+#include <fstream>
 #include <iostream>
 #include <stdexcept>
 
@@ -58,7 +59,7 @@ shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const filesys::
         return make_shared<HouseholdCSVReader>(OpenFile(path));
 }
 
-std::unique_ptr<std::istream> ReaderFactory::OpenFile(const filesys::path& path) const
+std::unique_ptr<std::istream> ReaderFactory::OpenFile(const filesys::path& path)
 {
         if (!filesys::exists(path)) {
                 throw runtime_error("File not found: " + path.string());

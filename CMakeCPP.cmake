@@ -37,7 +37,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #
 include(ProcessorCount)
 ProcessorCount(PROCCOUNT)
-set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
 #
 # Required to avoid ld problems on Mac
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
@@ -95,10 +94,28 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/inc
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 
 #----------------------------------------------------------------------------
+# System threads required by protobuf anf gtest
+#----------------------------------------------------------------------------
+find_package(Threads)
+
+#----------------------------------------------------------------------------
 # ProtoBuf
 #----------------------------------------------------------------------------
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/gengeopop/io/proto)
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+if(NOT STRIDE_FORCE_NO_PROTOC)
+    include(FindProtobuf)
+    find_package(Protobuf)
+    if(NOT Protobuf_FOUND)
+            set(Protobuf_VERSION "0.0.0")
+    endif()
+endif()
+#
+if(Protobuf_FOUND AND ${Protobuf_VERSION} VERSION_GREATER_EQUAL 3.0.0)
+    set(Protobuf_PBS_DIR ${CMAKE_BINARY_DIR}/main/cpp)
+    include_directories(SYSTEM ${Protobuf_INCLUDE_DIRS})
+else()
+    set(Protobuf_PBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/main/cpp/geopop/io/proto_pb)
+    include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+endif()
 
 #----------------------------------------------------------------------------
 # SHA1 hash code.
@@ -110,7 +127,7 @@ set(LIBS ${LIBS} sha1)
 # Boost
 #----------------------------------------------------------------------------
 if (NOT STRIDE_FORCE_NO_BOOST)
-    find_package(Boost COMPONENTS filesystem thread date_time system)
+    find_package(Boost COMPONENTS filesystem date_time)
 endif()
 if (Boost_FOUND)
     include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
@@ -119,8 +136,6 @@ if (Boost_FOUND)
 else()
     include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/boost/include)
     include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/date/include)
-    find_package(Threads)
-    set(LIBS ${LIBS} ${CMAKE_THREAD_LIBS_INIT})
     if(CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?Clang" AND CMAKE_HOST_APPLE)
         set(LIBS ${LIBS} c++fs)
     else()

@@ -23,6 +23,7 @@
 #include "util/FileSys.h"
 
 #include <boost/property_tree/json_parser.hpp>
+#include <boost/property_tree/ptree.hpp>
 
 namespace stride {
 
@@ -48,15 +49,15 @@ void Calendar::AdvanceDay()
         m_date = m_date + boost::gregorian::date_duration(1);
 }
 
-std::size_t Calendar::GetDay() const { return m_date.day(); }
+size_t Calendar::GetDay() const { return m_date.day(); }
 
-std::size_t Calendar::GetDayOfTheWeek() const { return m_date.day_of_week(); }
+size_t Calendar::GetDayOfTheWeek() const { return m_date.day_of_week(); }
 
-std::size_t Calendar::GetMonth() const { return m_date.month(); }
+size_t Calendar::GetMonth() const { return m_date.month(); }
 
 unsigned short int Calendar::GetSimulationDay() const { return m_day; }
 
-std::size_t Calendar::GetYear() const { return m_date.year(); }
+size_t Calendar::GetYear() const { return m_date.year(); }
 
 void Calendar::InitializeHolidays(const ptree& configPt)
 {
@@ -93,11 +94,11 @@ void Calendar::InitializeHolidays(const ptree& configPt)
 
 #else
 
-date::year_month_day ConvertFromString(const std::string& day)
+date::year_month_day ConvertFromString(const string& day)
 {
-        std::tm           timeinfo;
-        std::stringstream ss(day);
-        ss >> std::get_time(&timeinfo, "%Y-%m-%d");
+        tm           timeinfo{};
+        stringstream ss(day);
+        ss >> get_time(&timeinfo, "%Y-%m-%d");
         auto date = date::year{timeinfo.tm_year + 1900} / date::month{static_cast<unsigned int>(timeinfo.tm_mon + 1)} /
                     date::day{static_cast<unsigned int>(timeinfo.tm_mday)};
         return date;
@@ -124,8 +125,8 @@ void Calendar::InitializeHolidays(const ptree& configPt)
         // Load json file
         ptree holidaysPt;
         {
-                const string fName{configPt.get<string>("run.holidays_file", "holidays_flanders_2017.json")};
-                const std::filesystem::path fPath{FileSys::GetDataDir() /= fName};
+                const string           fName{configPt.get<string>("run.holidays_file", "holidays_flanders_2017.json")};
+                const filesystem::path fPath{FileSys::GetDataDir() /= fName};
                 if (!is_regular_file(fPath)) {
                         throw runtime_error(string(__func__) + "Holidays file " + fPath.string() + " not present.");
                 }
@@ -139,36 +140,36 @@ void Calendar::InitializeHolidays(const ptree& configPt)
 
                 // read in general holidays
                 for (const auto& date : holidaysPt.get_child("general." + month)) {
-                        std::stringstream d;
+                        stringstream d;
                         /// Append zero's due to a bug in stdc++ https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896
-                        d << year << "-" << std::setw(2) << std::setfill('0') << month << "-" << std::setw(2)
-                          << std::setfill('0') << date.second.get_value<string>();
+                        d << year << "-" << setw(2) << setfill('0') << month << "-" << setw(2) << setfill('0')
+                          << date.second.get_value<string>();
                         m_holidays.push_back(ConvertFromString(d.str()));
                 }
 
                 // read in school holidays
                 for (const auto& date : holidaysPt.get_child("school." + month)) {
-                        std::stringstream d;
+                        stringstream d;
                         /// Append zero's due to a bug in stdc++ https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896
-                        d << year << "-" << std::setw(2) << std::setfill('0') << month << "-" << std::setw(2)
-                          << std::setfill('0') << date.second.get_value<string>();
+                        d << year << "-" << setw(2) << setfill('0') << month << "-" << setw(2) << setfill('0')
+                          << date.second.get_value<string>();
                         m_school_holidays.push_back(ConvertFromString(d.str()));
                 }
         }
 }
 
-std::size_t Calendar::GetDay() const { return static_cast<unsigned int>(m_date.day()); }
+size_t Calendar::GetDay() const { return static_cast<unsigned int>(m_date.day()); }
 
-std::size_t Calendar::GetDayOfTheWeek() const
+size_t Calendar::GetDayOfTheWeek() const
 {
         return static_cast<unsigned>(static_cast<date::year_month_weekday>(m_date).weekday());
 }
 
-std::size_t Calendar::GetMonth() const { return static_cast<unsigned int>(m_date.month()); }
+size_t Calendar::GetMonth() const { return static_cast<unsigned int>(m_date.month()); }
 
 unsigned short int Calendar::GetSimulationDay() const { return m_day; }
 
-std::size_t Calendar::GetYear() const { return static_cast<int>(m_date.year()); }
+size_t Calendar::GetYear() const { return static_cast<size_t>(static_cast<int>(m_date.year())); }
 
 #endif
 

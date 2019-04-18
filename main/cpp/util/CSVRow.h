@@ -23,8 +23,7 @@
 #include "util/StringUtils.h"
 
 #include <boost/lexical_cast.hpp>
-#include <iostream>
-#include <ostream>
+#include <iosfwd>
 
 namespace stride {
 namespace util {

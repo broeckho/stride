@@ -20,8 +20,7 @@
 
 #pragma once
 
-#include "util/RnMan.h"
-
+#include <cmath>
 #include <functional>
 
 namespace stride {
@@ -55,7 +54,7 @@ public:
 
 private:
         /// Convert rate into probability
-        double RateToProbability(double rate) { return 1.0 - exp(-rate); }
+        double RateToProbability(double rate) { return 1.0 - std::exp(-rate); }
 
 private:
         std::function<double()> m_uniform01_generator; ///< Random number generator: double in [0.0, 1.0)

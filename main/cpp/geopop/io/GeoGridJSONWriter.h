@@ -40,20 +40,20 @@ public:
         GeoGridJSONWriter();
 
         /// Write the provided GeoGrid to the proved ostream in JSON format.
-        void Write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) override;
+        void Write(GeoGrid& geoGrid, std::ostream& stream) override;
 
 private:
-        /// Create a Boost Property Tree containing all info needed to reconstruct a Location.
-        boost::property_tree::ptree WriteLocation(std::shared_ptr<Location> location);
-
-        /// Create a Boost Property Tree containing all info needed to reconstruct a Coordinate.
-        boost::property_tree::ptree WriteCoordinate(const Coordinate& coordinate);
-
         /// Create a Boost Property Tree containing all info needed to reconstruct a ContactCenter.
         boost::property_tree::ptree WriteContactCenter(std::shared_ptr<ContactCenter> contactCenter);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a ContactPool.
         boost::property_tree::ptree WriteContactPool(stride::ContactPool* contactPool);
+
+        /// Create a Boost Property Tree containing all info needed to reconstruct a Coordinate.
+        boost::property_tree::ptree WriteCoordinate(const Coordinate& coordinate);
+
+        /// Create a Boost Property Tree containing all info needed to reconstruct a Location.
+        boost::property_tree::ptree WriteLocation(std::shared_ptr<Location> location);
 
         /// Create a Boost Property Tree containing all info needed to reconstruct a Person.
         boost::property_tree::ptree WritePerson(stride::Person* person);

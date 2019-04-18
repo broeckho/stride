@@ -20,11 +20,11 @@
 
 #include "HealthSeeder.h"
 
+#include "Health.h"
+#include "contact/ContactHandler.h"
 #include "pop/Population.h"
-#include "util/RnMan.h"
-
+#include "util/Assert.h"
 #include <boost/property_tree/ptree.hpp>
-#include <trng/uniform01_dist.hpp>
 #include <omp.h>
 
 using namespace boost::property_tree;
@@ -34,22 +34,17 @@ using namespace std;
 namespace stride {
 
 HealthSeeder::HealthSeeder(const boost::property_tree::ptree& diseasePt)
-    : m_distrib_start_symptomatic(), m_distrib_time_asymptomatic(), m_distrib_time_infectious(),
-      m_distrib_time_symptomatic()
+    : m_start_symptomatic(), m_time_asymptomatic(), m_time_infectious(), m_time_symptomatic()
 {
-        GetDistribution(m_distrib_start_symptomatic, diseasePt, "disease.start_symptomatic");
-        GetDistribution(m_distrib_time_asymptomatic, diseasePt, "disease.time_asymptomatic");
-        GetDistribution(m_distrib_time_infectious, diseasePt, "disease.time_infectious");
-        GetDistribution(m_distrib_time_symptomatic, diseasePt, "disease.time_symptomatic");
+        GetDistribution(m_start_symptomatic, diseasePt, "disease.start_symptomatic");
+        GetDistribution(m_time_asymptomatic, diseasePt, "disease.time_asymptomatic");
+        GetDistribution(m_time_infectious, diseasePt, "disease.time_infectious");
+        GetDistribution(m_time_symptomatic, diseasePt, "disease.time_symptomatic");
 
-        assert((abs(m_distrib_start_symptomatic.back() - 1.0) < 1.e-10) &&
-               "HealthSampler> Error in start_symptomatic distribution!");
-        assert((abs(m_distrib_time_asymptomatic.back() - 1.0) < 1.e-10) &&
-               "HealthSampler> Error in time_asymptomatic distribution!");
-        assert((abs(m_distrib_time_infectious.back() - 1.0) < 1.e-10) &&
-               "HealthSampler> Error in time_infectious distribution!");
-        assert((abs(m_distrib_time_symptomatic.back() - 1.0) < 1.e-10) &&
-               "HealthSampler> Error in time_symptomatic distribution!");
+        AssertThrow((abs(m_start_symptomatic.back() - 1.0) < 1.e-10), "Error in start_symptomatic", nullptr);
+        AssertThrow((abs(m_time_asymptomatic.back() - 1.0) < 1.e-10), "Error in time_asymptomatic", nullptr);
+        AssertThrow((abs(m_time_infectious.back() - 1.0) < 1.e-10), "Error in time_infectious", nullptr);
+        AssertThrow((abs(m_time_symptomatic.back() - 1.0) < 1.e-10), "Error in time_symptomatic", nullptr);
 }
 
 void HealthSeeder::GetDistribution(vector<double>& distribution, const ptree& rootPt, const string& xmlTag)
@@ -81,11 +76,10 @@ void HealthSeeder::Seed(const std::shared_ptr<stride::Population>& pop, vector<C
                 auto& gen01 = handlers[static_cast<size_t>(omp_get_thread_num())];
 #pragma omp for
                 for (size_t i = 0; i < population.size(); ++i) {
-                        const auto startSymptomatic = Sample(m_distrib_start_symptomatic, gen01());
-                        const auto startInfectiousness =
-                            startSymptomatic - Sample(m_distrib_time_asymptomatic, gen01());
-                        const auto timeInfectious  = Sample(m_distrib_time_infectious, gen01());
-                        const auto timeSymptomatic = Sample(m_distrib_time_symptomatic, gen01());
+                        const auto startSymptomatic    = Sample(m_start_symptomatic, gen01());
+                        const auto startInfectiousness = startSymptomatic - Sample(m_time_asymptomatic, gen01());
+                        const auto timeInfectious      = Sample(m_time_infectious, gen01());
+                        const auto timeSymptomatic     = Sample(m_time_symptomatic, gen01());
                         population[i].GetHealth() =
                             Health(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);
                 }

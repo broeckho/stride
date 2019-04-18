@@ -34,8 +34,7 @@ class Calendar;
 class Population;
 
 /**
- * Simulator can time step and reveal some of the key data.
- * The Subject base class used for the interaction with the python environment only.
+ * Mechanism to select the appropriate Infector template to execute.
  */
 class InfectorMap : public std::map<std::tuple<stride::ContactLogMode::Id, bool>, InfectorExec*>
 {

@@ -29,8 +29,8 @@ namespace stride {
 
 using namespace std;
 
-ContactPool::ContactPool(std::size_t pool_id, ContactType::Id type)
-    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members()
+ContactPool::ContactPool(unsigned int poolId, ContactType::Id type)
+    : m_index_immune(0), m_pool_id(poolId), m_pool_type(type), m_members()
 {
 }
 
@@ -40,16 +40,28 @@ void ContactPool::AddMember(Person* p)
         m_index_immune++;
 }
 
-std::tuple<bool, size_t> ContactPool::SortMembers()
+unsigned int ContactPool::GetInfectedCount() const
 {
-        bool   infectious_cases = false;
-        size_t num_cases        = 0;
+        unsigned int infected = 0;
+
+        for (stride::Person* person : m_members) {
+                if (person->GetHealth().IsInfected()) {
+                        infected++;
+                }
+        }
+        return infected;
+}
+
+std::tuple<bool, unsigned int> ContactPool::SortMembers()
+{
+        bool         infectious_cases = false;
+        unsigned int num_cases        = 0;
 
         for (size_t i_member = 0; i_member < m_index_immune; i_member++) {
                 // if immune, move to back
                 if (m_members[i_member]->GetHealth().IsImmune()) {
-                        bool   swapped   = false;
-                        size_t new_place = m_index_immune - 1;
+                        bool         swapped   = false;
+                        unsigned int new_place = m_index_immune - 1;
                         m_index_immune--;
                         while (!swapped && new_place > i_member) {
                                 if (m_members[new_place]->GetHealth().IsImmune()) {
@@ -73,18 +85,6 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
                 }
         }
         return std::make_tuple(infectious_cases, num_cases);
-}
-
-std::size_t ContactPool::GetInfectedCount()
-{
-        unsigned int infected = 0;
-
-        for (stride::Person* person : m_members) {
-                if (person->GetHealth().IsInfected()) {
-                        infected++;
-                }
-        }
-        return infected;
 }
 
 } // namespace stride

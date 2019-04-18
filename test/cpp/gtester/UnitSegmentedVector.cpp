@@ -18,7 +18,6 @@
  * Unit tests of SegmentedVector.
  */
 
-//#include "util/Any.h"
 #include "util/SegmentedVector.h"
 
 #include <gtest/gtest.h>
@@ -76,7 +75,7 @@ class Base
 {
 public:
         virtual size_t Get1() const { return 0; }
-        virtual ~Base() {}
+        virtual ~Base() = default;
 };
 
 class Derived : public Base
@@ -141,7 +140,7 @@ void RunBasicOperationsTest(SegmentedVector& c, size_t size)
         for (size_t i = 0; i < size; i++) {
                 c.pop_back();
                 auto num = c.size() / block_size;
-                if (c.size() > 0 && (c.size() % block_size > 0))
+                if (!c.empty() && (c.size() % block_size > 0))
                         ++num;
                 EXPECT_EQ(num, c.get_block_count());
         }
@@ -160,8 +159,8 @@ void RunBasicOperationsTest(SegmentedVector& c, size_t size)
         }
 
         // Element access.
-        for (size_t i = 0; i < size; i++) {
-                EXPECT_EQ(c.at(i), i);
+        for (size_t k = 0; k < size; k++) {
+                EXPECT_EQ(c.at(k), k);
         }
 
         // Element access: bounds check.
@@ -169,8 +168,8 @@ void RunBasicOperationsTest(SegmentedVector& c, size_t size)
 
         // Check if correct elements are in the same block */
         size_t how_long_ago_since_new_block = 0UL;
-        for (size_t i = 0; i < size; i++) {
-                if (&c[i] != &c[i - how_long_ago_since_new_block] + how_long_ago_since_new_block) {
+        for (size_t l = 0; l < size; l++) {
+                if (&c[l] != &c[l - how_long_ago_since_new_block] + how_long_ago_since_new_block) {
                         EXPECT_EQ(how_long_ago_since_new_block % block_size, 0UL);
                         how_long_ago_since_new_block = 0;
                 }

@@ -20,7 +20,7 @@
 #================================================================================================
 INSTALL(FILES
 		create_contactmatrix.py
-    demo.py
+    	demo.py
 		experimenter.py
 		experimenter_r0.py
 		interactive_maps.py

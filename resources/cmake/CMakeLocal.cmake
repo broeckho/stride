@@ -26,9 +26,11 @@ message(STATUS "\nReading compiler settings from CMakeLocal.cmake! \n")
 #============================================================================
 # MACRO (WARNING: CLion overrides the setting of CMAKE_BUILD_TYPE)
 #============================================================================
-set(STRIDE_INCLUDE_DOC      FALSE)
-set(STRIDE_FORCE_NO_OPENMP  FALSE)
-set(STRIDE_FORCE_NO_QT5     FALSE)
+set(STRIDE_INCLUDE_DOC      OFF)
+set(STRIDE_FORCE_NO_BOOST   OFF)
+set(STRIDE_FORCE_NO_OPENMP  OFF)
+set(STRIDE_FORCE_NO_PROTOC  OFF)
+set(STRIDE_FORCE_NO_PYTHON  OFF)
 
 if(NOT DEFINED CMAKE_CXX_COMPILER)
     set(STRIDE_COMPILER_ID      GNU)

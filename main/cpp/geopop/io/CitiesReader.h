@@ -38,7 +38,7 @@ public:
         virtual ~CitiesReader() = default;
 
         /// Add the locations to the GeoGrid.
-        virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
+        virtual void FillGeoGrid(GeoGrid&) const = 0;
 
 protected:
         std::unique_ptr<std::istream> m_inputStream; ///< The istream with the file content.

@@ -50,11 +50,11 @@ public:
         virtual ~GeoGridReader() = default;
 
         /// Perform the actual read and return the created GeoGrid.
-        virtual std::shared_ptr<GeoGrid> Read() = 0;
+        virtual void Read() = 0;
 
 protected:
         /// Add the commutes that were found to their respective Locations symmetrically.
-        void AddCommutes(std::shared_ptr<GeoGrid> geoGrid);
+        void AddCommutes(GeoGrid& geoGrid);
 
 protected:
         ///< Store the persons (id->person) that were found while loping over the ContactPools.
@@ -63,8 +63,8 @@ protected:
         ///< Commutes from, to, number.
         std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes;
 
-        std::unique_ptr<std::istream> m_inputStream; ///< file to read.
-        stride::Population*           m_population;  ///< population to use in the GeoGrid may be nullptr.
+        std::unique_ptr<std::istream> m_inputStream; ///< File to read.
+        stride::Population*           m_population;  ///< Population to use in the GeoGrid may be nullptr.
 };
 
 } // namespace geopop

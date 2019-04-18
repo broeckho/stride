@@ -34,18 +34,22 @@ class Immunizer
 {
 public:
         ///
-        explicit Immunizer(util::RnMan& rnManager) : m_rn_manager(rnManager) {}
+        explicit Immunizer(util::RnMan& rnManager) : m_rn_man(rnManager) {}
 
         /// Random immunization.
-        void Random(const util::SegmentedVector<ContactPool>& pools, std::vector<double>& immunityDistribution,
+        void Random_tmp(const util::SegmentedVector<ContactPool>& pools, std::vector<double>& immunityDistribution,
                     double immunityLinkProbability, std::shared_ptr<Population> pop, const bool log_immunity);
+
+        /// Random immunization.
+		void Random(const util::SegmentedVector<ContactPool>& pools, std::vector<double>& immunityDistribution,
+					double immunityLinkProbability, std::shared_ptr<Population> /*pop*/, const bool /*log_immunity*/);
 
         /// Cocoon immunization.
         void Cocoon(const util::SegmentedVector<ContactPool>& /*pools*/, std::vector<double>& /*immunityDistribution*/,
                     double /*immunityLinkProbability*/);
 
 private:
-        util::RnMan& m_rn_manager; ///< Random number manager.
+        util::RnMan& m_rn_man; ///< Random number manager.
 };
 
 } // namespace stride

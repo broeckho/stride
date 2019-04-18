@@ -16,8 +16,6 @@
 #pragma once
 
 #include "CommutesReader.h"
-#include "geopop/Location.h"
-#include "util/CSV.h"
 
 #include <memory>
 
@@ -33,10 +31,7 @@ public:
         explicit CommutesCSVReader(std::unique_ptr<std::istream> istream);
 
         /// Add the found Commutes to the provided GeoGrid
-        void FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
-
-private:
-        stride::util::CSV m_reader; ///< The pure CSV reader
+        void FillGeoGrid(GeoGrid& geoGrid) const override;
 };
 
 } // namespace geopop

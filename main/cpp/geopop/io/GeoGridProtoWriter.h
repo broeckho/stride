@@ -17,7 +17,6 @@
 
 #include "GeoGridWriter.h"
 #include "geopop/Location.h"
-#include "geopop/io/proto/geogrid.pb.h"
 
 #include <set>
 
@@ -25,6 +24,14 @@ namespace stride {
 class ContactPool;
 class Person;
 } // namespace stride
+
+namespace proto {
+class GeoGrid_Location;
+class GeoGrid_Location_Coordinate;
+class GeoGrid_Location_ContactCenter;
+class GeoGrid_Location_ContactCenter_ContactPool;
+class GeoGrid_Person;
+} // namespace proto
 
 namespace geopop {
 
@@ -41,15 +48,9 @@ public:
         GeoGridProtoWriter();
 
         /// Write the GeoGrid to the ostream in Protobuf format.
-        void Write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) override;
+        void Write(GeoGrid& geoGrid, std::ostream& stream) override;
 
 private:
-        /// Create a ProtoBuf Location containing all the info needed to reconstruct a Location.
-        void WriteLocation(std::shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation);
-
-        /// Create a ProtoBuf Coordinate containing all the info needed to reconstruct a Coordinate..
-        void WriteCoordinate(const Coordinate& coordinate, proto::GeoGrid_Location_Coordinate* protoCoordinate);
-
         /// Create a ProtoBuf ContactCenter containing all the information needed to reconstruct a ContactCenter.
         void WriteContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
                                 proto::GeoGrid_Location_ContactCenter* protoContactCenter);
@@ -57,6 +58,12 @@ private:
         /// Create a ProtoBuf ContactPool containing all the info needed to reconstruct a ContactPool.
         void WriteContactPool(stride::ContactPool*                               contactPool,
                               proto::GeoGrid_Location_ContactCenter_ContactPool* protoContactPool);
+
+        /// Create a ProtoBuf Coordinate containing all the info needed to reconstruct a Coordinate..
+        void WriteCoordinate(const Coordinate& coordinate, proto::GeoGrid_Location_Coordinate* protoCoordinate);
+
+        /// Create a ProtoBuf Location containing all the info needed to reconstruct a Location.
+        void WriteLocation(std::shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation);
 
         /// Create a ProtoBuf Person containing all the info needed to reconstruct a Person.
         void WritePerson(stride::Person* person, proto::GeoGrid_Person* protoPerson);

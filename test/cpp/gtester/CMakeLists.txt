@@ -24,10 +24,17 @@ add_definitions(-DGTEST_LANG_CXX11)
 #============================================================================
 # Build & install the (OpenMP enabled if OpenMP available) executable.
 #============================================================================
+set_source_files_properties(
+    geopop/io/GeoGridIOUtils.cpp
+    geopop/io/GeoGridProtoReaderTest.cpp
+    PROPERTIES
+    COMPILE_FLAGS "-I${Protobuf_PBS_DIR}"
+)
+
 set(EXEC gtester)
 set(SRC
-    BatchRuns.cpp
     ScenarioData.cpp
+    ScenarioRuns.cpp
     #---
     UnitCsvTest.cpp
     UnitIsIterator.cpp
@@ -42,27 +49,30 @@ set(SRC
     #---
     createlogger.h
     #---
-    gengeopop/generators/CollegeGeneratorTest.cpp
-    gengeopop/generators/CommunityGeneratorTest.cpp
-    gengeopop/generators/HouseholdGeneratorTest.cpp
-    gengeopop/generators/SchoolGeneratorTest.cpp
-    gengeopop/generators/WorkplaceGeneratorTest.cpp
-    gengeopop/io/CitiesCSVReaderTest.cpp
-    gengeopop/io/CommutesCSVReaderTest.cpp
-    gengeopop/io/GeoGridIOUtils.cpp
-    gengeopop/io/GeoGridJSONReaderTest.cpp
-    gengeopop/io/GeoGridJSONWriterTest.cpp
-    gengeopop/io/GeoGridProtoReaderTest.cpp
-    gengeopop/io/GeoGridProtoWriterTest.cpp
-    gengeopop/io/HouseholdCSVReaderTest.cpp
-    gengeopop/io/ReaderFactoryTest.cpp
-    gengeopop/kdtree.cpp
-    gengeopop/populators/CommunityPopulatorTests.cpp
-    gengeopop/populators/CollegePopulatorTest.cpp
-    gengeopop/populators/HouseholdPopulatorTest.cpp
-    gengeopop/populators/K12SchoolPopulatorTest.cpp
-    gengeopop/populators/WorkplacePopulatorTest.cpp
-    gengeopop/populators/createGeogrid.cpp
+    geopop/generators/CollegeGeneratorTest.cpp
+    geopop/generators/CommunityGeneratorTest.cpp
+    geopop/generators/HouseholdGeneratorTest.cpp
+    geopop/generators/K12SchoolGeneratorTest.cpp
+    geopop/generators/WorkplaceGeneratorTest.cpp
+    #---
+    geopop/io/CitiesCSVReaderTest.cpp
+    geopop/io/CommutesCSVReaderTest.cpp
+    geopop/io/GeoGridIOUtils.cpp
+    geopop/io/GeoGridJSONReaderTest.cpp
+    geopop/io/GeoGridJSONWriterTest.cpp
+    geopop/io/GeoGridProtoReaderTest.cpp
+    geopop/io/GeoGridProtoWriterTest.cpp
+    geopop/io/HouseholdCSVReaderTest.cpp
+    geopop/io/ReaderFactoryTest.cpp
+    #---
+    geopop/kdtree.cpp
+    #---
+    geopop/populators/CommunityPopulatorTests.cpp
+    geopop/populators/CollegePopulatorTest.cpp
+    geopop/populators/HouseholdPopulatorTest.cpp
+    geopop/populators/K12SchoolPopulatorTest.cpp
+    geopop/populators/WorkplacePopulatorTest.cpp
+    geopop/populators/createGeogrid.cpp
     #---
     myhayai/DeliveryMan.cpp
     myhayai/MyhayaiTests.cpp
@@ -72,13 +82,13 @@ set(SRC
     main.cpp
 )
 
-if (OPENMP_FOUND)
-        set(SRC ${SRC} ParallelRuns.cpp)
-endif ()
+#if (OPENMP_FOUND)
+#        set(SRC ${SRC} ParallelRuns.cpp)
+#endif ()
 
 include_directories(${CMAKE_SOURCE_DIR}/test/cpp)
 add_executable(${EXEC} ${SRC})
-target_link_libraries(${EXEC} gtest pthread libstride libgengeopop libmyhayai ${LIBS})
+target_link_libraries(${EXEC} gtest libmyhayai libstride ${CMAKE_THREAD_LIBS_INIT})
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 
@@ -89,11 +99,6 @@ add_test(NAME ${EXEC}
         WORKING_DIRECTORY ${TESTS_DIR}
         COMMAND ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
         --gtest_output=xml:gtester_all.xml
-        )
-#============================================================================
-# Clean up.
-#============================================================================
-unset(EXEC)
-unset(SRC)
+)
 
 #############################################################################

@@ -18,7 +18,9 @@
 #============================================================================
 # Add subdirs:
 #============================================================================
-add_subdirectory(protobuf)
+if(NOT Protobuf_FOUND)
+    add_subdirectory(protobuf)
+endif()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
 add_subdirectory(sha1)
 add_subdirectory(trng-4.20)

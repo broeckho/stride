@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Omplemenatation for the TransmissionProfile class.
+ * Implemenatation for the TransmissionProfile class.
  */
 
 #include "TransmissionProfile.h"

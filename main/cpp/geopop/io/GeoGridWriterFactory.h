@@ -29,7 +29,7 @@ class GeoGridWriterFactory
 {
 public:
         /// Create a GeoGridWriter based on the provided extension in the filename.
-        std::shared_ptr<GeoGridWriter> CreateWriter(const std::string& filename) const;
+        static std::shared_ptr<GeoGridWriter> CreateGeoGridWriter(const std::string& filename);
 };
 
 } // namespace geopop

@@ -25,7 +25,7 @@ std::pair<unsigned int, unsigned int> ContactCenter::GetPopulationAndInfectedCou
         auto infected   = 0U;
 
         for (stride::ContactPool* pool : m_pools) {
-                population += pool->GetSize();
+                population += pool->GetPool().size();
                 infected += pool->GetInfectedCount();
         }
 
