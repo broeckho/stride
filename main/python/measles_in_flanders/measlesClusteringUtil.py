@@ -15,8 +15,8 @@ def generateRngSeeds(numSeeds):
         seeds.append(int.from_bytes(random_data, byteorder='big'))
     return seeds
 
-def writeRngSeeds(scenarioName, R0, seeds):
-    with open(scenarioName + "_R0_" + str(R0) + "_seeds.csv", "w") as csvfile:
+def writeRngSeeds(scenarioName, seeds):
+    with open(scenarioName + "_seeds.csv", "w") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(seeds)
 

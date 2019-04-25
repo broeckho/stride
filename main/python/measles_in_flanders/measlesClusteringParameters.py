@@ -5,7 +5,7 @@ def getCommonParameters():
         "age_contact_matrix_file": "contact_matrix_flanders_subpop.xml",
         "contact_log_level": "Transmissions",
         "contact_output_file": "true",
-        "disease_config_file": "disease_measles.xml",
+        "disease_config_file": "disease_measles_probability_instead_of_rate.xml",
         "holidays_file": "holidays_none.json",
         "immunity_link_probability": 0,
         "immunity_profile": "AgeDependent",
@@ -26,28 +26,3 @@ def getCommonParameters():
         "vaccine_profile": "AgeDependent",
     }
     return parameters
-
-def getScenarioParameters(scenarioName, immunityFileChildren, immunityFileAdults):
-    parameters = {
-        "UNIFORM_NOCLUSTERING": {
-            "immunity_distribution_file": os.path.join("data", "measles_uniform_adult_immunity.xml"),
-            "vaccine_distribution_file": os.path.join("data", "measles_uniform_child_immunity.xml"),
-            "vaccine_link_probability": 0,
-        },
-        "AGEDEPENDENT_NOCLUSTERING": {
-            "immunity_distribution_file": immunityFileAdults,
-            "vaccine_distribution_file": immunityFileChildren,
-            "vaccine_link_probability": 0,
-        },
-        "UNIFORM_CLUSTERING": {
-            "immunity_distribution_file": os.path.join("data", "measles_uniform_adult_immunity.xml"),
-            "vaccine_distribution_file": os.path.join("data", "measles_uniform_child_immunity.xml"),
-            "vaccine_link_probability": 1,
-        },
-        "AGEDEPENDENT_CLUSTERING": {
-            "immunity_distribution_file": immunityFileAdults,
-            "vaccine_distribution_file": immunityFileChildren,
-            "vaccine_link_probability": 1,
-        },
-    }
-    return parameters[scenarioName]
