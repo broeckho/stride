@@ -1,19 +1,8 @@
 import csv
-import multiprocessing
+import matplotlib.pyplot as plt
 import os
 
-import matplotlib.pyplot as plt
-
 MAX_AGE = 99
-
-def getFinalOutbreakSize(outputDir, scenarioName, seed, numDays):
-    casesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "cases.csv")
-    with open(casesFile) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            timestep = int(row["timestep"])
-            if timestep == (numDays - 1):
-                return int(row["cases"])
 
 def getRngSeeds(outputDir, scenarioName):
     seeds = []
@@ -28,6 +17,19 @@ def getRngSeeds(outputDir, scenarioName):
 def saveFig(outputDir, figName, extension="eps"):
     plt.savefig(os.path.join(outputDir, figName + "." + extension), format=extension, dpi=1000)
     plt.clf()
+
+'''
+import multiprocessing
+
+def getFinalOutbreakSize(outputDir, scenarioName, seed, numDays):
+    casesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "cases.csv")
+    with open(casesFile) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            timestep = int(row["timestep"])
+            if timestep == (numDays - 1):
+                return int(row["cases"])
+
 
 def getFractionSusceptibles(outputDir, scenarioName, seed):
     totalPopulation = 0
@@ -56,4 +58,4 @@ def getOverallFractionSusceptibles(outputDir, R0s, scenarioNames, poolSize):
     if all(x == allFractions[0] for x in allFractions):
         return allFractions[0]
     else:
-        print("Differing immunity levels!")
+        print("Differing immunity levels!")'''

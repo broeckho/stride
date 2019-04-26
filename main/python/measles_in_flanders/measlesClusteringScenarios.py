@@ -76,27 +76,27 @@ def trackCases(simulator, event):
             writer.writeheader()
         writer.writerow({"timestep": timestep, "cases": cases})
 
-def runSimulation(scenarioName, R0, clusteringLevel, seed, extraParams):
+def runSimulation(scenarioName, transmissionProbability, clusteringLevel, seed, extraParams):
     control = PyController(data_dir="data")
     # Get common parameters
     extraParams.update(getCommonParameters())
     # Set parameters
     for paramName, paramValue in extraParams.items():
         control.runConfig.setParameter(paramName, paramValue)
-    control.runConfig.setParameter("r0", R0)
+    control.runConfig.setParameter("transmission_probability", transmissionProbability)
     control.runConfig.setParameter("rng_seed", seed)
     control.runConfig.setParameter("output_prefix", scenarioName + "_CLUSTERING_"
-                                        + str(clusteringLevel) + "_R0_"
-                                        + str(R0) + "_" + str(seed))
+                                        + str(clusteringLevel) + "_TP_"
+                                        + str(transmissionProbability) + "_" + str(seed))
     # Register callbacks
     control.registerCallback(registerSusceptibles, EventType.AtStart)
     control.registerCallback(registerMemberships, EventType.AtStart)
     control.registerCallback(trackCases, EventType.Stepped)
     control.control()
 
-def runSimulations(trackIndexCase, numRuns, scenario, R0, clusteringLevel, numDays,
+def runSimulations(trackIndexCase, numRuns, scenario, transmissionProbability, clusteringLevel, numDays,
     immunityFileChildren, immunityFileAdults, poolSize):
-    print("Scenario = {}, R0 = {}, clustering level = {}".format(scenario, R0, clusteringLevel))
+    print("Scenario = {}, P(t) = {}, clustering level = {}".format(scenario, transmissionProbability, clusteringLevel))
     # Convert bool to string for inclusion in xml configuration file
     trackIndexCaseStr = "false"
     if trackIndexCase:
@@ -113,11 +113,11 @@ def runSimulations(trackIndexCase, numRuns, scenario, R0, clusteringLevel, numDa
         "vaccine_link_probability": clusteringLevel,
     }
     seeds = generateRngSeeds(numRuns)
-    writeRngSeeds(scenario + "_CLUSTERING_" + str(clusteringLevel) + "_R0_" + str(R0), seeds)
+    writeRngSeeds(scenario + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(transmissionProbability), seeds)
     with multiprocessing.Pool(processes=poolSize) as pool:
-        pool.starmap(runSimulation, [(scenario, R0, clusteringLevel, s, extraParams) for s in seeds])
+        pool.starmap(runSimulation, [(scenario, transmissionProbability, clusteringLevel, s, extraParams) for s in seeds])
 
-def main(trackIndexCase, numRuns, R0s, clusteringLevels, numDays, poolSize):
+def main(trackIndexCase, numRuns, transmissionProbabilities, clusteringLevels, numDays, poolSize):
     start = time.perf_counter()
     immunityFileChildren = os.path.join("data", "2020_measles_child_immunity.xml")
     immunityFileAdults = os.path.join("data", "2020_measles_adult_immunity.xml")
@@ -130,9 +130,9 @@ def main(trackIndexCase, numRuns, R0s, clusteringLevels, numDays, poolSize):
     createUniformImmunityDistributionFiles(uniformImmunityLevel)
     # Run simulations
     for scenario in scenarioNames:
-        for R0 in R0s:
+        for prob in transmissionProbabilities:
             for level in clusteringLevels:
-                runSimulations(trackIndexCase, numRuns, scenario, R0, level, numDays,
+                runSimulations(trackIndexCase, numRuns, scenario, prob, level, numDays,
                                 immunityFileChildren, immunityFileAdults, poolSize)
 
     end = time.perf_counter()
@@ -147,9 +147,9 @@ if __name__=="__main__":
     parser.add_argument("--trackIndexCase", action="store_true",
                         help="Only simulate secondary cases? Useful for effective R calcuation")
     parser.add_argument("--numRuns", type=int, default=10, help="Number of runs per scenario")
-    parser.add_argument("--R0s", type=int, nargs="+", default=[12, 18], help="Values of R0 to test")
-    parser.add_argument("--clusteringLevels", type=int, nargs="+", default=[0, 0.5, 1], help="Clustering levels to test")
+    parser.add_argument("--transmissionProbs", type=float, nargs="+", default=[0.3, 0.4], help="Transmisison probabilities to test")
+    parser.add_argument("--clusteringLevels", type=float, nargs="+", default=[0, 0.5, 1], help="Clustering levels to test")
     parser.add_argument("--numDays", type=int, default=730, help="Number of time-steps to simulate")
     parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in multiprocessing pool")
     args = parser.parse_args()
-    main(args.trackIndexCase, args.numRuns, args.R0s, args.clusteringLevels, args.numDays, args.poolSize)
+    main(args.trackIndexCase, args.numRuns, args.transmissionProbs, args.clusteringLevels, args.numDays, args.poolSize)
