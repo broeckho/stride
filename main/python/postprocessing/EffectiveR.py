@@ -1,4 +1,6 @@
+import csv
 import itertools
+import math
 import matplotlib.pyplot as plt
 import multiprocessing
 import os
@@ -35,31 +37,47 @@ def getEffectiveR(outputDir, scenarioName, transmissionProbability, clusteringLe
             infectedByIndexCases.append(0)
     return sum(infectedByIndexCases) / len(infectedByIndexCases)
 
-def createEffectiveROverviewPlot(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels, poolSize):
+def getFractionSusceptible(outputDir, scenarioName, transmissionProbability, clusteringLevel, seed):
+    totalPersons = 0
+    totalSusceptibles = 0
+    susceptiblesFile = os.path.join(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel)
+                                                    + "_TP_" + str(transmissionProbability)
+                                                    + "_" + str(seed), "susceptibles.csv")
+    with open(susceptiblesFile) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            totalPersons += 1
+            if int(row["susceptible"]):
+                totalSusceptibles += 1
+    return totalSusceptibles / totalPersons
+
+def createEffectiveROverviewPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, r0CoeffA, r0CoeffB):
     ax = plt.axes(projection="3d")
     colors = ["blue", "orange", "pink", "green", "red", "purple", "brown", "magenta", "cyan", "firebrick"]
 
     z = 0
 
     for prob in transmissionProbabilities:
+        r0 = r0CoeffA + (r0CoeffB * math.log(1 + prob))
+        print(r0)
         effectiveRs = []
-        for scenario in scenarioNames:
-            for level in clusteringLevels:
-                seeds = getRngSeeds(outputDir, scenario + "_CLUSTERING_" + str(level) + "_TP_" + str(prob))
-                with multiprocessing.Pool(processes=poolSize) as pool:
-                    effectiveRs.append(pool.starmap(getEffectiveR, [(outputDir, scenario, prob, level, s) for s in seeds]))
-                    # TODO add median?
+        for level in clusteringLevels:
+            seeds = getRngSeeds(outputDir, scenarioName + "_CLUSTERING_" + str(level) + "_TP_" + str(prob))
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                effectiveRs.append(pool.starmap(getEffectiveR, [(outputDir, scenarioName, prob, level, s) for s in seeds]))
+                fractionsSusceptible = pool.starmap(getFractionSusceptible, [(outputDir, scenarioName, prob, level, s) for s in seeds])
+                print(fractionsSusceptible)
+                # TODO add median?
         ax.bar(range(len(effectiveRs)), [sum(x) / len(x) for x in effectiveRs], zs=z, zdir="y", color=colors[z], alpha=0.4)
         z += 1
-    #ax.set_xlabel("Scenario")
-    ax.set_xticks(range(len(scenarioNames) * len(clusteringLevels)))
-    ax.set_xticklabels([x.capitalize() + ",\nClustering = " + str(y) for x, y in itertools.product(scenarioNames, clusteringLevels)],
-                        rotation=45)
+    ax.set_xlabel("Clustering level")
+    ax.set_xticks(range(len(clusteringLevels)))
+    ax.set_xticklabels(clusteringLevels)
     ax.set_ylabel("P(transmission)")
     ax.set_yticks(range(len(transmissionProbabilities)))
     ax.set_yticklabels(transmissionProbabilities)
     ax.set_zlabel("Effective R (mean)")
-    saveFig(outputDir, "EffectiveRs", "png")
+    saveFig(outputDir, scenarioName + "_EffectiveRs", "png")
 
 def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize):
     allEffectiveRs = []

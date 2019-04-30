@@ -37,12 +37,13 @@ def createAgeImmunityOverviewPlot(outputDir, scenarioNames, transmissionProbabil
     # TODO add target rates to plot
     if targetRatesFile is not None:
         targetRates = getTargetRates(outputDir, targetRatesFile)
-        plt.plot(range(MAX_AGE + 1), targetRates, "bo")
+        plt.plot(range(MAX_AGE + 1), targetRates, "o")
         legend.append("Data")
     #linestyles = ['-', '--', '-.', ':', '--', '--']
     #dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
-    colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan', 'magenta', 'blue', 'yellow']
-    color_i = 0
+    #colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
+    #            'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
+    #            'forestgreen', 'turquoise']
     for scenario in scenarioNames:
         for level in clusteringLevels:
             legend.append(scenario + ", clustering " + str(level))
@@ -57,9 +58,7 @@ def createAgeImmunityOverviewPlot(outputDir, scenarioNames, transmissionProbabil
                     for age in range(MAX_AGE + 1):
                         allLevelsForAge = [run[age] for run in susceptibilityLevels]
                         allAges[age] += allLevelsForAge
-            plt.plot(range(MAX_AGE + 1), [sum(allAges[age]) / len(allAges[age]) for age in range(MAX_AGE + 1)],
-                        color=colors[color_i])
-            color_i += 1
+            plt.plot(range(MAX_AGE + 1), [sum(allAges[age]) / len(allAges[age]) for age in range(MAX_AGE + 1)])
     plt.xlabel("Age (years)")
     plt.xlim(0, MAX_AGE + 1)
     plt.ylabel("Fraction susceptible (mean)")
