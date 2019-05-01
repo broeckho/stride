@@ -9,8 +9,8 @@ from postprocessing import EffectiveR
 def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinctionThreshold, poolSize):
     start = time.perf_counter()
     scenarioNames = ["UNIFORM", "AGEDEPENDENT"]
-    r0CoeffA = -1.70840875
-    r0CoeffB = 70.77858465
+    r0CoeffA = -0.26766068
+    r0CoeffB = 38.45456595
     # Age immunity profile plots
     #AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels,
     #                                    poolSize, targetRatesFile="2020_measles_immunity.xml")
@@ -41,7 +41,7 @@ def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinc
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("outputDir", type=str, help="Directory containing simulation output")
-    parser.add_argument("--transmissionProbs", type=float, nargs="+", default=[0.20, 0.30, 0.40, 0.50, 0.60, 0.70], help="Values of R0 to analyze")
+    parser.add_argument("--transmissionProbs", type=float, nargs="+", default=[0.30, 0.40, 0.50, 0.60, 0.70, 0.80], help="Values of R0 to analyze")
     parser.add_argument("--clusteringLevels", type=float, nargs="+", default=[0, 0.25, 0.5, 0.75, 1], help="Clustering levels to analyze")
     parser.add_argument("--numDays", type=int, default=730, help="Number of simulated days")
     parser.add_argument("--extinctionThreshold", type=int, default=0, help="Threshold for epidemic extinction")

@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import multiprocessing
 import numpy
 import scipy.optimize
+import time
 
 from measlesClusteringUtil import generateRngSeeds
 
@@ -76,21 +77,24 @@ def analyzeResults(numRuns, transmissionProbabilities, poolSize):
     plt.xlabel("P(transmission)")
     plt.ylabel("Secondary cases")
     fitFunc = lnFunc(transmissionProbabilities, fit[0][0], fit[0][1])
-    plt.plot(transmissionProbabilities, fitFunc, color="red")
-    plt.legend(["Simulations", "{} + {} * ln(1 + x)".format(fit[0][0], fit[0][1])])
+    line1, = plt.plot(transmissionProbabilities, fitFunc, color="red", label="{}{}".format(fit[0][0], fit[1][1]))
+    plt.legend(["Simulations", "{0:.3f} + {0:.3f} * ln(1 + x)".format(fit[0][0], fit[0][1])])
     plt.savefig("SecondaryCases_scatter.png")
     plt.clf()
 
-    plt.boxplot(allSecondaryCases)
+    plt.boxplot(allSecondaryCases, labels=transmissionProbabilities)
     plt.xlabel("P(transmission)")
     plt.ylabel("Secondary cases")
     plt.savefig("SecondaryCases_boxplot.png")
     plt.clf()
 
 def main(numRuns, poolSize):
+    start = time.perf_counter()
     transmissionProbabilities = numpy.arange(0, 1.05, 0.05)
     runSimulations(numRuns, transmissionProbabilities, poolSize)
     analyzeResults(numRuns, transmissionProbabilities, poolSize)
+    end = time.perf_counter()
+    print("Total time {} seconds".format(end - start))
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()

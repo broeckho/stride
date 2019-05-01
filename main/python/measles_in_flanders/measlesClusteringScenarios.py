@@ -1,6 +1,7 @@
 import argparse
 import csv
 import multiprocessing
+import numpy
 import os
 import time
 
@@ -147,7 +148,7 @@ if __name__=="__main__":
     parser.add_argument("--trackIndexCase", action="store_true",
                         help="Only simulate secondary cases? Useful for effective R calcuation")
     parser.add_argument("--numRuns", type=int, default=2, help="Number of runs per scenario")
-    parser.add_argument("--transmissionProbs", type=float, nargs="+", default=[0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70], help="Transmisison probabilities to test")
+    parser.add_argument("--transmissionProbs", type=float, nargs="+", default=numpy.arange(0.10, 0.65, 0.05), help="Transmission probabilities to test")
     parser.add_argument("--clusteringLevels", type=float, nargs="+", default=[0, 0.25, 0.5, 0.75, 1], help="Clustering levels to test")
     parser.add_argument("--numDays", type=int, default=730, help="Number of time-steps to simulate")
     parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in multiprocessing pool")
