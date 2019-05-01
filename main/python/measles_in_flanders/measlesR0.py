@@ -77,8 +77,8 @@ def analyzeResults(numRuns, transmissionProbabilities, poolSize):
     plt.xlabel("P(transmission)")
     plt.ylabel("Secondary cases")
     fitFunc = lnFunc(transmissionProbabilities, fit[0][0], fit[0][1])
-    line1, = plt.plot(transmissionProbabilities, fitFunc, color="red", label="{}{}".format(fit[0][0], fit[1][1]))
-    plt.legend(["Simulations", "{0:.3f} + {0:.3f} * ln(1 + x)".format(fit[0][0], fit[0][1])])
+    line1, = plt.plot(transmissionProbabilities, fitFunc, color="red", label="{:.3f} + {:.3f} * ln(1+ x)".format(fit[0][0], fit[0][1]))
+    plt.legend(handles=[line1])
     plt.savefig("SecondaryCases_scatter.png")
     plt.clf()
 
