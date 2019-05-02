@@ -1,19 +1,21 @@
-import csv
-import itertools
 import math
 import matplotlib.pyplot as plt
 import multiprocessing
+import numpy
 import os
 
 from mpl_toolkits.mplot3d import Axes3D
 
 from .Util import getRngSeeds, saveFig
 
+def lnFunc(x, a, b):
+    return a + (b * math.log(1 + x))
+
 def getEffectiveR(outputDir, scenarioName, transmissionProbability, clusteringLevel, seed):
     transmissionsFile = os.path.join(outputDir, scenarioName + "_CLUSTERING_"
-                                                    + str(clusteringLevel) + "_TP_"
-                                                    + str(transmissionProbability)
-                                                    + "_" + str(seed) + "_contact_log.txt")
+                                        + str(clusteringLevel) + "_TP_"
+                                        + str(transmissionProbability)
+                                        + "_" + str(seed) + "_contact_log.txt")
     indexCaseIDs = []
     infectedBy = {}
     infectedByIndexCases = []
@@ -37,38 +39,28 @@ def getEffectiveR(outputDir, scenarioName, transmissionProbability, clusteringLe
             infectedByIndexCases.append(0)
     return sum(infectedByIndexCases) / len(infectedByIndexCases)
 
-def getFractionSusceptible(outputDir, scenarioName, transmissionProbability, clusteringLevel, seed):
-    totalPersons = 0
-    totalSusceptibles = 0
-    susceptiblesFile = os.path.join(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel)
-                                                    + "_TP_" + str(transmissionProbability)
-                                                    + "_" + str(seed), "susceptibles.csv")
-    with open(susceptiblesFile) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            totalPersons += 1
-            if int(row["susceptible"]):
-                totalSusceptibles += 1
-    return totalSusceptibles / totalPersons
-
-def createEffectiveROverviewPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, r0CoeffA, r0CoeffB):
+def createEffectiveROverviewPlot(outputDir, scenario, transmissionProbabilities,
+    clusteringLevels, poolSize, r0CoeffA, r0CoeffB, fracSusceptibles, stat="mean"):
     ax = plt.axes(projection="3d")
-    colors = ["blue", "orange", "pink", "green", "red", "purple", "brown", "magenta", "cyan", "firebrick"]
-
+    colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
+                'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
+                'forestgreen', 'turquoise']
     z = 0
-
+    handles = []
     for prob in transmissionProbabilities:
-        r0 = r0CoeffA + (r0CoeffB * math.log(1 + prob))
-        print(r0)
+        r0 = lnFunc(prob, r0CoeffA, r0CoeffB)
+        expectedR = r0 * fracSusceptibles
         effectiveRs = []
         for level in clusteringLevels:
-            seeds = getRngSeeds(outputDir, scenarioName + "_CLUSTERING_" + str(level) + "_TP_" + str(prob))
+            seeds = getRngSeeds(outputDir, scenario + "_CLUSTERING_" + str(level) + "_TP_" + str(prob))
             with multiprocessing.Pool(processes=poolSize) as pool:
-                effectiveRs.append(pool.starmap(getEffectiveR, [(outputDir, scenarioName, prob, level, s) for s in seeds]))
-                fractionsSusceptible = pool.starmap(getFractionSusceptible, [(outputDir, scenarioName, prob, level, s) for s in seeds])
-                print(fractionsSusceptible)
-                # TODO add median?
-        ax.bar(range(len(effectiveRs)), [sum(x) / len(x) for x in effectiveRs], zs=z, zdir="y", color=colors[z], alpha=0.4)
+                effectiveRs.append(pool.starmap(getEffectiveR, [(outputDir, scenario, prob, level, s) for s in seeds]))
+        if stat == "mean":
+            ax.bar(range(len(effectiveRs)), [sum(x) / len(x) for x in effectiveRs], zs=z, zdir="y", color=colors[z % len(colors)], alpha=0.4)
+        elif stat == "median":
+            ax.bar(range(len(effectiveRs)), [numpy.median(x) for x in effectiveRs], zs=z, zdir="y", color=colors[z % len(colors)], alpha=0.4)
+        line, = ax.plot(range(len(effectiveRs)), [expectedR] * len(effectiveRs), zs=z, zdir="y", color=colors[z % len(colors)], label="R0 * fraction susceptible = {:.2f}".format(expectedR))
+        handles.append(line)
         z += 1
     ax.set_xlabel("Clustering level")
     ax.set_xticks(range(len(clusteringLevels)))
@@ -77,25 +69,26 @@ def createEffectiveROverviewPlot(outputDir, scenarioName, transmissionProbabilit
     ax.set_yticks(range(len(transmissionProbabilities)))
     ax.set_yticklabels(transmissionProbabilities)
     ax.set_zlabel("Effective R (mean)")
-    saveFig(outputDir, scenarioName + "_EffectiveRs", "png")
+    ax.set_zlim(0, 5)
+    ax.legend(handles=handles, bbox_to_anchor=(0.43,1.15))
+    saveFig(outputDir, scenario + "_EffectiveRs_" + stat, "png")
 
-def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize):
+def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities,
+    clusteringLevel, poolSize, r0CoeffA, r0CoeffB, fracSusceptibles):
     allEffectiveRs = []
+    expectedRs = [(r0CoeffA + (r0CoeffB * math.log(1 + x))) * fracSusceptibles for x in numpy.arange(0, 1.05, 0.05)]
     for prob in transmissionProbabilities:
-        effectiveRs = []
         seeds = getRngSeeds(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(prob))
         with multiprocessing.Pool(processes=poolSize) as pool:
-            effectiveRs += pool.starmap(getEffectiveR,
-                                    [(outputDir, scenarioName, prob, clusteringLevel, s) for s in seeds])
-        allEffectiveRs.append(effectiveRs)
+            allEffectiveRs.append(pool.starmap(getEffectiveR, [(outputDir, scenarioName, prob, clusteringLevel, s) for s in seeds]))
     plt.boxplot(allEffectiveRs, labels=transmissionProbabilities)
+    plt.plot(range(len(expectedRs)), expectedRs)
     plt.xlabel("P(transmission)")
     plt.ylabel("Effective R")
     saveFig(outputDir, "EffectiveRs_" + scenarioName + "_C_" + str(clusteringLevel))
 
 
 '''
-from numpy import median, percentile
 from random import sample
 
 def createEffectiveRTracePlot(outputDir, sampleSizesRange, scenarioName, poolSize):

@@ -1,8 +1,10 @@
 import csv
 import matplotlib.pyplot as plt
+import multiprocessing
 import os
 
 MAX_AGE = 99
+
 
 def getRngSeeds(outputDir, scenarioName):
     seeds = []
@@ -14,13 +16,6 @@ def getRngSeeds(outputDir, scenarioName):
                 seeds.append(int(s))
     return seeds
 
-def saveFig(outputDir, figName, extension="eps"):
-    plt.savefig(os.path.join(outputDir, figName + "." + extension), format=extension, dpi=1000)
-    plt.clf()
-
-'''
-import multiprocessing
-
 def getFinalOutbreakSize(outputDir, scenarioName, seed, numDays):
     casesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "cases.csv")
     with open(casesFile) as csvfile:
@@ -30,32 +25,32 @@ def getFinalOutbreakSize(outputDir, scenarioName, seed, numDays):
             if timestep == (numDays - 1):
                 return int(row["cases"])
 
-
-def getFractionSusceptibles(outputDir, scenarioName, seed):
+def getFractionSusceptibles(outputDir, scenarioName, transmissionProbability, clusteringLevel, seed):
     totalPopulation = 0
     totalSusceptibles = 0
-    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
+    susceptiblesFile = os.path.join(outputDir,
+                                    scenarioName + "_CLUSTERING_" + str(clusteringLevel)
+                                        + "_TP_" + str(transmissionProbability) + "_" + str(seed),
+                                    "susceptibles.csv")
     with open(susceptiblesFile) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             totalPopulation += 1
-            if int(row["susceptible"]):
-                totalSusceptibles += 1
-    if totalPopulation > 0:
-        return totalSusceptibles / totalPopulation
-    else:
-        print("Empty population!")
+            if (int(row["susceptible"])):
+                 totalSusceptibles += 1
+    return totalSusceptibles / totalPopulation
 
-def getOverallFractionSusceptibles(outputDir, R0s, scenarioNames, poolSize):
+def getAllFractionsSusceptibles(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels, poolSize):
     allFractions = []
-    for R0 in R0s:
-        scenarioNamesFull = [s + "_R0_" + str(R0) for s in scenarioNames]
-        for scenario in scenarioNamesFull:
-            seeds = getRngSeeds(outputDir, scenario)
-            with multiprocessing.Pool(processes=poolSize) as pool:
-                fractions = pool.starmap(getFractionSusceptibles, [(outputDir, scenario, s) for s in seeds])
-                allFractions += fractions
-    if all(x == allFractions[0] for x in allFractions):
-        return allFractions[0]
-    else:
-        print("Differing immunity levels!")'''
+    for scenario in scenarioNames:
+        for level in clusteringLevels:
+            for prob in transmissionProbabilities:
+                seeds = getRngSeeds(outputDir, scenario + "_CLUSTERING_" + str(level) + "_TP_" + str(prob))
+                with multiprocessing.Pool(processes=poolSize) as pool:
+                    fractions = pool.starmap(getFractionSusceptibles, [(outputDir, scenario, prob, level, s) for s in seeds])
+                    allFractions += fractions
+    return allFractions
+
+def saveFig(outputDir, figName, extension="eps"):
+    plt.savefig(os.path.join(outputDir, figName + "." + extension), format=extension, dpi=1000)
+    plt.clf()

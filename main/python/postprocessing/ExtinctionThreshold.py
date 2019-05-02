@@ -1,36 +1,28 @@
 import csv
+import itertools
 import matplotlib.pyplot as plt
 import multiprocessing
 import os
 
 from .Util import getFinalOutbreakSize, getRngSeeds, saveFig
 
-def createFinalSizeHistogram(outputDir, scenarioName, numDays, poolSize, figName):
-    seeds = getRngSeeds(outputDir, scenarioName)
-    with multiprocessing.Pool(processes=poolSize) as pool:
-        finalSizes = pool.starmap(getFinalOutbreakSize,
-                                [(outputDir, scenarioName, s, numDays) for s in seeds])
-        plt.hist(finalSizes)
-        plt.xlabel("Final size after {} days".format(numDays))
-        plt.ylabel("Frequency")
-        plt.title(scenarioName)
-        saveFig(outputDir, figName)
-
-def createFinalSizesHistogram(outputDir, scenarioNames, scenarioDisplayNames, numDays, poolSize, figName):
-    allFinalSizes = []
+def createFinalSizesHistogram(outputDir, scenarioNames, transmissionProbability, clusteringLevels, numDays, poolSize):
+    finalSizes = []
     for scenario in scenarioNames:
-        seeds = getRngSeeds(outputDir, scenario)
-        with multiprocessing.Pool(processes=poolSize) as pool:
-            finalSizes = pool.starmap(getFinalOutbreakSize,
-                                    [(outputDir, scenario, s, numDays) for s in seeds])
-            allFinalSizes.append(finalSizes)
-
-    colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown']
-    n, bins, patches = plt.hist(allFinalSizes,bins=25,histtype="barstacked", color=colors[:len(allFinalSizes)])
-    hatches = ['-', '+', 'x', '\\', 'o', '.']
-    for patch_set, hatch in zip(patches, hatches):
-        plt.setp(patch_set, hatch=hatch)
+        for level in clusteringLevels:
+            scenarioNameFull = scenario + "_CLUSTERING_" + str(level) + "_TP_" + str(transmissionProbability)
+            seeds = getRngSeeds(outputDir, scenarioNameFull)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                finalSizes.append(pool.starmap(getFinalOutbreakSize,
+                            [(outputDir, scenarioNameFull, s, numDays) for s in seeds]))
+    colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
+                'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
+                'forestgreen', 'turquoise']
+    n, bins, patches = plt.hist(finalSizes,bins=25,histtype="barstacked", color=colors[:len(finalSizes)])
+    #hatches = ['-', '+', 'x', '\\', 'o', '.']
+    #for patch_set, hatch in zip(patches, hatches):
+    #    plt.setp(patch_set, hatch=hatch)
     plt.xlabel("Final size after {} days".format(numDays))
     plt.ylabel("Frequency")
-    plt.legend(scenarioDisplayNames)
-    saveFig(outputDir, figName)
+    plt.legend([str(x).capitalize() + " clustering = " + str(y) for x, y in itertools.product(scenarioNames, clusteringLevels)])
+    saveFig(outputDir, "FinalSizes_TP_" + str(transmissionProbability))

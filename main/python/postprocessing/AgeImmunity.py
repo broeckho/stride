@@ -34,19 +34,21 @@ def getAgeSusceptibilityLevels(outputDir, scenarioName, transmissionProbability,
 
 def createAgeImmunityOverviewPlot(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels, poolSize, targetRatesFile=None):
     legend = []
-    # TODO add target rates to plot
+    # Add target rates to plot if available
     if targetRatesFile is not None:
         targetRates = getTargetRates(outputDir, targetRatesFile)
-        plt.plot(range(MAX_AGE + 1), targetRates, "o")
+        plt.plot(range(MAX_AGE + 1), targetRates, "bo")
         legend.append("Data")
-    #linestyles = ['-', '--', '-.', ':', '--', '--']
-    #dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
-    #colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
-    #            'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
-    #            'forestgreen', 'turquoise']
+    # Linestyles and colors for plot
+    linestyles = ['-', '--', '-.', ':', '--', '--']
+    dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
+    colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
+                'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
+                'forestgreen', 'turquoise']
+    scenarioID = 0
     for scenario in scenarioNames:
         for level in clusteringLevels:
-            legend.append(scenario + ", clustering " + str(level))
+            legend.append(scenario.capitalize() + ", clustering " + str(level))
             allAges = {}
             for age in range(MAX_AGE + 1):
                 allAges[age] = []
@@ -58,8 +60,15 @@ def createAgeImmunityOverviewPlot(outputDir, scenarioNames, transmissionProbabil
                     for age in range(MAX_AGE + 1):
                         allLevelsForAge = [run[age] for run in susceptibilityLevels]
                         allAges[age] += allLevelsForAge
-            plt.plot(range(MAX_AGE + 1), [sum(allAges[age]) / len(allAges[age]) for age in range(MAX_AGE + 1)])
-    plt.xlabel("Age (years)")
+            color = colors[scenarioID % len(colors)]
+            linestyle = linestyles[scenarioID % len(linestyles)]
+            dash = dashes[scenarioID % len(dashes)]
+            if dash is not None:
+                plt.plot(range(MAX_AGE + 1), [sum(allAges[age]) / len(allAges[age]) for age in range(MAX_AGE + 1)], color=color, linestyle=linestyle, dashes=dash)
+            else:
+                plt.plot(range(MAX_AGE + 1), [sum(allAges[age]) / len(allAges[age]) for age in range(MAX_AGE + 1)], color=color, linestyle=linestyle)
+            scenarioID += 1
+    plt.xlabel("Age (in years)")
     plt.xlim(0, MAX_AGE + 1)
     plt.ylabel("Fraction susceptible (mean)")
     plt.ylim(0, 1)
