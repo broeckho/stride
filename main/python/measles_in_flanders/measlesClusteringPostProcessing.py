@@ -48,7 +48,7 @@ def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinc
                             stat="median")
         for level in clusteringLevels:
             EffectiveR.createEffectiveRPlot(outputDir, scenario, transmissionProbabilities, level, poolSize, r0CoeffA, r0CoeffB, pctSusceptibles)
-           AgeImmunity.createAgeImmunityPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
+            AgeImmunity.createAgeImmunityPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
 
     for prob in transmissionProbabilities:
         ExtinctionThreshold.createFinalSizesHistogram(outputDir, scenarioNames, prob, clusteringLevels, numDays, poolSize)
