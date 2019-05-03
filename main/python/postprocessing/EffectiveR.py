@@ -73,6 +73,22 @@ def createEffectiveROverviewPlot(outputDir, scenario, transmissionProbabilities,
     ax.legend(handles=handles, bbox_to_anchor=(0.43,1.15))
     saveFig(outputDir, scenario + "_EffectiveRs_" + stat, "png")
 
+def createEffectiveRScatterPlot(outputDir, scenarioName, transmissionProbabilities,
+    clusteringLevel, poolSize):
+    allTransmissionProbabilities = []
+    allEffectiveRs = []
+    for prob in transmissionProbabilities:
+        seeds = getRngSeeds(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(prob))
+        with multiprocessing.Pool(processes=poolSize) as pool:
+            allEffectiveRs += pool.starmap(getEffectiveR, [(outputDir, scenarioName, prob, clusteringLevel, s) for s in seeds])
+            allTransmissionProbabilities += [prob] * len(seeds)
+    plt.plot(allTransmissionProbabilities, allEffectiveRs, "bo")
+    plt.xlabel("Transmission probability")
+    plt.ylabel("Secondary cases")
+    plt.ylim(0, 10)
+    saveFig(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_ScatterSecCases")
+
+
 def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities,
     clusteringLevel, poolSize, r0CoeffA, r0CoeffB, fracSusceptibles):
     allEffectiveRs = []
