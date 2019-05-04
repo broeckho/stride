@@ -20,7 +20,6 @@
 #================================================================================================
 INSTALL(FILES
   measlesClusteringScenarios.py
-  measlesClusteringER.py
   measlesClusteringPostProcessing.py
   measlesClusteringParameters.py
   measlesClusteringUtil.py

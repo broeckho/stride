@@ -1,4 +1,4 @@
-'''import argparse
+import argparse
 import csv
 import math
 import multiprocessing
@@ -154,4 +154,4 @@ if __name__=="__main__":
     parser.add_argument("--numDays", type=int, default=730, help="Number of time-steps to simulate")
     parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in multiprocessing pool")
     args = parser.parse_args()
-    main(args.trackIndexCase, args.numRuns, args.transmissionProbs, args.clusteringLevels, args.numDays, args.poolSize)'''
+    main(args.trackIndexCase, args.numRuns, args.transmissionProbs, args.clusteringLevels, args.numDays, args.poolSize)

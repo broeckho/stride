@@ -27,31 +27,37 @@ def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinc
     r0CoeffA = -0.26766068
     r0CoeffB = 38.45456595
 
-    pctsSusceptibles = Util.getAllFractionsSusceptibles(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels, poolSize)
-    if not [x == pctsSusceptibles[0] for x in pctsSusceptibles]:
-        print("Differing immunity levels!")
-    pctSusceptibles = sum(pctsSusceptibles) / len(pctsSusceptibles)
+    #pctsSusceptibles = Util.getAllFractionsSusceptibles(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels, poolSize)
+    #if not [x == pctsSusceptibles[0] for x in pctsSusceptibles]:
+    #    print("Differing immunity levels!")
+    #pctSusceptibles = sum(pctsSusceptibles) / len(pctsSusceptibles)
     # Age immunity profile plots
-    AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels,
-                                        poolSize, targetRatesFile="2020_measles_immunity.xml")
+    #AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels,
+    #                                    poolSize, targetRatesFile="2020_measles_immunity.xml")
     # Household assortativity coefficients plot
-    Clustering.createAssortativityCoefficientPlot(outputDir, scenarioNames,
-                                        transmissionProbabilities, clusteringLevels, poolSize)
+    #Clustering.createAssortativityCoefficientPlot(outputDir, scenarioNames,
+    #                                    transmissionProbabilities, clusteringLevels, poolSize)
 
     for scenario in scenarioNames:
+        EffectiveR.createEffectiveROverviewPlot(outputDir, scenario,
+                            transmissionProbabilities, clusteringLevels, poolSize)
+        EffectiveR.createEffectiveROverviewPlot(outputDir, scenario,
+                            transmissionProbabilities, clusteringLevels, poolSize,
+                            stat="median")
+    '''for scenario in scenarioNames:
         EffectiveR.createEffectiveROverviewPlot(outputDir, scenario,
                             transmissionProbabilities, clusteringLevels,
                             poolSize, r0CoeffA, r0CoeffB, pctSusceptibles)
         EffectiveR.createEffectiveROverviewPlot(outputDir, scenario,
                             transmissionProbabilities, clusteringLevels,
                             poolSize, r0CoeffA, r0CoeffB, pctSusceptibles,
-                            stat="median")
-        for level in clusteringLevels:
-            EffectiveR.createEffectiveRPlot(outputDir, scenario, transmissionProbabilities, level, poolSize, r0CoeffA, r0CoeffB, pctSusceptibles)
-            AgeImmunity.createAgeImmunityPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
+                            stat="median")'''
+        #for level in clusteringLevels:
+        #    EffectiveR.createEffectiveRPlot(outputDir, scenario, transmissionProbabilities, level, poolSize, r0CoeffA, r0CoeffB, pctSusceptibles)
+        #    AgeImmunity.createAgeImmunityPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
 
-    for prob in transmissionProbabilities:
-        ExtinctionThreshold.createFinalSizesHistogram(outputDir, scenarioNames, prob, clusteringLevels, numDays, poolSize)
+    #for prob in transmissionProbabilities:
+    #    ExtinctionThreshold.createFinalSizesHistogram(outputDir, scenarioNames, prob, clusteringLevels, numDays, poolSize)
 
     end = time.perf_counter()
     totalTime = end - start
