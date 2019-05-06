@@ -21,6 +21,7 @@
 #pragma once
 
 #include "contact/ContactPool.h"
+#include "pop/Population.h"
 #include "util/RnMan.h"
 #include "util/SegmentedVector.h"
 
@@ -38,6 +39,9 @@ public:
         /// Random immunization.
         void Random(const util::SegmentedVector<ContactPool>& pools, std::vector<double>& immunityDistribution,
                     double immunityLinkProbability);
+
+        /// Alternative random immunization algorithm.
+        void Random(std::shared_ptr<Population> pop, std::vector<double>& immunityDistribution, const ContactType::Id contactPoolType, double immunityLinkProbability);
 
         /// Cocoon immunization.
         void Cocoon(const util::SegmentedVector<ContactPool>& /*pools*/, std::vector<double>& /*immunityDistribution*/,

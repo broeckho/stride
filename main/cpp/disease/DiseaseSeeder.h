@@ -47,8 +47,7 @@ public:
 private:
         /// Seed for vaccination/natural immunity.
         void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
-                       const util::SegmentedVector<ContactPool>& immunityPools);
-
+                       std::shared_ptr<Population> pop, const ContactType::Id contactPoolType);
 private:
         const boost::property_tree::ptree& m_config; ///< Run config.
         util::RnMan&                       m_rn_man; ///< Random number manager.

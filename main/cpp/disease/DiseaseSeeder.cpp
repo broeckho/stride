@@ -44,10 +44,10 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         // Population immunity (natural immunity & vaccination).
         // --------------------------------------------------------------
         const auto immunityProfile = m_config.get<std::string>("run.immunity_profile");
-        Vaccinate("immunity", immunityProfile, pop->CRefPoolSys().CRefPools<Id::Household>());
+        Vaccinate("immunity", immunityProfile, pop, Id::Household);
 
         const auto vaccinationProfile = m_config.get<std::string>("run.vaccine_profile");
-        Vaccinate("vaccine", vaccinationProfile, pop->CRefPoolSys().CRefPools<Id::Household>());
+        Vaccinate("vaccine", vaccinationProfile, pop, Id::Household);
 
         // --------------------------------------------------------------
         // Seed infected persons.
@@ -82,33 +82,33 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
 }
 
 void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
-                              const SegmentedVector<ContactPool>& immunityPools)
+                              std::shared_ptr<Population> pop, const ContactType::Id contactPoolType)
 {
-        std::vector<double> immunityDistribution;
-        double              linkProbability = 0;
-        Immunizer           immunizer(m_rn_man);
+	std::vector<double> immunityDistribution;
+	double linkProbability = 0;
+	Immunizer immunizer(m_rn_man);
 
-        if (immunizationProfile == "Random") {
-                const auto immunityRate = m_config.get<double>("run." + ToLower(immunityType) + "_rate");
-                for (unsigned int index_age = 0; index_age < 100; index_age++) {
-                        immunityDistribution.push_back(immunityRate);
-                }
-                immunizer.Random(immunityPools, immunityDistribution, linkProbability);
-        } else if (immunizationProfile == "AgeDependent") {
-                const auto   immunityFile = m_config.get<string>("run." + ToLower(immunityType) + "_distribution_file");
-                const ptree& immunity_pt  = FileSys::ReadPtreeFile(immunityFile);
+	if (immunizationProfile == "Random") {
+		const auto immunityLevel = m_config.get<double>("run." + ToLower(immunityType) + "_rate");
+		for (unsigned int index_age = 0; index_age < 100; index_age++) {
+			immunityDistribution.push_back(immunityLevel);
+		}
+		immunizer.Random(pop->CRefPoolSys().CRefPools(contactPoolType), immunityDistribution, linkProbability);
+	} else if (immunizationProfile == "AgeDependent") {
+		const auto immunityFile = m_config.get<string>("run." + ToLower(immunityType) + "_distribution_file");
+		const ptree& immunity_pt = FileSys::ReadPtreeFile(immunityFile);
 
-                linkProbability = m_config.get<double>("run." + ToLower(immunityType) + "_link_probability");
+		linkProbability = m_config.get<double>("run." + ToLower(immunityType) + "_link_probability");
+		for (unsigned int index_age = 0; index_age < 100; index_age++) {
+			auto immunityLevel = immunity_pt.get<double>("immunity.age" + std::to_string(index_age));
+			immunityDistribution.push_back(immunityLevel);
+		}
+		//immunizer.Random(pop->CRefPoolSys().CRefPools(contactPoolType), immunityDistribution, linkProbability);
+		immunizer.Random(pop, immunityDistribution, contactPoolType, linkProbability);
 
-                for (unsigned int index_age = 0; index_age < 100; index_age++) {
-                        auto immunityRate = immunity_pt.get<double>("immunity.age" + std::to_string(index_age));
-                        immunityDistribution.push_back(immunityRate);
-                }
-                immunizer.Random(immunityPools, immunityDistribution, linkProbability);
-
-        } else if (immunizationProfile == "Cocoon") {
-                immunizer.Cocoon(immunityPools, immunityDistribution, linkProbability);
-        }
+	} else if (immunizationProfile == "Cocoon") {
+		immunizer.Cocoon(pop->CRefPoolSys().CRefPools(contactPoolType), immunityDistribution, linkProbability);
+	}
 }
 
 } // namespace stride
