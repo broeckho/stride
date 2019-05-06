@@ -93,6 +93,9 @@ def getRandomEffectiveR(outputDir, scenarioName, transmissionProbability, cluste
 
 def createEffectiveROverviewPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, stat="mean"):
     ax = plt.axes(projection="3d")
+    colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
+                'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
+                'forestgreen', 'turquoise']
     z = 0
     for prob in transmissionProbabilities:
         effectiveRs = []
@@ -101,9 +104,9 @@ def createEffectiveROverviewPlot(outputDir, scenarioName, transmissionProbabilit
             with multiprocessing.Pool(processes=poolSize) as pool:
                 effectiveRs.append(pool.starmap(getRandomEffectiveR, [(outputDir, scenarioName, prob, level, s) for s in seeds]))
         if stat == "mean":
-            ax.bar(range(len(effectiveRs)), [sum(x) / len(x) for x in effectiveRs], zs=z, zdir="y", alpha=0.3)
+            ax.bar(range(len(effectiveRs)), [sum(x) / len(x) for x in effectiveRs], zs=z, zdir="y", color=colors[z % len(colors)], alpha=0.5)
         elif stat == "median":
-            ax.bar(range(len(effectiveRs)), [numpy.median(x) for x in effectiveRs], zs=z, zdir="y", alpha=0.5)
+            ax.bar(range(len(effectiveRs)), [numpy.median(x) for x in effectiveRs], zs=z, zdir="y", color=colors[z % len(colors)], alpha=0.5)
         z += 1
     ax.set_xlabel("Clustering level")
     ax.set_xticks(range(len(clusteringLevels)))
@@ -118,9 +121,6 @@ def createEffectiveROverviewPlot(outputDir, scenarioName, transmissionProbabilit
 '''
 def createEffectiveROverviewPlot(outputDir, scenario, transmissionProbabilities,
     clusteringLevels, poolSize, r0CoeffA, r0CoeffB, fracSusceptibles, stat="mean"):
-    colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
-                'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
-                'forestgreen', 'turquoise']
     handles = []
     for prob in transmissionProbabilities:
         r0 = lnFunc(prob, r0CoeffA, r0CoeffB)
