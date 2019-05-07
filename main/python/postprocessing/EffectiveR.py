@@ -109,7 +109,7 @@ def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities, clu
     for prob in transmissionProbabilities:
         seeds = getRngSeeds(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(prob))
         with multiprocessing.Pool(processes=poolSize) as pool:
-            allEffectiveRs.append(pool.starmap(getEffectiveR, [(outputDir, scenarioName, prob, clusteringLevel, s) for s in seeds]))
+            allEffectiveRs.append(pool.starmap(getRandomEffectiveR, [(outputDir, scenarioName, prob, clusteringLevel, s) for s in seeds]))
     plt.boxplot(allEffectiveRs, labels=transmissionProbabilities)
     plt.xlabel("P(transmission)")
     plt.ylabel("Effective R")
