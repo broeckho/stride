@@ -44,14 +44,6 @@ def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinc
         EffectiveR.createEffectiveROverviewPlot(outputDir, scenario,
                             transmissionProbabilities, clusteringLevels, poolSize,
                             stat="median")
-    '''for scenario in scenarioNames:
-        EffectiveR.createEffectiveROverviewPlot(outputDir, scenario,
-                            transmissionProbabilities, clusteringLevels,
-                            poolSize, r0CoeffA, r0CoeffB, pctSusceptibles)
-        EffectiveR.createEffectiveROverviewPlot(outputDir, scenario,
-                            transmissionProbabilities, clusteringLevels,
-                            poolSize, r0CoeffA, r0CoeffB, pctSusceptibles,
-                            stat="median")'''
         for level in clusteringLevels:
             EffectiveR.createEffectiveRPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
         #    AgeImmunity.createAgeImmunityPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
