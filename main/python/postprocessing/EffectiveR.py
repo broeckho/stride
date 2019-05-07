@@ -21,20 +21,6 @@ def createEffectiveRScatterPlot(outputDir, scenarioName, transmissionProbabiliti
     plt.ylim(0, 10)
     saveFig(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_ScatterSecCases")
 
-def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities,
-    clusteringLevel, poolSize, r0CoeffA, r0CoeffB, fracSusceptibles):
-    allEffectiveRs = []
-    expectedRs = [(r0CoeffA + (r0CoeffB * math.log(1 + x))) * fracSusceptibles for x in numpy.arange(0, 1.05, 0.05)]
-    for prob in transmissionProbabilities:
-        seeds = getRngSeeds(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(prob))
-        with multiprocessing.Pool(processes=poolSize) as pool:
-            allEffectiveRs.append(pool.starmap(getEffectiveR, [(outputDir, scenarioName, prob, clusteringLevel, s) for s in seeds]))
-    plt.boxplot(allEffectiveRs, labels=transmissionProbabilities)
-    plt.plot(range(len(expectedRs)), expectedRs)
-    plt.xlabel("P(transmission)")
-    plt.ylabel("Effective R")
-    saveFig(outputDir, "EffectiveRs_" + scenarioName + "_C_" + str(clusteringLevel))
-
 from random import sample
 
 def createEffectiveRTracePlot(outputDir, sampleSizesRange, scenarioName, poolSize):
@@ -117,6 +103,25 @@ def createEffectiveROverviewPlot(outputDir, scenarioName, transmissionProbabilit
     ax.set_zlabel("Effective R ({})".format(stat))
     #ax.set_zlim()
     saveFig(outputDir, scenarioName + "_EffectiveRs_" + stat, "png")
+
+def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize):
+    allEffectiveRs = []
+    for prob in transmissionProbabilities:
+        seeds = getRngSeeds(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(prob))
+        with multiprocessing.Pool(processes=poolSize) as pool:
+            allEffectiveRs.append(pool.starmap(getEffectiveR, [(outputDir, scenarioName, prob, clusteringLevel, s) for s in seeds]))
+    plt.boxplot(allEffectiveRs, labels=transmissionProbabilities)
+    plt.xlabel("P(transmission)")
+    plt.ylabel("Effective R")
+    saveFig(outputDir, "EffectiveRs_" + scenarioName + "_C_" + str(clusteringLevel))
+'''
+def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities,
+    clusteringLevel, poolSize, r0CoeffA, r0CoeffB, fracSusceptibles):
+    expectedRs = [(r0CoeffA + (r0CoeffB * math.log(1 + x))) * fracSusceptibles for x in numpy.arange(0, 1.05, 0.05)]
+    plt.boxplot(allEffectiveRs, labels=transmissionProbabilities)
+    plt.plot(range(len(expectedRs)), expectedRs)
+'''
+
 
 '''
 def createEffectiveROverviewPlot(outputDir, scenario, transmissionProbabilities,
