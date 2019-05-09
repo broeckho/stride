@@ -17,16 +17,8 @@ def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinc
     # TODO outbreak sizes?
     # TODO escape probabilities?
     # TODO infected by age?
-    for scenario in scenarioNames:
-        EffectiveR.createEffectiveROverviewPlot(outputDir, scenario, transmissionProbabilities, clusteringLevels, poolSize, r0CoeffA, r0CoeffB)
-'''
 
 def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinctionThreshold, poolSize):
-    start = time.perf_counter()
-    scenarioNames = ["UNIFORM", "AGEDEPENDENT"]
-    r0CoeffA = -0.26766068
-    r0CoeffB = 38.45456595
-
     #pctsSusceptibles = Util.getAllFractionsSusceptibles(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels, poolSize)
     #if not [x == pctsSusceptibles[0] for x in pctsSusceptibles]:
     #    print("Differing immunity levels!")
@@ -39,11 +31,13 @@ def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinc
     #                                    transmissionProbabilities, clusteringLevels, poolSize)
 
     for scenario in scenarioNames:
-        EffectiveR.createEffectiveROverviewPlot(outputDir, scenario,
+        EffectiveR.createEffectiveR3DPlot(outputDir, scenario,
                             transmissionProbabilities, clusteringLevels, poolSize)
-        EffectiveR.createEffectiveROverviewPlot(outputDir, scenario,
+        EffectiveR.createEffectiveR3DPlot(outputDir, scenario,
                             transmissionProbabilities, clusteringLevels, poolSize,
                             stat="median")
+        EffectiveR.createEffectiveRHeatmap(outputDir, scenario, transmissionProbabilities, clusteringLevels, poolSize)
+        EffectiveR.createEffectiveRHeatmap(outputDir, scenario, transmissionProbabilities, clusteringLevels, poolSize, EffectiveR.getIndexCaseEffectiveR)
         for level in clusteringLevels:
             EffectiveR.createEffectiveRPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
         #    AgeImmunity.createAgeImmunityPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
@@ -51,12 +45,26 @@ def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinc
     #for prob in transmissionProbabilities:
     #    ExtinctionThreshold.createFinalSizesHistogram(outputDir, scenarioNames, prob, clusteringLevels, numDays, poolSize)
 
+
+'''
+
+def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinctionThreshold, poolSize):
+    start = time.perf_counter()
+    scenarioNames = ["UNIFORM", "AGEDEPENDENT"]
+    r0CoeffA = -0.26766068
+    r0CoeffB = 38.45456595
+
+    for scenario in scenarioNames:
+        EffectiveR.createEffectiveR3DPlot(outputDir, scenario, transmissionProbabilities, clusteringLevels, poolSize, erCalculation="random")
+        EffectiveR.createEffectiveR3DPlot(outputDir, scenario, transmissionProbabilities, clusteringLevels, poolSize, erCalculation="index")
+
     end = time.perf_counter()
     totalTime = end - start
     hours = int(totalTime / 3600)
     minutes = int((totalTime - (hours * 3600)) / 60)
     seconds = (totalTime - (hours * 3600) - (minutes * 60))
     print("Total time: {} hours, {} minutes and {} seconds".format(hours, minutes, seconds))
+
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
