@@ -123,9 +123,9 @@ void Immunizer::Random(std::shared_ptr<Population> pop, std::vector<double>& imm
 	auto intGenerator = m_rn_man.GetUniformIntGenerator(0, popSize, 0U);
 	auto uniform01Generator = m_rn_man.GetUniform01Generator(0U);
 
-    // Initialize a vector to count the population per age class [0-100].
+    // Initialize a vector to count the population per age class [0-100], and vector to count immunized individuals per age class.
     vector<double> populationBrackets(100, 0.0);
-    vector<int> agesInDist;
+    vector<double> immuneByAge(100, 0.0);
 
     // Count individuals per age class.
     for (auto person_it = pop->begin(); person_it < pop->end(); person_it++) {
@@ -136,33 +136,29 @@ void Immunizer::Random(std::shared_ptr<Population> pop, std::vector<double>& imm
     // Calculate the number of immune individuals per age class.
     unsigned int numImmune = 0;
     for (unsigned int age = 0; age < 100; age++) {
-    		if (populationBrackets[age] > 0) {
-    			agesInDist.push_back(age);
-    		}
     		populationBrackets[age] = floor(populationBrackets[age] * immunityDistribution[age]);
     		numImmune += static_cast<unsigned int>(populationBrackets[age]);
     }
 
-    // Immunize susceptible individuals, until quota are reached.
+    // Immunize susceptible individuals, until qouta are reached.
     while (numImmune > 0) {
-    		// Select  random individual
+    		// Select random individual from the population
     		auto& p = (*pop)[intGenerator()];
-    		if (p.GetHealth().IsSusceptible() && populationBrackets[p.GetAge()] > 0) {
+    		if (p.GetHealth().IsSusceptible() && immuneByAge[p.GetAge()] < populationBrackets[p.GetAge()]) {
     			p.GetHealth().SetImmune();
-    			populationBrackets[p.GetAge()]--;
+    			immuneByAge[p.GetAge()]++;
     			numImmune--;
-    			// Random draw to immunize all other individuals in pool with ages in agesInDist.
-    			if (uniform01Generator() < (immunityLinkProbability)) {
+    			// Random draw to immunize all other indiviudals in pool (depending on needs of age distribution)
+    			if (uniform01Generator() < immunityLinkProbability) {
     				const auto poolId = p.GetPoolId(contactPoolType);
     				const auto& pool = pop->CRefPoolSys().CRefPools(contactPoolType)[poolId].GetPool();
     				for (auto i_p = pool.begin(); i_p < pool.end() && numImmune > 0; i_p++) {
-    					if (std::find(agesInDist.begin(), agesInDist.end(), (*i_p)->GetAge()) != agesInDist.end()) {
-    						if ((*i_p)->GetHealth().IsSusceptible()) {
-        						(*i_p)->GetHealth().SetImmune();
-        						populationBrackets[(*i_p)->GetAge()]--;
-        						numImmune--;
-    						}
+    					if ((immuneByAge[(*i_p)->GetAge()] < populationBrackets[(*i_p)->GetAge()] * 1.1) && ((*i_p)->GetHealth().IsSusceptible())) {
+    						(*i_p)->GetHealth().SetImmune();
+    						immuneByAge[(*i_p)->GetAge()]++;
+    						numImmune--;
     					}
+
     				}
     			}
     		}

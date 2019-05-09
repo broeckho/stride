@@ -23,29 +23,15 @@ def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinc
     #if not [x == pctsSusceptibles[0] for x in pctsSusceptibles]:
     #    print("Differing immunity levels!")
     #pctSusceptibles = sum(pctsSusceptibles) / len(pctsSusceptibles)
-    # Age immunity profile plots
-    #AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels,
-    #                                    poolSize, targetRatesFile="2020_measles_immunity.xml")
-    # Household assortativity coefficients plot
-    #Clustering.createAssortativityCoefficientPlot(outputDir, scenarioNames,
-    #                                    transmissionProbabilities, clusteringLevels, poolSize)
 
     for scenario in scenarioNames:
-        EffectiveR.createEffectiveR3DPlot(outputDir, scenario,
-                            transmissionProbabilities, clusteringLevels, poolSize)
-        EffectiveR.createEffectiveR3DPlot(outputDir, scenario,
-                            transmissionProbabilities, clusteringLevels, poolSize,
-                            stat="median")
         EffectiveR.createEffectiveRHeatmap(outputDir, scenario, transmissionProbabilities, clusteringLevels, poolSize)
         EffectiveR.createEffectiveRHeatmap(outputDir, scenario, transmissionProbabilities, clusteringLevels, poolSize, EffectiveR.getIndexCaseEffectiveR)
-        for level in clusteringLevels:
-            EffectiveR.createEffectiveRPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
+
         #    AgeImmunity.createAgeImmunityPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
 
     #for prob in transmissionProbabilities:
     #    ExtinctionThreshold.createFinalSizesHistogram(outputDir, scenarioNames, prob, clusteringLevels, numDays, poolSize)
-
-
 '''
 
 def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinctionThreshold, poolSize):
@@ -54,9 +40,16 @@ def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinc
     r0CoeffA = -0.26766068
     r0CoeffB = 38.45456595
 
+    # Age immunity profile plots
+    AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels,
+                                        poolSize, targetRatesFile="2020_measles_immunity.xml")
+    # Household assortativity coefficients plot
+    Clustering.createAssortativityCoefficientPlot(outputDir, scenarioNames,
+                                        transmissionProbabilities, clusteringLevels, poolSize)
+
     for scenario in scenarioNames:
-        EffectiveR.createEffectiveR3DPlot(outputDir, scenario, transmissionProbabilities, clusteringLevels, poolSize, erCalculation="random")
-        EffectiveR.createEffectiveR3DPlot(outputDir, scenario, transmissionProbabilities, clusteringLevels, poolSize, erCalculation="index")
+        for level in clusteringLevels:
+            AgeImmunity.createAgeImmunityPlot(outputDir, scenario, transmissionProbabilities, level, poolSize)
 
     end = time.perf_counter()
     totalTime = end - start

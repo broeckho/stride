@@ -46,5 +46,4 @@ def createAssortativityCoefficientPlot(outputDir, scenarioNames, transmissionPro
     plt.xticks(rotation=35)
     plt.ylabel("Assortativtity coefficient")
     plt.tight_layout()
-    plt.show()
-    #saveFig(outputDir, "AssortativityCoefficients")
+    saveFig(outputDir, "AssortativityCoefficients")

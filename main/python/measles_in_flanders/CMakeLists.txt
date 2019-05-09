@@ -19,6 +19,7 @@
 # Copy scripts to the bin folder.
 #================================================================================================
 INSTALL(FILES
+  measlesClusteringER.py
   measlesClusteringScenarios.py
   measlesClusteringPostProcessing.py
   measlesClusteringParameters.py
