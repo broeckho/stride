@@ -140,7 +140,7 @@ void Immunizer::Random(std::shared_ptr<Population> pop, std::vector<double>& imm
     		numImmune += static_cast<unsigned int>(populationBrackets[age]);
     }
 
-    // Immunize susceptible individuals, until qouta are reached.
+    // Immunize susceptible individuals, until quota are reached.
     while (numImmune > 0) {
     		// Select random individual from the population
     		auto& p = (*pop)[intGenerator()];
@@ -148,12 +148,12 @@ void Immunizer::Random(std::shared_ptr<Population> pop, std::vector<double>& imm
     			p.GetHealth().SetImmune();
     			immuneByAge[p.GetAge()]++;
     			numImmune--;
-    			// Random draw to immunize all other indiviudals in pool (depending on needs of age distribution)
+    			// Random draw to immunize all other individuals in pool (depending on needs of age distribution)
     			if (uniform01Generator() < immunityLinkProbability) {
     				const auto poolId = p.GetPoolId(contactPoolType);
     				const auto& pool = pop->CRefPoolSys().CRefPools(contactPoolType)[poolId].GetPool();
     				for (auto i_p = pool.begin(); i_p < pool.end() && numImmune > 0; i_p++) {
-    					if ((immuneByAge[(*i_p)->GetAge()] < populationBrackets[(*i_p)->GetAge()] * 1.1) && ((*i_p)->GetHealth().IsSusceptible())) {
+    					if ((immuneByAge[(*i_p)->GetAge()] < populationBrackets[(*i_p)->GetAge()] * 1.5) && ((*i_p)->GetHealth().IsSusceptible())) {
     						(*i_p)->GetHealth().SetImmune();
     						immuneByAge[(*i_p)->GetAge()]++;
     						numImmune--;

@@ -1,3 +1,4 @@
+import math
 import matplotlib.pyplot as plt
 import multiprocessing
 import numpy
@@ -55,7 +56,10 @@ def getIndexCaseEffectiveR(outputDir, scenarioName, transmissionProbability, clu
         else:
             return 0
 
-def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize, erCalculation="random"):
+def lnFunc(x, a, b):
+    return a + (b * math.log(x + 1))
+
+def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize, r0CoeffA, r0CoeffB, erCalculation="random"):
     allEffectiveRs = []
     for prob in transmissionProbabilities:
         seeds = getRngSeeds(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(prob))
@@ -65,11 +69,14 @@ def createEffectiveRPlot(outputDir, scenarioName, transmissionProbabilities, clu
             elif erCalculation == "index":
                 allEffectiveRs.append(pool.starmap(getIndexCaseEffectiveR, [(outputDir, scenarioName, prob, clusteringLevel, s) for s in seeds]))
     plt.boxplot(allEffectiveRs, labels=transmissionProbabilities)
-    plt.xlabel("P(transmission)")
-    plt.ylabel("Effective R")
+    plt.xlabel("Transmission probability")
+    plt.xticks(range(len(transmissionProbabilities)),
+                [""] + ['{}\n'.format(x) + r'$R_0 \approx$' + ' {:.2f}'.format(lnFunc(x, r0CoeffA, r0CoeffB)) for x in transmissionProbabilities])
+    plt.ylabel("Secondary cases from {} case".format(erCalculation))
+    #plt.tight_layout()
     saveFig(outputDir, "EffectiveRs_" + scenarioName + "_C_" + str(clusteringLevel))
 
-def createEffectiveRHeatmap(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, erCalculation="random"):
+def createEffectiveRHeatmap(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, r0CoeffA, r0CoeffB, erCalculation="random"):
     allEffectiveRs =[]
     for prob in transmissionProbabilities:
         effectiveRsProb = []
@@ -92,8 +99,7 @@ def createEffectiveRHeatmap(outputDir, scenarioName, transmissionProbabilities, 
     plt.yticks(locs, [""] + transmissionProbabilities + [""])
     saveFig(outputDir, scenarioName + "_EffectiveRs_heatmap")
 
-def createEffectiveR3DPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, erCalculation="random"):
-    # TODO add expected R values?
+def createEffectiveR3DPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, r0CoeffA, r0CoeffB, erCalculation="random"):
     ax = plt.axes(projection="3d")
     colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
                 'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
@@ -113,8 +119,8 @@ def createEffectiveR3DPlot(outputDir, scenarioName, transmissionProbabilities, c
     ax.set_xlabel("Clustering level")
     ax.set_xticks(range(len(clusteringLevels)))
     ax.set_xticklabels(clusteringLevels)
-    ax.set_ylabel("P(transmission)")
+    ax.set_ylabel("Transmission probability")
     ax.set_yticks(range(len(transmissionProbabilities)))
-    ax.set_yticklabels(transmissionProbabilities)
+    ax.set_yticklabels(['{}\n'.format(x) + r'$R_0 \approx$' + ' {:.2f}'.format(lnFunc(x, r0CoeffA, r0CoeffB)) for x in transmissionProbabilities])
     ax.set_zlabel("Effective R (mean)")
     saveFig(outputDir, scenarioName + "_EffectiveRs_" + erCalculation, "png")

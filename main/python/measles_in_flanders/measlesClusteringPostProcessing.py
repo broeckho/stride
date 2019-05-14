@@ -37,8 +37,7 @@ def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinc
 def main(outputDir, transmissionProbabilities, clusteringLevels, numDays, extinctionThreshold, poolSize):
     start = time.perf_counter()
     scenarioNames = ["UNIFORM", "AGEDEPENDENT"]
-    r0CoeffA = -0.26766068
-    r0CoeffB = 38.45456595
+
 
     # Age immunity profile plots
     AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels,

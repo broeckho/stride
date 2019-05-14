@@ -96,13 +96,9 @@ def runSimulation(scenarioName, transmissionProbability, clusteringLevel, seed, 
     control.registerCallback(trackCases, EventType.Stepped)
     control.control()
 
-def runSimulations(trackIndexCase, numRuns, scenario, transmissionProbability, clusteringLevel, numDays,
+def runSimulations(numRuns, scenario, transmissionProbability, clusteringLevel, numDays,
     immunityFileChildren, immunityFileAdults, poolSize):
     print("Scenario = {}, P(t) = {}, clustering level = {}".format(scenario, transmissionProbability, clusteringLevel))
-    # Convert bool to string for inclusion in xml configuration file
-    trackIndexCaseStr = "false"
-    if trackIndexCase:
-        trackIndexCaseStr = "true"
     # Check whether to use age-dependent immunity levels or uniform levels
     if scenario == "UNIFORM":
         immunityFileChildren = os.path.join("data", "measles_uniform_child_immunity.xml")
@@ -110,7 +106,7 @@ def runSimulations(trackIndexCase, numRuns, scenario, transmissionProbability, c
     extraParams = {
         "immunity_distribution_file": immunityFileAdults,
         "num_days": numDays,
-        "track_index_case": trackIndexCaseStr,
+        "track_index_case": "false",
         "vaccine_distribution_file": immunityFileChildren,
         "vaccine_link_probability": clusteringLevel,
     }
@@ -119,7 +115,7 @@ def runSimulations(trackIndexCase, numRuns, scenario, transmissionProbability, c
     with multiprocessing.Pool(processes=poolSize) as pool:
         pool.starmap(runSimulation, [(scenario, transmissionProbability, clusteringLevel, s, extraParams) for s in seeds])
 
-def main(trackIndexCase, numRuns, transmissionProbabilities, clusteringLevels, numDays, poolSize):
+def main(numRuns, transmissionProbabilities, clusteringLevels, numDays, poolSize):
     start = time.perf_counter()
     immunityFileChildren = os.path.join("data", "2020_measles_child_immunity.xml")
     immunityFileAdults = os.path.join("data", "2020_measles_adult_immunity.xml")
@@ -146,8 +142,6 @@ def main(trackIndexCase, numRuns, transmissionProbabilities, clusteringLevels, n
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--trackIndexCase", action="store_true",
-                        help="Only simulate secondary cases? Useful for effective R calcuation")
     parser.add_argument("--numRuns", type=int, default=2, help="Number of runs per scenario")
     parser.add_argument("--transmissionProbs", type=float, nargs="+", default=numpy.arange(0.30, 0.75, 0.05), help="Transmission probabilities to test")
     parser.add_argument("--clusteringLevels", type=float, nargs="+", default=[0, 0.25, 0.5, 0.75, 1], help="Clustering levels to test")
