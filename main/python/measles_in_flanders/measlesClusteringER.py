@@ -151,7 +151,7 @@ if __name__=="__main__":
     parser.add_argument("--numRuns", type=int, default=5, help="Number of runs per scenario")
     parser.add_argument("--transmissionProbs", type=float, nargs="+", default=numpy.arange(0.30, 0.75, 0.05), help="Transmission probabilities to test")
     parser.add_argument("--clusteringLevels", type=float, nargs="+", default=[0, 0.25, 0.5, 0.75, 1], help="Clustering levels to test")
-    parser.add_argument("--numDays", type=int, default=730, help="Number of time-steps to simulate")
+    parser.add_argument("--numDays", type=int, default=25, help="Number of time-steps to simulate")
     parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in multiprocessing pool")
     args = parser.parse_args()
     main(args.numRuns, args.transmissionProbs, args.clusteringLevels, args.numDays, args.poolSize)
