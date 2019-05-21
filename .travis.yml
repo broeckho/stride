@@ -88,7 +88,7 @@ before_install:
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
-      brew install gcc
+      brew install gcc@8
       export PATH="/usr/local/bin:$PATH"
       export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
       export STRIDE_FORCE_NO_PROTOC=ON
