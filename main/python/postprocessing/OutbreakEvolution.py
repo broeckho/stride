@@ -1,4 +1,4 @@
-import csv
+"""import csv
 import matplotlib.pyplot as plt
 import multiprocessing
 import os
@@ -67,3 +67,4 @@ def createNewCasesPerDayPlot(outputDir, scenarioName, numDays, extinctionThresho
     plt.xlabel("Day")
     plt.ylabel("New cases")
     saveFig(outputDir, figName)
+"""

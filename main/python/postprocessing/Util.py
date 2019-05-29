@@ -5,7 +5,6 @@ import os
 
 MAX_AGE = 99
 
-
 def getRngSeeds(outputDir, scenarioName):
     seeds = []
     seedsFile = os.path.join(outputDir, scenarioName + "_seeds.csv")
@@ -25,32 +24,31 @@ def getFinalOutbreakSize(outputDir, scenarioName, seed, numDays):
             if timestep == (numDays - 1):
                 return int(row["cases"])
 
-def getFractionSusceptibles(outputDir, scenarioName, transmissionProbability, clusteringLevel, seed):
-    totalPopulation = 0
-    totalSusceptibles = 0
-    susceptiblesFile = os.path.join(outputDir,
-                                    scenarioName + "_CLUSTERING_" + str(clusteringLevel)
-                                        + "_TP_" + str(transmissionProbability) + "_" + str(seed),
-                                    "susceptibles.csv")
-    with open(susceptiblesFile) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            totalPopulation += 1
-            if (int(row["susceptible"])):
-                 totalSusceptibles += 1
-    return totalSusceptibles / totalPopulation
-
-def getAllFractionsSusceptibles(outputDir, scenarioNames, transmissionProbabilities, clusteringLevels, poolSize):
-    allFractions = []
-    for scenario in scenarioNames:
-        for level in clusteringLevels:
-            for prob in transmissionProbabilities:
-                seeds = getRngSeeds(outputDir, scenario + "_CLUSTERING_" + str(level) + "_TP_" + str(prob))
-                with multiprocessing.Pool(processes=poolSize) as pool:
-                    fractions = pool.starmap(getFractionSusceptibles, [(outputDir, scenario, prob, level, s) for s in seeds])
-                    allFractions += fractions
-    return allFractions
+def getSecondaryCases(outputDir, scenarioName, seed):
+    transmissionsFile = os.path.join(outputDir, scenarioName + "_" + str(seed) + "_contact_log.txt")
+    indexCases = []
+    infectors = {}
+    with open(transmissionsFile) as f:
+        for line in f:
+            line = line.split(" ")
+            infectorID = int(line[2])
+            if infectorID == -1:
+                # Infection of index case at simulation setup
+                indexCases.append(int(line[1]))
+            else:
+                if infectorID in infectors:
+                    infectors[infectorID] += 1
+                else:
+                    infectors[infectorID] = 1
+    secondaryCases = 0
+    for i in indexCases:
+        if i in infectors:
+            secondaryCases += infectors[i]
+    secondaryCases /= len(indexCases)
+    return secondaryCases
 
 def saveFig(outputDir, figName, extension="eps"):
-    plt.savefig(os.path.join(outputDir, figName + "." + extension), format=extension, dpi=1000)
+    if not os.path.exists("fig"):
+        os.mkdir("fig")
+    plt.savefig(os.path.join(outputDir, "fig", figName + "." + extension), format=extension, dpi=1000)
     plt.clf()

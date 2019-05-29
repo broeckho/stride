@@ -19,13 +19,10 @@
 # Copy scripts to the bin folder.
 #================================================================================================
 INSTALL(FILES
-  getImmunityProjections.py
-  measlesClusteringER.py
-  measlesClusteringScenarios.py
-  measlesClusteringPostProcessing.py
-  measlesClusteringParameters.py
-  measlesClusteringUtil.py
-  measlesR0.py
+      measlesClustering.py
+      measlesClusteringCallbacks.py
+      measlesClusteringSimulations.py
+      measlesClusteringUtil.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
 )
