@@ -22,13 +22,13 @@ def runSimulations(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
     # Run simulations to establish relation P(transmission) ~ R0
     # TODO different start dates?
     start = time.perf_counter()
-    #with nostdout():
-    #    runR0Simulations(numRunsR0, transmissionProbabilities0to1, poolSize)
+    with nostdout():
+        runR0Simulations(numRunsR0, transmissionProbabilities0to1, poolSize)
     print("R0 simulations took {} seconds".format(time.perf_counter() - start))
     # Run simulations to establish relation clustering level + P(transmission) ~ Effective R
     start = time.perf_counter()
-    #with nostdout():
-    #    runEffectiveRSimulations(numRunsER, transmissionProbabilities0to1, clusteringLevels, poolSize)
+    with nostdout():
+        runEffectiveRSimulations(numRunsER, transmissionProbabilities0to1, clusteringLevels, poolSize)
     print("Effective R simulations took {} seconds".format(time.perf_counter() - start))
     # Run simulations for 2 years, keeping track of cases, susceptibles, household constitutions
     start = time.perf_counter()
