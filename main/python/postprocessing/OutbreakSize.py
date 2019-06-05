@@ -31,11 +31,10 @@ def createOutbreakSizes3DPlot(outputDir, scenarioName, transmissionProbabilities
     colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
                 'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
                 'forestgreen', 'turquoise']
-    i = 0
-    for level in clusteringLevels:
+    for prob_i in range(len(transmissionProbabilities)):
         means = []
-        for prob in transmissionProbabilities:
-            fullScenarioName = scenarioName + "_CLUSTERING_" + str(level) + "_TP_" + str(prob)
+        for level_i in range(len(clusteringLevels)):
+            fullScenarioName = scenarioName + "_CLUSTERING_" + str(clusteringLevels[level_i]) + "_TP_" + str(transmissionProbabilities[prob_i])
             seeds = getRngSeeds(outputDir, fullScenarioName)
             with multiprocessing.Pool(processes=poolSize) as pool:
                 finalSizes = pool.starmap(getFinalOutbreakSize,
@@ -45,13 +44,15 @@ def createOutbreakSizes3DPlot(outputDir, scenarioName, transmissionProbabilities
                     means.append(sum(finalSizes) / len(finalSizes))
                 else:
                     means.append(0)
-                ax.scatter([level] * len(finalSizes), [prob] * len(finalSizes), finalSizes, color=colors[i])
-        ax.plot([level] * len(transmissionProbabilities), transmissionProbabilities, means, color=colors[i])
-        i += 1
+        ax.bar(range(len(clusteringLevels)), means, zs=prob_i, z_dir="y", color=colors["level_i"])
     ax.set_xlabel("Clustering level")
+    ax.set_xticks(range(len(clusteringLevels)))
+    ax.set_xticklabels(clusteringLevels)
     ax.set_ylabel("Transmission probability")
+    ax.set_yticks(range(len(transmissionProbabilities))[::2])
+    ax.set_yticklabels(transmissionProbabilities[::2])
     ax.set_zlabel("Final outbreak size after {} days".format(numDays))
-    saveFig(outputDir, scenarioName + "_OutbreakSizes")
+    saveFig(outputDir, scenarioName + "_OutbreakSizes3D")
 
 def createOutbreakSizesPlot(outputDir, scenarioName, transmissionProbability,
     clusteringLevels, numDays, extinctionThreshold, poolSize):
@@ -64,6 +65,7 @@ def createOutbreakSizesPlot(outputDir, scenarioName, transmissionProbability,
             finalSizes = [s for s in finalSizes if s >= extinctionThreshold]
             allFinalSizes.append(finalSizes)
     plt.boxplot(allFinalSizes, labels=clusteringLevels)
+    plt.xlabel("Clustering level")
     plt.ylabel("Final outbreak size after {} days".format(numDays))
     plt.ylim(extinctionThreshold, 50000)
     saveFig(outputDir, scenarioName + "_OutbreakSizes_TP_" + str(transmissionProbability))

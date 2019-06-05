@@ -82,7 +82,7 @@ def createAgeImmunityOverviewPlot(outputDir, scenarioName, transmissionProbabili
     plt.xlim(0, 100)
     plt.ylabel("Fraction susceptible")
     plt.ylim(0, 1)
-    plt.legend(clusteringLevels + ["Projection"])
+    plt.legend(["Clustering = {}".format(c) for c in clusteringLevels]+ ["Projection"])
     saveFig(outputDir, "AgeImmunity")
 
 def createAgeImmunityPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize):

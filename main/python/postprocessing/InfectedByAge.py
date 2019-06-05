@@ -29,7 +29,7 @@ def createInfectedByAgeScatterplot(outputDir, scenarioName, transmissionProbabil
         i += 1
     plt.xlabel("Age (in years)")
     plt.ylabel("Number of infected")
-    plt.legend(clusteringLevels)
+    plt.legend(["Clustering = {}".format(c) for c in clusteringLevels])
     saveFig(outputDir, scenarioName + "_InfectedByAgeScatter_TP_" + str(transmissionProbability))
 
 def createInfectedByAgePlot(outputDir, scenarioName, transmissionProbability, clusteringLevels, poolSize):
@@ -48,5 +48,5 @@ def createInfectedByAgePlot(outputDir, scenarioName, transmissionProbability, cl
         i += 1
     plt.xlabel("Age (in years)")
     plt.ylabel("Number of infected (mean)")
-    plt.legend(clusteringLevels)
+    plt.legend(["Clustering = {}".format(c) for c in clusteringLevels])
     saveFig(outputDir, scenarioName + "_InfectedByAge_TP_" + str(transmissionProbability))

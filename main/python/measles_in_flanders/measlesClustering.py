@@ -65,21 +65,20 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
     if numRunsER > 0:
         # Effective R
         start = time.perf_counter()
-        #EffectiveR.createEffectiveR3DScatterPlot(outputDir, "ER_" + scenarioNames[0],
-        #                                    transmissionProbabilities0to1,
-        #                                    clusteringLevels, poolSize)
-        #EffectiveR.createEffectiveR3DBarPlot(outputDir, "ER_" + scenarioNames[0],
-        #                                    transmissionProbabilitiesRestricted,
-        #                                    clusteringLevels, poolSize)
+        EffectiveR.createEffectiveR3DScatterPlot(outputDir, "ER_" + scenarioNames[0],
+                                            transmissionProbabilities0to1,
+                                            clusteringLevels, poolSize)
+        EffectiveR.createEffectiveR3DBarPlot(outputDir, "ER_" + scenarioNames[0],
+                                            transmissionProbabilitiesRestricted,
+                                            clusteringLevels, poolSize)
         EffectiveR.createFitPlot(outputDir, "ER_" + scenarioNames[0],
                                             transmissionProbabilities0to1,
                                             clusteringLevels, poolSize)
-        #for prob in transmissionProbabilities0to1:
-        #    EffectiveR.createEffectiveRPlot(outputDir, "ER_" + scenarioNames[0], prob, clusteringLevels, poolSize)
+        for prob in transmissionProbabilities0to1:
+            EffectiveR.createEffectiveRPlot(outputDir, "ER_" + scenarioNames[0], prob, clusteringLevels, poolSize)
         for level in clusteringLevels:
             EffectiveR.createEffectiveRScatterPlot(outputDir, "ER_" + scenarioNames[0],
                     transmissionProbabilities0to1, level, poolSize)
-
 
         print("ER postprocessing took {} seconds".format(time.perf_counter() - start))
 
@@ -97,9 +96,9 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
 
         # Calculate associativity within households
         start = time.perf_counter()
-        Clustering.createAssortativityCoefficientPlot(outputDir, scenarioNames[0],
-                                            transmissionProbabilitiesRestricted,
-                                            clusteringLevels, poolSize)
+        #Clustering.createAssortativityCoefficientPlot(outputDir, scenarioNames[0],
+        #                                    transmissionProbabilitiesRestricted,
+        #                                    clusteringLevels, poolSize)
         print("Associativity postprocessing took {} seconds".format(time.perf_counter() - start))
 
         # Outbreak probabilities + sizes
@@ -119,6 +118,8 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
         for prob in transmissionProbabilitiesRestricted:
             InfectedByAge.createInfectedByAgeScatterplot(outputDir, scenarioNames[0], prob, clusteringLevels, poolSize)
             InfectedByAge.createInfectedByAgePlot(outputDir, scenarioNames[0], prob, clusteringLevels, poolSize)
+            OutbreakOccurrence.createOutbreakProbabilityPlot(outputDir, scenarioNames[0], prob, clusteringLevels,
+                                                    numDays, extinctionThreshold, poolSize)
             OutbreakSize.createOutbreakSizesPlot(outputDir, scenarioNames[0], prob, clusteringLevels, numDaysFull, extinctionThreshold, poolSize)
         print("Outbreak size + probability postprocessing took {} seconds".format(time.perf_counter() - start))
         # TODO Total number of susceptibles / overall level of immunity
