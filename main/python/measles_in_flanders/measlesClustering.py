@@ -65,14 +65,22 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
     if numRunsER > 0:
         # Effective R
         start = time.perf_counter()
-        EffectiveR.createEffectiveR3DScatterPlot(outputDir, "ER_" + scenarioNames[0],
+        #EffectiveR.createEffectiveR3DScatterPlot(outputDir, "ER_" + scenarioNames[0],
+        #                                    transmissionProbabilities0to1,
+        #                                    clusteringLevels, poolSize)
+        #EffectiveR.createEffectiveR3DBarPlot(outputDir, "ER_" + scenarioNames[0],
+        #                                    transmissionProbabilitiesRestricted,
+        #                                    clusteringLevels, poolSize)
+        EffectiveR.createFitPlot(outputDir, "ER_" + scenarioNames[0],
                                             transmissionProbabilities0to1,
                                             clusteringLevels, poolSize)
-        EffectiveR.createEffectiveR3DBarPlot(outputDir, "ER_" + scenarioNames[0],
-                                            transmissionProbabilitiesRestricted,
-                                            clusteringLevels, poolSize)
-        for prob in transmissionProbabilities0to1:
-            EffectiveR.createEffectiveRPlot(outputDir, "ER_" + scenarioNames[0], prob, clusteringLevels, poolSize)
+        #for prob in transmissionProbabilities0to1:
+        #    EffectiveR.createEffectiveRPlot(outputDir, "ER_" + scenarioNames[0], prob, clusteringLevels, poolSize)
+        for level in clusteringLevels:
+            EffectiveR.createEffectiveRScatterPlot(outputDir, "ER_" + scenarioNames[0],
+                    transmissionProbabilities0to1, level, poolSize)
+
+
         print("ER postprocessing took {} seconds".format(time.perf_counter() - start))
 
     if numRunsFull > 0:

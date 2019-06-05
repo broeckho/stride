@@ -1,9 +1,13 @@
 import csv
+import math
 import matplotlib.pyplot as plt
 import multiprocessing
 import os
 
 MAX_AGE = 99
+
+def lnFunc(xs, a, b):
+    return [a + b * math.log(x + 1) for x in xs]
 
 def getRngSeeds(outputDir, scenarioName):
     seeds = []

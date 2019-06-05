@@ -4,10 +4,7 @@ import multiprocessing
 import numpy
 import scipy.optimize
 
-from .Util import getSecondaryCases, getRngSeeds, saveFig
-
-def lnFunc(xs, a, b):
-    return [a + b * math.log(x + 1) for x in xs]
+from .Util import getSecondaryCases, getRngSeeds, saveFig, lnFunc
 
 def getLnFit(outputDir, transmissionProbabilities, poolSize):
     allTransmissionProbabilities = []
