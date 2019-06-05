@@ -115,22 +115,24 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
         print("Outbreak size + probability postprocessing took {} seconds".format(time.perf_counter() - start))
         # TODO Total number of susceptibles / overall level of immunity
 
-def main(numRunsR0, numRunsER, numRunsFull, poolSize):
+def main(postprocessingOnly, numRunsR0, numRunsER, numRunsFull, poolSize):
     transmissionProbabilities0to1 = numpy.arange(0, 1.05, 0.05)
     transmissionProbabilitiesRestricted = numpy.arange(0.2, 0.85, 0.05)
     clusteringLevels = [0, 0.25, 0.5, 0.75, 1]
-    #runSimulations(numRunsR0, numRunsER, numRunsFull,
-    #                transmissionProbabilities0to1, transmissionProbabilitiesRestricted,
-    #                clusteringLevels, poolSize)
+    if not postprocessingOnly:
+        runSimulations(numRunsR0, numRunsER, numRunsFull,
+                   transmissionProbabilities0to1, transmissionProbabilitiesRestricted,
+                   clusteringLevels, poolSize)
     postprocessing(numRunsR0, numRunsER, numRunsFull,
                     transmissionProbabilities0to1, transmissionProbabilitiesRestricted,
                     clusteringLevels, poolSize)
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument("--postprocessingOnly", action="store_true", default=False)
     parser.add_argument("--numRunsR0", type=int, default=0)
     parser.add_argument("--numRunsER", type=int, default=0)
     parser.add_argument("--numRunsFull", type=int, default=0)
     parser.add_argument("--poolSize", type=int, default=8)
     args = parser.parse_args()
-    main(args.numRunsR0, args.numRunsER, args.numRunsFull, args.poolSize)
+    main(args.postprocessingOnly, args.numRunsR0, args.numRunsER, args.numRunsFull, args.poolSize)
