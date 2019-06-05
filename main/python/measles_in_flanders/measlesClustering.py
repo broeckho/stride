@@ -52,6 +52,7 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
         # Fit relation P(transmission) ~ R0 to logarithmic function
         start = time.perf_counter()
         fitCoeffs = R0.getLnFit(outputDir, transmissionProbabilities0to1, poolSize)
+        print(fitCoeffs)
         R0.createTransmissionProbabilityVSSecondaryCasesScatterPlot(outputDir,
                                     scenarioNames, transmissionProbabilities0to1,
                                     fitCoeffs[0], fitCoeffs[1], poolSize)
@@ -64,11 +65,14 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
     if numRunsER > 0:
         # Effective R
         start = time.perf_counter()
-        EffectiveR.createEffectiveR3DPlot(outputDir, "ER_" + scenarioNames[0],
+        EffectiveR.createEffectiveR3DScatterPlot(outputDir, "ER_" + scenarioNames[0],
                                             transmissionProbabilities0to1,
                                             clusteringLevels, poolSize)
-        for level in clusteringLevels:
-            EffectiveR.createEffectiveRPlot(outputDir, "ER_" + scenarioNames[0], transmissionProbabilities0to1, level, poolSize)
+        EffectiveR.createEffectiveR3DBarPlot(outputDir, "ER_" + scenarioNames[0],
+                                            transmissionProbabilitiesRestricted,
+                                            clusteringLevels, poolSize)
+        for prob in transmissionProbabilities0to1:
+            EffectiveR.createEffectiveRPlot(outputDir, "ER_" + scenarioNames[0], prob, clusteringLevels, poolSize)
         print("ER postprocessing took {} seconds".format(time.perf_counter() - start))
 
     if numRunsFull > 0:
@@ -115,9 +119,9 @@ def main(numRunsR0, numRunsER, numRunsFull, poolSize):
     transmissionProbabilities0to1 = numpy.arange(0, 1.05, 0.05)
     transmissionProbabilitiesRestricted = numpy.arange(0.2, 0.85, 0.05)
     clusteringLevels = [0, 0.25, 0.5, 0.75, 1]
-    runSimulations(numRunsR0, numRunsER, numRunsFull,
-                    transmissionProbabilities0to1, transmissionProbabilitiesRestricted,
-                    clusteringLevels, poolSize)
+    #runSimulations(numRunsR0, numRunsER, numRunsFull,
+    #                transmissionProbabilities0to1, transmissionProbabilitiesRestricted,
+    #                clusteringLevels, poolSize)
     postprocessing(numRunsR0, numRunsER, numRunsFull,
                     transmissionProbabilities0to1, transmissionProbabilitiesRestricted,
                     clusteringLevels, poolSize)
