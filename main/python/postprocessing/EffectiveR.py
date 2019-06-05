@@ -33,9 +33,11 @@ def createEffectiveRScatterPlot(outputDir, scenarioName, transmissionProbabiliti
     popt, pcov = scipy.optimize.curve_fit(lnFunc, allTransmissionProbabilities, allSecondaryCases, method="lm")
     plt.plot(allTransmissionProbabilities, allSecondaryCases, "bo")
     fit = lnFunc(transmissionProbabilities, popt[0], popt[1])
-    plt.plot(transmissionProbabilities, fit)
+    line1, = plt.plot(transmissionProbabilities, fit, color="red", label="{:.2f} + {:.2f} * ln(1 + x)".format(popt[0], popt[1]))
     plt.xlabel("Transmission probability")
     plt.ylabel("Secondary cases")
+    plt.ylim(0, 15)
+    plt.legend(handles=[line1])
     saveFig(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_FIT")
 
 def createEffectiveR3DScatterPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize):
