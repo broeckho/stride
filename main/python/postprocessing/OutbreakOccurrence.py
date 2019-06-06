@@ -34,10 +34,15 @@ def createOutbreakProbabilityPlot(outputDir, scenarioName, transmissionProbabili
             outbreakProbability = sum(outbreaks) / len(outbreaks)
             se = calculateSE(outbreakProbability, len(finalSizes))
             outbreakProbabilities.append(outbreakProbability)
-            SEs.append(se)
-    plt.errorbar(outbreakProbabilities, yerr=SEs)
-    ax.set_xlabel("Clustering level")
-    ax.set_ylabel("Outbreak probability")
+            if se is not None:
+                SEs.append(se)
+            else:
+                SEs.append(0)
+    plt.errorbar(clusteringLevels, outbreakProbabilities, yerr=SEs, fmt='o')
+    plt.xlabel("Clustering level")
+    plt.xticks(clusteringLevels)
+    plt.ylabel("Outbreak probability")
+    plt.ylim(0, 1)
     saveFig(outputDir, scenarioName + "_TP_" + str(transmissionProbability) + "_OutbreakProbabilities")
 
 def createOutbreakProbabilities3DPlot(outputDir, scenarioName, transmissionProbabilities,

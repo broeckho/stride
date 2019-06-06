@@ -76,9 +76,6 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
                                             clusteringLevels, poolSize)
         for prob in transmissionProbabilities0to1:
             EffectiveR.createEffectiveRPlot(outputDir, "ER_" + scenarioNames[0], prob, clusteringLevels, poolSize)
-        for level in clusteringLevels:
-            EffectiveR.createEffectiveRScatterPlot(outputDir, "ER_" + scenarioNames[0],
-                    transmissionProbabilities0to1, level, poolSize)
 
         print("ER postprocessing took {} seconds".format(time.perf_counter() - start))
 
@@ -119,7 +116,7 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
             InfectedByAge.createInfectedByAgeScatterplot(outputDir, scenarioNames[0], prob, clusteringLevels, poolSize)
             InfectedByAge.createInfectedByAgePlot(outputDir, scenarioNames[0], prob, clusteringLevels, poolSize)
             OutbreakOccurrence.createOutbreakProbabilityPlot(outputDir, scenarioNames[0], prob, clusteringLevels,
-                                                    numDays, extinctionThreshold, poolSize)
+                                                    numDaysFull, extinctionThreshold, poolSize)
             OutbreakSize.createOutbreakSizesPlot(outputDir, scenarioNames[0], prob, clusteringLevels, numDaysFull, extinctionThreshold, poolSize)
         print("Outbreak size + probability postprocessing took {} seconds".format(time.perf_counter() - start))
         # TODO Total number of susceptibles / overall level of immunity

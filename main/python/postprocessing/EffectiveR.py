@@ -20,26 +20,6 @@ def createEffectiveRPlot(outputDir, scenarioName, transmissionProbability, clust
     #plt.ylim(-0.5, ??)
     saveFig(outputDir, scenarioName + "_TP_" + str(transmissionProbability))
 
-def createEffectiveRScatterPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize):
-    allSecondaryCases = []
-    allTransmissionProbabilities = []
-    for prob in transmissionProbabilities:
-        fullScenarioName = scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(prob)
-        seeds = getRngSeeds(outputDir, fullScenarioName)
-        with multiprocessing.Pool(processes=poolSize) as pool:
-            secondaryCases = pool.starmap(getSecondaryCases, [(outputDir, fullScenarioName, s) for s in seeds])
-            allSecondaryCases += secondaryCases
-            allTransmissionProbabilities += [prob] * len(secondaryCases)
-    popt, pcov = scipy.optimize.curve_fit(lnFunc, allTransmissionProbabilities, allSecondaryCases, method="lm")
-    plt.plot(allTransmissionProbabilities, allSecondaryCases, "bo")
-    fit = lnFunc(transmissionProbabilities, popt[0], popt[1])
-    line1, = plt.plot(transmissionProbabilities, fit, color="red", label="{:.2f} + {:.2f} * ln(1 + x)".format(popt[0], popt[1]))
-    plt.xlabel("Transmission probability")
-    plt.ylabel("Secondary cases")
-    plt.ylim(0, 15)
-    plt.legend(handles=[line1])
-    saveFig(outputDir, scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_FIT")
-
 def createEffectiveR3DScatterPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize):
     ax = plt.axes(projection="3d")
     colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
@@ -85,20 +65,25 @@ def createEffectiveR3DBarPlot(outputDir, scenarioName, transmissionProbabilities
     saveFig(outputDir, scenarioName + "_ER_3D_bar", "png")
 
 def createFitPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize):
-    for level in clusteringLevels:
+    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'w']
+    markers = ['o', 'v', 's', '*', '+']
+    lines = []
+    for level_i in range(len(clusteringLevels)):
         allTransmissionProbabilities = []
         allSecondaryCases = []
         for prob in transmissionProbabilities:
-            fullScenarioName = scenarioName + "_CLUSTERING_" + str(level) + "_TP_" + str(prob)
+            fullScenarioName = scenarioName + "_CLUSTERING_" + str(clusteringLevels[level_i]) + "_TP_" + str(prob)
             seeds = getRngSeeds(outputDir, fullScenarioName)
             with multiprocessing.Pool(processes=poolSize) as pool:
                 secondaryCases = pool.starmap(getSecondaryCases, [(outputDir, fullScenarioName, s) for s in seeds])
                 allSecondaryCases += secondaryCases
                 allTransmissionProbabilities += ([prob] * len(secondaryCases))
+        plt.plot(allTransmissionProbabilities, allSecondaryCases, colors[level_i] + 'o')
         popt, pcov = scipy.optimize.curve_fit(lnFunc, allTransmissionProbabilities, allSecondaryCases, method="lm")
         fit = lnFunc(transmissionProbabilities, popt[0], popt[1])
-        plt.plot(transmissionProbabilities, fit)
+        line, = plt.plot(transmissionProbabilities, fit, color=colors[level_i], label="Clustering = " + str(clusteringLevels[level_i]))
+        lines.append(line)
     plt.xlabel("Transmission probability")
     plt.ylabel("Secondary cases")
-    plt.legend(["Clustering = {}".format(c) for c in clusteringLevels])
-    saveFig(outputDir, scenarioName + "ERfit")
+    plt.legend(handles=lines)
+    saveFig(outputDir, scenarioName + "_FIT")

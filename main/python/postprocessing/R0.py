@@ -37,6 +37,7 @@ def createTransmissionProbabilityVSSecondaryCasesScatterPlot(outputDir, scenario
                             label="{:.2f} + {:.2f} * ln(1 + x)".format(r0CoeffA, r0CoeffB))
     plt.xlabel("Transmission probability")
     plt.ylabel("Secondary cases")
+    plt.ylim(0, max(allSecondaryCases))
     plt.legend(handles=[fitLine])
     saveFig(outputDir, "SecondaryCases_scatter")
 

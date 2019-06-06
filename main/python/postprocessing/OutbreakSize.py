@@ -31,7 +31,7 @@ def createOutbreakSizes3DPlot(outputDir, scenarioName, transmissionProbabilities
     colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
                 'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
                 'forestgreen', 'turquoise']
-    for prob_i in range(len(transmissionProbabilities)):
+    for prob_i in range(len(transmissionProbabilities))[::2]:
         means = []
         for level_i in range(len(clusteringLevels)):
             fullScenarioName = scenarioName + "_CLUSTERING_" + str(clusteringLevels[level_i]) + "_TP_" + str(transmissionProbabilities[prob_i])
@@ -44,7 +44,7 @@ def createOutbreakSizes3DPlot(outputDir, scenarioName, transmissionProbabilities
                     means.append(sum(finalSizes) / len(finalSizes))
                 else:
                     means.append(0)
-        ax.bar(range(len(clusteringLevels)), means, zs=prob_i, z_dir="y", color=colors["level_i"])
+        ax.bar(range(len(clusteringLevels)), means, zs=prob_i, zdir="y", alpha=0.5, color=colors[prob_i % len(colors)])
     ax.set_xlabel("Clustering level")
     ax.set_xticks(range(len(clusteringLevels)))
     ax.set_xticklabels(clusteringLevels)
@@ -52,7 +52,8 @@ def createOutbreakSizes3DPlot(outputDir, scenarioName, transmissionProbabilities
     ax.set_yticks(range(len(transmissionProbabilities))[::2])
     ax.set_yticklabels(transmissionProbabilities[::2])
     ax.set_zlabel("Final outbreak size after {} days".format(numDays))
-    saveFig(outputDir, scenarioName + "_OutbreakSizes3D")
+    ax.set_zlim(-0.1, 50000)
+    saveFig(outputDir, scenarioName + "_OutbreakSizes3D", "png")
 
 def createOutbreakSizesPlot(outputDir, scenarioName, transmissionProbability,
     clusteringLevels, numDays, extinctionThreshold, poolSize):
