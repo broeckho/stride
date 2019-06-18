@@ -71,9 +71,6 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
         EffectiveR.createEffectiveR3DBarPlot(outputDir, "ER_" + scenarioNames[0],
                                             transmissionProbabilitiesRestricted,
                                             clusteringLevels, poolSize)
-        EffectiveR.createFitPlot(outputDir, "ER_" + scenarioNames[0],
-                                            transmissionProbabilities0to1,
-                                            clusteringLevels, poolSize)
         for prob in transmissionProbabilities0to1:
             EffectiveR.createEffectiveRPlot(outputDir, "ER_" + scenarioNames[0], prob, clusteringLevels, poolSize)
 
@@ -82,12 +79,12 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
     if numRunsFull > 0:
         # Age-immunity profiles
         start = time.perf_counter()
-        AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioNames[0],
-                                                transmissionProbabilitiesRestricted,
-                                                clusteringLevels, poolSize,
-                                                targetRatesDir="../../Workspace/MeaslesInFlanders_Paper/ProjectedImmunity")
-        for level in clusteringLevels:
-            AgeImmunity.createAgeImmunityPlot(outputDir, scenarioNames[0], transmissionProbabilitiesRestricted, level, poolSize)
+        #AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioNames[0],
+        #                                        transmissionProbabilitiesRestricted,
+        #                                        clusteringLevels, poolSize,
+        #                                        targetRatesDir="../../Workspace/MeaslesInFlanders_Paper/ProjectedImmunity")
+        #for level in clusteringLevels:
+        #    AgeImmunity.createAgeImmunityPlot(outputDir, scenarioNames[0], transmissionProbabilitiesRestricted, level, poolSize)
 
         print("Age-immunity postprocessing took {} seconds".format(time.perf_counter() - start))
 
@@ -103,7 +100,7 @@ def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0
         OutbreakSize.createExtinctionThresholdHistogram(outputDir, scenarioNames[0], transmissionProbabilitiesRestricted,
                                             clusteringLevels, numDaysFull, poolSize)
 
-        extinctionThreshold = 10000
+        extinctionThreshold = 5000
         OutbreakOccurrence.createOutbreakProbabilities3DPlot(outputDir, scenarioNames[0],
                                             transmissionProbabilitiesRestricted,
                                             clusteringLevels, numDaysFull, extinctionThreshold, poolSize)

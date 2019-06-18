@@ -48,5 +48,6 @@ def createInfectedByAgePlot(outputDir, scenarioName, transmissionProbability, cl
         i += 1
     plt.xlabel("Age (in years)")
     plt.ylabel("Number of infected (mean)")
+    plt.ylim(0, 5000)
     plt.legend(["Clustering = {}".format(c) for c in clusteringLevels])
     saveFig(outputDir, scenarioName + "_InfectedByAge_TP_" + str(transmissionProbability))

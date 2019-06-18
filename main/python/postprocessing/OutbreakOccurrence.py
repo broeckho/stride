@@ -40,6 +40,7 @@ def createOutbreakProbabilityPlot(outputDir, scenarioName, transmissionProbabili
                 SEs.append(0)
     plt.errorbar(clusteringLevels, outbreakProbabilities, yerr=SEs, fmt='o')
     plt.xlabel("Clustering level")
+    plt.xlim(-0.1, 1.1)
     plt.xticks(clusteringLevels)
     plt.ylabel("Outbreak probability")
     plt.ylim(0, 1)
