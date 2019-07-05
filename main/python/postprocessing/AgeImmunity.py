@@ -4,7 +4,7 @@ import multiprocessing
 import numpy
 import os
 
-from .Util import MAX_AGE, getRngSeeds, saveFig
+from .Util import COLORS, MAX_AGE, getRngSeeds, saveFig
 
 def getSusceptibilityLevels(outputDir, scenarioName, seed):
     totalsByAge = [0]  * (MAX_AGE + 1)
@@ -46,9 +46,6 @@ def getProjectedSusceptibilityLevels(dataDir):
 
 def createAgeImmunityOverviewPlot(outputDir, scenarioName, transmissionProbabilities,
     clusteringLevels, poolSize, targetRatesDir=None):
-    colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
-                'magenta', 'yellow', 'lime', 'violet', 'firebrick',
-                'forestgreen', 'turquoise']
     linestyles = ['-', '--', '-.', ':', '--', '--']
     dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
     # Get target rates if needed
@@ -73,17 +70,17 @@ def createAgeImmunityOverviewPlot(outputDir, scenarioName, transmissionProbabili
         dash = dashes[i % len(dashes)]
         if dash is not None:
             plt.plot(range(MAX_AGE + 1), [sum(allAges[age]) / len(allAges[age]) for age in range(MAX_AGE + 1)],
-                    color=colors[i], linestyle=linestyle, dashes=dash)
+                    color=COLORS[i % len(COLORS)], linestyle=linestyle, dashes=dash)
         else:
             plt.plot(range(MAX_AGE + 1), [sum(allAges[age]) / len(allAges[age]) for age in range(MAX_AGE + 1)],
-                    color=colors[i], linestyle=linestyle)
+                    color=COLORS[i % len(COLORS)], linestyle=linestyle)
         i += 1
     plt.xlabel("Age (in years)")
     plt.xlim(0, 100)
     plt.ylabel("Fraction susceptible")
     plt.ylim(0, 1)
     plt.legend(["Clustering = {}".format(c) for c in clusteringLevels]+ ["Projection"])
-    saveFig(outputDir, "AgeImmunity")
+    saveFig(outputDir, "AgeImmunity_" + scenarioName)
 
 def createAgeImmunityPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize):
     allAges = {}

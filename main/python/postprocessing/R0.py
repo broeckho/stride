@@ -20,7 +20,7 @@ def getLnFit(outputDir, transmissionProbabilities, poolSize):
     # TODO check quality of fit
     return popt
 
-def createTransmissionProbabilityVSSecondaryCasesScatterPlot(outputDir, scenarioNames,
+def createTransmissionProbabilityVSSecondaryCasesScatterPlot(outputDir, scenarioName,
     transmissionProbabilities, r0CoeffA, r0CoeffB, poolSize):
     allTransmissionProbabilities = []
     allSecondaryCases = []

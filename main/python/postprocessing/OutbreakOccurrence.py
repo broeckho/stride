@@ -5,7 +5,7 @@ import numpy
 
 from mpl_toolkits.mplot3d import Axes3D
 
-from .Util import getFinalOutbreakSize, getRngSeeds, saveFig
+from .Util import COLORS, getFinalOutbreakSize, getRngSeeds, saveFig
 
 def calculateSE(fractionSuccesses, sampleSize, confidenceLevel=95):
     zValues = {90: 1.645, 95: 1.96, 99: 2.576}
@@ -44,14 +44,11 @@ def createOutbreakProbabilityPlot(outputDir, scenarioName, transmissionProbabili
     plt.xticks(clusteringLevels)
     plt.ylabel("Outbreak probability")
     plt.ylim(0, 1)
-    saveFig(outputDir, scenarioName + "_TP_" + str(transmissionProbability) + "_OutbreakProbabilities")
+    saveFig(outputDir, "OutbreakProbabilities_" + scenarioName + "_TP_" + str(transmissionProbability))
 
 def createOutbreakProbabilities3DPlot(outputDir, scenarioName, transmissionProbabilities,
     clusteringLevels, numDays, extinctionThreshold, poolSize):
     ax = plt.axes(projection="3d")
-    colors = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
-                'magenta', 'blue', 'yellow', 'lime', 'violet', 'firebrick',
-                'forestgreen', 'turquoise']
 
     i = 0
     for level in clusteringLevels:
@@ -68,12 +65,14 @@ def createOutbreakProbabilities3DPlot(outputDir, scenarioName, transmissionProba
                 se = calculateSE(outbreakProbability, len(finalSizes))
                 outbreakProbabilities.append(outbreakProbability)
                 SEs.append(se)
-        ax.scatter([level] * len(transmissionProbabilities), transmissionProbabilities, outbreakProbabilities, color=colors[i], s=20)
+        ax.scatter([level] * len(transmissionProbabilities),
+                    transmissionProbabilities, outbreakProbabilities,
+                    color=COLORS[i % len(COLORS)], s=20)
         for j in range(len(outbreakProbabilities)):
             if SEs[j] is not None:
                 ax.plot([level, level],
                     [transmissionProbabilities[j], transmissionProbabilities[j]],
-                    [outbreakProbabilities[j]+SEs[j], outbreakProbabilities[j]-SEs[j]], marker="_", color=colors[i])
+                    [outbreakProbabilities[j]+SEs[j], outbreakProbabilities[j]-SEs[j]], marker="_", color=COLORS[i % len(COLORS)])
         i += 1
 
     ax.set_xlabel("Clustering level")
@@ -82,4 +81,4 @@ def createOutbreakProbabilities3DPlot(outputDir, scenarioName, transmissionProba
     ax.set_yticks(transmissionProbabilities[::5])
     ax.set_zlabel("Outbreak probability")
     ax.set_zlim(-0.1, 1.1)
-    saveFig(outputDir, scenarioName + "_OutbreakProbabilities")
+    saveFig(outputDir, "OutbreakProbabilities3D_" + scenarioName)

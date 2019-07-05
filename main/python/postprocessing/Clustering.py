@@ -41,4 +41,4 @@ def createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProb
     plt.xlabel("Clustering level")
     plt.ylabel("Assortativity coefficient")
     plt.ylim(0, 0.5)
-    saveFig(outputDir, scenarioName + "_AssortativityCoefficients")
+    saveFig(outputDir, "AssortativityCoefficients_" + scenarioName)

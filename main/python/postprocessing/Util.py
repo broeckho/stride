@@ -6,6 +6,10 @@ import os
 
 MAX_AGE = 99
 
+COLORS = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
+            'magenta', 'yellow', 'lime', 'violet', 'firebrick',
+            'forestgreen', 'turquoise']
+
 def lnFunc(xs, a, b):
     return [a + b * math.log(x + 1) for x in xs]
 
