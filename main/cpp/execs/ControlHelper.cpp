@@ -32,6 +32,7 @@
 #include "viewers/SummaryFileViewer.h"
 
 #include <boost/property_tree/xml_parser.hpp>
+#include <regex>
 
 using namespace std;
 using namespace stride::util;
@@ -46,7 +47,12 @@ ControlHelper::ControlHelper()
 {
 }
 
-ControlHelper::ControlHelper(string name, const ptree& config) : ControlHelper()
+ControlHelper::~ControlHelper()
+{
+        Shutdown();
+}
+
+ControlHelper::ControlHelper(const ptree& config, string name) : ControlHelper()
 {
         m_run_clock.Start();
         m_config           = config;
@@ -74,19 +80,31 @@ void ControlHelper::CheckOutputPrefix()
 
 void ControlHelper::InstallLogger()
 {
+        m_stride_logger = spdlog::get("stride_logger");
+        // If there is no stride_logger yet ...
+        if (!m_stride_logger) {
+                const auto path = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
+                if (m_name == "TestController") {
+                        m_stride_logger = LogUtils::CreateFileLogger("stride_logger", path.string());
+                } else {
+                        m_stride_logger = LogUtils::CreateCliLogger("stride_logger", path.string());
+                }
+                spdlog::register_logger(m_stride_logger);
+        }
+
         // spd log levels are: trace, debug, info, warn, error, critical, off
-        const auto path     = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
         const auto logLevel = m_config.get<string>("run.stride_log_level");
-        m_stride_logger     = LogUtils::CreateCliLogger("stride_logger", path.string());
         m_stride_logger->set_level(spdlog::level::from_str(logLevel));
         m_stride_logger->flush_on(spdlog::level::err);
-        spdlog::register_logger(m_stride_logger);
+
 }
 
-void ControlHelper::LogShutdown()
+void ControlHelper::Shutdown()
 {
         m_run_clock.Stop();
         m_stride_logger->info("{} shutting down after: {}", m_name, m_run_clock.ToString());
+        m_stride_logger->flush();
+        spdlog::drop("stride_logger");
 }
 
 void ControlHelper::LogStartup()
@@ -110,6 +128,12 @@ void ControlHelper::LogStartup()
         } else {
                 m_stride_logger->info("Not using OpenMP threads.");
         }
+        stringstream ss;
+        write_xml(ss, m_config, xml_writer_make_settings<ptree::key_type>(' ', 8));
+        const auto s = ss.str();
+        stringstream spretty;
+        std::regex_replace(std::ostreambuf_iterator<char>(spretty), s.begin(), s.end(), std::regex("(\\n+)"), "\n");
+        m_stride_logger->trace("Config :\n {}", spretty.str());
 }
 
 void ControlHelper::RegisterViewers(shared_ptr<SimRunner> runner)

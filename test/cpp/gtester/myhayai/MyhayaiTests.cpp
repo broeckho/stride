@@ -58,7 +58,7 @@ public:
                 runner.Register(pv, bind(&PtreeViewer<chrono::milliseconds>::Update, pv, placeholders::_1));
                 runner.RunTests(helper.GetIncludedNames());
                 g_benchPt = pv->CGet();
-                write_xml("MyhayaiTest.xml", g_benchPt, std::locale(),
+                write_xml("tests/MyhayaiTest.xml", g_benchPt, std::locale(),
                           xml_writer_make_settings<ptree::key_type>(' ', 8));
         }
 

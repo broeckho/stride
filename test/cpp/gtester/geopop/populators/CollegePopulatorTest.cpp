@@ -13,13 +13,13 @@
  *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "geopop/populators/CollegePopulator.h"
+#include "geopop/populators/Populator.h"
 
 #include "MakeGeoGrid.h"
 #include "contact/AgeBrackets.h"
 #include "geopop/GeoGridConfig.h"
 #include "geopop/Location.h"
-#include "geopop/generators/CollegeGenerator.h"
+#include "geopop/generators/Generator.h"
 #include "pop/Population.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
@@ -39,7 +39,7 @@ class CollegePopulatorTest : public testing::Test
 {
 public:
         CollegePopulatorTest()
-            : m_rn_man(RnInfo()), m_college_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+            : m_rn_man(RnInfo()), m_college_populator(m_rn_man), m_gg_config(), m_pop(Population::Create()),
               m_geo_grid(m_pop->RefGeoGrid()), m_college_generator(m_rn_man)
         {
         }
@@ -47,11 +47,11 @@ public:
 protected:
         RnMan                  m_rn_man;
         CollegePopulator       m_college_populator;
-        GeoGridConfig          m_geogrid_config;
+        GeoGridConfig          m_gg_config;
         shared_ptr<Population> m_pop;
         GeoGrid&               m_geo_grid;
         CollegeGenerator       m_college_generator;
-        const unsigned int     m_ppc = GeoGridConfig{}.pools.pools_per_college;
+        unsigned int           m_ppc = m_gg_config.pools[Id::College];
 };
 
 TEST_F(CollegePopulatorTest, NoPopulation)
@@ -59,32 +59,32 @@ TEST_F(CollegePopulatorTest, NoPopulation)
         m_geo_grid.AddLocation(make_shared<Location>(0, 0, Coordinate(0.0, 0.0), "", 0));
         m_geo_grid.Finalize();
 
-        EXPECT_NO_THROW(m_college_populator.Apply(m_geo_grid, m_geogrid_config));
+        EXPECT_NO_THROW(m_college_populator.Apply(m_geo_grid, m_gg_config));
 }
 
 TEST_F(CollegePopulatorTest, NoStudents)
 {
-        MakeGeoGrid(m_geogrid_config, 3, 100, 3, 33, 3, m_pop.get());
-        m_geogrid_config.input.fraction_college_commuters = 0;
-        m_geogrid_config.input.participation_college      = 0;
+        MakeGeoGrid(m_gg_config, 3, 100, 3, 33, 3, m_pop.get());
+        m_gg_config.param.fraction_college_commuters = 0;
+        m_gg_config.param.participation_college      = 0;
 
         // Brasschaat and Schoten are close to each other. There is no commuting, but they will
         // receive students from each other. Kortrijk will only receive students from Kortrijk.
 
         auto brasschaat = *m_geo_grid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        m_college_generator.AddPools(*brasschaat, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*brasschaat, m_pop.get(), m_gg_config);
 
         auto schoten = *(m_geo_grid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        m_college_generator.AddPools(*schoten, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*schoten, m_pop.get(), m_gg_config);
 
         auto kortrijk = *(m_geo_grid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        m_college_generator.AddPools(*kortrijk, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*kortrijk, m_pop.get(), m_gg_config);
 
         m_geo_grid.Finalize();
-        m_college_populator.Apply(m_geo_grid, m_geogrid_config);
+        m_college_populator.Apply(m_geo_grid, m_gg_config);
 
         for (const auto& person : *m_geo_grid.GetPopulation()) {
                 EXPECT_EQ(0, person.GetPoolId(Id::College));
@@ -99,27 +99,27 @@ TEST_F(CollegePopulatorTest, NoStudents)
 
 TEST_F(CollegePopulatorTest, NotCommuting)
 {
-        MakeGeoGrid(m_geogrid_config, 3, 100, 3, 33, 3, m_pop.get());
-        m_geogrid_config.input.fraction_college_commuters = 0;
-        m_geogrid_config.input.participation_college      = 1;
+        MakeGeoGrid(m_gg_config, 3, 100, 3, 33, 3, m_pop.get());
+        m_gg_config.param.fraction_college_commuters = 0;
+        m_gg_config.param.participation_college      = 1;
 
         // Brasschaat and Schoten are close to each other. There is no commuting, but they will
         // receive students from each other. Kortrijk will only receive students from Kortrijk.
 
         auto brasschaat = *m_geo_grid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        m_college_generator.AddPools(*brasschaat, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*brasschaat, m_pop.get(), m_gg_config);
 
         auto schoten = *(m_geo_grid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        m_college_generator.AddPools(*schoten, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*schoten, m_pop.get(), m_gg_config);
 
         auto kortrijk = *(m_geo_grid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        m_college_generator.AddPools(*kortrijk, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*kortrijk, m_pop.get(), m_gg_config);
 
         m_geo_grid.Finalize();
-        m_college_populator.Apply(m_geo_grid, m_geogrid_config);
+        m_college_populator.Apply(m_geo_grid, m_gg_config);
 
         map<int, int> persons{
             {0, 0},    {1, 0},   {2, 0},    {3, 0},    {4, 0},    {5, 0},    {6, 0},    {7, 0},   {8, 0},    {9, 0},
@@ -154,21 +154,23 @@ TEST_F(CollegePopulatorTest, NotCommuting)
             {290, 52}, {291, 0}, {292, 0},  {293, 0},  {294, 0},  {295, 0},  {296, 0}};
 
         for (const auto& p : *m_pop) {
-                EXPECT_EQ(persons[p.GetId()], p.GetPoolId(Id::College));
+                const auto pId = p.GetPoolId(Id::College);
+                EXPECT_EQ(persons[p.GetId()], pId);
                 if (AgeBrackets::College::HasAge(p.GetAge())) {
-                        EXPECT_NE(0, p.GetPoolId(Id::College));
+                        EXPECT_NE(0, pId);
                 } else {
-                        EXPECT_EQ(0, p.GetPoolId(Id::College));
+                        EXPECT_EQ(0, pId);
                 }
         }
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
         for (const auto& hPool : schoten->RefPools(Id::Household)) {
                 for (auto p : *hPool) {
+                        const auto pId = p->GetPoolId(Id::College);
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= 2 * m_ppc);
+                                EXPECT_TRUE(pId >= 1 && pId <= 2 * m_ppc);
                         } else {
-                                EXPECT_EQ(0, p->GetPoolId(Id::College));
+                                EXPECT_EQ(0, pId);
                         }
                 }
         }
@@ -176,10 +178,11 @@ TEST_F(CollegePopulatorTest, NotCommuting)
         // Assert that persons of Brasschaat only go to Schoten or Brasschaat
         for (const auto& hPool : brasschaat->RefPools(Id::Household)) {
                 for (auto p : *hPool) {
+                        const auto pId = p->GetPoolId(Id::College);
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= 2 * m_ppc);
+                                EXPECT_TRUE(pId >= 1 && pId <= 2 * m_ppc);
                         } else {
-                                EXPECT_EQ(0, p->GetPoolId(Id::College));
+                                EXPECT_EQ(0, pId);
                         }
                 }
         }
@@ -187,11 +190,11 @@ TEST_F(CollegePopulatorTest, NotCommuting)
         // Assert that persons of Kortrijk only go to Kortijk
         for (const auto& hPool : kortrijk->RefPools(Id::Household)) {
                 for (auto p : *hPool) {
+                        const auto pId = p->GetPoolId(Id::College);
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(p->GetPoolId(Id::College) > 2 * m_ppc &&
-                                            p->GetPoolId(Id::College) <= 3 * m_ppc);
+                                EXPECT_TRUE(pId > 2 * m_ppc && pId <= 3 * m_ppc);
                         } else {
-                                EXPECT_EQ(0, p->GetPoolId(Id::College));
+                                EXPECT_EQ(0, pId);
                         }
                 }
         }
@@ -199,17 +202,17 @@ TEST_F(CollegePopulatorTest, NotCommuting)
 
 TEST_F(CollegePopulatorTest, OnlyCommuting)
 {
-        MakeGeoGrid(m_geogrid_config, 2, 100, 3, 50, 3, m_pop.get());
-        m_geogrid_config.input.fraction_college_commuters = 1;
-        m_geogrid_config.input.participation_college      = 1;
+        MakeGeoGrid(m_gg_config, 2, 100, 3, 50, 3, m_pop.get());
+        m_gg_config.param.fraction_college_commuters = 1;
+        m_gg_config.param.participation_college      = 1;
 
         auto schoten = *(m_geo_grid.begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        m_college_generator.AddPools(*schoten, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*schoten, m_pop.get(), m_gg_config);
 
         auto kortrijk = *(m_geo_grid.begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        m_college_generator.AddPools(*kortrijk, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*kortrijk, m_pop.get(), m_gg_config);
 
         schoten->AddOutgoingCommute(kortrijk, 0.5);
         kortrijk->AddIncomingCommute(schoten, 0.5);
@@ -217,17 +220,16 @@ TEST_F(CollegePopulatorTest, OnlyCommuting)
         schoten->AddIncomingCommute(kortrijk, 0.5);
 
         m_geo_grid.Finalize();
-        m_college_populator.Apply(m_geo_grid, m_geogrid_config);
-
-        const auto ppc = GeoGridConfig().pools.pools_per_college;
+        m_college_populator.Apply(m_geo_grid, m_gg_config);
 
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& hPool : schoten->RefPools(Id::Household)) {
                 for (auto p : *hPool) {
+                        const auto pId = p->GetPoolId(Id::College);
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(p->GetPoolId(Id::College) > ppc && p->GetPoolId(Id::College) <= 2 * ppc);
+                                EXPECT_TRUE(pId > m_ppc && pId <= 2 * m_ppc);
                         } else {
-                                EXPECT_EQ(0, p->GetPoolId(Id::College));
+                                EXPECT_EQ(0, pId);
                         }
                 }
         }
@@ -235,10 +237,11 @@ TEST_F(CollegePopulatorTest, OnlyCommuting)
         // Assert that persons of Kortrijk only go to Schoten
         for (const auto& hPool : kortrijk->RefPools(Id::Household)) {
                 for (auto p : *hPool) {
+                        const auto pId = p->GetPoolId(Id::College);
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= ppc);
+                                EXPECT_TRUE(pId >= 1 && pId <= m_ppc);
                         } else {
-                                EXPECT_EQ(0, p->GetPoolId(Id::College));
+                                EXPECT_EQ(0, pId);
                         }
                 }
         }
@@ -246,21 +249,21 @@ TEST_F(CollegePopulatorTest, OnlyCommuting)
 
 TEST_F(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        MakeGeoGrid(m_geogrid_config, 3, 100, 3, 33, 3, m_pop.get());
-        m_geogrid_config.input.fraction_college_commuters = 1;
-        m_geogrid_config.input.participation_college      = 1;
+        MakeGeoGrid(m_gg_config, 3, 100, 3, 33, 3, m_pop.get());
+        m_gg_config.param.fraction_college_commuters = 1;
+        m_gg_config.param.participation_college      = 1;
 
         auto brasschaat = *m_geo_grid.begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        m_college_generator.AddPools(*brasschaat, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*brasschaat, m_pop.get(), m_gg_config);
 
         auto schoten = *(m_geo_grid.begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        m_college_generator.AddPools(*schoten, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*schoten, m_pop.get(), m_gg_config);
 
         auto kortrijk = *(m_geo_grid.begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        m_college_generator.AddPools(*kortrijk, m_pop.get(), m_ppc);
+        m_college_generator.AddPools(*kortrijk, m_pop.get(), m_gg_config);
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat
         schoten->AddOutgoingCommute(kortrijk, 0.5);
@@ -269,16 +272,16 @@ TEST_F(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         schoten->AddIncomingCommute(kortrijk, 0.5);
 
         m_geo_grid.Finalize();
-        m_college_populator.Apply(m_geo_grid, m_geogrid_config);
+        m_college_populator.Apply(m_geo_grid, m_gg_config);
 
         // Assert that persons of Schoten only commute to Kortrijk
         for (const auto& hPool : schoten->RefPools(Id::Household)) {
                 for (auto p : *hPool) {
+                        const auto pId = p->GetPoolId(Id::College);
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(p->GetPoolId(Id::College) > 2 * m_ppc &&
-                                            p->GetPoolId(Id::College) <= 3 * m_ppc);
+                                EXPECT_TRUE(pId > 2 * m_ppc && pId <= 3 * m_ppc);
                         } else {
-                                EXPECT_EQ(0, p->GetPoolId(Id::College));
+                                EXPECT_EQ(0, pId);
                         }
                 }
         }
@@ -286,10 +289,11 @@ TEST_F(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         // Assert that persons of Brasschaat only commute to Brasschaat or Schoten
         for (const auto& hPool : brasschaat->RefPools(Id::Household)) {
                 for (auto p : *hPool) {
+                        const auto pId = p->GetPoolId(Id::College);
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(p->GetPoolId(Id::College) >= 1 && p->GetPoolId(Id::College) <= 2 * m_ppc);
+                                EXPECT_TRUE(pId >= 1 && pId <= 2 * m_ppc);
                         } else {
-                                EXPECT_EQ(0, p->GetPoolId(Id::College));
+                                EXPECT_EQ(0, pId);
                         }
                 }
         }
@@ -297,11 +301,11 @@ TEST_F(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         // Assert that persons of Kortrijk only commute to Schoten
         for (const auto& hPool : kortrijk->RefPools(Id::Household)) {
                 for (auto p : *hPool) {
+                        const auto pId = p->GetPoolId(Id::College);
                         if (AgeBrackets::College::HasAge(p->GetAge())) {
-                                EXPECT_TRUE(p->GetPoolId(Id::College) > m_ppc &&
-                                            p->GetPoolId(Id::College) <= 2 * m_ppc);
+                                EXPECT_TRUE(pId > m_ppc && pId <= 2 * m_ppc);
                         } else {
-                                EXPECT_EQ(0, p->GetPoolId(Id::College));
+                                EXPECT_EQ(0, pId);
                         }
                 }
         }

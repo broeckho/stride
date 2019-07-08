@@ -13,7 +13,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "CollegePopulator.h"
+#include "Populator.h"
 
 #include "contact/AgeBrackets.h"
 #include "contact/ContactPool.h"
@@ -29,7 +29,8 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Populator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
 {
         m_logger->trace("Starting to populate Colleges");
 
@@ -39,7 +40,7 @@ void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
                         continue;
                 }
                 // 1. find all highschools in an area of 10-k*10 km
-                const auto& nearByCollegePools = GetNearbyPools(Id::College, geoGrid, *loc);
+                const auto& nearByCollegePools = geoGrid.GetNearbyPools(Id::College, *loc);
 
                 AssertThrow(!nearByCollegePools.empty(), "No College found!", m_logger);
 
@@ -67,10 +68,10 @@ void CollegePopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
                 for (const auto& hhPool : loc->RefPools(Id::Household)) {
                         for (Person* p : *hhPool) {
                                 if (AgeBrackets::College::HasAge(p->GetAge()) &&
-                                    MakeChoice(geoGridConfig.input.participation_college)) {
+                                    m_rn_man.MakeWeightedCoinFlip(geoGridConfig.param.participation_college)) {
                                         // this person is a student
                                         if (!commutingCollege.empty() &&
-                                            MakeChoice(geoGridConfig.input.fraction_college_commuters)) {
+                                            m_rn_man.MakeWeightedCoinFlip(geoGridConfig.param.fraction_college_commuters)) {
                                                 // this person is commuting
 
                                                 // pools to commute to

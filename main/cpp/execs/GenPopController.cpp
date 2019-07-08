@@ -49,7 +49,7 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-GenPopController::GenPopController(const ptree& config) : ControlHelper("GenPopController", config) {}
+GenPopController::GenPopController(const ptree& config, const string& name) : ControlHelper(config, name) {}
 
 void GenPopController::Control()
 {
@@ -85,7 +85,7 @@ void GenPopController::Control()
         m_stride_logger->trace("Start writing population to file.");
 
         const auto prefix      = m_config.get<string>("run.output_prefix");
-        const auto popFileName = m_config.get<string>("run.population_file", "gengeopop.proto");
+        const auto popFileName = m_config.get<string>("run.population_file", "genpop.proto");
         const auto popFilePath = FileSys::BuildPath(prefix, popFileName);
         m_stride_logger->info("Population written to file {}.", popFilePath.string());
         shared_ptr<GeoGridWriter> geoGridWriter = GeoGridWriterFactory::CreateGeoGridWriter(popFileName);
@@ -94,12 +94,6 @@ void GenPopController::Control()
         outputFileStream.close();
 
         m_stride_logger->trace("Done writing population to file.");
-
-        // -----------------------------------------------------------------------------------------
-        // Done, shutdown.
-        // -----------------------------------------------------------------------------------------
-        LogShutdown();
-        spdlog::drop_all();
 }
 
 } // namespace stride

@@ -13,14 +13,9 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "WorkplaceGenerator.h"
+#include "Generator.h"
 
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
-#include "geopop/Location.h"
-#include "pop/Population.h"
 #include "util/Assert.h"
-#include "util/RnMan.h"
 
 namespace geopop {
 
@@ -28,26 +23,27 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Generator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig)
 {
         // 1. active people count and the commuting people count are given
-        // 2. count the workplaces, each workplace has an average of 20 employees
+        // 2. count the workplaces
         // 3. count the working people at each location = #residents + #incoming commuters - #outgoing commuters
-        // 4. use the last information for the distribution
-        // 5. assign each workplace to a location
+        // 4. use that information for the distribution
+        // 5. assign each workplaces to a location
 
-        const auto EmployeeCount = geoGridConfig.popInfo.popcount_workplace;
+        const auto EmployeeCount = ggConfig.info.popcount_workplace;
         const auto WorkplacesCount =
-            static_cast<unsigned int>(ceil(EmployeeCount / static_cast<double>(geoGridConfig.pools.workplace_size)));
+            static_cast<unsigned int>(ceil(EmployeeCount / static_cast<double>(ggConfig.people[Id::Workplace])));
 
         // = for each location #residents + #incoming commuting people - #outgoing commuting people
         vector<double> weights;
         for (const auto& loc : geoGrid) {
                 const double ActivePeopleCount =
                     (loc->GetPopCount() +
-                     loc->GetIncomingCommuteCount(geoGridConfig.input.fraction_workplace_commuters) -
-                     loc->GetOutgoingCommuteCount(geoGridConfig.input.fraction_workplace_commuters) *
-                         geoGridConfig.input.particpation_workplace);
+                     loc->GetIncomingCommuteCount(ggConfig.param.fraction_workplace_commuters) -
+                     loc->GetOutgoingCommuteCount(ggConfig.param.fraction_workplace_commuters) *
+                         ggConfig.param.particpation_workplace);
 
                 const double weight = ActivePeopleCount / EmployeeCount;
                 AssertThrow(weight >= 0 && weight <= 1 && !std::isnan(weight), "Invalid weight: " + to_string(weight),
@@ -65,16 +61,7 @@ void WorkplaceGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
 
         for (auto i = 0U; i < WorkplacesCount; i++) {
                 const auto loc = geoGrid[dist()];
-                AddPools(*loc, pop, geoGridConfig.pools.pools_per_workplace);
-        }
-}
-
-void WorkplaceGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
-{
-        auto& poolSys = pop->RefPoolSys();
-        for (auto i = 0U; i < number; ++i) {
-                const auto p = poolSys.CreateContactPool(Id::Workplace);
-                loc.RegisterPool<Id::Workplace>(p);
+                AddPools(*loc, pop, ggConfig);
         }
 }
 

@@ -13,9 +13,8 @@
  *  Copyright 2019, Jan Broeckhove.
  */
 
-#include "geopop/generators/HouseholdGenerator.h"
-#include "geopop/generators/SecondaryCommunityGenerator.h"
-#include "geopop/populators/SecondaryCommunityPopulator.h"
+#include "geopop/generators/Generator.h"
+#include "geopop/populators/Populator.h"
 
 #include "geopop/Coordinate.h"
 #include "geopop/GeoGrid.h"
@@ -37,7 +36,7 @@ class SecondaryCommunityPopulatorTest : public testing::Test
 {
 public:
         SecondaryCommunityPopulatorTest()
-            : m_rn_man(RnInfo{}), m_populator(m_rn_man), m_geogrid_config(), m_pop(Population::Create()),
+            : m_rn_man(RnInfo{}), m_populator(m_rn_man), m_gg_config(), m_pop(Population::Create()),
               m_location(make_shared<Location>(1, 4, Coordinate(0, 0), "Antwerpen", 2500)),
               m_geo_grid(m_pop->RefGeoGrid()), m_person(), m_community_generator(m_rn_man),
               m_household_generator(m_rn_man)
@@ -50,7 +49,7 @@ protected:
         // members and not yet registered in the GeoGrid.
         void SetUp() override
         {
-                m_household_generator.AddPools(*m_location, m_pop.get(), m_pphh);
+                m_household_generator.AddPools(*m_location, m_pop.get(), m_gg_config);
 
                 m_person = make_shared<Person>();
                 m_person->SetId(42);
@@ -58,26 +57,24 @@ protected:
 
                 m_geo_grid.AddLocation(m_location);
 
-                m_community_generator.AddPools(*m_location, m_pop.get(), m_ppsc);
+                m_community_generator.AddPools(*m_location, m_pop.get(), m_gg_config);
         }
 
         RnMan                       m_rn_man;
         SecondaryCommunityPopulator m_populator;
-        GeoGridConfig               m_geogrid_config;
+        GeoGridConfig               m_gg_config;
         shared_ptr<Population>      m_pop;
         shared_ptr<Location>        m_location;
         GeoGrid&                    m_geo_grid;
         shared_ptr<Person>          m_person;
         SecondaryCommunityGenerator m_community_generator;
         HouseholdGenerator          m_household_generator;
-        const unsigned int          m_pphh = GeoGridConfig{}.pools.pools_per_household;
-        const unsigned int          m_ppsc = GeoGridConfig{}.pools.pools_per_secondary_community;
 };
 
 TEST_F(SecondaryCommunityPopulatorTest, OneCommunityTest)
 {
         m_geo_grid.Finalize();
-        m_populator.Apply(m_geo_grid, m_geogrid_config);
+        m_populator.Apply(m_geo_grid, m_gg_config);
 
         auto& scPools = m_location->RefPools(Id::SecondaryCommunity);
         ASSERT_EQ(scPools.size(), 1);
@@ -89,7 +86,7 @@ TEST_F(SecondaryCommunityPopulatorTest, EmptyCommunityTest)
 {
         m_geo_grid.Finalize();
 
-        EXPECT_NO_THROW(m_populator.Apply(m_geo_grid, m_geogrid_config));
+        EXPECT_NO_THROW(m_populator.Apply(m_geo_grid, m_gg_config));
 }
 
 // At this Location a two-person household, both get assigned to the same SecondaryCommunity.
@@ -102,10 +99,10 @@ TEST_F(SecondaryCommunityPopulatorTest, HouseholdTest)
         auto pool = m_location->RefPools(Id::Household)[0];
         pool->AddMember(person2.get());
 
-        m_community_generator.AddPools(*m_location, m_pop.get(), m_ppsc);
+        m_community_generator.AddPools(*m_location, m_pop.get(), m_gg_config);
 
         m_geo_grid.Finalize();
-        m_populator.Apply(m_geo_grid, m_geogrid_config);
+        m_populator.Apply(m_geo_grid, m_gg_config);
 
         auto& scPools = m_location->RefPools(Id::SecondaryCommunity);
         ASSERT_EQ(scPools.size(), 2);
@@ -120,11 +117,11 @@ TEST_F(SecondaryCommunityPopulatorTest, HouseholdTest)
 TEST_F(SecondaryCommunityPopulatorTest, TwoLocationsTest)
 {
         auto location2 = make_shared<Location>(2, 5, Coordinate(1, 1), "Brussel", 1500);
-        m_community_generator.AddPools(*location2, m_pop.get(), m_ppsc);
+        m_community_generator.AddPools(*location2, m_pop.get(), m_gg_config);
 
         m_geo_grid.AddLocation(location2);
         m_geo_grid.Finalize();
-        m_populator.Apply(m_geo_grid, m_geogrid_config);
+        m_populator.Apply(m_geo_grid, m_gg_config);
 
         auto& scPools = m_location->RefPools(Id::SecondaryCommunity);
         ASSERT_EQ(scPools.size(), 1);

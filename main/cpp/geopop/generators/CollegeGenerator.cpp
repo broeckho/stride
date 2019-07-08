@@ -13,14 +13,9 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "CollegeGenerator.h"
+#include "Generator.h"
 
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
-#include "geopop/Location.h"
-#include "pop/Population.h"
 #include "util/Assert.h"
-#include "util/RnMan.h"
 
 namespace geopop {
 
@@ -28,11 +23,12 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Generator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig)
 {
-        const auto studentCount = geoGridConfig.popInfo.popcount_college;
+        const auto studentCount = ggConfig.info.popcount_college;
         const auto collegeCount =
-            static_cast<unsigned int>(ceil(studentCount / static_cast<double>(geoGridConfig.pools.college_size)));
+            static_cast<unsigned int>(ceil(studentCount / static_cast<double>(ggConfig.people[Id::College])));
         const auto cities = geoGrid.TopK(10);
 
         if (cities.empty()) {
@@ -60,17 +56,9 @@ void CollegeGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfi
 
         for (auto i = 0U; i < collegeCount; i++) {
                 auto loc = cities[dist()];
-                AddPools(*loc, pop, geoGridConfig.pools.pools_per_college);
+                AddPools(*loc, pop, ggConfig);
         }
 }
 
-void CollegeGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
-{
-        auto& poolSys = pop->RefPoolSys();
-        for (auto i = 0U; i < number; ++i) {
-                const auto p = poolSys.CreateContactPool(stride::ContactType::Id::College);
-                loc.RegisterPool<Id::College>(p);
-        }
-}
 
 } // namespace geopop

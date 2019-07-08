@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, 2018 Willem L, Kuylen E, Stijven S & Broeckhove J
+ *  Copyright 2019 Willem L, Kuylen E, Stijven S & Broeckhove J
  */
 
 /**
@@ -19,6 +19,7 @@
  */
 
 #include "ScenarioData.h"
+#include "execs/SimController.h"
 #include "geopop/Location.h"
 #include "pop/Population.h"
 #include "sim/Sim.h"
@@ -77,32 +78,21 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsign
         const auto target = get<1>(d);
         const auto margin = get<2>(d);
         config.put("run.num_threads", numThreads);
-        auto logger = spdlog::get("gtester_logger");
+        config.put("run.output_prefix", string("tests/gtester_")
+                   + ::testing::UnitTest::GetInstance()->current_test_info()->name() + "_" + testTag);
 
         // -----------------------------------------------------------------------------------------
         // Actual simulator run.
         // -----------------------------------------------------------------------------------------
-        stride::util::RnMan rnMan;
-        rnMan.Initialize(RnInfo{config.get<string>("run.rng_seed", "1,2,3,4"), config.get<string>("run.rng_state", ""),
-                                config.get<unsigned int>("run.num_threads")});
-        auto pop    = Population::Create(config, rnMan);
-        auto sim    = Sim::Create(config, pop, rnMan);
-        auto runner = make_shared<SimRunner>(config, sim);
-        runner->Run();
+        SimController controller(config, "TestController");
+        controller.Control();
+        const auto sim = controller.GetSim();
+        const auto pop = sim->GetPopulation();
 
         // -----------------------------------------------------------------------------------------
         // Check results against target number (|res - target| < target * margin).
         // -----------------------------------------------------------------------------------------
-        const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
-        stringstream       ss;
-        ss.setf(ios_base::scientific, ios_base::floatfield);
-        ss.precision(2);
-        ss << "Scenario: " << testTag << ",  number of threads: " << numThreads << ",  result: " << res
-           << ",  target: " << target
-           << ",  % delta: " << fabs(static_cast<double>(res) - static_cast<double>(target)) / (1.0e-8 + fabs(target))
-           << ",  margin: " << margin;
-        logger->info("{}", ss.str());
-        logger->flush();
+        const unsigned int res = sim->GetPopulation()->GetInfectedCount();
         EXPECT_NEAR(res, target, target * margin)
             << "Failure at scenario: " << testTag << " with number of threads: " << numThreads << endl;
 
@@ -121,31 +111,31 @@ void RunTest(const string& testTag, tuple<ptree, unsigned int, double> d, unsign
         }
 }
 
-TEST_P(RunsDefault, SingleThread)
+TEST_P(RunsDefault, defaultpop_single)
 {
         const string testTag = GetParam();
         RunTest(testTag, ScenarioData::Get(testTag), 1U);
 }
 
 #ifdef _OPENMP
-TEST_P(RunsDefault, MultiThread)
+TEST_P(RunsDefault, defaultpop_multi)
 {
         const string testTag = GetParam();
         RunTest(testTag, ScenarioData::Get(testTag), ConfigInfo::NumberAvailableThreads());
 }
 #endif
 
-TEST_P(RunsGeoPop, SingleThread)
+TEST_P(RunsGeoPop, geopop_single)
 {
         const string testTag = GetParam();
-        RunTest(testTag, ScenarioData::Get(testTag), 1U);
+        RunTest(testTag, ScenarioData::Get(testTag + "_geopop"), 1U);
 }
 
 #ifdef _OPENMP
-TEST_P(RunsGeoPop, MultiThread)
+TEST_P(RunsGeoPop, geopop_multi)
 {
         const string testTag = GetParam();
-        RunTest(testTag, ScenarioData::Get(testTag), ConfigInfo::NumberAvailableThreads());
+        RunTest(testTag, ScenarioData::Get(testTag + "_geopop"), ConfigInfo::NumberAvailableThreads());
 }
 #endif
 

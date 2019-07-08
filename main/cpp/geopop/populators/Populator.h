@@ -16,13 +16,12 @@
 #pragma once
 
 #include "contact/ContactType.h"
+#include "contact/ContactPool.h"
+#include "geopop/GeoGridConfig.h"
+#include "util/LogUtils.h"
 #include "util/RnMan.h"
 
 #include <spdlog/logger.h>
-
-namespace stride {
-class ContactPool;
-}
 
 namespace geopop {
 
@@ -31,33 +30,60 @@ class GeoGridConfig;
 class Location;
 
 /**
- * Interface for populators. They generate some data and apply it to the GeoGrid.
+ * Populator uses geo & pop data to populate ContactPools in the GeoGrid.
  */
+template <typename stride::ContactType::Id ID>
 class Populator
 {
 public:
         /// Construct with a RnMan and a logger.
-        explicit Populator(stride::util::RnMan& rnMan, std::shared_ptr<spdlog::logger> logger = nullptr);
+        explicit Populator(stride::util::RnMan& rnMan, std::shared_ptr<spdlog::logger> logger = nullptr)
+                : m_rn_man(rnMan), m_logger(move(logger))
+        {
+                if (!m_logger)
+                        m_logger = stride::util::LogUtils::CreateNullLogger();
+        }
 
-        /// Virtual destructor for inheritance.
-        virtual ~Populator() = default;
+        /// Default is OK.
+        ~Populator() = default;
 
-        /// Populate the given geogrid for pool type (fixed in implementation).
-        virtual void Apply(GeoGrid& geogrid, const GeoGridConfig& geoGridConfig) = 0;
-
-protected:
-        /// Find contactpools in startRadius (in km) around start and, if none are found, double
-        /// the radius and search again until the radius gets infinite. May return an empty vector
-        /// when there are no pools to be found.
-        std::vector<stride::ContactPool*> GetNearbyPools(stride::ContactType::Id id, const GeoGrid& geoGrid,
-                                                         const Location& start, double startRadius = 10.0) const;
-
-        /// Binary selection corresponding to fraction% true en (1-fraction)% false.
-        bool MakeChoice(double fraction);
+        /// Populate the ContactPools type ID. This is a placeholder for the specializations.
+        void Apply(GeoGrid&, const GeoGridConfig&) {};
 
 protected:
         stride::util::RnMan&            m_rn_man; ///< RnManager used by populators.
         std::shared_ptr<spdlog::logger> m_logger; ///< Logger used by populators.
 };
+
+// ---------------------------------------------------------------
+// Declare specializations (implemntation in separate .cpp files).
+// ---------------------------------------------------------------
+template<>
+void Populator<stride::ContactType::Id::K12School>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
+
+template<>
+void Populator<stride::ContactType::Id::College>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
+
+template<>
+void Populator<stride::ContactType::Id::Workplace>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
+
+template<>
+void Populator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
+
+template<>
+void Populator<stride::ContactType::Id::PrimaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
+
+template<>
+void Populator<stride::ContactType::Id::SecondaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig);
+
+// ---------------------------------------------------------------
+// Shorthand definitions.
+// ---------------------------------------------------------------
+using K12SchoolPopulator = Populator<stride::ContactType::Id::K12School>;
+using CollegePopulator = Populator<stride::ContactType::Id::College>;
+using WorkplacePopulator = Populator<stride::ContactType::Id::Workplace>;
+using HouseholdPopulator = Populator<stride::ContactType::Id::Household>;
+using PrimaryCommunityPopulator = Populator<stride::ContactType::Id::PrimaryCommunity>;
+using SecondaryCommunityPopulator = Populator<stride::ContactType::Id::SecondaryCommunity>;
 
 } // namespace geopop

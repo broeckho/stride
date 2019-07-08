@@ -16,8 +16,7 @@
 #include "MakeGeoGrid.h"
 
 #include "geopop/Location.h"
-#include "geopop/generators/HouseholdGenerator.h"
-#include "geopop/generators/K12SchoolGenerator.h"
+#include "geopop/generators/Generator.h"
 #include "pop/Population.h"
 #include "util/RnMan.h"
 
@@ -38,7 +37,7 @@ using namespace geopop;
  * @param personCount       The number of persons per Household.
  * @param pop               The population carrying this GeoGrid.
  */
-void MakeGeoGrid(const GeoGridConfig& ggConfig, int locCount, int locPop, int schoolCount, int houseHoldCount,
+void MakeGeoGrid(const GeoGridConfig& , int locCount, int locPop, int schoolCount, int houseHoldCount,
                  int personCount, Population* pop)
 {
         vector<unsigned int> populationSample = {
@@ -61,8 +60,6 @@ void MakeGeoGrid(const GeoGridConfig& ggConfig, int locCount, int locPop, int sc
         RnMan              rnMan(RnInfo{});
         K12SchoolGenerator k12Gen(rnMan);
         HouseholdGenerator hhGen(rnMan);
-        const unsigned int pph   = ggConfig.pools.pools_per_household;
-        const unsigned int ppk12 = ggConfig.pools.pools_per_k12school;
 
         size_t sampleId = 0;
         auto   personId = 0U;
@@ -70,11 +67,11 @@ void MakeGeoGrid(const GeoGridConfig& ggConfig, int locCount, int locPop, int sc
                 auto loc = make_shared<Location>(locI, 1, Coordinate(0.0, 0.0), "", locPop);
 
                 for (int schI = 0; schI < schoolCount; schI++) {
-                        k12Gen.AddPools(*loc, pop, ppk12);
+                        k12Gen.AddPools(*loc, pop, config);
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {
-                        hhGen.AddPools(*loc, pop, pph);
+                        hhGen.AddPools(*loc, pop, config);
                         auto contactPool = loc->RefPools(Id::Household).back();
 
                         for (int i = 0; i < personCount; i++) {

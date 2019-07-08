@@ -13,7 +13,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "K12SchoolPopulator.h"
+#include "Populator.h"
 
 #include "contact/AgeBrackets.h"
 #include "contact/ContactPool.h"
@@ -27,7 +27,8 @@ using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-void K12SchoolPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
+template<>
+void Populator<stride::ContactType::Id::K12School>::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 {
         m_logger->trace("Starting to populate Schools");
 
@@ -37,7 +38,7 @@ void K12SchoolPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                 }
 
                 // 1. find all schools in an area of 10-k*10 km
-                const vector<ContactPool*>& classes = GetNearbyPools(Id::K12School, geoGrid, *loc);
+                const vector<ContactPool*>& classes = geoGrid.GetNearbyPools(Id::K12School, *loc);
 
                 auto dist = m_rn_man.GetUniformIntGenerator(0, static_cast<int>(classes.size()), 0U);
 

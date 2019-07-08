@@ -13,7 +13,7 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "PrimaryCommunityPopulator.h"
+#include "Populator.h"
 
 #include "contact/ContactPool.h"
 #include "geopop/GeoGrid.h"
@@ -25,7 +25,8 @@ using namespace stride::ContactType;
 
 namespace geopop {
 
-void PrimaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
+template<>
+void Populator<stride::ContactType::Id::PrimaryCommunity>::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
 {
         m_logger->trace("Starting to populate Primary Communities");
 
@@ -35,7 +36,7 @@ void PrimaryCommunityPopulator::Apply(GeoGrid& geoGrid, const GeoGridConfig&)
                 }
 
                 // 1. find all communities in an area of 10-k*10 km
-                const auto nearbyPools = GetNearbyPools(Id::PrimaryCommunity, geoGrid, *loc);
+                const auto nearbyPools = geoGrid.GetNearbyPools(Id::PrimaryCommunity, *loc);
 
                 if (nearbyPools.empty()) { // apparently no commumity pools present, so nothing to populate
                         return;

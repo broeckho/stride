@@ -13,21 +13,16 @@
  *  Copyright 2018, 2019, Jan Broeckhove and Bistromatics group.
  */
 
-#include "HouseholdGenerator.h"
+#include "Generator.h"
 
-#include "geopop/GeoGrid.h"
-#include "geopop/GeoGridConfig.h"
-#include "geopop/Location.h"
-#include "pop/Population.h"
-#include "util/RnMan.h"
+namespace geopop {
 
 using namespace std;
 using namespace stride;
 using namespace stride::ContactType;
 
-namespace geopop {
-
-void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridConfig)
+template<>
+void Generator<stride::ContactType::Id::Household>::Apply(GeoGrid& geoGrid, const GeoGridConfig& ggConfig)
 {
         vector<double> weights;
         for (const auto& loc : geoGrid) {
@@ -42,18 +37,9 @@ void HouseholdGenerator::Apply(GeoGrid& geoGrid, const GeoGridConfig& geoGridCon
         const auto dist = m_rn_man.GetDiscreteGenerator(weights, 0U);
         auto       pop  = geoGrid.GetPopulation();
 
-        for (auto i = 0U; i < geoGridConfig.popInfo.count_households; i++) {
+        for (auto i = 0U; i < ggConfig.info.count_households; i++) {
                 const auto loc = geoGrid[dist()];
-                AddPools(*loc, pop, geoGridConfig.pools.pools_per_household);
-        }
-}
-
-void HouseholdGenerator::AddPools(Location& loc, Population* pop, unsigned int number)
-{
-        auto& poolSys = pop->RefPoolSys();
-        for (auto i = 0U; i < number; ++i) {
-                const auto p = poolSys.CreateContactPool(Id::Household);
-                loc.RegisterPool<Id::Household>(p);
+                AddPools(*loc, pop, ggConfig);
         }
 }
 

@@ -59,6 +59,9 @@ public:
         /// Return generator for ints [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random stream.
         std::function<int()> GetDiscreteGenerator(const std::vector<double>& weights, unsigned int i = 0U);
 
+        /// Make weighted coin flip: <fraction> of the flips need to come up true.
+        bool MakeWeightedCoinFlip(double fraction, unsigned int i = 0U);
+
         /// Initalize with data in Info.
         void Initialize(const RnInfo& info);
 

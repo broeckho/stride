@@ -58,7 +58,7 @@ class StanController : protected ControlHelper
 {
 public:
         /// Straight initialization.
-        explicit StanController(const boost::property_tree::ptree& config);
+        explicit StanController(const boost::property_tree::ptree& config, const std::string& name = "StanController");
 
         /// Actual run of the simulator.
         void Control();

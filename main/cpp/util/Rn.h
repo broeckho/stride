@@ -87,9 +87,16 @@ public:
         }
 
         /// Return generator for integers [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random engine.
-        std::function<int()> GetDiscreteGenerator(const std::vector<double>& weights, unsigned int i = 0U)
+        //std::function<int()> GetDiscreteGenerator(const std::vector<double>& weights, unsigned int i = 0U)
+        //{
+        //        return ContainerType::at(i).variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        //}
+
+        /// Return generator for integers [0, n-1[ with non-negative weights p_j (i=0,..,n-1) using i-th random engine.
+        template<typename It>
+        std::function<int()> GetDiscreteGenerator(It begin, It end, unsigned int i = 0U)
         {
-                return ContainerType::at(i).variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+                return ContainerType::at(i).variate_generator(trng::discrete_dist(begin, end));
         }
 
         /// Initalize with data in Info.

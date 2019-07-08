@@ -28,6 +28,8 @@
 namespace geopop {
 
 using namespace std;
+using stride::ContactPool;
+using stride::ContactType::Id;
 
 GeoGrid::GeoGrid(stride::Population* population)
     : m_locations(), m_id_to_index(), m_population(population), m_finalized(false), m_tree()
@@ -104,6 +106,24 @@ vector<const Location*> GeoGrid::LocationsInRadius(const Location& start, double
         agg();
 
         return result;
+}
+
+vector<ContactPool*> GeoGrid::GetNearbyPools(Id id, const Location& start, double startRadius) const
+{
+        double               currentRadius = startRadius;
+        vector<ContactPool*> pools;
+
+        while (pools.empty()) {
+                for (const Location* nearLoc : LocationsInRadius(start, currentRadius)) {
+                        const auto& locPool = nearLoc->CRefPools(id);
+                        pools.insert(pools.end(), locPool.begin(), locPool.end());
+                }
+                currentRadius *= 2;
+                if (currentRadius == numeric_limits<double>::infinity()) {
+                        break;
+                }
+        }
+        return pools;
 }
 
 vector<Location*> GeoGrid::TopK(size_t k) const
