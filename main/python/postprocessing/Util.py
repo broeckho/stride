@@ -1,17 +1,9 @@
 import csv
-import math
 import matplotlib.pyplot as plt
-import multiprocessing
 import os
 
-MAX_AGE = 99
-
-COLORS = ['orange', 'green', 'red', 'purple', 'brown', 'cyan',
-            'magenta', 'yellow', 'lime', 'violet', 'firebrick',
-            'forestgreen', 'turquoise']
-
-def lnFunc(xs, a, b):
-    return [a + b * math.log(x + 1) for x in xs]
+COLORS = ["red", "cyan", "magenta", "brown", "green", "orange", "pink"]
+MAX_AGE = 99    # Maximum age in the simulations
 
 def getRngSeeds(outputDir, scenarioName):
     seeds = []
@@ -23,16 +15,28 @@ def getRngSeeds(outputDir, scenarioName):
                 seeds.append(int(s))
     return seeds
 
-def getFinalOutbreakSize(outputDir, scenarioName, seed, numDays):
-    casesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "cases.csv")
-    with open(casesFile) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            timestep = int(row["timestep"])
-            if timestep == (numDays - 1):
-                return int(row["cases"])
+def saveFig(outputDir, figName, extension="eps"):
+    if not os.path.exists("fig"):
+        os.mkdir("fig")
+    plt.savefig(os.path.join(outputDir, "fig", figName + "." + extension), format=extension, dpi=1000)
+    plt.clf()
 
-def getSecondaryCases(outputDir, scenarioName, seed):
+def getFinalOutbreakSize(outputDir, scenarioName, seed, numDays):
+    transmissionsFile = os.path.join(outputDir, scenarioName + "_" + str(seed) + "_contact_log.txt")
+    totalTransmissions = 0
+    with open(transmissionsFile) as f:
+        for line in f:
+            line = line.split(" ")
+            if line[0] == "[TRAN]":
+                simDay = int(line[6])
+                if simDay < numDays:
+                    totalTransmissions += 1
+    return totalTransmissions
+
+def getSecondaryCasesFromIndex(outputDir, scenarioName, seed):
+    """
+        Get number of secondary cases caused by index case.
+    """
     transmissionsFile = os.path.join(outputDir, scenarioName + "_" + str(seed) + "_contact_log.txt")
     indexCases = []
     infectors = {}
@@ -42,21 +46,15 @@ def getSecondaryCases(outputDir, scenarioName, seed):
             infectorID = int(line[2])
             if infectorID == -1:
                 # Infection of index case at simulation setup
-                indexCases.append(int(line[1]))
+                indexCases.append(int(line[1])) # Add ID of infected to list of index cases
             else:
                 if infectorID in infectors:
                     infectors[infectorID] += 1
                 else:
                     infectors[infectorID] = 1
     secondaryCases = 0
-    for i in indexCases:
-        if i in infectors:
-            secondaryCases += infectors[i]
-    secondaryCases /= len(indexCases)
+    for pID in indexCases:
+        if pID in infectors:
+            secondaryCases += infectors[pID]
+    secondaryCases /= len(indexCases) # Take mean in case of more than one index case
     return secondaryCases
-
-def saveFig(outputDir, figName, extension="eps"):
-    if not os.path.exists("fig"):
-        os.mkdir("fig")
-    plt.savefig(os.path.join(outputDir, "fig", figName + "." + extension), format=extension, dpi=1000)
-    plt.clf()

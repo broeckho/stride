@@ -9,52 +9,44 @@ def registerMemberships(simulator, event):
     households = {}
     for i in range(pop.size()):
         person = pop[i]
-        personID = int(person.GetId())
-        householdID = int(person.GetPoolId(0))
-        if householdID != 0:
-            if householdID in households:
-                households[householdID].append(personID)
-            else:
-                households[householdID] = [personID]
-    print(len(households))
+        householdID = person.GetPoolId(0)
+        age = int(person.GetAge())
+        isSusceptible = person.GetHealth().IsSusceptible()
+        if isSusceptible:
+            isSusceptible = 1
+        else:
+            isSusceptible = 0
+        if householdID in households:
+            households[householdID]["ages"].append(age)
+            households[householdID]["susceptible"].append(isSusceptible)
+        else:
+            households[householdID] = {"ages": [age], "susceptible": [isSusceptible]}
     with open(os.path.join(outputPrefix, "households.csv"), "w") as csvfile:
-        fieldnames = ["pool_id", "person_ids"]
+        fieldnames = ["household_id", "ages", "susceptible"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        for poolID, personIDs in households.items():
-            writer.writerow({"pool_id": poolID, "person_ids": personIDs})
+        for hhID in households:
+            writer.writerow({"household_id": hhID,
+                                "ages": households[hhID]["ages"],
+                                "susceptible": households[hhID]["susceptible"]})
 
 def registerSusceptibles(simulator, event):
     outputPrefix = simulator.GetConfigValue("run.output_prefix")
     pop = simulator.GetPopulation()
-    with open(os.path.join(outputPrefix, "susceptibles.csv"), "w") as csvfile:
-        fieldnames = ["person_id", "age", "susceptible"]
+    immunityByAge = []
+    for age in range(MAX_AGE + 1):
+        immunityByAge.append({"age": age, "susceptible": 0, "immune": 0})
+    for i in range(pop.size()):
+        person = pop[i]
+        age = int(person.GetAge())
+        isSusceptible = person.GetHealth().IsSusceptible()
+        if isSusceptible:
+            immunityByAge[age]["susceptible"] += 1
+        else:
+            immunityByAge[age]["immune"] += 1
+    with open(os.path.join(outputPrefix, "susceptibles_by_age.csv"), "w") as csvfile:
+        fieldnames = ["age", "susceptible", "immune"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        for i in range(pop.size()):
-            person = pop[i]
-            personID = person.GetId()
-            age = person.GetAge()
-            isSusceptible = person.GetHealth().IsSusceptible()
-            # Convert boolean to int for easier reading from file in different langs
-            if isSusceptible:
-                isSusceptible = 1
-            else:
-                isSusceptible = 0
-            writer.writerow({"person_id": personID, "age": age, "susceptible": isSusceptible})
-
-
-def trackCases(simulator, event):
-    """
-        Callback function to track cumulative cases
-        at each time-step.
-    """
-    outputPrefix = simulator.GetConfigValue("run.output_prefix")
-    timestep = event.timestep
-    cases = simulator.GetPopulation().GetInfectedCount()
-    with open(os.path.join(outputPrefix, "cases.csv"), "a") as csvfile:
-        fieldnames = ["timestep", "cases"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        if timestep == 0:
-            writer.writeheader()
-        writer.writerow({"timestep": timestep, "cases": cases})
+        for entry in immunityByAge:
+            writer.writerow(entry)

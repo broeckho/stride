@@ -1,70 +1,64 @@
-"""import csv
 import matplotlib.pyplot as plt
 import multiprocessing
 import os
 
 from .Util import getRngSeeds, saveFig
 
+def getNewCasesPerDay(outputDir, scenarioName, seed, numDays):
+    transmissionsFile = os.path.join(outputDir, scenarioName + "_" + str(seed) + "_contact_log.txt")
+    transmissions = {}
+    for i in range(numDays):
+        transmissions[i] = 0
+    with open(transmissionsFile) as f:
+        for line in f:
+            line = line.split(" ")
+            if line[0] == "[TRAN]":
+                simDay = int(line[6])
+                if simDay < numDays:
+                    transmissions[simDay] += 1
+    return transmissions
+
+
 def getCumulativeCasesPerDay(outputDir, scenarioName, seed, numDays):
-    casesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "cases.csv")
-    cumulativeCases = []
-    with open(casesFile) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            timestep = int(row["timestep"])
-            if timestep < numDays:
-                cumulativeCases.append(int(row["cases"]))
-        return cumulativeCases
+    newCasesPerDay = getNewCasesPerDay(outputDir, scenarioName, seed, numDays)
+    cumulativeCasesPerDay = []
+    previousDay = 0
+    for day in newCasesPerDay:
+        cumulative = previousDay + newCasesPerDay[day]
+        previousDay = cumulative
+        cumulativeCasesPerDay.append(cumulative)
+    return cumulativeCasesPerDay
 
-def getNewCasesPerDay(outputDir, scenarioName, seed, numDays, extinctionThreshold):
-    cumulativeCases = getCumulativeCasesPerDay(outputDir, scenarioName, seed, numDays)
-    if cumulativeCases[-1] >= extinctionThreshold:
-        newCasesPerDay = []
-        lastDay = 1
-        for today in cumulativeCases:
-            newCasesPerDay.append(today - lastDay)
-            lastDay = today
-        return newCasesPerDay
-    else:
-        return None
+def createNewCasesPerDayPlot(outputDir, scenarioName, transmissionProbability, clusteringLevel, numDays, poolSize):
+    fullScenarioName = scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(transmissionProbability)
+    seeds = getRngSeeds(outputDir, fullScenarioName)
 
-def createCumulativeCasesPerDayPlot(outputDir, scenarioName, numDays, extinctionThreshold, poolSize, figName):
-    dayScale = int(numDays / 20)
-    days = range(numDays)[::dayScale]
-    allCumulativeCases = []
-    for i in range(numDays):
-        allCumulativeCases.append([])
-    seeds = getRngSeeds(outputDir, scenarioName)
-    with multiprocessing.Pool(processes=poolSize) as pool:
-        cumulativeCasesPerDay = pool.starmap(getCumulativeCasesPerDay,
-                                    [(outputDir, scenarioName, s, numDays) for s in seeds])
-        for run in cumulativeCasesPerDay:
-            if run[-1] >= extinctionThreshold:
-                for d in range(numDays):
-                    allCumulativeCases[d].append(run[d])
-    plt.boxplot(allCumulativeCases[::dayScale], labels=days)
-    plt.xlabel("Day")
-    plt.xticks(rotation=90)
-    plt.ylabel("Cumulative cases")
-    saveFig(outputDir, figName)
-
-def createNewCasesPerDayPlot(outputDir, scenarioName, numDays, extinctionThreshold, poolSize, figName):
-    dayScale = int(numDays / 20)
-    days = range(numDays)[::dayScale]
     allNewCases = []
-    for i in range(numDays):
-        allNewCases.append([])
-    seeds = getRngSeeds(outputDir, scenarioName)
     with multiprocessing.Pool(processes=poolSize) as pool:
         newCasesPerDay = pool.starmap(getNewCasesPerDay,
-                                [(outputDir, scenarioName, s, numDays, extinctionThreshold) for s in seeds])
-        for run in newCasesPerDay:
-            if run is not None:
-                for d in range(numDays):
-                    allNewCases[d].append(run[d])
-    plt.boxplot(allNewCases[::dayScale], labels=days)
-    plt.xticks(rotation=90)
-    plt.xlabel("Day")
+                                [(outputDir, fullScenarioName, s, numDays) for s in seeds])
+        # TODO extinction threshold?
+        for day in range(numDays)[::5]:
+            allNewCases.append([run[day] for run in newCasesPerDay])
+    plt.boxplot(allNewCases, labels=range(numDays)[::5])
+    plt.xlabel("Simulation day")
     plt.ylabel("New cases")
-    saveFig(outputDir, figName)
-"""
+    plt.ylim(0, max(max(max(x) for x in allNewCases), 25))
+    saveFig(outputDir, "NewCasesPerDay_" + scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(transmissionProbability))
+
+def createCumulativeCasesPerDayPlot(outputDir, scenarioName, transmissionProbability, clusteringLevel, numDays, poolSize):
+    fullScenarioName = scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(transmissionProbability)
+    seeds = getRngSeeds(outputDir, fullScenarioName)
+
+    allCumulativeCases = []
+    with multiprocessing.Pool(processes=poolSize) as pool:
+        cumulativeCasesPerDay = pool.starmap(getCumulativeCasesPerDay,
+                                        [(outputDir, fullScenarioName, s, numDays) for s in seeds])
+        # TODO extinction threshold?
+        for day in range(numDays)[::5]:
+            allCumulativeCases.append([run[day] for run in cumulativeCasesPerDay])
+    plt.boxplot(allCumulativeCases, labels=range(numDays)[::5])
+    plt.xlabel("Simulation day")
+    plt.ylabel("Cumulative cases")
+    plt.ylim(0, max(max(max(x) for x in allCumulativeCases), 250))
+    saveFig(outputDir, "CumulativeCasesPerDay_" + scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(transmissionProbability))

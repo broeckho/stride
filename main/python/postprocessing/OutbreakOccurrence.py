@@ -1,11 +1,11 @@
 import math
 import matplotlib.pyplot as plt
 import multiprocessing
-import numpy
 
 from mpl_toolkits.mplot3d import Axes3D
 
-from .Util import COLORS, getFinalOutbreakSize, getRngSeeds, saveFig
+from .Util import COLORS
+from .Util import getFinalOutbreakSize, getRngSeeds, saveFig
 
 def calculateSE(fractionSuccesses, sampleSize, confidenceLevel=95):
     zValues = {90: 1.645, 95: 1.96, 99: 2.576}
@@ -18,7 +18,55 @@ def calculateSE(fractionSuccesses, sampleSize, confidenceLevel=95):
         se = z * math.sqrt((fractionSuccesses * (1 - fractionSuccesses)) / sampleSize)
         return se
     else:
-        print("Confidence interval could not be calculated: sample too small")
+        print("Confidence interval could not be calculated: only {} successes and {} failures".format(numSuccesses, numFailures))
+
+def createOutbreakProbability3DPlot(outputDir, scenarioName, transmissionProbabilities,
+    clusteringLevels, numDays, extinctionThreshold, poolSize):
+    # TODO 95 percentile invervals?
+    ax = plt.axes(projection="3d")
+    for prob_i in range(len(transmissionProbabilities)):
+        outbreakProbabilities = []
+        for level_i in range(len(clusteringLevels)):
+            fullScenarioName = scenarioName + "_CLUSTERING_" + str(clusteringLevels[level_i]) + "_TP_" + str(transmissionProbabilities[prob_i])
+            seeds = getRngSeeds(outputDir, fullScenarioName)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                finalSizes = pool.starmap(getFinalOutbreakSize,
+                                            [(outputDir, fullScenarioName, s, numDays) for s in seeds])
+                outbreaks = [1 if x>= extinctionThreshold else 0 for x in finalSizes]
+                outbreakProbability = sum(outbreaks) / len(outbreaks)
+                outbreakProbabilities.append(outbreakProbability)
+        ax.bar(range(len(clusteringLevels)), outbreakProbabilities, zs=prob_i, zdir="y", alpha=0.6, color=COLORS[prob_i % len(COLORS)])
+    ax.set_xlabel("Clustering level")
+    ax.set_xticks(range(len(clusteringLevels)))
+    ax.set_xticklabels(clusteringLevels)
+    ax.set_ylabel("Transmission probability")
+    ax.set_yticks(range(len(transmissionProbabilities))[::2])
+    ax.set_yticklabels(transmissionProbabilities[::2])
+    ax.set_zlabel("Outbreak probability")
+    saveFig(outputDir, "OutbreakProbabilities3D_" + scenarioName)
+
+def createOutbreakProbabilityHeatmap(outputDir, scenarioName, transmissionProbabilities,
+    clusteringLevels, numDays, extinctionThreshold, poolSize):
+    allOutbreakProbabilities = []
+    for prob in transmissionProbabilities:
+        outbreakProbabilities = []
+        for level in clusteringLevels:
+            fullScenarioName = scenarioName + "_CLUSTERING_" + str(level) + "_TP_" + str(prob)
+            seeds = getRngSeeds(outputDir, fullScenarioName)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                finalSizes = pool.starmap(getFinalOutbreakSize,
+                                [(outputDir, fullScenarioName, s, numDays) for s in seeds])
+                outbreaks = [1 if x >= extinctionThreshold else 0 for x in finalSizes]
+                outbreakProbability = sum(outbreaks) / len(outbreaks)
+                outbreakProbabilities.append(outbreakProbability)
+        allOutbreakProbabilities.append(outbreakProbabilities)
+    plt.imshow(allOutbreakProbabilities, vmin=0, vmax=1)
+    plt.colorbar()
+    plt.xlabel("Clustering level")
+    plt.xticks(range(len(clusteringLevels)), clusteringLevels)
+    plt.ylabel("Transmission probability")
+    plt.yticks(range(len(transmissionProbabilities))[::2], transmissionProbabilities[::2])
+    saveFig(outputDir, "OutbreakProbabilitiesHeatmap_" + scenarioName)
 
 def createOutbreakProbabilityPlot(outputDir, scenarioName, transmissionProbability,
     clusteringLevels, numDays, extinctionThreshold, poolSize):
@@ -26,13 +74,13 @@ def createOutbreakProbabilityPlot(outputDir, scenarioName, transmissionProbabili
     SEs = []
     for level in clusteringLevels:
         fullScenarioName = scenarioName + "_CLUSTERING_" + str(level) + "_TP_" + str(transmissionProbability)
-        seeds = getRngSeeds(outputDir,fullScenarioName)
+        seeds = getRngSeeds(outputDir, fullScenarioName)
         with multiprocessing.Pool(processes=poolSize) as pool:
             finalSizes = pool.starmap(getFinalOutbreakSize,
-                            [(outputDir, fullScenarioName, s, numDays) for s in seeds])
-            outbreaks = [1 if x>= extinctionThreshold else 0 for x in finalSizes]
+                                [(outputDir, fullScenarioName, s, numDays) for s in seeds])
+            outbreaks = [1 if x >= extinctionThreshold else 0 for x in finalSizes]
             outbreakProbability = sum(outbreaks) / len(outbreaks)
-            se = calculateSE(outbreakProbability, len(finalSizes))
+            se = calculateSE(outbreakProbability, len(outbreaks))
             outbreakProbabilities.append(outbreakProbability)
             if se is not None:
                 SEs.append(se)
@@ -45,40 +93,3 @@ def createOutbreakProbabilityPlot(outputDir, scenarioName, transmissionProbabili
     plt.ylabel("Outbreak probability")
     plt.ylim(0, 1)
     saveFig(outputDir, "OutbreakProbabilities_" + scenarioName + "_TP_" + str(transmissionProbability))
-
-def createOutbreakProbabilities3DPlot(outputDir, scenarioName, transmissionProbabilities,
-    clusteringLevels, numDays, extinctionThreshold, poolSize):
-    ax = plt.axes(projection="3d")
-
-    i = 0
-    for level in clusteringLevels:
-        outbreakProbabilities = []
-        SEs = []
-        for prob in transmissionProbabilities:
-            fullScenarioName = scenarioName + "_CLUSTERING_" + str(level) + "_TP_" + str(prob)
-            seeds = getRngSeeds(outputDir, fullScenarioName)
-            with multiprocessing.Pool(processes=poolSize) as pool:
-                finalSizes = pool.starmap(getFinalOutbreakSize,
-                    [(outputDir, fullScenarioName, s, numDays) for s in seeds])
-                outbreaks = [1 if x>= extinctionThreshold else 0 for x in finalSizes]
-                outbreakProbability = sum(outbreaks) / len(outbreaks)
-                se = calculateSE(outbreakProbability, len(finalSizes))
-                outbreakProbabilities.append(outbreakProbability)
-                SEs.append(se)
-        ax.scatter([level] * len(transmissionProbabilities),
-                    transmissionProbabilities, outbreakProbabilities,
-                    color=COLORS[i % len(COLORS)], s=20)
-        for j in range(len(outbreakProbabilities)):
-            if SEs[j] is not None:
-                ax.plot([level, level],
-                    [transmissionProbabilities[j], transmissionProbabilities[j]],
-                    [outbreakProbabilities[j]+SEs[j], outbreakProbabilities[j]-SEs[j]], marker="_", color=COLORS[i % len(COLORS)])
-        i += 1
-
-    ax.set_xlabel("Clustering level")
-    ax.set_xticks(clusteringLevels)
-    ax.set_ylabel("Transmission probability")
-    ax.set_yticks(transmissionProbabilities[::5])
-    ax.set_zlabel("Outbreak probability")
-    ax.set_zlim(-0.1, 1.1)
-    saveFig(outputDir, "OutbreakProbabilities3D_" + scenarioName)

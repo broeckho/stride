@@ -5,9 +5,9 @@ import numpy
 import sys
 import time
 
-from measlesClusteringSimulations import runR0Simulations, runEffectiveRSimulations, runFullScenarioSimulations
-
-from postprocessing import AgeImmunity, Clustering, EffectiveR, R0, OutbreakSize, OutbreakOccurrence, InfectedByAge
+from measlesClusteringSimulations import runR0Simulations, runFullScenarioSimulations
+from postprocessing import AgeImmunity, Clustering, EffectiveR, EscapeProbability, InfectedByAge
+from postprocessing import OutbreakEvolution, OutbreakOccurrence, OutbreakSize, R0
 
 @contextlib.contextmanager
 def nostdout():
@@ -16,126 +16,114 @@ def nostdout():
     yield
     sys.stdout = save_stdout
 
-def runSimulations(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0to1,
+def runSimulations(numRunsR0, numRunsFull, transmissionProbabilities0to1,
     transmissionProbabilitiesRestricted, clusteringLevels, poolSize):
-
+    start = time.perf_counter()
     if numRunsR0 > 0:
-        # Run simulations to establish relation P(transmission) ~ R0
-        # TODO different start dates?
-        start = time.perf_counter()
         with nostdout():
             runR0Simulations(numRunsR0, transmissionProbabilities0to1, poolSize)
-        print("R0 simulations took {} seconds".format(time.perf_counter() - start))
-    if numRunsER > 0:
-        # Run simulations to establish relation clustering level + P(transmission) ~ Effective R
-        start = time.perf_counter()
-        with nostdout():
-            runEffectiveRSimulations(numRunsER, transmissionProbabilities0to1, clusteringLevels, poolSize)
-        print("Effective R simulations took {} seconds".format(time.perf_counter() - start))
-
+    now = time.perf_counter()
+    print("R0 simulations took {} seconds".format(now - start))
+    start = now
     if numRunsFull > 0:
-        # Run simulations for 2 years, keeping track of cases, susceptibles, household constitutions
-        start = time.perf_counter()
         with nostdout():
-            runFullScenarioSimulations(numRunsFull, transmissionProbabilitiesRestricted, clusteringLevels, poolSize)
-        print("Full simulations took {} seconds".format(time.perf_counter() - start))
+            runFullScenarioSimulations(numRunsFull, transmissionProbabilitiesRestricted,
+                                    clusteringLevels, poolSize)
+    now = time.perf_counter()
+    print("Full simulations took {} seconds".format(now - start))
 
-def postprocessing(numRunsR0, numRunsER, numRunsFull, transmissionProbabilities0to1,
-    transmissionProbabilitiesRestricted, clusteringLevels, poolSize):
-
+def postprocessing(numRunsR0, numRunsFull, transmissionProbabilities0to1,
+    transmissionProbabilitiesRestricted, clusteringLevels, extinctionThreshold, poolSize):
     outputDir = "."
-    scenarioNames = ["AGEDEPENDENT"]
-    numDaysIndex = 25
-    numDaysFull = 730
-
+    scenarioName = "AGEDEPENDENT"
+    numDaysR0 = 30
+    numDaysFull = 60
     if numRunsR0 > 0:
-        # Fit relation P(transmission) ~ R0 to logarithmic function
-        start = time.perf_counter()
+        print("R0 postprocessing")
         fitCoeffs = R0.getLnFit(outputDir, transmissionProbabilities0to1, poolSize)
-        print(fitCoeffs)
+
         R0.createTransmissionProbabilityVSSecondaryCasesScatterPlot(outputDir,
-                                    scenarioNames, transmissionProbabilities0to1,
-                                    fitCoeffs[0], fitCoeffs[1], poolSize)
+                                transmissionProbabilities0to1, fitCoeffs[0],
+                                fitCoeffs[1], poolSize)
+
         R0.createTransmissionProbabilityVSSecondaryCasesBoxplots(outputDir,
-                                    scenarioNames, transmissionProbabilities0to1,
-                                    poolSize)
-
-        print("R0 postprocessing took {} seconds".format(time.perf_counter() - start))
-
-    if numRunsER > 0:
-        # Effective R
-        start = time.perf_counter()
-        EffectiveR.createEffectiveR3DScatterPlot(outputDir, "ER_" + scenarioNames[0],
-                                            transmissionProbabilities0to1,
-                                            clusteringLevels, poolSize)
-        EffectiveR.createEffectiveR3DBarPlot(outputDir, "ER_" + scenarioNames[0],
-                                            transmissionProbabilitiesRestricted,
-                                            clusteringLevels, poolSize)
-        for prob in transmissionProbabilities0to1:
-            EffectiveR.createEffectiveRPlot(outputDir, "ER_" + scenarioNames[0], prob, clusteringLevels, poolSize)
-
-        print("ER postprocessing took {} seconds".format(time.perf_counter() - start))
+                                transmissionProbabilities0to1, poolSize)
 
     if numRunsFull > 0:
-        # Age-immunity profiles
-        start = time.perf_counter()
-        #AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioNames[0],
-        #                                        transmissionProbabilitiesRestricted,
-        #                                        clusteringLevels, poolSize,
-        #                                        targetRatesDir="../../Workspace/MeaslesInFlanders_Paper/ProjectedImmunity")
-        #for level in clusteringLevels:
-        #    AgeImmunity.createAgeImmunityPlot(outputDir, scenarioNames[0], transmissionProbabilitiesRestricted, level, poolSize)
+        print("Full scenario postprocessing")
+        AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioName,
+                            transmissionProbabilitiesRestricted, clusteringLevels,
+                            poolSize, targetLevelsDir="../../Workspace/MeaslesInFlanders_Paper/ProjectedImmunity")
+        Clustering.createAssortativityCoefficientPlot(outputDir, scenarioName,
+                            transmissionProbabilitiesRestricted, clusteringLevels, poolSize)
+        Clustering.createAssortativityCoefficientPlot(outputDir, scenarioName,
+                            transmissionProbabilitiesRestricted, clusteringLevels, poolSize, ageLim=36)
 
-        print("Age-immunity postprocessing took {} seconds".format(time.perf_counter() - start))
+        EffectiveR.createEffectiveR3DScatterPlot(outputDir, scenarioName, transmissionProbabilitiesRestricted,
+                            clusteringLevels, poolSize)
+        EffectiveR.createEffectiveR3DBarPlot(outputDir, scenarioName, transmissionProbabilitiesRestricted,
+                            clusteringLevels, poolSize)
+        EffectiveR.createEffectiveRHeatmap(outputDir, scenarioName, transmissionProbabilitiesRestricted,
+                            clusteringLevels, poolSize)
 
-        # Calculate associativity within households
-        start = time.perf_counter()
-        #Clustering.createAssortativityCoefficientPlot(outputDir, scenarioNames[0],
-        #                                    transmissionProbabilitiesRestricted,
-        #                                    clusteringLevels, poolSize)
-        print("Associativity postprocessing took {} seconds".format(time.perf_counter() - start))
+        EscapeProbability.createEscapeProbabilityHeatmapPlot(outputDir, scenarioName,
+                            transmissionProbabilitiesRestricted, clusteringLevels,
+                            numDaysFull, poolSize)
 
-        # Outbreak probabilities + sizes
-        start = time.perf_counter()
-        OutbreakSize.createExtinctionThresholdHistogram(outputDir, scenarioNames[0], transmissionProbabilitiesRestricted,
-                                            clusteringLevels, numDaysFull, poolSize)
+        InfectedByAge.meanAgeOfInfectionHeatmap(outputDir, scenarioName,
+                            transmissionProbabilitiesRestricted, clusteringLevels,
+                            numDaysFull, poolSize)
 
-        extinctionThreshold = 5000
-        OutbreakOccurrence.createOutbreakProbabilities3DPlot(outputDir, scenarioNames[0],
-                                            transmissionProbabilitiesRestricted,
-                                            clusteringLevels, numDaysFull, extinctionThreshold, poolSize)
-        OutbreakSize.createOutbreakSizes3DPlot(outputDir, scenarioNames[0],
-                                            transmissionProbabilitiesRestricted,
-                                            clusteringLevels, numDaysFull,
-                                            extinctionThreshold, poolSize)
+        OutbreakOccurrence.createOutbreakProbability3DPlot(outputDir, scenarioName,
+                            transmissionProbabilitiesRestricted, clusteringLevels,
+                            numDaysFull, extinctionThreshold, poolSize)
+        OutbreakOccurrence.createOutbreakProbabilityHeatmap(outputDir, scenarioName,
+                            transmissionProbabilitiesRestricted, clusteringLevels,
+                            numDaysFull, extinctionThreshold, poolSize)
+        OutbreakSize.createOutbreakSizes3DPlot(outputDir, scenarioName,
+                            transmissionProbabilitiesRestricted, clusteringLevels,
+                            numDaysFull, extinctionThreshold, poolSize)
+        for level in clusteringLevels:
+            AgeImmunity.createAgeImmunityBoxplot(outputDir, scenarioName,
+                            transmissionProbabilitiesRestricted, level, poolSize)
 
         for prob in transmissionProbabilitiesRestricted:
-            InfectedByAge.createInfectedByAgeScatterplot(outputDir, scenarioNames[0], prob, clusteringLevels, poolSize)
-            InfectedByAge.createInfectedByAgePlot(outputDir, scenarioNames[0], prob, clusteringLevels, poolSize)
-            OutbreakOccurrence.createOutbreakProbabilityPlot(outputDir, scenarioNames[0], prob, clusteringLevels,
-                                                    numDaysFull, extinctionThreshold, poolSize)
-            OutbreakSize.createOutbreakSizesPlot(outputDir, scenarioNames[0], prob, clusteringLevels, numDaysFull, extinctionThreshold, poolSize)
-        print("Outbreak size + probability postprocessing took {} seconds".format(time.perf_counter() - start))
-        # TODO Total number of susceptibles / overall level of immunity
+            EffectiveR.createEffectiveRPlot(outputDir, scenarioName, prob,
+                            clusteringLevels, poolSize)
+            OutbreakOccurrence.createOutbreakProbabilityPlot(outputDir, scenarioName, prob,
+                            clusteringLevels, numDaysFull, extinctionThreshold, poolSize)
+            OutbreakSize.createExtinctionThresholdHistogram(outputDir, scenarioName,
+                            prob, clusteringLevels, numDaysFull, poolSize)
+            OutbreakSize.createOutbreakSizesPlot(outputDir, scenarioName, prob,
+                            clusteringLevels, numDaysFull, extinctionThreshold, poolSize)
 
-def main(postprocessingOnly, numRunsR0, numRunsER, numRunsFull, poolSize):
+            # TODO more scientific way to estimate extinction threshold?
+            EscapeProbability.createEscapeProbabilityPlot(outputDir, scenarioName,
+                            prob, clusteringLevels, numDaysFull, poolSize)
+            for level in clusteringLevels:
+                OutbreakEvolution.createNewCasesPerDayPlot(outputDir, scenarioName,
+                                    prob, level, numDaysFull, poolSize)
+                OutbreakEvolution.createCumulativeCasesPerDayPlot(outputDir, scenarioName,
+                                    prob, level, numDaysFull, poolSize)
+
+def main(postprocessingOnly, numRunsR0, numRunsFull, extinctionThreshold, poolSize):
     transmissionProbabilities0to1 = numpy.arange(0, 1.05, 0.05)
     transmissionProbabilitiesRestricted = numpy.arange(0.2, 0.85, 0.05)
     clusteringLevels = [0, 0.25, 0.5, 0.75, 1]
-    if not postprocessingOnly:
-        runSimulations(numRunsR0, numRunsER, numRunsFull,
-                   transmissionProbabilities0to1, transmissionProbabilitiesRestricted,
-                   clusteringLevels, poolSize)
-    postprocessing(numRunsR0, numRunsER, numRunsFull,
-                    transmissionProbabilities0to1, transmissionProbabilitiesRestricted,
-                    clusteringLevels, poolSize)
+    if not postprocessingOnly: # Check if we need to run new simulations
+        runSimulations(numRunsR0, numRunsFull, transmissionProbabilities0to1,
+                        transmissionProbabilitiesRestricted, clusteringLevels,
+                        poolSize)
+    postprocessing(numRunsR0, numRunsFull, transmissionProbabilities0to1,
+                        transmissionProbabilitiesRestricted, clusteringLevels,
+                        extinctionThreshold, poolSize)
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--postprocessingOnly", action="store_true", default=False)
     parser.add_argument("--numRunsR0", type=int, default=0)
-    parser.add_argument("--numRunsER", type=int, default=0)
     parser.add_argument("--numRunsFull", type=int, default=0)
+    parser.add_argument("--extinctionThreshold", type=int, default=0)
     parser.add_argument("--poolSize", type=int, default=8)
     args = parser.parse_args()
-    main(args.postprocessingOnly, args.numRunsR0, args.numRunsER, args.numRunsFull, args.poolSize)
+    main(args.postprocessingOnly, args.numRunsR0, args.numRunsFull, args.extinctionThreshold, args.poolSize)

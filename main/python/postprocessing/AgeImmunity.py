@@ -4,29 +4,32 @@ import multiprocessing
 import numpy
 import os
 
-from .Util import COLORS, MAX_AGE, getRngSeeds, saveFig
+from .Util import COLORS, MAX_AGE
+from .Util import getRngSeeds, saveFig
 
 def getSusceptibilityLevels(outputDir, scenarioName, seed):
-    totalsByAge = [0]  * (MAX_AGE + 1)
-    susceptiblesByAge = [0] * (MAX_AGE + 1)
-    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
+    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles_by_age.csv")
+    ages = {}
     with open(susceptiblesFile) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            age = int(float(row["age"]))
-            totalsByAge[age] += 1
-            if int(row["susceptible"]):
-                susceptiblesByAge[age] += 1
-    return [x / y for x, y in zip(susceptiblesByAge, totalsByAge)]
+            age = int(row["age"])
+            numImmune = int(row["immune"])
+            numSusceptible = int(row["susceptible"])
+            totalOfAge = numImmune + numSusceptible
+            fractionSusceptible = numSusceptible / totalOfAge
+            ages[age] = fractionSusceptible
+    return ages
 
 def getProjectedSusceptibilityLevels(dataDir):
     maxDataAge = 85
     numMunicipalities = 500
     year = 2020
+    yearDir = os.path.join(dataDir, "BootstrapSusceptibility" + str(year))
+
     ages = {}
     for age in range(maxDataAge + 1):
         ages[age] = []
-    yearDir = os.path.join(dataDir, "BootstrapSusceptibility" + str(year))
     for i in range(1, numMunicipalities + 1):
         immunityFile = os.path.join(yearDir, "bootstrap.susceptibility" + str(year) + ".municipality" + str(i) + ".txt")
         with open(immunityFile) as f:
@@ -45,57 +48,50 @@ def getProjectedSusceptibilityLevels(dataDir):
     return (lower, upper)
 
 def createAgeImmunityOverviewPlot(outputDir, scenarioName, transmissionProbabilities,
-    clusteringLevels, poolSize, targetRatesDir=None):
+    clusteringLevels, poolSize, targetLevelsDir=None):
     linestyles = ['-', '--', '-.', ':', '--', '--']
     dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
-    # Get target rates if needed
-    if targetRatesDir is not None:
-        upper, lower = getProjectedSusceptibilityLevels(targetRatesDir)
+    # Get target levels if needed
+    if targetLevelsDir is not None:
+        upper, lower = getProjectedSusceptibilityLevels(targetLevelsDir)
         plt.fill_between(range(MAX_AGE + 1), lower, upper)
-    i = 0
-    for level in clusteringLevels:
-        allAges = {}
-        for age in range(MAX_AGE + 1):
-            allAges[age] = []
+    for level_i in range(len(clusteringLevels)):
+        susceptibilityLevels = []
         for prob in transmissionProbabilities:
-            fullScenarioName = scenarioName + "_CLUSTERING_" + str(level) + "_TP_" + str(prob)
+            fullScenarioName = scenarioName + "_CLUSTERING_" + str(clusteringLevels[level_i]) + "_TP_" + str(prob)
             seeds = getRngSeeds(outputDir, fullScenarioName)
             with multiprocessing.Pool(processes=poolSize) as pool:
-                susceptibilityLevels = pool.starmap(getSusceptibilityLevels,
-                                        [(outputDir, fullScenarioName, s) for s in seeds])
-                for age in range(MAX_AGE + 1):
-                    levelsForAge = [run[age] for run in susceptibilityLevels]
-                    allAges[age] += levelsForAge
-        linestyle = linestyles[i % len(linestyles)]
-        dash = dashes[i % len(dashes)]
-        if dash is not None:
-            plt.plot(range(MAX_AGE + 1), [sum(allAges[age]) / len(allAges[age]) for age in range(MAX_AGE + 1)],
-                    color=COLORS[i % len(COLORS)], linestyle=linestyle, dashes=dash)
+                susceptibilityLevels += pool.starmap(getSusceptibilityLevels,
+                                            [(outputDir, fullScenarioName, s) for s in seeds])
+        meansByAge = []
+        for age in range(MAX_AGE + 1):
+            levelsForAge = [run[age] for run in susceptibilityLevels]
+            meansByAge.append(sum(levelsForAge) / len(levelsForAge))
+        if dashes[level_i] is not None:
+            plt.plot(range(MAX_AGE + 1), meansByAge, color=COLORS[level_i],
+                        dashes=dashes[level_i], linestyle=linestyles[level_i])
         else:
-            plt.plot(range(MAX_AGE + 1), [sum(allAges[age]) / len(allAges[age]) for age in range(MAX_AGE + 1)],
-                    color=COLORS[i % len(COLORS)], linestyle=linestyle)
-        i += 1
+            plt.plot(range(MAX_AGE + 1), meansByAge, color=COLORS[level_i],
+                        linestyle=linestyles[level_i])
     plt.xlabel("Age (in years)")
     plt.xlim(0, 100)
-    plt.ylabel("Fraction susceptible")
+    plt.ylabel("Fraction susceptible (mean)")
     plt.ylim(0, 1)
-    plt.legend(["Clustering = {}".format(c) for c in clusteringLevels]+ ["Projection"])
+    plt.legend(["Clustering = {}".format(c) for c in clusteringLevels] + ["Projection"])
     saveFig(outputDir, "AgeImmunity_" + scenarioName)
 
-def createAgeImmunityPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize):
-    allAges = {}
-    for age in range(MAX_AGE + 1):
-        allAges[age] = []
+def createAgeImmunityBoxplot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize):
+    susceptibilityLevels = []
     for prob in transmissionProbabilities:
         fullScenarioName = scenarioName + "_CLUSTERING_" + str(clusteringLevel) + "_TP_" + str(prob)
         seeds = getRngSeeds(outputDir, fullScenarioName)
         with multiprocessing.Pool(processes=poolSize) as pool:
-            susceptibilityLevels = pool.starmap(getSusceptibilityLevels,
-                                                [(outputDir, fullScenarioName, s) for s in seeds])
-            for age in range(MAX_AGE + 1):
-                levelsForAge = [run[age] for run in susceptibilityLevels]
-                allAges[age] += levelsForAge
-    plt.boxplot([allAges[age] for age in range(MAX_AGE + 1)], labels=range(MAX_AGE + 1))
+            susceptibilityLevels += pool.starmap(getSusceptibilityLevels,
+                                        [(outputDir, fullScenarioName, s) for s in seeds])
+    levelsByAge = []
+    for age in range(MAX_AGE + 1):
+        levelsByAge.append([run[age] for run in susceptibilityLevels])
+    plt.boxplot(levelsByAge)
     plt.xlabel("Age (in years)")
     plt.xlim(0, 100)
     plt.xticks(range(0, 101, 20), range(0, 101, 20))

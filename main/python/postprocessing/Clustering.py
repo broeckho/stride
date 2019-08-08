@@ -6,27 +6,32 @@ import os
 
 from .Util import getRngSeeds, saveFig
 
-def getAssortativityCoefficient(outputDir, scenarioName, seed):
+def getAssortativityCoefficient(outputDir, scenarioName, seed, ageLim):
     G = nx.Graph()
-    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
     householdFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "households.csv")
-    with open(susceptiblesFile) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            # Add person node to graph
-            G.add_node(int(row["person_id"]), susceptible=row["susceptible"])
     with open(householdFile) as csvfile:
         reader = csv.DictReader(csvfile)
+        personID = 0
         for row in reader:
-            personIDs = (row["person_ids"])[1:-1].split(", ")
-            personIDs = [int(x) for x in personIDs]
+            personsImmunity = (row["susceptible"])[1:-1].split(", ")
+            personsImmunity = [int(x) for x in personsImmunity]
+            personAges = (row["ages"])[1:-1].split(", ")
+            personAges = [int(x) for x in personAges]
+            personIDs = []
+            for p_i in range(len(personsImmunity)):
+                # Add person node to graph
+                if personAges[p_i] < ageLim:
+                    G.add_node(personID, susceptible=personsImmunity[p_i])
+                    personIDs.append(personID)
+                    personID += 1
             for p1 in personIDs:
                 for p2 in personIDs:
                     G.add_edge(p1, p2)
     assortativityCoeff = nx.attribute_assortativity_coefficient(G, "susceptible")
     return assortativityCoeff
 
-def createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize):
+def createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities,
+    clusteringLevels, poolSize, ageLim=100):
     allAssortativityCoefficients = []
     for level in clusteringLevels:
         assortativityCoefficients = []
@@ -35,10 +40,10 @@ def createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProb
             seeds = getRngSeeds(outputDir, fullScenarioName)
             with multiprocessing.Pool(processes=poolSize) as pool:
                 assortativityCoefficients += pool.starmap(getAssortativityCoefficient,
-                                                            [(outputDir, fullScenarioName, s) for s in seeds])
+                                [(outputDir, fullScenarioName, s, ageLim) for s in seeds])
         allAssortativityCoefficients.append(assortativityCoefficients)
     plt.boxplot(allAssortativityCoefficients, labels=clusteringLevels)
     plt.xlabel("Clustering level")
     plt.ylabel("Assortativity coefficient")
-    plt.ylim(0, 0.5)
+    plt.ylim(0, 1)
     saveFig(outputDir, "AssortativityCoefficients_" + scenarioName)
