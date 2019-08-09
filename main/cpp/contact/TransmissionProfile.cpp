@@ -44,7 +44,9 @@ void TransmissionProfile::Initialize(const ptree& configPt, const ptree& disease
         // To obtain a real values (instead of complex)
         if (r0 < (-(b * b) / (4 * a))) {
                 const double determ = (b * b) - 4 * a * c;
-                m_transmission_rate = (-b + sqrt(determ)) / (2 * a);
+                double transmission_rate = (-b + sqrt(determ)) / (2 * a);
+                // Convert rate to probability
+                m_transmission_probability = 1.0 - std::exp(-transmission_rate);
         } else {
                 throw runtime_error("TransmissionProfile::Initialize> Illegal input values.");
         }

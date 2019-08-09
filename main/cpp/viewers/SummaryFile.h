@@ -41,7 +41,7 @@ public:
 
         /// Print the given output with corresponding tag.
         void Print(const boost::property_tree::ptree& config_pt, unsigned int population_size, unsigned int num_cases,
-                   double transmission_rate, unsigned int run_time, unsigned int total_time);
+                   double transmission_probability, unsigned int run_time, unsigned int total_time);
 
 private:
         /// Generate file name and open the file stream.
