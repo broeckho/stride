@@ -40,7 +40,7 @@ public:
         /// Check if two individuals have contact and transmission.
         bool HasContactAndTransmission(double contact_rate, double transmission_rate)
         {
-                return m_uniform01_generator() < RateToProbability(transmission_rate * contact_rate);
+                return m_uniform01_generator() < RateToProbability(transmission_rate) * RateToProbability(contact_rate);
         }
 
         /// Check if two individuals have contact.
