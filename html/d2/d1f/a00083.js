@@ -6,7 +6,7 @@ var a00083 =
     [ "GetCalendar", "d2/d1f/a00083.html#afea0f1297e849966883bcc1d8e3d8e86", null ],
     [ "GetConfigValue", "d2/d1f/a00083.html#a1b5ec0fca8e7496868ca067afe83f560", null ],
     [ "GetPopulation", "d2/d1f/a00083.html#ae0d62bc95008a4974dd9227b5084e161", null ],
-    [ "GetTransmissionRate", "d2/d1f/a00083.html#a484ffc98b4b45673cf1533a0571f38fd", null ],
+    [ "GetTransmissionProbability", "d2/d1f/a00083.html#a6f683bd03a148a81fa8693b0a6acb616", null ],
     [ "RefRnManager", "d2/d1f/a00083.html#a499782f312a3ff96903f704daa4380c9", null ],
     [ "RefTransmissionProfile", "d2/d1f/a00083.html#a2e659f1f72b251f6d6ce637b6321f9ff", null ],
     [ "TimeStep", "d2/d1f/a00083.html#a032911d7270c91e0a6a9c55f68800096", null ],
