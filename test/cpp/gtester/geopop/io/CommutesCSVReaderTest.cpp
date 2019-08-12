@@ -87,8 +87,13 @@ TEST(CommutesCSVReaderTest, test1)
 
         auto 			instream = make_unique<istringstream>(csvString);
         CommutesCSVReader reader(move(instream));
-        /*
+
         reader.FillGeoGrid(geoGrid);
+
+        for (const auto& loc : geoGrid) {
+
+        }
+        /*
 
         for (const auto& loc : geoGrid) {
                 int         i                = 0;
