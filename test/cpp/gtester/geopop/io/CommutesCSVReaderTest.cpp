@@ -85,24 +85,26 @@ TEST(CommutesCSVReaderTest, test1)
         geoGrid.AddLocation(make_shared<Location>(23, 0, Coordinate(0.0, 0.0), "", 900));
         geoGrid.AddLocation(make_shared<Location>(24, 0, Coordinate(0.0, 0.0), "", 1300));
 
-        auto 			instream = make_unique<istringstream>(csvString);
+        auto              instream = make_unique<istringstream>(csvString);
         CommutesCSVReader reader(move(instream));
-
         reader.FillGeoGrid(geoGrid);
 
         for (const auto& loc : geoGrid) {
-        			int i						= 0;
-        			const auto& expectedLoc		= expectedGeoGrid.GetById(loc->GetID());
-        			const auto& outGoingExpected = expectedLoc->CRefOutgoingCommutes();
-        			for (const auto& commute : loc->CRefOutgoingCommutes()) {
-                        /*EXPECT_DOUBLE_EQ(outGoingExpected[i].first->GetID(), commute.first->GetID());
-                        EXPECT_DOUBLE_EQ(outGoingExpected[i].second, commute.second);*/
+        			std::cout << "1" << std::endl;
+                int         i                = 0;
+                std::cout << "2" << std::endl;
+                const auto& expectedLoc      = expectedGeoGrid.GetById(loc->GetID());
+                std::cout << "3" << std::endl;
+                const auto& outGoingExpected = expectedLoc->CRefOutgoingCommutes();
+                std::cout << "4" << std::endl;
+                for (const auto& commute : loc->CRefOutgoingCommutes()) {
+                	std::cout << "5" << std::endl;
+                        EXPECT_DOUBLE_EQ(outGoingExpected[i].first->GetID(), commute.first->GetID());
+                        EXPECT_DOUBLE_EQ(outGoingExpected[i].second, commute.second);
+                        std::cout << "6" << std::endl;
                         i++;
-        			}
-        }
-        /*
-        for (const auto& loc : geoGrid) {
-
+                }
+                std::cout << "7" << std::endl;
                 i                            = 0;
                 const auto& incomingExpected = expectedLoc->CRefIncomingCommutes();
                 for (const auto& commute : loc->CRefIncomingCommutes()) {
@@ -113,7 +115,7 @@ TEST(CommutesCSVReaderTest, test1)
 
                 EXPECT_DOUBLE_EQ(expectedLoc->GetOutgoingCommuteCount(1), loc->GetOutgoingCommuteCount(1));
                 EXPECT_DOUBLE_EQ(expectedLoc->GetIncomingCommuteCount(1), loc->GetIncomingCommuteCount(1));
-        }*/
+        }
 }
 
 } // namespace
