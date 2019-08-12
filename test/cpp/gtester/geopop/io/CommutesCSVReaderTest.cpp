@@ -93,7 +93,7 @@ TEST(CommutesCSVReaderTest, test1)
         			std::cout << "1" << std::endl;
                 int         i                = 0;
                 std::cout << "2" << std::endl;
-                const auto id = loc->GetID();
+                unsigned int id = static_cast<int>(loc->GetID());
                 std::cout << "2b" << std::endl;
                 const auto& expectedLoc      = expectedGeoGrid.GetById(id);
                 std::cout << "3" << std::endl;
