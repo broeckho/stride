@@ -91,19 +91,18 @@ TEST(CommutesCSVReaderTest, test1)
         reader.FillGeoGrid(geoGrid);
 
         for (const auto& loc : geoGrid) {
-
-        }
-        /*
-
-        for (const auto& loc : geoGrid) {
-                int         i                = 0;
-                const auto& expectedLoc      = expectedGeoGrid.GetById(loc->GetID());
-                const auto& outGoingExpected = expectedLoc->CRefOutgoingCommutes();
-                for (const auto& commute : loc->CRefOutgoingCommutes()) {
+        			int i						= 0;
+        			const auto& expectedLoc		= expectedGeoGrid.GetById(loc->GetID());
+        			const auto& outGoingExpected = expectedLoc->CRefOutgoingCommutes();
+        			for (const auto& commute : loc->CRefOutgoingCommutes()) {
                         EXPECT_DOUBLE_EQ(outGoingExpected[i].first->GetID(), commute.first->GetID());
                         EXPECT_DOUBLE_EQ(outGoingExpected[i].second, commute.second);
                         i++;
-                }
+        			}
+        }
+        /*
+        for (const auto& loc : geoGrid) {
+
                 i                            = 0;
                 const auto& incomingExpected = expectedLoc->CRefIncomingCommutes();
                 for (const auto& commute : loc->CRefIncomingCommutes()) {
