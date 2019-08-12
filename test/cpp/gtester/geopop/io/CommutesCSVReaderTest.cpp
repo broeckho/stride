@@ -93,6 +93,7 @@ TEST(CommutesCSVReaderTest, test1)
         			std::cout << "1" << std::endl;
                 int         i                = 0;
                 std::cout << "2" << std::endl;
+                std::cout << loc->GetID() << std::endl;
                 const auto& expectedLoc      = expectedGeoGrid.GetById(loc->GetID());
                 std::cout << "3" << std::endl;
                 const auto& outGoingExpected = expectedLoc->CRefOutgoingCommutes();
