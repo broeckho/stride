@@ -81,15 +81,13 @@ TEST(CommutesCSVReaderTest, test1)
         auto&      geoGrid         = pop->RefGeoGrid();
 
         geoGrid.AddLocation(make_shared<Location>(21, 0, Coordinate(0.0, 0.0), "", 1000));
-
-        /*
         geoGrid.AddLocation(make_shared<Location>(22, 0, Coordinate(0.0, 0.0), "", 800));
         geoGrid.AddLocation(make_shared<Location>(23, 0, Coordinate(0.0, 0.0), "", 900));
-        geoGrid.AddLocation(make_shared<Location>(24, 0, Coordinate(0.0, 0.0), "", 1300));*/
+        geoGrid.AddLocation(make_shared<Location>(24, 0, Coordinate(0.0, 0.0), "", 1300));
 
         auto 			instream = make_unique<istringstream>(csvString);
-        /*
         CommutesCSVReader reader(move(instream));
+        /*
         reader.FillGeoGrid(geoGrid);
 
         for (const auto& loc : geoGrid) {
