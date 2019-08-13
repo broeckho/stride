@@ -153,7 +153,7 @@ void Infector<LL, TIC, TO>::Exec(ContactPool& pool, const AgeContactProfile& pro
         const auto  pType    = pool.m_pool_type;
         const auto& pMembers = pool.m_members;
         const auto  pSize    = pMembers.size();
-        const auto  tRate    = transProfile.GetRate();
+        const auto  tProbability    = transProfile.GetProbability();
 
         // check all contacts
         for (size_t i_person1 = 0; i_person1 < pSize; i_person1++) {
@@ -177,12 +177,12 @@ void Infector<LL, TIC, TO>::Exec(ContactPool& pool, const AgeContactProfile& pro
                         // check for contact
                         if (cHandler.HasContact(c_rate)) {
                                 // log contact if person 1 is participating in survey
-                                LP::Contact(cLogger, p1, p2, pType, simDay, c_rate, tRate);
+                                LP::Contact(cLogger, p1, p2, pType, simDay, c_rate, tProbability);
                                 // log contact if person 2 is participating in survey
-                                LP::Contact(cLogger, p2, p1, pType, simDay, c_rate, tRate);
+                                LP::Contact(cLogger, p2, p1, pType, simDay, c_rate, tProbability);
 
                                 // transmission & infection.
-                                if (cHandler.HasTransmission(tRate)) {
+                                if (cHandler.HasTransmission(tProbability)) {
                                         auto& h1 = p1->GetHealth();
                                         auto& h2 = p2->GetHealth();
                                         // No secondary infections with TIC; just mark p2 'recovered'
@@ -224,11 +224,11 @@ void Infector<LL, TIC, true>::Exec(ContactPool& pool, const AgeContactProfile& p
         }
 
         // set up some stuff
-        const auto  c_type    = pool.m_pool_type;
-        const auto  c_immune  = pool.m_index_immune;
-        const auto& c_members = pool.m_members;
-        const auto  c_size    = c_members.size();
-        const auto  t_rate    = transProfile.GetRate();
+        const auto  c_type    		= pool.m_pool_type;
+        const auto  c_immune  		= pool.m_index_immune;
+        const auto& c_members 		= pool.m_members;
+        const auto  c_size    		= c_members.size();
+        const auto  t_probability    = transProfile.GetProbability();
 
         // match infectious and susceptible members, skip last part (immune members)
         for (size_t i_infected = 0; i_infected < num_cases; i_infected++) {
@@ -248,8 +248,8 @@ void Infector<LL, TIC, true>::Exec(ContactPool& pool, const AgeContactProfile& p
                                         continue;
                                 }
                                 const double c_rate_p2 = GetContactRate(profile, p2, c_size);
-                                if (cHandler.HasContactAndTransmission(c_rate_p1, t_rate) ||
-                                    cHandler.HasContactAndTransmission(c_rate_p2, t_rate)) {
+                                if (cHandler.HasContactAndTransmission(c_rate_p1, t_probability) ||
+                                    cHandler.HasContactAndTransmission(c_rate_p2, t_probability)) {
                                         auto& h2 = p2->GetHealth();
                                         if (h1.IsInfectious() && h2.IsSusceptible()) {
                                                 h2.StartInfection();

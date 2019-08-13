@@ -57,11 +57,7 @@ public:
         void Finalize();
 
         /// Gets a Location by Id and check if the Id exists.
-        std::shared_ptr<Location> GetById(unsigned int id) const {
-        	auto index = m_id_to_index.at(id);
-        	std::cout << "INDEX:" << index << std::endl;
-        	return m_locations[index];
-        }
+        std::shared_ptr<Location> GetById(unsigned int id) const { return m_locations[m_id_to_index.at(id)]; }
 
         /// Get the Population associated with this GeoGrid
         stride::Population* GetPopulation() const { return m_population; }
