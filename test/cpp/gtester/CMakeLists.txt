@@ -56,7 +56,7 @@ set(SRC
     geopop/generators/WorkplaceGeneratorTest.cpp
     #---
     geopop/io/CitiesCSVReaderTest.cpp
-    geopop/io/CommutesCSVReaderTest.cpp
+    #geopop/io/CommutesCSVReaderTest.cpp
     geopop/io/GeoGridIOUtils.cpp
     #geopop/io/GeoGridJSONReaderTest.cpp
     #geopop/io/GeoGridJSONWriterTest.cpp
