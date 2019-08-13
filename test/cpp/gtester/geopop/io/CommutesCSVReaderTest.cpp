@@ -90,23 +90,14 @@ TEST(CommutesCSVReaderTest, test1)
         reader.FillGeoGrid(geoGrid);
 
         for (const auto& loc : geoGrid) {
-        			std::cout << "1" << std::endl;
                 int         i                = 0;
-                std::cout << "2" << std::endl;
-                unsigned int id = static_cast<int>(loc->GetID());
-                std::cout << "2b" << std::endl;
-                const auto& expectedLoc      = expectedGeoGrid.GetById(id);
-                std::cout << "3" << std::endl;
+                const auto& expectedLoc      = expectedGeoGrid.GetById(loc->GetID());
                 const auto& outGoingExpected = expectedLoc->CRefOutgoingCommutes();
-                std::cout << "4" << std::endl;
                 for (const auto& commute : loc->CRefOutgoingCommutes()) {
-                	std::cout << "5" << std::endl;
                         EXPECT_DOUBLE_EQ(outGoingExpected[i].first->GetID(), commute.first->GetID());
                         EXPECT_DOUBLE_EQ(outGoingExpected[i].second, commute.second);
-                        std::cout << "6" << std::endl;
                         i++;
                 }
-                std::cout << "7" << std::endl;
                 i                            = 0;
                 const auto& incomingExpected = expectedLoc->CRefIncomingCommutes();
                 for (const auto& commute : loc->CRefIncomingCommutes()) {

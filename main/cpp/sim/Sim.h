@@ -64,7 +64,7 @@ public:
         std::shared_ptr<Population> GetPopulation() { return m_population; }
 
         /// Get the stored transmission rate.
-        double GetTransmissionProbability() const { return m_transmission_profile.GetProbability(); }
+        double GetTransmissionRate() const { return m_transmission_profile.GetRate(); }
 
         /// Get the random number manager.
         util::RnMan& RefRnManager() { return m_rn_man; }

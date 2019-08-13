@@ -38,18 +38,18 @@ public:
         double operator()() { return m_uniform01_generator(); }
 
         /// Check if two individuals have contact and transmission.
-        bool HasContactAndTransmission(double contact_rate, double transmission_probability)
+        bool HasContactAndTransmission(double contact_rate, double transmission_rate)
         {
-                return m_uniform01_generator() < transmission_probability * RateToProbability(contact_rate);
+                return m_uniform01_generator() < RateToProbability(transmission_rate * contact_rate);
         }
 
         /// Check if two individuals have contact.
         bool HasContact(double contact_rate) { return m_uniform01_generator() < RateToProbability(contact_rate); }
 
         /// Check whether transmission occurs.
-        bool HasTransmission(double transmission_probability)
+        bool HasTransmission(double transmission_rate)
         {
-                return m_uniform01_generator() < transmission_probability;
+                return m_uniform01_generator() < RateToProbability(transmission_rate);
         }
 
 private:

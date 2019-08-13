@@ -31,16 +31,16 @@ class TransmissionProfile
 {
 public:
         /// Initialize.
-        TransmissionProfile() : m_transmission_probability(0.0) {}
+        TransmissionProfile() : m_transmission_rate(0.0) {}
 
         /// Return transmission rate.
-        double GetProbability() const { return m_transmission_probability; }
+        double GetRate() const { return m_transmission_rate; }
 
         /// Initialize.
         void Initialize(const boost::property_tree::ptree& configPt, const boost::property_tree::ptree& diseasePt);
 
 private:
-        double m_transmission_probability;
+        double m_transmission_rate;
 };
 
 } // namespace stride
