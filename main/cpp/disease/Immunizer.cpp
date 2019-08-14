@@ -66,20 +66,20 @@ void Immunizer::Cocoon(const SegmentedVector<ContactPool>& /*pools*/, vector<dou
 void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>& immunityDistribution,
                        double immunityLinkProbability)
 {
-    		// Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).
-    		const auto poolsSize          = static_cast<int>(pools.size());
-    		auto       intGenerator       = m_rn_man.GetUniformIntGenerator(0, poolsSize, 0U);
-    		auto       uniform01Generator = m_rn_man.GetUniform01Generator(0U);
+		// Sampler for int in [0, pools.size()) and for double in [0.0,  1.0).
+		const auto  poolsSize				= static_cast<int>(pools.size());
+		auto			intGenerator				= m_rn_man.GetUniformIntGenerator(0, poolsSize, 0U);
+		auto 		uniform01Generator		= m_rn_man.GetUniform01Generator(0U);
 
-        // Initialize a vector to count the population per age class [0-100].
-        vector<double> populationBrackets(100, 0.0);
+		// Initialize a vector to count the population per age class [0-100].
+		vector<double> populationBrackets(100, 0.0);
 
-        // Count individuals per age class.
-        for (auto& c : pools) {
-                for (const auto& p : c.GetPool()) {
-                		populationBrackets[p->GetAge()]++;
-                }
-        }
+		// Count individuals per age class.
+		for (auto& c : pools) {
+			for (const auto &p : c.GetPool()) {
+				populationBrackets[p->GetAge()]++;
+			}
+		}
 
 		// Calculate the number of immune individuals per age class.
 		unsigned int numImmune = 0;
@@ -88,31 +88,33 @@ void Immunizer::Random(const SegmentedVector<ContactPool>& pools, vector<double>
 			numImmune += static_cast<unsigned int>(populationBrackets[age]);
 		}
 
-		// Immunize susceptible individuals, until all age-dependent quota are reached.
-        while (numImmune > 0) {
-        			// Select random contact pool
-        			const ContactPool&   p_pool = pools[intGenerator()];
-        			const auto           size   = static_cast<unsigned int>(p_pool.GetPool().size());
-                // Random order of indices
-        			vector<unsigned int> indices(size);
-                iota(indices.begin(), indices.end(), 0U);
-                m_rn_man.Shuffle(indices, 0U);
+		// Sample immune individuals, until all age-dependent quota are reached.
+		while (numImmune > 0) {
+			// Select random  contact pool
+			const ContactPool&		p_pool	= pools[intGenerator()];
+			const auto				size 	= static_cast<unsigned int>(p_pool.GetPool().size());
 
-                // Loop over members, in random order
-                for (unsigned int i_p = 0; i_p < size && numImmune > 0; i_p++) {
-                        Person& p = *p_pool.GetPool()[indices[i_p]];
-                        // if p is susceptible and his/her age class has not reached the quota => make immune
-                        if (p.GetHealth().IsSusceptible() && populationBrackets[p.GetAge()] > 0) {
-                                p.GetHealth().SetImmune();
-                                populationBrackets[p.GetAge()]--;
-                                numImmune--;
-                        }
-                        // random draw to continue in this pool or to sample a new one
-                        if (uniform01Generator() < (1 - immunityLinkProbability)) {
-                                break;
-                        }
-                }
-        }
+			// Random order of indices
+			vector<unsigned int> indices(size);
+			iota(indices.begin(), indices.end(), 0U);
+			m_rn_man.Shuffle(indices, 0U);
+
+			// Loop over members in random order
+			for (unsigned int i_p = 0; i_p < size && numImmune > 0; i_p++) {
+				Person& p = *p_pool.GetPool()[indices[i_p]];
+				// If p is susceptible and his/her age class has not reached quota -> make immune
+				if (p.GetHealth().IsSusceptible() && populationBrackets[p.GetAge()] > 0) {
+					p.GetHealth().SetImmune();
+					populationBrackets[p.GetAge()]--;
+					numImmune--;
+				}
+
+				// Random draw to continue in this pool or sample a new one
+				if(uniform01Generator() < (1 - immunityLinkProbability)) {
+					break;
+				}
+			}
+		}
 }
 
 
