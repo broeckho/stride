@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vaccinate',['Vaccinate',['../dc/ddf/a00067.html#adddf4de9a6ae831d6e46d2f047309504',1,'stride::DiseaseSeeder']]]
+  ['vaccinate',['Vaccinate',['../dc/ddf/a00067.html#a704fd9233f74a3947d130b915ff3bb90',1,'stride::DiseaseSeeder']]]
 ];

@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3779029</span>
+   &#160;<span id="projectnumber">- generated for commit 9643b11</span>
    </div>
   </td>
  </tr>
@@ -140,9 +140,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:adddf4de9a6ae831d6e46d2f047309504"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#adddf4de9a6ae831d6e46d2f047309504">Vaccinate</a> (const std::string &amp;immunityType, const std::string &amp;immunizationProfile, const <a class="el" href="../../d3/dea/a00046.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d9/d2e/a00056.html">ContactPool</a> &gt; &amp;immunityPools)</td></tr>
-<tr class="memdesc:adddf4de9a6ae831d6e46d2f047309504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for vaccination/natural immunity.  <a href="#adddf4de9a6ae831d6e46d2f047309504">More...</a><br /></td></tr>
-<tr class="separator:adddf4de9a6ae831d6e46d2f047309504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a704fd9233f74a3947d130b915ff3bb90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddf/a00067.html#a704fd9233f74a3947d130b915ff3bb90">Vaccinate</a> (const std::string &amp;immunityType, const std::string &amp;immunizationProfile, std::shared_ptr&lt; <a class="el" href="../../d8/d53/a00081.html">Population</a> &gt; pop, const <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a> contactPoolType)</td></tr>
+<tr class="memdesc:a704fd9233f74a3947d130b915ff3bb90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for vaccination/natural immunity.  <a href="#a704fd9233f74a3947d130b915ff3bb90">More...</a><br /></td></tr>
+<tr class="separator:a704fd9233f74a3947d130b915ff3bb90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -184,7 +184,7 @@ Private Attributes</h2></td></tr>
 
 <p>Initializing <a class="el" href="../../dc/ddf/a00067.html" title="Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. ">DiseaseSeeder</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00038">38</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">DiseaseSeeder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00039">39</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">DiseaseSeeder.cpp</a>.</p>
 
 </div>
 </div>
@@ -205,9 +205,9 @@ Private Attributes</h2></td></tr>
 
 <p>Build the simulator. </p>
 
-<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00040">40</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">DiseaseSeeder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00041">41</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">DiseaseSeeder.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d0/d27/a00239_source.html#l00053">stride::Person::GetAge()</a>, <a class="el" href="../../d0/d27/a00239_source.html#l00056">stride::Person::GetHealth()</a>, <a class="el" href="../../d0/d27/a00239_source.html#l00062">stride::Person::GetId()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00074">stride::util::RnMan::GetUniformIntGenerator()</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00077">stride::Health::IsSusceptible()</a>, <a class="el" href="../../db/d44/a00162_source.html#l00053">m_config</a>, <a class="el" href="../../db/d44/a00162_source.html#l00054">m_rn_man</a>, <a class="el" href="../../dc/d57/a00194_source.html#l00035">stride::Health::StartInfection()</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00076">Vaccinate()</a>.</p>
+<p>References <a class="el" href="../../d0/d27/a00239_source.html#l00053">stride::Person::GetAge()</a>, <a class="el" href="../../d0/d27/a00239_source.html#l00056">stride::Person::GetHealth()</a>, <a class="el" href="../../d0/d27/a00239_source.html#l00062">stride::Person::GetId()</a>, <a class="el" href="../../d0/d27/a00239_source.html#l00065">stride::Person::GetPoolId()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00074">stride::util::RnMan::GetUniformIntGenerator()</a>, <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462aea4be67641b70cfa3fec0f86ea7f239b">stride::ContactType::Household</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00077">stride::Health::IsSusceptible()</a>, <a class="el" href="../../db/d44/a00162_source.html#l00052">m_config</a>, <a class="el" href="../../db/d44/a00162_source.html#l00053">m_rn_man</a>, <a class="el" href="../../dc/d57/a00194_source.html#l00035">stride::Health::StartInfection()</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00084">Vaccinate()</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d5/d35/a00266_source.html#l00041">stride::SimBuilder::Build()</a>.</p>
 
@@ -216,21 +216,22 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/ddf/a00067_adc5b1f152367382afe3dade9421357da_cgraph.gif" border="0" usemap="#dc/ddf/a00067_adc5b1f152367382afe3dade9421357da_cgraph" alt=""/></div>
 <map name="dc/ddf/a00067_adc5b1f152367382afe3dade9421357da_cgraph" id="dc/ddf/a00067_adc5b1f152367382afe3dade9421357da_cgraph">
-<area shape="rect" id="node2" href="../../da/dec/a00080.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="739,5,905,32"/>
-<area shape="rect" id="node3" href="../../da/dec/a00080.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="731,56,913,83"/>
-<area shape="rect" id="node4" href="../../da/dec/a00080.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="241,407,393,433"/>
-<area shape="rect" id="node5" href="../../d5/d1e/a00103.html#a1afc757c92ddad702ce35677297ed15f" title="Return a generator for uniform ints in [a, b[ (a &lt; b) using i&#45;th random stream. " alt="" coords="225,458,410,499"/>
-<area shape="rect" id="node6" href="../../d2/db1/a00070.html#ae2a3b14e79e08a261ca7122afba9b95c" title="Is this person susceptible? " alt="" coords="722,323,922,349"/>
-<area shape="rect" id="node7" href="../../d2/db1/a00070.html#a5d85541b8e22aeaa75b364a454f59088" title="Start the infection. " alt="" coords="216,524,419,551"/>
-<area shape="rect" id="node9" href="../../dc/ddf/a00067.html#adddf4de9a6ae831d6e46d2f047309504" title="Seed for vaccination/natural immunity. " alt="" coords="236,225,399,266"/>
-<area shape="rect" id="node8" href="../../d2/db1/a00070.html#a468c554771acc883799456c14373e9db" title="Reset the disease counter. " alt="" coords="467,517,669,558"/>
-<area shape="rect" id="node10" href="../../de/d55/a00323.html#aa45ab4a5a30f65dcd1bf25c3d095825b" title="Builds a string with lower case characters only. " alt="" coords="497,173,639,200"/>
-<area shape="rect" id="node11" href="../../d6/d2c/a00072.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="497,107,639,149"/>
-<area shape="rect" id="node15" href="../../d9/df8/a00096.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="500,225,636,266"/>
-<area shape="rect" id="node16" href="../../d6/d2c/a00072.html#a9b4435f990b9a24bc0ededbd9af4877b" title="Cocoon immunization. " alt="" coords="497,290,639,331"/>
-<area shape="rect" id="node12" href="../../d3/dea/a00046.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="717,107,927,149"/>
-<area shape="rect" id="node13" href="../../d9/d2e/a00056.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="751,173,893,214"/>
-<area shape="rect" id="node14" href="../../d2/db1/a00070.html#a2ed35c613838b7cc9fab87fb494f87a1" title="Set health state to immune. " alt="" coords="727,239,917,265"/>
+<area shape="rect" id="node2" href="../../da/dec/a00080.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="739,13,905,40"/>
+<area shape="rect" id="node3" href="../../da/dec/a00080.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="731,64,913,91"/>
+<area shape="rect" id="node4" href="../../da/dec/a00080.html#afab3ab2a1a33004f9e25d4873c3c1921" title="Get the id. " alt="" coords="241,233,393,260"/>
+<area shape="rect" id="node5" href="../../da/dec/a00080.html#aebd3f273ac67e7db18d2db9aa0bdda2d" title="Get ID of contactpool_type. " alt="" coords="228,284,407,311"/>
+<area shape="rect" id="node6" href="../../d5/d1e/a00103.html#a1afc757c92ddad702ce35677297ed15f" title="Return a generator for uniform ints in [a, b[ (a &lt; b) using i&#45;th random stream. " alt="" coords="225,335,410,377"/>
+<area shape="rect" id="node7" href="../../d2/db1/a00070.html#ae2a3b14e79e08a261ca7122afba9b95c" title="Is this person susceptible? " alt="" coords="722,115,922,141"/>
+<area shape="rect" id="node8" href="../../d2/db1/a00070.html#a5d85541b8e22aeaa75b364a454f59088" title="Start the infection. " alt="" coords="216,404,419,431"/>
+<area shape="rect" id="node10" href="../../dc/ddf/a00067.html#a704fd9233f74a3947d130b915ff3bb90" title="Seed for vaccination/natural immunity. " alt="" coords="236,167,399,209"/>
+<area shape="rect" id="node9" href="../../d2/db1/a00070.html#a468c554771acc883799456c14373e9db" title="Reset the disease counter. " alt="" coords="467,399,669,441"/>
+<area shape="rect" id="node11" href="../../de/d55/a00323.html#aa45ab4a5a30f65dcd1bf25c3d095825b" title="Builds a string with lower case characters only. " alt="" coords="497,283,639,309"/>
+<area shape="rect" id="node12" href="../../d6/d2c/a00072.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="751,349,893,390"/>
+<area shape="rect" id="node13" href="../../d9/df8/a00096.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="500,334,636,375"/>
+<area shape="rect" id="node14" href="../../d6/d2c/a00072.html#a9b4435f990b9a24bc0ededbd9af4877b" title="Cocoon immunization. " alt="" coords="497,166,639,207"/>
+<area shape="rect" id="node15" href="../../d3/dea/a00046.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="717,166,927,207"/>
+<area shape="rect" id="node16" href="../../d9/d2e/a00056.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="751,231,893,273"/>
+<area shape="rect" id="node17" href="../../d2/db1/a00070.html#a2ed35c613838b7cc9fab87fb494f87a1" title="Set health state to immune. " alt="" coords="727,297,917,324"/>
 </map>
 </div>
 </p>
@@ -247,7 +248,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="adddf4de9a6ae831d6e46d2f047309504"></a>
+<a class="anchor" id="a704fd9233f74a3947d130b915ff3bb90"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -269,8 +270,14 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d3/dea/a00046.html">util::SegmentedVector</a>&lt; <a class="el" href="../../d9/d2e/a00056.html">ContactPool</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>immunityPools</em>&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d8/d53/a00081.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/dab/a00319.html#a61a32e88a50c57e6f5c49f0996b6b462">ContactType::Id</a>&#160;</td>
+          <td class="paramname"><em>contactPoolType</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -287,27 +294,27 @@ Here is the caller graph for this function:</div>
 
 <p>Seed for vaccination/natural immunity. </p>
 
-<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00076">76</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">DiseaseSeeder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00084">84</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">DiseaseSeeder.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d5/df1/a00206_source.html#l00034">stride::Immunizer::Cocoon()</a>, <a class="el" href="../../db/d44/a00162_source.html#l00053">m_config</a>, <a class="el" href="../../db/d44/a00162_source.html#l00054">m_rn_man</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00066">stride::Immunizer::Random()</a>, <a class="el" href="../../db/ddf/a00164_source.html#l00208">stride::util::FileSys::ReadPtreeFile()</a>, and <a class="el" href="../../d6/d4b/a00277_source.html#l00135">stride::util::ToLower()</a>.</p>
+<p>References <a class="el" href="../../d5/df1/a00206_source.html#l00034">stride::Immunizer::Cocoon()</a>, <a class="el" href="../../db/d44/a00162_source.html#l00052">m_config</a>, <a class="el" href="../../db/d44/a00162_source.html#l00053">m_rn_man</a>, <a class="el" href="../../d6/d2c/a00072.html#ac187b34c18ec3cd1efccaf8f197766fc">stride::Immunizer::Random()</a>, <a class="el" href="../../db/ddf/a00164_source.html#l00208">stride::util::FileSys::ReadPtreeFile()</a>, and <a class="el" href="../../d6/d4b/a00277_source.html#l00135">stride::util::ToLower()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00040">Seed()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00041">Seed()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/ddf/a00067_adddf4de9a6ae831d6e46d2f047309504_cgraph.gif" border="0" usemap="#dc/ddf/a00067_adddf4de9a6ae831d6e46d2f047309504_cgraph" alt=""/></div>
-<map name="dc/ddf/a00067_adddf4de9a6ae831d6e46d2f047309504_cgraph" id="dc/ddf/a00067_adddf4de9a6ae831d6e46d2f047309504_cgraph">
-<area shape="rect" id="node2" href="../../d6/d2c/a00072.html#a9b4435f990b9a24bc0ededbd9af4877b" title="Cocoon immunization. " alt="" coords="216,89,359,131"/>
-<area shape="rect" id="node3" href="../../d6/d2c/a00072.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="216,155,359,196"/>
-<area shape="rect" id="node10" href="../../d9/df8/a00096.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="219,220,355,261"/>
-<area shape="rect" id="node11" href="../../de/d55/a00323.html#aa45ab4a5a30f65dcd1bf25c3d095825b" title="Builds a string with lower case characters only. " alt="" coords="216,286,359,313"/>
-<area shape="rect" id="node4" href="../../d3/dea/a00046.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="407,5,616,47"/>
-<area shape="rect" id="node5" href="../../d9/d2e/a00056.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="440,71,583,112"/>
-<area shape="rect" id="node6" href="../../da/dec/a00080.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="420,137,603,163"/>
-<area shape="rect" id="node7" href="../../d2/db1/a00070.html#ae2a3b14e79e08a261ca7122afba9b95c" title="Is this person susceptible? " alt="" coords="411,187,611,214"/>
-<area shape="rect" id="node8" href="../../da/dec/a00080.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="428,238,595,265"/>
-<area shape="rect" id="node9" href="../../d2/db1/a00070.html#a2ed35c613838b7cc9fab87fb494f87a1" title="Set health state to immune. " alt="" coords="416,289,607,315"/>
+<div class="center"><img src="../../dc/ddf/a00067_a704fd9233f74a3947d130b915ff3bb90_cgraph.gif" border="0" usemap="#dc/ddf/a00067_a704fd9233f74a3947d130b915ff3bb90_cgraph" alt=""/></div>
+<map name="dc/ddf/a00067_a704fd9233f74a3947d130b915ff3bb90_cgraph" id="dc/ddf/a00067_a704fd9233f74a3947d130b915ff3bb90_cgraph">
+<area shape="rect" id="node2" href="../../d6/d2c/a00072.html#a9b4435f990b9a24bc0ededbd9af4877b" title="Cocoon immunization. " alt="" coords="216,165,359,207"/>
+<area shape="rect" id="node3" href="../../d6/d2c/a00072.html#ac187b34c18ec3cd1efccaf8f197766fc" title="Random immunization. " alt="" coords="440,5,583,47"/>
+<area shape="rect" id="node10" href="../../d9/df8/a00096.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="219,231,355,272"/>
+<area shape="rect" id="node11" href="../../de/d55/a00323.html#aa45ab4a5a30f65dcd1bf25c3d095825b" title="Builds a string with lower case characters only. " alt="" coords="216,297,359,323"/>
+<area shape="rect" id="node4" href="../../d3/dea/a00046.html#a0e279c31f261b01f7798355e27401bfe" title="Returns the number of elements. " alt="" coords="407,71,616,112"/>
+<area shape="rect" id="node5" href="../../d9/d2e/a00056.html#afb9a65718e51a5afa72e9f34724f1fe0" title="Get the entire pool of members. " alt="" coords="440,136,583,177"/>
+<area shape="rect" id="node6" href="../../da/dec/a00080.html#a53081dbb062c019153b8be62083d59a2" title="Return person&#39;s health status. " alt="" coords="420,202,603,229"/>
+<area shape="rect" id="node7" href="../../d2/db1/a00070.html#ae2a3b14e79e08a261ca7122afba9b95c" title="Is this person susceptible? " alt="" coords="411,253,611,279"/>
+<area shape="rect" id="node8" href="../../da/dec/a00080.html#a943e2b69a52ca335ecbc636dff8e7e4e" title="Get the age. " alt="" coords="428,303,595,330"/>
+<area shape="rect" id="node9" href="../../d2/db1/a00070.html#a2ed35c613838b7cc9fab87fb494f87a1" title="Set health state to immune. " alt="" coords="416,354,607,381"/>
 </map>
 </div>
 </p>
@@ -315,8 +322,8 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/ddf/a00067_adddf4de9a6ae831d6e46d2f047309504_icgraph.gif" border="0" usemap="#dc/ddf/a00067_adddf4de9a6ae831d6e46d2f047309504_icgraph" alt=""/></div>
-<map name="dc/ddf/a00067_adddf4de9a6ae831d6e46d2f047309504_icgraph" id="dc/ddf/a00067_adddf4de9a6ae831d6e46d2f047309504_icgraph">
+<div class="center"><img src="../../dc/ddf/a00067_a704fd9233f74a3947d130b915ff3bb90_icgraph.gif" border="0" usemap="#dc/ddf/a00067_a704fd9233f74a3947d130b915ff3bb90_icgraph" alt=""/></div>
+<map name="dc/ddf/a00067_a704fd9233f74a3947d130b915ff3bb90_icgraph" id="dc/ddf/a00067_a704fd9233f74a3947d130b915ff3bb90_icgraph">
 <area shape="rect" id="node2" href="../../dc/ddf/a00067.html#adc5b1f152367382afe3dade9421357da" title="Build the simulator. " alt="" coords="216,5,379,47"/>
 <area shape="rect" id="node3" href="../../df/d5d/a00084.html#a1f32dd929e6e21eabd41f7f7246a7aa1" title="Build the simulator and return it afterwards. " alt="" coords="427,5,561,47"/>
 </map>
@@ -346,9 +353,9 @@ Here is the caller graph for this function:</div>
 
 <p>Run config. </p>
 
-<p>Definition at line <a class="el" href="../../db/d44/a00162_source.html#l00053">53</a> of file <a class="el" href="../../db/d44/a00162_source.html">DiseaseSeeder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d44/a00162_source.html#l00052">52</a> of file <a class="el" href="../../db/d44/a00162_source.html">DiseaseSeeder.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00040">Seed()</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00076">Vaccinate()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00041">Seed()</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00084">Vaccinate()</a>.</p>
 
 </div>
 </div>
@@ -372,9 +379,9 @@ Here is the caller graph for this function:</div>
 
 <p>Random number manager. </p>
 
-<p>Definition at line <a class="el" href="../../db/d44/a00162_source.html#l00054">54</a> of file <a class="el" href="../../db/d44/a00162_source.html">DiseaseSeeder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d44/a00162_source.html#l00053">53</a> of file <a class="el" href="../../db/d44/a00162_source.html">DiseaseSeeder.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00040">Seed()</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00076">Vaccinate()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00041">Seed()</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00084">Vaccinate()</a>.</p>
 
 </div>
 </div>
@@ -388,7 +395,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/db8/a00316.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/ddf/a00067.html">DiseaseSeeder</a></li>
-    <li class="footer">Generated on Wed Aug 14 2019 11:52:06 for Stride Reference Manual by
+    <li class="footer">Generated on Wed Aug 14 2019 13:28:20 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

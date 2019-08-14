@@ -3,7 +3,7 @@ var searchData=
   ['radiantodegree',['RadianToDegree',['../d8/d17/a00304.html#a938f08fc654e93c04d874a884bbd6862',1,'geoaggregator_detail']]],
   ['radiuspolicy',['RadiusPolicy',['../d0/dc0/a00033.html',1,'geopop']]],
   ['radiuspolicy',['RadiusPolicy',['../d0/dc0/a00033.html#aa869fa4c0225f7d6a14d35702edae08f',1,'geopop::RadiusPolicy']]],
-  ['random',['Random',['../d6/d2c/a00072.html#ac187b34c18ec3cd1efccaf8f197766fc',1,'stride::Immunizer']]],
+  ['random',['Random',['../d6/d2c/a00072.html#ac187b34c18ec3cd1efccaf8f197766fc',1,'stride::Immunizer::Random(const util::SegmentedVector&lt; ContactPool &gt; &amp;pools, std::vector&lt; double &gt; &amp;immunityDistribution, double immunityLinkProbability)'],['../d6/d2c/a00072.html#aa7061e2661f945e88c1cb41dbf30bf45',1,'stride::Immunizer::Random(std::shared_ptr&lt; Population &gt; pop, std::vector&lt; double &gt; &amp;immunityDistribution, const ContactType::Id contactPoolType, double immunityLinkProbability)']]],
   ['range_5ftype',['range_type',['../d3/d32/a00105.html#aa697693cf36c60a25c469e21b26cb84f',1,'stride::util::SliceIndexer']]],
   ['ratetoprobability',['RateToProbability',['../d4/d6d/a00055.html#a51fd44b433163a1bd2a9fb424a003344',1,'stride::ContactHandler']]],
   ['read',['Read',['../d7/d7a/a00016.html#a0b6a6032beee9c1bdb5536e8aa3d87f7',1,'geopop::GeoGridJSONReader::Read()'],['../d1/d2b/a00018.html#a6f156064f4af6a0905e1959605ac9826',1,'geopop::GeoGridProtoReader::Read()'],['../db/db2/a00020.html#a5acaf132416850a433e1f41565c35e87',1,'geopop::GeoGridReader::Read()']]],
