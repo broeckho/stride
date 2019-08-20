@@ -21,6 +21,7 @@
 INSTALL(FILES
       measlesClustering.py
       measlesClusteringCallbacks.py
+      measlesClusteringPostprocessing.py
       measlesClusteringSimulations.py
       measlesClusteringUtil.py
 	DESTINATION ${BIN_INSTALL_LOCATION}

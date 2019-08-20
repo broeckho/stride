@@ -1,11 +1,11 @@
 import multiprocessing
-import numpy
 import os
+
+from measlesClusteringCallbacks import registerAssociativityCoefficient, registerSusceptibles
+from measlesClusteringUtil import getCommonParameters, generateRngSeeds, writeRngSeeds
 
 from pystride.Event import Event, EventType
 from pystride.PyController import PyController
-from measlesClusteringCallbacks import registerMemberships, registerSusceptibles
-from measlesClusteringUtil import generateRngSeeds, getCommonParameters, writeRngSeeds
 
 IMMUNITY_FILE_CHILDREN = os.path.join("data", "2020_measles_child_immunity.xml")
 IMMUNITY_FILE_ADULTS = os.path.join("data", "2020_measles_adult_immunity.xml")
@@ -36,11 +36,15 @@ def runR0Simulations(numRuns, transmissionProbabilities, poolSize):
         with multiprocessing.Pool(processes=poolSize) as pool:
             pool.starmap(runSimulation, [(outputPrefix, s, extraParams) for s in seeds])
 
-def runFullScenarioSimulations(numRuns, transmissionProbabilities, clusteringLevels, poolSize):
+def runFullScenarioSimulations(numRuns, numDays, transmissionProbabilities, clusteringLevels, poolSize):
     """
         Runs simulations and keep track of cases, susceptibles
         and household constitutions.
     """
+    callbacks = [
+        (registerAssociativityCoefficient, EventType.AtStart),
+        (registerSusceptibles, EventType.AtStart),
+    ]
     for prob in transmissionProbabilities:
         for level in clusteringLevels:
             extraParams = {
@@ -54,12 +58,8 @@ def runFullScenarioSimulations(numRuns, transmissionProbabilities, clusteringLev
                 "vaccine_link_probability": level,
                 "vaccine_profile": "AgeDependent",
             }
-            callbacks = [
-                (registerSusceptibles, EventType.AtStart),
-                (registerMemberships, EventType.AtStart),
-            ]
             outputPrefix = "AGEDEPENDENT_CLUSTERING_" + str(level) + "_TP_" + str(prob)
             seeds = generateRngSeeds(numRuns)
             writeRngSeeds(outputPrefix, seeds)
             with multiprocessing.Pool(processes=poolSize) as pool:
-                pool.starmap(runSimulation, [(outputPrefix, s, extraParams, callbacks) for s in seeds])
+                pool.starmap(runSimulation, [(outputPrefix, s , extraParams, callbacks) for s in seeds])
