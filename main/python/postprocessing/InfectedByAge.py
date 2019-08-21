@@ -3,7 +3,7 @@ import multiprocessing
 import numpy
 import os
 
-from .Util import getRngSeeds
+from .Util import getRngSeeds, saveFig
 
 def getMeanAgeOfInfection(outputDir, scenarioName, seed, numDays):
     transmissionsFile = os.path.join(outputDir, scenarioName + "_" + str(seed) + "_contact_log.txt")

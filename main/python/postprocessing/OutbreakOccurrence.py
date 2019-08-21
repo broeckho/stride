@@ -43,7 +43,7 @@ def createOutbreakProbability3DPlot(outputDir, scenarioName, transmissionProbabi
     ax.set_yticks(range(len(transmissionProbabilities))[::2])
     ax.set_yticklabels(transmissionProbabilities[::2])
     ax.set_zlabel("Outbreak probability")
-    saveFig(outputDir, "OutbreakProbabilities3D_" + scenarioName)
+    saveFig(outputDir, "OutbreakProbabilities3D_" + scenarioName, "png")
 
 def createOutbreakProbabilityHeatmap(outputDir, scenarioName, transmissionProbabilities,
     clusteringLevels, numDays, extinctionThreshold, poolSize):

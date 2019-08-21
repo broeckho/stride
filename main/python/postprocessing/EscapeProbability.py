@@ -22,7 +22,7 @@ def getEscapeProbability(outputDir, scenarioName, seed, numDays):
     numInfected = getFinalOutbreakSize(outputDir, scenarioName, seed, numDays)
     return (1 - (numInfected / numSusceptibles))
 
-def createEscapeProbabilityPlot(outputDir, scenarioName, transmissionProbability,
+def createEscapeProbabilityBoxplot(outputDir, scenarioName, transmissionProbability,
     clusteringLevels, numDays, poolSize):
     allEscapeProbabilities = []
     for level in clusteringLevels:
@@ -34,7 +34,7 @@ def createEscapeProbabilityPlot(outputDir, scenarioName, transmissionProbability
     plt.boxplot(allEscapeProbabilities, labels=clusteringLevels)
     plt.xlabel("Clustering level")
     plt.ylabel("Escape probability after {} days".format(numDays))
-    plt.ylim(0.9, 1)
+    #plt.ylim(0.9, 1)
     saveFig(outputDir, "EscapeProbability_" + scenarioName + "_TP_" + str(transmissionProbability))
 
 def createEscapeProbabilityHeatmapPlot(outputDir, scenarioName, transmissionProbabilities,
