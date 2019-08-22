@@ -43,11 +43,15 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Population immunity (natural immunity & vaccination).
         // --------------------------------------------------------------
+		const ContactType::Id immunityClusteringPoolType =
+				ContactType::ToId(m_config.get<std::string>("run.immunity_clustering_pooltype", "Household"));
         const auto immunityProfile = m_config.get<std::string>("run.immunity_profile");
-        Vaccinate("immunity", immunityProfile, pop, Id::Household);
+        Vaccinate("immunity", immunityProfile, pop, immunityClusteringPoolType);
 
+        const ContactType::Id vaccinationClusteringPoolType =
+        		ContactType::ToId(m_config.get<std::string>("run.vaccine_clustering_pooltype", "Household"));
         const auto vaccinationProfile = m_config.get<std::string>("run.vaccine_profile");
-        Vaccinate("vaccine", vaccinationProfile, pop, Id::Household);
+        Vaccinate("vaccine", vaccinationProfile, pop, vaccinationClusteringPoolType);
 
         // --------------------------------------------------------------
         // Seed infected persons.
@@ -75,7 +79,7 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
                         p.GetHealth().StartInfection();
                         numInfected--;
                         if (log_level != "None") {
-                                logger->info("[PRIM] {} {} {} {} {} {} {}", p.GetId(), -1, p.GetAge(), -1, -1, -1, p.GetPoolId(ContactType::Id::Household));
+                                logger->info("[PRIM] {} {} {} {} {} {}", p.GetId(), -1, p.GetAge(), -1, -1, -1);
                         }
                 }
         }
