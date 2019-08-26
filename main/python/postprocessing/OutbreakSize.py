@@ -17,7 +17,7 @@ def createExtinctionThresholdHistogram(outputDir, scenarioName, transmissionProb
         with multiprocessing.Pool(processes=poolSize) as pool:
             finalSizes.append(pool.starmap(getFinalOutbreakSize,
                                         [(outputDir, fullScenarioName, s, numDays) for s in seeds]))
-    plt.hist(finalSizes, bins=50, range=(0, 500), histtype="barstacked", color=COLORS[:len(finalSizes)])
+    plt.hist(finalSizes, histtype="barstacked", color=COLORS[:len(finalSizes)])
     plt.xlabel("Total number of cases after {} days".format(numDays))
     plt.ylabel("Frequency")
     plt.legend(["Clustering level = {}".format(c) for c in clusteringLevels])

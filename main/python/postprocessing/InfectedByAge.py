@@ -33,7 +33,8 @@ def meanAgeOfInfectionHeatmap(outputDir, scenarioName, transmissionProbabilities
                 else:
                     ages.append(numpy.nan)
         allAges.append(ages)
-    plt.imshow(allAges, vmin=0, vmax=100)
+    plt.imshow(allAges)
+    #plt.imshow(allAges, vmin=0, vmax=100)
     plt.colorbar()
     plt.xlabel("Clustering level")
     plt.xticks(range(len(clusteringLevels)), clusteringLevels)

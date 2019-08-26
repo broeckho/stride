@@ -5,21 +5,33 @@ import os
 from measlesClusteringUtil import MAX_AGE
 
 def registerAssociativityCoefficient(simulator, event):
-    ageLims = [35, 99]
+    ageLims = [99] # ageLims = [35, 99]
 
     outputPrefix = simulator.GetConfigValue("run.output_prefix")
+    clusteringPoolType = simulator.GetConfigValue("run.vaccine_clustering_pooltype")
+
     pop = simulator.GetPopulation()
 
-    households = {}
+    poolTypes = {
+        "Household": 0,
+        "K12School": 1,
+        "College": 2,
+        "Workplace": 3,
+        "PrimaryCommunity": 4,
+        "SecondaryCommunity": 5,
+    }
+    poolTypeID = poolTypes[clusteringPoolType]
+
+    pools = {}
     for i in range(pop.size()):
         person = pop[i]
         age = person.GetAge()
-        householdID = person.GetPoolId(0)
+        poolID = person.GetPoolId(poolTypeID)
         isSusceptible = person.GetHealth().IsSusceptible()
-        if householdID in households:
-            households[householdID].append((age, isSusceptible))
+        if poolID in pools:
+            pools[poolID].append((age, isSusceptible))
         else:
-            households[householdID] = [(age, isSusceptible)]
+            pools[poolID] = [(age, isSusceptible)]
 
     with open(os.path.join(outputPrefix, "assortativity_coeff.csv"), "w") as csvfile:
         fieldnames = ["age_lim", "assortativity_coeff"]
@@ -28,9 +40,9 @@ def registerAssociativityCoefficient(simulator, event):
         for lim in ageLims:
             G = nx.Graph()
             personID = 0
-            for hh in households:
+            for poolID in pools:
                 personIDs = []
-                for personAge, personImmunity in households[hh]:
+                for personAge, personImmunity in pools[poolID]:
                     # Add person node to graph (if within age limit)
                     if personAge <= lim:
                         G.add_node(personID, susceptible=personImmunity)
@@ -39,7 +51,6 @@ def registerAssociativityCoefficient(simulator, event):
                 for p1 in personIDs:
                     for p2 in personIDs:
                         G.add_edge(p1, p2)
-
             assCoeff = nx.attribute_assortativity_coefficient(G, "susceptible")
             writer.writerow({"age_lim": lim, "assortativity_coeff": assCoeff})
 

@@ -36,10 +36,11 @@ def runR0Simulations(numRuns, transmissionProbabilities, poolSize):
         with multiprocessing.Pool(processes=poolSize) as pool:
             pool.starmap(runSimulation, [(outputPrefix, s, extraParams) for s in seeds])
 
-def runFullScenarioSimulations(numRuns, numDays, transmissionProbabilities, clusteringLevels, poolSize):
+def runFullScenarioSimulations(numRuns, numDays, transmissionProbabilities,
+    clusteringLevels, clusteringPoolType, poolSize):
     """
-        Runs simulations and keep track of cases, susceptibles
-        and household constitutions.
+        Run simulations and keep track of cases, susceptibles
+        and contact-pool constitutions.
     """
     callbacks = [
         (registerAssociativityCoefficient, EventType.AtStart),
@@ -56,10 +57,11 @@ def runFullScenarioSimulations(numRuns, numDays, transmissionProbabilities, clus
                 "transmission_probability": prob,
                 "vaccine_distribution_file": IMMUNITY_FILE_CHILDREN,
                 "vaccine_link_probability": level,
+                "vaccine_clustering_pooltype": clusteringPoolType,
                 "vaccine_profile": "AgeDependent",
             }
             outputPrefix = "AGEDEPENDENT_CLUSTERING_" + str(level) + "_TP_" + str(prob)
             seeds = generateRngSeeds(numRuns)
             writeRngSeeds(outputPrefix, seeds)
             with multiprocessing.Pool(processes=poolSize) as pool:
-                pool.starmap(runSimulation, [(outputPrefix, s , extraParams, callbacks) for s in seeds])
+                pool.starmap(runSimulation, [(outputPrefix, s, extraParams, callbacks) for s in seeds])
