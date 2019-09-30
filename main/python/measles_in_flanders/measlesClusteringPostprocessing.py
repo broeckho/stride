@@ -25,7 +25,7 @@ def immunityProfilePostprocessing(outputDir, scenarioName, transmissionProbabili
     clusteringLevels, poolSize):
     AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioName, transmissionProbabilities,
                                                 clusteringLevels, poolSize,
-                                                targetLevelsDir="../../Workspace/MeaslesInFlanders_Paper/ProjectedImmunity")
+                                                targetLevelsDir="../../Workspace/ProjectedImmunity")
     Clustering.createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, ageLim=99)
     Clustering.createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, ageLim=35)
     for level in clusteringLevels:

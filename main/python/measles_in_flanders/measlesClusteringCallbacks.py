@@ -5,7 +5,7 @@ import os
 from measlesClusteringUtil import MAX_AGE
 
 def registerAssociativityCoefficient(simulator, event):
-    ageLims = [99] # ageLims = [35, 99]
+    ageLims = [35, 99]
 
     outputPrefix = simulator.GetConfigValue("run.output_prefix")
     clusteringPoolType = simulator.GetConfigValue("run.vaccine_clustering_pooltype")

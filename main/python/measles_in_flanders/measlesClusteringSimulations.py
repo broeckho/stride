@@ -7,9 +7,6 @@ from measlesClusteringUtil import getCommonParameters, generateRngSeeds, writeRn
 from pystride.Event import Event, EventType
 from pystride.PyController import PyController
 
-IMMUNITY_FILE_CHILDREN = os.path.join("data", "2020_measles_child_immunity.xml")
-IMMUNITY_FILE_ADULTS = os.path.join("data", "2020_measles_adult_immunity.xml")
-
 def runSimulation(outputPrefix, seed, extraParams={}, callbacks=[]):
     control = PyController(data_dir="data")
     extraParams.update(getCommonParameters())
@@ -36,8 +33,8 @@ def runR0Simulations(numRuns, transmissionProbabilities, poolSize):
         with multiprocessing.Pool(processes=poolSize) as pool:
             pool.starmap(runSimulation, [(outputPrefix, s, extraParams) for s in seeds])
 
-def runFullScenarioSimulations(numRuns, numDays, transmissionProbabilities,
-    clusteringLevels, clusteringPoolType, poolSize):
+def runFullScenarioSimulations(numRuns, numDays, immunityFileChildren, immunityFileAdults,
+    transmissionProbabilities, clusteringLevels, clusteringPoolType, poolSize):
     """
         Run simulations and keep track of cases, susceptibles
         and contact-pool constitutions.
@@ -49,13 +46,13 @@ def runFullScenarioSimulations(numRuns, numDays, transmissionProbabilities,
     for prob in transmissionProbabilities:
         for level in clusteringLevels:
             extraParams = {
-                "immunity_distribution_file": IMMUNITY_FILE_ADULTS,
+                "immunity_distribution_file": immunityFileAdults,
                 "immunity_link_probability": 0,
                 "immunity_profile": "AgeDependent",
-                "num_days": 60,
+                "num_days": numDays,
                 "track_index_case": "false",
                 "transmission_probability": prob,
-                "vaccine_distribution_file": IMMUNITY_FILE_CHILDREN,
+                "vaccine_distribution_file": immunityFileChildren,
                 "vaccine_link_probability": level,
                 "vaccine_clustering_pooltype": clusteringPoolType,
                 "vaccine_profile": "AgeDependent",
