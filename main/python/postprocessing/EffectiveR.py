@@ -1,4 +1,3 @@
-
 import matplotlib.pyplot as plt
 import multiprocessing
 
@@ -18,7 +17,7 @@ def createEffectiveRBoxplot(outputDir, scenarioName, transmissionProbability, cl
     plt.boxplot(allEffectiveRs, labels=clusteringLevels)
     plt.xlabel("Clustering level")
     plt.ylabel("Secondary cases")
-    # TODO same y limits for all plots?
+    plt.ylim(0, 11)
     saveFig(outputDir, "EffectiveR_" + scenarioName + "_TP_" + str(transmissionProbability))
 
 def createEffectiveR3DBarPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize):
@@ -32,7 +31,7 @@ def createEffectiveR3DBarPlot(outputDir, scenarioName, transmissionProbabilities
             with multiprocessing.Pool(processes=poolSize) as pool:
                 secondaryCases = pool.starmap(getSecondaryCasesFromIndex, [(outputDir, fullScenarioName, s) for s in seeds])
                 means.append(sum(secondaryCases) / len(secondaryCases))
-        ax.bar(range(len(clusteringLevels)), means, zs=prob_i, zdir="y", color=COLORS[prob_i % len(COLORS)], alpha=0.6)
+        ax.bar(range(len(clusteringLevels)), means, zs=prob_i, zdir="y", color=COLORS[prob_i % len(COLORS)], alpha=0.5)
     # TODO Display min/max or 95% percentile interval?
     ax.set_xlabel("Clustering level")
     ax.set_xticks(range(len(clusteringLevels)))
@@ -40,12 +39,11 @@ def createEffectiveR3DBarPlot(outputDir, scenarioName, transmissionProbabilities
     ax.set_ylabel("Transmission probability")
     ax.set_yticks(range(len(transmissionProbabilities))[::2])
     ax.set_yticklabels(transmissionProbabilities[::2])
-    ax.set_zlabel("Secondary cases")
+    ax.set_zlabel("Effective R")
     saveFig(outputDir, "EffectiveR3DBar_" + scenarioName, "png")
 
 def createEffectiveRHeatmap(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize):
     allSecondaryCases = []
-
     for prob in transmissionProbabilities:
         means = []
         for level in clusteringLevels:
@@ -56,10 +54,11 @@ def createEffectiveRHeatmap(outputDir, scenarioName, transmissionProbabilities, 
                 means.append(sum(secondaryCases) / len(secondaryCases))
         allSecondaryCases.append(means)
 
-    plt.imshow(allSecondaryCases)
+    plt.imshow(allSecondaryCases, vmin=0, vmax=3, cmap="jet", interpolation="bilinear", origin="lower", extent=[0,100,0,1], aspect=100)
     plt.colorbar()
     plt.xlabel("Clustering level")
-    plt.xticks(range(len(clusteringLevels)), clusteringLevels)
+    plt.xticks(range(0,101,25), clusteringLevels)
     plt.ylabel("Transmission probability")
-    plt.yticks(range(len(transmissionProbabilities))[::2], transmissionProbabilities[::2])
+    plt.yticks([(x - min(transmissionProbabilities)) / (max(transmissionProbabilities) - min(transmissionProbabilities)) for x in transmissionProbabilities[::2]],
+                    transmissionProbabilities[::2])
     saveFig(outputDir, "EffectiveRHeatmap_" + scenarioName)

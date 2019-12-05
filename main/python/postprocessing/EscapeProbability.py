@@ -50,10 +50,11 @@ def createEscapeProbabilityHeatmapPlot(outputDir, scenarioName, transmissionProb
                                                 [(outputDir, fullScenarioName, s, numDays) for s in seeds])
                 means.append(sum(escapeProbabilities) / len(escapeProbabilities))
         allEscapeProbabilities.append(means)
-    plt.imshow(allEscapeProbabilities) # TODO set vmin=0 and vmax=1?
+    plt.imshow(allEscapeProbabilities, cmap="jet", interpolation="bilinear", origin="lower", vmin=0, vmax=1, extent=[0,100,0,1], aspect=100)
     plt.colorbar()
     plt.xlabel("Clustering level")
-    plt.xticks(range(len(clusteringLevels)), clusteringLevels)
+    plt.xticks(range(0,101,25), clusteringLevels)
     plt.ylabel("Transmission probability")
-    plt.yticks(range(len(transmissionProbabilities))[::2], transmissionProbabilities[::2])
+    plt.yticks([(x - min(transmissionProbabilities)) / (max(transmissionProbabilities) - min(transmissionProbabilities)) for x in transmissionProbabilities[::2]],
+                        transmissionProbabilities[::2])
     saveFig(outputDir, "EscapeProbabilityHeatmap_" + scenarioName)

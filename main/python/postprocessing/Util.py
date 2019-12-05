@@ -16,7 +16,7 @@ def getRngSeeds(outputDir, scenarioName):
     return seeds
 
 def saveFig(outputDir, figName, extension="eps"):
-    if not os.path.exists("fig"):
+    if not os.path.exists(os.path.join(outputDir,"fig")):
         os.mkdir("fig")
     plt.savefig(os.path.join(outputDir, "fig", figName + "." + extension), format=extension, dpi=1000)
     plt.clf()

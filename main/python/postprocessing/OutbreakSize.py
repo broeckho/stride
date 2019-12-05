@@ -17,8 +17,8 @@ def createExtinctionThresholdHistogram(outputDir, scenarioName, transmissionProb
         with multiprocessing.Pool(processes=poolSize) as pool:
             finalSizes.append(pool.starmap(getFinalOutbreakSize,
                                         [(outputDir, fullScenarioName, s, numDays) for s in seeds]))
-    plt.hist(finalSizes, histtype="barstacked", color=COLORS[:len(finalSizes)])
-    plt.xlabel("Total number of cases after {} days".format(numDays))
+    plt.hist(finalSizes, histtype="barstacked", bins=20, color=COLORS[:len(finalSizes)])
+    plt.xlabel("Outbreak size after {} days".format(numDays))
     plt.ylabel("Frequency")
     plt.legend(["Clustering level = {}".format(c) for c in clusteringLevels])
     saveFig(outputDir, "ExtinctionThreshold_" + scenarioName + "_TP_" + str(transmissionProbability))
@@ -63,6 +63,6 @@ def createOutbreakSizesBoxplot(outputDir, scenarioName, transmissionProbability,
             allFinalSizes.append(finalSizes)
     plt.boxplot(allFinalSizes, labels=clusteringLevels)
     plt.xlabel("Clustering level")
-    plt.ylabel("Final outbreak size after {} days".format(numDays))
-    # TODO ylim?
+    plt.ylabel("Outbreak size after {} days".format(numDays))
+    plt.ylim(0, 50000)
     saveFig(outputDir, "OutbreakSizes_" + scenarioName + "_TP_" + str(transmissionProbability))

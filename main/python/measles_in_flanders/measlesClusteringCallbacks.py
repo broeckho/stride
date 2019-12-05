@@ -20,6 +20,7 @@ def registerAssociativityCoefficient(simulator, event):
         "PrimaryCommunity": 4,
         "SecondaryCommunity": 5,
     }
+
     poolTypeID = poolTypes[clusteringPoolType]
 
     pools = {}
@@ -28,15 +29,17 @@ def registerAssociativityCoefficient(simulator, event):
         age = person.GetAge()
         poolID = person.GetPoolId(poolTypeID)
         isSusceptible = person.GetHealth().IsSusceptible()
-        if poolID in pools:
-            pools[poolID].append((age, isSusceptible))
-        else:
-            pools[poolID] = [(age, isSusceptible)]
+        if poolID != 0:
+            if poolID in pools:
+                pools[poolID].append((age, isSusceptible))
+            else:
+                pools[poolID] = [(age, isSusceptible)]
 
     with open(os.path.join(outputPrefix, "assortativity_coeff.csv"), "w") as csvfile:
         fieldnames = ["age_lim", "assortativity_coeff"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
+
         for lim in ageLims:
             G = nx.Graph()
             personID = 0
@@ -48,6 +51,7 @@ def registerAssociativityCoefficient(simulator, event):
                         G.add_node(personID, susceptible=personImmunity)
                         personIDs.append(personID)
                         personID += 1
+                # Add edges between persons belonging to the same pool
                 for p1 in personIDs:
                     for p2 in personIDs:
                         G.add_edge(p1, p2)

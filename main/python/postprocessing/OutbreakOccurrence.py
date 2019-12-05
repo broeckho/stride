@@ -35,7 +35,7 @@ def createOutbreakProbability3DPlot(outputDir, scenarioName, transmissionProbabi
                 outbreaks = [1 if x>= extinctionThreshold else 0 for x in finalSizes]
                 outbreakProbability = sum(outbreaks) / len(outbreaks)
                 outbreakProbabilities.append(outbreakProbability)
-        ax.bar(range(len(clusteringLevels)), outbreakProbabilities, zs=prob_i, zdir="y", alpha=0.6, color=COLORS[prob_i % len(COLORS)])
+        ax.bar(range(len(clusteringLevels)), outbreakProbabilities, zs=prob_i, zdir="y", alpha=0.5, color=COLORS[prob_i % len(COLORS)])
     ax.set_xlabel("Clustering level")
     ax.set_xticks(range(len(clusteringLevels)))
     ax.set_xticklabels(clusteringLevels)
@@ -60,12 +60,13 @@ def createOutbreakProbabilityHeatmap(outputDir, scenarioName, transmissionProbab
                 outbreakProbability = sum(outbreaks) / len(outbreaks)
                 outbreakProbabilities.append(outbreakProbability)
         allOutbreakProbabilities.append(outbreakProbabilities)
-    plt.imshow(allOutbreakProbabilities, vmin=0, vmax=1)
+    plt.imshow(allOutbreakProbabilities, vmin=0, vmax=1, cmap="jet", interpolation="bilinear", origin="lower", extent=[0,100,0,1], aspect=100)
     plt.colorbar()
     plt.xlabel("Clustering level")
-    plt.xticks(range(len(clusteringLevels)), clusteringLevels)
+    plt.xticks(range(0,101,25), clusteringLevels)
     plt.ylabel("Transmission probability")
-    plt.yticks(range(len(transmissionProbabilities))[::2], transmissionProbabilities[::2])
+    plt.yticks([(x - min(transmissionProbabilities)) / (max(transmissionProbabilities) - min(transmissionProbabilities)) for x in transmissionProbabilities[::2]],
+                        transmissionProbabilities[::2])
     saveFig(outputDir, "OutbreakProbabilitiesHeatmap_" + scenarioName)
 
 def createOutbreakProbabilityPlot(outputDir, scenarioName, transmissionProbability,

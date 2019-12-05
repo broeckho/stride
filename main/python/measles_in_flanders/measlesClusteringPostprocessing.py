@@ -3,10 +3,11 @@ from postprocessing import AgeImmunity, Clustering, EffectiveR, EscapeProbabilit
 def r0Postprocessing(outputDir, transmissionProbabilities, poolSize):
     fitCoeffs = R0.getLnFit(outputDir, transmissionProbabilities, poolSize)
     R0.createTransmissionProbabilityVSSecondaryCasesScatterPlot(outputDir,
-                                        transmissionProbabilities, fitCoeffs[0],
-                                        fitCoeffs[1], poolSize)
+                                        transmissionProbabilities, poolSize)
     R0.createTransmissionProbabilityVSSecondaryCasesBoxplots(outputDir,
                                         transmissionProbabilities, poolSize)
+    R0.createComparisonPlot(outputDir, transmissionProbabilities, fitCoeffs[0],
+                                        fitCoeffs[1], poolSize)
 
 def effectiveRPostprocessing(outputDir, scenarioName, transmissionProbabilities,
     clusteringLevels, poolSize):
@@ -25,7 +26,8 @@ def immunityProfilePostprocessing(outputDir, scenarioName, transmissionProbabili
     clusteringLevels, poolSize):
     AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioName, transmissionProbabilities,
                                                 clusteringLevels, poolSize,
-                                                targetLevelsDir="../../Workspace/ProjectedImmunity")
+                                                targetLevelsDir="../../Workspace/ProjectedImmunity",
+                                                targetLevelsYear=2020)
     Clustering.createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, ageLim=99)
     Clustering.createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, ageLim=35)
     for level in clusteringLevels:

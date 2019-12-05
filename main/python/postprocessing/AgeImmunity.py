@@ -21,10 +21,9 @@ def getSusceptibilityLevels(outputDir, scenarioName, seed):
             ages[age] = fractionSusceptible
     return ages
 
-def getProjectedSusceptibilityLevels(dataDir):
+def getProjectedSusceptibilityLevels(dataDir, year):
     maxDataAge = 85
     numMunicipalities = 500
-    year = 2020
     yearDir = os.path.join(dataDir, "BootstrapSusceptibility" + str(year))
 
     ages = {}
@@ -48,13 +47,13 @@ def getProjectedSusceptibilityLevels(dataDir):
     return (lower, upper)
 
 def createAgeImmunityOverviewPlot(outputDir, scenarioName, transmissionProbabilities,
-    clusteringLevels, poolSize, targetLevelsDir=None):
+    clusteringLevels, poolSize, targetLevelsDir=None, targetLevelsYear=2020):
     linestyles = ['-', '--', '-.', ':', '--', '--']
     dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
     # Get target levels if needed
     if targetLevelsDir is not None:
-        upper, lower = getProjectedSusceptibilityLevels(targetLevelsDir)
-        plt.fill_between(range(MAX_AGE + 1), lower, upper)
+        upper, lower = getProjectedSusceptibilityLevels(targetLevelsDir, targetLevelsYear)
+        plt.fill_between(range(MAX_AGE + 1), lower, upper, color="lightgrey")
     for level_i in range(len(clusteringLevels)):
         susceptibilityLevels = []
         for prob in transmissionProbabilities:

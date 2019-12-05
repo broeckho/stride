@@ -28,6 +28,6 @@ def createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProb
         allAssortativityCoefficients.append(assortativityCoefficients)
     plt.boxplot(allAssortativityCoefficients, labels=clusteringLevels)
     plt.xlabel("Clustering level")
-    plt.ylabel("Assortativity coefficient")
+    plt.ylabel("Household assortativity coefficient")
     plt.ylim(0, 1)
     saveFig(outputDir, "AssortativityCoefficients_" + str(ageLim) + "_" + scenarioName)
