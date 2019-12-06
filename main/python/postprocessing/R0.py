@@ -70,9 +70,9 @@ def createComparisonPlot(outputDir, transmissionProbabilities, coeffA, coeffB, p
             means.append(mean)
             median = statistics.median(secondaryCases)
             medians.append(median)
-            ll = numpy.percentile(secondaryCases, 2.5)
+            ll = np.percentile(secondaryCases, 2.5)
             lower.append(ll)
-            hh = numpy.percentile(secondaryCases, 97.5)
+            hh = np.percentile(secondaryCases, 97.5)
             upper.append(hh)
 
     plt.fill_between(transmissionProbabilities, lower, upper, color="lightgrey")
