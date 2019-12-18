@@ -32,8 +32,8 @@ def runSimulations(numRuns, years, transmissionProbabilities, clusteringLevels, 
     }
 
     for year in years:
-        extraParams["immunity_distribution_file"] = os.path.join("data", str(year) + "_measles_adult_immunity.xml")
-        extraParams["vaccine_distribution_file"] = os.path.join("data", str(year) + "_measles_child_immunity.xml")
+        extraParams["immunity_distribution_file"] = os.path.join("data", str(year) + "_measles_natural_immunity.xml")
+        extraParams["vaccine_distribution_file"] = os.path.join("data", str(year) + "_measles_vaccine_immunity.xml")
         for prob in transmissionProbabilities:
             extraParams["transmission_probability"] = prob
             for level in clusteringLevels:
