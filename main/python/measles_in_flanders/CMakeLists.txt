@@ -24,6 +24,7 @@ INSTALL(FILES
       measlesClusteringPostprocessing.py
       measlesClusteringSimulations.py
       measlesClusteringUtil.py
+      measlesFutureHHClustering.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
 )
