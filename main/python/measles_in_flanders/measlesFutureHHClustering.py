@@ -32,7 +32,7 @@ def runSimulations(numRuns, years, transmissionProbabilities, clusteringLevels, 
     }
 
     for year in years:
-        extraParams["immunity_distribution_file"] = os.path.join("data", str(year) + "measles_adult_immunity.xml")
+        extraParams["immunity_distribution_file"] = os.path.join("data", str(year) + "_measles_adult_immunity.xml")
         extraParams["vaccine_distribution_file"] = os.path.join("data", str(year) + "_measles_child_immunity.xml")
         for prob in transmissionProbabilities:
             extraParams["transmission_probability"] = prob
@@ -78,7 +78,7 @@ def postprocessing(numRuns, years, transmissionProbabilities, clusteringLevels, 
             OutbreakSize.createExtinctionThresholdHistogram(outputDir, scenarioName + "_" + str(year),
                                                 prob, clusteringLevels, numDays, poolSize)
     print("postprocessing took {} seconds".format(time.perf_counter() - start))
-    
+
 def main(postprocessingOnly, numRuns, years, extinctionThreshold, poolSize):
     transmissionProbabilities = numpy.arange(0.35, 0.65, 0.05)
     clusteringLevels = [0,0.25, 0.5, 0.75, 1]
