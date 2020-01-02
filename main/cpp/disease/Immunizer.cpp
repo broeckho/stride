@@ -155,7 +155,7 @@ void Immunizer::Random(std::shared_ptr<Population> pop, std::vector<double>& imm
     				const auto poolId = p.GetPoolId(contactPoolType);
     				const auto& pool = pop->CRefPoolSys().CRefPools(contactPoolType)[poolId].GetPool();
     				for (auto i_p = pool.begin(); i_p < pool.end() && numImmune > 0; i_p++) {
-    					if ((immuneByAge[(*i_p)->GetAge()] < populationBrackets[(*i_p)->GetAge()] * 1.1) && ((*i_p)->GetHealth().IsSusceptible())) {
+    					if ((immuneByAge[(*i_p)->GetAge()] < populationBrackets[(*i_p)->GetAge()] * 1.05) && ((*i_p)->GetHealth().IsSusceptible())) {
     						(*i_p)->GetHealth().SetImmune();
     						immuneByAge[(*i_p)->GetAge()]++;
     						numImmune--;
