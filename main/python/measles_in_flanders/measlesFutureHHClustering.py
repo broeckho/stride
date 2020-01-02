@@ -1,7 +1,10 @@
 import argparse
+import contextlib
+import io
 import multiprocessing
 import numpy
 import os
+import sys
 import time
 
 from measlesClusteringCallbacks import registerAssociativityCoefficient, registerSusceptibles
@@ -13,6 +16,12 @@ from pystride.Event import Event, EventType
 from postprocessing import AgeImmunity, InfectedByAge, Clustering, EffectiveR
 from postprocessing import EscapeProbability, OutbreakOccurrence, OutbreakSize
 
+@contextlib.contextmanager
+def nostdout():
+    save_stdout = sys.stdout
+    sys.stdout = io.StringIO()
+    yield
+    sys.stdout = save_stdout
 
 def runSimulations(numRuns, years, transmissionProbabilities, clusteringLevels, poolSize):
     start = time.perf_counter()
@@ -37,12 +46,13 @@ def runSimulations(numRuns, years, transmissionProbabilities, clusteringLevels, 
         for prob in transmissionProbabilities:
             extraParams["transmission_probability"] = prob
             for level in clusteringLevels:
-                extraParams["vaccine_link_probability"] = level
-                outputPrefix = "AGEDEPENDENT_" + str(year) + "_CLUSTERING_" + str(level) + "_TP_" + str(prob)
-                seeds = generateRngSeeds(numRuns)
-                writeRngSeeds(outputPrefix, seeds)
-                with multiprocessing.Pool(processes=poolSize) as pool:
-                    pool.starmap(runSimulation, [(outputPrefix, s, extraParams, callbacks) for s in seeds])
+                with nostdout():
+                    extraParams["vaccine_link_probability"] = level
+                    outputPrefix = "AGEDEPENDENT_" + str(year) + "_CLUSTERING_" + str(level) + "_TP_" + str(prob)
+                    seeds = generateRngSeeds(numRuns)
+                    writeRngSeeds(outputPrefix, seeds)
+                    with multiprocessing.Pool(processes=poolSize) as pool:
+                        pool.starmap(runSimulation, [(outputPrefix, s, extraParams, callbacks) for s in seeds])
     print("Simulations took {} seconds".format(time.perf_counter() - start))
 
 def postprocessing(numRuns, years, transmissionProbabilities, clusteringLevels, extinctionThreshold, poolSize):
