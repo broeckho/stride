@@ -15,7 +15,6 @@ def getCommonParameters():
         "output_cases": "false",
         "output_persons": "false",
         "output_summary": "false",
-        "population_file": "pop_flanders600.csv",
         "population_type": "default",
         "rng_type": "mrg2",
         "seeding_age_min": 1,

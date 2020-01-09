@@ -23,6 +23,7 @@ def runR0Simulations(numRuns, transmissionProbabilities, poolSize):
         extraParams = {
             "immunity_profile": "None",
             "num_days": 30,
+            "population_file": "pop_flanders600.csv",
             "transmission_probability": prob,
             "track_index_case": "true",
             "vaccine_profile": "None",
@@ -50,6 +51,7 @@ def runFullScenarioSimulations(numRuns, numDays, immunityFileChildren, immunityF
                 "immunity_link_probability": 0,
                 "immunity_profile": "AgeDependent",
                 "num_days": numDays,
+                "population_file": "pop_flanders600.csv",
                 "track_index_case": "false",
                 "transmission_probability": prob,
                 "vaccine_distribution_file": immunityFileChildren,

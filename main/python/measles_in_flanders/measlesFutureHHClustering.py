@@ -23,6 +23,11 @@ def nostdout():
     yield
     sys.stdout = save_stdout
 
+# TODO calculate transmission probability - R0 relation for new populations
+# TODO 2020
+# TODO 2030
+# TODO 2040
+
 def runSimulations(numRuns, years, transmissionProbabilities, clusteringLevels, poolSize):
     start = time.perf_counter()
 
@@ -41,6 +46,7 @@ def runSimulations(numRuns, years, transmissionProbabilities, clusteringLevels, 
     }
 
     for year in years:
+        extraParams["population_file"] = "pop_flanders_projections_" + str(year) + ".csv"
         extraParams["immunity_distribution_file"] = os.path.join("data", str(year) + "_measles_natural_immunity.xml")
         extraParams["vaccine_distribution_file"] = os.path.join("data", str(year) + "_measles_vaccine_immunity.xml")
         for prob in transmissionProbabilities:
