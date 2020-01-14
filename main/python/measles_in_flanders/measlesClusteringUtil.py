@@ -19,7 +19,6 @@ def getCommonParameters():
         "rng_type": "mrg2",
         "seeding_age_min": 1,
         "seeding_age_max": 99,
-        "seeding_rate": 0.000001667,
         "stride_log_level": "info",
         "use_install_dirs": "true",
     }
