@@ -82,5 +82,5 @@ def createComparisonPlot(outputDir, transmissionProbabilities, coeffA, coeffB, p
     plt.xlabel("Transmission probability")
     plt.xlim(0, 1)
     plt.ylabel("Secondary cases")
-    plt.legend(["Mean", "Median", "{0:.2f} + {0:.2f} * log(1 + x)".format(coeffA, coeffB)])
+    plt.legend(["Mean", "Median", "{:.2f} + {:.2f} * log(1 + x)".format(coeffA, coeffB)])
     saveFig(outputDir, "SecondaryCases_comparison")
