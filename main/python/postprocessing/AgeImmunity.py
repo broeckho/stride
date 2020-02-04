@@ -21,6 +21,21 @@ def getSusceptibilityLevels(outputDir, scenarioName, seed):
             ages[age] = fractionSusceptible
     return ages
 
+def getTotalPercentageSusceptible(outputDir, scenarioName, seed):
+    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles_by_age.csv")
+    totalPersons = 0
+    totalSusceptible = 0
+    with open(susceptiblesFile) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            numImmune = int(row["immune"])
+            numSusceptible = int(row["susceptible"])
+            totalOfAge = numImmune + numSusceptible
+            totalPersons += totalOfAge
+            totalSusceptible += numSusceptible
+    totalPercentageSusceptible = (totalSusceptible / totalPersons) * 100
+    return totalPercentageSusceptible
+
 def getProjectedSusceptibilityLevels(dataDir, year):
     maxDataAge = 85
     numMunicipalities = 500
@@ -78,6 +93,19 @@ def createAgeImmunityOverviewPlot(outputDir, scenarioName, transmissionProbabili
     plt.ylim(0, 1)
     plt.legend(["Clustering = {}".format(c) for c in clusteringLevels] + ["Projection"])
     saveFig(outputDir, "AgeImmunity_" + scenarioName)
+
+def getMeanPercentageOfSusceptible(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize):
+    allPercentages = []
+    for level in clusteringLevels:
+        for prob in transmissionProbabilities:
+            fullScenarioName = scenarioName + "_CLUSTERING_" + str(clusteringLevels[level_i]) + "_TP_" + str(prob)
+            seeds = getRngSeeds(outputDir, fullScenarioName)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                totalPercentageSusceptible = pool.starmap(getTotalPercentageSusceptible,
+                                                        [(outputDir, fullScenarioName, s) for s in seeds])
+                allPercentages += totalPercentageSusceptible
+    meanPercentage = sum(allPercentages) / len(allPercentages)
+    print(meanPercentage)
 
 def createAgeImmunityBoxplot(outputDir, scenarioName, transmissionProbabilities, clusteringLevel, poolSize):
     susceptibilityLevels = []
