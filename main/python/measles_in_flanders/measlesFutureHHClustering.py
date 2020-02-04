@@ -97,8 +97,8 @@ def postprocessing(numRuns, years, transmissionProbabilities, clusteringLevels, 
     print("postprocessing took {} seconds".format(time.perf_counter() - start))
 
 def main(postprocessingOnly, numRuns, years, extinctionThreshold, poolSize):
-    transmissionProbabilities = numpy.arange(0.35, 0.65, 0.05)
-    clusteringLevels = [0,0.25, 0.5, 0.75, 1]
+    transmissionProbabilities = numpy.arange(0.30, 0.85, 0.05)
+    clusteringLevels = [0, 0.25, 0.5, 0.75, 1]
     if not postprocessingOnly:
         runSimulations(numRuns, years, transmissionProbabilities, clusteringLevels, poolSize)
     postprocessing(numRuns, years, transmissionProbabilities, clusteringLevels, extinctionThreshold, poolSize)
@@ -107,7 +107,7 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--postprocessingOnly", action="store_true", default=False)
     parser.add_argument("--numRuns", type=int, default=5)
-    parser.add_argument("--years", type=int, nargs="+", default=[2020, 2025, 2030, 2035, 2040])
+    parser.add_argument("--years", type=int, nargs="+", default=[2020, 2030, 2040])
     parser.add_argument("--extinctionThreshold", type=int, default=0)
     parser.add_argument("--poolSize", type=int, default=8)
     # TODO cutoff for natural immunity?
