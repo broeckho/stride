@@ -97,7 +97,7 @@ def postprocessing(numRuns, years, transmissionProbabilities, clusteringLevels, 
     print("postprocessing took {} seconds".format(time.perf_counter() - start))
 
 def main(postprocessingOnly, numRuns, years, extinctionThreshold, poolSize):
-    transmissionProbabilities = numpy.arange(0.30, 0.85, 0.05)
+    transmissionProbabilities = numpy.arange(0.40, 0.85, 0.05)
     clusteringLevels = [0, 0.25, 0.5, 0.75, 1]
     if not postprocessingOnly:
         runSimulations(numRuns, years, transmissionProbabilities, clusteringLevels, poolSize)
