@@ -69,7 +69,7 @@ def postprocessing(numRuns, years, transmissionProbabilities, clusteringLevels, 
     numDays = 730
     for year in years:
         AgeImmunity.getMeanPercentageOfSusceptible(outputDir, scenarioName + "_" + str(year),
-                                                transmissionProbabilities, clusteringLevels, poolSize):
+                                                transmissionProbabilities, clusteringLevels, poolSize)
         AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioName + "_" + str(year),
                                                 transmissionProbabilities, clusteringLevels, poolSize,
                                                 targetLevelsDir="../../Workspace/ProjectedImmunity",
