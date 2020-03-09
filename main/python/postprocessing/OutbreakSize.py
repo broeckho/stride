@@ -39,7 +39,7 @@ def createOutbreakSizes3DPlot(outputDir, scenarioName, transmissionProbabilities
                     means.append(sum(finalSizes) / len(finalSizes))
                 else:
                     means.append(0)
-        ax.bar(range(len(clusteringLevels)), means, zs=prob_i, zdir="y", alpha=0.5, color=COLORS[prob_i % len(COLORS)])
+        ax.bar(range(len(clusteringLevels)), means, zs=prob_i, zdir="y", color=COLORS[prob_i % len(COLORS)])
         # TODO Display min/max or 95% quantiles?
     ax.set_xlabel("Clustering level")
     ax.set_xticks(range(len(clusteringLevels)))
