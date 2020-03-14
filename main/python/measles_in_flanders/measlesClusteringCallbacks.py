@@ -39,7 +39,7 @@ def registerSampleAssociativityCoefficient(simulator, event):
     # select sample of 1000 pools
     samplePools = random.sample(pools, k=1000)
 
-    with open(os.path.join(outputPrefix, "assortativity_coeff.csv"), "w") as csvfile:
+    with open(os.path.join(outputPrefix, "assortativity_coeff_sample_1000_pools.csv"), "w") as csvfile:
         fieldnames = ["age_lim", "assortativity_coeff"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
