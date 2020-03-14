@@ -47,9 +47,9 @@ def registerSampleAssociativityCoefficient(simulator, event):
         for lim in ageLims:
             G = nx.Graph()
             personID = 0
-            for poolID in pools:
+            for poolID in samplePools:
                 personIDs = []
-                for personAge, personImmunity in pools[poolID]:
+                for personAge, personImmunity in samplePools[poolID]:
                     # Add person node to graph (if within age limit)
                     if personAge <= lim:
                         G.add_node(personID, susceptible=personImmunity)
