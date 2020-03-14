@@ -29,7 +29,8 @@ def immunityProfilePostprocessing(outputDir, scenarioName, transmissionProbabili
                                                 targetLevelsDir="../../Workspace/ProjectedImmunity",
                                                 targetLevelsYear=2020)
     Clustering.createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, ageLim=99)
-    Clustering.createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, ageLim=35)
+    Clustering.createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, ageLim=99, sampleSize="1000")
+    #Clustering.createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities, clusteringLevels, poolSize, ageLim=35)
     for level in clusteringLevels:
         AgeImmunity.createAgeImmunityBoxplot(outputDir, scenarioName,
                                         transmissionProbabilities, level, poolSize)

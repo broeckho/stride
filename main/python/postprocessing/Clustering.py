@@ -5,8 +5,11 @@ import os
 
 from .Util import getRngSeeds, saveFig
 
-def getAssortativityCoefficient(outputDir, scenarioName, seed, ageLim):
-    assortativityCoeffFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "assortativity_coeff.csv")
+def getAssortativityCoefficient(outputDir, scenarioName, seed, ageLim, sampleSize):
+    if sampleSize == "full":
+        assortativityCoeffFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "assortativity_coeff.csv")
+    else:
+        assortativityCoeffFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "assortativity_coeff_sample_" + sampleSize + "_pools.csv")
     with open(assortativityCoeffFile) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
@@ -14,7 +17,7 @@ def getAssortativityCoefficient(outputDir, scenarioName, seed, ageLim):
                 return float(row["assortativity_coeff"])
 
 def createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProbabilities,
-    clusteringLevels, poolSize, ageLim=99):
+    clusteringLevels, poolSize, ageLim=99, sampleSize="full"):
 
     allAssortativityCoefficients = []
     for level in clusteringLevels:
@@ -30,4 +33,7 @@ def createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProb
     plt.xlabel("Clustering level")
     plt.ylabel("Household assortativity coefficient")
     plt.ylim(0, 1)
-    saveFig(outputDir, "AssortativityCoefficients_" + str(ageLim) + "_" + scenarioName)
+    if sampleSize == "full":
+        saveFig(outputDir, "AssortativityCoefficients_" + str(ageLim) + "_" + scenarioName)
+    else:
+        saveFig(outputDir, "AssortativityCoefficients_" + str(ageLim) + "_sample_" + sampleSize + "pools_" + scenarioName)
