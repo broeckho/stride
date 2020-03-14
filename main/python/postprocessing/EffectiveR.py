@@ -52,8 +52,6 @@ def createEffectiveRHeatmap(outputDir, scenarioName, transmissionProbabilities, 
             with multiprocessing.Pool(processes=poolSize) as pool:
                 secondaryCases = pool.starmap(getSecondaryCasesFromIndex, [(outputDir, fullScenarioName, s) for s in seeds])
                 means.append(sum(secondaryCases) / len(secondaryCases))
-                if prob == 0.5:
-                print("prob = {}, level = {}: escape probability {}".format(prob, level, sum(secondaryCases) / len(secondaryCases)))
         allSecondaryCases.append(means)
 
     plt.imshow(allSecondaryCases, vmin=0, vmax=3, cmap="jet", interpolation="bilinear", origin="lower", extent=[0,100,0,1], aspect=100)
