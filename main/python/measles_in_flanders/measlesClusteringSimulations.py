@@ -1,7 +1,7 @@
 import multiprocessing
 import os
 
-from measlesClusteringCallbacks import registerAssociativityCoefficient, registerSusceptibles
+from measlesClusteringCallbacks import registerAssociativityCoefficient, registerSampleAssociativityCoefficient, registerSusceptibles
 from measlesClusteringUtil import getCommonParameters, generateRngSeeds, writeRngSeeds
 
 from pystride.Event import Event, EventType
@@ -43,6 +43,7 @@ def runFullScenarioSimulations(numRuns, numDays, immunityFileChildren, immunityF
     """
     callbacks = [
         (registerAssociativityCoefficient, EventType.AtStart),
+        (registerSampleAssociativityCoefficient, EventType.AtStart),
         (registerSusceptibles, EventType.AtStart),
     ]
     for prob in transmissionProbabilities:

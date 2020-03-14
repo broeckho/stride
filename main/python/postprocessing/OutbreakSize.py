@@ -1,6 +1,7 @@
 import csv
 import matplotlib.pyplot as plt
 import multiprocessing
+import numpy as np
 import os
 
 from mpl_toolkits.mplot3d import Axes3D
@@ -49,6 +50,54 @@ def createOutbreakSizes3DPlot(outputDir, scenarioName, transmissionProbabilities
     ax.set_yticklabels(transmissionProbabilities[::2])
     ax.set_zlabel("Mean outbreak size after {} days".format(numDays))
     saveFig(outputDir, "OutbreakSizes3D_" + scenarioName, "png")
+
+def createOutbreakSizesGroupedBarPlot(outputDir, scenarioName, transmissionProbabilities,
+    clusteringLevels, numDays, extinctionThreshold, poolSize):
+    fig, ax = plt.subplots()
+    N = len(transmissionProbabilities)
+    width = 0.2 # the width of the bars
+    for level in clusteringLevels:
+        means = []
+        for prob in transmissionProbabilities:
+            fullScenarioName = scenarioName + "_CLUSTERING_" + str(level) + "_TP_" + str(prob)
+            seeds= getRngSeeds(outputDir, fullScenarioName)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                finalSizes = pool.starmap(getFinalOutbreakSize,
+                                [(outputDir, fullScenarioName, s, numDays) for s in seeds])
+                finalSizes = [s for s in finalSizes if s >= extinctionThreshold]
+                if len(finalSizes) > 0:
+                    means.append(sum(finalSizes) / len(finalSizes))
+                else:   # No outbreaks above extinction threshold were recorded
+                    means.append(0)
+        ind = np.arange(N) # the x locations for the groups
+        ax.bar(ind, means, width)
+    plt.show()
+
+
+'''
+N = 5
+menMeans = (150*cm, 160*cm, 146*cm, 172*cm, 155*cm)
+menStd = (20*cm, 30*cm, 32*cm, 10*cm, 20*cm)
+
+ind = np.arange(N)    # the x locations for the groups
+width = 0.35         # the width of the bars
+p1 = ax.bar(ind, menMeans, width, bottom=0*cm, yerr=menStd)
+
+
+womenMeans = (145*cm, 149*cm, 172*cm, 165*cm, 200*cm)
+womenStd = (30*cm, 25*cm, 20*cm, 31*cm, 22*cm)
+p2 = ax.bar(ind + width, womenMeans, width, bottom=0*cm, yerr=womenStd)
+
+ax.set_title('Scores by group and gender')
+ax.set_xticks(ind + width / 2)
+ax.set_xticklabels(('G1', 'G2', 'G3', 'G4', 'G5'))
+
+ax.legend((p1[0], p2[0]), ('Men', 'Women'))
+ax.yaxis.set_units(inch)
+ax.autoscale_view()
+
+plt.show()
+'''
 
 def createOutbreakSizesBoxplot(outputDir, scenarioName, transmissionProbability,
     clusteringLevels, numDays, extinctionThreshold, poolSize):

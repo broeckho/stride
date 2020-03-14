@@ -53,6 +53,9 @@ def outbreakSizePostprocessing(outputDir, scenarioName, transmissionProbabilitie
     OutbreakSize.createOutbreakSizes3DPlot(outputDir, scenarioName,
                     transmissionProbabilities, clusteringLevels, numDays,
                     extinctionThreshold, poolSize)
+    OutbreakSize.createOutbreakSizesGroupedBarPlot(outputDir, scenarioName,
+                    transmissionProbabilities, clusteringLevels, numDays,
+                    extinctionThreshold, poolSize)
     for prob in transmissionProbabilities:
         EscapeProbability.createEscapeProbabilityBoxplot(outputDir, scenarioName,
                         prob, clusteringLevels, numDays, poolSize)
