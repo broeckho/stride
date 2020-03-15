@@ -27,7 +27,7 @@ def createAssortativityCoefficientPlot(outputDir, scenarioName, transmissionProb
             seeds = getRngSeeds(outputDir, fullScenarioName)
             with multiprocessing.Pool(processes=poolSize) as pool:
                 assortativityCoefficients += pool.starmap(getAssortativityCoefficient,
-                                                [(outputDir, fullScenarioName, s, ageLim) for s in seeds])
+                                                [(outputDir, fullScenarioName, s, ageLim, sampleSize) for s in seeds])
         allAssortativityCoefficients.append(assortativityCoefficients)
     plt.boxplot(allAssortativityCoefficients, labels=clusteringLevels)
     plt.xlabel("Clustering level")
