@@ -37,7 +37,7 @@ def registerSampleAssociativityCoefficient(simulator, event):
                 pools[poolID] = [(age, isSusceptible)]
 
     # select sample of 1000 pools
-    samplePools = random.sample(pools, k=1000)
+    samplePoolIDs = random.sample(list(pools), k=1000)
 
     with open(os.path.join(outputPrefix, "assortativity_coeff_sample_1000_pools.csv"), "w") as csvfile:
         fieldnames = ["age_lim", "assortativity_coeff"]
@@ -47,9 +47,9 @@ def registerSampleAssociativityCoefficient(simulator, event):
         for lim in ageLims:
             G = nx.Graph()
             personID = 0
-            for poolID in samplePools:
+            for poolID in samplePoolIDs:
                 personIDs = []
-                for personAge, personImmunity in samplePools[poolID]:
+                for personAge, personImmunity in pools[poolID]:
                     # Add person node to graph (if within age limit)
                     if personAge <= lim:
                         G.add_node(personID, susceptible=personImmunity)
