@@ -27,6 +27,7 @@ add_subdirectory(r0)
 # Build & install the Swig files for python environment.
 #============================================================================
 set(SWIG_IFACE
+	swig/calendar.i
     swig/contactpooltype.i
     swig/health.i
     swig/population.i

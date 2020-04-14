@@ -57,6 +57,12 @@ public:
         /// Is this person immune?
         bool IsImmune() const { return m_status == HealthStatus::Immune; }
 
+        /// Is this person exposed but not yet infectious?
+        bool IsExposed() const
+        {
+        		return m_status == HealthStatus::Exposed;
+        }
+
         /// Is this person infected?
         bool IsInfected() const
         {

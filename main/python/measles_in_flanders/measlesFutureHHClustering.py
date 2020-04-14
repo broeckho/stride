@@ -1,6 +1,7 @@
 import argparse
 import contextlib
 import io
+import matplotlib.pyplot as plt
 import multiprocessing
 import numpy
 import os
@@ -15,6 +16,7 @@ from pystride.Event import Event, EventType
 
 from postprocessing import AgeImmunity, InfectedByAge, Clustering, EffectiveR
 from postprocessing import EscapeProbability, OutbreakOccurrence, OutbreakSize
+from postprocessing import Util
 
 @contextlib.contextmanager
 def nostdout():
@@ -26,7 +28,41 @@ def nostdout():
 # TODO calculate transmission probability - R0 relation for new populations
 # TODO 2020
 # TODO 2030
-# TODO 2040
+
+def set_box_color(bp, color):
+    plt.setp(bp['boxes'], color=color)
+    plt.setp(bp['whiskers'], color=color)
+    plt.setp(bp['caps'], color=color)
+    plt.setp(bp['medians'], color=color)
+
+def createAssortativityCoefficientGroupedPlot(outputDir, scenarioName, years, transmissionProbabilities, clusteringLevels, poolSize, ageLim=99, sampleSize="full"):
+    width = 0.45
+    positions=[numpy.array(range(len(clusteringLevels)))*2.0-0.5, numpy.array(range(len(clusteringLevels)))*2.0, numpy.array(range(len(clusteringLevels)))*2.0+0.5]
+    colors = ["red", "orange", "green"]
+    i = 0
+    for year in years:
+        allAssortativityCoefficients = []
+        for level in clusteringLevels:
+            assortativityCoefficients = []
+            for prob in transmissionProbabilities:
+                fullScenarioName = scenarioName + "_" + str(year) + "_CLUSTERING_" + str(level) + "_TP_" + str(prob)
+                seeds = Util.getRngSeeds(outputDir, fullScenarioName)
+                with multiprocessing.Pool(processes=poolSize) as pool:
+                    assortativityCoefficients += pool.starmap(Clustering.getAssortativityCoefficient, [(outputDir, fullScenarioName, s, ageLim, sampleSize) for s in seeds])
+            allAssortativityCoefficients.append(assortativityCoefficients)
+        bp = plt.boxplot(allAssortativityCoefficients, widths=width, positions=positions[i], sym='')
+        set_box_color(bp, colors[i])
+        i += 1
+    plt.xlabel("Clustering level (input parameter)")
+    plt.xlim(-1, 9)
+    plt.xticks(range(0, len(clusteringLevels) * 2, 2), clusteringLevels)
+    plt.ylabel("Household assortativity coefficient")
+    plt.ylim(0, 1)
+    # Legend
+    for i in range(len(years)):
+        plt.plot([], c=colors[i], label=years[i])
+    plt.legend()
+    Util.saveFig(outputDir, "clusteringGroupedBoxplot")
 
 def runSimulations(numRuns, years, transmissionProbabilities, clusteringLevels, poolSize):
     start = time.perf_counter()
@@ -67,7 +103,8 @@ def postprocessing(numRuns, years, transmissionProbabilities, clusteringLevels, 
     outputDir = "."
     scenarioName = "AGEDEPENDENT"
     numDays = 730
-    for year in years:
+    createAssortativityCoefficientGroupedPlot(outputDir, scenarioName, years, transmissionProbabilities, clusteringLevels, poolSize)
+    '''for year in years:
         AgeImmunity.getMeanPercentageOfSusceptible(outputDir, scenarioName + "_" + str(year),
                                                 transmissionProbabilities, clusteringLevels, poolSize)
         AgeImmunity.createAgeImmunityOverviewPlot(outputDir, scenarioName + "_" + str(year),
@@ -95,7 +132,7 @@ def postprocessing(numRuns, years, transmissionProbabilities, clusteringLevels, 
                                                 numDays, extinctionThreshold, poolSize)
         for prob in transmissionProbabilities:
             OutbreakSize.createExtinctionThresholdHistogram(outputDir, scenarioName + "_" + str(year),
-                                                prob, clusteringLevels, numDays, poolSize)
+                                                prob, clusteringLevels, numDays, poolSize)'''
     print("postprocessing took {} seconds".format(time.perf_counter() - start))
 
 def main(postprocessingOnly, numRuns, years, extinctionThreshold, poolSize):

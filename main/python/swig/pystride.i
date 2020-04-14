@@ -25,3 +25,4 @@
 %include "./population.i";
 %include "./sim.i";
 %include "./transmissionprofile.i"
+%include "./calendar.i"
